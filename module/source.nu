@@ -16,6 +16,7 @@ use sql.nu
 use job.nu
 use board.nu
 use distro.nu
+use browser.nu
 use network.nu
 
 use helix

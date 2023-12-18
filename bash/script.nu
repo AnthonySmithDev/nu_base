@@ -5,6 +5,7 @@ def main [
   --download
   --config
   --link
+  --font
   --clean
 ] {
   mkdir ($env.HOME | path join ".local/usr/bin")
@@ -12,12 +13,19 @@ def main [
   mkdir ($env.HOME | path join ".local/share/fonts")
 
   if $download {
-    # download core
-    download helix
-    download zellij
-    download nushell
-    download zoxide
-    download starship
+    if $link {
+      download helix --global
+      download zellij --global
+      download nushell --global
+      download zoxide --global
+      download starship --global
+    } else {
+      download helix
+      download zellij
+      download nushell
+      download zoxide
+      download starship
+    }
   }
 
   if $config {
@@ -28,13 +36,8 @@ def main [
     config alacritty
   }
 
-  if $link {
-    sudo ln -sf ($env.HELIX_PATH | path join hx) /usr/bin/hx
-    sudo ln -sf ($env.HELIX_PATH | path join hx) /usr/bin/editor
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join nu) /usr/bin/nu
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join zellij) /usr/bin/zellij
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join zoxide) /usr/bin/zoxide
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join starship) /usr/bin/starship
+  if $font {
+    nerd-font FiraCode
   }
 
   if $clean {

@@ -155,7 +155,7 @@ export def input-remapper [] {
 }
 
 export def vieb [] {
-  let version = '10.4.0'
+  let version = '11.0.0'
   wget --quiet --show-progress $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb'
   sudo dpkg -i $'vieb_($version)_amd64.deb'
   rm -rf $'vieb_($version)_amd64.deb'
@@ -175,6 +175,12 @@ export def chrome [] {
   wget --quiet --show-progress 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
   sudo dpkg -i 'google-chrome-stable_current_amd64.deb'
   rm -rf 'google-chrome-stable_current_amd64.deb*'
+}
+
+export def opera [] {
+  wget --quiet --show-progress https://download3.operacdn.com/ftp/pub/opera/desktop/105.0.4970.48/linux/opera-stable_105.0.4970.48_amd64.deb
+  sudo dpkg -i 'opera-stable_105.0.4970.48_amd64.deb'
+  rm -rf 'opera-stable_105.0.4970.48_amd64.deb*'
 }
 
 export def microsoft-edge [] {
