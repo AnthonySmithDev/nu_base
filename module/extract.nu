@@ -5,13 +5,13 @@ export def tar [
 ] {
   if $dir != null {
     mkdir $dir
-    if not (which gum | is-empty) {
+    if not (^which gum | is-empty) {
       gum spin --spinner dot --title 'Extract tar...' -- ['tar' '-xf' $file '-C' $dir]
     } else {
       ^tar -xf $file -C $dir
     }
   } else {
-    if not (which gum | is-empty) {
+    if not (^which gum | is-empty) {
       gum spin --spinner dot  --title 'Extract tar...' -- ['tar' '-xf' $file]
     } else {
       ^tar -xf $file
@@ -26,13 +26,13 @@ export def zip [
 ] {
   if $dir != null {
     mkdir $dir
-    if not (which gum | is-empty) {
+    if not (^which gum | is-empty) {
       gum spin --spinner dot --title 'Extract zip...' -- unzip -q $file -d $dir
     } else {
       unzip -q $file -d $dir
     }
   } else {
-    if not (which gum | is-empty) {
+    if not (^which gum | is-empty) {
       gum spin --spinner dot --title 'Extract zip...' -- unzip -q $file
     } else {
       unzip -q $file

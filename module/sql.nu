@@ -20,7 +20,7 @@ export def u_query_csv [...query: string] {
 }
 
 export def m_query_raw [...query: string] {
-  mycli (dsn) -e ($query | str join ' ')
+  mycli (dsn) -t -e ($query | str join ' ')
 }
 
 export def m_query_csv [...query: string] {

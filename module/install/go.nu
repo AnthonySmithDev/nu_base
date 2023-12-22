@@ -32,6 +32,7 @@ export def core [] {
 	go install 'github.com/claudiodangelis/qrcp@latest'
 	go install 'github.com/dundee/gdu/v5/cmd/gdu@latest'
 	go install 'github.com/j178/chatgpt/cmd/chatgpt@latest'
+	go install github.com/aandrew-me/tgpt/v2@latest
 }
 
 export def extra [] {

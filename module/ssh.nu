@@ -4,7 +4,7 @@ export def servers [] {
     {
       alias: 'R2'
       user: 'anthony'
-      pass: 'smithdev'
+      pass: '40149616'
       host: '192.168.0.141'
       private: true
     }
@@ -74,4 +74,9 @@ export def shell [alias: string@'list-server'] {
   } else {
     ssh -t $'($server.user)@($server.host)' 'exec .local/bin/nu -e "source .local/nu_base/source.nu"'
   }
+}
+
+export def copy [alias: string@'list-server', src: string, dest: string] {
+  let server = (get-server $alias)
+  scp $src $'($server.user)@($server.host):($dest)'
 }

@@ -3,7 +3,7 @@ export def download [
   url: string
   --output(-o): string
 ] {
-   if not (which https | is-empty) {
+   if not (^which https | is-empty) {
     mut args = [
       '--body'
       '--download'
@@ -12,7 +12,7 @@ export def download [
       $args = ($args | append ['--output' $output])
     }
     ^https $args $url
-  } else if not (which xh | is-empty) {
+  } else if not (^which xh | is-empty) {
     mut args = [
       '--body'
       '--download'
@@ -22,7 +22,7 @@ export def download [
     }
     ^xh $args $url
 
-  } else if not (which wget | is-empty) {
+  } else if not (^which wget | is-empty) {
     mut args = [
       '--quiet'
       '--show-progress'

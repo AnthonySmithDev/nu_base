@@ -404,7 +404,7 @@ export def genact [] {
 
   http download $'https://github.com/svenstaro/genact/releases/download/v($version)/genact-($version)-x86_64-unknown-linux-gnu' -o genact
   chmod +x genact
-  move 'genact'
+  move genact
 }
 
 export def ouch [] {
@@ -437,6 +437,12 @@ export def chatgpt [] {
   http download $'https://github.com/j178/chatgpt/releases/download/v($version)/chatgpt_Linux_x86_64.tar.gz'
   extract tar 'chatgpt_Linux_x86_64.tar.gz' -d 'chatgpt_Linux_x86_64'
   move -d 'chatgpt_Linux_x86_64' 'chatgpt'
+}
+
+export def tgpt [] {
+  http download https://github.com/aandrew-me/tgpt/releases/download/v2.2.1/tgpt-linux-amd64 -o tgpt
+  chmod +x tgpt
+  move tgpt
 }
 
 export def silicon [] {
@@ -611,6 +617,22 @@ export def kmon [] {
   move -d $'kmon-($version)' kmon
 }
 
+export def ollama [] {
+  let version = '0.1.17'
+
+  http download https://github.com/jmorganca/ollama/releases/download/v($version)/ollama-linux-amd64 -o ollama
+  chmod +x ollama
+  move ollama
+}
+
+export def local-ai [] {
+  let version = '2.2.0'
+
+  http download https://github.com/mudler/LocalAI/releases/download/v($version)/local-ai-avx-Linux-x86_64 -o local-ai
+  chmod +x local-ai
+  move local-ai
+}
+
 export def volta [--node] {
   let version = github get_version 'volta-cli/volta'
 
@@ -680,8 +702,14 @@ export def java [] {
   mv -f $'jdk-($version)' $env.JAVA_PATH
 }
 
+export def jdtls [] {
+  http download https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz -o jdt-language-server-latest.tar.gz
+  extract tar jdt-language-server-latest.tar.gz -d jdtls
+  mv -f 'jdtls' $env.JDTLS_PATH
+}
+
 export def kotlin [] {
-  let version = '1.9.10'
+  let version = '1.9.22'
 
   http download $'https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-linux-x86_64-($version).tar.gz'
   extract tar $'kotlin-native-linux-x86_64-($version).tar.gz'
@@ -690,7 +718,7 @@ export def kotlin [] {
 }
 
 export def flutter [] {
-  let version = '3.13.3'
+  let version = '3.16.5'
 
   http download $'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz'
   extract tar $'flutter_linux_($version)-stable.tar.xz'
@@ -700,7 +728,7 @@ export def flutter [] {
 }
 
 export def dart [] {
-  let version = '3.1.1'
+  let version = '3.2.4'
 
   http download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip'
   extract zip 'dartsdk-linux-x64-release.zip'
@@ -708,17 +736,23 @@ export def dart [] {
   mv -f 'dart-sdk' $env.DART_PATH
 }
 
-export def android-studio [--tools] {
-  let version = '2022.3.1.20'
+export def android-studio [] {
+  let version = '2023.1.1.26'
 
   http download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz'
   extract tar $'android-studio-($version)-linux.tar.gz'
   rm -rf $env.STUDIO_PATH
   mv -f 'android-studio' $env.STUDIO_PATH
+}
+
+export def cmdline-tools [--tools] {
+  http download https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
+  extract zip commandlinetools-linux-10406996_latest.zip
+  mv -f cmdline-tools $env.CMDLINE_TOOLS
 
   if $tools {
-    ^sdkmanager --sdk_root=$env.ANDROID_HOME --install "cmdline-tools;latest"
-    ^sdkmanager --sdk_root=$env.ANDROID_HOME --licenses
+    ^sdkmanager --sdk_root $env.ANDROID_HOME --install "cmdline-tools;latest"
+    ^sdkmanager --sdk_root $env.ANDROID_HOME --licenses
   }
 }
 
@@ -732,7 +766,7 @@ export def bitcoin [] {
 }
 
 export def lightning-network [] {
-  let version = '0.17.0-beta'
+  let version = '0.17.3-beta'
 
   http download $'https://github.com/lightningnetwork/lnd/releases/download/v($version)/lnd-linux-amd64-v($version).tar.gz'
   extract tar $'lnd-linux-amd64-v($version).tar.gz'
@@ -755,6 +789,19 @@ export def remote-mouse [] {
   rm -rf $env.REMOTE_MOUSE_PATH
   mv -f 'RemoteMouse_x86_64' $env.REMOTE_MOUSE_PATH
   rm ($env.REMOTE_MOUSE_PATH | path join install.sh)
+}
+
+export def docker [] {
+  let version = '24.0.7'
+
+  http download https://download.docker.com/linux/static/stable/x86_64/docker-($version).tgz
+  extract tar docker-($version).tgz
+  sudo cp docker/* /usr/bin/
+
+  sudo groupadd docker
+  sudo usermod -aG docker $env.USER
+
+  bash -c 'sudo dockerd &'
 }
 
 export def core [] {

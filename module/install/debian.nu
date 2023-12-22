@@ -101,6 +101,10 @@ export def alacritty [] {
   sudo apt install -y alacritty
 }
 
+export def chafa [] {
+  sudo apt install -y chafa
+}
+
 export def keepassxc [] {
   sudo add-apt-repository ppa:phoerious/keepassxc
   sudo apt update

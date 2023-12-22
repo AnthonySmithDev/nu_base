@@ -102,7 +102,17 @@ def scode [
   silicon $input ($args | highlight -l $lines)
 }
 
-def ci [] {
+def ollama-openai [] {
+  if (^which litellm | is-empty) {
+    pip install litellm[proxy]
+  }
+  if (ollama list | find codellama | is-empty) {
+    ollama pull codellama
+  }
+  litellm --model ollama/codellama --api_base http://localhost:11434
+}
+
+def --env ci [] {
   let path = gum file --file --directory
   if ($path | path type) == 'file' {
     hx $path
@@ -110,16 +120,4 @@ def ci [] {
     # cd $path
     with-env { PWD: $path } { nu }
   }
-}
-
-def 'compile libc' [] {
-  # sudo apt install gawk bison gcc make wget tar -y
-  cd $env.HOME
-  wget "http://ftp.gnu.org/gnu/libc/glibc-2.34.tar.gz"
-  tar zxvf glibc-2.34.tar.gz
-  mkdir glibc-2.34-build
-  cd glibc-2.34-build
-  ../glibc-2.34/configure --prefix=/usr
-  make
-  sudo make install
 }

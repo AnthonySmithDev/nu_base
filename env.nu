@@ -25,9 +25,14 @@ env-path $env.GOROOTBIN
 $env.VLANG_PATH = ($env.USR_LOCAL_LIB | path join 'v')
 env-path $env.VLANG_PATH
 
+$env.JAVA_HOME = '/usr/lib/jvm/java-17-openjdk-amd64'
 $env.JAVA_PATH = ($env.USR_LOCAL_LIB | path join 'jdk')
 $env.JAVA_BIN = ($env.JAVA_PATH | path join 'bin')
 env-path $env.JAVA_BIN
+
+$env.JDTLS_PATH = ($env.USR_LOCAL_LIB | path join 'jdtls')
+$env.JDTLS_BIN = ($env.JDTLS_PATH | path join 'bin')
+env-path $env.JDTLS_BIN
 
 $env.KOTLIN_PATH = ($env.USR_LOCAL_LIB | path join 'kotlin')
 $env.KOTLIN_BIN = ($env.KOTLIN_PATH | path join 'bin')
@@ -89,8 +94,9 @@ $env.ANDROID_HOME = ($env.HOME | path join 'Android' 'Sdk')
 $env.PLATFORM_TOOLS = ($env.ANDROID_HOME | path join 'platform-tools')
 env-path $env.PLATFORM_TOOLS
 
-$env.CMDLINE_TOOLS = ($env.ANDROID_HOME | path join 'cmdline-tools' 'latest' 'bin')
-env-path $env.CMDLINE_TOOLS
+$env.CMDLINE_TOOLS = ($env.ANDROID_HOME | path join 'cmdline-tools' 'latest')
+$env.CMDLINE_TOOLS_BIN = ($env.CMDLINE_TOOLS | path join 'bin')
+env-path $env.CMDLINE_TOOLS_BIN
 
 $env.SHELL = ($env.USR_LOCAL_BIN | path join 'nu')
 $env.EDITOR = ($env.HELIX_PATH | path join 'hx')

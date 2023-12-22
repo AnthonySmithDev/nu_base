@@ -38,6 +38,7 @@ export def extra [] {
 
 def other [] {
   cargo install --features=ssl websocat
+  cargo install --locked miniview
   cargo install --locked csvlens
   cargo install --locked felix
   cargo install --locked rustcat

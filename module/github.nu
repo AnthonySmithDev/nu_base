@@ -25,6 +25,7 @@ export def update [
       print_version $data.repository $data.old_tag_name $data.new_tag_name $data.created_at
     } catch {|e|
       print_error $e.msg
+      break
     }
   }
 }
@@ -132,7 +133,7 @@ export def get_repos [] {
     },
     "sharkdp/fd": {
       "category": "core",
-      "tag_name": "8.7.1",
+      "tag_name": "9.0.0",
       "update": true
     },
     "junegunn/fzf": {
@@ -187,7 +188,7 @@ export def get_repos [] {
     },
     "claudiodangelis/qrcp": {
       "category": "core",
-      "tag_name": "0.11.0",
+      "tag_name": "0.11.1",
       "update": true
     },
     "ClementTsang/bottom": {
@@ -217,7 +218,7 @@ export def get_repos [] {
     },
     "xo/usql": {
       "category": "core",
-      "tag_name": "0.17.0",
+      "tag_name": "0.17.2",
       "update": true
     },
     "bettercap/bettercap": {
@@ -412,7 +413,7 @@ export def get_repos [] {
     },
     "astral-sh/ruff": {
       "category": "other",
-      "tag_name": "0.1.8",
+      "tag_name": "0.1.9",
       "update": true
     },
     "zyedidia/micro": {

@@ -18,6 +18,7 @@ use board.nu
 use distro.nu
 use browser.nu
 use network.nu
+use compile.nu
 
 use helix
 use install

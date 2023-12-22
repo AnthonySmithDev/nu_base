@@ -32,7 +32,8 @@ max-input-chars: 12250
 # Aliases and endpoints for OpenAI compatible REST API.
 apis:
   openai:
-    base-url: https://api.openai.com/v1
+    # base-url: https://api.openai.com/v1
+    base-url: http://192.168.0.141:8000
     api-key-env: OPENAI_API_KEY
     models:
       gpt-4:
