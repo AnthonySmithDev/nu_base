@@ -4,11 +4,15 @@ if not ($env.REPO_PATH | path exists) {
   $env.REPO_PATH = ($env.HOME | path join '.local' 'nu_base')
 }
 
-$env.USR_LOCAL_LIB = ($env.HOME | path join '.local' 'usr' 'lib')
-$env.USR_LOCAL_BIN = ($env.HOME | path join '.local' 'usr' 'bin')
-$env.SHARE_FONTS_PATH = ($env.HOME | path join '.local' 'share' 'fonts')
+$env.USR_LOCAL = ($env.HOME | path join '.local' 'usr')
 
+$env.USR_LOCAL_BIN = ($env.USR_LOCAL | path join 'bin')
 env-path $env.USR_LOCAL_BIN
+
+$env.USR_LOCAL_LIB = ($env.USR_LOCAL | path join 'lib')
+$env.USR_LOCAL_SHARE = ($env.USR_LOCAL | path join 'share')
+
+$env.SHARE_FONTS_PATH = ($env.HOME | path join '.local' 'share' 'fonts')
 
 $env.HELIX_PATH = ($env.USR_LOCAL_LIB | path join 'helix')
 $env.HELIX_RUNTIME = ($env.HELIX_PATH | path join 'runtime')
@@ -37,6 +41,9 @@ env-path $env.JDTLS_BIN
 $env.KOTLIN_PATH = ($env.USR_LOCAL_LIB | path join 'kotlin')
 $env.KOTLIN_BIN = ($env.KOTLIN_PATH | path join 'bin')
 env-path $env.KOTLIN_BIN
+
+$env.FVM_PATH = ($env.USR_LOCAL_LIB | path join 'fvm')
+env-path $env.FVM_PATH
 
 $env.FLUTTER_PATH = ($env.USR_LOCAL_LIB | path join 'flutter')
 $env.FLUTTER_BIN = ($env.FLUTTER_PATH | path join 'bin')

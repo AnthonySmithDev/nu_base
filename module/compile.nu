@@ -21,3 +21,10 @@ export def vimiv [] {
   mv ($dir | path join misc Makefile) $dir
   PWD=$dir sudo make install
 }
+
+export def helix [] {
+  let path = (mktemp -d)
+  git clone https://github.com/helix-editor/helix $path
+  cargo install --path ($path | path join helix-term) --locked
+  mv ($path | path join runtime) $env.HELIX_RUNTIME
+}

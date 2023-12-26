@@ -5,12 +5,19 @@ export-env {
   $env.CONFIG_DIR_ROOT = ('/root' | path join '.config')
 }
 
+def exists [path: string] {
+  let complete = (do { sudo test -d $path } | complete)
+  if $complete.exit_code == 0 {
+    return true
+  }
+  return false
+}
+
 def root_symlink [src_dir: string, dest_dir: string, file: string] {
   let file_src = ($env.CONFIG_DIR_REPO | path join $src_dir $file)
 
   let dir_dest = ($env.CONFIG_DIR_ROOT | path join $dest_dir)
-  let exists = sudo nu -c $'"($dir_dest)" | path exists'
-  if not ($exists | into bool) {
+  if not (exists $dir_dest) {
     sudo mkdir $dir_dest
   }
 

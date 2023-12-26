@@ -213,7 +213,7 @@ export def get_repos [] {
     },
     "Canop/broot": {
       "category": "core",
-      "tag_name": "1.30.1",
+      "tag_name": "1.30.2",
       "update": true
     },
     "xo/usql": {
@@ -343,7 +343,7 @@ export def get_repos [] {
     },
     "Byron/dua-cli": {
       "category": "other",
-      "tag_name": "2.23.0",
+      "tag_name": "2.24.1",
       "update": true
     },
     "pemistahl/grex": {

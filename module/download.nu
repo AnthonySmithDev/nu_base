@@ -41,16 +41,25 @@ export def vhs [] {
   move -d 'vhs_linux_x86_64' 'vhs'
 }
 
-export def helix [--global] {
+export def helix [
+  --global
+  --editor
+] {
   let version = github get_version 'helix-editor/helix'
 
-  http download $'https://github.com/helix-editor/helix/releases/download/($version)/helix-($version)-x86_64-linux.tar.xz'
-  extract tar $'helix-($version)-x86_64-linux.tar.xz'
-  rm -rf $env.HELIX_PATH
-  mv -f $'helix-($version)-x86_64-linux' $env.HELIX_PATH
+  let path = share helix $version
+  if not ($path | path exists) {
+    http download $'https://github.com/helix-editor/helix/releases/download/($version)/helix-($version)-x86_64-linux.tar.xz'
+    extract tar $'helix-($version)-x86_64-linux.tar.xz'
+    mv -f $'helix-($version)-x86_64-linux' $path
+  }
+
+  symlink $path $env.HELIX_PATH
 
   if $global {
     sudo ln -sf ($env.HELIX_PATH | path join hx) /usr/bin/hx
+  }
+  if $editor {
     sudo ln -sf ($env.HELIX_PATH | path join hx) /usr/bin/editor
   }
 }
@@ -645,6 +654,35 @@ export def volta [--node] {
   }
 }
 
+export def fvm [] {
+  let version = '3.0.0-beta.5'
+
+  let path = share fvm $version
+  if not ($path | path exists) {
+    http download $'https://github.com/leoafarias/fvm/releases/download/($version)/fvm-($version)-linux-x64.tar.gz'
+    extract tar $'fvm-($version)-linux-x64.tar.gz'
+    mv -f fvm $path
+  }
+
+  symlink $path $env.FVM_PATH
+}
+
+export def mitmproxy [] {
+  let version = '10.1.6'
+
+  http download $'https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz'
+  extract tar $'mitmproxy-($version)-linux-x86_64.tar.gz' -d 'mitmproxy'
+  move -d 'mitmproxy' '*'
+}
+
+export def speedtest [] {
+  let version = '1.2.0'
+
+  http download $'https://install.speedtest.net/app/cli/ookla-speedtest-($version)-linux-x86_64.tgz'
+  extract tar $'ookla-speedtest-($version)-linux-x86_64.tgz' -d 'ookla-speedtest-linux-x86_64'
+  move -d 'ookla-speedtest-linux-x86_64' 'speedtest'
+}
+
 export def nix [] {
   curl -L 'https://nixos.org/nix/install' | bash -s -- --daemon
 }
@@ -657,30 +695,30 @@ export def tailscale [] {
   curl -fsSL 'https://tailscale.com/install.sh' | sh
 }
 
-export def speedtest [] {
-  let version = '1.2.0'
-
-  http download $'https://install.speedtest.net/app/cli/ookla-speedtest-($version)-linux-x86_64.tgz'
-  extract tar $'ookla-speedtest-($version)-linux-x86_64.tgz' -d 'ookla-speedtest-linux-x86_64'
-  move -d 'ookla-speedtest-linux-x86_64' 'speedtest'
-}
-
 export def node [] {
-  let version = ([ "18.18.2" "20.9.0" "21.2.0" ] | input list)
+  let version = choose ["18.18.2" "20.9.0" "21.2.0"]
 
-  http download $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz'
-  extract tar $'node-v($version)-linux-x64.tar.gz'
-  rm -rf $env.NODE_PATH
-  mv -f $'node-v($version)-linux-x64' $env.NODE_PATH
+  let path = share node $version
+  if not ($path | path exists) {
+    http download $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz'
+    extract tar $'node-v($version)-linux-x64.tar.gz'
+    mv -f $'node-v($version)-linux-x64' $path
+  }
+
+  symlink $path $env.NODE_PATH
 }
 
 export def golang [] {
-  let version = '1.21.4'
+  let version = choose ['1.21.5' '1.20.12' '1.19.13']
 
-  http download $'https://go.dev/dl/go($version).linux-amd64.tar.gz'
-  extract tar $'go($version).linux-amd64.tar.gz'
-  rm -rf $env.GOROOT
-  mv -f 'go' $env.GOROOT
+  let path = share go $version
+  if not ($path | path exists) {
+    http download $'https://go.dev/dl/go($version).linux-amd64.tar.gz'
+    extract tar $'go($version).linux-amd64.tar.gz'
+    mv -f go $path
+  }
+
+  symlink $path $env.GOROOT
 }
 
 export def rust [] {
@@ -694,18 +732,36 @@ export def vlang [] {
 }
 
 export def java [] {
-  let version = '20.0.2'
+  let releases = [
+    [version, build, hash];
+    ['21' '35' 'fd2272bbf8e04c3dbaee13770090416c']
+    ['17' '35' '0d483333a00540d886896bac774ff48b']
+  ]
 
-  http download $'https://download.java.net/java/GA/jdk($version)/6e380f22cbe7469fa75fb448bd903d8e/9/GPL/openjdk-($version)_linux-x64_bin.tar.gz'
-  extract tar $'openjdk-($version)_linux-x64_bin.tar.gz'
-  rm -rf $env.JAVA_PATH
-  mv -f $'jdk-($version)' $env.JAVA_PATH
+  let version = choose ($releases | get version)
+  let release = ($releases | where version == $version | first)
+
+  let hash = ($release | get hash)
+  let build = ($release | get build)
+
+  let path = share java $version
+  if not ($path | path exists) {
+    http download $'https://download.java.net/java/GA/jdk($version)/($hash)/($build)/GPL/openjdk-($version)_linux-x64_bin.tar.gz'
+    extract tar $'openjdk-($version)_linux-x64_bin.tar.gz'
+    mv -f $'jdk-($version)' $path
+  }
+
+  symlink $path $env.JAVA_PATH
 }
 
 export def jdtls [] {
-  http download https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz -o jdt-language-server-latest.tar.gz
-  extract tar jdt-language-server-latest.tar.gz -d jdtls
-  mv -f 'jdtls' $env.JDTLS_PATH
+  let path = share jdtls 'latest'
+  if not ($path | path exists) {
+    http download https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz -o jdt-language-server-latest.tar.gz
+    extract tar jdt-language-server-latest.tar.gz -d jdtls
+    mv -f jdtls $path
+  }
+  symlink $path $env.JDTLS_PATH
 }
 
 export def kotlin [] {
@@ -717,43 +773,71 @@ export def kotlin [] {
   mv -f $'kotlin-native-linux-x86_64-($version)' $env.KOTLIN_PATH
 }
 
-export def flutter [] {
-  let version = '3.16.5'
-
-  http download $'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz'
-  extract tar $'flutter_linux_($version)-stable.tar.xz'
-  rm -rf $env.FLUTTER_PATH
-  mv -f 'flutter' $env.FLUTTER_PATH
-  # ^flutter doctor --android-licenses
-}
-
 export def dart [] {
   let version = '3.2.4'
 
-  http download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip'
-  extract zip 'dartsdk-linux-x64-release.zip'
-  rm -rf $env.DART_PATH
-  mv -f 'dart-sdk' $env.DART_PATH
+  let path = share dart $version
+  if not ($path | path exists) {
+    http download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip'
+    extract zip 'dartsdk-linux-x64-release.zip'
+    mv -f 'dart-sdk' $path
+  }
+
+  symlink $path $env.DART_PATH
 }
 
-export def android-studio [] {
+export def flutter [--studio] {
+  let version = choose ['3.16.5' '2.10.5' '2.2.3']
+
+  let path = share flutter $version
+  if not ($path | path exists) {
+    http download $'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz'
+    extract tar $'flutter_linux_($version)-stable.tar.xz'
+    mv -f flutter $path
+  }
+
+  symlink $path $env.FLUTTER_PATH
+
+  if $studio {
+    android-studio --tools
+  }
+}
+
+export def android-studio [--tools] {
   let version = '2023.1.1.26'
 
-  http download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz'
-  extract tar $'android-studio-($version)-linux.tar.gz'
-  rm -rf $env.STUDIO_PATH
-  mv -f 'android-studio' $env.STUDIO_PATH
-}
+  let path = share studio $version
+  if not ($path | path exists) {
+    http download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz'
+    extract tar $'android-studio-($version)-linux.tar.gz'
+    mv -f android-studio $path
+  }
 
-export def cmdline-tools [--tools] {
-  http download https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
-  extract zip commandlinetools-linux-10406996_latest.zip
-  mv -f cmdline-tools $env.CMDLINE_TOOLS
+  symlink $path $env.STUDIO_PATH
 
   if $tools {
-    ^sdkmanager --sdk_root $env.ANDROID_HOME --install "cmdline-tools;latest"
-    ^sdkmanager --sdk_root $env.ANDROID_HOME --licenses
+    android-cmdline-tools --sdk
   }
+}
+
+export def android-cmdline-tools [--sdk] {
+  http download https://dl.google.com/android/repository/commandlinetools-linux-10406996_latest.zip
+  extract zip commandlinetools-linux-10406996_latest.zip
+  mkdir ($env.ANDROID_HOME | path join 'cmdline-tools')
+  mv -f cmdline-tools $env.CMDLINE_TOOLS
+
+  if $sdk {
+    android-sdk
+  }
+}
+
+export def android-sdk [] {
+  let sdkmanager = $env.CMDLINE_TOOLS_BIN | path join 'sdkmanager'
+
+  ^$sdkmanager --licenses
+  ^$sdkmanager --install "platforms;android-30"
+  ^$sdkmanager --install "build-tools;30.0.3"
+  ^$sdkmanager --install "build-tools;34.0.0"
 }
 
 export def bitcoin [] {
@@ -871,4 +955,21 @@ def move [
     let name = if $rn != null { $rn } else { $file }
     mv -f ($env.PWD | path join $file) ($env.USR_LOCAL_BIN | path join $name)
   }
+}
+
+def choose [versions: list] {
+  if not (^which gum | is-empty) {
+    (^gum choose $versions)
+  } else {
+    ($versions | input list)
+  }
+}
+
+def share [name: string, version: string] {
+  $env.USR_LOCAL_SHARE | path join ([$name $version] | str join '_')
+}
+
+def symlink [src: string, dst: string] {
+  rm -rf $dst
+  ln -sf $src $dst
 }

@@ -102,14 +102,33 @@ def scode [
   silicon $input ($args | highlight -l $lines)
 }
 
-def ollama-openai [] {
+def run-openai [] {
+  let models = [
+    llama2
+    mistral
+    codellama
+    llama2-uncensored
+    vicuna
+    llava
+  ]
+
+  let model = (gum choose $models)
+
+  if (^which ollama | is-empty) {
+    print 'download ollama'
+    return
+  }
   if (^which litellm | is-empty) {
-    pip install litellm[proxy]
+    print 'download litellm'
+    return
   }
-  if (ollama list | find codellama | is-empty) {
-    ollama pull codellama
+  if (ps | where name =~ ollama | is-empty) {
+    bash -c 'nohup ollama serve &' 
   }
-  litellm --model ollama/codellama --api_base http://localhost:11434
+  if (ollama list | find $model | is-empty) {
+    ollama pull $model
+  }
+  litellm --model ("ollama" | path join $model) --api_base http://localhost:11434
 }
 
 def --env ci [] {
