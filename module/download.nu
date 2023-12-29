@@ -627,15 +627,15 @@ export def kmon [] {
 }
 
 export def ollama [] {
-  let version = '0.1.17'
+  let version = github get_version 'jmorganca/ollama'
 
   http download https://github.com/jmorganca/ollama/releases/download/v($version)/ollama-linux-amd64 -o ollama
   chmod +x ollama
   move ollama
 }
 
-export def local-ai [] {
-  let version = '2.2.0'
+export def localAI [] {
+  let version = github get_version 'mudler/LocalAI'
 
   http download https://github.com/mudler/LocalAI/releases/download/v($version)/local-ai-avx-Linux-x86_64 -o local-ai
   chmod +x local-ai
@@ -655,7 +655,7 @@ export def volta [--node] {
 }
 
 export def fvm [] {
-  let version = '3.0.0-beta.5'
+  let version = github get_version 'leoafarias/fvm'
 
   let path = share fvm $version
   if not ($path | path exists) {
@@ -665,6 +665,79 @@ export def fvm [] {
   }
 
   symlink $path $env.FVM_PATH
+}
+
+export def vscodium [] {
+  let version = github get_version 'VSCodium/vscodium'
+
+  let path = share vscodium $version
+  if not ($path | path exists) {
+    http download $'https://github.com/VSCodium/vscodium/releases/download/($version)/VSCodium-linux-x64-($version).tar.gz'
+    extract tar $'VSCodium-linux-x64-($version).tar.gz' -d vscodium
+    mv -f vscodium $path
+  }
+
+  symlink $path $env.VSCODIUM_PATH
+}
+
+export def termshark [] {
+  let version = github get_version 'gcla/termshark'
+
+  http download $'https://github.com/gcla/termshark/releases/download/v($version)/termshark_($version)_linux_x64.tar.gz'
+  extract tar $'termshark_($version)_linux_x64.tar.gz'
+  move -d $'termshark_($version)_linux_x64' termshark
+}
+
+export def termscp [] {
+  let version = github get_version 'veeso/termscp'
+
+  http download $'https://github.com/veeso/termscp/releases/download/v($version)/termscp-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+  extract tar $'termscp-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+  move termscp
+}
+
+export def kbt [] {
+  let version = github get_version 'bloznelis/kbt'
+
+  http download $'https://github.com/bloznelis/kbt/releases/download/($version)/kbt-($version)-x86_64-unknown-linux-gnu.tar.gz'
+  extract tar $'kbt-($version)-x86_64-unknown-linux-gnu.tar.gz'
+  move -d $'kbt-($version)-x86_64-unknown-linux-gnu' kbt
+}
+
+export def trippy [--global] {
+  let version = github get_version 'fujiapple852/trippy'
+
+  http download $'https://github.com/fujiapple852/trippy/releases/download/($version)/trippy-($version)-x86_64-unknown-linux-gnu.tar.gz'
+  extract tar $'trippy-($version)-x86_64-unknown-linux-gnu.tar.gz'
+  move -d $'trippy-($version)-x86_64-unknown-linux-gnu' trip
+
+  if $global {
+    sudo ln -sf ($env.USR_LOCAL_BIN | path join trip) /usr/bin/trip
+  }
+}
+
+export def gitui [] {
+  let version = github get_version 'extrawurst/gitui'
+
+  http download $'https://github.com/extrawurst/gitui/releases/download/v($version)/gitui-linux-musl.tar.gz'
+  extract tar gitui-linux-musl.tar.gz
+  move gitui
+}
+
+export def monolith [] {
+  let version = github get_version 'Y2Z/monolith'
+
+  http download https://github.com/Y2Z/monolith/releases/download/v2.7.0/monolith-gnu-linux-x86_64 -o monolith
+  chmod +x monolith
+  move monolith
+}
+
+export def dijo [] {
+  let version = github get_version 'nerdypepper/dijo'
+
+  http download $'https://github.com/nerdypepper/dijo/releases/download/v($version)/dijo-x86_64-linux' -o dijo
+  chmod +x dijo
+  move dijo
 }
 
 export def mitmproxy [] {

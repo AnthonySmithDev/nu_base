@@ -82,3 +82,12 @@ export def live [name: string@names] {
     query (open $name) | to json | bat -P -l json
   }
 }
+
+export def context [...tables: string@show_tables] {
+   mut text = "MySQL Database: \n\n"
+   for table in $tables {
+      let result = (["Table: ", $table, "\n" (u_query_raw describe $table)] | str join)
+      $text = ($text ++ $result)
+   }
+   return $text
+}

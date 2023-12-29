@@ -113,7 +113,7 @@ export def get_repos [] {
     },
     "starship/starship": {
       "category": "core",
-      "tag_name": "1.16.0",
+      "tag_name": "1.17.0",
       "update": true
     },
     "ajeetdsouza/zoxide": {
@@ -316,6 +316,61 @@ export def get_repos [] {
       "tag_name": "1.16.0",
       "update": true
     },
+    "jmorganca/ollama": {
+      "category": "other",
+      "tag_name": "0.1.17",
+      "update": true
+    },
+    "mudler/LocalAI": {
+      "category": "other",
+      "tag_name": "2.2.0",
+      "update": true
+    },
+    "leoafarias/fvm": {
+      "category": "other",
+      "tag_name": "3.0.0-beta.5",
+      "update": true
+    },
+    "VSCodium/vscodium": {
+      "category": "other",
+      "tag_name": "1.85.1.23348",
+      "update": true
+    },
+    "gcla/termshark": {
+      "category": "other",
+      "tag_name": "2.4.0",
+      "update": true
+    },
+    "veeso/termscp": {
+      "category": "other",
+      "tag_name": "0.12.3",
+      "update": true
+    },
+    "bloznelis/kbt": {
+      "category": "other",
+      "tag_name": "2.0.6",
+      "update": true
+    },
+    "fujiapple852/trippy": {
+      "category": "other",
+      "tag_name": "0.9.0",
+      "update": true
+    },
+    "extrawurst/gitui": {
+      "category": "other",
+      "tag_name": "0.24.3",
+      "update": true
+    },
+    "Y2Z/monolith": {
+      "category": "other",
+      "tag_name": "2.7.0",
+      "update": true
+    },
+    "nerdypepper/dijo": {
+      "category": "other",
+      "tag_name": "0.2.7",
+      "update": true
+    },
     "sachaos/viddy": {
       "category": "other",
       "tag_name": "0.4.0",
@@ -343,7 +398,7 @@ export def get_repos [] {
     },
     "Byron/dua-cli": {
       "category": "other",
-      "tag_name": "2.24.1",
+      "tag_name": "2.24.2",
       "update": true
     },
     "pemistahl/grex": {

@@ -13,6 +13,8 @@ alias irc = input-remapper-control --command autoload
 alias xcopy = xclip -i -selection clipboard
 alias xpaste = xclip -o -selection clipboard
 
+alias snips = ssh snips.sh
+
 alias gra = git remote add
 alias grr = git remote remove
 alias gp = git push

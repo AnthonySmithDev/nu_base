@@ -18,6 +18,10 @@ $env.HELIX_PATH = ($env.USR_LOCAL_LIB | path join 'helix')
 $env.HELIX_RUNTIME = ($env.HELIX_PATH | path join 'runtime')
 env-path $env.HELIX_PATH
 
+$env.VSCODIUM_PATH = ($env.USR_LOCAL_LIB | path join 'vscodium')
+$env.VSCODIUM_BIN = ($env.VSCODIUM_PATH | path join 'bin')
+env-path $env.VSCODIUM_BIN
+
 $env.NODE_PATH = ($env.USR_LOCAL_LIB | path join 'node')
 $env.NODE_BIN = ($env.NODE_PATH | path join 'bin')
 env-path $env.NODE_BIN

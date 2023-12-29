@@ -28,3 +28,9 @@ export def helix [] {
   cargo install --path ($path | path join helix-term) --locked
   mv ($path | path join runtime) $env.HELIX_RUNTIME
 }
+
+export def hargo [] {
+  let dir = (mktemp -d)
+  git clone https://github.com/mrichman/hargo.git $dir
+  PWD=$dir make install
+}
