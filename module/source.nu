@@ -19,6 +19,7 @@ use distro.nu
 use browser.nu
 use network.nu
 use compile.nu
+use steam.nu
 
 use helix
 use install
