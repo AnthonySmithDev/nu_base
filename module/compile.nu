@@ -1,15 +1,21 @@
 
 export def alacritty [] {
-  let last = pwd
-  let path = (mktemp -d)
+  let wd = pwd
+  let path = ($env.HOME | path join 'tmp' 'alacritty')
 
-  git clone https://github.com/alacritty/alacritty.git $path
-  cd $path
+  if ($path | path exists) {
+    cd $path
+    git pull
+  } else {
+    git clone https://github.com/alacritty/alacritty.git $path
+    cd $path
+  }
+
   cargo build --release
 
   # Desktop Entry
-  sudo cp target/release/alacritty /usr/local/bin
-  sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+  sudo cp -f target/release/alacritty /usr/local/bin
+  sudo cp -f extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
   sudo desktop-file-install extra/linux/Alacritty.desktop
   sudo update-desktop-database
 
@@ -24,10 +30,9 @@ export def alacritty [] {
 
   # Default Terminal
   sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator (^which alacritty) 100
-  sudo update-alternatives --config x-terminal-emulator
+  # sudo update-alternatives --config x-terminal-emulator
 
-  cd $last
-  rm $path
+  cd $wd
 }
 
 export def riv [] {

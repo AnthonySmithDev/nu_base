@@ -18,8 +18,8 @@ export def update [] {
 }
 
 export def dependency [] {
-  sudo add-apt-repository universe
-  sudo add-apt-repository multiverse
+  sudo add-apt-repository -y universe
+  sudo add-apt-repository -y multiverse
 
   # helix
   sudo apt install -y libc6-dev
@@ -56,9 +56,7 @@ export def dependency [] {
   sudo apt install -y ssh neofetch htop xclip neovim mpv
 
   # silicon
-  sudo apt install -y expat
-  sudo apt install -y libxml2-dev
-  sudo apt install -y pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev
+  sudo apt install -y pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev expat libxml2-dev
 
   # broot
   sudo apt install -y build-essential libxcb-shape0-dev and libxcb-xfixes0-dev
@@ -136,6 +134,7 @@ export def input-remapper [] {
 
 export def vieb [] {
   let version = '11.0.0'
+
   wget --quiet --show-progress $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb'
   sudo dpkg -i $'vieb_($version)_amd64.deb'
   rm -rf $'vieb_($version)_amd64.deb'
@@ -152,9 +151,11 @@ export def brave [] {
 }
 
 export def opera [] {
-  wget --quiet --show-progress https://download3.operacdn.com/ftp/pub/opera/desktop/105.0.4970.48/linux/opera-stable_105.0.4970.48_amd64.deb
-  sudo dpkg -i 'opera-stable_105.0.4970.48_amd64.deb'
-  rm -rf 'opera-stable_105.0.4970.48_amd64.deb*'
+  let version = '106.0.4998.19'
+
+  wget --quiet --show-progress $'https://download3.operacdn.com/ftp/pub/opera/desktop/($version)/linux/opera-stable_($version)_amd64.deb'
+  sudo dpkg -i $'opera-stable_($version)_amd64.deb'
+  rm -rf $'opera-stable_($version)_amd64.deb*'
 }
 
 export def chrome [] {
@@ -235,17 +236,4 @@ export def steam [] {
   http download https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb
   sudo dpkg -i steam.deb
   rm steam.deb
-}
-
-export def custom [] {
-  core
-  brave
-  opera
-  steam
-  python
-  docker
-  flathub
-  regolith
-  alacritty
-  input-remapper
 }

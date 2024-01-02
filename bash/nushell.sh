@@ -24,7 +24,7 @@ fi
 script="$PWD/$(dirname "$0")/script.nu"
 
 if [ "$1" == "--remote" ]; then
-  $path $script --download --config
+  $path $script --remote
 else
-  $path $script --download --config --link
+  $path $script
 fi

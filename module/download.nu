@@ -1,12 +1,18 @@
 
 use github.nu
 
-export def gum [] {
+export def gum [
+  --global
+] {
   let version = github get_version 'charmbracelet/gum'
 
   http download $'https://github.com/charmbracelet/gum/releases/download/v($version)/gum_($version)_Linux_x86_64.tar.gz'
   extract tar $'gum_($version)_Linux_x86_64.tar.gz' -d 'gum_Linux_x86_64'
   move -d 'gum_Linux_x86_64' 'gum'
+
+  if $global {
+    sudo ln -sf ($env.USR_LOCAL_BIN | path join gum) /usr/bin/gum
+  }
 }
 
 export def mods [] {
@@ -172,12 +178,18 @@ export def gdu [--global] {
   }
 }
 
-export def xh [] {
+export def xh [
+  --global
+] {
   let version = github get_version 'ducaale/xh'
 
   http download $'https://github.com/ducaale/xh/releases/download/v($version)/xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
   extract tar $'xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
   move -d $'xh-v($version)-x86_64-unknown-linux-musl' 'xh'
+
+  if $global {
+    sudo ln -sf ($env.USR_LOCAL_BIN | path join xh) /usr/bin/xh
+  }
 }
 
 export def amber [] {
@@ -795,7 +807,9 @@ export def golang [] {
 }
 
 export def rust [] {
-  curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -y
+  if not ("~/.rustup/toolchains" | path exists) {
+    curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
+  }
 }
 
 export def vlang [] {

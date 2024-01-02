@@ -137,13 +137,15 @@ export def github [] {
 }
 
 export def ssh [] {
-  ssh-keygen -t ed25519 -C 'anthonyasdeveloper@gmail.com'
+  if not ("~/.ssh/id_ed25519.pub" | path exists) {
+    ssh-keygen -t ed25519 -C 'anthonyasdeveloper@gmail.com'
+  }
 }
 
 export def core [] {
   helix
-  nushell
   zellij
+  nushell
   dooit
   mods
 

@@ -54,6 +54,7 @@ export def sync [alias: string@'list-server'] {
   let server = (get-server $alias)
 
   rsync --exclude '.git' -q -r $env.REPO_PATH $'($server.user)@($server.host):~/.local'
+
   if $server.private {
     scp -q ~/nushell/nu_base/bash/remote/profile.sh $'($server.user)@($server.host):~/.profile'
     scp -q ~/nushell/nu_base/bash/remote/source.nu $'($server.user)@($server.host):~/.source.nu'
