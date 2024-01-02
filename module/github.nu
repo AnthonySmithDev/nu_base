@@ -126,6 +126,11 @@ export def get_repos [] {
       "tag_name": "0.39.2",
       "update": true
     },
+    "alacritty/alacritty": {
+      "category": "core",
+      "tag_name": "0.13.0",
+      "update": true
+    },
     "BurntSushi/ripgrep": {
       "category": "core",
       "tag_name": "14.0.3",

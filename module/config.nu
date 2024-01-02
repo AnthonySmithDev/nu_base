@@ -45,7 +45,7 @@ export def 'root nushell' [] {
   sudo touch '/root/.env.nu'
 }
 
-def symlink [src_dir: string, dest_dir: string, file: string] {
+def symlink_file [src_dir: string, dest_dir: string, file: string] {
   let file_src = ($env.CONFIG_DIR_REPO | path join $src_dir $file)
 
   let dir_dest = ($env.CONFIG_DIR_USER | path join $dest_dir)
@@ -59,9 +59,17 @@ def symlink [src_dir: string, dest_dir: string, file: string] {
   ln -s $file_src $file_dest
 }
 
+def symlink_dir [src_dir: string, dest_dir: string] {
+  let dir_src = ($env.CONFIG_DIR_REPO | path join $src_dir)
+  let dir_dest = ($env.CONFIG_DIR_USER | path join $dest_dir)
+
+	rm -rf $dir_dest
+  ln -s $dir_src $dir_dest
+}
+
 def shortcut [dir: string, file: string] {
   print $'User Config: ($dir) ($file)'
-  symlink $dir $dir $file
+  symlink_file $dir $dir $file
 }
 
 export def dooit [] {
@@ -94,7 +102,8 @@ export def mods [] {
 }
 
 export def alacritty [] {
-  shortcut alacritty 'alacritty.yml'
+  print $'User Config: alacritty'
+  symlink_dir alacritty alacritty
 }
 
 export def vieb [] {

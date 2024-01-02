@@ -34,7 +34,7 @@ export def dependency [] {
   sudo apt install -y libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
 
   # alacritty
-  sudo apt install -y libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+  sudo apt install -y libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 scdoc gzip
 
   # docker
   sudo apt install -y ca-certificates curl wget git gnupg apt-transport-https

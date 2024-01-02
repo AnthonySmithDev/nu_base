@@ -1,18 +1,37 @@
 
-export def riv [] {
-  cargo install --git https://github.com/Davejkane/riv
+export def alacritty [] {
+  let last = pwd
+  let path = (mktemp -d)
+
+  git clone https://github.com/alacritty/alacritty.git $path
+  cd $path
+  cargo build --release
+
+  # Desktop Entry
+  sudo cp target/release/alacritty /usr/local/bin
+  sudo cp extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+  sudo desktop-file-install extra/linux/Alacritty.desktop
+  sudo update-desktop-database
+
+  # Manual Page
+  sudo mkdir -p /usr/local/share/man/man1
+  sudo mkdir -p /usr/local/share/man/man5
+
+  bash -c "scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null"
+  bash -c "scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null"
+  bash -c "scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null"
+  bash -c "scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null"
+
+  # Default Terminal
+  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator (^which alacritty) 100
+  sudo update-alternatives --config x-terminal-emulator
+
+  cd $last
+  rm $path
 }
 
-export def libc [] {
-  # sudo apt install gawk bison gcc make wget tar -y
-  cd $env.HOME
-  wget "http://ftp.gnu.org/gnu/libc/glibc-2.34.tar.gz"
-  tar zxvf glibc-2.34.tar.gz
-  mkdir glibc-2.34-build
-  cd glibc-2.34-build
-  ../glibc-2.34/configure --prefix=/usr
-  make
-  sudo make install
+export def riv [] {
+  cargo install --git https://github.com/Davejkane/riv
 }
 
 export def vimiv [] {
