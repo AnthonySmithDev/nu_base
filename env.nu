@@ -102,6 +102,7 @@ $env.PIPX_BIN_DIR = ($env.PIPX_HOME | path join 'bin')
 env-path $env.PIPX_BIN_DIR
 
 $env.ANDROID_HOME = ($env.HOME | path join 'Android' 'Sdk')
+
 $env.PLATFORM_TOOLS = ($env.ANDROID_HOME | path join 'platform-tools')
 env-path $env.PLATFORM_TOOLS
 

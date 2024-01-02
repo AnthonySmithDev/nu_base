@@ -904,6 +904,12 @@ export def android-cmdline-tools [--sdk] {
   }
 }
 
+export def android-platform-tools [] {
+  http download https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+  extract zip platform-tools-latest-linux.zip
+  mv -f platform-tools $env.PLATFORM_TOOLS
+}
+
 export def android-sdk [] {
   let sdkmanager = $env.CMDLINE_TOOLS_BIN | path join 'sdkmanager'
 
