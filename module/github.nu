@@ -138,7 +138,7 @@ export def get_repos [] {
     },
     "junegunn/fzf": {
       "category": "core",
-      "tag_name": "0.44.1",
+      "tag_name": "0.45.0",
       "update": true
     },
     "sharkdp/bat": {
@@ -213,7 +213,7 @@ export def get_repos [] {
     },
     "Canop/broot": {
       "category": "core",
-      "tag_name": "1.30.2",
+      "tag_name": "1.31.0",
       "update": true
     },
     "xo/usql": {
@@ -323,7 +323,7 @@ export def get_repos [] {
     },
     "mudler/LocalAI": {
       "category": "other",
-      "tag_name": "2.2.0",
+      "tag_name": "2.4.1",
       "update": true
     },
     "leoafarias/fvm": {

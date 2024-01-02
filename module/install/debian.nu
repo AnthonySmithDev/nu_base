@@ -2,31 +2,12 @@
 export def core [] {
   update
   dependency
-
-  brave
-  python
-  docker
-  alacritty
-  input-remapper
-}
-
-export def extra [] {
-  flathub
-}
-
-export def other [] {
-  regolith
-}
-
-export def lang [] {
-  python
-  java
-  dart
 }
 
 export def browser [] {
   vieb
   brave
+  opera
   chrome
   microsoft-edge
 }
@@ -41,10 +22,10 @@ export def dependency [] {
   sudo add-apt-repository multiverse
 
   # helix
-  sudo apt install libc6-dev
+  sudo apt install -y libc6-dev
 
   # AppImage
-  sudo apt install libfuse2
+  sudo apt install -y libfuse2
 
   # essential
   sudo apt install -y build-essential pkg-config libssl-dev cmake
@@ -111,11 +92,6 @@ export def keepassxc [] {
   sudo apt install -y keepassxc
 }
 
-export def snap [] {
-  sudo apt update
-  sudo apt install snapd
-}
-
 export def flathub [] {
   sudo apt install -y flatpak
   sudo apt install -y gnome-software-plugin-flatpak
@@ -175,16 +151,16 @@ export def brave [] {
   sudo apt install -y brave-browser
 }
 
-export def chrome [] {
-  wget --quiet --show-progress 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-  sudo dpkg -i 'google-chrome-stable_current_amd64.deb'
-  rm -rf 'google-chrome-stable_current_amd64.deb*'
-}
-
 export def opera [] {
   wget --quiet --show-progress https://download3.operacdn.com/ftp/pub/opera/desktop/105.0.4970.48/linux/opera-stable_105.0.4970.48_amd64.deb
   sudo dpkg -i 'opera-stable_105.0.4970.48_amd64.deb'
   rm -rf 'opera-stable_105.0.4970.48_amd64.deb*'
+}
+
+export def chrome [] {
+  wget --quiet --show-progress 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
+  sudo dpkg -i 'google-chrome-stable_current_amd64.deb'
+  rm -rf 'google-chrome-stable_current_amd64.deb*'
 }
 
 export def microsoft-edge [] {
@@ -241,25 +217,6 @@ export def regolith [] {
   sudo apt install -y i3xrocks-focused-window-name i3xrocks-rofication i3xrocks-info i3xrocks-app-launcher i3xrocks-memory
 }
 
-export def snapcraft [] {
-  sudo snap install android-studio --classic
-  sudo snap install flutter --classic
-  sudo snap install kotlin --classic
-  sudo snap install node --classic
-  sudo snap install go --classic
-  sudo snap install brave
-}
-
-export def snap-docker [] {
-  sudo snap install docker
-  sudo addgroup --system docker
-  sudo adduser $env.USER docker
-  newgrp docker
-  sudo snap disable docker
-  sudo snap enable docker
-  # sudo snap remove docker
-}
-
 export def remmina [] {
   udo apt-add-repository ppa:remmina-ppa-team/remmina-next
   sudo apt update
@@ -278,4 +235,17 @@ export def steam [] {
   http download https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb
   sudo dpkg -i steam.deb
   rm steam.deb
+}
+
+export def custom [] {
+  core
+  brave
+  opera
+  steam
+  python
+  docker
+  flathub
+  regolith
+  alacritty
+  input-remapper
 }

@@ -1,4 +1,12 @@
 
+def choose [] {
+  gum choose [
+    "opera"
+    "brave-browser"
+    "google-chrome"
+  ]
+}
+
 export def extension [] {
   let extensions = [
     'https://chrome.google.com/webstore/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb'
@@ -9,10 +17,13 @@ export def extension [] {
     'https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai'
     'https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld'
   ]
+  let browser = (choose | str trim)
+  bash -c $"nohup ($browser) &"
   for $extension in $extensions {
     do -i {
-      brave-browser $extension
+      ^$browser $extension
     }
   }
+  rm nohup.out
 }
 

@@ -10,16 +10,21 @@ def main [
 ] {
   mkdir ($env.HOME | path join ".local/usr/bin")
   mkdir ($env.HOME | path join ".local/usr/lib")
+  mkdir ($env.HOME | path join ".local/usr/share")
   mkdir ($env.HOME | path join ".local/share/fonts")
 
   if $download {
     if $link {
+      download xh
+      download gum
       download helix --global
       download zellij --global
       download nushell --global
       download zoxide --global
       download starship --global
     } else {
+      download xh
+      download gum
       download helix
       download zellij
       download nushell
