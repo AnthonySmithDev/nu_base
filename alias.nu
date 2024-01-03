@@ -31,3 +31,5 @@ alias glO = git log --oneline
 alias gca = git commit --allow-empty --amend --only
 alias gcA = git commit --allow-empty --amend --no-edit
 alias gmc = gitmoji -c
+
+alias ventoyGUI = sudo ($env.VENTOY_PATH | path join VentoyGUI.x86_64)

@@ -752,6 +752,19 @@ export def dijo [] {
   move dijo
 }
 
+export def ventoy [] {
+  let version = '1.0.96'
+
+  let path = share ventoy $version
+  if not ($path | path exists) {
+    http download $'https://github.com/ventoy/Ventoy/releases/download/v($version)/ventoy-($version)-linux.tar.gz'
+    extract tar $'ventoy-($version)-linux.tar.gz'
+    mv -f $'ventoy-($version)' $path
+  }
+
+  symlink $path $env.VENTOY_PATH
+}
+
 export def mitmproxy [] {
   let version = '10.1.6'
 

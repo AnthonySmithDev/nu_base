@@ -20,6 +20,8 @@ $env.VSCODIUM_PATH = ($env.USR_LOCAL_LIB | path join 'vscodium')
 $env.VSCODIUM_BIN = ($env.VSCODIUM_PATH | path join 'bin')
 env-path $env.VSCODIUM_BIN
 
+$env.VENTOY_PATH = ($env.USR_LOCAL_LIB | path join 'ventoy')
+
 $env.NODE_PATH = ($env.USR_LOCAL_LIB | path join 'node')
 $env.NODE_BIN = ($env.NODE_PATH | path join 'bin')
 env-path $env.NODE_BIN
