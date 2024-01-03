@@ -4,13 +4,12 @@ if not ($env.REPO_PATH | path exists) {
   $env.REPO_PATH = ($env.HOME | path join '.local' 'nu_base')
 }
 
-$env.USR_LOCAL = ($env.HOME | path join '.local' 'usr')
+$env.USR_LOCAL = ($env.HOME | path join '.usr' 'local')
 $env.USR_LOCAL_BIN = ($env.USR_LOCAL | path join 'bin')
 $env.USR_LOCAL_LIB = ($env.USR_LOCAL | path join 'lib')
 $env.USR_LOCAL_SHARE = ($env.USR_LOCAL | path join 'share')
+$env.USR_LOCAL_SHARE_FONTS = ($env.USR_LOCAL_SHARE | path join 'fonts')
 env-path $env.USR_LOCAL_BIN
-
-$env.SHARE_FONTS_PATH = ($env.HOME | path join '.local' 'share' 'fonts')
 
 $env.HELIX_PATH = ($env.USR_LOCAL_LIB | path join 'helix')
 $env.HELIX_RUNTIME = ($env.HELIX_PATH | path join 'runtime')
@@ -87,6 +86,8 @@ env-path $env.CARGOBIN
 
 $env.LOCAL_PATH = ($env.HOME | path join '.local')
 $env.LOCAL_BIN = ($env.LOCAL_PATH | path join 'bin')
+$env.LOCAL_SHARE = ($env.LOCAL_PATH | path join 'share')
+$env.LOCAL_SHARE_FONTS = ($env.LOCAL_SHARE | path join 'fonts')
 env-path $env.LOCAL_BIN
 
 $env.VOLTA_PATH = ($env.HOME | path join '.volta')

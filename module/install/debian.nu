@@ -17,55 +17,130 @@ export def update [] {
   sudo apt upgrade
 }
 
+def add-universe [] {
+  let deb = 'deb http://pe.archive.ubuntu.com/ubuntu lunar universe'
+  if (open /etc/apt/sources.list | lines | find $deb | is-empty) {
+    sudo add-apt-repository -y universe
+  }
+}
+
+def add-multiverse [] {
+  let deb = 'deb http://pe.archive.ubuntu.com/ubuntu lunar multiverse'
+  if (open /etc/apt/sources.list | lines | find $deb | is-empty) {
+    sudo add-apt-repository -y multiverse
+  }
+}
+
 export def dependency [] {
-  sudo add-apt-repository -y universe
-  sudo add-apt-repository -y multiverse
+  add-universe
+  add-multiverse
 
-  # helix
-  sudo apt install -y libc6-dev
+  let packages = [
+    # helix
+    libc6-dev
 
-  # AppImage
-  sudo apt install -y libfuse2
+    # AppImage
+    libfuse2
 
-  # essential
-  sudo apt install -y build-essential pkg-config libssl-dev cmake
+    # essential
+    build-essential
+    pkg-config
+    libssl-dev
+    cmake
 
-  # jless
-  sudo apt install -y libxcb1-dev libxcb-render0-dev libxcb-shape0-dev libxcb-xfixes0-dev
+    # jless
+    libxcb1-dev
+    libxcb-render0-dev
+    libxcb-shape0-dev
+    libxcb-xfixes0-dev
 
-  # alacritty
-  sudo apt install -y libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 scdoc gzip
+    # alacritty
+    libfreetype6-dev
+    libfontconfig1-dev
+    libxcb-xfixes0-dev
+    libxkbcommon-dev
+    python3
+    scdoc
+    gzip
 
-  # docker
-  sudo apt install -y ca-certificates curl wget git gnupg apt-transport-https
+    # docker
+    ca-certificates
+    curl
+    wget
+    git
+    gnupg
+    apt-transport-https
 
-  # flutter
-  sudo apt install -y clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev
+    # flutter
+    clang
+    cmake
+    ninja-build
+    pkg-config
+    libgtk-3-dev
+    liblzma-dev
+    'libstdc++-12-dev'
 
-  # scrcpy
-  sudo apt install -y ffmpeg adb wget gcc git pkg-config meson ninja-build libsdl2-dev libavcodec-dev
-  sudo apt install -y libsdl2-2.0-0  libavdevice-dev libavformat-dev libavutil-dev libswresample-dev libusb-1.0-0 libusb-1.0-0-dev
+    # scrcpy
+    ffmpeg
+    adb
+    wget
+    gcc
+    git
+    pkg-config
+    meson
+    ninja-build
+    libsdl2-dev
+    libavcodec-dev
+    'libsdl2-2.0-0'
+    libavdevice-dev
+    libavformat-dev
+    libavutil-dev
+    libswresample-dev
+    'libusb-1.0-0'
+    'libusb-1.0-0-dev'
 
-  # gnome toolkit
-  sudo apt install -y libcanberra-gtk-module
+    # gnome toolkit
+    libcanberra-gtk-module
 
-  # gnu c library
-  sudo apt install -y glibc-source
+    # gnu c library
+    glibc-source
 
-  # tools
-  sudo apt install -y ssh neofetch htop xclip neovim mpv
+    # silicon
+    pkg-config
+    libasound2-dev
+    libssl-dev
+    cmake
+    libfreetype6-dev
+    libexpat1-dev
+    libxcb-composite0-dev
+    libharfbuzz-dev
+    expat
+    libxml2-dev
 
-  # silicon
-  sudo apt install -y pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev expat libxml2-dev
+    # broot
+    build-essential
+    libxcb-shape0-dev
+    and
+    libxcb-xfixes0-dev
 
-  # broot
-  sudo apt install -y build-essential libxcb-shape0-dev and libxcb-xfixes0-dev
+    # sshx
+    protobuf-compiler
 
-  # sshx
-  sudo apt install -y protobuf-compiler
+    # bettercap
+    libpcap-dev
+    'libusb-1.0-0-dev'
+    libnetfilter-queue-dev
 
-  # bettercap
-  sudo apt install -y libpcap-dev libusb-1.0-0-dev libnetfilter-queue-dev
+    # tools
+    ssh
+    htop
+    xclip
+    neovim
+    neofetch
+    mpv
+  ]
+
+  sudo apt install -y $packages
 }
 
 export def helix [] {

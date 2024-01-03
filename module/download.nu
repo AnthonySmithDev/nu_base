@@ -1,34 +1,286 @@
 
 use github.nu
 
-export def gum [
-  --global
-] {
+export def gum [ --global ] {
   let version = github get_version 'charmbracelet/gum'
 
-  http download $'https://github.com/charmbracelet/gum/releases/download/v($version)/gum_($version)_Linux_x86_64.tar.gz'
-  extract tar $'gum_($version)_Linux_x86_64.tar.gz' -d 'gum_Linux_x86_64'
-  move -d 'gum_Linux_x86_64' 'gum'
+  let bin = bin gum
+  let path = share gum $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/charmbracelet/gum/releases/download/v($version)/gum_($version)_Linux_x86_64.tar.gz'
+    extract tar $'gum_($version)_Linux_x86_64.tar.gz' -d 'gum_Linux_x86_64'
+    mv 'gum_Linux_x86_64/gum' $path
+    rm -rf 'gum_Linux_x86_64'
+  }
 
   if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join gum) /usr/bin/gum
+    global $bin
   }
+
+  symlink $path $bin
+}
+
+export def helix [
+  --global
+  --editor
+] {
+  let version = github get_version 'helix-editor/helix'
+
+  let bin = ($env.HELIX_PATH | path join hx)
+  let path = share helix $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/helix-editor/helix/releases/download/($version)/helix-($version)-x86_64-linux.tar.xz'
+    extract tar $'helix-($version)-x86_64-linux.tar.xz'
+    mv $'helix-($version)-x86_64-linux' $path
+  }
+
+  symlink $path $env.HELIX_PATH
+
+  if $global {
+    global $bin
+  }
+  if $editor {
+    global $bin editor
+  }
+}
+
+export def nushell [ --global ] {
+  let version = github get_version 'nushell/nushell'
+
+  let bin = bin nu
+  let path = share nu $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/nushell/nushell/releases/download/($version)/nu-($version)-x86_64-linux-gnu-full.tar.gz'
+    extract tar $'nu-($version)-x86_64-linux-gnu-full.tar.gz'
+    mv $'nu-($version)-x86_64-linux-gnu-full/nu' $path
+    rm -rf $'nu-($version)-x86_64-linux-gnu-full'
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
+}
+
+export def starship [ --global ] {
+  let version = github get_version 'starship/starship'
+
+  let bin = bin starship
+  let path = share starship $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/starship/starship/releases/download/v($version)/starship-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar 'starship-x86_64-unknown-linux-gnu.tar.gz'
+    mv 'starship' $path
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
+}
+
+export def zoxide [ --global ] {
+  let version = github get_version 'ajeetdsouza/zoxide'
+
+  let bin = bin zoxide
+  let path = share zoxide $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/ajeetdsouza/zoxide/releases/download/v($version)/zoxide-($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'zoxide-($version)-x86_64-unknown-linux-musl.tar.gz' -d 'zoxide-x86_64-unknown-linux-musl'
+    mv 'zoxide-x86_64-unknown-linux-musl/zoxide' $path
+    rm -rf 'zoxide-x86_64-unknown-linux-musl'
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
+}
+
+export def zellij [ --global ] {
+  let version = github get_version 'zellij-org/zellij'
+
+  let bin = bin zellij
+  let path = share zellij $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/zellij-org/zellij/releases/download/v($version)/zellij-x86_64-unknown-linux-musl.tar.gz'
+    extract tar 'zellij-x86_64-unknown-linux-musl.tar.gz'
+    mv 'zellij' $path
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
+}
+
+export def rg [ --global ] {
+  let version = github get_version 'BurntSushi/ripgrep'
+
+  let bin = bin rg
+  let path = share rg $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/BurntSushi/ripgrep/releases/download/($version)/ripgrep-($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'ripgrep-($version)-x86_64-unknown-linux-musl.tar.gz'
+    mv $'ripgrep-($version)-x86_64-unknown-linux-musl/rg' $path
+    rm -rf $'ripgrep-($version)-x86_64-unknown-linux-musl'
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
+}
+
+export def fd [ --global ] {
+  let version = github get_version 'sharkdp/fd'
+
+  let bin = bin fd
+  let path = share fd $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/sharkdp/fd/releases/download/v($version)/fd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'fd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    mv $'fd-v($version)-x86_64-unknown-linux-gnu/fd' $path
+    rm -rf $'fd-v($version)-x86_64-unknown-linux-gnu'
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
+}
+
+export def fzf [] {
+  let version = github get_version 'junegunn/fzf'
+
+  let bin = bin fzf
+  let path = share fzf $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/junegunn/fzf/releases/download/($version)/fzf-($version)-linux_amd64.tar.gz'
+    extract tar $'fzf-($version)-linux_amd64.tar.gz' -d 'fzf-linux_amd64'
+    mv 'fzf-linux_amd64/fzf' $path
+    rm -rf 'fzf-linux_amd64'
+  }
+
+  symlink $path $bin
+}
+
+export def broot [] {
+  let version = github get_version 'Canop/broot'
+
+  let bin = bin broot
+  let path = share broot $version
+
+  if not ($path | path exists) {
+    http download https://github.com/Canop/broot/releases/download/v($version)/broot_($version).zip
+    extract zip broot_($version).zip -d 'broot'
+    mv 'broot/x86_64-linux/broot' $path
+    rm -rf 'broot'
+  }
+
+  symlink $path $bin
+}
+
+export def bat [] {
+  let version = github get_version 'sharkdp/bat'
+
+  let bin = bin bat
+  let path = share bat $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/sharkdp/bat/releases/download/v($version)/bat-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'bat-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    mv $'bat-v($version)-x86_64-unknown-linux-gnu/bat' $path
+    rm -rf $'bat-v($version)-x86_64-unknown-linux-gnu'
+  }
+
+  symlink $path $bin
+}
+
+export def gdu [ --global ] {
+  let version = github get_version 'dundee/gdu'
+
+  let bin = bin gdu
+  let path = share gdu $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/dundee/gdu/releases/download/v($version)/gdu_linux_amd64.tgz'
+    extract tar 'gdu_linux_amd64.tgz'
+    mv 'gdu_linux_amd64' $path
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
+}
+
+export def xh [ --global ] {
+  let version = github get_version 'ducaale/xh'
+
+  let bin = bin xh
+  let path = share xh $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/ducaale/xh/releases/download/v($version)/xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    mv $'xh-v($version)-x86_64-unknown-linux-musl/xh' $path
+    rm -rf $'xh-v($version)-x86_64-unknown-linux-musl'
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
 }
 
 export def mods [] {
   let version = github get_version 'charmbracelet/mods'
 
-  http download $'https://github.com/charmbracelet/mods/releases/download/v($version)/mods_($version)_Linux_x86_64.tar.gz'
-  extract tar $'mods_($version)_Linux_x86_64.tar.gz' -d 'mods_Linux_x86_64'
-  move -d 'mods_Linux_x86_64' 'mods'
+  let bin = bin mods
+  let path = share mods $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/charmbracelet/mods/releases/download/v($version)/mods_($version)_Linux_x86_64.tar.gz'
+    extract tar $'mods_($version)_Linux_x86_64.tar.gz' -d 'mods_Linux_x86_64'
+    mv 'mods_Linux_x86_64/mods' $path
+    rm -rf 'mods_Linux_x86_64'
+  }
+
+  symlink $path $bin
 }
 
 export def glow [] {
   let version = github get_version 'charmbracelet/glow'
 
-  http download $'https://github.com/charmbracelet/glow/releases/download/v($version)/glow_Linux_x86_64.tar.gz'
-  extract tar 'glow_Linux_x86_64.tar.gz' -d 'glow_Linux_x86_64'
-  move -d 'glow_Linux_x86_64' 'glow'
+  let bin = bin glow
+  let path = share glow $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/charmbracelet/glow/releases/download/v($version)/glow_Linux_x86_64.tar.gz'
+    extract tar 'glow_Linux_x86_64.tar.gz' -d 'glow_Linux_x86_64'
+    mv 'glow_Linux_x86_64/glow' $path
+    rm -rf 'glow_Linux_x86_64'
+  }
+
+  symlink $path $bin
 }
 
 export def soft [] {
@@ -47,181 +299,88 @@ export def vhs [] {
   move -d 'vhs_linux_x86_64' 'vhs'
 }
 
-export def helix [
-  --global
-  --editor
-] {
-  let version = github get_version 'helix-editor/helix'
-
-  let path = share helix $version
-  if not ($path | path exists) {
-    http download $'https://github.com/helix-editor/helix/releases/download/($version)/helix-($version)-x86_64-linux.tar.xz'
-    extract tar $'helix-($version)-x86_64-linux.tar.xz'
-    mv -f $'helix-($version)-x86_64-linux' $path
-  }
-
-  symlink $path $env.HELIX_PATH
-
-  if $global {
-    sudo ln -sf ($env.HELIX_PATH | path join hx) /usr/bin/hx
-  }
-  if $editor {
-    sudo ln -sf ($env.HELIX_PATH | path join hx) /usr/bin/editor
-  }
-}
-
-export def nushell [--global] {
-  let version = github get_version 'nushell/nushell'
-
-  http download $'https://github.com/nushell/nushell/releases/download/($version)/nu-($version)-x86_64-linux-gnu-full.tar.gz'
-  extract tar $'nu-($version)-x86_64-linux-gnu-full.tar.gz'
-  move -d $'nu-($version)-x86_64-linux-gnu-full' 'nu'
-
-  if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join nu) /usr/bin/nu
-  }
-}
-
-export def starship [--global] {
-  let version = github get_version 'starship/starship'
-
-  http download $'https://github.com/starship/starship/releases/download/v($version)/starship-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar 'starship-x86_64-unknown-linux-gnu.tar.gz'
-  move 'starship'
-
-  if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join starship) /usr/bin/starship
-  }
-}
-
-export def zoxide [--global] {
-  let version = github get_version 'ajeetdsouza/zoxide'
-
-  http download $'https://github.com/ajeetdsouza/zoxide/releases/download/v($version)/zoxide-($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'zoxide-($version)-x86_64-unknown-linux-musl.tar.gz' -d 'zoxide-x86_64-unknown-linux-musl'
-  move -d 'zoxide-x86_64-unknown-linux-musl' 'zoxide'
-
-  if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join zoxide) /usr/bin/zoxide
-  }
-}
-
-export def zellij [--global] {
-  let version = github get_version 'zellij-org/zellij'
-
-  http download $'https://github.com/zellij-org/zellij/releases/download/v($version)/zellij-x86_64-unknown-linux-musl.tar.gz'
-  extract tar 'zellij-x86_64-unknown-linux-musl.tar.gz'
-  move 'zellij'
-
-  if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join zellij) /usr/bin/zellij
-  }
-}
-
-export def rg [--global] {
-  let version = github get_version 'BurntSushi/ripgrep'
-
-  http download $'https://github.com/BurntSushi/ripgrep/releases/download/($version)/ripgrep-($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'ripgrep-($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -d $'ripgrep-($version)-x86_64-unknown-linux-musl' 'rg'
-
-  if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join rg) /usr/bin/rg
-  }
-}
-
-export def fd [--global] {
-  let version = github get_version 'sharkdp/fd'
-
-  http download $'https://github.com/sharkdp/fd/releases/download/v($version)/fd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'fd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'fd-v($version)-x86_64-unknown-linux-gnu' 'fd'
-
-  if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join fd) /usr/bin/fd
-  }
-}
-
-export def fzf [] {
-  let version = github get_version 'junegunn/fzf'
-
-  http download $'https://github.com/junegunn/fzf/releases/download/($version)/fzf-($version)-linux_amd64.tar.gz'
-  extract tar $'fzf-($version)-linux_amd64.tar.gz' -d 'fzf-linux_amd64'
-  move -d 'fzf-linux_amd64' 'fzf'
-}
-
-export def broot [] {
-  let version = github get_version 'Canop/broot'
-
-  http download https://github.com/Canop/broot/releases/download/v($version)/broot_($version).zip
-  extract zip broot_($version).zip -d 'broot'
-  move -d 'broot' 'x86_64-linux/broot'
-}
-
-export def bat [] {
-  let version = github get_version 'sharkdp/bat'
-
-  http download $'https://github.com/sharkdp/bat/releases/download/v($version)/bat-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'bat-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'bat-v($version)-x86_64-unknown-linux-gnu' 'bat'
-}
-
-export def gdu [--global] {
-  let version = github get_version 'dundee/gdu'
-
-  http download $'https://github.com/dundee/gdu/releases/download/v($version)/gdu_linux_amd64.tgz'
-  extract tar 'gdu_linux_amd64.tgz'
-  move 'gdu_linux_amd64' --rn 'gdu'
-
-  if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join gdu) /usr/bin/gdu
-  }
-}
-
-export def xh [
-  --global
-] {
-  let version = github get_version 'ducaale/xh'
-
-  http download $'https://github.com/ducaale/xh/releases/download/v($version)/xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -d $'xh-v($version)-x86_64-unknown-linux-musl' 'xh'
-
-  if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join xh) /usr/bin/xh
-  }
-}
-
 export def amber [] {
   let version = github get_version 'dalance/amber'
 
-  http download $'https://github.com/dalance/amber/releases/download/v($version)/amber-v($version)-x86_64-lnx.zip'
-  extract zip $'amber-v($version)-x86_64-lnx.zip' -d 'amber-x86_64-lnx'
-  move -d 'amber-x86_64-lnx' '*'
+  let ambs_bin = bin ambs
+  let ambs_path = share ambs $version
+
+  let ambr_bin = bin ambr
+  let ambr_path = share ambr $version
+
+  if not ($ambs_path | path exists) {
+    http download $'https://github.com/dalance/amber/releases/download/v($version)/amber-v($version)-x86_64-lnx.zip'
+    extract zip $'amber-v($version)-x86_64-lnx.zip' -d 'amber-x86_64-lnx'
+    mv 'amber-x86_64-lnx/ambs' $ambs_path
+    mv 'amber-x86_64-lnx/ambr' $ambr_path
+    rm -rf 'amber-x86_64-lnx'
+  }
+
+  symlink $ambs_path $ambs_bin
+  symlink $ambr_path $ambr_bin
 }
 
 export def lazygit [] {
   let version = github get_version 'jesseduffield/lazygit'
 
-  http download $'https://github.com/jesseduffield/lazygit/releases/download/v($version)/lazygit_($version)_Linux_x86_64.tar.gz'
-  extract tar $'lazygit_($version)_Linux_x86_64.tar.gz' -d 'lazygit_Linux_x86_64'
-  move -d 'lazygit_Linux_x86_64' 'lazygit'
+  let bin = bin lazygit
+  let path = share lazygit $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/jesseduffield/lazygit/releases/download/v($version)/lazygit_($version)_Linux_x86_64.tar.gz'
+    extract tar $'lazygit_($version)_Linux_x86_64.tar.gz' -d 'lazygit_Linux_x86_64'
+    mv 'lazygit_Linux_x86_64/lazygit' $path
+    rm -rf 'lazygit_Linux_x86_64'
+  }
+
+  symlink $path $bin
 }
 
 export def lazydocker [] {
   let version = github get_version 'jesseduffield/lazydocker'
 
-  http download $'https://github.com/jesseduffield/lazydocker/releases/download/v($version)/lazydocker_($version)_Linux_x86_64.tar.gz'
-  extract tar $'lazydocker_($version)_Linux_x86_64.tar.gz' -d 'lazydocker_Linux_x86_64'
-  move -d 'lazydocker_Linux_x86_64' 'lazydocker'
+  let bin = bin lazydocker
+  let path = share lazydocker $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/jesseduffield/lazydocker/releases/download/v($version)/lazydocker_($version)_Linux_x86_64.tar.gz'
+    extract tar $'lazydocker_($version)_Linux_x86_64.tar.gz' -d 'lazydocker_Linux_x86_64'
+    mv 'lazydocker_Linux_x86_64/lazydocker' $path
+    rm -rf 'lazydocker_Linux_x86_64'
+  }
+
+  symlink $path $bin
 }
 
 export def jless [] {
   let version = github get_version 'PaulJuliusMartinez/jless'
 
-  http download $'https://github.com/PaulJuliusMartinez/jless/releases/download/v($version)/jless-v($version)-x86_64-unknown-linux-gnu.zip'
-  extract zip $'jless-v($version)-x86_64-unknown-linux-gnu.zip' -d 'jless-x86_64-unknown-linux-gnu'
-  move -d 'jless-x86_64-unknown-linux-gnu' 'jless'
+  let bin = bin jless
+  let path = share jless $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/PaulJuliusMartinez/jless/releases/download/v($version)/jless-v($version)-x86_64-unknown-linux-gnu.zip'
+    extract zip $'jless-v($version)-x86_64-unknown-linux-gnu.zip' -d 'jless-x86_64-unknown-linux-gnu'
+    mv 'jless-x86_64-unknown-linux-gnu/jless' $path
+    rm -rf 'jless-x86_64-unknown-linux-gnu'
+  }
+
+  symlink $path $bin
+}
+
+export def silicon [] {
+  let version = github get_version 'Aloxaf/silicon'
+
+  let bin = bin silicon
+  let path = share silicon $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/Aloxaf/silicon/releases/download/v($version)/silicon-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'silicon-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    mv 'silicon' $path
+  }
+
+  symlink $path $bin
 }
 
 export def pueue [] {
@@ -247,33 +406,65 @@ export def delta [] {
 export def bottom [] {
   let version = github get_version 'ClementTsang/bottom'
 
-  http download $'https://github.com/ClementTsang/bottom/releases/download/($version)/bottom_x86_64-unknown-linux-gnu.tar.gz'
-  extract tar 'bottom_x86_64-unknown-linux-gnu.tar.gz' -d 'bottom_x86_64-unknown-linux-gnu'
-  move -d 'bottom_x86_64-unknown-linux-gnu' 'btm'
+  let bin = bin bottom
+  let path = share bottom $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/ClementTsang/bottom/releases/download/($version)/bottom_x86_64-unknown-linux-gnu.tar.gz'
+    extract tar 'bottom_x86_64-unknown-linux-gnu.tar.gz' -d 'bottom_x86_64-unknown-linux-gnu'
+    mv 'bottom_x86_64-unknown-linux-gnu/btm' $path
+    rm -rf 'bottom_x86_64-unknown-linux-gnu'
+  }
+
+  symlink $path $bin
 }
 
 export def ttyper [] {
   let version = github get_version 'max-niederman/ttyper'
 
-  http download $'https://github.com/max-niederman/ttyper/releases/download/v($version)/ttyper-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar 'ttyper-x86_64-unknown-linux-gnu.tar.gz' -d 'ttyper-x86_64-unknown-linux-gnu'
-  move -d 'ttyper-x86_64-unknown-linux-gnu' 'ttyper'
+  let bin = bin ttyper
+  let path = share ttyper $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/max-niederman/ttyper/releases/download/v($version)/ttyper-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar 'ttyper-x86_64-unknown-linux-gnu.tar.gz' -d 'ttyper-x86_64-unknown-linux-gnu'
+    mv 'ttyper-x86_64-unknown-linux-gnu/ttyper' $path
+    rm -rf 'ttyper-x86_64-unknown-linux-gnu'
+  }
+
+  symlink $path $bin
 }
 
 export def qrcp [] {
   let version = github get_version 'claudiodangelis/qrcp'
 
-  http download $'https://github.com/claudiodangelis/qrcp/releases/download/($version)/qrcp_($version)_linux_amd64.tar.gz'
-  extract tar $'qrcp_($version)_linux_amd64.tar.gz' -d 'qrcp_linux_amd64'
-  move -d 'qrcp_linux_amd64' 'qrcp'
+  let bin = bin qrcp
+  let path = share qrcp $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/claudiodangelis/qrcp/releases/download/($version)/qrcp_($version)_linux_amd64.tar.gz'
+    extract tar $'qrcp_($version)_linux_amd64.tar.gz' -d 'qrcp_linux_amd64'
+    mv 'qrcp_linux_amd64/qrcp' $path
+    rm -rf 'qrcp_linux_amd64'
+  }
+
+  symlink $path $bin
 }
 
 export def usql [] {
   let version = github get_version 'xo/usql'
 
-  http download $'https://github.com/xo/usql/releases/download/v($version)/usql-($version)-linux-amd64.tar.bz2'
-  extract tar $'usql-($version)-linux-amd64.tar.bz2' -d 'usql-linux-amd64'
-  move -d 'usql-linux-amd64' 'usql'
+  let bin = bin usql
+  let path = share usql $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/xo/usql/releases/download/v($version)/usql-($version)-linux-amd64.tar.bz2'
+    extract tar $'usql-($version)-linux-amd64.tar.bz2' -d 'usql-linux-amd64'
+    mv 'usql-linux-amd64/usql' $path
+    rm -rf 'usql-linux-amd64'
+  }
+
+  symlink $path $bin
 }
 
 export def gotty [] {
@@ -466,14 +657,6 @@ export def tgpt [] {
   move tgpt
 }
 
-export def silicon [] {
-  let version = github get_version 'Aloxaf/silicon'
-
-  http download $'https://github.com/Aloxaf/silicon/releases/download/v($version)/silicon-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'silicon-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move 'silicon'
-}
-
 export def nap [] {
   let version = github get_version 'maaslalani/nap'
 
@@ -597,21 +780,35 @@ export def hyperfine [] {
 export def taskell [] {
   let version = github get_version 'smallhadroncollider/taskell'
 
-  http download $'https://github.com/smallhadroncollider/taskell/releases/download/($version)/taskell-($version)_x86-64-linux.tar.gz'
-  extract tar $'taskell-($version)_x86-64-linux.tar.gz'
-  move taskell
+  let bin = bin taskell
+  let path = share taskell $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/smallhadroncollider/taskell/releases/download/($version)/taskell-($version)_x86-64-linux.tar.gz'
+    extract tar $'taskell-($version)_x86-64-linux.tar.gz'
+    mv taskell $path
+  }
+
+  symlink $path $bin
 }
 
-export def bettercap [--global] {
+export def bettercap [ --global ] {
   let version = github get_version 'bettercap/bettercap'
 
-  http download $'https://github.com/bettercap/bettercap/releases/download/v($version)/bettercap_linux_amd64_v($version).zip'
-  extract zip $'bettercap_linux_amd64_v($version).zip' -d bettercap_linux_amd64
-  move -d bettercap_linux_amd64 bettercap
+  let bin = bin bettercap
+  let path = share bettercap $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/bettercap/bettercap/releases/download/v($version)/bettercap_linux_amd64_v($version).zip'
+    extract zip $'bettercap_linux_amd64_v($version).zip' -d bettercap_linux_amd64
+    mv 'bettercap_linux_amd64/bettercap' $path
+  }
 
   if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join bettercap) /usr/bin/bettercap
+    global $bin
   }
+
+  symlink $path $bin
 }
 
 export def viddy [] {
@@ -716,16 +913,24 @@ export def kbt [] {
   move -d $'kbt-($version)-x86_64-unknown-linux-gnu' kbt
 }
 
-export def trippy [--global] {
+export def trippy [ --global ] {
   let version = github get_version 'fujiapple852/trippy'
 
-  http download $'https://github.com/fujiapple852/trippy/releases/download/($version)/trippy-($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'trippy-($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'trippy-($version)-x86_64-unknown-linux-gnu' trip
+  let bin = bin trippy
+  let path = share trippy $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/fujiapple852/trippy/releases/download/($version)/trippy-($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'trippy-($version)-x86_64-unknown-linux-gnu.tar.gz'
+    mv $'trippy-($version)-x86_64-unknown-linux-gnu/trip' $path
+  }
+
 
   if $global {
-    sudo ln -sf ($env.USR_LOCAL_BIN | path join trip) /usr/bin/trip
+    global $bin
   }
+
+  symlink $path $bin
 }
 
 export def gitui [] {
@@ -793,42 +998,61 @@ export def tailscale [] {
   curl -fsSL 'https://tailscale.com/install.sh' | sh
 }
 
-export def node [] {
-  let version = choose ["18.18.2" "20.9.0" "21.2.0"]
+export def node [ --latest ] {
+  let versions = ["21.2.0" "20.9.0" "18.18.2"] 
+
+  let version = if $latest { 
+    ($versions | first)
+  } else { 
+    (choose $versions)
+  }
 
   let path = share node $version
   if not ($path | path exists) {
     http download $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz'
     extract tar $'node-v($version)-linux-x64.tar.gz'
-    mv -f $'node-v($version)-linux-x64' $path
+    mv $'node-v($version)-linux-x64' $path
   }
 
   symlink $path $env.NODE_PATH
 }
 
-export def golang [] {
-  let version = choose ['1.21.5' '1.20.12' '1.19.13']
+export def golang [ --latest ] {
+  let versions = ['1.21.5' '1.20.12' '1.20.3' '1.19.13']
+
+  let version = if $latest { 
+    ($versions | first)
+  } else { 
+    (choose $versions)
+  }
 
   let path = share go $version
   if not ($path | path exists) {
     http download $'https://go.dev/dl/go($version).linux-amd64.tar.gz'
     extract tar $'go($version).linux-amd64.tar.gz'
-    mv -f go $path
+    mv go $path
   }
 
   symlink $path $env.GOROOT
 }
 
-export def rust [] {
+export def rust [ --latest ] {
   if not ("~/.rustup/toolchains" | path exists) {
     curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
   }
 }
 
 export def vlang [] {
-  http download https://github.com/vlang/v/releases/latest/download/v_linux.zip
-  extract zip v_linux.zip
-  mv -f 'v' $env.VLANG_PATH
+  let version = 'latest'
+
+  let path = share vlang $version
+  if not ($path | path exists) {
+    http download $'https://github.com/vlang/v/releases/($version)/download/v_linux.zip'
+    extract zip v_linux.zip
+    mv 'v' $path
+  }
+
+  symlink $path $env.VLANG_PATH
 }
 
 export def java [] {
@@ -848,7 +1072,7 @@ export def java [] {
   if not ($path | path exists) {
     http download $'https://download.java.net/java/GA/jdk($version)/($hash)/($build)/GPL/openjdk-($version)_linux-x64_bin.tar.gz'
     extract tar $'openjdk-($version)_linux-x64_bin.tar.gz'
-    mv -f $'jdk-($version)' $path
+    mv $'jdk-($version)' $path
   }
 
   symlink $path $env.JAVA_PATH
@@ -867,10 +1091,14 @@ export def jdtls [] {
 export def kotlin [] {
   let version = '1.9.22'
 
-  http download $'https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-linux-x86_64-($version).tar.gz'
-  extract tar $'kotlin-native-linux-x86_64-($version).tar.gz'
-  rm -rf $env.KOTLIN_PATH
-  mv -f $'kotlin-native-linux-x86_64-($version)' $env.KOTLIN_PATH
+  let path = share kotlin $version
+  if not ($path | path exists) {
+    http download $'https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-linux-x86_64-($version).tar.gz'
+    extract tar $'kotlin-native-linux-x86_64-($version).tar.gz'
+    mv $'kotlin-native-linux-x86_64-($version)' $path
+  }
+
+  symlink $path $env.KOTLIN_PATH
 }
 
 export def dart [] {
@@ -880,7 +1108,7 @@ export def dart [] {
   if not ($path | path exists) {
     http download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip'
     extract zip 'dartsdk-linux-x64-release.zip'
-    mv -f 'dart-sdk' $path
+    mv 'dart-sdk' $path
   }
 
   symlink $path $env.DART_PATH
@@ -893,7 +1121,7 @@ export def flutter [--studio] {
   if not ($path | path exists) {
     http download $'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz'
     extract tar $'flutter_linux_($version)-stable.tar.xz'
-    mv -f flutter $path
+    mv 'flutter' $path
   }
 
   symlink $path $env.FLUTTER_PATH
@@ -910,7 +1138,7 @@ export def android-studio [--tools] {
   if not ($path | path exists) {
     http download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz'
     extract tar $'android-studio-($version)-linux.tar.gz'
-    mv -f android-studio $path
+    mv android-studio $path
   }
 
   symlink $path $env.STUDIO_PATH
@@ -996,11 +1224,9 @@ export def docker [] {
 
 export def core [] {
   xh
-
   gum
   mods
   glow
-  soft
 
   helix
   nushell
@@ -1010,19 +1236,16 @@ export def core [] {
 
   rg
   fd
-  fzf
   bat
+  fzf
+  jless
   lazygit
   lazydocker
-  jless
 
   gdu
-  pueue
-  delta
-  dufs
   qrcp
-  bottom
   ttyper
+  bottom
   silicon
   amber
   broot
@@ -1075,7 +1298,19 @@ def share [name: string, version: string] {
   $env.USR_LOCAL_SHARE | path join ([$name $version] | str join '_')
 }
 
+def bin [name: string] {
+  $env.USR_LOCAL_BIN | path join $name
+}
+
 def symlink [src: string, dst: string] {
   rm -rf $dst
   ln -sf $src $dst
+}
+
+def global [src: string, name?: string] {
+  let name = if $name != null { $name } else { $src | path basename }
+  let dest = ("/usr/local/bin" | path join $name)
+
+  sudo rm -rf $dest
+  sudo ln -sf $src $dest
 }

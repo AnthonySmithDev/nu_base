@@ -4,9 +4,7 @@ file="nu"
 path="./$dir/$file"
 
 download() {
-  if [ ! -d $tmp ]; then
-    mkdir -p $dir
-  fi
+  mkdir -p $dir
 
   # Nushell
   version="0.88.1"

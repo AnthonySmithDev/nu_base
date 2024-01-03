@@ -113,7 +113,7 @@ export def get_repos [] {
     },
     "starship/starship": {
       "category": "core",
-      "tag_name": "1.17.0",
+      "tag_name": "1.17.1",
       "update": true
     },
     "ajeetdsouza/zoxide": {
@@ -178,7 +178,7 @@ export def get_repos [] {
     },
     "Nukesor/pueue": {
       "category": "core",
-      "tag_name": "3.3.2",
+      "tag_name": "3.3.3",
       "update": true
     },
     "dandavison/delta": {
@@ -218,12 +218,12 @@ export def get_repos [] {
     },
     "Canop/broot": {
       "category": "core",
-      "tag_name": "1.31.0",
+      "tag_name": "1.32.0",
       "update": true
     },
     "xo/usql": {
       "category": "core",
-      "tag_name": "0.17.2",
+      "tag_name": "0.17.4",
       "update": true
     },
     "bettercap/bettercap": {
@@ -328,12 +328,12 @@ export def get_repos [] {
     },
     "mudler/LocalAI": {
       "category": "other",
-      "tag_name": "2.4.1",
+      "tag_name": "2.3.1",
       "update": true
     },
     "leoafarias/fvm": {
       "category": "other",
-      "tag_name": "3.0.0-beta.5",
+      "tag_name": "2.4.1",
       "update": true
     },
     "VSCodium/vscodium": {
@@ -403,7 +403,7 @@ export def get_repos [] {
     },
     "Byron/dua-cli": {
       "category": "other",
-      "tag_name": "2.24.2",
+      "tag_name": "2.25.0",
       "update": true
     },
     "pemistahl/grex": {
@@ -443,7 +443,7 @@ export def get_repos [] {
     },
     "rsteube/carapace-bin": {
       "category": "other",
-      "tag_name": "0.28.5",
+      "tag_name": "0.29.0",
       "update": true
     },
     "antonmedv/walk": {
@@ -473,7 +473,7 @@ export def get_repos [] {
     },
     "astral-sh/ruff": {
       "category": "other",
-      "tag_name": "0.1.9",
+      "tag_name": "0.1.11",
       "update": true
     },
     "zyedidia/micro": {

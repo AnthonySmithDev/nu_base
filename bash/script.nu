@@ -8,7 +8,7 @@ def main [
   mkdir $env.USR_LOCAL_BIN
   mkdir $env.USR_LOCAL_LIB
   mkdir $env.USR_LOCAL_SHARE
-  mkdir $env.SHARE_FONTS_PATH
+  mkdir $env.LOCAL_SHARE_FONTS
 
   if $remote {
     remote
@@ -31,17 +31,17 @@ def main [
 }
 
 def remote [] {
-  download node
-  download rust
-  download golang
+  download node --latest
+  download rust --latest
+  download golang --latest
 
   download xh
   download gum
   download helix
-  download zellij
   download nushell
-  download zoxide
   download starship
+  download zoxide
+  download zellij
 
   config helix
   config zellij
@@ -49,9 +49,9 @@ def remote [] {
 }
 
 def local [] {
-  download node
-  download rust
-  download golang
+  download node --latest
+  download rust --latest
+  download golang --latest
 
   # install pipx core
   # install npm core
@@ -62,10 +62,15 @@ def local [] {
   download xh --global
   download gum --global
   download helix --global
-  download zellij --global
   download nushell --global
-  download zoxide --global
   download starship --global
+  download zoxide --global
+  download zellij --global
+
+  download rg --global
+  download fd --global
+  download gdu --global
+
   nerd-font FiraCode
 
   install debian core

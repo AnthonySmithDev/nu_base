@@ -1,15 +1,18 @@
 
+def git_clone [repository: string, path: string] {
+  if ($path | path exists) {
+    git -C $path pull
+  } else {
+    git clone $repository $path
+  }
+}
+
 export def alacritty [] {
   let wd = pwd
   let path = ($env.HOME | path join 'tmp' 'alacritty')
 
-  if ($path | path exists) {
-    cd $path
-    git pull
-  } else {
-    git clone https://github.com/alacritty/alacritty.git $path
-    cd $path
-  }
+  git_clone https://github.com/alacritty/alacritty.git $path
+  cd $path
 
   cargo build --release
 
@@ -57,4 +60,18 @@ export def hargo [] {
   let dir = (mktemp -d)
   git clone https://github.com/mrichman/hargo.git $dir
   PWD=$dir make install
+}
+
+export def nchat [] {
+  let wd = pwd
+  let path = ($env.HOME | path join 'tmp' 'nchat')
+
+  git_clone https://github.com/d99kris/nchat $path
+  cd $path
+
+  ./make.sh deps
+  ./make.sh build
+  ./make.sh install
+
+  cd $wd
 }
