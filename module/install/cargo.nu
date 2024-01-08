@@ -1,4 +1,8 @@
 
+export def dev [] {
+  cargo install --locked sleek
+}
+
 export def core [] {
   cargo install --locked zellij
   cargo install --locked alacritty

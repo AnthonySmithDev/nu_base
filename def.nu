@@ -47,10 +47,18 @@ def gitignore [lang: string@'nu gitignore list'] {
   http get $'https://www.toptal.com/developers/gitignore/api/($lang)' | save .gitignore
 }
 
-alias bhelp = bat --plain --language help
+def help! [cmd?: string] {
+  let pipe = $in
 
-def shelp [cmd] {
-  ^$cmd --help | bhelp
+  if $pipe != null {
+    $pipe | bat --plain --language help
+    return
+  }
+
+  if $cmd != null {
+    ^$cmd --help | bat --plain --language help
+    return
+  }
 }
 
 def json [] {

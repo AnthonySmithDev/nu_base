@@ -4,24 +4,29 @@ export def update [
   --core(-c)
   --extra(-e)
   --other(-o)
+  --update: bool = true
 ] {
-  let all = (get_repos | transpose key value | where $it.value.update == true)
+  let all = (repos | where $it.update == $update)
   mut repos = []
   if $new {
-    $repos = ($repos | append ( $all | where $it.value.category == new ))
+    $repos = ($repos | append ($all | where $it.category == new ))
   }
   if $core {
-    $repos = ($repos | append ( $all | where $it.value.category == core ))
+    $repos = ($repos | append ($all | where $it.category == core ))
   }
   if $extra {
-    $repos = ($repos  | append ( $all | where $it.value.category == extra ))
+    $repos = ($repos  | append ($all | where $it.category == extra ))
   }
   if $other {
-    $repos = ($repos  | append ( $all | where $it.value.category == other ))
+    $repos = ($repos  | append ($all | where $it.category == other ))
   }
   for repo in $repos {
+    if not $repo.release {
+      continue
+    }
+
     try {
-      let data = (latest version $repo.key $repo.value.tag_name)
+      let data = (latest_version $repo.repository $repo.tag_name)
       print_version $data.repository $data.old_tag_name $data.new_tag_name $data.created_at
     } catch {|e|
       print_error $e.msg
@@ -30,40 +35,53 @@ export def update [
   }
 }
 
-export def "latest version" [repo_name: string, repo_tag_name: string] {
-  let header = [
-    "Accept" "application/vnd.github+json"
-    "Authorization" "Bearer <YOUR-TOKEN>"
-    "X-GitHub-Api-Version" "2022-11-28"
-  ]
-  let release = http get -f -e https://api.github.com/repos/($repo_name)/releases/latest
+export def names [] {
+  repos | get repository
+}
+
+export def name_tag [context: string] {
+  let name = ($context | str trim | split row " " | last)
+  [ (repos | where repository == $name | first | get tag_name) ]
+}
+
+export def get_version [name: string@names] {
+  repos | where repository == $name | first | get tag_name
+}
+
+export def release_latest [name: string@names] {
+  http get -f -e https://api.github.com/repos/($name)/releases/latest
+}
+
+export def release_tag [name: string@names, tag: string@name_tag] {
+  http get -f -e https://api.github.com/repos/($name)/releases/tags/v($tag)
+}
+
+export def latest_version [repository: string@names, tag_name: string@name_tag] {
+  let release = release_latest $repository
   if ($release | get status) == 403 {
     error make {
       msg: "API rate limit exceeded"
     }
   }
+  if ($release | get status) == 404 {
+    error make {
+      msg: "Not found"
+    }
+  }
   return {
-    "repository": ($repo_name)
-    "old_tag_name": ($repo_tag_name)
+    "repository": ($repository)
+    "old_tag_name": ($tag_name)
     "new_tag_name": ($release | get body.tag_name)
     "created_at": ($release | get body.created_at | date humanize)
   }
 }
 
-export def "latest tag" [owner: string, repo: string] {
-  let name = [$owner $repo] | path join
-  let url = $"https://api.github.com/repos/($name)/releases/latest"
-  return (http get $url | get tag_name)
+export def latest_tag [repository: string@names] {
+  return (release_latest $repository | get tag_name)
 }
 
-export def "latest url" [owner: string, repo: string, term: string] {
-  let name = [$owner $repo] | path join
-  let url = $'https://api.github.com/repos/($name)/releases/latest'
-  return (http get $url | get assets | get browser_download_url | find $term | first)
-}
-
-export def "rate limit" [] {
-  let rate = http get https://api.github.com/rate_limit | get rate
+export def rate_limit [] {
+  let rate = (http get https://api.github.com/rate_limit | get rate)
   let date = ($rate | get reset | $in * 1_000_000_000 | into datetime --offset -5)
   $rate | insert date $date
 }
@@ -80,426 +98,588 @@ def print_error [error: string] {
   print $'(ansi red_bold) ($error) (ansi reset)'
 }
 
-export def get_version [repo: string] {
-  get_repos | get $repo | get tag_name
-}
-
-export def get_repos [] {
-  {
-    "ducaale/xh": {
+export def repos [] {
+  [
+    {
       "category": "core",
+      "repository": "ducaale/xh",
       "tag_name": "0.20.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "charmbracelet/gum": {
+    {
       "category": "core",
+      "repository": "charmbracelet/gum",
       "tag_name": "0.13.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "charmbracelet/mods": {
+    {
       "category": "core",
+      "repository": "charmbracelet/mods",
       "tag_name": "1.1.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "helix-editor/helix": {
+    {
       "category": "core",
+      "repository": "helix-editor/helix",
       "tag_name": "23.10",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "nushell/nushell": {
+    {
       "category": "core",
+      "repository": "nushell/nushell",
       "tag_name": "0.88.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "starship/starship": {
+    {
       "category": "core",
+      "repository": "starship/starship",
       "tag_name": "1.17.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "ajeetdsouza/zoxide": {
+    {
       "category": "core",
+      "repository": "ajeetdsouza/zoxide",
       "tag_name": "0.9.2",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "zellij-org/zellij": {
+    {
       "category": "core",
+      "repository": "zellij-org/zellij",
       "tag_name": "0.39.2",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "alacritty/alacritty": {
+    {
       "category": "core",
-      "tag_name": "0.13.0",
-      "update": true
+      "repository": "alacritty/alacritty",
+      "tag_name": "0.13.1",
+      "update": true,
+      "release": true,
     },
-    "BurntSushi/ripgrep": {
+    {
       "category": "core",
-      "tag_name": "14.0.3",
-      "update": true
+      "repository": "BurntSushi/ripgrep",
+      "tag_name": "14.1.0",
+      "update": true,
+      "release": true,
     },
-    "sharkdp/fd": {
+    {
       "category": "core",
+      "repository": "sharkdp/fd",
       "tag_name": "9.0.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "junegunn/fzf": {
+    {
       "category": "core",
+      "repository": "junegunn/fzf",
       "tag_name": "0.45.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "sharkdp/bat": {
+    {
       "category": "core",
+      "repository": "sharkdp/bat",
       "tag_name": "0.24.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "jesseduffield/lazygit": {
+    {
       "category": "core",
+      "repository": "jesseduffield/lazygit",
       "tag_name": "0.40.2",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "jesseduffield/lazydocker": {
+    {
       "category": "core",
+      "repository": "jesseduffield/lazydocker",
       "tag_name": "0.23.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "PaulJuliusMartinez/jless": {
+    {
       "category": "core",
+      "repository": "PaulJuliusMartinez/jless",
       "tag_name": "0.9.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "smallhadroncollider/taskell": {
+    {
       "category": "core",
+      "repository": "smallhadroncollider/taskell",
       "tag_name": "1.11.4",
-      "update": false
+      "update": false,
+      "release": true,
     },
-    "dundee/gdu": {
+    {
       "category": "core",
+      "repository": "dundee/gdu",
       "tag_name": "5.25.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "Nukesor/pueue": {
+    {
       "category": "core",
+      "repository": "Nukesor/pueue",
       "tag_name": "3.3.3",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "dandavison/delta": {
+    {
       "category": "core",
+      "repository": "dandavison/delta",
       "tag_name": "0.16.5",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "sigoden/dufs": {
+    {
       "category": "core",
+      "repository": "sigoden/dufs",
       "tag_name": "0.38.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "claudiodangelis/qrcp": {
+    {
       "category": "core",
+      "repository": "claudiodangelis/qrcp",
       "tag_name": "0.11.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "ClementTsang/bottom": {
+    {
       "category": "core",
+      "repository": "ClementTsang/bottom",
       "tag_name": "0.9.6",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "max-niederman/ttyper": {
+    {
       "category": "core",
+      "repository": "max-niederman/ttyper",
       "tag_name": "1.4.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "Aloxaf/silicon": {
+    {
       "category": "core",
+      "repository": "Aloxaf/silicon",
       "tag_name": "0.5.2",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "dalance/amber": {
+    {
       "category": "core",
+      "repository": "dalance/amber",
       "tag_name": "0.5.9",
-      "update": false
+      "update": false,
+      "release": true,
     },
-    "Canop/broot": {
+    {
       "category": "core",
+      "repository": "Canop/broot",
       "tag_name": "1.32.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "xo/usql": {
+    {
       "category": "core",
-      "tag_name": "0.17.4",
-      "update": true
+      "repository": "xo/usql",
+      "tag_name": "0.17.5",
+      "update": true,
+      "release": true,
     },
-    "bettercap/bettercap": {
+    {
       "category": "extra",
+      "repository": "bettercap/bettercap",
       "tag_name": "2.31.1",
-      "update": false
+      "update": false,
+      "release": true,
     },
-    "iawia002/lux": {
+    {
       "category": "extra",
+      "repository": "iawia002/lux",
       "tag_name": "0.22.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "mdp/qrterminal": {
+    {
       "category": "extra",
+      "repository": "mdp/qrterminal",
       "tag_name": "3.2.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "codesenberg/bombardier": {
+    {
       "category": "extra",
+      "repository": "codesenberg/bombardier",
       "tag_name": "1.2.6",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "svenstaro/genact": {
+    {
       "category": "extra",
+      "repository": "svenstaro/genact",
       "tag_name": "1.3.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "rclone/rclone": {
+    {
       "category": "extra",
-      "tag_name": "1.65.0",
-      "update": true
+      "repository": "rclone/rclone",
+      "tag_name": "1.65.1",
+      "update": true,
+      "release": true,
     },
-    "charmbracelet/glow": {
+    {
       "category": "extra",
+      "repository": "charmbracelet/glow",
       "tag_name": "1.5.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "charmbracelet/vhs": {
+    {
       "category": "extra",
+      "repository": "charmbracelet/vhs",
       "tag_name": "0.7.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "charmbracelet/soft-serve": {
+    {
       "category": "extra",
+      "repository": "charmbracelet/soft-serve",
       "tag_name": "0.7.4",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "maaslalani/nap": {
+    {
       "category": "extra",
+      "repository": "maaslalani/nap",
       "tag_name": "0.1.1",
-      "update": false
+      "update": false,
+      "release": true,
     },
-    "chmln/sd": {
+    {
       "category": "extra",
+      "repository": "chmln/sd",
       "tag_name": "1.0.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "ms-jpq/sad": {
+    {
       "category": "extra",
+      "repository": "ms-jpq/sad",
       "tag_name": "0.4.23",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "yudai/gotty": {
+    {
       "category": "extra",
+      "repository": "yudai/gotty",
       "tag_name": "1.0.1",
-      "update": false
+      "update": false,
+      "release": true,
     },
-    "tsl0922/ttyd": {
+    {
       "category": "extra",
+      "repository": "tsl0922/ttyd",
       "tag_name": "1.7.4",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "elisescu/tty-share": {
+    {
       "category": "extra",
+      "repository": "elisescu/tty-share",
       "tag_name": "2.4.0",
-      "update": false
+      "update": false,
+      "release": true,
     },
-    "owenthereal/upterm": {
+    {
       "category": "extra",
+      "repository": "owenthereal/upterm",
       "tag_name": "0.13.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "msoap/shell2http": {
+    {
       "category": "extra",
+      "repository": "msoap/shell2http",
       "tag_name": "1.16.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "lsd-rs/lsd": {
+    {
       "category": "extra",
+      "repository": "lsd-rs/lsd",
       "tag_name": "1.0.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "orf/gping": {
+    {
       "category": "extra",
+      "repository": "orf/gping",
       "tag_name": "1.16.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "jmorganca/ollama": {
+    {
       "category": "other",
-      "tag_name": "0.1.17",
-      "update": true
+      "repository": "jmorganca/ollama",
+      "tag_name": "0.1.18",
+      "update": true,
+      "release": true,
     },
-    "mudler/LocalAI": {
+    {
       "category": "other",
-      "tag_name": "2.3.1",
-      "update": true
+      "repository": "mudler/LocalAI",
+      "tag_name": "2.5.0",
+      "update": true,
+      "release": true,
     },
-    "leoafarias/fvm": {
+    {
       "category": "other",
+      "repository": "leoafarias/fvm",
       "tag_name": "2.4.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "VSCodium/vscodium": {
+    {
       "category": "other",
+      "repository": "VSCodium/vscodium",
       "tag_name": "1.85.1.23348",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "gcla/termshark": {
+    {
       "category": "other",
+      "repository": "gcla/termshark",
       "tag_name": "2.4.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "veeso/termscp": {
+    {
       "category": "other",
+      "repository": "veeso/termscp",
       "tag_name": "0.12.3",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "bloznelis/kbt": {
+    {
       "category": "other",
-      "tag_name": "2.0.6",
-      "update": true
-    },
-    "fujiapple852/trippy": {
-      "category": "other",
-      "tag_name": "0.9.0",
-      "update": true
-    },
-    "extrawurst/gitui": {
-      "category": "other",
-      "tag_name": "0.24.3",
-      "update": true
-    },
-    "Y2Z/monolith": {
-      "category": "other",
-      "tag_name": "2.7.0",
-      "update": true
-    },
-    "nerdypepper/dijo": {
-      "category": "other",
-      "tag_name": "0.2.7",
-      "update": true
-    },
-    "sachaos/viddy": {
-      "category": "other",
-      "tag_name": "0.4.0",
-      "update": true
-    },
-    "sxyazi/yazi": {
-      "category": "other",
-      "tag_name": "0.1.5",
-      "update": false
-    },
-    "orhun/kmon": {
-      "category": "other",
-      "tag_name": "1.6.4",
-      "update": true
-    },
-    "clangd/clangd": {
-      "category": "other",
-      "tag_name": "17.0.3",
-      "update": true
-    },
-    "pvolok/mprocs": {
-      "category": "other",
-      "tag_name": "0.6.4",
-      "update": false
-    },
-    "Byron/dua-cli": {
-      "category": "other",
-      "tag_name": "2.25.0",
-      "update": true
-    },
-    "pemistahl/grex": {
-      "category": "other",
-      "tag_name": "1.4.4",
-      "update": true
-    },
-    "denisidoro/navi": {
-      "category": "other",
-      "tag_name": "2.23.0",
-      "update": true
-    },
-    "timvisee/ffsend": {
-      "category": "other",
-      "tag_name": "0.2.76",
-      "update": false
-    },
-    "muesli/duf": {
-      "category": "other",
-      "tag_name": "0.8.1",
-      "update": false
-    },
-    "swsnr/mdcat": {
-      "category": "other",
+      "repository": "bloznelis/kbt",
       "tag_name": "2.1.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "j178/chatgpt": {
+    {
       "category": "other",
+      "repository": "fujiapple852/trippy",
+      "tag_name": "0.9.0",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "extrawurst/gitui",
+      "tag_name": "0.24.3",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "Y2Z/monolith",
+      "tag_name": "2.7.0",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "nerdypepper/dijo",
+      "tag_name": "0.2.7",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "sachaos/viddy",
+      "tag_name": "0.4.0",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "sxyazi/yazi",
+      "tag_name": "0.1.5",
+      "update": false,
+      "release": false,
+    },
+    {
+      "category": "other",
+      "repository": "orhun/kmon",
+      "tag_name": "1.6.4",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "clangd/clangd",
+      "tag_name": "17.0.3",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "pvolok/mprocs",
+      "tag_name": "0.6.4",
+      "update": false,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "Byron/dua-cli",
+      "tag_name": "2.26.0",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "pemistahl/grex",
+      "tag_name": "1.4.4",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "denisidoro/navi",
+      "tag_name": "2.23.0",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "timvisee/ffsend",
+      "tag_name": "0.2.76",
+      "update": false,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "muesli/duf",
+      "tag_name": "0.8.1",
+      "update": false,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "swsnr/mdcat",
+      "tag_name": "2.1.0",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "other",
+      "repository": "j178/chatgpt",
       "tag_name": "1.3",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "uutils/coreutils": {
+    {
       "category": "other",
+      "repository": "uutils/coreutils",
       "tag_name": "0.0.23",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "rsteube/carapace-bin": {
+    {
       "category": "other",
+      "repository": "rsteube/carapace-bin",
       "tag_name": "0.29.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "antonmedv/walk": {
+    {
       "category": "other",
+      "repository": "antonmedv/walk",
       "tag_name": "1.7.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "mgunyho/tere": {
+    {
       "category": "other",
+      "repository": "mgunyho/tere",
       "tag_name": "1.5.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "antonmedv/fx": {
+    {
       "category": "other",
+      "repository": "antonmedv/fx",
       "tag_name": "31.0.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "ouch-org/ouch": {
+    {
       "category": "other",
+      "repository": "ouch-org/ouch",
       "tag_name": "0.5.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "cli/cli": {
+    {
       "category": "other",
+      "repository": "cli/cli",
       "tag_name": "2.40.1",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "astral-sh/ruff": {
+    {
       "category": "other",
+      "repository": "astral-sh/ruff",
       "tag_name": "0.1.11",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "zyedidia/micro": {
+    {
       "category": "other",
+      "repository": "zyedidia/micro",
       "tag_name": "2.0.13",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "svenstaro/miniserve": {
+    {
       "category": "other",
+      "repository": "svenstaro/miniserve",
       "tag_name": "0.24.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "o2sh/onefetch": {
+    {
       "category": "other",
+      "repository": "o2sh/onefetch",
       "tag_name": "2.19.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "wagoodman/dive": {
+    {
       "category": "other",
+      "repository": "wagoodman/dive",
       "tag_name": "0.11.0",
-      "update": true
+      "update": true,
+      "release": true,
     },
-    "sharkdp/hyperfine": {
+    {
       "category": "other",
+      "repository": "sharkdp/hyperfine",
       "tag_name": "1.18.0",
-      "update": true
+      "update": true,
+      "release": true,
     }
-  }
+  ]
 }
