@@ -17,6 +17,10 @@ export def FiraCode [] {
   let path = share FiraCode $version
   if not ($path | path exists) {
     http download $'https://github.com/ryanoasis/nerd-fonts/releases/download/v($version)/FiraCode.zip'
+    if ($env.PWD | path join 'FiraCode' | path exists) {
+      rm -rf 'FiraCode'
+    }
+
     extract zip 'FiraCode.zip' -d 'FiraCode'
     mv 'FiraCode' $path
   }
@@ -30,6 +34,10 @@ export def CascadiaCode [] {
   let path = share CascadiaCode $version
   if not ($path | path exists) {
     http download $'https://github.com/ryanoasis/nerd-fonts/releases/download/v($version)/CascadiaCode.zip'
+    if ($env.PWD | path join 'CascadiaCode' | path exists) {
+      rm -rf 'CascadiaCode'
+    }
+
     extract zip 'CascadiaCode.zip' -d 'CascadiaCode'
     mv 'CascadiaCode' $path
   }
@@ -43,6 +51,10 @@ export def JetBrainsMono [] {
   let path = share JetBrainsMono $version
   if not ($path | path exists) {
     http download $'https://github.com/ryanoasis/nerd-fonts/releases/download/v($version)/JetBrainsMono.zip'
+    if ($env.PWD | path join 'JetBrainsMono' | path exists) {
+      rm -rf 'JetBrainsMono'
+    }
+
     extract zip 'JetBrainsMono.zip' -d 'JetBrainsMono'
     mv 'JetBrainsMono' $path
   }

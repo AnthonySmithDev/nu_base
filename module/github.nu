@@ -278,8 +278,8 @@ export def repos [] {
     {
       "category": "core",
       "repository": "dalance/amber",
-      "tag_name": "0.5.9",
-      "update": false,
+      "tag_name": "0.6.0",
+      "update": true,
       "release": true,
     },
     {
@@ -293,6 +293,20 @@ export def repos [] {
       "category": "core",
       "repository": "xo/usql",
       "tag_name": "0.17.5",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "extra",
+      "repository": "sezanzeb/input-remapper",
+      "tag_name": "2.0.1",
+      "update": true,
+      "release": true,
+    },
+    {
+      "category": "extra",
+      "repository": "Jelmerro/Vieb",
+      "tag_name": "11.0.0",
       "update": true,
       "release": true,
     },
@@ -439,7 +453,7 @@ export def repos [] {
     {
       "category": "other",
       "repository": "mudler/LocalAI",
-      "tag_name": "2.5.0",
+      "tag_name": "2.5.1",
       "update": true,
       "release": true,
     },
@@ -635,7 +649,7 @@ export def repos [] {
     {
       "category": "other",
       "repository": "cli/cli",
-      "tag_name": "2.40.1",
+      "tag_name": "2.41.0",
       "update": true,
       "release": true,
     },
@@ -656,7 +670,7 @@ export def repos [] {
     {
       "category": "other",
       "repository": "svenstaro/miniserve",
-      "tag_name": "0.24.0",
+      "tag_name": "0.25.0",
       "update": true,
       "release": true,
     },
@@ -681,5 +695,12 @@ export def repos [] {
       "update": true,
       "release": true,
     }
+    {
+      "category": "other",
+      "repository": "balena-io/etcher",
+      "tag_name": "1.18.11",
+      "update": true,
+      "release": true,
+    },
   ]
 }

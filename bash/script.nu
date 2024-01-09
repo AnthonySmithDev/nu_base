@@ -8,6 +8,7 @@ def main [
   mkdir $env.USR_LOCAL_BIN
   mkdir $env.USR_LOCAL_LIB
   mkdir $env.USR_LOCAL_SHARE
+  mkdir $env.USR_LOCAL_SHARE_FONTS
   mkdir $env.LOCAL_SHARE_FONTS
 
   if $remote {
@@ -69,19 +70,11 @@ def local [] {
 
   download rg --global
   download fd --global
+  download fzf --global
   download gdu --global
 
-  nerd-font FiraCode
-
-  install debian core
-  install debian python
-  install debian docker
-  install debian flathub
-  install debian regolith
-  install debian input-remapper
-
-  compile alacritty
-
+  config ssh
+  config github
   config mods
   config helix
   config zellij
@@ -89,11 +82,18 @@ def local [] {
   config alacritty
   config regolith
   config input-remapper
+  config ubuntu-software
 
-  config ssh
-  config github
+  install apt core
+  install apt python
+  install apt docker
+  install apt flathub
+  install apt regolith
+  install apt input-remapper
+
+  nerd-font FiraCode
+  compile alacritty
   helix background
-
   nu_source
 }
 

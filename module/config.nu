@@ -137,9 +137,14 @@ export def github [] {
 }
 
 export def ssh [] {
-  if not ("~/.ssh/id_ed25519.pub" | path exists) {
-    ssh-keygen -t ed25519 -C 'anthonyasdeveloper@gmail.com'
+  let keyfile = ($env.HOME | path join '.ssh' 'id_ed25519')
+  if not ($keyfile | path exists) {
+    ssh-keygen -t ed25519 -C 'anthonyasdeveloper@gmail.com' -f $keyfile -N ""
   }
+}
+
+export def ubuntu-software [] {
+  sudo sed -i 's/http:\/\/pe\.archive\.ubuntu\.com\/ubuntu/http:\/\/archive\.ubuntu\.com\/ubuntu/g' /etc/apt/sources.list
 }
 
 export def core [] {

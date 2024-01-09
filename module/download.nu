@@ -164,7 +164,7 @@ export def fd [ --global ] {
   symlink $path $bin
 }
 
-export def fzf [] {
+export def fzf [ --global ] {
   let version = github get_version 'junegunn/fzf'
 
   let bin = bin fzf
@@ -175,6 +175,10 @@ export def fzf [] {
     extract tar $'fzf-($version)-linux_amd64.tar.gz' -d 'fzf-linux_amd64'
     mv 'fzf-linux_amd64/fzf' $path
     rm -rf 'fzf-linux_amd64'
+  }
+
+  if $global {
+    global $bin
   }
 
   symlink $path $bin
@@ -1038,7 +1042,8 @@ export def golang [ --latest ] {
 
 export def rust [ --latest ] {
   if not ("~/.rustup/toolchains" | path exists) {
-    curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
+    # curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
+    wget -O- --https-only --secure-protocol=auto --quiet --show-progress https://sh.rustup.rs | sh -s -- -q -y
   }
 }
 

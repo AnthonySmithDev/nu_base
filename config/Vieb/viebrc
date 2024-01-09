@@ -18,6 +18,7 @@ set darkreader
 set darkreaderbg=#181a1b
 set darkreaderblocklist+=https://github.com
 set darkreaderblocklist+=https://www.google.com
+set darkreaderblocklist+=https://accounts.google.com
 set darkreaderblocklist+=https://web.whatsapp.com
 set darkreaderblocklist+=https://play.d2lang.com
 set darkreaderblocklist+=https://p2p.binance.com

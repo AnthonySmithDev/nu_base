@@ -13,19 +13,19 @@ export def browser [] {
 }
 
 export def update [] {
-  sudo apt update
-  sudo apt upgrade
+  sudo apt update -y
+  sudo apt upgrade -y
 }
 
 def add-universe [] {
-  let deb = 'deb http://pe.archive.ubuntu.com/ubuntu lunar universe'
+  let deb = 'deb http://archive.ubuntu.com/ubuntu lunar universe'
   if (open /etc/apt/sources.list | lines | find $deb | is-empty) {
     sudo add-apt-repository -y universe
   }
 }
 
 def add-multiverse [] {
-  let deb = 'deb http://pe.archive.ubuntu.com/ubuntu lunar multiverse'
+  let deb = 'deb http://archive.ubuntu.com/ubuntu lunar multiverse'
   if (open /etc/apt/sources.list | lines | find $deb | is-empty) {
     sudo add-apt-repository -y multiverse
   }
@@ -133,10 +133,12 @@ export def dependency [] {
 
     # tools
     ssh
+    sshpass
     htop
     xclip
     neovim
     neofetch
+    lolcat
     mpv
   ]
 
@@ -200,7 +202,7 @@ export def dart [] {
 }
 
 export def input-remapper [] {
-  let version = '2.0.1'
+  let version = github get_version 'sezanzeb/input-remapper'
 
   wget --quiet --show-progress $'https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb'
   sudo apt install -y $'./input-remapper-($version).deb'
@@ -208,11 +210,11 @@ export def input-remapper [] {
 }
 
 export def vieb [] {
-  let version = '11.0.0'
+  let version = github get_version 'Jelmerro/Vieb'
 
   wget --quiet --show-progress $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb'
   sudo dpkg -i $'vieb_($version)_amd64.deb'
-  rm -rf $'vieb_($version)_amd64.deb'
+  rm -rf $'vieb_($version)_amd64.deb*'
 }
 
 export def brave [] {
@@ -241,13 +243,15 @@ export def chrome [] {
 
 export def microsoft-edge [] {
   let version = '116.0.1938.76-1'
+
   wget --quiet --show-progress $'https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_($version)_amd64.deb'
   sudo dpkg -i $'microsoft-edge-stable_($version)_amd64.deb'
   rm -rf $'microsoft-edge-stable_($version)_amd64.deb'
 }
 
 export def balena-etcher [] {
-  let version = '1.18.11'
+  let version = github get_version 'balena-io/etcher'
+
   wget --quiet --show-progress  $'https://github.com/balena-io/etcher/releases/download/v($version)/balena-etcher_($version)_amd64.deb'
   sudo dpkg -i $'balena-etcher_($version)_amd64.deb'
   rm $'balena-etcher_($version)_amd64.deb'
@@ -274,7 +278,7 @@ export def docker [] {
 
   # sudo groupadd docker
   sudo usermod -aG docker $env.USER
-  sudo docker run hello-world
+  # sudo docker run hello-world
 
   sudo systemctl enable docker.service
   sudo systemctl enable containerd.service

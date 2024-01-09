@@ -40,14 +40,10 @@ export def get-server [alias: string@'list-server'] {
   servers | where alias == $alias | first
 }
 
-export def 'key create' [] {
-  ssh-keygen -t ed25519 -C 'anthonyasdeveloper@gmail.com'
-}
-
 export def 'key copy' [alias: string@'list-server'] {
   let server = (get-server $alias)
 
-  ssh-copy-id $'($server.user)@($server.host)'
+  sshpass -p $server.pass ssh-copy-id $'($server.user)@($server.host)'
 }
 
 export def sync [alias: string@'list-server'] {
@@ -64,7 +60,7 @@ export def sync [alias: string@'list-server'] {
 export def install [alias: string@'list-server'] {
   let server = (get-server $alias)
 
-  ssh -t $'($server.user)@($server.host)' 'bash .local/nu_base/bash/nushell.sh --remote'
+  ssh -t $'($server.user)@($server.host)' 'bash .local/nu_base/bash/install.sh --remote'
 }
 
 export def shell [alias: string@'list-server'] {

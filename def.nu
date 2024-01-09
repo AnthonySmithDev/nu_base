@@ -56,7 +56,11 @@ def help! [cmd?: string] {
   }
 
   if $cmd != null {
-    ^$cmd --help | bat --plain --language help
+    if (which bat | is-empty) {
+      ^$cmd --help
+    } else {
+      ^$cmd --help | bat --plain --language help
+    }
     return
   }
 }
