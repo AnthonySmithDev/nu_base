@@ -64,24 +64,17 @@ export def remove [name: string@list] {
 }
 
 export def sync [
-  --pull(-p)
   --commit(-c): string
-  --init(-i): string
 ] {
-  if ($env.BOARD_PATH | path join '.git' | path exists) {
-    if $pull {
-      git -C $env.BOARD_PATH pull origin main
-    }
-    if not ($commit | is-empty) {
-      git -C $env.BOARD_PATH add '.'
-      git -C $env.BOARD_PATH commit -m $commit
-      git -C $env.BOARD_PATH push -u origin main
-    }
-  } else {
-    if ($init | is-empty) {
-      git -C $env.BOARD_PATH init
-      git -C $env.BOARD_PATH branch -M main
-      git -C $env.BOARD_PATH remote add origin $init
-    }
+  if not ($env.BOARD_PATH | path exists) {
+    git clone git@github.com:AnthonySmithDev/board.git $env.BOARD_PATH
+  }
+
+  git -C $env.BOARD_PATH pull
+
+  if not ($commit | is-empty) {
+    git -C $env.BOARD_PATH add '.'
+    git -C $env.BOARD_PATH commit -m $commit
+    git -C $env.BOARD_PATH push
   }
 }

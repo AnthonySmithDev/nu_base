@@ -1,10 +1,14 @@
 
 def choose [] {
-  gum choose [
-    "opera"
-    "brave-browser"
-    "google-chrome"
-  ]
+  gum choose [ "opera" "brave-browser" "google-chrome" ] | str trim
+}
+
+export def main [url: string] {
+  let browser = choose
+  if (ps | where name =~ $browser | is-empty) {
+    bash -c $"nohup ($browser) &"
+  }
+  ^$browser $url
 }
 
 export def extension [] {
@@ -17,8 +21,10 @@ export def extension [] {
     'https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai'
     'https://chrome.google.com/webstore/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld'
   ]
-  let browser = (choose | str trim)
-  bash -c $"nohup ($browser) &"
+  let browser = choose
+  if (ps | where name =~ $browser | is-empty) {
+    bash -c $"nohup ($browser) &"
+  }
   for $extension in $extensions {
     do -i {
       ^$browser $extension
