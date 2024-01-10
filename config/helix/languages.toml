@@ -24,4 +24,4 @@ indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "nu"
-source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "bddc79c36f53c8663080df080e2976c2fd265fff" }
+source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "26bbaecda0039df4067861ab38ea8ea169f7f5aa" }

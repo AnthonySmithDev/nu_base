@@ -78,7 +78,7 @@ def sjson [] {
     "--background" "#0B0E14" 
     "--language" "json"
   ]
-  $input | to json | silicon $args
+  $input | to json | silicon ...$args
 }
 
 def sgo [] {
@@ -90,7 +90,7 @@ def sgo [] {
     "--background" "#0B0E14" 
     "--language" "go"
   ]
-  $input | silicon $args
+  $input | silicon ...$args
 }
 
 def highlight [--lines(-l): string] {
@@ -111,7 +111,7 @@ def scode [
     "--no-window-controls"
     "--background" "#ABB8C3"
   ]
-  silicon $input ($args | highlight -l $lines)
+  silicon $input (...$args | highlight -l $lines)
 }
 
 def run-openai [] {

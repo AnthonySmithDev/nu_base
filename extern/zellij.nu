@@ -161,11 +161,11 @@ export extern list-sessions [
 
 # Change the behaviour of zellij
 export extern options [
-  --attach-to-session: bool
+  --attach-to-session
     # Whether to attach to a session specified in "session-name" if it exists [possible
     # values: true, false]
 
-  --auto-layout: bool
+  --auto-layout
     # Whether to lay out panes in a predefined set of layouts whenever possible [possible
     # values: true, false]
 
@@ -175,7 +175,7 @@ export extern options [
   --copy-command: string
     # Switch to using a user supplied command for clipboard instead of OSC52
 
-  --copy-on-select: bool
+  --copy-on-select
     # Automatically copy when selecting text (true or false) [possible values: true, false]
 
   --default-cwd: string
@@ -199,11 +199,11 @@ export extern options [
   --layout-dir: string
     # Set the layout_dir, defaults to subdirectory of config dir
 
-  --mirror-session: bool
+  --mirror-session
     # Mirror session when multiple users are connected (true or false) [possible values: true,
     # false]
 
-  --mouse-mode: bool
+  --mouse-mode
     # Set the handling of mouse events (true or false) Can be temporarily bypassed by the
     # [SHIFT] key [possible values: true, false]
 
@@ -213,7 +213,7 @@ export extern options [
   --on-force-close: string@"nu-complete on-force-close"
     # Set behaviour on force close (quit or detach)
 
-  --pane-frames: bool
+  --pane-frames
     # Set display of the pane frames (true or false) [possible values: true, false]
 
   --scroll-buffer-size: int
@@ -230,22 +230,22 @@ export extern options [
   --serialization-interval: int
     # The interval at which to serialize sessions for resurrection (in seconds)
 
-  --serialize-pane-viewport: bool
+  --serialize-pane-viewport
     # Whether pane viewports are serialized along with the session, default is false [possible
     # values: true, false]
 
   --session-name: string
     # The name of the session to create when starting Zellij
 
-  --session-serialization: bool
+  --session-serialization
     # Whether sessions should be serialized to the HD so that they can be later resurrected,
     # default is true [possible values: true, false]
 
-  --simplified-ui: bool
+  --simplified-ui
     # Allow plugins to use a more simplified layout that is compatible with more fonts (true
     # or false) [possible values: true, false]
 
-  --styled-underlines: bool
+  --styled-underlines
     # Whether to use ANSI styled underlines [possible values: true, false]
 
   --theme: string

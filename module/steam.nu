@@ -24,7 +24,7 @@ export def run [account: string@accounts] {
     "--app=https://store.steampowered.com"
     $"--user-data-dir=/home/anthony/.config/steam_($account)"
   ]
-  brave-browser $args
+  brave-browser ...$args
 }
 
 export def desktop [account: string@accounts] {

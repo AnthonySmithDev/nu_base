@@ -24,6 +24,7 @@ set darkreaderblocklist+=https://play.d2lang.com
 set darkreaderblocklist+=https://p2p.binance.com
 set darkreaderblocklist+=https://accounts.binance.com
 set darkreaderblocklist+=https://docs.nano.org
+set darkreaderblocklist+=https://www.nushell.sh
 set darkreaderbrightness=100
 set darkreadercontrast=100
 set darkreaderfg=#e8e6e3

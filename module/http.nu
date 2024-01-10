@@ -11,7 +11,7 @@ export def download [
     if $output != null {
       $args = ($args | append ['--output' $output])
     }
-    ^https $args $url
+    ^https ...$args $url
   } else if not (^which xh | is-empty) {
     mut args = [
       '--body'
@@ -20,7 +20,7 @@ export def download [
     if $output != null {
       $args = ($args | append ['--output' $output])
     }
-    ^xh $args $url
+    ^xh ...$args $url
 
   } else if not (^which wget | is-empty) {
     mut args = [
@@ -30,7 +30,7 @@ export def download [
     if $output != null {
       $args = ($args | append ['--output-document' $output])
     }
-    ^wget $args  $url
+    ^wget ...$args  $url
   }
 }
 

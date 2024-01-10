@@ -50,10 +50,19 @@ export def vimiv [] {
 }
 
 export def helix [] {
-  let path = (mktemp -d)
-  git clone https://github.com/helix-editor/helix $path
+  let wd = pwd
+  let path = ($env.HOME | path join 'tmp' 'helix')
+
+  git_clone https://github.com/helix-editor/helix $path
+  cd $path
+
   cargo install --path ($path | path join helix-term) --locked
   mv ($path | path join runtime) $env.HELIX_RUNTIME
+
+  cp contrib/Helix.desktop ~/.local/share/applications
+  cp contrib/helix.png ~/.local/share/icons
+
+  cd $wd
 }
 
 export def hargo [] {
