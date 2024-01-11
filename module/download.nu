@@ -599,6 +599,14 @@ export def fx [] {
   move 'fx'
 }
 
+export def jqp [] {
+  let version = github get_version 'noahgorstein/jqp'
+
+  http download $'https://github.com/noahgorstein/jqp/releases/download/v($version)/jqp_Linux_x86_64.tar.gz'
+  extract tar jqp_Linux_x86_64.tar.gz -d jqp_Linux_x86_64
+  move -d jqp_Linux_x86_64 jqp
+}
+
 export def lux [] {
   let version = github get_version 'iawia002/lux'
 

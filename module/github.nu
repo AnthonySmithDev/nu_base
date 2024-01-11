@@ -657,6 +657,13 @@ export def repos [] {
     },
     {
       "category": "other",
+      "repository": "noahgorstein/jqp",
+      "tag_name": "0.5.0",
+      "active": true,
+      "release": true,
+    },
+    {
+      "category": "other",
       "repository": "ouch-org/ouch",
       "tag_name": "0.5.1",
       "active": true,
