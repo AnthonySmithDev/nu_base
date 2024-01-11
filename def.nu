@@ -152,3 +152,8 @@ def --env ci [] {
     with-env { PWD: $path } { nu }
   }
 }
+
+def --wrapped bg [...rest] {
+  let cmd = $"($rest | str join ' ') > /dev/null 2>&1 &"
+  bash -c $cmd
+}

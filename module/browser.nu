@@ -6,7 +6,7 @@ def choose [] {
 export def main [url: string] {
   let browser = choose
   if (ps | where name =~ $browser | is-empty) {
-    bash -c $"nohup ($browser) &"
+    bg $browser
   }
   ^$browser $url
 }
@@ -23,7 +23,7 @@ export def extension [] {
   ]
   let browser = choose
   if (ps | where name =~ $browser | is-empty) {
-    bash -c $"nohup ($browser) &"
+    bg $browser
   }
   for $extension in $extensions {
     do -i {
@@ -33,3 +33,14 @@ export def extension [] {
   rm nohup.out
 }
 
+export def proxy [--cert] {
+  $env.http_proxy = '0.0.0.0:8080'
+  if $cert {
+    let filename = ($env.HOME | path join 'Documents' 'mitmproxy-ca-cert.pem')
+    http get http://mitm.it/cert/pem | save -f $filename
+    sudo cp $filename /usr/local/share/ca-certificates/mitmproxy.crt
+    sudo update-ca-certificates
+  } else {
+    bg google-chrome --proxy-server="0.0.0.0:8080"
+  }
+}

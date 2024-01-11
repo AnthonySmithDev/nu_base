@@ -64,7 +64,7 @@ export def remove [name: string@list] {
 }
 
 export def sync [
-  --commit(-c): string
+  --commit(-c)
 ] {
   if not ($env.BOARD_PATH | path exists) {
     git clone git@github.com:AnthonySmithDev/board.git $env.BOARD_PATH
@@ -72,9 +72,17 @@ export def sync [
 
   git -C $env.BOARD_PATH pull
 
-  if not ($commit | is-empty) {
+  if $commit {
     git -C $env.BOARD_PATH add '.'
-    git -C $env.BOARD_PATH commit -m $commit
+    git -C $env.BOARD_PATH commit -m (msg)
     git -C $env.BOARD_PATH push
   }
+}
+
+export def msg [] {
+  let gitmojis = (http get https://gitmoji.dev/api/gitmojis | get gitmojis)
+  let max = ($gitmojis | length) - 1
+  let index = (random int 0..$max)
+  let gitmoji = ($gitmojis | get $index)
+  $'($gitmoji.emoji) ($gitmoji.description)'
 }

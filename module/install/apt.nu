@@ -167,6 +167,11 @@ export def keepassxc [] {
   sudo apt install -y keepassxc
 }
 
+export def snap [] {
+  sudo apt update
+  sudo apt install -y snapd
+}
+
 export def flathub [] {
   sudo apt install -y flatpak
   sudo apt install -y gnome-software-plugin-flatpak
@@ -300,7 +305,7 @@ export def regolith [] {
 export def remmina [] {
   udo apt-add-repository ppa:remmina-ppa-team/remmina-next
   sudo apt update
-  sudo apt install remmina remmina-plugin-rdp remmina-plugin-secret
+  sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
 }
 
 export def scrcpy [] {

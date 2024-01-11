@@ -1,9 +1,4 @@
 
-export def main [] {
-  sudo apt update
-  sudo apt install snapd
-}
-
 export def brave [] {
   sudo snap install brave
 }
@@ -26,4 +21,8 @@ export def docker [] {
   newgrp docker
   sudo snap disable docker
   sudo snap enable docker
+}
+
+export def vlc [] {
+  sudo snap install vlc
 }

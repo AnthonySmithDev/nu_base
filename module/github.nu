@@ -259,7 +259,7 @@ export def repos [] {
     {
       "category": "core",
       "repository": "sigoden/dufs",
-      "tag_name": "0.38.0",
+      "tag_name": "0.39.0",
       "active": true,
       "release": true,
     },
@@ -462,7 +462,7 @@ export def repos [] {
     {
       "category": "other",
       "repository": "jmorganca/ollama",
-      "tag_name": "0.1.19",
+      "tag_name": "0.1.20",
       "active": true,
       "release": true,
     },
