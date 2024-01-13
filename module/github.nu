@@ -321,6 +321,13 @@ export def repos [] {
     },
     {
       "category": "extra",
+      "repository": "mitmproxy/mitmproxy",
+      "tag_name": "10.2.1",
+      "active": true,
+      "release": true,
+    },
+    {
+      "category": "extra",
       "repository": "Jelmerro/Vieb",
       "tag_name": "11.0.0",
       "active": true,

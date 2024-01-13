@@ -306,22 +306,16 @@ export def vhs [] {
 export def amber [] {
   let version = github get_version 'dalance/amber'
 
-  let ambs_bin = bin ambs
-  let ambs_path = share ambs $version
+  let bin = bin amber
+  let path = share amber $version
 
-  let ambr_bin = bin ambr
-  let ambr_path = share ambr $version
-
-  if not ($ambs_path | path exists) {
+  if not ($path | path exists) {
     http download $'https://github.com/dalance/amber/releases/download/v($version)/amber-v($version)-x86_64-lnx.zip'
     extract zip $'amber-v($version)-x86_64-lnx.zip' -d 'amber-x86_64-lnx'
-    mv 'amber-x86_64-lnx/ambs' $ambs_path
-    mv 'amber-x86_64-lnx/ambr' $ambr_path
-    rm -rf 'amber-x86_64-lnx'
+    mv -f 'amber-x86_64-lnx' $path
   }
 
-  symlink $ambs_path $ambs_bin
-  symlink $ambr_path $ambr_bin
+  symlink $path $bin
 }
 
 export def lazygit [] {
@@ -983,11 +977,18 @@ export def ventoy [] {
 }
 
 export def mitmproxy [] {
-  let version = '10.1.6'
+  let version = github get_version 'mitmproxy/mitmproxy'
 
-  http download $'https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz'
-  extract tar $'mitmproxy-($version)-linux-x86_64.tar.gz' -d 'mitmproxy'
-  move -d 'mitmproxy' '*'
+  let bin = bin mitmproxy
+  let path = share mitmproxy $version
+
+  if not ($path | path exists) {
+    http download $'https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz'
+    extract tar $'mitmproxy-($version)-linux-x86_64.tar.gz' -d 'mitmproxy'
+    mv -f 'mitmproxy' $path
+  }
+
+  symlink $path $bin
 }
 
 export def speedtest [] {
@@ -1313,6 +1314,10 @@ def share [name: string, version: string] {
 
 def bin [name: string] {
   $env.USR_LOCAL_BIN | path join $name
+}
+
+def lib [name: string] {
+  $env.USR_LOCAL_LIB | path join $name
 }
 
 def symlink [src: string, dst: string] {

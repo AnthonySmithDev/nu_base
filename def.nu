@@ -143,6 +143,95 @@ def run-openai [] {
   litellm --model ("ollama" | path join $model) --api_base http://localhost:11434
 }
 
+def vieb [
+  --left(-l)
+  --right(-r)
+] {
+  if $left {
+    bg vieb --datafolder=~/.config/ViebLeft --config-file=~/.config/Vieb/viebrc
+    return
+  }
+  if $right {
+    bg vieb --datafolder=~/.config/ViebRight --config-file=~/.config/Vieb/viebrc
+    return
+  }
+  bg vieb
+}
+
+def brave [
+  url?: string
+  --left(-l)
+  --right(-r)
+  --proxy(-p)
+] {
+  mut args = []
+  if $proxy {
+    $args = ($args | append '--proxy-server=localhost:8080')
+  }
+  if ($url != null) {
+    $args = ($args | append $url)
+  }
+  if $left {
+    let data = ($env.HOME | path join .config brave-browser-left)
+    bg brave-browser --user-data-dir=($data) ...$args
+    return
+  }
+  if $right {
+    let data = ($env.HOME | path join .config brave-browser-right)
+    bg brave-browser --user-data-dir=($data) ...$args
+    return
+  }
+  bg brave-browser ...$args
+}
+
+def chrome [
+  url?: string
+  --left(-l)
+  --right(-r)
+  --proxy(-p)
+] {
+  mut args = []
+  if $proxy {
+    $args = ($args | append '--proxy-server=localhost:8080')
+  }
+  if ($url != null) {
+    $args = ($args | append $url)
+  }
+  if $left {
+    let data = ($env.HOME | path join .config google-chrome-left)
+    bg google-chrome --user-data-dir=($data) ...$args
+    return
+  }
+  if $right {
+    let data = ($env.HOME | path join .config google-chrome-right)
+    bg google-chrome --user-data-dir=($data) ...$args
+    return
+  }
+  bg google-chrome ...$args
+}
+
+def mitmproxy-crt [] {
+  let src = ($env.HOME | path join .mitmproxy mitmproxy-ca-cert.pem)
+  let dest = ($env.HOME | path join Documents mitmproxy.pem)
+  if not ($src | path exists) {
+    return
+  }
+  cp $src $dest
+  sudo cp $src /usr/local/share/ca-certificates/mitmproxy.crt
+  sudo update-ca-certificates
+}
+
+def proxify-crt [] {
+  let src = ($env.HOME | path join .config proxify cacert.pem)
+  let dest = ($env.HOME | path join Documents proxify.pem)
+  if not ($src | path exists) {
+    return
+  }
+  cp $src $dest
+  sudo cp $src /usr/local/share/ca-certificates/proxify.crt
+  sudo update-ca-certificates
+}
+
 def --env ci [] {
   let path = gum file --file --directory
   if ($path | path type) == 'file' {
