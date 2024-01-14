@@ -74,7 +74,6 @@ def local [] {
   download gdu --global
 
   config ssh
-  config github
   config mods
   config helix
   config zellij
@@ -94,6 +93,7 @@ def local [] {
   nerd-font FiraCode
   compile alacritty
   helix background
+  config github
   nu_source
 }
 
