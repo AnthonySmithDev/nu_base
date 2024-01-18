@@ -404,8 +404,8 @@ export def delta [] {
 export def bottom [] {
   let version = github get_version 'ClementTsang/bottom'
 
-  let bin = bin bottom
-  let path = share bottom $version
+  let bin = bin btm
+  let path = share btm $version
 
   if not ($path | path exists) {
     http download $'https://github.com/ClementTsang/bottom/releases/download/($version)/bottom_x86_64-unknown-linux-gnu.tar.gz'
