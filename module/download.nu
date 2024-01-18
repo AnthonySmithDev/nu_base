@@ -976,6 +976,13 @@ export def ventoy [] {
   symlink $path $env.VENTOY_PATH
 }
 
+export def stash [] {
+  let version = '0.24.3'
+  http download $'https://github.com/stashapp/stash/releases/download/v($version)/stash-linux' -o stash
+  chmod +x stash
+  move stash
+}
+
 export def mitmproxy [] {
   let version = github get_version 'mitmproxy/mitmproxy'
 
