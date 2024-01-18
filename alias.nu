@@ -23,6 +23,7 @@ alias gpU = git push -u origin main
 alias gP = git pull --no-edit
 alias gs = git status
 alias gl = git log
+alias gf = git fetch
 alias gaA = git add '.'
 alias grH = git reset --hard
 alias grM = git reset --mixed

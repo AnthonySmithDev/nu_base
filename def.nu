@@ -69,7 +69,7 @@ def json [] {
   to json | jless --mode line
 }
 
-def sjson [] {
+def "sc json" [] {
   let input = $in
   let args = [
     "--to-clipboard"
@@ -81,7 +81,7 @@ def sjson [] {
   $input | to json | silicon ...$args
 }
 
-def sgo [] {
+def "sc go" [] {
   let input = $in
   let args = [
     "--to-clipboard"
@@ -93,25 +93,16 @@ def sgo [] {
   $input | silicon ...$args
 }
 
-def highlight [--lines(-l): string] {
-  let args = $in
-  if not ($lines | is-empty) {
-    ($args | append ["--highlight-lines" $lines])
-  } else {
-    $args
-  }
-}
-
-def scode [
-  input: string
-  --lines (-l): string
-] {
-  mut args = [
+def "sc js" [] {
+  let input = $in
+  let args = [
     "--to-clipboard"
-    "--no-window-controls"
-    "--background" "#ABB8C3"
+    "--no-line-number"
+    "--no-window-controls" 
+    "--background" "#0B0E14" 
+    "--language" "js"
   ]
-  silicon $input (...$args | highlight -l $lines)
+  $input | silicon ...$args
 }
 
 def run-openai [] {
