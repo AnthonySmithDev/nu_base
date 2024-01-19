@@ -255,6 +255,21 @@ export def xh [ --global ] {
   symlink $path $bin
 }
 
+export def websocat [] {
+  let version = '1.12.0'
+
+  let bin = bin websocat
+  let path = share websocat $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/vi/websocat/releases/download/v($version)/websocat.x86_64-unknown-linux-musl' -o websocat
+    chmod +x websocat
+    mv websocat $path
+  }
+
+  symlink $path $bin
+}
+
 export def mods [] {
   let version = github get_version 'charmbracelet/mods'
 

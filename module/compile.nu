@@ -84,3 +84,15 @@ export def nchat [] {
 
   cd $wd
 }
+
+export def http-to-ws [] {
+  let wd = $env.PWD
+
+  let path = ($env.HOME | path join 'tmp' 'http-to-ws')
+  cd $path
+
+  git_clone https://github.com/AnthonySmithDev/http-to-ws.git "."
+  go install "."
+
+  cd $wd
+}
