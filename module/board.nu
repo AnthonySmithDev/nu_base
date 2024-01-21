@@ -66,11 +66,11 @@ export def remove [name: string@list] {
 export def sync [
   --commit(-c)
 ] {
-  if not ($env.BOARD_PATH | path exists) {
+  if ($env.BOARD_PATH | path exists) {
+    git -C $env.BOARD_PATH pull
+  } else {
     git clone git@github.com:AnthonySmithDev/board.git $env.BOARD_PATH
   }
-
-  git -C $env.BOARD_PATH pull
 
   if $commit {
     git -C $env.BOARD_PATH add '.'

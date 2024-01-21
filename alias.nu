@@ -17,10 +17,10 @@ alias snips = ssh snips.sh
 
 alias gra = git remote add
 alias grr = git remote remove
-alias gp = git push
-alias gpF = git push --force
-alias gpU = git push -u origin main
-alias gP = git pull --no-edit
+alias gP = git push
+alias gPF = git push --force
+alias gPU = git push -u origin main
+alias gp = git pull --no-edit
 alias gs = git status
 alias gl = git log
 alias gf = git fetch

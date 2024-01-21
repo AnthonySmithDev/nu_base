@@ -23,3 +23,4 @@ use steam.nu
 
 use helix
 use install
+use virtual

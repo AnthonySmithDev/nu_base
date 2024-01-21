@@ -321,3 +321,18 @@ export def steam [] {
   sudo dpkg -i steam.deb
   rm steam.deb
 }
+
+export def vagrant [] {
+  wget -O- https://apt.releases.hashicorp.com/gpg |
+  sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg | null
+  $"deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" |
+  sudo tee /etc/apt/sources.list.d/hashicorp.list
+
+  sudo apt update
+  sudo apt install vagrant
+}
+
+export def qemu [] {
+  sudo apt update
+  sudo apt install qemu-system-x86
+}
