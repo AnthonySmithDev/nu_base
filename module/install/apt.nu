@@ -297,9 +297,32 @@ export def regolith [] {
   sudo tee '/etc/apt/sources.list.d/regolith.list' | null
 
   sudo apt update
-  sudo apt install -y regolith-desktop regolith-session-flashback regolith-session-sway
-  sudo apt install -y regolith-look-ayu regolith-look-ayu-mirage regolith-look-ayu-dark
-  sudo apt install -y i3xrocks-focused-window-name i3xrocks-rofication i3xrocks-info i3xrocks-app-launcher i3xrocks-memory
+
+  let packages = [
+    # base
+    regolith-desktop
+
+    # session
+    regolith-session-flashback
+    regolith-session-sway
+
+    # look
+    regolith-look-ayu
+    regolith-look-ayu-mirage
+    regolith-look-ayu-dark
+    regolith-look-dracula
+    regolith-look-gruvbox
+    regolith-look-nord
+
+    # status
+    i3xrocks-focused-window-name
+    i3xrocks-rofication
+    i3xrocks-info
+    i3xrocks-app-launcher
+    i3xrocks-memory
+  ]
+
+  sudo apt install -y ...$packages
 }
 
 export def remmina [] {

@@ -89,6 +89,12 @@ export def zellij [] {
   shortcut zellij 'config.kdl'
 }
 
+export def zellij_themes [] {
+  let path = mktemp -d
+  git clone https://github.com/zellij-org/zellij.git $path
+  mv ($path | path join zellij-utils/assets/themes) ~/.config/zellij/themes
+}
+
 export def nushell [] {
   shortcut nushell 'config.nu'
   touch '~/.source.nu'
@@ -104,6 +110,12 @@ export def mods [] {
 export def alacritty [] {
   print $'User Config: alacritty'
   symlink_dir alacritty alacritty
+}
+
+export def alacritty_themes [] {
+  let path = mktemp -d
+  git clone https://github.com/alacritty/alacritty-theme.git $path
+  mv ($path | path join themes) ~/.config/alacritty/themes
 }
 
 export def vieb [] {
