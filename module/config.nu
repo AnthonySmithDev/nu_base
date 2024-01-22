@@ -113,6 +113,11 @@ export def vieb [] {
 export def regolith [] {
   shortcut regolith3 'Xresources'
   shortcut regolith3/i3 'config'
+  shortcut regolith3/picom 'config'
+}
+
+export def regolith-compositor [] {
+  sudo sed -i 's/\/usr\/bin\/picom/\/usr\/bin\/picom --experimental-backends/g' /usr/share/regolith-compositor/init
 }
 
 export def input-remapper [] {
