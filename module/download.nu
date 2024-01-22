@@ -46,6 +46,20 @@ export def helix [
   }
 }
 
+export def nvim [] {
+  let version = '0.9.5'
+
+  let path = share nvim $version
+
+  if not ($path | path exists) {
+    http download https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz
+    extract tar nvim-linux64.tar.gz
+    mv nvim-linux64 $path
+  }
+
+  symlink $path $env.NVIM_PATH
+}
+
 export def nushell [ --global ] {
   let version = github get_version 'nushell/nushell'
 
