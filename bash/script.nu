@@ -73,6 +73,10 @@ def local [] {
   download fzf --global
   download gdu --global
 
+  download mods
+  download lazygit
+  download lazydocker
+
   config ssh
   config mods
   config helix
@@ -89,6 +93,9 @@ def local [] {
   install apt flathub
   install apt regolith
   install apt input-remapper
+
+  install apt brave
+  install apt vieb
 
   nerd-font FiraCode
   compile alacritty

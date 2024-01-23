@@ -15,14 +15,35 @@ download() {
   rm -rf "nu-$version-x86_64-unknown-linux-gnu"
 }
 
-if [ ! -f $path ]; then
-  download
-fi
+run_script() {
+  script="$PWD/$(dirname "$0")/script.nu"
 
-script="$PWD/$(dirname "$0")/script.nu"
+  if [ "$1" == "--remote" ]; then
+    $path $script --remote
+  else
+    $path $script
+  fi
+}
 
-if [ "$1" == "--remote" ]; then
-  $path $script --remote
+check_internet() {
+  ping -c 1 google.com >/dev/null 2>&1
+
+  if [ $? -eq 0 ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+check_internet
+
+if [ $? -eq 0 ]; then
+  echo "Estás conectado a internet."
+  if [ ! -f $path ]; then
+    download
+  fi
+  run_script
 else
-  $path $script
+  echo "No estás conectado a internet."
 fi
+

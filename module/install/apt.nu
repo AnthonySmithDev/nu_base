@@ -4,7 +4,7 @@ export def core [] {
   dependency
 }
 
-export def browser [] {
+export def browsers [] {
   vieb
   brave
   opera
@@ -142,7 +142,7 @@ export def dependency [] {
     mpv
   ]
 
-  sudo apt install -y $packages
+  sudo apt install -y ...$packages
 }
 
 export def helix [] {
@@ -326,7 +326,7 @@ export def regolith [] {
 }
 
 export def remmina [] {
-  udo apt-add-repository ppa:remmina-ppa-team/remmina-next
+  sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
   sudo apt update
   sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
 }
