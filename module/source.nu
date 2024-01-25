@@ -20,7 +20,7 @@ use browser.nu
 use network.nu
 use compile.nu
 use steam.nu
-use neovim.nu
+use nvim.nu *
 
 use helix
 use install
