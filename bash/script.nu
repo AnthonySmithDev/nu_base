@@ -73,7 +73,12 @@ def local [] {
   download fzf --global
   download gdu --global
 
+  download lsd
+  download bat
   download mods
+  download qrcp
+  download jless
+  download taskell
   download lazygit
   download lazydocker
 

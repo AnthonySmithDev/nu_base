@@ -566,6 +566,21 @@ export def navi [] {
   move 'navi'
 }
 
+export def bore [] {
+  let version = '0.5.0'
+
+  let bin = bin bore
+  let path = share bore $version
+
+  if not ($path | path exists) {
+    http download $"https://github.com/ekzhang/bore/releases/download/v($version)/bore-v($version)-x86_64-unknown-linux-musl.tar.gz"
+    extract tar $"bore-v($version)-x86_64-unknown-linux-musl.tar.gz"
+    mv bore $path
+  }
+
+  symlink $path $bin
+}
+
 export def rclone [] {
   let version = github get_version 'rclone/rclone'
 

@@ -89,9 +89,13 @@ export def http-to-ws [] {
   let wd = $env.PWD
 
   let path = ($env.HOME | path join 'tmp' 'http-to-ws')
+  if not ($path | path exists) {
+    mkdir $path
+  }
+
   cd $path
 
-  git_clone https://github.com/AnthonySmithDev/http-to-ws.git "."
+  git_clone https://github.com/AnthonySmithDev/http-to-ws.git $path
   go install "."
 
   cd $wd

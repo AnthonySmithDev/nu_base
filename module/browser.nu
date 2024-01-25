@@ -1,6 +1,16 @@
 
 def choose [] {
-  gum choose [ "opera" "brave-browser" "google-chrome" ] | str trim
+  mut options = []
+  if not (which brave-browser | is-empty) {
+    $options = ($options | append brave-browser)
+  }
+  if not (which google-chrome | is-empty) {
+    $options = ($options | append google-chrome)
+  }
+  if not (which opera | is-empty) {
+    $options = ($options | append opera)
+  }
+  gum choose ...$options | str trim
 }
 
 export def main [url: string] {
