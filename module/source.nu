@@ -21,6 +21,7 @@ use network.nu
 use compile.nu
 use steam.nu
 use nvim.nu *
+use scr.nu
 
 use helix
 use install

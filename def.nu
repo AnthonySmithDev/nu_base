@@ -69,42 +69,6 @@ def json [] {
   to json | jless --mode line
 }
 
-def "sc json" [] {
-  let input = $in
-  let args = [
-    "--to-clipboard"
-    "--no-line-number"
-    "--no-window-controls" 
-    "--background" "#0B0E14" 
-    "--language" "json"
-  ]
-  $input | to json | silicon ...$args
-}
-
-def "sc go" [] {
-  let input = $in
-  let args = [
-    "--to-clipboard"
-    "--no-line-number"
-    "--no-window-controls" 
-    "--background" "#0B0E14" 
-    "--language" "go"
-  ]
-  $input | silicon ...$args
-}
-
-def "sc js" [] {
-  let input = $in
-  let args = [
-    "--to-clipboard"
-    "--no-line-number"
-    "--no-window-controls" 
-    "--background" "#0B0E14" 
-    "--language" "js"
-  ]
-  $input | silicon ...$args
-}
-
 def run-openai [] {
   let models = [
     llama2

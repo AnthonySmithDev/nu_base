@@ -47,12 +47,12 @@ export def helix [
 }
 
 export def nvim [] {
-  let version = '0.9.5'
+  let version = github get_version 'neovim/neovim'
 
   let path = share nvim $version
 
   if not ($path | path exists) {
-    http download https://github.com/neovim/neovim/releases/download/v0.9.5/nvim-linux64.tar.gz
+    http download $'https://github.com/neovim/neovim/releases/download/v($version)/nvim-linux64.tar.gz'
     extract tar nvim-linux64.tar.gz
     mv nvim-linux64 $path
   }
@@ -270,7 +270,7 @@ export def xh [ --global ] {
 }
 
 export def websocat [] {
-  let version = '1.12.0'
+  let version = github get_version 'vi/websocat'
 
   let bin = bin websocat
   let path = share websocat $version
@@ -319,9 +319,17 @@ export def glow [] {
 export def soft [] {
   let version = github get_version 'charmbracelet/soft-serve'
 
-  http download $'https://github.com/charmbracelet/soft-serve/releases/download/v($version)/soft-serve_($version)_Linux_x86_64.tar.gz'
-  extract tar $'soft-serve_($version)_Linux_x86_64.tar.gz' -d 'soft-serve_Linux_x86_64'
-  move -d 'soft-serve_Linux_x86_64' 'soft'
+  let bin = bin soft
+  let path = share soft $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/charmbracelet/soft-serve/releases/download/v($version)/soft-serve_($version)_Linux_x86_64.tar.gz'
+    extract tar $'soft-serve_($version)_Linux_x86_64.tar.gz' -d 'soft-serve_Linux_x86_64'
+    mv 'soft-serve_Linux_x86_64/soft' $path
+    # rm -rf 'soft-serve_Linux_x86_64'
+  }
+
+  symlink $path $bin
 }
 
 export def vhs [] {
@@ -567,7 +575,7 @@ export def navi [] {
 }
 
 export def bore [] {
-  let version = '0.5.0'
+  let version = github get_version 'ekzhang/bore'
 
   let bin = bin bore
   let path = share bore $version
@@ -680,9 +688,17 @@ export def ouch [] {
 export def lsd [] {
   let version = github get_version 'lsd-rs/lsd'
 
-  http download $'https://github.com/lsd-rs/lsd/releases/download/v($version)/lsd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'lsd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'lsd-v($version)-x86_64-unknown-linux-gnu' 'lsd'
+  let bin = bin lsd
+  let path = share lsd $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/lsd-rs/lsd/releases/download/v($version)/lsd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'lsd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    mv $'lsd-v($version)-x86_64-unknown-linux-gnu/lsd' $path
+    rm -rf $'lsd-v($version)-x86_64-unknown-linux-gnu'
+  }
+
+  symlink $path $bin
 }
 
 export def mdcat [] {

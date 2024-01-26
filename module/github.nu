@@ -39,13 +39,21 @@ export def names [] {
   repos | get repository
 }
 
+export def get_repository [name: string@names] {
+  let repo = (repos | where repository == $name)
+  if ($repo | is-empty) {
+    error make -u {msg: "the repository does not exist"}
+  }
+  return ($repo | first)
+}
+
 export def name_tag [context: string] {
   let name = ($context | str trim | split row " " | last)
-  [ (repos | where repository == $name | first | get tag_name) ]
+  [ (get_repository $name | get tag_name) ]
 }
 
 export def get_version [name: string@names] {
-  repos | where repository == $name | first | get tag_name
+  get_repository $name | get tag_name
 }
 
 export def release_tag [name: string@names, tag: string@name_tag] {

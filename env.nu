@@ -125,6 +125,7 @@ $env.SHELL = ($env.USR_LOCAL_BIN | path join 'nu')
 $env.EDITOR = ($env.HELIX_PATH | path join 'hx')
 $env.VISUAL = ($env.HELIX_PATH | path join 'hx')
 $env.MANPAGER = "sh -c 'col -bx | bat -l man -p'"
+$env.SOFT_SERVE_DATA_PATH = ($env.HOME | path join '.soft-server')
 
 def --env env-path [path: string] {
   if ($path | path exists) {

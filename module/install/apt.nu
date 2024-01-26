@@ -209,17 +209,21 @@ export def dart [] {
 export def input-remapper [] {
   let version = github get_version 'sezanzeb/input-remapper'
 
-  wget --quiet --show-progress $'https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb'
-  sudo apt install -y $'./input-remapper-($version).deb'
-  rm -rf $'./input-remapper-($version).deb*'
+  let filepath = filepath input-remapper-($version).deb
+  if not ($filepath | path exists) {
+    http download $'https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb' -o $filepath
+  }
+  sudo dpkg -i $filepath
 }
 
 export def vieb [] {
   let version = github get_version 'Jelmerro/Vieb'
 
-  wget --quiet --show-progress $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb'
-  sudo dpkg -i $'vieb_($version)_amd64.deb'
-  rm -rf $'vieb_($version)_amd64.deb*'
+  let filepath = filepath vieb_($version)_amd64.deb
+  if not ($filepath | path exists) {
+    http download $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb' -o $filepath
+  }
+  sudo dpkg -i $filepath
 }
 
 export def brave [] {
@@ -358,4 +362,8 @@ export def vagrant [] {
 export def qemu [] {
   sudo apt update
   sudo apt install qemu-system-x86
+}
+
+def filepath [name: string] {
+  $env.USR_LOCAL_SHARE | path join download $name
 }

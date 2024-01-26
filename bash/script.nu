@@ -76,11 +76,15 @@ def local [] {
   download lsd
   download bat
   download mods
+  download glow
+  download soft
   download qrcp
   download jless
   download taskell
+  download silicon
   download lazygit
   download lazydocker
+  download mitmproxy
 
   config ssh
   config mods
