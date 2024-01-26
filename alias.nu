@@ -36,3 +36,6 @@ alias gcA = git commit --allow-empty --amend --no-edit
 alias gmc = gitmoji -c
 
 alias ventoyGUI = sudo ($env.VENTOY_PATH | path join VentoyGUI.x86_64)
+
+alias docker! = ^($env.DOCKER_BIN | path join docker)
+alias dockerd! = sudo ($env.DOCKER_BIN | path join dockerd)

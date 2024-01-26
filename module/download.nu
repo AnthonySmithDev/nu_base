@@ -1290,17 +1290,24 @@ export def remote-mouse [] {
   rm ($env.REMOTE_MOUSE_PATH | path join install.sh)
 }
 
-export def docker [] {
+export def docker [--group] {
   let version = '24.0.7'
 
-  http download https://download.docker.com/linux/static/stable/x86_64/docker-($version).tgz
-  extract tar docker-($version).tgz
-  sudo cp docker/* /usr/bin/
+  let bin = bin docker
+  let path = share docker $version
 
-  sudo groupadd docker
-  sudo usermod -aG docker $env.USER
+  if not ($path | path exists) {
+    http download https://download.docker.com/linux/static/stable/x86_64/docker-($version).tgz
+    extract tar docker-($version).tgz
+    mv docker $path
+  }
 
-  bash -c 'sudo dockerd &'
+  if $group {
+    sudo groupadd docker
+    sudo usermod -aG docker $env.USER
+  }
+
+  symlink $path $bin
 }
 
 export def core [] {

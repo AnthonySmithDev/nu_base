@@ -29,6 +29,9 @@ env-path $env.MITMPROXY_BIN
 $env.AMBER_BIN = ($env.USR_LOCAL_BIN | path join 'amber')
 env-path $env.AMBER_BIN
 
+$env.DOCKER_BIN = ($env.USR_LOCAL_BIN | path join docker)
+env-path $env.DOCKER_BIN
+
 $env.VENTOY_PATH = ($env.USR_LOCAL_LIB | path join 'ventoy')
 
 $env.NODE_PATH = ($env.USR_LOCAL_LIB | path join 'node')
@@ -126,6 +129,7 @@ $env.EDITOR = ($env.HELIX_PATH | path join 'hx')
 $env.VISUAL = ($env.HELIX_PATH | path join 'hx')
 $env.MANPAGER = "sh -c 'col -bx | bat -l man -p'"
 $env.SOFT_SERVE_DATA_PATH = ($env.HOME | path join '.soft-server')
+# $env.SOFT_SERVE_INITIAL_ADMIN_KEYS = (open ~/.ssh/id_ed25519.pub)
 
 def --env env-path [path: string] {
   if ($path | path exists) {
