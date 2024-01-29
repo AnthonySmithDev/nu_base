@@ -15,3 +15,4 @@ use fzf.nu
 use bat.nu
 use find.nu fd
 use ripgrep.nu rg
+use tailscale.nu
