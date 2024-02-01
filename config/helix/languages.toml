@@ -24,4 +24,13 @@ indent = { tab-width = 2, unit = "  " }
 
 [[grammar]]
 name = "nu"
-source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "26bbaecda0039df4067861ab38ea8ea169f7f5aa" }
+source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "main" }
+
+[[language]]
+name = "gemini"
+scope = "source.gmi"
+file-types = ["gmi"]
+
+[[grammar]]
+name = "gemini"
+source = { git = "https://git.sr.ht/~nbsp/tree-sitter-gemini", rev = "3cc5e4bdf572d5df4277fc2e54d6299bd59a54b3" }

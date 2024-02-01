@@ -35,8 +35,9 @@ def 'chmod nu_base' [] {
   fd --type dir --exec chmod 755 {}
 }
 
-def trans [ ...text: string ] {
-  docker run -it --rm soimort/translate-shell -b :es ($text | str join ' ')
+def trans [ ...text: string, --en(-e)] {
+  let lang = if $en { ':en' } else { ':es' }
+  docker run -it --rm soimort/translate-shell -b $lang ($text | str join ' ')
 }
 
 def 'nu gitignore list' [] {
