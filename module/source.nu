@@ -22,6 +22,7 @@ use compile.nu
 use steam.nu
 use nvim.nu *
 use scr.nu
+use gpt.nu
 
 use helix
 use install
