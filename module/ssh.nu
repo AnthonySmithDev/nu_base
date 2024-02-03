@@ -5,40 +5,55 @@ export def servers [] {
       alias: 'R2'
       user: 'anthony'
       pass: '40149616'
-      host: '192.168.0.141'
-      domain: 'r2'
+      host: {
+        local: '192.168.0.141'
+        tailscale: '100.77.231.27'
+      }
+      hostname: 'r2'
       private: true
     }
     {
       alias: 'S1'
       user: 'freyrecorp'
       pass: '40149616'
-      host: '192.168.0.11'
-      domain: 'hansolo'
+      host: {
+        local: '192.168.0.11'
+        tailscale: '100.93.208.5'
+      }
+      hostname: 'hansolo'
       private: false
     }
     {
       alias: 'S2'
       user: 'freyrecorp'
       pass: '40149616'
-      host: '192.168.0.12'
-      domain: 'darthvader'
+      host: {
+        local: '192.168.0.12'
+        tailscale: '100.122.65.125'
+      }
+      hostname: 'darthvader'
       private: false
     }
     {
       alias: 'S3'
       user: 'freyrecorp'
       pass: '40149616'
-      host: '192.168.0.13'
-      domain: 'yoda'
+      host: {
+        local: '192.168.0.13'
+        tailscale: '100.93.5.38'
+      }
+      hostname: 'yoda'
       private: false
     }
     {
       alias: 'S4'
       user: 'freyrecorp'
       pass: '40149616'
-      host: '192.168.0.14'
-      domain: 'kenobi'
+      host: {
+        local: '192.168.0.14'
+        tailscale: '100.98.177.106'
+      }
+      hostname: 'kenobi'
       private: false
     }
   ]
@@ -54,9 +69,9 @@ export def get_server [alias: string@'list-server'] {
 
 export def get_dest [server: record, path?: string] {
   if $path != null {
-    return $'($server.user)@($server.domain):($path)'
+    return $'($server.user)@($server.hostname):($path)'
   }
-  return $'($server.user)@($server.domain)'
+  return $'($server.user)@($server.hostname)'
 }
 
 export def 'key copy' [alias: string@'list-server'] {
