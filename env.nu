@@ -7,6 +7,7 @@ if not ($env.REPO_PATH | path exists) {
 $env.USR_LOCAL = ($env.HOME | path join '.usr' 'local')
 $env.USR_LOCAL_BIN = ($env.USR_LOCAL | path join 'bin')
 $env.USR_LOCAL_LIB = ($env.USR_LOCAL | path join 'lib')
+$env.USR_LOCAL_SOURCE = ($env.USR_LOCAL | path join 'source')
 $env.USR_LOCAL_SHARE = ($env.USR_LOCAL | path join 'share')
 $env.USR_LOCAL_SHARE_FONTS = ($env.USR_LOCAL_SHARE | path join 'fonts')
 env-path $env.USR_LOCAL_BIN

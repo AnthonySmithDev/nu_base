@@ -7,20 +7,22 @@ def git_clone [repository: string, path: string] {
   }
 }
 
-export def alacritty [] {
+export def alacritty [--desktop] {
   let wd = pwd
-  let path = ($env.HOME | path join 'tmp' 'alacritty')
+  let path = ($env.USR_LOCAL_SOURCE | path join alacritty)
 
   git_clone https://github.com/alacritty/alacritty.git $path
   cd $path
 
   cargo build --release
 
-  # Desktop Entry
   sudo cp -f target/release/alacritty /usr/local/bin
-  sudo cp -f extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-  sudo desktop-file-install extra/linux/Alacritty.desktop
-  sudo update-desktop-database
+
+  if $desktop {
+    sudo cp -f extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+    sudo desktop-file-install extra/linux/Alacritty.desktop
+    sudo update-desktop-database
+  }
 
   # Manual Page
   sudo mkdir -p /usr/local/share/man/man1
@@ -38,6 +40,30 @@ export def alacritty [] {
   cd $wd
 }
 
+export def nushell [] {
+  let source = ($env.USR_LOCAL_SOURCE | path join nushell)
+  git_clone https://github.com/nushell/nushell.git $source
+  PWD=$source cargo build --release --workspace
+}
+
+export def helix [--desktop] {
+  let wd = pwd
+  let path = ($env.USR_LOCAL_SOURCE | path join helix)
+
+  git_clone https://github.com/helix-editor/helix $path
+  cd $path
+
+  cargo install --path ($path | path join helix-term) --locked
+  mv ($path | path join runtime) $env.HELIX_RUNTIME
+
+  if $desktop {
+    cp contrib/Helix.desktop ~/.local/share/applications
+    cp contrib/helix.png ~/.local/share/icons
+  }
+
+  cd $wd
+}
+
 export def riv [] {
   cargo install --git https://github.com/Davejkane/riv
 }
@@ -47,22 +73,6 @@ export def vimiv [] {
   git clone https://github.com/karlch/vimiv-qt $dir
   mv ($dir | path join misc Makefile) $dir
   PWD=$dir sudo make install
-}
-
-export def helix [] {
-  let wd = pwd
-  let path = ($env.HOME | path join 'tmp' 'helix')
-
-  git_clone https://github.com/helix-editor/helix $path
-  cd $path
-
-  cargo install --path ($path | path join helix-term) --locked
-  mv ($path | path join runtime) $env.HELIX_RUNTIME
-
-  cp contrib/Helix.desktop ~/.local/share/applications
-  cp contrib/helix.png ~/.local/share/icons
-
-  cd $wd
 }
 
 export def hargo [] {
