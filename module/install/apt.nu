@@ -134,12 +134,14 @@ export def dependency [] {
     # tools
     ssh
     sshpass
+
     htop
     xclip
-    neovim
     neofetch
     lolcat
     mpv
+
+    gnome-screenshot
   ]
 
   sudo apt install -y ...$packages

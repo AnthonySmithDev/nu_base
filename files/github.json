@@ -79,7 +79,7 @@
   {
     "category": "core",
     "repository": "junegunn/fzf",
-    "tag_name": "0.46.0",
+    "tag_name": "0.46.1",
     "active": true,
     "release": true
   },
@@ -149,7 +149,7 @@
   {
     "category": "core",
     "repository": "claudiodangelis/qrcp",
-    "tag_name": "0.11.1",
+    "tag_name": "0.11.2",
     "active": true,
     "release": true
   },
@@ -163,7 +163,7 @@
   {
     "category": "core",
     "repository": "max-niederman/ttyper",
-    "tag_name": "1.4.0",
+    "tag_name": "1.4.1",
     "active": true,
     "release": true
   },
@@ -184,7 +184,7 @@
   {
     "category": "core",
     "repository": "Canop/broot",
-    "tag_name": "1.32.0",
+    "tag_name": "1.33.1",
     "active": true,
     "release": true
   },
@@ -345,7 +345,7 @@
   {
     "category": "extra",
     "repository": "owenthereal/upterm",
-    "tag_name": "0.13.0",
+    "tag_name": "0.13.2",
     "active": true,
     "release": true
   },
@@ -373,14 +373,14 @@
   {
     "category": "other",
     "repository": "jmorganca/ollama",
-    "tag_name": "0.1.21",
+    "tag_name": "0.1.23",
     "active": true,
     "release": true
   },
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "2.6.1",
+    "tag_name": "2.7.0",
     "active": true,
     "release": true
   },
