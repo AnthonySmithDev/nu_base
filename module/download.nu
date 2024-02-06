@@ -355,6 +355,22 @@ export def amber [] {
   symlink $path $bin
 }
 
+export def obsidian-cli [] {
+  let version = "0.1.6"
+
+  let bin = bin obs
+  let path = share obs $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/Yakitrak/obsidian-cli/releases/download/v($version)/obsidian-cli_($version)_linux_amd64.tar.gz'
+    extract tar $"obsidian-cli_($version)_linux_amd64.tar.gz" -d "obsidian-cli_linux_amd64" 
+    mv 'obsidian-cli_linux_amd64/obs' $path
+    rm -rf obsidian-cli_linux_amd64
+  }
+
+  symlink $path $bin
+}
+
 export def lazygit [] {
   let version = github get_version 'jesseduffield/lazygit'
 
@@ -1120,6 +1136,12 @@ export def rust [ --latest ] {
   if not ("~/.rustup/toolchains" | path exists) {
     # curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
     wget -O- --https-only --secure-protocol=auto --quiet --show-progress https://sh.rustup.rs | sh -s -- -q -y
+  }
+}
+
+export def haskell [ --latest ] {
+  if not ("~/.ghcup" | path exists) {
+    curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
   }
 }
 

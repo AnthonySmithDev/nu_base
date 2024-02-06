@@ -98,6 +98,10 @@ $env.CARGOPATH = ($env.HOME | path join '.cargo')
 $env.CARGOBIN = ($env.CARGOPATH | path join 'bin')
 env-path $env.CARGOBIN
 
+$env.GHCUPPATH = ($env.HOME | path join '.ghcup')
+$env.GHCUPBIN = ($env.GHCUPPATH | path join 'bin')
+env-path $env.GHCUPBIN
+
 $env.LOCAL_PATH = ($env.HOME | path join '.local')
 $env.LOCAL_BIN = ($env.LOCAL_PATH | path join 'bin')
 $env.LOCAL_SHARE = ($env.LOCAL_PATH | path join 'share')

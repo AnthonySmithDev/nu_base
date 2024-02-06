@@ -110,3 +110,9 @@ export def http-to-ws [] {
 
   cd $wd
 }
+
+export def tasklite [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join TaskLite)
+  git_clone https://github.com/ad-si/TaskLite $path
+  PWD=$path stack install tasklite-core
+}
