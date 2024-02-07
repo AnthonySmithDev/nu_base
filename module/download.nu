@@ -1,6 +1,4 @@
 
-use github.nu
-
 export def gum [ --global ] {
   let version = github get_version 'charmbracelet/gum'
 
@@ -766,9 +764,17 @@ export def coreutils [] {
 export def carapace [] {
   let version = github get_version 'rsteube/carapace-bin'
 
-  http download $'https://github.com/rsteube/carapace-bin/releases/download/v($version)/carapace-bin_linux_amd64.tar.gz'
-  extract tar 'carapace-bin_linux_amd64.tar.gz' -d 'carapace-bin_linux_amd64'
-  move -d 'carapace-bin_linux_amd64' 'carapace'
+  let bin = bin carapace
+  let path = share carapace $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/rsteube/carapace-bin/releases/download/v($version)/carapace-bin_linux_amd64.tar.gz'
+    extract tar 'carapace-bin_linux_amd64.tar.gz' -d 'carapace-bin_linux_amd64'
+    mv 'carapace-bin_linux_amd64/carapace' $path
+    rm -rf 'carapace-bin_linux_amd64'
+  }
+
+  symlink $path $bin
 }
 
 export def bombardier [] {
@@ -782,9 +788,16 @@ export def bombardier [] {
 export def ruff [] {
   let version = github get_version 'astral-sh/ruff'
 
-  http download https://github.com/astral-sh/ruff/releases/download/v($version)/ruff-x86_64-unknown-linux-gnu.tar.gz
-  extract tar ruff-x86_64-unknown-linux-gnu.tar.gz
-  move 'ruff'
+  let bin = bin ruff
+  let path = share ruff $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/astral-sh/ruff/releases/download/v($version)/ruff-($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'ruff-($version)-x86_64-unknown-linux-musl.tar.gz'
+    mv ruff $path
+  }
+
+  symlink $path $bin
 }
 
 export def micro [] {
