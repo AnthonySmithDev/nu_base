@@ -4,7 +4,7 @@ export-env {
 }
 
 def default [] {
-  "## To Do\n\n## Doing\n\n## Done\n\n"
+  "## To Do\n\n## Priority\n\n## Doing\n\n## Done\n\n"
 }
 
 def board_path [] {
@@ -13,7 +13,7 @@ def board_path [] {
   }
 }
 
-export def main [name?: string] {
+export def main [name?: string@list] {
   if ($name != null) {
     new $name
   } else {
@@ -23,7 +23,7 @@ export def main [name?: string] {
 
 export def list [] {
   board_path
-  ls -s $env.BOARD_PATH | get name
+  ls -s $env.BOARD_PATH | where type == file | get name
 }
 
 export def add [name: string] {

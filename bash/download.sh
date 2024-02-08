@@ -6,7 +6,7 @@ path="$dir/$file"
 mkdir -p $dir
 
 download() {
-  version="0.89.0"
+  version="0.90.1"
   wget --quiet --show-progress "https://github.com/nushell/nushell/releases/download/$version/nu-$version-x86_64-unknown-linux-gnu.tar.gz"
   tar -xf "nu-$version-x86_64-unknown-linux-gnu.tar.gz"
   rm "nu-$version-x86_64-unknown-linux-gnu.tar.gz"

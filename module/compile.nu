@@ -40,10 +40,19 @@ export def alacritty [--desktop] {
   cd $wd
 }
 
-export def nushell [] {
+export def nushell [--plugin] {
   let source = ($env.USR_LOCAL_SOURCE | path join nushell)
   git_clone https://github.com/nushell/nushell.git $source
   PWD=$source cargo build --release --workspace
+
+  let src = ($source | path join target release nu)
+  let dest = ($env.USR_LOCAL_BIN | path join nu)
+  ln -sf $src $dest
+
+  if $plugin {
+    let nu_plugin_query = ($source | path join target release nu_plugin_query)
+    nu -c $'register ($nu_plugin_query)'
+  }
 }
 
 export def helix [--desktop] {
