@@ -7,47 +7,59 @@ def git_clone [repository: string, path: string] {
   }
 }
 
-export def alacritty [--desktop] {
-  let wd = pwd
-  let path = ($env.USR_LOCAL_SOURCE | path join alacritty)
+export def alacritty [ --default --desktop --manual] {
+  let source = ($env.USR_LOCAL_SOURCE | path join alacritty)
+  git_clone https://github.com/alacritty/alacritty.git $source
 
-  git_clone https://github.com/alacritty/alacritty.git $path
-  cd $path
-
-  cargo build --release
-
-  sudo cp -f target/release/alacritty /usr/local/bin
-
-  if $desktop {
-    sudo cp -f extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-    sudo desktop-file-install extra/linux/Alacritty.desktop
-    sudo update-desktop-database
+  with-env { PWD: $source } {
+    cargo build --release
   }
 
-  # Manual Page
-  sudo mkdir -p /usr/local/share/man/man1
-  sudo mkdir -p /usr/local/share/man/man5
+  let src = ($source | path join target release alacritty)
+  let dest = ($env.USR_LOCAL_BIN | path join alacritty)
 
-  bash -c "scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null"
-  bash -c "scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null"
-  bash -c "scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null"
-  bash -c "scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null"
+  ln -sf $src $dest
+  sudo ln -sf $dest "/usr/local/bin/alacritty"
 
-  # Default Terminal
-  sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator (^which alacritty) 100
-  # sudo update-alternatives --config x-terminal-emulator
+  if $default {
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator (^which alacritty) 100
+    # sudo update-alternatives --config x-terminal-emulator
+  }
 
-  cd $wd
+  if $desktop {
+    with-env { PWD: $source } {
+      sudo cp -f extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
+      sudo desktop-file-install extra/linux/Alacritty.desktop
+      sudo update-desktop-database
+    }
+  }
+
+  if $manual {
+    sudo mkdir -p /usr/local/share/man/man1
+    sudo mkdir -p /usr/local/share/man/man5
+
+    with-env { PWD: $source } {
+      bash -c "scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null"
+      bash -c "scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null"
+      bash -c "scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null"
+      bash -c "scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null"
+    }
+  }
 }
 
 export def nushell [--plugin] {
   let source = ($env.USR_LOCAL_SOURCE | path join nushell)
   git_clone https://github.com/nushell/nushell.git $source
-  PWD=$source cargo build --release --workspace
+
+  with-env { PWD: $source } {
+    cargo build --release --workspace
+  }
 
   let src = ($source | path join target release nu)
   let dest = ($env.USR_LOCAL_BIN | path join nu)
+
   ln -sf $src $dest
+  sudo ln -sf $dest "/usr/local/bin/nu"
 
   if $plugin {
     let nu_plugin_query = ($source | path join target release nu_plugin_query)
@@ -56,21 +68,28 @@ export def nushell [--plugin] {
 }
 
 export def helix [--desktop] {
-  let wd = pwd
-  let path = ($env.USR_LOCAL_SOURCE | path join helix)
+  let source = ($env.USR_LOCAL_SOURCE | path join helix)
+  git_clone https://github.com/helix-editor/helix $source
 
-  git_clone https://github.com/helix-editor/helix $path
-  cd $path
-
-  cargo install --path ($path | path join helix-term) --locked
-  mv ($path | path join runtime) $env.HELIX_RUNTIME
-
-  if $desktop {
-    cp contrib/Helix.desktop ~/.local/share/applications
-    cp contrib/helix.png ~/.local/share/icons
+  let term = ($source | path join helix-term)
+  with-env { PWD: $term } {
+    cargo build --release --locked
   }
 
-  cd $wd
+  let src = ($source | path join target release hx)
+  let dest = ($env.USR_LOCAL_BIN | path join hx)
+
+  ln -sf $src $dest
+  sudo ln -sf $dest "/usr/local/bin/hx"
+
+  cp -r -f -p ($source | path join runtime) $env.HELIX_RUNTIME
+
+  if $desktop {
+    with-env { PWD: $source } {
+      cp contrib/Helix.desktop ~/.local/share/applications
+      cp contrib/helix.png ~/.local/share/icons
+    }
+  }
 }
 
 export def riv [] {
@@ -97,9 +116,9 @@ export def nchat [] {
   git_clone https://github.com/d99kris/nchat $path
   cd $path
 
-  ./make.sh deps
-  ./make.sh build
-  ./make.sh install
+  bash -c ./make.sh deps
+  bash -c ./make.sh build
+  bash -c ./make.sh install
 
   cd $wd
 }
