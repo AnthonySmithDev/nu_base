@@ -1127,6 +1127,7 @@ export def node [ --latest ] {
 }
 
 export def golang [ --latest ] {
+  # https://go.dev/dl/?mode=json
   let versions = ['1.21.5' '1.20.12' '1.20.3' '1.19.13']
 
   let version = if $latest { 
