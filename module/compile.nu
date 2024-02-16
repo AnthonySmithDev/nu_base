@@ -144,3 +144,31 @@ export def tasklite [] {
   git_clone https://github.com/ad-si/TaskLite $path
   PWD=$path stack install tasklite-core
 }
+
+export def amp [] {
+  let source = ($env.USR_LOCAL_SOURCE | path join amp)
+  git_clone https://github.com/jmacdonald/amp $source
+
+  with-env { PWD: $source } {
+    cargo build --release
+  }
+
+  let src = ($source | path join target release amp)
+  let dest = ($env.USR_LOCAL_BIN | path join amp)
+
+  ln -sf $src $dest
+}
+
+export def lapce [] {
+  let source = ($env.USR_LOCAL_SOURCE | path join lapce)
+  git_clone https://github.com/lapce/lapce $source
+
+  with-env { PWD: $source } {
+    cargo build --release
+  }
+
+  let src = ($source | path join target release lapce)
+  let dest = ($env.USR_LOCAL_BIN | path join lapce)
+
+  ln -sf $src $dest
+}

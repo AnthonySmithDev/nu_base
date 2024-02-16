@@ -984,6 +984,19 @@ export def vscodium [] {
   symlink $path $env.VSCODIUM_PATH
 }
 
+export def code-server [] {
+  let version = github get_version 'coder/code-server'
+
+  let path = share code-server $version
+  if not ($path | path exists) {
+    http download $'https://github.com/coder/code-server/releases/download/v($version)/code-server-($version)-linux-amd64.tar.gz'
+    extract tar $'code-server-($version)-linux-amd64.tar.gz'
+    mv -f $'code-server-($version)-linux-amd64' $path
+  }
+
+  symlink $path $env.CODE_SERVER_PATH
+}
+
 export def termshark [] {
   let version = github get_version 'gcla/termshark'
 

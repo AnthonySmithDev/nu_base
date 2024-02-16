@@ -24,6 +24,10 @@ $env.VSCODIUM_PATH = ($env.USR_LOCAL_LIB | path join 'vscodium')
 $env.VSCODIUM_BIN = ($env.VSCODIUM_PATH | path join 'bin')
 env-path $env.VSCODIUM_BIN
 
+$env.CODE_SERVER_PATH = ($env.USR_LOCAL_LIB | path join 'code-server')
+$env.CODE_SERVER_BIN = ($env.CODE_SERVER_PATH | path join 'bin')
+env-path $env.CODE_SERVER_BIN
+
 $env.MITMPROXY_BIN = ($env.USR_LOCAL_BIN | path join 'mitmproxy')
 env-path $env.MITMPROXY_BIN
 

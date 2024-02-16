@@ -400,6 +400,13 @@
   },
   {
     "category": "other",
+    "repository": "coder/code-server",
+    "tag_name": "4.21.1",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "other",
     "repository": "gcla/termshark",
     "tag_name": "2.4.0",
     "active": true,

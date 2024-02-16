@@ -35,7 +35,7 @@ export def dependency [] {
   add-universe
   add-multiverse
 
-  let packages = [
+  let packages = ([
     # helix
     libc6-dev
 
@@ -131,6 +131,16 @@ export def dependency [] {
     'libusb-1.0-0-dev'
     libnetfilter-queue-dev
 
+    # lapce
+    clang
+    libxkbcommon-x11-dev
+    pkg-config
+    libvulkan-dev
+    libwayland-dev
+    xorg-dev
+    libxcb-shape0-dev
+    libxcb-xfixes0-dev
+
     # tools
     ssh
     sshpass
@@ -142,7 +152,7 @@ export def dependency [] {
     mpv
 
     gnome-screenshot
-  ]
+  ] | uniq)
 
   sudo apt install -y ...$packages
 }
