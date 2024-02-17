@@ -232,6 +232,13 @@
   },
   {
     "category": "extra",
+    "repository": "pkolaczk/fclones",
+    "tag_name": "0.34.0",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "extra",
     "repository": "Jelmerro/Vieb",
     "tag_name": "11.0.0",
     "active": true,

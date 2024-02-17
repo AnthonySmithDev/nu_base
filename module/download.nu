@@ -1100,6 +1100,22 @@ export def mitmproxy [] {
   symlink $path $bin
 }
 
+export def fclones [] {
+  let version = github get_version 'pkolaczk/fclones'
+
+  let bin = bin fclones
+  let path = share fclones $version
+
+  if not ($path | path exists) {
+    http download $"https://github.com/pkolaczk/fclones/releases/download/v($version)/fclones-($version)-linux-musl-x86_64.tar.gz"
+    extract tar $"fclones-($version)-linux-musl-x86_64.tar.gz"
+    mv target/x86_64-unknown-linux-musl/release/fclones $path
+    rm -rf target
+  }
+
+  symlink $path $bin
+}
+
 export def speedtest [] {
   let version = '1.2.0'
 
