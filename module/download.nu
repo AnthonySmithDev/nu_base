@@ -686,9 +686,16 @@ export def qrterminal [] {
 export def genact [] {
   let version = github get_version 'svenstaro/genact'
 
-  http download $'https://github.com/svenstaro/genact/releases/download/v($version)/genact-($version)-x86_64-unknown-linux-gnu' -o genact
-  chmod +x genact
-  move genact
+  let bin = bin genact
+  let path = share genact $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/svenstaro/genact/releases/download/v($version)/genact-($version)-x86_64-unknown-linux-gnu' -o genact
+    chmod 766 genact
+    mv genact $path
+  }
+
+  symlink $path $bin
 }
 
 export def ouch [] {
@@ -781,7 +788,7 @@ export def bombardier [] {
   let version = github get_version 'codesenberg/bombardier'
 
   http download $'https://github.com/codesenberg/bombardier/releases/download/v($version)/bombardier-linux-amd64' -o bombardier
-  chmod +x bombardier
+  chmod 766 bombardier
   move 'bombardier'
 }
 

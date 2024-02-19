@@ -39,3 +39,8 @@ alias ventoyGUI = sudo ($env.VENTOY_PATH | path join VentoyGUI.x86_64)
 
 alias docker! = ^($env.DOCKER_BIN | path join docker)
 alias dockerd! = sudo ($env.DOCKER_BIN | path join dockerd)
+
+def lvim [] {
+  mkdir ~/.config/LazyNvim
+  NVIM_APPNAME=LazyNvim nvim
+}
