@@ -141,6 +141,12 @@ export def dependency [] {
     libxcb-shape0-dev
     libxcb-xfixes0-dev
 
+    # AppFlowy
+    libkeybinder-3.0-0
+
+    # Pake
+    libsoup2.4-dev
+
     # tools
     ssh
     sshpass
@@ -374,6 +380,14 @@ export def vagrant [] {
 export def qemu [] {
   sudo apt update
   sudo apt install qemu-system-x86
+}
+
+export def obsidian [] {
+  let version = github get_version 'obsidianmd/obsidian-releases'
+
+  http download $"https://github.com/obsidianmd/obsidian-releases/releases/download/v($version)/obsidian_($version)_amd64.deb"
+  sudo dpkg -i $"obsidian_($version)_amd64.deb"
+  rm $"obsidian_($version)_amd64.deb"
 }
 
 def filepath [name: string] {

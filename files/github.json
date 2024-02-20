@@ -649,5 +649,61 @@
     "tag_name": "1.18.11",
     "active": true,
     "release": true
-  }
+  },
+  {
+    "category": "other",
+    "repository": "bitcoin/bitcoin",
+    "tag_name": "26.0",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "other",
+    "repository": "lightningnetwork/lnd",
+    "tag_name": "0.17.4-beta",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "other",
+    "repository": "obsidianmd/obsidian-releases",
+    "tag_name": "1.5.3",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "other",
+    "repository": "siyuan-note/siyuan",
+    "tag_name": "3.0.0",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "other",
+    "repository": "logseq/logseq",
+    "tag_name": "0.10.6",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "other",
+    "repository": "toeverything/AFFiNE",
+    "tag_name": "0.11.3",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "other",
+    "repository": "AppFlowy-IO/AppFlowy",
+    "tag_name": "0.4.9",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "other",
+    "repository": "mattermost/focalboard",
+    "tag_name": "7.10.6",
+    "active": true,
+    "release": true
+  },
 ]

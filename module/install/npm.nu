@@ -8,6 +8,7 @@ export def core [] {
 }
 
 export def extra [] {
+  npm install --global pake-cli
   npm install --global tldr
   npm install --global surge
   npm install --global httpyac

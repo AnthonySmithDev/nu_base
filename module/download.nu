@@ -1328,7 +1328,7 @@ export def android-sdk [] {
 }
 
 export def bitcoin [] {
-  let version = '25.1'
+  let version = github get_version 'bitcoin/bitcoin'
 
   http download $'https://bitcoincore.org/bin/bitcoin-core-($version)/bitcoin-($version)-x86_64-linux-gnu.tar.gz'
   extract tar $'bitcoin-($version)-x86_64-linux-gnu.tar.gz'
@@ -1337,7 +1337,7 @@ export def bitcoin [] {
 }
 
 export def lightning-network [] {
-  let version = '0.17.3-beta'
+  let version = github get_version 'lightningnetwork/lnd'
 
   http download $'https://github.com/lightningnetwork/lnd/releases/download/v($version)/lnd-linux-amd64-v($version).tar.gz'
   extract tar $'lnd-linux-amd64-v($version).tar.gz'
