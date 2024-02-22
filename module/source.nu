@@ -24,6 +24,7 @@ use nvim.nu *
 use scr.nu
 use gpt.nu
 use gtd.nu
+use gcm.nu
 
 use helix
 use install
