@@ -7,60 +7,60 @@ export-env {
    $env.SQL_NAME = ''
 }
 
-export def dsn [] {
-  $'mysql://($env.SQL_USER):($env.SQL_PASS)@($env.SQL_HOST):($env.SQL_PORT)/($env.SQL_NAME)'
+export def dsn [name: bool = false] {
+  let path = if $name { $env.SQL_NAME } else { "" }
+  {
+    "scheme": "mysql",
+    "username": $env.SQL_USER,
+    "password": $env.SQL_PASS,
+    "host": $env.SQL_HOST,
+    "port": $env.SQL_PORT,
+    "path": $path,
+  } | url join
 }
 
-export def u_query_raw [...query: string] {
-  usql (dsn) -q -c ($query | str join ' ')
+export def u_query [ query: string, name: bool = false ] {
+  usql (dsn $name) -q -C -c $query | from csv
 }
 
-export def u_query_csv [...query: string] {
-  usql (dsn) -q -C -c ($query | str join ' ') | from csv
+export def m_query [ query: string, name: bool = false ] {
+  mycli (dsn $name) --csv -e $query | from csv
 }
 
-export def m_query_raw [...query: string] {
-  mycli (dsn) -t -e ($query | str join ' ')
-}
-
-export def m_query_csv [...query: string] {
-  mycli (dsn) --csv -e ($query | str join ' ') | from csv
-}
-
-export def query [...query: string] {
-  u_query_csv ($query | str join ' ')
+export def query [...query: string, --name(-n)] {
+  u_query ($query | str join ' ') $name
 }
 
 export def show_databases [] {
-  query 'SHOW DATABASES' | values | first
+  query SHOW DATABASES | values | first
 }
 
 export def create_database [name: string] {
-  query $'CREATE DATABASE ($name)'
+  query CREATE DATABASE $name
 }
 
-export def drop_database [name: string] {
-  query $'DROP DATABASE ($name)'
+export def drop_database [name: string@show_databases] {
+  query DROP DATABASE $name
 }
 
 export def show_tables [] {
-  query 'SHOW TABLES' | values | first
+  query -n SHOW TABLES | values | first
 }
 
 export def drop_table [table: string@show_tables] {
-  query $'DROP TABLE ($table)'
+  query -n DROP TABLE $table
 }
 
 export def truncate_table [table: string@show_tables] {
-  query $'TRUNCATE TABLE ($table)'
+  query -n TRUNCATE TABLE $table
 }
 
 export def from [table: string@show_tables] {
-  query $'SELECT * FROM ($table)'
+  query -n SELECT * FROM $table
 }
 
 export def describe [table: string@show_tables] {
-  query $'DESCRIBE ($table)'
+  query -n DESCRIBE $table
 }
 
 export def fields [table: string@show_tables] {
@@ -72,7 +72,7 @@ def names [] {
 }
 
 export def file [name: string@names] {
-  query (open $name)
+  query -n (open $name)
 }
 
 export def live [name: string@names] {
@@ -86,7 +86,8 @@ export def live [name: string@names] {
 export def context [...tables: string@show_tables] {
    mut text = "MySQL Database: \n\n"
    for table in $tables {
-      let result = (["Table: ", $table, "\n" (u_query_raw describe $table)] | str join)
+      let desc = (describe $table | table -t markdown)
+      let result = (["Table: ", $table, "\n" $desc] | str join)
       $text = ($text ++ $result)
    }
    return $text
