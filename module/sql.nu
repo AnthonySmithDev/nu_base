@@ -67,6 +67,10 @@ export def fields [table: string@show_tables] {
   describe $table | get field
 }
 
+export def clean [name: string@show_databases] {
+  query -n (show_tables | each {|e| $"TRUNCATE TABLE ($e);"} | to text) | null
+}
+
 def names [] {
   fd -e sql | lines
 }
