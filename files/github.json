@@ -385,6 +385,13 @@
     "release": true
   },
   {
+    "category": "extra",
+    "repository": "terrastruct/d2",
+    "tag_name": "0.6.3",
+    "active": true,
+    "release": true
+  },
+  {
     "category": "other",
     "repository": "jmorganca/ollama",
     "tag_name": "0.1.23",

@@ -737,6 +737,22 @@ export def ast-grep [] {
   symlink $path $bin
 }
 
+export def d2 [] {
+  let version = github get_version 'terrastruct/d2'
+
+  let bin = bin d2
+  let path = share d2 $version
+
+  if not ($path | path exists) {
+    http download $'https://github.com/terrastruct/d2/releases/download/v($version)/d2-v($version)-linux-amd64.tar.gz'
+    extract tar $'d2-v($version)-linux-amd64.tar.gz'
+    mv $'d2-v($version)/bin/d2' $path
+    rm -rf $'d2-v($version)'
+  }
+
+  symlink $path $bin
+}
+
 export def mdcat [] {
   let version = github get_version 'swsnr/mdcat'
 
