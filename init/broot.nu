@@ -1,5 +1,4 @@
 
-
 # Launch broot
 #
 # Examples:
@@ -9,7 +8,7 @@
 #   > br -hi -c "vacheblan.svg;:open_preview" ..
 #
 # See https://dystroy.org/broot/install-br/
-def br [
+export def --env br [
     --cmd(-c): string               # Semicolon separated commands to execute
     --color: string = "auto"        # Whether to have styles and colors (auto is default and usually OK) [possible values: auto, yes, no]
     --conf: string                  # Semicolon separated paths to specific config files"),
@@ -141,3 +140,4 @@ export extern broot [
     --write-default-conf: path      # Write default conf files in given directory
     file?: path                     # Root Directory
 ]
+
