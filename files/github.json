@@ -378,6 +378,13 @@
     "release": true
   },
   {
+    "category": "extra",
+    "repository": "ast-grep/ast-grep",
+    "tag_name": "0.19.3",
+    "active": true,
+    "release": true
+  },
+  {
     "category": "other",
     "repository": "jmorganca/ollama",
     "tag_name": "0.1.23",

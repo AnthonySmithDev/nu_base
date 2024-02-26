@@ -722,6 +722,21 @@ export def lsd [] {
   symlink $path $bin
 }
 
+export def ast-grep [] {
+  let version = github get_version 'ast-grep/ast-grep'
+
+  let bin = bin sg
+  let path = share sg $version
+
+  if not ($path | path exists) {
+    http download https://github.com/ast-grep/ast-grep/releases/download/($version)/sg-x86_64-unknown-linux-gnu.zip
+    extract zip sg-x86_64-unknown-linux-gnu.zip
+    mv sg $path
+  }
+
+  symlink $path $bin
+}
+
 export def mdcat [] {
   let version = github get_version 'swsnr/mdcat'
 

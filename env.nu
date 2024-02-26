@@ -10,7 +10,7 @@ $env.USR_LOCAL_LIB = ($env.USR_LOCAL | path join 'lib')
 $env.USR_LOCAL_SOURCE = ($env.USR_LOCAL | path join 'source')
 $env.USR_LOCAL_SHARE = ($env.USR_LOCAL | path join 'share')
 $env.USR_LOCAL_SHARE_FONTS = ($env.USR_LOCAL_SHARE | path join 'fonts')
-env-path $env.USR_LOCAL_BIN
+env-path -p $env.USR_LOCAL_BIN
 
 $env.HELIX_PATH = ($env.USR_LOCAL_LIB | path join 'helix')
 $env.HELIX_RUNTIME = ($env.HELIX_PATH | path join 'runtime')
@@ -138,12 +138,20 @@ $env.EDITOR = ($env.HELIX_PATH | path join 'hx')
 $env.VISUAL = ($env.HELIX_PATH | path join 'hx')
 $env.MANPAGER = "sh -c 'col -bx | bat -l man -p'"
 $env.SOFT_SERVE_DATA_PATH = ($env.HOME | path join '.soft-server')
-# $env.SOFT_SERVE_INITIAL_ADMIN_KEYS = (open ~/.ssh/id_ed25519.pub)
 
-def --env env-path [path: string] {
+let admin_keys = "~/.ssh/id_ed25519.pub"
+if ($admin_keys | path exists) {
+  $env.SOFT_SERVE_INITIAL_ADMIN_KEYS = (open $admin_keys)
+}
+
+def --env env-path [path: string --prepend(-p)] {
   if ($path | path exists) {
     if ($path not-in $env.PATH) {
-      $env.PATH = ($env.PATH | split row (char esep) | append $path)
+      if $prepend {
+        $env.PATH = ($env.PATH | split row (char esep) | prepend $path)
+      } else {
+        $env.PATH = ($env.PATH | split row (char esep) | append $path)
+      }
     }
   }
 }
