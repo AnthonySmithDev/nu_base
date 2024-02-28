@@ -521,7 +521,7 @@ export def gotty [] {
 
   http download $'https://github.com/yudai/gotty/releases/download/v($version)/gotty_linux_amd64.tar.gz'
   extract tar gotty_linux_amd64.tar.gz
-  move gotty
+  umv -f gotty
 }
 
 export def ttyd [] {
@@ -529,7 +529,7 @@ export def ttyd [] {
 
   http download https://github.com/tsl0922/ttyd/releases/download/($version)/ttyd.x86_64 -o ttyd
   chmod 755 ttyd
-  move ttyd
+  umv -f ttyd
 }
 
 export def tty-share [] {
@@ -537,7 +537,7 @@ export def tty-share [] {
 
   http download $'https://github.com/elisescu/tty-share/releases/download/v($version)/tty-share_linux-amd64' -o tty-share
   chmod 755 tty-share
-  move tty-share
+  umv -f tty-share
 }
 
 export def upterm [] {
@@ -561,7 +561,7 @@ export def mprocs [] {
 
   http download $'https://github.com/pvolok/mprocs/releases/download/v($version)/mprocs-($version)-linux64.tar.gz'
   extract tar $'mprocs-($version)-linux64.tar.gz'
-  move 'mprocs'
+  umv -f 'mprocs'
 }
 
 export def dua [] {
@@ -577,7 +577,7 @@ export def grex [] {
 
   http download $'https://github.com/pemistahl/grex/releases/download/v($version)/grex-v($version)-x86_64-unknown-linux-musl.tar.gz'
   extract tar $'grex-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move 'grex'
+  umv -f 'grex'
 }
 
 export def navi [] {
@@ -585,7 +585,7 @@ export def navi [] {
 
   http download $'https://github.com/denisidoro/navi/releases/download/v($version)/navi-v($version)-x86_64-unknown-linux-musl.tar.gz'
   extract tar $'navi-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move 'navi'
+  umv -f 'navi'
 }
 
 export def bore [] {
@@ -624,7 +624,7 @@ export def ffsend [] {
 
   http download $'https://github.com/timvisee/ffsend/releases/download/v($version)/ffsend-v($version)-linux-x64-static' -o ffsend
   chmod 755 ffsend
-  move 'ffsend'
+  umv -f 'ffsend'
 }
 
 export def walk [] {
@@ -632,7 +632,7 @@ export def walk [] {
 
   http download $'https://github.com/antonmedv/walk/releases/download/v($version)/walk_linux_amd64' -o walk
   chmod 755 walk
-  move 'walk'
+  umv -f 'walk'
 }
 
 export def tere [] {
@@ -640,7 +640,7 @@ export def tere [] {
 
   http download $'https://github.com/mgunyho/tere/releases/download/v($version)/tere-($version)-x86_64-unknown-linux-gnu.zip'
   extract zip $'tere-($version)-x86_64-unknown-linux-gnu.zip'
-  move 'tere'
+  umv -f 'tere'
 }
 
 export def sd [] {
@@ -656,7 +656,7 @@ export def sad [] {
 
   http download $'https://github.com/ms-jpq/sad/releases/download/v($version)/x86_64-unknown-linux-gnu.zip'
   extract zip 'x86_64-unknown-linux-gnu.zip'
-  move 'sad'
+  umv -f 'sad'
 }
 
 export def fx [] {
@@ -664,7 +664,7 @@ export def fx [] {
 
   http download $'https://github.com/antonmedv/fx/releases/download/($version)/fx_linux_amd64' -o fx
   chmod 755 fx
-  move 'fx'
+  umv -f 'fx'
 }
 
 export def jqp [] {
@@ -680,7 +680,7 @@ export def lux [] {
 
   http download $'https://github.com/iawia002/lux/releases/download/v($version)/lux_($version)_Linux_x86_64.tar.gz'
   extract tar $'lux_($version)_Linux_x86_64.tar.gz'
-  move lux
+  umv -f lux
 }
 
 export def qrterminal [] {
@@ -778,7 +778,7 @@ export def chatgpt [] {
 export def tgpt [] {
   http download https://github.com/aandrew-me/tgpt/releases/download/v2.2.1/tgpt-linux-amd64 -o tgpt
   chmod 755 tgpt
-  move tgpt
+  umv -f tgpt
 }
 
 export def nap [] {
@@ -825,7 +825,7 @@ export def bombardier [] {
 
   http download $'https://github.com/codesenberg/bombardier/releases/download/v($version)/bombardier-linux-amd64' -o bombardier
   chmod 766 bombardier
-  move 'bombardier'
+  umv -f 'bombardier'
 }
 
 export def ruff [] {
@@ -856,7 +856,7 @@ export def dufs [] {
 
   http download $'https://github.com/sigoden/dufs/releases/download/v($version)/dufs-v($version)-x86_64-unknown-linux-musl.tar.gz'
   extract tar $'dufs-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move dufs
+  umv -f dufs
 }
 
 export def miniserve [] {
@@ -864,7 +864,7 @@ export def miniserve [] {
 
   http download $'https://github.com/svenstaro/miniserve/releases/download/v($version)/miniserve-($version)-x86_64-unknown-linux-gnu' -o miniserve
   chmod 755 miniserve
-  move miniserve
+  umv -f miniserve
 }
 
 export def onefetch [] {
@@ -872,7 +872,7 @@ export def onefetch [] {
 
   http download $'https://github.com/o2sh/onefetch/releases/download/($version)/onefetch-linux.tar.gz'
   extract tar onefetch-linux.tar.gz
-  move onefetch
+  umv -f onefetch
 }
 
 export def gping [] {
@@ -880,7 +880,7 @@ export def gping [] {
 
   http download $'https://github.com/orf/gping/releases/download/gping-v($version)/gping-x86_64-unknown-linux-musl.tar.gz'
   extract tar gping-x86_64-unknown-linux-musl.tar.gz
-  move gping
+  umv -f gping
 }
 
 export def duf [] {
@@ -1012,7 +1012,7 @@ export def ollama [] {
 
   http download https://github.com/jmorganca/ollama/releases/download/v($version)/ollama-linux-amd64 -o ollama
   chmod 755 ollama
-  move ollama
+  umv -f ollama
 }
 
 export def localAI [] {
@@ -1020,7 +1020,7 @@ export def localAI [] {
 
   http download https://github.com/mudler/LocalAI/releases/download/v($version)/local-ai-avx-Linux-x86_64 -o local-ai
   chmod 755 local-ai
-  move local-ai
+  umv -f local-ai
 }
 
 export def volta [--node] {
@@ -1087,7 +1087,7 @@ export def termscp [] {
 
   http download $'https://github.com/veeso/termscp/releases/download/v($version)/termscp-v($version)-x86_64-unknown-linux-gnu.tar.gz'
   extract tar $'termscp-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move termscp
+  umv -f termscp
 }
 
 export def kbt [] {
@@ -1123,7 +1123,7 @@ export def gitui [] {
 
   http download $'https://github.com/extrawurst/gitui/releases/download/v($version)/gitui-linux-musl.tar.gz'
   extract tar gitui-linux-musl.tar.gz
-  move gitui
+  umv -f gitui
 }
 
 export def monolith [] {
@@ -1131,7 +1131,7 @@ export def monolith [] {
 
   http download https://github.com/Y2Z/monolith/releases/download/v2.7.0/monolith-gnu-linux-x86_64 -o monolith
   chmod 755 monolith
-  move monolith
+  umv -f monolith
 }
 
 export def dijo [] {
@@ -1139,7 +1139,7 @@ export def dijo [] {
 
   http download $'https://github.com/nerdypepper/dijo/releases/download/v($version)/dijo-x86_64-linux' -o dijo
   chmod 755 dijo
-  move dijo
+  umv -f dijo
 }
 
 export def ventoy [] {
@@ -1159,7 +1159,7 @@ export def stash [] {
   let version = '0.24.3'
   http download $'https://github.com/stashapp/stash/releases/download/v($version)/stash-linux' -o stash
   chmod 755 stash
-  move stash
+  umv -f stash
 }
 
 export def mitmproxy [] {
@@ -1503,20 +1503,6 @@ export def lang [] {
   node
   golang
   rust
-}
-
-def move [
-  file: string
-  --rn: string
-  --dir(-d): string
-] {
-  if $dir != null {
-    mv -f ($env.PWD | path join $dir $file) $env.USR_LOCAL_BIN
-    rm -rf $dir
-  } else {
-    let name = if $rn != null { $rn } else { $file }
-    mv -f ($env.PWD | path join $file) ($env.USR_LOCAL_BIN | path join $name)
-  }
 }
 
 def choose [versions: list] {
