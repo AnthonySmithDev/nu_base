@@ -513,7 +513,7 @@ export def vhs [] {
 
   http download https://github.com/charmbracelet/vhs/releases/download/v($version)/vhs_($version)_Linux_x86_64.tar.gz
   extract tar vhs_($version)_Linux_x86_64.tar.gz -d 'vhs_linux_x86_64'
-  move -d 'vhs_linux_x86_64' 'vhs'
+  umv -d 'vhs_linux_x86_64' -f 'vhs'
 }
 
 export def gotty [] {
@@ -545,7 +545,7 @@ export def upterm [] {
 
   http download $'https://github.com/owenthereal/upterm/releases/download/v($version)/upterm_linux_amd64.tar.gz'
   extract tar 'upterm_linux_amd64.tar.gz' -d 'upterm_linux_amd64'
-  move -d 'upterm_linux_amd64' 'upterm'
+  umv -d 'upterm_linux_amd64' -f 'upterm'
 }
 
 export def shell2http [] {
@@ -553,7 +553,7 @@ export def shell2http [] {
 
   http download $'https://github.com/msoap/shell2http/releases/download/v($version)/shell2http_($version)_linux_amd64.tar.gz'
   extract tar $'shell2http_($version)_linux_amd64.tar.gz' -d 'shell2http_linux_amd64'
-  move -d 'shell2http_linux_amd64' 'shell2http'
+  umv -d 'shell2http_linux_amd64' -f 'shell2http'
 }
 
 export def mprocs [] {
@@ -569,7 +569,7 @@ export def dua [] {
 
   http download $'https://github.com/Byron/dua-cli/releases/download/v($version)/dua-v($version)-x86_64-unknown-linux-musl.tar.gz'
   extract tar $'dua-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -d $'dua-v($version)-x86_64-unknown-linux-musl' 'dua'
+  umv -d $'dua-v($version)-x86_64-unknown-linux-musl' -f 'dua'
 }
 
 export def grex [] {
@@ -648,7 +648,7 @@ export def sd [] {
 
   http download $'https://github.com/chmln/sd/releases/download/v($version)/sd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
   extract tar $'sd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'sd-v($version)-x86_64-unknown-linux-gnu' 'sd'
+  umv -d $'sd-v($version)-x86_64-unknown-linux-gnu' -f 'sd'
 }
 
 export def sad [] {
@@ -672,7 +672,7 @@ export def jqp [] {
 
   http download $'https://github.com/noahgorstein/jqp/releases/download/v($version)/jqp_Linux_x86_64.tar.gz'
   extract tar jqp_Linux_x86_64.tar.gz -d jqp_Linux_x86_64
-  move -d jqp_Linux_x86_64 jqp
+  umv -d jqp_Linux_x86_64 -f jqp
 }
 
 export def lux [] {
@@ -688,7 +688,7 @@ export def qrterminal [] {
 
   http download https://github.com/mdp/qrterminal/releases/download/v($version)/qrterminal_Linux_x86_64.tar.gz
   extract tar qrterminal_Linux_x86_64.tar.gz -d qrterminal_Linux_x86_64
-  move -d qrterminal_Linux_x86_64 qrterminal
+  umv -d qrterminal_Linux_x86_64 -f qrterminal
 }
 
 export def genact [] {
@@ -711,7 +711,7 @@ export def ouch [] {
 
   http download $'https://github.com/ouch-org/ouch/releases/download/($version)/ouch-x86_64-unknown-linux-gnu.tar.gz'
   extract tar 'ouch-x86_64-unknown-linux-gnu.tar.gz'
-  move -d 'ouch-x86_64-unknown-linux-gnu' 'ouch'
+  umv -d 'ouch-x86_64-unknown-linux-gnu' -f 'ouch'
 }
 
 export def lsd [] {
@@ -764,7 +764,7 @@ export def mdcat [] {
 
   http download $'https://github.com/swsnr/mdcat/releases/download/mdcat-($version)/mdcat-($version)-x86_64-unknown-linux-musl.tar.gz'
   extract tar $'mdcat-($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -d $'mdcat-($version)-x86_64-unknown-linux-musl' 'mdcat'
+  umv -d $'mdcat-($version)-x86_64-unknown-linux-musl' -f 'mdcat'
 }
 
 export def chatgpt [] {
@@ -772,7 +772,7 @@ export def chatgpt [] {
 
   http download $'https://github.com/j178/chatgpt/releases/download/v($version)/chatgpt_Linux_x86_64.tar.gz'
   extract tar 'chatgpt_Linux_x86_64.tar.gz' -d 'chatgpt_Linux_x86_64'
-  move -d 'chatgpt_Linux_x86_64' 'chatgpt'
+  umv -d 'chatgpt_Linux_x86_64' -f 'chatgpt'
 }
 
 export def tgpt [] {
@@ -786,7 +786,7 @@ export def nap [] {
 
   http download $'https://github.com/maaslalani/nap/releases/download/v($version)/nap_($version)_linux_amd64.tar.gz'
   extract tar $'nap_($version)_linux_amd64.tar.gz' -d 'nap_linux_amd64'
-  move -d 'nap_linux_amd64' 'nap'
+  umv -d 'nap_linux_amd64' -f 'nap'
 }
 
 export def clangd [] {
@@ -794,7 +794,7 @@ export def clangd [] {
 
   http download $'https://github.com/clangd/clangd/releases/download/($version)/clangd-linux-($version).zip'
   extract zip $'clangd-linux-($version).zip'
-  move -d $'clangd_($version)' 'bin/clangd'
+  umv -d $'clangd_($version)' -f 'bin/clangd'
 }
 
 export def coreutils [] {
@@ -802,7 +802,7 @@ export def coreutils [] {
 
   http download $'https://github.com/uutils/coreutils/releases/download/($version)/coreutils-($version)-x86_64-unknown-linux-musl.tar.gz'
   extract tar $'coreutils-($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -d $'coreutils-($version)-x86_64-unknown-linux-musl' 'coreutils'
+  umv -d $'coreutils-($version)-x86_64-unknown-linux-musl' -f 'coreutils'
 }
 
 export def carapace [] {
@@ -848,7 +848,7 @@ export def micro [] {
 
   http download $'https://github.com/zyedidia/micro/releases/download/v($version)/micro-($version)-linux64.tar.gz'
   extract tar $'micro-($version)-linux64.tar.gz'
-  move -d $'micro-($version)' micro
+  umv -d $'micro-($version)' -f micro
 }
 
 export def dufs [] {
@@ -888,7 +888,7 @@ export def duf [] {
 
   http download https://github.com/muesli/duf/releases/download/v($version)/duf_($version)_linux_x86_64.tar.gz
   extract tar duf_($version)_linux_x86_64.tar.gz -d duf_linux_x86_64
-  move -d duf_linux_x86_64 duf
+  umv -d duf_linux_x86_64 -f duf
 }
 
 export def gh [] {
@@ -896,7 +896,7 @@ export def gh [] {
 
   http download https://github.com/cli/cli/releases/download/v($version)/gh_($version)_linux_amd64.tar.gz
   extract tar gh_($version)_linux_amd64.tar.gz
-  move -d gh_($version)_linux_amd64 bin/gh
+  umv -d gh_($version)_linux_amd64 -f bin/gh
 }
 
 export def dive [] {
@@ -904,7 +904,7 @@ export def dive [] {
 
   http download https://github.com/wagoodman/dive/releases/download/v($version)/dive_($version)_linux_amd64.tar.gz
   extract tar dive_($version)_linux_amd64.tar.gz -d dive_linux_amd64
-  move -d dive_linux_amd64 dive
+  umv -d dive_linux_amd64 -f dive
 }
 
 export def hyperfine [] {
@@ -912,7 +912,7 @@ export def hyperfine [] {
 
   http download $'https://github.com/sharkdp/hyperfine/releases/download/v($version)/hyperfine-v($version)-x86_64-unknown-linux-gnu.tar.gz'
   extract tar $'hyperfine-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'hyperfine-v($version)-x86_64-unknown-linux-gnu' hyperfine
+  umv -d $'hyperfine-v($version)-x86_64-unknown-linux-gnu' -f hyperfine
 }
 
 export def taskell [] {
@@ -988,7 +988,7 @@ export def viddy [] {
 
   http download $'https://github.com/sachaos/viddy/releases/download/v($version)/viddy_Linux_x86_64.tar.gz'
   extract tar viddy_Linux_x86_64.tar.gz -d viddy_Linux_x86_64
-  move -d viddy_Linux_x86_64 viddy
+  umv -d viddy_Linux_x86_64 -f viddy
 }
 
 export def yazi [] {
@@ -996,7 +996,7 @@ export def yazi [] {
 
   http download $'https://github.com/sxyazi/yazi/releases/download/v($version)/yazi-x86_64-unknown-linux-gnu.zip'
   extract zip yazi-x86_64-unknown-linux-gnu.zip
-  move -d yazi-x86_64-unknown-linux-gnu yazi
+  umv -d yazi-x86_64-unknown-linux-gnu -f yazi
 }
 
 export def kmon [] {
@@ -1004,7 +1004,7 @@ export def kmon [] {
 
   http download $'https://github.com/orhun/kmon/releases/download/v($version)/kmon-($version)-x86_64-unknown-linux-gnu.tar.gz'
   extract tar $'kmon-($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'kmon-($version)' kmon
+  umv -d $'kmon-($version)' -f kmon
 }
 
 export def ollama [] {
@@ -1028,7 +1028,7 @@ export def volta [--node] {
 
   http download $'https://github.com/volta-cli/volta/releases/download/v($version)/volta-($version)-linux.tar.gz'
   extract tar $'volta-($version)-linux.tar.gz' -d 'volta-linux'
-  move -d $'volta-($version)-linux' '*'
+  umv -d $'volta-($version)-linux' -f '*'
 
   if $node {
     ^volta install node@latest
@@ -1079,7 +1079,7 @@ export def termshark [] {
 
   http download $'https://github.com/gcla/termshark/releases/download/v($version)/termshark_($version)_linux_x64.tar.gz'
   extract tar $'termshark_($version)_linux_x64.tar.gz'
-  move -d $'termshark_($version)_linux_x64' termshark
+  umv -d $'termshark_($version)_linux_x64' -f termshark
 }
 
 export def termscp [] {
@@ -1095,7 +1095,7 @@ export def kbt [] {
 
   http download $'https://github.com/bloznelis/kbt/releases/download/($version)/kbt-($version)-x86_64-unknown-linux-gnu.tar.gz'
   extract tar $'kbt-($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'kbt-($version)-x86_64-unknown-linux-gnu' kbt
+  umv -d $'kbt-($version)-x86_64-unknown-linux-gnu' -f kbt
 }
 
 export def trippy [ --global ] {
@@ -1561,7 +1561,9 @@ def umv [
   --dir(-d): string = "",
   --file(-f): string = "",
   ] {
-  let dest = if ($path | is-empty) { $env.USR_LOCAL_BIN } else { $path }
+  let dest = if ($path | is-empty) { 
+    ($env.USR_LOCAL_BIN | path join ($file | path basename))
+  } else { $path }
   let src = ([$dir, $file] | path join)
 
   if ($dest | path exists) {
