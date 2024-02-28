@@ -246,6 +246,13 @@
   },
   {
     "category": "extra",
+    "repository": "derailed/k9s",
+    "tag_name": "0.31.9",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "extra",
     "repository": "bettercap/bettercap",
     "tag_name": "2.31.1",
     "active": false,
