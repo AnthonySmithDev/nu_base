@@ -82,7 +82,7 @@ export def helix [--desktop] {
   ln -sf $src $dest
   sudo ln -sf $dest "/usr/local/bin/hx"
 
-  cp -r -f -p ($source | path join runtime) $env.HELIX_RUNTIME
+  cp -r -u -p ($source | path join runtime) $env.HELIX_RUNTIME
 
   if $desktop {
     with-env { PWD: $source } {
