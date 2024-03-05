@@ -59,12 +59,34 @@ export def from [table: string@show_tables] {
   query -n SELECT * FROM $table
 }
 
-export def describe [table: string@show_tables] {
+def surround [] {
+  each {|$e|
+    if ($e | is-empty) {
+      "NULL"
+    } else if ($e | describe) == "string" {
+      $"'($e)'"
+    } else {
+      $e
+    }
+  }
+}
+
+export def insert [table: string@show_tables, data: list<any>] {
+  let columns = ($data | columns | str join ', ')
+  let values = ($data | each {|e|  $"\(($e | values | surround | str join ', ')\)"  } | str join ', ')
+  query -n $"INSERT INTO ($table)\(($columns)\) VALUES ($values)"
+}
+
+export def copy [src: string, dst: string, table: string] {
+  print "copy"
+}
+
+export def DESCRIBE [table: string@show_tables] {
   query -n DESCRIBE $table
 }
 
 export def fields [table: string@show_tables] {
-  describe $table | get field
+  DESCRIBE $table | get field
 }
 
 export def clean [name: string@show_databases] {
@@ -90,9 +112,17 @@ export def live [name: string@names] {
 export def context [...tables: string@show_tables] {
    mut text = "MySQL Database: \n\n"
    for table in $tables {
-      let desc = (describe $table | table -t markdown)
+      let desc = (DESCRIBE $table | table -t markdown)
       let result = (["Table: ", $table, "\n" $desc] | str join)
       $text = ($text ++ $result)
    }
    return $text
+}
+
+export def usql_copy [] {
+  let src = "mysql://root:payzum_password@100.97.221.20:3307/payzum"
+  let dst = "mysql://root:payzum_password@100.72.33.76:3307/payzum"
+  let query = "'SELECT * FROM orden'"
+  let table = "orden"
+  usql -c $'\copy ($src) ($dst) ($query) ($table)'
 }

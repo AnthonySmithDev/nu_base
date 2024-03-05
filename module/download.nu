@@ -409,6 +409,21 @@ export def silicon [] {
   symlink $path $bin
 }
 
+export def dasel [] {
+  let version = github get_version 'TomWright/dasel'
+
+  let bin = bin dasel
+  let path = share dasel $version
+
+  if (no-exist $path) {
+    http download $"https://github.com/TomWright/dasel/releases/download/v($version)/dasel_linux_amd64" -o dasel
+    chmod 755 dasel
+    umv -f dasel -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def pueue [] {
   let version = github get_version 'Nukesor/pueue'
 
@@ -1539,7 +1554,7 @@ def global [src: string, name?: string] {
 }
 
 def no-exist [path: string] {
- ($path | path exists)
+ not ($path | path exists)
 }
 
 def umv [
