@@ -523,6 +523,20 @@ export def usql [] {
   symlink $path $bin
 }
 
+export def atlas [] {
+
+  let bin = bin atlas
+  let path = share atlas latest
+
+  if (no-exist $path) {
+    http download https://release.ariga.io/atlas/atlas-linux-amd64-latest -o atlas
+    chmod 755 atlas
+    umv -f atlas -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def vhs [] {
   let version = github get_version 'charmbracelet/vhs'
 
