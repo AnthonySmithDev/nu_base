@@ -15,8 +15,6 @@ alias irc = input-remapper-control --command autoload
 alias xcopy = xclip -i -selection clipboard
 alias xpaste = xclip -o -selection clipboard
 
-alias snips = ssh snips.sh
-
 alias gra = git remote add
 alias grr = git remote remove
 alias gP = git push
@@ -43,4 +41,18 @@ alias dockerd! = sudo ($env.DOCKER_BIN | path join dockerd)
 def lvim [] {
   mkdir ~/.config/LazyNvim
   NVIM_APPNAME=LazyNvim nvim
+}
+
+alias snips = ssh snips.sh
+
+def paste [--lang(-l): string = "plain", --key(-k): string] {
+  let input = $in
+
+  if ($key | is-not-empty) {
+    let response = http get --full $"https://api.pastes.dev/($key)"
+    let lang = ($response | get headers.response | where name == content-type | get value | split row ";" | first | split row "/" | last)
+    ($response | get body) | bat -l $lang
+  } else {
+    http post --headers [Content-Type  $"text/($lang)"] https://api.pastes.dev/post $input
+  }
 }
