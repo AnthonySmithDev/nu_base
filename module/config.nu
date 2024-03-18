@@ -97,10 +97,10 @@ export def zellij_themes [] {
 
 export def nushell [] {
   shortcut nushell 'config.nu'
-  touch '~/.source.nu'
+  touch -c ~/.source.nu
 
   shortcut nushell 'env.nu'
-  touch '~/.env.nu'
+  touch -c ~/.env.nu
 }
 
 export def mods [] {

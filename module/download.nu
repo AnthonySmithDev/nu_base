@@ -282,8 +282,8 @@ export def mods [] {
 
   if (no-exist $path) {
     http download $'https://github.com/charmbracelet/mods/releases/download/v($version)/mods_($version)_Linux_x86_64.tar.gz'
-    extract tar $'mods_($version)_Linux_x86_64.tar.gz' -d 'mods_Linux_x86_64'
-    umv -d 'mods_Linux_x86_64' -f 'mods' -p $path
+    extract tar $'mods_($version)_Linux_x86_64.tar.gz'
+    umv -d $'mods_($version)_Linux_x86_64' -f 'mods' -p $path
   }
 
   symlink $path $bin
