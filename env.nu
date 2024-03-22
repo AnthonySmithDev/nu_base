@@ -133,9 +133,9 @@ $env.CMDLINE_TOOLS = ($env.ANDROID_HOME | path join 'cmdline-tools' 'latest')
 $env.CMDLINE_TOOLS_BIN = ($env.CMDLINE_TOOLS | path join 'bin')
 env-path $env.CMDLINE_TOOLS_BIN
 
+$env.EDITOR = 'hx'
+$env.VISUAL = 'hx'
 $env.SHELL = ($env.USR_LOCAL_BIN | path join 'nu')
-$env.EDITOR = ($env.HELIX_PATH | path join 'hx')
-$env.VISUAL = ($env.HELIX_PATH | path join 'hx')
 $env.MANPAGER = "sh -c 'col -bx | bat -l man -p'"
 $env.SOFT_SERVE_DATA_PATH = ($env.HOME | path join '.soft-server')
 
