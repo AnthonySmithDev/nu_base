@@ -101,24 +101,29 @@ export def ed [] {
 }
 
 export def rn [] {
-  let src = (filter)
-  if ($src | is-empty) {
+  let srcs = (filter -m)
+  if ($srcs | is-empty) {
     print 'source is empty'
     return
   }
-  let dirname = ($src | path dirname)
-  let basename = ($src | path basename)
-  let name = (gum input --value $basename)
-  if ($name | is-empty) {
-    print 'name is empty'
-    return
+  for $src in $srcs {
+    let dirname = ($src | path dirname)
+    let basename = ($src | path basename)
+    let name = (gum input --value $basename --header $dirname)
+    if ($name | is-empty) {
+      print 'name is empty'
+      return
+    }
+    let dest = ($dirname | path join $name)
+    if ($dest | is-empty) {
+      print 'destination is empty'
+      return
+    }
+    if ($basename == $name) {
+      return
+    }
+    ^mv $src $dest
   }
-  let dest = ($dirname | path join $name)
-  if ($dest | is-empty) {
-    print 'destination is empty'
-    return
-  }
-  ^mv $src $dest
 }
 
 export def rm [] {
