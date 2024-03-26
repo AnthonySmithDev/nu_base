@@ -1591,3 +1591,19 @@ def umv [
     rm -rf $dir
   }
 }
+
+export def "ubuntu desktop" [] {
+  http download https://releases.ubuntu.com/mantic/ubuntu-23.10.1-desktop-amd64.iso
+}
+
+export def "ubuntu server" [] {
+  http download https://releases.ubuntu.com/mantic/ubuntu-23.10-live-server-amd64.iso
+}
+
+export def "tileOS sway" [] {
+  http download https://downloads.tile-os.com/stable/sway/tileos-sway-1.0-desktop-amd64.iso
+}
+
+export def "tileOS river" [] {
+  http download https://downloads.tile-os.com/stable/river/tileos-river-1.0-desktop-amd64.iso
+}
