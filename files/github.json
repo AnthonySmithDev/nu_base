@@ -352,7 +352,7 @@
   {
     "category": "extra",
     "repository": "tsl0922/ttyd",
-    "tag_name": "1.7.4",
+    "tag_name": "1.7.5",
     "active": true,
     "release": true
   },
@@ -380,7 +380,7 @@
   {
     "category": "extra",
     "repository": "lsd-rs/lsd",
-    "tag_name": "1.1.1",
+    "tag_name": "1.1.2",
     "active": true,
     "release": true
   },

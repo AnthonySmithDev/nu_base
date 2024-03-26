@@ -1,6 +1,6 @@
 
 export-env {
-  $env.CONFIG_DIR_REPO = ($env.REPO_PATH | path join 'config')
+  $env.CONFIG_DIR_REPO = ($env.REPO_PATH | path join 'files' 'config')
   $env.CONFIG_DIR_USER = ($env.HOME | path join '.config')
   $env.CONFIG_DIR_ROOT = ('/root' | path join '.config')
 }

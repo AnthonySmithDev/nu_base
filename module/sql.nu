@@ -105,7 +105,7 @@ export def live [name: string@names] {
   watch . --glob=**/*.sql {||
     clear
     bat $name -P -l sql
-    query (open $name) | to json | bat -P -l json
+    query -n (open $name) | to json | bat -P -l json
   }
 }
 
