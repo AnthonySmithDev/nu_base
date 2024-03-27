@@ -160,6 +160,8 @@ export def dependency [] {
     gnome-screenshot
   ] | uniq)
 
+  # sudo systemctl enable ssh
+  sudo systemctl start ssh
   sudo apt install -y ...$packages
 }
 
@@ -227,9 +229,11 @@ export def dart [] {
 export def input-remapper [] {
   let version = github get_version 'sezanzeb/input-remapper'
 
-  let filepath = filepath input-remapper-($version).deb
+  let filepath = filepath $"input-remapper-($version).deb"
+
   if not ($filepath | path exists) {
-    http download $'https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb' -o $filepath
+    let url = $'https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb'
+    wget $url --output-document $filepath
   }
   sudo dpkg -i $filepath
 }
@@ -391,5 +395,5 @@ export def obsidian [] {
 }
 
 def filepath [name: string] {
-  $env.USR_LOCAL_SHARE | path join download $name
+  $env.USR_LOCAL_SHARE_DOWNLOAD | path join $name
 }

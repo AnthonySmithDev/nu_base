@@ -9,7 +9,9 @@ def main [
   mkdir $env.USR_LOCAL_LIB
   mkdir $env.USR_LOCAL_SOURCE
   mkdir $env.USR_LOCAL_SHARE
+  mkdir $env.USR_LOCAL_SHARE
   mkdir $env.USR_LOCAL_SHARE_FONTS
+  mkdir $env.USR_LOCAL_SHARE_DOWNLOAD
   mkdir $env.LOCAL_SHARE_FONTS
 
   if $remote {

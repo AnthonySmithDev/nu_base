@@ -8,6 +8,13 @@
   },
   {
     "category": "core",
+    "repository": "go-task/task",
+    "tag_name": "3.35.1",
+    "active": true,
+    "release": true
+  },
+  {
+    "category": "core",
     "repository": "charmbracelet/gum",
     "tag_name": "0.13.0",
     "active": true,

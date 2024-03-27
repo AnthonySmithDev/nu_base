@@ -259,6 +259,21 @@ export def xh [ --global ] {
   symlink $path $bin
 }
 
+export def task [ --global ] {
+  let version = github get_version 'go-task/task'
+
+  let bin = bin task
+  let path = share task $version
+
+  if (no-exist $path) {
+    http download $"https://github.com/go-task/task/releases/download/v($version)/task_linux_amd64.tar.gz"
+    extract tar task_linux_amd64.tar.gz -d task_linux_amd64
+    umv -d task_linux_amd64 -f task -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def websocat [] {
   let version = github get_version 'vi/websocat'
 
@@ -313,7 +328,7 @@ export def soft [] {
   if (no-exist $path) {
     http download $'https://github.com/charmbracelet/soft-serve/releases/download/v($version)/soft-serve_($version)_Linux_x86_64.tar.gz'
     extract tar $'soft-serve_($version)_Linux_x86_64.tar.gz' -d 'soft-serve_Linux_x86_64'
-    umv -d 'soft-serve_Linux_x86_64' -f 'soft' -f $path
+    umv -d 'soft-serve_Linux_x86_64' -f 'soft' -p $path
   }
 
   symlink $path $bin

@@ -10,6 +10,7 @@ $env.USR_LOCAL_LIB = ($env.USR_LOCAL | path join 'lib')
 $env.USR_LOCAL_SOURCE = ($env.USR_LOCAL | path join 'source')
 $env.USR_LOCAL_SHARE = ($env.USR_LOCAL | path join 'share')
 $env.USR_LOCAL_SHARE_FONTS = ($env.USR_LOCAL_SHARE | path join 'fonts')
+$env.USR_LOCAL_SHARE_DOWNLOAD = ($env.USR_LOCAL_SHARE | path join 'download')
 env-path -p $env.USR_LOCAL_BIN
 
 $env.HELIX_PATH = ($env.USR_LOCAL_LIB | path join 'helix')
