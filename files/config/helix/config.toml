@@ -1,0 +1,24 @@
+theme = "ayu_dark"
+
+[editor]
+mouse = true
+shell = ["nu", "-c"]
+true-color = true
+bufferline = "multiple"
+color-modes = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+
+[editor.file-picker]
+hidden = false
+
+[editor.soft-wrap]
+enable = true
+
+[keys.normal]
+C-r = ":reload"
+
+[keys.insert]
+j = { k = "normal_mode" }

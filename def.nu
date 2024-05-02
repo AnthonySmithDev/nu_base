@@ -1,0 +1,144 @@
+
+def 'edit env' [] {
+  hx ($env.REPO_PATH | path join 'nushell' 'env.nu')
+}
+
+def 'edit alias' [] {
+  hx ($env.REPO_PATH | path join 'nushell' 'alias.nu')
+}
+
+def 'edit def' [] {
+  hx ($env.REPO_PATH | path join 'nushell' 'def.nu')
+}
+
+def 'edit init' [] {
+  hx ($env.REPO_PATH | path join 'nushell' 'init')
+}
+
+def 'edit module' [] {
+  hx ($env.REPO_PATH | path join 'nushell' 'module')
+}
+
+def 'edit nu' [] {
+  hx ($env.REPO_PATH | path join 'nushell')
+}
+
+def seed [] {
+  cat /dev/urandom | tr -dc '0-9A-F' | head -c 64
+}
+
+def 'chmod nu_base' [] {
+  chmod +x bash/shell.sh
+  chmod +x bash/install.sh
+
+  fd --type file --exec chmod 666 {}
+  fd --type dir --exec chmod 755 {}
+}
+
+def trans [ ...text: string, --en(-e)] {
+  let lang = if $en { ':en' } else { ':es' }
+  docker run -it --rm soimort/translate-shell -b $lang ($text | str join ' ')
+}
+
+def 'nu gitignore list' [] {
+  http get 'https://www.toptal.com/developers/gitignore/api/list?format=lines' | lines
+}
+
+def gitignore [lang: string@'nu gitignore list'] {
+  http get $'https://www.toptal.com/developers/gitignore/api/($lang)' | save .gitignore
+}
+
+def help! [cmd?: string] {
+  let pipe = $in
+
+  if $pipe != null {
+    $pipe | bat --plain --language help
+    return
+  }
+
+  if $cmd != null {
+    if (which bat | is-empty) {
+      ^$cmd --help
+    } else {
+      ^$cmd --help | bat --plain --language help
+    }
+    return
+  }
+}
+
+def json [] {
+  to json | jless --mode line
+}
+
+def run-openai [] {
+  let models = [
+    llama2
+    mistral
+    codellama
+    llama2-uncensored
+    vicuna
+    llava
+  ]
+
+  let model = (gum choose $models)
+
+  if (^which ollama | is-empty) {
+    print 'download ollama'
+    return
+  }
+  if (^which litellm | is-empty) {
+    print 'download litellm'
+    return
+  }
+  if (ps | where name =~ ollama | is-empty) {
+    bash -c 'nohup ollama serve &' 
+  }
+  if (ollama list | find $model | is-empty) {
+    ollama pull $model
+  }
+  litellm --model ("ollama" | path join $model) --api_base http://localhost:11434
+}
+
+def --env gfm [] {
+  let path = gum file --file --directory
+  if ($path | path type) == 'file' {
+    hx $path
+  } else if ($path | path type) == 'dir' {
+    cd $path
+  }
+}
+
+
+def --wrapped bg [...rest] {
+  let cmd = $"($rest | str join ' ') > /dev/null 2>&1 &"
+  bash -c $cmd
+}
+
+def build [] {
+  nu ($env.REPO_PATH | path join docker build.nu)
+}
+
+def ooc [] {
+  OCO_AI_PROVIDER="ollama" ^opencommit
+}
+
+def "kill ps" [] {
+  let name = (ps | get name | gum filter ...$in )
+  if ($name | is-empty) {
+    return
+  }
+  let process = (ps | where name == $name)
+  if ($process | is-empty) {
+    return
+  }
+  kill --force ($process | first | get pid)
+}
+
+def --wrapped sail [...cmd: string] {
+  let sail = ($env.PWD | path join vendor/bin/sail)
+  if ($sail | path exists) {
+    ^$sail ...$cmd
+  } else {
+    print "Sail not found"
+  }
+}
