@@ -36,11 +36,20 @@ export def alacritty [theme: string@alacritty_themes] {
   open -r $config | lines | update 1 $'"~/.config/alacritty/themes/($theme).toml",' | str join "\n" | save -f $config
 }
 
+def regolith_themes [] {
+  regolith-look list | lines
+}
+
+export def regolith [theme: string@regolith_themes] {
+  regolith-look set $theme
+}
+
 export def dark [] {
   helix "ayu_dark"
   nushell "dark_theme"
   zellij "default"
   alacritty "ayu_dark"
+  regolith "ayu-dark"
 }
 
 export def light [] {
@@ -48,4 +57,5 @@ export def light [] {
   nushell "light_theme"
   zellij "everforest-light"
   alacritty "gruvbox_light"
+  regolith "ayu"
 }
