@@ -1076,6 +1076,21 @@ export def gh [] {
   umv -d gh_($version)_linux_amd64 -f bin/gh
 }
 
+export def glab [] {
+  let version = "1.40.0"
+
+  let bin = bin glab
+  let path = share glab $version
+
+  if (no-exist $path) {
+    https download $"https://gitlab.com/gitlab-org/cli/-/releases/v($version)/downloads/glab_($version)_Linux_x86_64.tar.gz"
+    extract tar $"glab_($version)_Linux_x86_64.tar.gz" -d glab_Linux_x86_64
+    umv -d glab_Linux_x86_64 -f bin/glab -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def dive [] {
   let version = github get_version 'wagoodman/dive'
 
