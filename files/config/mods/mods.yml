@@ -4,8 +4,13 @@ default-model: gpt-3.5-turbo
 format-text:
   markdown: 'Format the response as markdown without enclosing backticks.'
   json: 'Format the response as json without enclosing backticks.'
+# List of predefined system messages that can be used as roles.
+roles:
+  "default": []
 # Ask for the response to be formatted as markdown unless otherwise set.
 format: false
+# System role to use.
+role: "default"
 # Render output as raw text when connected to a TTY.
 raw: false
 # Quiet mode (hide the spinner while loading and stderr messages for success).
@@ -74,6 +79,42 @@ apis:
         aliases: ["35"]
         max-input-chars: 12250
         fallback:
+  perplexity:
+    base-url: https://api.perplexity.ai
+    api-key:
+    api-key-env: PERPLEXITY_API_KEY
+    models:
+      codellama-70b-instruct:
+        aliases: ["codellama"]
+        max-input-chars: 16384
+      mistral-7b-instruct:
+        aliases: ["mistral"]
+        max-input-chars: 16384
+      mixtral-8x7b-instruct:
+        aliases: ["mixtral-8x"]
+        max-input-chars: 16384
+      sonar-medium-online:
+        aliases: ["smo", "o"]
+        max-input-chars: 1200
+      sonar-medium-chat:
+        aliases: ["smc"]
+        max-input-chars: 16384
+      sonar-small-chat:
+        aliases: ["ssc"]
+        max-input-chars: 16384
+      sonar-small-online:
+        aliases: ["sso"]
+        max-input-chars: 1200
+  groq:
+    base-url: https://api.groq.com/openai/v1
+    api-key-env: GROQ_API_KEY
+    models:
+      mixtral-8x7b-32768:
+        aliases: ["mixtral"]
+        max-input-chars: 98000
+      llama2-70b-4096:
+        aliases: ["llama2"]
+        max-input-chars: 12250
   localai:
     # LocalAI setup instructions: https://github.com/go-skynet/LocalAI#example-use-gpt4all-j-model
     base-url: http://localhost:8080
@@ -101,3 +142,12 @@ apis:
         aliases: ["az35"]
         max-input-chars: 12250
         fallback:
+  runpod:
+    # https://docs.runpod.io/serverless/workers/vllm/openai-compatibility
+    base-url: https://api.runpod.ai/v2/${YOUR_ENDPOINT}/openai/v1
+    api-key:
+    api-key-env: RUNPOD_API_KEY
+    models:
+      openchat/openchat-3.5-1210:
+        aliases: ["openchat"]
+        max-input-chars: 8192

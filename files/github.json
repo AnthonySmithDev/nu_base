@@ -23,9 +23,9 @@
   {
     "category": "core",
     "repository": "charmbracelet/mods",
-    "tag_name": "1.2.2",
+    "tag_name": "1.3.0",
     "prerelease": false,
-    "created_at": "2024-03-07T21:26:41Z"
+    "created_at": "2024-05-03T13:24:19Z"
   },
   {
     "category": "core",
@@ -429,9 +429,9 @@
   {
     "category": "extra",
     "repository": "owenthereal/upterm",
-    "tag_name": "0.13.3",
+    "tag_name": "0.13.5",
     "prerelease": false,
-    "created_at": "2024-04-17T16:37:22Z"
+    "created_at": "2024-05-01T03:24:55Z"
   },
   {
     "category": "extra",
@@ -457,9 +457,9 @@
   {
     "category": "extra",
     "repository": "ast-grep/ast-grep",
-    "tag_name": "0.21.1",
+    "tag_name": "0.21.3",
     "prerelease": false,
-    "created_at": "2024-04-24T23:47:03Z"
+    "created_at": "2024-05-03T04:27:37Z"
   },
   {
     "category": "extra",
@@ -471,23 +471,23 @@
   {
     "category": "other",
     "repository": "jmorganca/ollama",
-    "tag_name": "0.1.32",
+    "tag_name": "0.1.33",
     "prerelease": false,
-    "created_at": "2024-04-16T21:57:09Z"
+    "created_at": "2024-05-02T18:06:31Z"
   },
   {
     "category": "other",
     "repository": "plandex-ai/plandex",
-    "tag_name": "0.8.3",
+    "tag_name": "cli/v0.9.0",
     "prerelease": false,
-    "created_at": "2024-04-16T21:57:09Z"
+    "created_at": "2024-04-29T18:07:14Z"
   },
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "V2.13.0",
+    "tag_name": "2.14.0",
     "prerelease": false,
-    "created_at": "2024-04-25T20:06:22Z"
+    "created_at": "2024-05-02T22:43:02Z"
   },
   {
     "category": "other",
@@ -569,9 +569,9 @@
   {
     "category": "other",
     "repository": "sxyazi/yazi",
-    "tag_name": "0.2.4",
+    "tag_name": "0.2.5",
     "prerelease": false,
-    "created_at": "2024-03-09T11:04:46Z"
+    "created_at": "2024-04-23T08:35:17Z"
   },
   {
     "category": "other",
@@ -646,9 +646,9 @@
   {
     "category": "other",
     "repository": "uutils/coreutils",
-    "tag_name": "0.0.25",
+    "tag_name": "0.0.26",
     "prerelease": false,
-    "created_at": "2024-03-23T21:18:05Z"
+    "created_at": "2024-04-26T21:41:31Z"
   },
   {
     "category": "other",

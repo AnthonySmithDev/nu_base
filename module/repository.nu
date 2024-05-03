@@ -53,6 +53,7 @@ def update_github_repository [repository: string, tag_name: string, prerelease: 
 }
 
 def create_github_update [] {
+  touch $env.GITHUB_UPDATE
   if (open $env.GITHUB_REPOSITORY | length) > (open $env.GITHUB_UPDATE | length) {
     rm -rf $env.GITHUB_UPDATE
   }
