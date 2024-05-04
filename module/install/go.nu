@@ -3,13 +3,16 @@ export def dev [] {
 	go install golang.org/x/tools/gopls@latest
 	go install github.com/go-delve/delve/cmd/dlv@latest
 
-	go install github.com/maruel/panicparse/v2/cmd/pp@latest
+	go install entgo.io/ent/cmd/ent@latest
+	go install ariga.io/atlas/cmd/atlas@latest
+	go install ariga.io/entimport/cmd/entimport@latest
+
 	go install github.com/cosmtrek/air@latest
 	go install github.com/swaggo/swag/cmd/swag@latest
+	go install github.com/maruel/panicparse/v2/cmd/pp@latest
 }
 
 export def core [] {
-	go install entgo.io/ent/cmd/ent@latest
 	go install github.com/go-task/task/v3/cmd/task@latest
 	go install github.com/jesseduffield/lazygit@latest
 	go install github.com/jesseduffield/lazydocker@latest

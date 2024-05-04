@@ -1,21 +1,21 @@
 
 export-env {
-   $env.SQL_USER = ''
-   $env.SQL_PASS = ''
-   $env.SQL_HOST = ''
-   $env.SQL_PORT = ''
-   $env.SQL_NAME = ''
+   $env.SQL_USER = 'root'
+   $env.SQL_PASS = 'pass'
+   $env.SQL_HOST = 'localhost'
+   $env.SQL_PORT = '3306'
+   $env.SQL_NAME = 'example'
 }
 
 export def dsn [table: bool = false] {
-  let path = if $table { $env.SQL_NAME } else { "" }
+  let name = if $table { $env.SQL_NAME } else { "" }
   {
     "scheme": "mysql",
     "username": $env.SQL_USER,
     "password": $env.SQL_PASS,
     "host": $env.SQL_HOST,
     "port": $env.SQL_PORT,
-    "path": $path,
+    "path": $name,
   } | url join
 }
 

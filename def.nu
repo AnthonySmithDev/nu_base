@@ -142,3 +142,35 @@ def --wrapped sail [...cmd: string] {
     print "Sail not found"
   }
 }
+
+def sqlite [database: string] {
+   litecli $database --auto-vertical-output
+}
+
+def mysql [] {
+   let dsn = $'mysql://($env.SQL_USER):($env.SQL_PASS)@($env.SQL_HOST):($env.SQL_PORT)/($env.SQL_NAME)'
+   print $dsn
+   mycli --auto-vertical-output $dsn
+}
+
+def redis [...cmd: string] {
+   let url = $"redis://:($env.REDIS_PASS)@($env.REDIS_HOST):($env.REDIS_PORT)"
+   if ($cmd | is-not-empty) {
+      iredis --url $url --raw ($cmd | str join ' ')
+   } else {
+      iredis --url $url
+   }
+}
+
+def "sql_ide" [] {
+   harlequin -a mysql -h $env.SQL_HOST -p $env.SQL_PORT -U $env.SQL_USER --password $env.SQL_PASS --database $env.SQL_NAME
+}
+
+def redis_del [cmd: string] {
+   redis DEL (redis KEYS $cmd | lines | str join ' ')
+}
+
+def pastes [filename: string, --lang(-l): string = "plain"] {
+  let url = (curl -s -T $filename -H $"Content-Type: text/($lang)" https://api.pastes.dev/post)
+  return { url: $url }
+}

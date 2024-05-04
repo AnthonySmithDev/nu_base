@@ -50,7 +50,7 @@ export def cut [
 
   for $name in $names {
     let source = ($env.PWD | path join $name)
-    mv $source $destination
+    mv -p $source $destination
   }
 }
 
@@ -64,7 +64,7 @@ export def copy [
 
   for $name in $names {
     let source = ($env.PWD | path join $name)
-    cp -v -r $source $destination
+    cp -p -v -r $source $destination
   }
 }
 
@@ -78,9 +78,11 @@ export def paste [
   if ($source | path exists) {
     let files = (ls -a $source | get name)
     for $file in $files {
-      mv -v $file $destination
+      mv -p -v $file $destination
     }
-    rm -rf $source
+    if (ls -a $source | is-empty) {
+      rm -rf $source
+    }
   }
 }
 

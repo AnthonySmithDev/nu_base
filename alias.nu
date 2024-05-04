@@ -57,8 +57,3 @@ alias snips = ssh snips.sh
 alias vieb = browser vieb
 alias brave = browser brave
 alias chrome = browser chrome
-
-def pastes [filename: string, --lang(-l): string = "plain"] {
-  let url = (curl -s -T $filename -H $"Content-Type: text/($lang)" https://api.pastes.dev/post)
-  return { url: $url }
-}
