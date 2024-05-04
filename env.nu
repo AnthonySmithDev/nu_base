@@ -140,8 +140,6 @@ $env.VISUAL = 'hx'
 $env.MANPAGER = "sh -c 'col -bx | bat -l man -p'"
 $env.SOFT_SERVE_DATA_PATH = ($env.HOME | path join '.soft-server')
 
-$env.OLLAMA_HOST = "0.0.0.0:11434"
-
 let admin_keys = ($env.HOME | path join .ssh/id_ed25519.pub)
 if ($admin_keys | path exists) {
   $env.SOFT_SERVE_INITIAL_ADMIN_KEYS = (open $admin_keys)

@@ -153,6 +153,12 @@ export def github [] {
   git config --global init.defaultBranch 'main'
 }
 
+export def gitlab [] {
+  glab config set -g -h $env.GITLAB_HOST token $env.GITLAB_TOKEN
+  glab config set -g -h $env.GITLAB_HOST api_protocol http
+  glab config set -g -h $env.GITLAB_HOST git_protocol ssh
+}
+
 export def ssh [] {
   let keyfile = ($env.HOME | path join '.ssh' 'id_ed25519')
   if not ($keyfile | path exists) {
