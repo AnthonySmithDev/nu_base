@@ -6,7 +6,9 @@ def helix_themes [theme: string] {
 export def helix [theme: string@helix_themes] {
   let config = ($env.CONFIG_DIR_REPO | path join helix/config.toml)
   open -r $config | lines | update 0 $'theme = "($theme)"' | str join "\n" | save -f $config
-  pkill -USR1 hx
+  if (ps | where name =~ hx | is-not-empty) {
+    pkill -USR1 hx
+  }
 }
 
 def nushell_themes [] {
