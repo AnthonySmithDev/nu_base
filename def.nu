@@ -174,3 +174,11 @@ def pastes [filename: string, --lang(-l): string = "plain"] {
   let url = (curl -s -T $filename -H $"Content-Type: text/($lang)" https://api.pastes.dev/post)
   return { url: $url }
 }
+
+def git_clone [repo: string, path: string] {
+  if ($path | path exists) {
+    git -C $path pull
+  } else {
+    git clone $repo $path
+  }
+}

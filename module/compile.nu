@@ -1,19 +1,10 @@
 
-def fetch [repo: string, path: string] {
-  if ($path | path exists) {
-    git -C $path pull
-  } else {
-    git clone $repo $path
-  }
-}
-
 export def alacritty [ --global, --default, --desktop, --manual ] {
   let source = ($env.USR_LOCAL_SOURCE | path join alacritty)
-  fetch https://github.com/alacritty/alacritty.git $source
+  git_clone https://github.com/alacritty/alacritty.git $source
 
-  with-env { PWD: $source } {
-    cargo build --release
-  }
+  let manifest = ($source | path join Cargo.toml)
+  cargo build --release --manifest-path $manifest
 
   let src = ($source | path join target release alacritty)
   let dst = ($env.USR_LOCAL_BIN | path join alacritty)
@@ -32,32 +23,29 @@ export def alacritty [ --global, --default, --desktop, --manual ] {
   }
 
   if $desktop {
-    with-env { PWD: $source } {
-      sudo cp -f extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg
-      sudo desktop-file-install extra/linux/Alacritty.desktop
-      sudo update-desktop-database
-    }
+    sudo cp -f ($source | path join extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg)
+    sudo desktop-file-install ($source | path join extra/linux/Alacritty.desktop)
+    sudo update-desktop-database
   }
 
   if $manual {
-    with-env { PWD: $source } {
-      sudo mkdir -p /usr/local/share/man/man1
-      sudo mkdir -p /usr/local/share/man/man5
-      bash -c "scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null"
-      bash -c "scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null"
-      bash -c "scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null"
-      bash -c "scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null"
-    }
+    # with-env { PWD: $source } {
+    #   sudo mkdir -p /usr/local/share/man/man1
+    #   sudo mkdir -p /usr/local/share/man/man5
+    #   bash -c "scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null"
+    #   bash -c "scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null"
+    #   bash -c "scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null"
+    #   bash -c "scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null"
+    # }
   }
 }
 
 export def nushell [ --global,--plugin ] {
   let source = ($env.USR_LOCAL_SOURCE | path join nushell)
-  fetch https://github.com/nushell/nushell.git $source
+  git_clone https://github.com/nushell/nushell.git $source
 
-  with-env { PWD: $source } {
-    cargo build --release --workspace
-  }
+  let manifest = ($source | path join Cargo.toml)
+  cargo build --release --workspace --manifest-path $manifest
 
   let src = ($source | path join target release nu)
   let dst = ($env.USR_LOCAL_BIN | path join nu)
@@ -78,12 +66,10 @@ export def nushell [ --global,--plugin ] {
 
 export def helix [--desktop, --global] {
   let source = ($env.USR_LOCAL_SOURCE | path join helix)
-  fetch https://github.com/helix-editor/helix $source
+  git_clone https://github.com/helix-editor/helix $source
 
-  let term = ($source | path join helix-term)
-  with-env { PWD: $term } {
-    cargo build --release --locked
-  }
+  let manifest = ($source | path join helix-term Cargo.toml)
+  cargo build --release --locked --manifest-path $manifest
 
   if not ($env.HELIX_PATH | path exists) {
     mkdir $env.HELIX_PATH
@@ -101,21 +87,18 @@ export def helix [--desktop, --global] {
   cp -r -u -p ($source | path join runtime) $env.HELIX_RUNTIME
 
   if $desktop {
-    with-env { PWD: $source } {
-      cp contrib/Helix.desktop ~/.local/share/applications
-      cp contrib/helix.png ~/.local/share/icons
-    }
+    cp ($source | path join contrib/Helix.desktop) ($env.HOME | path join .local/share/applications)
+    cp ($source | path join contrib/helix.png) ($env.HOME | path join .local/share/icons)
   }
 }
 
 export def zed [] {
   let source = ($env.USR_LOCAL_SOURCE | path join zed)
-  fetch https://github.com/zed-industries/zed $source
+  git_clone https://github.com/zed-industries/zed $source
 
-  with-env { PWD: $source } {
-    git submodule update --init --recursive
-    cargo build --release
-  }
+  git submodule update --init --recursive
+  let manifest = ($source | path join Cargo.toml)
+  cargo build --release --manifest-path $manifest
 }
 
 export def riv [] {
@@ -139,7 +122,7 @@ export def nchat [] {
   let wd = pwd
   let path = ($env.HOME | path join 'tmp' 'nchat')
 
-  fetch https://github.com/d99kris/nchat $path
+  git_clone https://github.com/d99kris/nchat $path
   cd $path
 
   bash -c ./make.sh deps
@@ -159,7 +142,7 @@ export def http-to-ws [] {
 
   cd $path
 
-  fetch https://github.com/AnthonySmithDev/http-to-ws.git $path
+  git_clone https://github.com/AnthonySmithDev/http-to-ws.git $path
   go install "."
 
   cd $wd
@@ -167,17 +150,16 @@ export def http-to-ws [] {
 
 export def tasklite [] {
   let path = ($env.USR_LOCAL_SOURCE | path join TaskLite)
-  fetch https://github.com/ad-si/TaskLite $path
+  git_clone https://github.com/ad-si/TaskLite $path
   PWD=$path stack install tasklite-core
 }
 
 export def amp [] {
   let source = ($env.USR_LOCAL_SOURCE | path join amp)
-  fetch https://github.com/jmacdonald/amp $source
+  git_clone https://github.com/jmacdonald/amp $source
 
-  with-env { PWD: $source } {
-    cargo build --release
-  }
+  let manifest = ($source | path join Cargo.toml)
+  cargo build --release --manifest-path $manifest
 
   let src = ($source | path join target release amp)
   let dst = ($env.USR_LOCAL_BIN | path join amp)
@@ -187,11 +169,10 @@ export def amp [] {
 
 export def lapce [] {
   let source = ($env.USR_LOCAL_SOURCE | path join lapce)
-  fetch https://github.com/lapce/lapce $source
+  git_clone https://github.com/lapce/lapce $source
 
-  with-env { PWD: $source } {
-    cargo build --release
-  }
+  let manifest = ($source | path join Cargo.toml)
+  cargo build --release --manifest-path $manifest
 
   let src = ($source | path join target release lapce)
   let dst = ($env.USR_LOCAL_BIN | path join lapce)
