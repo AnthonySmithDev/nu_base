@@ -124,5 +124,5 @@ def print_error [error: string] {
 }
 
 export def repos [] {
-  open ($env.REPO_PATH | path join files github.json)
+  open ($env.NU_BASE_PATH | path join files github.json)
 }

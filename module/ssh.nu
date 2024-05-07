@@ -40,9 +40,12 @@ export def copy-id [alias: string@alias] {
   sshpass -p $server.pass ssh-copy-id (host $server)
 }
 
-export def sync [alias: string@alias] {
+export def sync [alias: string@alias, --work(-w)] {
   let server = (server $alias)
-  rsync --exclude '.git' -q -r $env.REPO_PATH (host $server ~/.local)
+  rsync --exclude '.git' -q -r $env.NU_BASE_PATH (host $server ~/.local)
+  if $work {
+    rsync -q -r $env.NU_WORK_PATH (host $server ~/.local)
+  }
 }
 
 export def install [alias: string@alias] {

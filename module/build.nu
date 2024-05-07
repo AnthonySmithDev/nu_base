@@ -1,6 +1,6 @@
 
 export-env {
-  $env.DOCKER_FILES = ($env.REPO_PATH | path join files docker)
+  $env.DOCKER_FILES = ($env.NU_BASE_PATH | path join files docker)
 }
 
 export def air [] {

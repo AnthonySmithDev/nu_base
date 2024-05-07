@@ -1,6 +1,6 @@
 
 export-env {
-  $env.GITHUB_REPOSITORY = ($env.REPO_PATH | path join files github.json)
+  $env.GITHUB_REPOSITORY = ($env.NU_BASE_PATH | path join files github.json)
   $env.GITHUB_UPDATE = ($env.HOME | path join .github.json)
 }
 

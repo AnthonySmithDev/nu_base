@@ -1,26 +1,26 @@
 
 def 'edit env' [] {
-  hx ($env.REPO_PATH | path join 'nushell' 'env.nu')
+  hx ($env.NU_BASE_PATH | path join 'nushell' 'env.nu')
 }
 
 def 'edit alias' [] {
-  hx ($env.REPO_PATH | path join 'nushell' 'alias.nu')
+  hx ($env.NU_BASE_PATH | path join 'nushell' 'alias.nu')
 }
 
 def 'edit def' [] {
-  hx ($env.REPO_PATH | path join 'nushell' 'def.nu')
+  hx ($env.NU_BASE_PATH | path join 'nushell' 'def.nu')
 }
 
 def 'edit init' [] {
-  hx ($env.REPO_PATH | path join 'nushell' 'init')
+  hx ($env.NU_BASE_PATH | path join 'nushell' 'init')
 }
 
 def 'edit module' [] {
-  hx ($env.REPO_PATH | path join 'nushell' 'module')
+  hx ($env.NU_BASE_PATH | path join 'nushell' 'module')
 }
 
 def 'edit nu' [] {
-  hx ($env.REPO_PATH | path join 'nushell')
+  hx ($env.NU_BASE_PATH | path join 'nushell')
 }
 
 def seed [] {
@@ -115,7 +115,7 @@ def --wrapped bg [...rest] {
 }
 
 def build [] {
-  nu ($env.REPO_PATH | path join docker build.nu)
+  nu ($env.NU_BASE_PATH | path join docker build.nu)
 }
 
 def ooc [] {

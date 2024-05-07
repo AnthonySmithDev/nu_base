@@ -1,7 +1,7 @@
 
-$env.REPO_PATH = ($env.HOME | path join 'nushell' 'nu_base')
-if not ($env.REPO_PATH | path exists) {
-  $env.REPO_PATH = ($env.HOME | path join '.local' 'nu_base')
+$env.NU_BASE_PATH = ($env.HOME | path join 'nushell' 'nu_base')
+if not ($env.NU_BASE_PATH | path exists) {
+  $env.NU_BASE_PATH = ($env.HOME | path join '.local' 'nu_base')
 }
 
 $env.USR_LOCAL = ($env.HOME | path join '.usr' 'local')
