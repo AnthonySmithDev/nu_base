@@ -48,14 +48,17 @@ export def sync [alias: string@alias, --work(-w)] {
   }
 }
 
-export def install [alias: string@alias] {
+export def --wrapped exec [alias: string@alias, ...cmd: string] {
   let server = (server $alias)
-  ssh -t (host $server) 'bash ~/.local/nu_base/sh/server.sh'
+  ssh -t (host $server) ...$cmd
+}
+
+export def install [alias: string@alias] {
+  exec $alias 'bash ~/.local/nu_base/sh/server.sh'
 }
 
 export def shell [alias: string@alias] {
-  let server = (server $alias)
-  ssh -t (host $server) 'exec ~/.local/bin/nu -e "source ~/.local/nu_base/source.nu"'
+  exec $alias 'exec ~/.local/bin/nu -e "source ~/.local/nu_base/source.nu"'
 }
 
 export def copy [alias: string@alias, src: string, dest: string] {
