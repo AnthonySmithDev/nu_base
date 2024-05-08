@@ -21,8 +21,12 @@ export def latest [repository: string@repositories] {
 export def tag_name [] {
   create_github_update
 
-  let repositories = (open $env.GITHUB_REPOSITORY | merge (open $env.GITHUB_UPDATE)
-  | where ($it.updated_at | into datetime) > (date now) - 1day)
+  let repositories = (
+  open $env.GITHUB_REPOSITORY
+    | merge (open $env.GITHUB_UPDATE)
+    | update updated_at { into datetime }
+    | where updated_at  < (date now) - 1day
+  )
   for $old in $repositories {
     let new = (latest $old.repository)
     if ($new | is-empty) {
@@ -73,4 +77,10 @@ def update_github_updated_at [repository: string, updated_at: datetime] {
       $e
     }
   } | collect { save -f $env.GITHUB_UPDATE }
+}
+
+export def rate_limit [] {
+  let rate = (http get https://api.github.com/rate_limit | get rate)
+  let date = ($rate | get reset | $in * 1_000_000_000 | into datetime --offset -5)
+  $rate | insert date $date
 }

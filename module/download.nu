@@ -673,8 +673,10 @@ export def usql [] {
 }
 
 export def atlas [--eula] {
+  let version = github get_version 'ariga/atlas'
+
   let bin = bin atlas
-  let path = share atlas latest
+  let path = share atlas $version
 
   if (no-exist $path) {
     let filename = if $eula {
@@ -1263,7 +1265,7 @@ export def fvm [] {
 }
 
 export def lapce [] {
-  let version = "latest"
+  let version = github get_version 'lapce/lapce'
 
   let bin = bin lapce
   let path = share lapce $version
@@ -1719,6 +1721,7 @@ export def core [] {
 
   gdu
   qrcp
+  gitu
   ttyper
   bottom
   silicon

@@ -3,7 +3,7 @@ export-env {
    $env.SQL_USER = 'root'
    $env.SQL_PASS = 'pass'
    $env.SQL_HOST = 'localhost'
-   $env.SQL_PORT = '3306'
+   $env.SQL_PORT = 3306
    $env.SQL_NAME = 'example'
 }
 
