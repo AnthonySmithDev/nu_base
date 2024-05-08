@@ -84,8 +84,7 @@ $env.BITCOIN_BIN = ($env.BITCOIN_PATH | path join 'bin')
 env-path $env.BITCOIN_BIN
 
 $env.LIGHTNING_PATH = ($env.USR_LOCAL_LIB | path join 'lightning')
-$env.LIGHTNING_BIN = ($env.LIGHTNING_PATH | path join 'bin')
-env-path $env.LIGHTNING_BIN
+env-path $env.LIGHTNING_PATH
 
 $env.SCILAB_PATH = ($env.USR_LOCAL_LIB | path join 'scilab')
 $env.SCILAB_BIN = ($env.SCILAB_PATH | path join 'bin')

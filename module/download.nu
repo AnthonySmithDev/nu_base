@@ -1651,17 +1651,29 @@ export def android-platform-tools [] {
 export def bitcoin [] {
   let version = github get_version 'bitcoin/bitcoin'
 
-  https download $'https://bitcoincore.org/bin/bitcoin-core-($version)/bitcoin-($version)-x86_64-linux-gnu.tar.gz'
-  extract tar $'bitcoin-($version)-x86_64-linux-gnu.tar.gz'
-  umv -d $'bitcoin-($version)' -p $env.BITCOIN_PATH
+  let path = share bitcoin $version
+
+  if (no-exist $path) {
+    https download $'https://bitcoincore.org/bin/bitcoin-core-($version)/bitcoin-($version)-x86_64-linux-gnu.tar.gz'
+    extract tar $'bitcoin-($version)-x86_64-linux-gnu.tar.gz'
+    umv -d $'bitcoin-($version)' -p $path
+  }
+
+  symlink $path $env.BITCOIN_PATH
 }
 
 export def lightning-network [] {
   let version = github get_version 'lightningnetwork/lnd'
 
-  https download $'https://github.com/lightningnetwork/lnd/releases/download/v($version)/lnd-linux-amd64-v($version).tar.gz'
-  extract tar $'lnd-linux-amd64-v($version).tar.gz'
-  umv -d $'lnd-linux-amd64-v($version)' -p $env.LIGHTNING_PATH
+  let path = share lightning $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/lightningnetwork/lnd/releases/download/v($version)/lnd-linux-amd64-v($version).tar.gz'
+    extract tar $'lnd-linux-amd64-v($version).tar.gz'
+    umv -d $'lnd-linux-amd64-v($version)' -p $path
+  }
+
+  symlink $path $env.LIGHTNING_PATH
 }
 
 export def scilab [] {
