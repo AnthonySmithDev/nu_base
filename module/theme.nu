@@ -20,8 +20,40 @@ export def nushell [theme: string@nushell_themes] {
   open -r $config | lines | update 867 $'$env.config.color_config = $($theme)' | str join "\n" | save -f $config
 }
 
-def zellij_themes [theme: string] {
+def dir_zellij_themes [theme: string] {
   ls -s ~/.config/zellij/themes | get name | each {|e| $e | split row "." | first }
+}
+
+def zellij_themes [theme: string] {
+  [
+    catppuccin-latte
+    catppuccin-frappe
+    catppuccin-macchiato
+    catppuccin-mocha
+    cyber-noir
+    blade-runner
+    retro-wave
+    dracula
+    everforest-dark
+    everforest-light
+    gruvbox-light
+    gruvbox-dark
+    kanagawa
+    menace
+    molokai-dark
+    dayfox
+    nightfox
+    terafox
+    nord
+    one-half-dark
+    pencil-light
+    solarized-dark
+    solarized-light
+    tokyo-night
+    tokyo-night-dark
+    tokyo-night-light
+    tokyo-night-storm
+  ]
 }
 
 export def zellij [theme: string@zellij_themes] {
@@ -57,7 +89,7 @@ export def dark [] {
 export def light [] {
   helix "gruvbox_light_soft"
   nushell "light_theme"
-  zellij "everforest-light"
+  zellij "everforest-dark"
   alacritty "gruvbox_light"
   regolith "ayu"
 }
