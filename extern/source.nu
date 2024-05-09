@@ -1,7 +1,5 @@
 
 # use cpp.nu
-# use lncli.nu
-# use bitcoin-cli.nu
 
 use gum.nu
 use mods.nu

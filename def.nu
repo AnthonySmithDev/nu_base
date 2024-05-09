@@ -182,7 +182,3 @@ def git_clone [repo: string, path: string] {
     git clone $repo $path
   }
 }
-
-def tstatus [] {
-  tailscale status | from ssv -n -m 1 | rename ip host user os status  | select ip host user os status
-}
