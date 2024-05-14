@@ -4,7 +4,7 @@ export-env {
 }
 
 def default [] {
-  "## To Do\n\n## Priority\n\n## Doing\n\n## Done\n\n"
+  "## To Do\n\n## Doing\n\n## Done\n\n"
 }
 
 def board_path [] {

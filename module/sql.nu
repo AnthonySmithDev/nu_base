@@ -7,8 +7,8 @@ export-env {
    $env.SQL_NAME = 'example'
 }
 
-export def dsn [table: bool = false] {
-  let name = if $table { $env.SQL_NAME } else { "" }
+export def dsn [dbname: bool = false] {
+  let name = if $dbname { $env.SQL_NAME } else { "" }
   {
     "scheme": "mysql",
     "username": $env.SQL_USER,
@@ -19,8 +19,8 @@ export def dsn [table: bool = false] {
   } | url join
 }
 
-export def u_query [ query: string, table: bool = false ] {
-  let complete = (usql (dsn $table) -q -C -c $query | complete)
+export def u_query [ query: string, dbname: bool = false ] {
+  let complete = (usql (dsn $dbname) -q -C -c $query | complete)
   if $complete.exit_code == 1 {
     let stderr = ($complete.stderr | str trim)
     error make -u { msg: $stderr }
@@ -32,12 +32,24 @@ export def u_query [ query: string, table: bool = false ] {
   return ($complete.stdout | from csv)
 }
 
-export def m_query [ query: string, table: bool = false ] {
-  mycli (dsn $table) --csv -e $query | from csv
+export def m_query [ query: string, dbname: bool = false ] {
+  mycli (dsn $dbname) --csv -e $query | from csv
 }
 
-export def query [...query: string, --table(-t)] {
-  u_query ($query | str join ' ') $table
+export def query [...query: string, --dbname(-n), --confirm(-c)] {
+  let query = ($query | str join ' ')
+
+  if $confirm {
+    print ""
+    $query | bat -pp -l sql
+
+    do { gum confirm  "Are you sure to run this query?"}
+    if ($env.LAST_EXIT_CODE == 0) {
+      u_query $query $dbname
+    }
+  } else {
+    u_query $query $dbname
+  }
 }
 
 export def show_databases [] {
@@ -49,39 +61,35 @@ export def create_database [name: string] {
 }
 
 export def drop_database [name: string@show_databases] {
-  query DROP DATABASE $name
+  query -c DROP DATABASE $name
+}
+
+export def truncate_database [name: string@show_databases] {
+  query -c -n (show_tables | each {|e| $"TRUNCATE TABLE ($e);"} | to text)
 }
 
 export def show_tables [] {
-  query -t SHOW TABLES | values | first
+  query -n SHOW TABLES | values | first
 }
 
 export def drop_table [table: string@show_tables] {
-  query -t DROP TABLE $table
+  query -c -n DROP TABLE $table
 }
 
 export def truncate_table [table: string@show_tables] {
-  query -t TRUNCATE TABLE $table
+  query -c -n TRUNCATE TABLE $table
 }
 
 export def show_columns [table: string@show_tables] {
-  query -t SHOW COLUMNS FROM $table
+  query -n SHOW COLUMNS FROM $table
+}
+
+export def fields [table: string@show_tables] {
+  show_columns $table | get field
 }
 
 export def from [table: string@show_tables] {
-  query -t SELECT * FROM $table
-}
-
-def surround [] {
-  each {|$e|
-    if ($e | is-empty) {
-      "NULL"
-    } else if ($e | describe) == "string" {
-      $"'($e)'"
-    } else {
-      $e
-    }
-  }
+  query -n SELECT * FROM $table
 }
 
 export def sanitization [] {
@@ -100,19 +108,11 @@ export def insert [table: string@show_tables, data: record] {
   let columns = ($data | columns | each {|it| $"`($it)`"} | str join ", ")
   let values = ($data | values | sanitization | str join ", ")
 
-  query -t $"INSERT INTO ($table) \( ($columns) \) VALUES \( ($values) \)"
+  query -n $"INSERT INTO ($table) \( ($columns) \) VALUES \( ($values) \)"
 }
 
 export def copy [src: string, dst: string, table: string] {
   print "copy"
-}
-
-export def fields [table: string@show_tables] {
-  show_columns $table | get field
-}
-
-export def clean [name: string@show_databases] {
-  query -t (show_tables | each {|e| $"TRUNCATE TABLE ($e);"} | to text) | null
 }
 
 def names [] {
@@ -120,14 +120,14 @@ def names [] {
 }
 
 export def file [name: string@names] {
-  query -t (open $name)
+  query -n (open $name)
 }
 
 export def live [name: string@names] {
   watch . --glob=**/*.sql {||
     clear
     bat $name -P -l sql
-    query -t (open $name) | to json | bat -P -l json
+    query -n (open $name) | to json | bat -P -l json
   }
 }
 
