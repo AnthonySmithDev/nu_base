@@ -80,6 +80,10 @@ export def foot [] {
   shortcut foot 'foot.ini'
 }
 
+export def bat [] {
+  shortcut bat 'config'
+}
+
 export def helix [] {
   shortcut helix 'config.toml'
   shortcut helix 'languages.toml'

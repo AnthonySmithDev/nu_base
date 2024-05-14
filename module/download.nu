@@ -1202,7 +1202,7 @@ export def kmon [] {
 }
 
 export def ollama [] {
-  let version = github get_version 'jmorganca/ollama'
+  let version = github get_version 'ollama/ollama'
 
   let bin = bin ollama
   let path = share ollama $version

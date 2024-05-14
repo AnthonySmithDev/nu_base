@@ -78,12 +78,22 @@ export def regolith [theme: string@regolith_themes] {
   regolith-look set $theme
 }
 
+def bat_themes [] {
+  ^bat --list-themes | lines | prepend "default"
+}
+
+export def bat [theme: string@bat_themes] {
+  let config = ($env.CONFIG_DIR_REPO | path join bat/config)
+  open -r $config | lines | update 6 $'--theme="($theme)"' | str join "\n" | save -f $config
+}
+
 export def dark [] {
   helix "ayu_dark"
   nushell "dark_theme"
   zellij "default"
   alacritty "ayu_dark"
   regolith "ayu-dark"
+  bat "default"
 }
 
 export def light [] {
@@ -92,4 +102,5 @@ export def light [] {
   zellij "everforest-dark"
   alacritty "gruvbox_light"
   regolith "ayu"
+  bat "gruvbox-light"
 }

@@ -182,3 +182,10 @@ def git_clone [repo: string, path: string] {
     git clone $repo $path
   }
 }
+
+def git_history [file: string] {
+  let logs = (git log --pretty=format:"%h" -- $file | lines)
+  for $commit in $logs {
+    git show $"($commit):($file)" | bat -l go
+  }
+}
