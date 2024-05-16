@@ -134,6 +134,10 @@ def "kill ps" [] {
   kill --force ($process | first | get pid)
 }
 
+def "kill port" [port: int] {
+  sudo lsof -i $":($port)" | from ssv -m 1
+}
+
 def --wrapped sail [...cmd: string] {
   let sail = ($env.PWD | path join vendor/bin/sail)
   if ($sail | path exists) {

@@ -52,43 +52,43 @@ export def query [...query: string, --dbname(-n), --confirm(-c)] {
   }
 }
 
-export def show_databases [] {
+export def show-databases [] {
   query SHOW DATABASES | values | first
 }
 
-export def create_database [name: string] {
+export def create-database [name: string] {
   query CREATE DATABASE $name
 }
 
-export def drop_database [name: string@show_databases] {
+export def drop-database [name: string@show-databases] {
   query -c DROP DATABASE $name
 }
 
-export def truncate_database [name: string@show_databases] {
-  query -c -n (show_tables | each {|e| $"TRUNCATE TABLE ($e);"} | to text)
+export def truncate-database [name: string@show-databases] {
+  query -c -n (show-tables | each {|e| $"TRUNCATE TABLE ($e);"} | to text)
 }
 
-export def show_tables [] {
+export def show-tables [] {
   query -n SHOW TABLES | values | first
 }
 
-export def drop_table [table: string@show_tables] {
+export def drop-table [table: string@show-tables] {
   query -c -n DROP TABLE $table
 }
 
-export def truncate_table [table: string@show_tables] {
+export def truncate-table [table: string@show-tables] {
   query -c -n TRUNCATE TABLE $table
 }
 
-export def show_columns [table: string@show_tables] {
+export def show-columns [table: string@show-tables] {
   query -n SHOW COLUMNS FROM $table
 }
 
-export def fields [table: string@show_tables] {
-  show_columns $table | get field
+export def fields [table: string@show-tables] {
+  show-columns $table | get field
 }
 
-export def from [table: string@show_tables] {
+export def from [table: string@show-tables] {
   query -n SELECT * FROM $table
 }
 
@@ -104,7 +104,7 @@ export def sanitization [] {
   }
 }
 
-export def insert [table: string@show_tables, data: record] {
+export def insert [table: string@show-tables, data: record] {
   let columns = ($data | columns | each {|it| $"`($it)`"} | str join ", ")
   let values = ($data | values | sanitization | str join ", ")
 
@@ -131,10 +131,10 @@ export def live [name: string@names] {
   }
 }
 
-export def context [...tables: string@show_tables] {
+export def context [...tables: string@show-tables] {
    mut text = "MySQL Database: \n\n"
    for table in $tables {
-      let desc = (show_columns $table | table -t markdown)
+      let desc = (show-columns $table | table -t markdown)
       let result = (["Table: ", $table, "\n" $desc] | str join)
       $text = ($text ++ $result)
    }
