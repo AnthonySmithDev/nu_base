@@ -5,6 +5,7 @@ export def dev [] {
   npm install --global prettier
   npm install --global opencommit
   npm install --global gitmoji-cli
+  npm install --global localtunnel
 }
 
 export def core [] {

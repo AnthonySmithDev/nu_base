@@ -1439,6 +1439,45 @@ export def nano-work-server [] {
   symlink $path $bin
 }
 
+export def devtunnel [] {
+  let bin = bin devtunnel
+  let path = share devtunnel latest
+
+  if (no-exist $path) {
+    https download https://aka.ms/TunnelsCliDownload/linux-x64 -o devtunnel
+    chmod 777 devtunnel
+    umv -f devtunnel -p $path
+  }
+
+  symlink $path $bin
+}
+
+export def cloudflared [] {
+  let bin = bin cloudflared
+  let path = share cloudflared latest
+
+  if (no-exist $path) {
+    https download https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64 -o cloudflared
+    chmod 777 cloudflared
+    umv -f cloudflared -p $path
+  }
+
+  symlink $path $bin
+}
+
+export def pinggy [] {
+  let bin = bin pinggy
+  let path = share pinggy latest
+
+  if (no-exist $path) {
+    https download https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/linux/amd64/pinggy
+    chmod 777 pinggy
+    umv -f pinggy -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def speedtest [] {
   let version = '1.2.0'
 
