@@ -264,33 +264,27 @@ export def dart [] {
 }
 
 export def input-remapper [] {
-  if (exists input-remapper-control) {
-    return
-  }
-
   let version = github get_version 'sezanzeb/input-remapper'
 
   let filepath = filepath $"input-remapper-($version).deb"
-
-  if not ($filepath | path exists) {
-    let url = $'https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb'
-    wget $url --output-document $filepath
+  if ($filepath | path exists) {
+    return
   }
+
+  https download $'https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb' -o $filepath
   sudo dpkg -i $filepath
   input-remapper-control --command autoload
 }
 
 export def vieb [] {
-  if (exists vieb) {
-    return
-  }
-
   let version = github get_version 'Jelmerro/Vieb'
 
   let filepath = filepath vieb_($version)_amd64.deb
-  if not ($filepath | path exists) {
-    https download $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb' -o $filepath
+  if ($filepath | path exists) {
+    return
   }
+
+  https download $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb' -o $filepath
   sudo dpkg -i $filepath
 }
 
