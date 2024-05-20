@@ -703,25 +703,46 @@ export def gotty [] {
 export def ttyd [] {
   let version = github get_version 'tsl0922/ttyd'
 
-  https download https://github.com/tsl0922/ttyd/releases/download/($version)/ttyd.x86_64 -o ttyd
-  chmod 755 ttyd
-  umv -f ttyd
+  let bin = bin ttyd
+  let path = share ttyd $version
+
+  if (no-exist $path) {
+    https download https://github.com/tsl0922/ttyd/releases/download/($version)/ttyd.x86_64 -o ttyd
+    chmod 777 ttyd
+    umv -f ttyd -p $path
+  }
+
+  symlink $path $bin
 }
 
 export def tty-share [] {
   let version = github get_version 'elisescu/tty-share'
 
-  https download $'https://github.com/elisescu/tty-share/releases/download/v($version)/tty-share_linux-amd64' -o tty-share
-  chmod 755 tty-share
-  umv -f tty-share
+  let bin = bin tty-share
+  let path = share tty-share $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/elisescu/tty-share/releases/download/v($version)/tty-share_linux-amd64' -o tty-share
+    chmod 755 tty-share
+    umv -f tty-share -p $path
+  }
+
+  symlink $path $bin
 }
 
 export def upterm [] {
   let version = github get_version 'owenthereal/upterm'
 
-  https download $'https://github.com/owenthereal/upterm/releases/download/v($version)/upterm_linux_amd64.tar.gz'
-  extract tar 'upterm_linux_amd64.tar.gz' -d 'upterm_linux_amd64'
-  umv -d 'upterm_linux_amd64' -f 'upterm'
+  let bin = bin upterm
+  let path = share upterm $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/owenthereal/upterm/releases/download/v($version)/upterm_linux_amd64.tar.gz'
+    extract tar 'upterm_linux_amd64.tar.gz' -d upterm_linux_amd64
+    umv -d 'upterm_linux_amd64' -f 'upterm' -p $path
+  }
+
+  symlink $path $bin
 }
 
 export def shell2http [] {
@@ -857,9 +878,16 @@ export def jqp [] {
 export def lux [] {
   let version = github get_version 'iawia002/lux'
 
-  https download $'https://github.com/iawia002/lux/releases/download/v($version)/lux_($version)_Linux_x86_64.tar.gz'
-  extract tar $'lux_($version)_Linux_x86_64.tar.gz'
-  umv -f lux
+  let bin = bin lux
+  let path = share lux $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/iawia002/lux/releases/download/v($version)/lux_($version)_Linux_x86_64.tar.gz'
+    extract tar $'lux_($version)_Linux_x86_64.tar.gz'
+    umv -f lux -p $path
+  }
+
+  symlink $path $bin
 }
 
 export def qrterminal [] {
@@ -1239,6 +1267,21 @@ export def localAI [] {
   umv -f local-ai
 }
 
+export def lan-mouse [] {
+  let version = github get_version 'feschber/lan-mouse'
+
+  let bin = bin lan-mouse
+  let path = share lan-mouse $version
+
+  if (no-exist $path) {
+    https download $"https://github.com/feschber/lan-mouse/releases/download/v($version)/lan-mouse" -o lan-mouse
+    chmod 777 lan-mouse
+    umv -f lan-mouse -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def volta [--node] {
   let version = github get_version 'volta-cli/volta'
 
@@ -1387,10 +1430,18 @@ export def ventoy [] {
 }
 
 export def stash [] {
-  let version = '0.24.3'
-  https download $'https://github.com/stashapp/stash/releases/download/v($version)/stash-linux' -o stash
-  chmod 755 stash
-  umv -f stash
+  let version = '0.25.1'
+
+  let bin = bin stash
+  let path = share stash $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/stashapp/stash/releases/download/v($version)/stash-linux' -o stash
+    chmod 777 stash
+    umv -f stash -p $path
+  }
+
+  symlink $path $bin
 }
 
 export def mitmproxy [] {
