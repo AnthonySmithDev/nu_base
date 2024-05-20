@@ -19,11 +19,23 @@ export def latest [repository: string@repositories] {
 }
 
 export def tag_name [] {
-  create_github_update
+  if not ($env.GITHUB_UPDATE | path exists) {
+    touch $env.GITHUB_UPDATE
+  }
+
+  mut repository = (open $env.GITHUB_REPOSITORY)
+  mut update = open $env.GITHUB_UPDATE
+
+  if ($repository | length) > ($update | length) {
+    $update = ($repository
+    | upsert updated_at  {|row| $row.created_at}
+    | select repository updated_at)
+    $update | save -f $env.GITHUB_UPDATE
+  }
 
   let repositories = (
-  open $env.GITHUB_REPOSITORY
-    | merge (open $env.GITHUB_UPDATE)
+  $repository
+    | merge $update
     | update updated_at { into datetime }
     | where updated_at  < (date now) - 1day
   )
@@ -54,19 +66,6 @@ def update_github_repository [repository: string, tag_name: string, prerelease: 
       $e
     }
   } | collect { save -f $env.GITHUB_REPOSITORY }
-}
-
-def create_github_update [] {
-  touch $env.GITHUB_UPDATE
-  if (open $env.GITHUB_REPOSITORY | length) > (open $env.GITHUB_UPDATE | length) {
-    rm -rf $env.GITHUB_UPDATE
-  }
-  if not ($env.GITHUB_UPDATE | path exists) {
-    open $env.GITHUB_REPOSITORY
-    | select repository
-    | upsert updated_at (date now | date to-timezone UTC)
-    | collect { save -f $env.GITHUB_UPDATE }
-  }
 }
 
 def update_github_updated_at [repository: string, updated_at: datetime] {
