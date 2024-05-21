@@ -212,9 +212,9 @@
   {
     "category": "core",
     "repository": "ariga/atlas",
-    "tag_name": "0.22.0",
+    "tag_name": "0.23.0",
     "prerelease": false,
-    "created_at": "2024-04-30T12:04:57Z"
+    "created_at": "2024-05-21T11:45:09Z"
   },
   {
     "category": "extra",
@@ -443,9 +443,9 @@
   {
     "category": "extra",
     "repository": "owenthereal/upterm",
-    "tag_name": "0.13.5",
+    "tag_name": "0.14.3",
     "prerelease": false,
-    "created_at": "2024-05-01T03:24:55Z"
+    "created_at": "2024-05-21T07:24:17Z"
   },
   {
     "category": "extra",
@@ -485,9 +485,9 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.1.37",
+    "tag_name": "0.1.38",
     "prerelease": false,
-    "created_at": "2024-05-11T22:31:41Z"
+    "created_at": "2024-05-15T22:43:16Z"
   },
   {
     "category": "other",
@@ -508,7 +508,7 @@
     "repository": "feschber/lan-mouse",
     "tag_name": "0.8.0",
     "prerelease": false,
-    "created_at": "2024-05-09T12:21:24Z"
+    "created_at": "2024-05-17T16:07:18Z"
   },
   {
     "category": "other",
@@ -562,9 +562,9 @@
   {
     "category": "other",
     "repository": "extrawurst/gitui",
-    "tag_name": "0.26.1",
+    "tag_name": "0.26.2",
     "prerelease": false,
-    "created_at": "2024-04-14T20:08:55Z"
+    "created_at": "2024-05-18T09:39:27Z"
   },
   {
     "category": "other",
@@ -793,9 +793,9 @@
   {
     "category": "other",
     "repository": "siyuan-note/siyuan",
-    "tag_name": "3.0.14",
+    "tag_name": "3.0.15",
     "prerelease": false,
-    "created_at": "2024-05-14T00:07:09Z"
+    "created_at": "2024-05-21T00:43:47Z"
   },
   {
     "category": "other",
@@ -814,9 +814,9 @@
   {
     "category": "other",
     "repository": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.5.7",
+    "tag_name": "0.5.8",
     "prerelease": false,
-    "created_at": "2024-05-10T07:29:08Z"
+    "created_at": "2024-05-21T09:34:36Z"
   },
   {
     "category": "other",
