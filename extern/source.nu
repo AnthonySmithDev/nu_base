@@ -10,6 +10,7 @@ use jless.nu
 use silicon.nu
 use tailscale.nu
 use ollama.nu
+source broot.nu
 
 # use helix.nu hx
 # use taskfile.nu task

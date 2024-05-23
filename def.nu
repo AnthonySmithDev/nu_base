@@ -1,28 +1,4 @@
 
-def 'edit env' [] {
-  hx ($env.NU_BASE_PATH | path join 'nushell' 'env.nu')
-}
-
-def 'edit alias' [] {
-  hx ($env.NU_BASE_PATH | path join 'nushell' 'alias.nu')
-}
-
-def 'edit def' [] {
-  hx ($env.NU_BASE_PATH | path join 'nushell' 'def.nu')
-}
-
-def 'edit init' [] {
-  hx ($env.NU_BASE_PATH | path join 'nushell' 'init')
-}
-
-def 'edit module' [] {
-  hx ($env.NU_BASE_PATH | path join 'nushell' 'module')
-}
-
-def 'edit nu' [] {
-  hx ($env.NU_BASE_PATH | path join 'nushell')
-}
-
 def seed [] {
   cat /dev/urandom | tr -dc '0-9A-F' | head -c 64
 }
@@ -68,35 +44,6 @@ def help! [cmd?: string] {
 
 def json [] {
   to json | jless --mode line
-}
-
-def run-openai [] {
-  let models = [
-    llama2
-    mistral
-    codellama
-    llama2-uncensored
-    vicuna
-    llava
-  ]
-
-  let model = (gum choose $models)
-
-  if (^which ollama | is-empty) {
-    print 'download ollama'
-    return
-  }
-  if (^which litellm | is-empty) {
-    print 'download litellm'
-    return
-  }
-  if (ps | where name =~ ollama | is-empty) {
-    bash -c 'nohup ollama serve &' 
-  }
-  if (ollama list | find $model | is-empty) {
-    ollama pull $model
-  }
-  litellm --model ("ollama" | path join $model) --api_base http://localhost:11434
 }
 
 def --env gfm [] {
