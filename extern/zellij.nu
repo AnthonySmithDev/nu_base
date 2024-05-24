@@ -237,7 +237,7 @@ export extern options [
     # Whether pane viewports are serialized along with the session, default is false [possible
     # values: true, false]
 
-  --session-name: string
+  --session-name?: string
     # The name of the session to create when starting Zellij
 
   --session-serialization

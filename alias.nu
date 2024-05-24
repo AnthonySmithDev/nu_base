@@ -3,8 +3,15 @@ alias zj = zellij
 alias zr = zellij run
 alias ze = zellij edit
 alias za = zellij action
+alias zk = zellij kill-sessions
+alias zd = zellij delete-sessions
 alias zka = zellij kill-all-sessions -y
 alias zda = zellij delete-all-sessions -y
+
+alias wn = zellij options --session-name
+alias wa = zellij attach
+alias wl = wn left
+alias wr = wn right
 
 alias lzg = lazygit
 alias lzd = lazydocker
