@@ -12,7 +12,7 @@ def symlink [src: string, name: string] {
 }
 
 export def FiraCode [] {
-  let version = '3.0.2'
+  let version = github get_version 'ryanoasis/nerd-fonts'
 
   let path = share FiraCode $version
   if not ($path | path exists) {
@@ -29,7 +29,7 @@ export def FiraCode [] {
 }
 
 export def CascadiaCode [] {
-  let version = '3.0.2'
+  let version = github get_version 'ryanoasis/nerd-fonts'
 
   let path = share CascadiaCode $version
   if not ($path | path exists) {
@@ -46,7 +46,7 @@ export def CascadiaCode [] {
 }
 
 export def JetBrainsMono [] {
-  let version = '3.0.2'
+  let version = github get_version 'ryanoasis/nerd-fonts'
 
   let path = share JetBrainsMono $version
   if not ($path | path exists) {

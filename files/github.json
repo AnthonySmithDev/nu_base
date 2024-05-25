@@ -415,9 +415,9 @@
   {
     "category": "extra",
     "repository": "ms-jpq/sad",
-    "tag_name": "0.4.28",
+    "tag_name": "0.4.29",
     "prerelease": false,
-    "created_at": "2024-04-08T07:55:42Z"
+    "created_at": "2024-05-25T00:36:16Z"
   },
   {
     "category": "extra",
@@ -492,16 +492,16 @@
   {
     "category": "other",
     "repository": "plandex-ai/plandex",
-    "tag_name": "server/v1.0.0",
+    "tag_name": "server/v1.0.1",
     "prerelease": false,
-    "created_at": "2024-05-16T20:31:31Z"
+    "created_at": "2024-05-24T18:47:33Z"
   },
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "2.15.0",
+    "tag_name": "2.16.0",
     "prerelease": false,
-    "created_at": "2024-05-09T12:21:24Z"
+    "created_at": "2024-05-24T07:41:13Z"
   },
   {
     "category": "other",
@@ -516,6 +516,20 @@
     "tag_name": "3.1.4",
     "prerelease": false,
     "created_at": "2024-04-23T18:12:57Z"
+  },
+  {
+    "category": "other",
+    "repository": "JetBrains/kotlin",
+    "tag_name": "2.0.0",
+    "prerelease": false,
+    "created_at": "2024-05-16T20:18:04Z"
+  },
+  {
+    "category": "other",
+    "repository": "ryanoasis/nerd-fonts",
+    "tag_name": "3.2.1",
+    "prerelease": false,
+    "created_at": "2024-04-12T14:41:15Z"
   },
   {
     "category": "other",

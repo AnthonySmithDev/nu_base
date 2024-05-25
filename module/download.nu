@@ -1659,13 +1659,13 @@ export def jdtls [] {
 }
 
 export def kotlin [] {
-  let version = '1.9.22'
+  let version = github get_version 'JetBrains/kotlin'
 
   let path = share kotlin $version
   if (no-exist $path) {
-    https download $'https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-linux-x86_64-($version).tar.gz'
-    extract tar $'kotlin-native-linux-x86_64-($version).tar.gz'
-    umv -d $'kotlin-native-linux-x86_64-($version)' -p $path
+    https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-prebuilt-linux-x86_64-($version).tar.gz"
+    extract tar $'kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
+    umv -d $'kotlin-native-prebuilt-linux-x86_64-($version)' -p $path
   }
 
   symlink $path $env.KOTLIN_PATH
