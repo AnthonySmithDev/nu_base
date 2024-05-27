@@ -18,16 +18,14 @@ export def disable-analytics [] {
 
 export def android-sdk [] {
   let packages = [
-    "platform-tools"
-    "platforms;android-31"
-    "build-tools;31.0.0"
     "emulator"
-    "platforms;android-31"
-    "build-tools;31.0.0"
+    "platform-tools"
+    "build-tools;34.0.0"
+    "platforms;android-34"
   ]
   ^sdkmanager --install ...$packages
 }
 
 export def create_avd [] {
-  ^avdmanager create avd -n anthony-device -k "platforms;android-31"
+  ^avdmanager create avd -n anthony-device -k "platforms;android-34"
 }

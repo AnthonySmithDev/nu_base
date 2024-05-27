@@ -988,12 +988,49 @@ export def tgpt [] {
   umv -f tgpt
 }
 
+export def slices [] {
+  let version = github get_version 'maaslalani/slides'
+
+  let bin = bin slices
+  let path = share slices $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/maaslalani/slides/releases/download/v($version)/slides_($version)_linux_amd64.tar.gz'
+    extract tar $'slides_($version)_linux_amd64.tar.gz' -d slides_linux_amd64
+    umv -d slides_linux_amd64 -f slides -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def nap [] {
   let version = github get_version 'maaslalani/nap'
 
-  https download $'https://github.com/maaslalani/nap/releases/download/v($version)/nap_($version)_linux_amd64.tar.gz'
-  extract tar $'nap_($version)_linux_amd64.tar.gz' -d 'nap_linux_amd64'
-  umv -d 'nap_linux_amd64' -f 'nap'
+  let bin = bin nap
+  let path = share nap $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/maaslalani/nap/releases/download/v($version)/nap_($version)_linux_amd64.tar.gz'
+    extract tar $'nap_($version)_linux_amd64.tar.gz' -d nap_linux_amd64
+    umv -d nap_linux_amd64 -f nap -p $path
+  }
+
+  symlink $path $bin
+}
+
+export def invoice [] {
+  let version = github get_version 'maaslalani/invoice'
+
+  let bin = bin invoice
+  let path = share invoice $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/maaslalani/invoice/releases/download/v($version)/invoice_($version)_linux_amd64.tar.gz'
+    extract tar $'invoice_($version)_linux_amd64.tar.gz' -d invoice_linux_amd64
+    umv -d invoice_linux_amd64 -f invoice -p $path
+  }
+
+  symlink $path $bin
 }
 
 export def clangd [] {

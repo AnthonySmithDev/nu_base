@@ -16,9 +16,9 @@
   {
     "category": "core",
     "repository": "charmbracelet/gum",
-    "tag_name": "0.14.0",
+    "tag_name": "0.14.1",
     "prerelease": false,
-    "created_at": "2024-04-26T21:08:57Z"
+    "created_at": "2024-05-25T18:58:02Z"
   },
   {
     "category": "core",
@@ -107,9 +107,9 @@
   {
     "category": "core",
     "repository": "jesseduffield/lazydocker",
-    "tag_name": "0.23.1",
+    "tag_name": "0.23.3",
     "prerelease": false,
-    "created_at": "2023-10-12T06:50:13Z"
+    "created_at": "2024-05-26T04:19:55Z"
   },
   {
     "category": "core",
@@ -247,9 +247,9 @@
   {
     "category": "extra",
     "repository": "zk-org/zk",
-    "tag_name": "0.14.0",
+    "tag_name": "0.14.1",
     "prerelease": false,
-    "created_at": "2023-05-20T13:06:51Z"
+    "created_at": "2024-05-26T11:02:30Z"
   },
   {
     "category": "extra",
@@ -400,10 +400,24 @@
   },
   {
     "category": "extra",
+    "repository": "maaslalani/slides",
+    "tag_name": "0.9.0",
+    "prerelease": false,
+    "created_at": "2022-09-13T14:29:08Z"
+  },
+  {
+    "category": "extra",
     "repository": "maaslalani/nap",
     "tag_name": "0.1.1",
     "prerelease": false,
     "created_at": "2022-11-21T15:22:57Z"
+  },
+  {
+    "category": "extra",
+    "repository": "maaslalani/invoice",
+    "tag_name": "0.1.0",
+    "prerelease": false,
+    "created_at": "2023-06-29T02:52:33Z"
   },
   {
     "category": "extra",
@@ -471,9 +485,9 @@
   {
     "category": "extra",
     "repository": "ast-grep/ast-grep",
-    "tag_name": "0.22.3",
+    "tag_name": "0.22.4",
     "prerelease": false,
-    "created_at": "2024-05-13T06:17:14Z"
+    "created_at": "2024-05-27T04:42:36Z"
   },
   {
     "category": "extra",
