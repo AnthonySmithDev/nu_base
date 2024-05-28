@@ -126,6 +126,10 @@ export def vieb [] {
   shortcut Vieb 'viebrc'
 }
 
+export def lan-mouse [] {
+  shortcut lan-mouse config.toml
+}
+
 export def regolith [] {
   shortcut regolith3 'Xresources'
   shortcut regolith3/i3 'config'

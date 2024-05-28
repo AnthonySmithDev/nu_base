@@ -13,6 +13,8 @@ $env.USR_LOCAL_SHARE_FONTS = ($env.USR_LOCAL_SHARE | path join 'fonts')
 $env.USR_LOCAL_SHARE_DOWNLOAD = ($env.USR_LOCAL_SHARE | path join 'download')
 env-path -p $env.USR_LOCAL_BIN
 
+$env.NU_BASE_FILES = ($env.NU_BASE_PATH | path join files)
+
 $env.HELIX_PATH = ($env.USR_LOCAL_LIB | path join 'helix')
 $env.HELIX_RUNTIME = ($env.HELIX_PATH | path join 'runtime')
 env-path $env.HELIX_PATH
@@ -110,6 +112,7 @@ $env.LOCAL_PATH = ($env.HOME | path join '.local')
 $env.LOCAL_BIN = ($env.LOCAL_PATH | path join 'bin')
 $env.LOCAL_SHARE = ($env.LOCAL_PATH | path join 'share')
 $env.LOCAL_SHARE_FONTS = ($env.LOCAL_SHARE | path join 'fonts')
+$env.LOCAL_SHARE_APPLICATIONS = ($env.LOCAL_SHARE | path join 'applications')
 env-path $env.LOCAL_BIN
 
 $env.VOLTA_PATH = ($env.HOME | path join '.volta')

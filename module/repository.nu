@@ -37,7 +37,7 @@ export def tag_name [] {
   $repository
     | merge $update
     | update updated_at { into datetime }
-    | where updated_at  < (date now) - 1day
+    | where updated_at  < (date now) - 6hr
   )
   for $old in $repositories {
     let new = (latest $old.repository)

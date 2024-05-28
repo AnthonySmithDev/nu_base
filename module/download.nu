@@ -1304,7 +1304,7 @@ export def localAI [] {
   umv -f local-ai
 }
 
-export def lan-mouse [] {
+export def lan-mouse [ --global(-b), --desktop(-d), --service(-s) ] {
   let version = github get_version 'feschber/lan-mouse'
 
   let bin = bin lan-mouse
@@ -1314,6 +1314,25 @@ export def lan-mouse [] {
     https download $"https://github.com/feschber/lan-mouse/releases/download/v($version)/lan-mouse" -o lan-mouse
     chmod 777 lan-mouse
     umv -f lan-mouse -p $path
+  }
+
+  if $global {
+    global $bin
+  }
+
+  if $desktop {
+    mkdir ~/.local/share/applications
+    let src = ($env.NU_BASE_FILES | path join applications LanMouse.desktop)
+    cp $src $env.LOCAL_SHARE_APPLICATIONS
+  }
+
+  if $service {
+    mkdir ~/.config/systemd/user
+    let src = ($env.NU_BASE_FILES | path join service lan-mouse.service)
+    cp $src ~/.config/systemd/user
+
+    systemctl --user daemon-reload
+    systemctl --user enable --now lan-mouse.service
   }
 
   symlink $path $bin
