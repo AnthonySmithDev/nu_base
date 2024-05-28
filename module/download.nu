@@ -45,9 +45,9 @@ export def nushell [ --global ] {
   let path = share nu $version
 
   if (no-exist $path) {
-    https download $'https://github.com/nushell/nushell/releases/download/($version)/nu-($version)-x86_64-linux-gnu-full.tar.gz'
-    extract tar $'nu-($version)-x86_64-linux-gnu-full.tar.gz'
-    umv -d $'nu-($version)-x86_64-linux-gnu-full' -f 'nu' -p $path
+    https download $'https://github.com/nushell/nushell/releases/download/($version)/nu-($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'nu-($version)-x86_64-unknown-linux-gnu.tar.gz'
+    umv -d $'nu-($version)-x86_64-unknown-linux-gnu' -f 'nu' -p $path
   }
 
   if $global {
