@@ -1321,7 +1321,6 @@ export def lan-mouse [ --global(-b), --desktop(-d), --service(-s) ] {
   }
 
   if $desktop {
-    mkdir ~/.local/share/applications
     let src = ($env.NU_BASE_FILES | path join applications LanMouse.desktop)
     cp $src $env.LOCAL_SHARE_APPLICATIONS
   }
@@ -1761,7 +1760,7 @@ export def flutter [--studio] {
   symlink $path $env.FLUTTER_PATH
 }
 
-export def android-studio [] {
+export def android-studio [ --desktop(-d), --studio(-s) ] {
   let version = '2023.2.1.25'
 
   let path = share studio $version
@@ -1771,10 +1770,17 @@ export def android-studio [] {
     umv -d android-studio -p $path
   }
 
-  symlink $path $env.STUDIO_PATH
+  if $desktop {
+    let src = ($env.NU_BASE_FILES | path join applications AndroidStudio.desktop)
+    cp $src $env.LOCAL_SHARE_APPLICATIONS
+  }
 
-  let path = ($env.STUDIO_PATH | path join bin/studio.sh)
-  symlink $path (bin studio)
+  if $studio {
+    let path = ($env.STUDIO_PATH | path join bin studio.sh)
+    symlink $path (bin studio)
+  }
+
+  symlink $path $env.STUDIO_PATH
 }
 
 export def android-cmdline-tools [] {
