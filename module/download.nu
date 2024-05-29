@@ -1138,9 +1138,16 @@ export def duf [] {
 export def gh [] {
   let version = github get_version 'cli/cli'
 
-  https download https://github.com/cli/cli/releases/download/v($version)/gh_($version)_linux_amd64.tar.gz
-  extract tar gh_($version)_linux_amd64.tar.gz
-  umv -d gh_($version)_linux_amd64 -f bin/gh
+  let bin = bin gh
+  let path = share gh $version
+
+  if (no-exist $path) {
+    https download https://github.com/cli/cli/releases/download/v($version)/gh_($version)_linux_amd64.tar.gz
+    extract tar gh_($version)_linux_amd64.tar.gz
+    umv -d gh_($version)_linux_amd64 -f bin/gh -p $path
+  }
+
+  symlink $path $bin
 }
 
 export def glab [] {
