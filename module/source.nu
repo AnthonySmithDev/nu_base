@@ -14,6 +14,7 @@ use text.nu
 use ssh.nu
 use sql.nu
 use bg.nu
+
 use board.nu
 use distro.nu
 use browser.nu
@@ -31,9 +32,9 @@ use build.nu
 use setup.nu
 use theme.nu
 
-use flutter.nu
-use laravel.nu
+export module flutter.nu
+export module laravel.nu
 
-use helix
-use install
-use virtual
+export module helix
+export module install
+export module virtual

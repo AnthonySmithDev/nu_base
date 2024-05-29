@@ -4,7 +4,7 @@ export-env {
 }
 
 export def run [] {
-  flutter run --pid-file $env.FLUTTER_PID_FILE
+  ^flutter run --pid-file $env.FLUTTER_PID_FILE
 }
 
 export def reload [] {

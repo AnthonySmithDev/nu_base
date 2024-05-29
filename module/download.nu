@@ -1479,7 +1479,7 @@ export def dijo [] {
 }
 
 export def ventoy [] {
-  let version = '1.0.96'
+  let version = '1.0.98'
 
   let path = share ventoy $version
   if (no-exist $path) {
@@ -1768,7 +1768,7 @@ export def flutter [--studio] {
 }
 
 export def android-studio [ --desktop(-d), --studio(-s) ] {
-  let version = '2023.2.1.25'
+  let version = '2023.3.1.18'
 
   let path = share studio $version
   if (no-exist $path) {
@@ -1836,7 +1836,7 @@ export def lightning-network [] {
 }
 
 export def scilab [] {
-  let version = '2024.0.0'
+  let version = '2024.1.0'
 
   https download $'https://www.scilab.org/download/($version)/scilab-($version).bin.x86_64-linux-gnu.tar.xz'
   extract tar $'scilab-($version).bin.x86_64-linux-gnu.tar.xz'
@@ -1851,7 +1851,7 @@ export def remote-mouse [] {
 }
 
 export def docker [--group] {
-  let version = '24.0.7'
+  let version = '26.1.3'
 
   let bin = bin docker
   let path = share docker $version
