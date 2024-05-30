@@ -49,7 +49,6 @@ export def dependency [] {
     libgtksourceview-4-common
     libgtksourceview-4-dev
     libpython3-dev
-    libpython3.11-dev
     python3-evdev
     python3-packaging
     python3-pydantic
@@ -60,7 +59,7 @@ export def dependency [] {
     libc6-dev
 
     # AppImage
-    libfuse2
+    libfuse2t64
 
     # jless
     libxcb1-dev
@@ -69,7 +68,7 @@ export def dependency [] {
     libxcb-xfixes0-dev
 
     # alacritty
-    libfreetype6-dev
+    libfreetype-dev
     libfontconfig1-dev
     libxcb-xfixes0-dev
     libxkbcommon-dev
@@ -92,7 +91,7 @@ export def dependency [] {
     pkg-config
     libgtk-3-dev
     liblzma-dev
-    'libstdc++-12-dev'
+    libstdc++-12-dev
 
     # scrcpy
     ffmpeg
@@ -105,13 +104,13 @@ export def dependency [] {
     ninja-build
     libsdl2-dev
     libavcodec-dev
-    'libsdl2-2.0-0'
+    libsdl2-2.0-0
     libavdevice-dev
     libavformat-dev
     libavutil-dev
     libswresample-dev
-    'libusb-1.0-0'
-    'libusb-1.0-0-dev'
+    libusb-1.0-0
+    libusb-1.0-0-dev
 
     # gnome toolkit
     libcanberra-gtk-module
@@ -145,7 +144,7 @@ export def dependency [] {
 
     # bettercap
     libpcap-dev
-    'libusb-1.0-0-dev'
+    libusb-1.0-0-dev
     libnetfilter-queue-dev
 
     # lapce
@@ -217,7 +216,7 @@ export def dependency [] {
     libxcb-res0-dev
     libxcb-xinput-dev
     xdg-desktop-portal-wlr
-    libtomlplusplus3
+    libtomlplusplus3t64
 
     # lan-mouse
     libadwaita-1-dev
@@ -401,7 +400,16 @@ export def docker [] {
   sudo tee /etc/apt/sources.list.d/docker.list | null
 
   sudo apt update
-  sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+  let packages = [
+    docker-ce
+    docker-ce-cli
+    containerd.io
+    docker-buildx-plugin
+    docker-compose-plugin
+  ]
+
+  sudo apt install -y ...$packages
 
   # sudo groupadd docker
   sudo usermod -aG docker $env.USER
@@ -411,7 +419,7 @@ export def docker [] {
   sudo systemctl enable containerd.service
 }
 
-export def regolith [ --force(-f) ] {
+export def regolith [ --force(-f), --beta(-b) ] {
   if not $force {
     if (exists regolith-session) {
       return
@@ -422,9 +430,14 @@ export def regolith [ --force(-f) ] {
   | gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg
   | null
 
-  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_1-ubuntu-mantic-amd64 mantic main"
-  | sudo tee /etc/apt/sources.list.d/regolith.list
-  | null
+  if $beta {
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/testing-ubuntu-noble-amd64 noble main"
+    | sudo tee /etc/apt/sources.list.d/regolith.list
+  } else {
+    echo "deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_1-ubuntu-mantic-amd64 mantic main"
+    | sudo tee /etc/apt/sources.list.d/regolith.list
+  }
+
 
   let packages = [
     # base
@@ -459,17 +472,8 @@ export def regolith [ --force(-f) ] {
   ]
 
   sudo apt update -y
-  sudo apt install -y ...$packages
-}
-
-export def regolith-beta [] {
-  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/testing-ubuntu-noble-amd64 noble main"
-  | sudo tee /etc/apt/sources.list.d/regolith.list
-  | null
-
-  sudo apt update -y
   sudo apt upgrade -y
-  open /etc/regolith/version
+  sudo apt install -y ...$packages
 }
 
 export def remmina [] {

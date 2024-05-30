@@ -2,6 +2,7 @@
 use https.nu
 use extract.nu
 use github.nu
+use essential.nu *
 
 use config.nu
 use download.nu
@@ -32,9 +33,10 @@ use build.nu
 use setup.nu
 use theme.nu
 
+use install
+
 export module flutter.nu
 export module laravel.nu
 
 export module helix
-export module install
 export module virtual

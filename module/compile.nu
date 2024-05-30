@@ -18,7 +18,7 @@ export def alacritty [ --global, --default, --desktop, --manual ] {
   }
 
   if $default {
-    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $bin 100
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $dst 100
     # sudo update-alternatives --config x-terminal-emulator
   }
 

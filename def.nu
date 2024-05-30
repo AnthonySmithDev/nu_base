@@ -126,14 +126,6 @@ def pastes [filename: string, --lang(-l): string = "plain"] {
   return { url: $url }
 }
 
-def git_clone [repo: string, path: string] {
-  if ($path | path exists) {
-    git -C $path pull
-  } else {
-    git clone $repo $path
-  }
-}
-
 def git_history [file: string] {
   let logs = (git log --pretty=format:"%h" -- $file | lines)
   for $commit in $logs {

@@ -76,7 +76,7 @@ def remote [] {
 }
 
 def is_debian [] {
-  (sys | get host.name) in ["Ubuntu"]
+  (sys host | get name) in ["Ubuntu"]
 }
 
 def local [] {
@@ -86,7 +86,7 @@ def local [] {
     install apt core
     install apt docker
     install apt flathub
-    install apt regolith
+    install apt regolith --beta
     install apt input-remapper
     install apt python
     install apt brave
@@ -128,7 +128,6 @@ def local [] {
   download silicon
   download lazygit
   download lazydocker
-  download mitmproxy
 
   download task
   download usql
@@ -147,10 +146,10 @@ def local [] {
   config ssh
   config mods
   config helix
-  # config zellij_themes
+  config zellij_themes
   config zellij
   config nushell
-  # config alacritty_themes
+  config alacritty_themes
   config alacritty
   config regolith
   config input-remapper

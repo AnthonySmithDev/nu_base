@@ -1151,7 +1151,7 @@ export def gh [] {
 }
 
 export def glab [] {
-  let version = "1.40.0"
+  let version = "1.41.0"
 
   let bin = bin glab
   let path = share glab $version

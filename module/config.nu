@@ -96,7 +96,7 @@ export def zellij [] {
 export def zellij_themes [] {
   let source = ($env.USR_LOCAL_SOURCE | path join zellij)
   git_clone https://github.com/zellij-org/zellij.git $source
-  cp -r -p ($source | path join zellij-utils/assets/themes) ($env.HOME | path join .config/zellij/themes)
+  cp -r -p ($source | path join zellij-utils/assets/themes) ($env.HOME | path join .config/zellij)
 }
 
 export def nushell [] {
@@ -119,7 +119,7 @@ export def alacritty [] {
 export def alacritty_themes [] {
   let source = ($env.USR_LOCAL_SOURCE | path join alacritty-theme)
   git_clone https://github.com/alacritty/alacritty-theme.git $source
-  cp -r -p ($source | path join themes) ~/.config/alacritty/themes/
+  cp -r -p ($source | path join themes) ($env.HOME | path join .config/alacritty)
 }
 
 export def vieb [] {
