@@ -411,34 +411,43 @@ export def docker [] {
   sudo systemctl enable containerd.service
 }
 
-export def regolith [] {
-  if (exists regolith-control-center) {
-    return
+export def regolith [ --force(-f) ] {
+  if not $force {
+    if (exists regolith-session) {
+      return
+    }
   }
 
-  wget -qO - "https://regolith-desktop.org/regolith.key" |
-  gpg --dearmor | sudo tee '/usr/share/keyrings/regolith-archive-keyring.gpg' | null
- 
-  echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_1-ubuntu-mantic-amd64 mantic main' |
-  sudo tee '/etc/apt/sources.list.d/regolith.list' | null
+  wget -qO - "https://regolith-desktop.org/regolith.key"
+  | gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg
+  | null
 
-  sudo apt update
+  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/release-3_1-ubuntu-mantic-amd64 mantic main"
+  | sudo tee /etc/apt/sources.list.d/regolith.list
+  | null
 
   let packages = [
     # base
     regolith-desktop
 
     # session
-    regolith-session-flashback
     regolith-session-sway
+    regolith-session-flashback
 
     # look
-    regolith-look-ayu
-    regolith-look-ayu-mirage
     regolith-look-ayu-dark
+    regolith-look-ayu-mirage
+    regolith-look-ayu
+    regolith-look-blackhole
+    regolith-look-default-loader
+    regolith-look-default
     regolith-look-dracula
     regolith-look-gruvbox
+    regolith-look-i3-default
+    regolith-look-lascaille
+    regolith-look-nevil
     regolith-look-nord
+    regolith-look-solarized-dark
 
     # status
     i3xrocks-focused-window-name
@@ -446,9 +455,21 @@ export def regolith [] {
     i3xrocks-info
     i3xrocks-app-launcher
     i3xrocks-memory
+    i3xrocks-battery
   ]
 
+  sudo apt update -y
   sudo apt install -y ...$packages
+}
+
+export def regolith-beta [] {
+  echo "deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/testing-ubuntu-noble-amd64 noble main"
+  | sudo tee /etc/apt/sources.list.d/regolith.list
+  | null
+
+  sudo apt update -y
+  sudo apt upgrade -y
+  open /etc/regolith/version
 }
 
 export def remmina [] {

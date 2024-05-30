@@ -499,9 +499,9 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.1.38",
+    "tag_name": "0.1.39",
     "prerelease": false,
-    "created_at": "2024-05-15T22:43:16Z"
+    "created_at": "2024-05-28T19:04:03Z"
   },
   {
     "category": "other",
@@ -527,9 +527,9 @@
   {
     "category": "other",
     "repository": "leoafarias/fvm",
-    "tag_name": "3.1.4",
+    "tag_name": "3.1.5",
     "prerelease": false,
-    "created_at": "2024-04-23T18:12:57Z"
+    "created_at": "2024-05-28T15:56:01Z"
   },
   {
     "category": "other",
@@ -744,16 +744,16 @@
   {
     "category": "other",
     "repository": "cli/cli",
-    "tag_name": "2.49.2",
+    "tag_name": "2.50.0",
     "prerelease": false,
-    "created_at": "2024-05-13T17:03:55Z"
+    "created_at": "2024-05-29T14:43:36Z"
   },
   {
     "category": "other",
     "repository": "astral-sh/ruff",
-    "tag_name": "0.4.5",
+    "tag_name": "0.4.6",
     "prerelease": false,
-    "created_at": "2024-05-23T01:30:45Z"
+    "created_at": "2024-05-28T19:22:32Z"
   },
   {
     "category": "other",
@@ -793,9 +793,9 @@
   {
     "category": "other",
     "repository": "balena-io/etcher",
-    "tag_name": "1.18.11",
+    "tag_name": "1.19.21",
     "prerelease": false,
-    "created_at": "2023-07-13T14:31:45Z"
+    "created_at": "2024-05-30T15:00:39Z"
   },
   {
     "category": "other",
