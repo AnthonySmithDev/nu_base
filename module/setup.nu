@@ -12,6 +12,7 @@ export def android [] {
     "sources;android-34"
     "system-images;android-34;google_apis;x86_64"
   ]
+  ^sdkmanager --licenses
   ^sdkmanager --install ...$packages
 }
 
