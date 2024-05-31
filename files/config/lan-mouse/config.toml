@@ -8,20 +8,18 @@ port = 4242
 frontend = "cli"
 
 # define a client on the right side with host name "iridium"
-[right]
+[left]
 # hostname
-hostname = "iridium"
+# hostname = "anthony-desktop-home"
 # activate this client immediately when lan-mouse is started
-activate_on_startup = true
+activate_on_startup = false
 # optional list of (known) ip addresses
-ips = ["192.168.178.156"]
+ips = ["192.168.0.11", "192.168.0.110"]
 
 # define a client on the left side with IP address 192.168.178.189
-[left]
+[right]
 # The hostname is optional: When no hostname is specified,
 # at least one ip address needs to be specified.
-hostname = "thorium"
-# ips for ethernet and wifi
-ips = ["192.168.178.189", "192.168.178.172"]
-# optional port
+# hostname = "anthony-micro-home"
+ips = ["192.168.0.12", "192.168.0.111"]
 port = 4242
