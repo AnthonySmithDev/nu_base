@@ -32,6 +32,7 @@ use run.nu
 use build.nu
 use setup.nu
 use theme.nu
+use adv.nu
 
 use install
 

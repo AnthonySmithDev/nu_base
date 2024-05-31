@@ -1,6 +1,6 @@
 
 export def android [] {
-  download java
+  download java --latest
   download android-studio
   download android-cmdline-tools
 
@@ -17,11 +17,8 @@ export def android [] {
 
 export def flutter [] {
   android
-  download flutter
+  download flutter --latest
+
   ^flutter --disable-analytics
   ^flutter doctor --android-licenses
-}
-
-export def andorid-create-avd [] {
-  ^avdmanager create avd -n anthony-device -k "platforms;android-34"
 }

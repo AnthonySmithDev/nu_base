@@ -1690,22 +1690,30 @@ export def vlang [] {
   symlink $path $env.VLANG_PATH
 }
 
-export def --env java [] {
-  let releases = [
+export def --env java [ --latest(-l) ] {
+  let versions = [
     [version, build, hash];
     ['21' '35' 'fd2272bbf8e04c3dbaee13770090416c']
     ['17' '35' '0d483333a00540d886896bac774ff48b']
   ]
 
-  let version = choose ($releases | get version)
-  let selection = ($releases | where version == $version)
-  if ($selection | is-empty) {
-    return
+  let release = if $latest {
+    ($versions | first)
+  } else {
+    let select = choose ($versions | get version)
+    if ($select | is-empty) {
+      return
+    }
+    let element = ($select | where version == $select)
+    if ($element | is-empty) {
+      return
+    }
+    ($element | first)
   }
-  let release = ($selection | first)
 
   let hash = ($release | get hash)
   let build = ($release | get build)
+  let version = ($release | get version)
 
   let path = share java $version
   if (no-exist $path) {
@@ -1764,8 +1772,18 @@ def flutter_latest [] {
   http get https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json | get releases | where channel == stable | get version | first
 }
 
-export def --env flutter [] {
-  let version = choose [(flutter_latest) '3.10.6' '3.7.12' '3.0.5' '2.10.5' '2.2.3']
+export def --env flutter [ --latest(-l) ] {
+  let versions = [(flutter_latest) '3.10.6' '3.7.12' '3.0.5' '2.10.5' '2.2.3']
+
+  let version = if $latest {
+    ($versions | first)
+  } else {
+    let select = choose $versions
+    if ($select | is-empty) {
+      return
+    }
+    ($select)
+  }
 
   let path = share flutter $version
   if (no-exist $path) {
