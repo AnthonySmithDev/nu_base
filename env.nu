@@ -77,9 +77,9 @@ $env.DART_PATH = ($env.USR_LOCAL_LIB | path join 'dart-sdk')
 $env.DART_BIN = ($env.DART_PATH | path join 'bin')
 env-path $env.DART_BIN
 
-$env.STUDIO_PATH = ($env.USR_LOCAL_LIB | path join 'studio')
-$env.STUDIO_BIN = ($env.STUDIO_PATH | path join 'bin')
-env-path $env.STUDIO_BIN
+$env.ANDORID_STUDIO_PATH = ($env.USR_LOCAL_LIB | path join 'android-studio')
+$env.ANDROID_STUDIO_BIN = ($env.ANDORID_STUDIO_PATH | path join 'bin')
+env-path $env.ANDROID_STUDIO_BIN
 
 $env.BITCOIN_PATH = ($env.USR_LOCAL_LIB | path join 'bitcoin')
 $env.BITCOIN_BIN = ($env.BITCOIN_PATH | path join 'bin')
@@ -129,12 +129,12 @@ env-path $env.PIPX_BIN_DIR
 
 $env.ANDROID_HOME = ($env.HOME | path join 'Android' 'Sdk')
 
-$env.PLATFORM_TOOLS = ($env.ANDROID_HOME | path join 'platform-tools')
-env-path $env.PLATFORM_TOOLS
+$env.ANDROID_PLATFORM_TOOLS = ($env.ANDROID_HOME | path join 'platform-tools')
+env-path $env.ANDROID_PLATFORM_TOOLS
 
-$env.CMDLINE_TOOLS = ($env.ANDROID_HOME | path join 'cmdline-tools' 'latest')
-$env.CMDLINE_TOOLS_BIN = ($env.CMDLINE_TOOLS | path join 'bin')
-env-path $env.CMDLINE_TOOLS_BIN
+$env.ANDROID_CMDLINE_TOOLS_PATH = ($env.ANDROID_HOME | path join 'cmdline-tools' 'latest')
+$env.ANDROID_CMDLINE_TOOLS_BIN = ($env.ANDROID_CMDLINE_TOOLS_PATH | path join 'bin')
+env-path $env.ANDROID_CMDLINE_TOOLS_BIN
 
 $env.EDITOR = 'hx'
 $env.VISUAL = 'hx'

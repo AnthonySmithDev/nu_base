@@ -1622,7 +1622,7 @@ export def tailscale [] {
   }
 }
 
-export def node [ --latest ] {
+export def --env node [ --latest ] {
   let versions = ["21.2.0" "20.9.0" "18.18.2"]
 
   let version = if $latest {
@@ -1636,12 +1636,13 @@ export def node [ --latest ] {
     https download $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz'
     extract tar $'node-v($version)-linux-x64.tar.gz'
     umv -d $'node-v($version)-linux-x64' -p $path
+    env-path $env.NODE_BIN
   }
 
   symlink $path $env.NODE_PATH
 }
 
-export def golang [ --latest ] {
+export def --env golang [ --latest ] {
   # https://go.dev/dl/?mode=json
   let versions = ['1.22.2' '1.21.5' '1.20.12' '1.20.3' '1.19.13']
 
@@ -1656,15 +1657,17 @@ export def golang [ --latest ] {
     https download $'https://go.dev/dl/go($version).linux-amd64.tar.gz'
     extract tar $'go($version).linux-amd64.tar.gz'
     umv -d go -p $path
+    env-path $env.GOBIN
   }
 
   symlink $path $env.GOROOT
 }
 
-export def rust [ --latest, --force ] {
+export def --env rust [ --latest, --force ] {
   if $force or not ("~/.rustup/toolchains" | path exists) {
     # curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
     wget -O- --https-only --secure-protocol=auto --quiet --show-progress https://sh.rustup.rs | sh -s -- -q -y
+    env-path $env.CARGOBIN
   }
 }
 
@@ -1687,7 +1690,7 @@ export def vlang [] {
   symlink $path $env.VLANG_PATH
 }
 
-export def java [] {
+export def --env java [] {
   let releases = [
     [version, build, hash];
     ['21' '35' 'fd2272bbf8e04c3dbaee13770090416c']
@@ -1695,7 +1698,11 @@ export def java [] {
   ]
 
   let version = choose ($releases | get version)
-  let release = ($releases | where version == $version | first)
+  let selection = ($releases | where version == $version)
+  if ($selection | is-empty) {
+    return
+  }
+  let release = ($selection | first)
 
   let hash = ($release | get hash)
   let build = ($release | get build)
@@ -1705,6 +1712,7 @@ export def java [] {
     https download $'https://download.java.net/java/GA/jdk($version)/($hash)/($build)/GPL/openjdk-($version)_linux-x64_bin.tar.gz'
     extract tar $'openjdk-($version)_linux-x64_bin.tar.gz'
     umv -d $'jdk-($version)' -p $path
+    env-path $env.JAVA_BIN
   }
 
   symlink $path $env.JAVA_PATH
@@ -1720,7 +1728,7 @@ export def jdtls [] {
   symlink $path $env.JDTLS_PATH
 }
 
-export def kotlin [] {
+export def --env kotlin [] {
   let version = github get_version 'JetBrains/kotlin'
 
   let path = share kotlin $version
@@ -1728,6 +1736,7 @@ export def kotlin [] {
     https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-prebuilt-linux-x86_64-($version).tar.gz"
     extract tar $'kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
     umv -d $'kotlin-native-prebuilt-linux-x86_64-($version)' -p $path
+    env-path $env.KOTLIN_BIN
   }
 
   symlink $path $env.KOTLIN_PATH
@@ -1737,7 +1746,7 @@ def dart_latest [] {
   http get https://storage.googleapis.com/dart-archive/channels/stable/release/latest/VERSION  | from json | get version
 }
 
-export def dart [] {
+export def --env dart [] {
   let version = (dart_latest)
 
   let path = share dart $version
@@ -1745,6 +1754,7 @@ export def dart [] {
     https download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip'
     extract zip 'dartsdk-linux-x64-release.zip'
     umv -d 'dart-sdk' -p $path
+    env-path $env.DART_BIN
   }
 
   symlink $path $env.DART_PATH
@@ -1754,7 +1764,7 @@ def flutter_latest [] {
   http get https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json | get releases | where channel == stable | get version | first
 }
 
-export def flutter [--studio] {
+export def --env flutter [] {
   let version = choose [(flutter_latest) '3.10.6' '3.7.12' '3.0.5' '2.10.5' '2.2.3']
 
   let path = share flutter $version
@@ -1762,19 +1772,21 @@ export def flutter [--studio] {
     https download $'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz'
     extract tar $'flutter_linux_($version)-stable.tar.xz'
     umv -d 'flutter' -p $path
+    env-path $env.FLUTTER_BIN
   }
 
   symlink $path $env.FLUTTER_PATH
 }
 
-export def android-studio [ --desktop(-d), --studio(-s) ] {
-  let version = '2023.3.1.18'
+export def --env android-studio [ --desktop(-d) ] {
+  let version = '2023.3.1.19'
 
-  let path = share studio $version
+  let path = share android-studio $version
   if (no-exist $path) {
     https download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz'
     extract tar $'android-studio-($version)-linux.tar.gz'
     umv -d android-studio -p $path
+    env-path $env.ANDROID_STUDIO_BIN
   }
 
   if $desktop {
@@ -1782,32 +1794,29 @@ export def android-studio [ --desktop(-d), --studio(-s) ] {
     cp $src $env.LOCAL_SHARE_APPLICATIONS
   }
 
-  if $studio {
-    let path = ($env.STUDIO_PATH | path join bin studio.sh)
-    symlink $path (bin studio)
-  }
-
-  symlink $path $env.STUDIO_PATH
+  symlink $path $env.ANDORID_STUDIO_PATH
 }
 
-export def android-cmdline-tools [] {
-  if not ($env.CMDLINE_TOOLS | path exists) {
+export def --env android-cmdline-tools [] {
+  if not ($env.ANDROID_CMDLINE_TOOLS_PATH | path exists) {
     https download https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
     extract zip commandlinetools-linux-11076708_latest.zip
-    mkdir ($env.CMDLINE_TOOLS | path dirname)
-    umv -d cmdline-tools -p $env.CMDLINE_TOOLS
+    mkdir ($env.ANDROID_CMDLINE_TOOLS_PATH | path dirname)
+    umv -d cmdline-tools -p $env.ANDROID_CMDLINE_TOOLS_PATH
+    env-path $env.ANDROID_CMDLINE_TOOLS_BIN
   }
 }
 
-export def android-platform-tools [] {
-  if not ($env.PLATFORM_TOOLS | path exists) {
+export def --env android-platform-tools [] {
+  if not ($env.ANDROID_PLATFORM_TOOLS | path exists) {
     https download https://dl.google.com/android/repository/platform-tools-latest-linux.zip
     extract zip platform-tools-latest-linux.zip
-    umv -d platform-tools -p $env.PLATFORM_TOOLS
+    umv -d platform-tools -p $env.ANDROID_PLATFORM_TOOLS
+    env-path $env.ANDROID_PLATFORM_TOOLS
   }
 }
 
-export def bitcoin [] {
+export def --env bitcoin [] {
   let version = github get_version 'bitcoin/bitcoin'
 
   let path = share bitcoin $version
@@ -1816,12 +1825,13 @@ export def bitcoin [] {
     https download $'https://bitcoincore.org/bin/bitcoin-core-($version)/bitcoin-($version)-x86_64-linux-gnu.tar.gz'
     extract tar $'bitcoin-($version)-x86_64-linux-gnu.tar.gz'
     umv -d $'bitcoin-($version)' -p $path
+    env-path $env.BITCOIN_BIN
   }
 
   symlink $path $env.BITCOIN_PATH
 }
 
-export def lightning-network [] {
+export def --env lightning-network [] {
   let version = github get_version 'lightningnetwork/lnd'
 
   let path = share lightning $version
@@ -1830,6 +1840,7 @@ export def lightning-network [] {
     https download $'https://github.com/lightningnetwork/lnd/releases/download/v($version)/lnd-linux-amd64-v($version).tar.gz'
     extract tar $'lnd-linux-amd64-v($version).tar.gz'
     umv -d $'lnd-linux-amd64-v($version)' -p $path
+    env-path $env.LIGHTNING_PATH
   }
 
   symlink $path $env.LIGHTNING_PATH
