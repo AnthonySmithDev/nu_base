@@ -45,31 +45,33 @@ export def 'root nushell' [] {
   sudo touch '/root/.env.nu'
 }
 
-def symlink_file [src_dir: string, dest_dir: string, file: string] {
-  let file_src = ($env.CONFIG_DIR_REPO | path join $src_dir $file)
+def symlink_file [dir_src: string, dir_dst: string, file_src: string, file_dst: string] {
+  let path_src = ($env.CONFIG_DIR_REPO | path join $dir_src $file_src)
 
-  let dir_dest = ($env.CONFIG_DIR_USER | path join $dest_dir)
-  if not ($dir_dest | path exists) {
-    mkdir $dir_dest
+  let dir = ($env.CONFIG_DIR_USER | path join $dir_dst)
+  if not ($dir | path exists) {
+    mkdir $dir
   }
 
-  let file_dest = ($dir_dest | path join $file)
-	rm -f $file_dest
+  let path_dst = ($dir | path join $file_dst)
+  if ($path_dst | path exists) {
+    rm -f $path_dst
+  }
 
-  ln -s $file_src $file_dest
+  ln -s $path_src $path_dst
 }
 
-def symlink_dir [src_dir: string, dest_dir: string] {
-  let dir_src = ($env.CONFIG_DIR_REPO | path join $src_dir)
-  let dir_dest = ($env.CONFIG_DIR_USER | path join $dest_dir)
+def symlink_dir [dir_src: string, dir_dst: string] {
+  let path_src = ($env.CONFIG_DIR_REPO | path join $dir_src)
+  let path_dst = ($env.CONFIG_DIR_USER | path join $dir_dst)
 
-	rm -rf $dir_dest
-  ln -s $dir_src $dir_dest
+	rm -rf $path_dst
+  ln -s $path_src $path_dst
 }
 
 def shortcut [dir: string, file: string] {
   print $'User Config: ($dir) ($file)'
-  symlink_file $dir $dir $file
+  symlink_file $dir $dir $file $file
 }
 
 export def dooit [] {
@@ -126,8 +128,13 @@ export def vieb [] {
   shortcut Vieb 'viebrc'
 }
 
-export def lan-mouse [] {
-  shortcut lan-mouse config.toml
+def lan-mouse-file [] {
+  [desktop micro]
+}
+
+export def lan-mouse [file: string@lan-mouse-file] {
+  print $'User Config: lan-mouse'
+  symlink_file lan-mouse lan-mouse $"($file).toml" config.toml
 }
 
 export def regolith [] {
@@ -165,13 +172,6 @@ export def gitlab [] {
   glab config set -g -h $env.GITLAB_HOST token $env.GITLAB_TOKEN
   glab config set -g -h $env.GITLAB_HOST api_protocol http
   glab config set -g -h $env.GITLAB_HOST git_protocol ssh
-}
-
-export def ssh [] {
-  let keyfile = ($env.HOME | path join '.ssh' 'id_ed25519')
-  if not ($keyfile | path exists) {
-    ssh-keygen -t ed25519 -C 'anthonyasdeveloper@gmail.com' -f $keyfile -N ""
-  }
 }
 
 export def ubuntu-software [] {

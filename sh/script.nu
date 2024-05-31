@@ -143,7 +143,6 @@ def local [] {
   nerd-font FiraCode
   compile alacritty --default
 
-  config ssh
   config mods
   config helix
   config zellij_themes
