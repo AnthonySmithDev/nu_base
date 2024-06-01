@@ -23,3 +23,9 @@ export def flutter [] {
   ^flutter --disable-analytics
   ^flutter doctor --android-licenses
 }
+
+export def kotlin [] {
+  android
+  download kotlin
+  download kotlin-native
+}

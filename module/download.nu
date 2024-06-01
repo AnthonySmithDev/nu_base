@@ -1741,13 +1741,27 @@ export def --env kotlin [] {
 
   let path = share kotlin $version
   if (no-exist $path) {
-    https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-prebuilt-linux-x86_64-($version).tar.gz"
-    extract tar $'kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
-    umv -d $'kotlin-native-prebuilt-linux-x86_64-($version)' -p $path
+    https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-compiler-($version).zip"
+    extract zip $"kotlin-compiler-($version).zip"
+    umv -d kotlinc -p $path
     env-path $env.KOTLIN_BIN
   }
 
   symlink $path $env.KOTLIN_PATH
+}
+
+export def --env kotlin-native [] {
+  let version = github get_version 'JetBrains/kotlin'
+
+  let path = share kotlin-native $version
+  if (no-exist $path) {
+    https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-prebuilt-linux-x86_64-($version).tar.gz"
+    extract tar $'kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
+    umv -d $'kotlin-native-prebuilt-linux-x86_64-($version)' -p $path
+    env-path $env.KOTLIN_NATIVE_BIN
+  }
+
+  symlink $path $env.KOTLIN_NATIVE_PATH
 }
 
 def dart_latest [] {

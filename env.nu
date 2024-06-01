@@ -66,6 +66,10 @@ $env.KOTLIN_PATH = ($env.USR_LOCAL_LIB | path join 'kotlin')
 $env.KOTLIN_BIN = ($env.KOTLIN_PATH | path join 'bin')
 env-path $env.KOTLIN_BIN
 
+$env.KOTLIN_NATIVE_PATH = ($env.USR_LOCAL_LIB | path join 'kotlin-native')
+$env.KOTLIN_NATIVE_BIN = ($env.KOTLIN_NATIVE_PATH | path join 'bin')
+env-path $env.KOTLIN_NATIVE_BIN
+
 $env.FVM_PATH = ($env.USR_LOCAL_LIB | path join 'fvm')
 env-path $env.FVM_PATH
 
