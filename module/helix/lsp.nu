@@ -8,6 +8,7 @@ export def install [] {
   cmake
   docker
   c
+  java
   rust
   golang
   svelte
@@ -71,6 +72,10 @@ export def docker [] {
 
 export def compose [] {
   npm install -g @microsoft/compose-language-service
+}
+
+export def java [] {
+  download jdtls
 }
 
 export def rust [] {

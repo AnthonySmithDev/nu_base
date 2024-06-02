@@ -1328,7 +1328,7 @@ export def lan-mouse [ --global(-b), --desktop(-d), --service(-s) ] {
   }
 
   if $desktop {
-    let src = ($env.NU_BASE_FILES | path join applications LanMouse.desktop)
+    let src = ($env.NU_BASE_FILES | path join applications lan-mouse.desktop)
     cp $src $env.LOCAL_SHARE_APPLICATIONS
   }
 
@@ -1704,7 +1704,7 @@ export def --env java [ --latest(-l) ] {
     if ($select | is-empty) {
       return
     }
-    let element = ($select | where version == $select)
+    let element = ($versions | where version == $select)
     if ($element | is-empty) {
       return
     }
@@ -1732,6 +1732,7 @@ export def jdtls [] {
     https download https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz -o jdt-language-server-latest.tar.gz
     extract tar jdt-language-server-latest.tar.gz -d jdtls
     umv -d jdtls -p $path
+    env-path $env.JDTLS_BIN
   }
   symlink $path $env.JDTLS_PATH
 }
@@ -1822,7 +1823,7 @@ export def --env android-studio [ --desktop(-d) ] {
   }
 
   if $desktop {
-    let src = ($env.NU_BASE_FILES | path join applications AndroidStudio.desktop)
+    let src = ($env.NU_BASE_FILES | path join applications android-studio.desktop)
     cp $src $env.LOCAL_SHARE_APPLICATIONS
   }
 
