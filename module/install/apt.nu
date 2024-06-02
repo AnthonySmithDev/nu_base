@@ -311,6 +311,10 @@ export def dart [] {
 }
 
 export def input-remapper [] {
+  sudo apt install -y input-remapper
+}
+
+export def input-remapper-file [] {
   let version = github get_version 'sezanzeb/input-remapper'
 
   let filepath = filepath $"input-remapper-($version).deb"

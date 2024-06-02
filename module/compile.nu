@@ -92,6 +92,31 @@ export def helix [--desktop, --global] {
   }
 }
 
+export def evremap [ --service(-s) ] {
+  let source = ($env.USR_LOCAL_SOURCE | path join evremap)
+  git_clone https://github.com/wez/evremap $source
+
+  let manifest = ($source | path join Cargo.toml)
+  cargo build --release --locked --manifest-path $manifest
+
+  let src = ($source | path join target release evremap)
+  let dst = ($env.USR_LOCAL_BIN | path join evremap)
+
+  ln -sf $src $dst
+  sudo ln -sf $src "/usr/local/bin/evremap"
+
+  if $service {
+    let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join evremap.service)
+    let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join evremap.service)
+    ln -sf $src $dst
+
+    systemctl --user daemon-reload
+    systemctl --user enable evremap.service
+    systemctl --user start evremap.service
+    # systemctl --user enable --now evremap.service
+  }
+}
+
 export def zed [] {
   let source = ($env.USR_LOCAL_SOURCE | path join zed)
   git_clone https://github.com/zed-industries/zed $source

@@ -1189,8 +1189,8 @@ export def taskell [] {
 
   if (no-exist $path) {
     https download $'https://github.com/smallhadroncollider/taskell/releases/download/($version)/taskell-($version)_x86-64-linux.tar.gz'
-    extract tar $'taskell-($version)_x86-64-linux.tar.gz'
-    umv -f taskell -p $path
+    extract tar $'taskell-($version)_x86-64-linux.tar.gz' -d taskell_x86-64-linux
+    umv -d taskell_x86-64-linux -f taskell -p $path
   }
 
   symlink $path $bin
@@ -1333,12 +1333,14 @@ export def lan-mouse [ --global(-b), --desktop(-d), --service(-s) ] {
   }
 
   if $service {
-    mkdir ~/.config/systemd/user
-    let src = ($env.NU_BASE_FILES | path join service lan-mouse.service)
-    cp $src ~/.config/systemd/user
+    let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join lan-mouse.service)
+    let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join lan-mouse.service)
+    ln -sf $src $dst
 
     systemctl --user daemon-reload
-    systemctl --user enable --now lan-mouse.service
+    systemctl --user enable lan-mouse.service
+    systemctl --user start lan-mouse.service
+    # systemctl --user enable --now lan-mouse.service
   }
 
   symlink $path $bin

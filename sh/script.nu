@@ -17,6 +17,8 @@ def main [
   mkdir $env.LOCAL_SHARE_FONTS
   mkdir $env.LOCAL_SHARE_APPLICATIONS
 
+  mkdir $env.CONFIG_SYSTEMD_USER_DST
+
   if $remote {
     remote
   } else {
@@ -66,6 +68,7 @@ def remote [] {
   download bat
   download bottom
   download carapace
+  download melt
 
   config helix
   config zellij
@@ -129,6 +132,7 @@ def local [] {
   download lazygit
   download lazydocker
 
+  download melt
   download task
   download usql
   download amber
