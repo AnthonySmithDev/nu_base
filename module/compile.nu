@@ -103,7 +103,6 @@ export def evremap [ --service(-s) ] {
   let dst = ($env.USR_LOCAL_BIN | path join evremap)
 
   ln -sf $src $dst
-  sudo ln -sf $src "/usr/local/bin/evremap"
 
   if $service {
     let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join evremap.service)

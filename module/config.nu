@@ -118,8 +118,13 @@ export def alacritty [] {
   shortcut alacritty alacritty.toml
 }
 
-export def evremap [] {
-  shortcut evremap config.toml
+def evremap-file [] {
+  [logitech redragon]
+}
+
+export def evremap [file: string@evremap-file] {
+  print 'User Config: evremap'
+  symlink_file evremap evremap $"($file).toml" config.toml
 }
 
 export def alacritty_themes [] {

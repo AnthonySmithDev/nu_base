@@ -1311,7 +1311,7 @@ export def localAI [] {
   umv -f local-ai
 }
 
-export def lan-mouse [ --global(-b), --desktop(-d), --service(-s) ] {
+export def lan-mouse [ --desktop(-d), --service(-s) ] {
   let version = github get_version 'feschber/lan-mouse'
 
   let bin = bin lan-mouse
@@ -1323,9 +1323,7 @@ export def lan-mouse [ --global(-b), --desktop(-d), --service(-s) ] {
     umv -f lan-mouse -p $path
   }
 
-  if $global {
-    global $bin
-  }
+  symlink $path $bin
 
   if $desktop {
     let src = ($env.NU_BASE_FILES | path join applications lan-mouse.desktop)
@@ -1339,8 +1337,6 @@ export def lan-mouse [ --global(-b), --desktop(-d), --service(-s) ] {
     systemctl --user enable lan-mouse.service
     systemctl --user start lan-mouse.service
   }
-
-  symlink $path $bin
 }
 
 export def volta [--node] {
