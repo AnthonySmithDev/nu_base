@@ -107,13 +107,10 @@ export def evremap [ --service(-s) ] {
 
   if $service {
     let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join evremap.service)
-    let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join evremap.service)
-    ln -sf $src $dst
-
-    systemctl --user daemon-reload
-    systemctl --user enable evremap.service
-    systemctl --user start evremap.service
-    # systemctl --user enable --now evremap.service
+    sudo cp -f $src /usr/lib/systemd/system/
+    sudo systemctl daemon-reload
+    sudo systemctl enable evremap.service
+    sudo systemctl start evremap.service
   }
 }
 

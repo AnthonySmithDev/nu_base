@@ -1334,13 +1334,10 @@ export def lan-mouse [ --global(-b), --desktop(-d), --service(-s) ] {
 
   if $service {
     let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join lan-mouse.service)
-    let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join lan-mouse.service)
-    ln -sf $src $dst
-
+    cp $src ~/.config/systemd/user
     systemctl --user daemon-reload
     systemctl --user enable lan-mouse.service
     systemctl --user start lan-mouse.service
-    # systemctl --user enable --now lan-mouse.service
   }
 
   symlink $path $bin
@@ -1638,8 +1635,8 @@ export def --env node [ --latest ] {
     https download $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz'
     extract tar $'node-v($version)-linux-x64.tar.gz'
     umv -d $'node-v($version)-linux-x64' -p $path
-    env-path $env.NODE_BIN
   }
+  env-path $env.NODE_BIN
 
   symlink $path $env.NODE_PATH
 }
@@ -1659,8 +1656,8 @@ export def --env golang [ --latest ] {
     https download $'https://go.dev/dl/go($version).linux-amd64.tar.gz'
     extract tar $'go($version).linux-amd64.tar.gz'
     umv -d go -p $path
-    env-path $env.GOBIN
   }
+  env-path $env.GOBIN
 
   symlink $path $env.GOROOT
 }
@@ -1669,8 +1666,8 @@ export def --env rust [ --latest, --force ] {
   if $force or not ("~/.rustup/toolchains" | path exists) {
     # curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
     wget -O- --https-only --secure-protocol=auto --quiet --show-progress https://sh.rustup.rs | sh -s -- -q -y
-    env-path $env.CARGOBIN
   }
+  env-path $env.CARGOBIN
 }
 
 export def haskell [ --latest ] {
@@ -1688,6 +1685,7 @@ export def vlang [] {
     extract zip v_linux.zip
     umv -d 'v' -p $path
   }
+  env-path $env.VLANG_PATH
 
   symlink $path $env.VLANG_PATH
 }
@@ -1722,8 +1720,8 @@ export def --env java [ --latest(-l) ] {
     https download $'https://download.java.net/java/GA/jdk($version)/($hash)/($build)/GPL/openjdk-($version)_linux-x64_bin.tar.gz'
     extract tar $'openjdk-($version)_linux-x64_bin.tar.gz'
     umv -d $'jdk-($version)' -p $path
-    env-path $env.JAVA_BIN
   }
+  env-path $env.JAVA_BIN
 
   symlink $path $env.JAVA_PATH
 }
@@ -1734,8 +1732,9 @@ export def jdtls [] {
     https download https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz -o jdt-language-server-latest.tar.gz
     extract tar jdt-language-server-latest.tar.gz -d jdtls
     umv -d jdtls -p $path
-    env-path $env.JDTLS_BIN
   }
+  env-path $env.JDTLS_BIN
+
   symlink $path $env.JDTLS_PATH
 }
 
@@ -1747,8 +1746,8 @@ export def --env kotlin [] {
     https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-compiler-($version).zip"
     extract zip $"kotlin-compiler-($version).zip"
     umv -d kotlinc -p $path
-    env-path $env.KOTLIN_BIN
   }
+  env-path $env.KOTLIN_BIN
 
   symlink $path $env.KOTLIN_PATH
 }
@@ -1761,8 +1760,8 @@ export def --env kotlin-native [] {
     https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-prebuilt-linux-x86_64-($version).tar.gz"
     extract tar $'kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
     umv -d $'kotlin-native-prebuilt-linux-x86_64-($version)' -p $path
-    env-path $env.KOTLIN_NATIVE_BIN
   }
+  env-path $env.KOTLIN_NATIVE_BIN
 
   symlink $path $env.KOTLIN_NATIVE_PATH
 }
@@ -1779,8 +1778,8 @@ export def --env dart [] {
     https download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip'
     extract zip 'dartsdk-linux-x64-release.zip'
     umv -d 'dart-sdk' -p $path
-    env-path $env.DART_BIN
   }
+  env-path $env.DART_BIN
 
   symlink $path $env.DART_PATH
 }
@@ -1807,8 +1806,8 @@ export def --env flutter [ --latest(-l) ] {
     https download $'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz'
     extract tar $'flutter_linux_($version)-stable.tar.xz'
     umv -d 'flutter' -p $path
-    env-path $env.FLUTTER_BIN
   }
+  env-path $env.FLUTTER_BIN
 
   symlink $path $env.FLUTTER_PATH
 }
@@ -1821,15 +1820,15 @@ export def --env android-studio [ --desktop(-d) ] {
     https download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz'
     extract tar $'android-studio-($version)-linux.tar.gz'
     umv -d android-studio -p $path
-    env-path $env.ANDROID_STUDIO_BIN
   }
+  env-path $env.ANDROID_STUDIO_BIN
+
+  symlink $path $env.ANDORID_STUDIO_PATH
 
   if $desktop {
     let src = ($env.NU_BASE_FILES | path join applications android-studio.desktop)
     cp $src $env.LOCAL_SHARE_APPLICATIONS
   }
-
-  symlink $path $env.ANDORID_STUDIO_PATH
 }
 
 export def --env android-cmdline-tools [] {
@@ -1838,8 +1837,8 @@ export def --env android-cmdline-tools [] {
     extract zip commandlinetools-linux-11076708_latest.zip
     mkdir ($env.ANDROID_CMDLINE_TOOLS_PATH | path dirname)
     umv -d cmdline-tools -p $env.ANDROID_CMDLINE_TOOLS_PATH
-    env-path $env.ANDROID_CMDLINE_TOOLS_BIN
   }
+  env-path $env.ANDROID_CMDLINE_TOOLS_BIN
 }
 
 export def --env android-platform-tools [] {
@@ -1847,8 +1846,8 @@ export def --env android-platform-tools [] {
     https download https://dl.google.com/android/repository/platform-tools-latest-linux.zip
     extract zip platform-tools-latest-linux.zip
     umv -d platform-tools -p $env.ANDROID_PLATFORM_TOOLS
-    env-path $env.ANDROID_PLATFORM_TOOLS
   }
+  env-path $env.ANDROID_PLATFORM_TOOLS
 }
 
 export def --env bitcoin [] {
@@ -1860,8 +1859,8 @@ export def --env bitcoin [] {
     https download $'https://bitcoincore.org/bin/bitcoin-core-($version)/bitcoin-($version)-x86_64-linux-gnu.tar.gz'
     extract tar $'bitcoin-($version)-x86_64-linux-gnu.tar.gz'
     umv -d $'bitcoin-($version)' -p $path
-    env-path $env.BITCOIN_BIN
   }
+  env-path $env.BITCOIN_BIN
 
   symlink $path $env.BITCOIN_PATH
 }
@@ -1875,8 +1874,8 @@ export def --env lightning-network [] {
     https download $'https://github.com/lightningnetwork/lnd/releases/download/v($version)/lnd-linux-amd64-v($version).tar.gz'
     extract tar $'lnd-linux-amd64-v($version).tar.gz'
     umv -d $'lnd-linux-amd64-v($version)' -p $path
-    env-path $env.LIGHTNING_PATH
   }
+  env-path $env.LIGHTNING_PATH
 
   symlink $path $env.LIGHTNING_PATH
 }
