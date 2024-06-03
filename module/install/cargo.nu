@@ -58,6 +58,10 @@ export def core [] {
   }
 }
 
+export def dev [] {
+  core
+}
+
 export def extra [] {
   for crate in (packages | where category == extra) {
     cargo install --locked $crate.name --features $crate.features

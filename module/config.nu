@@ -91,14 +91,17 @@ export def helix [] {
   shortcut helix 'languages.toml'
 }
 
-export def zellij [] {
+export def zellij [ --theme(-t) ] {
   shortcut zellij 'config.kdl'
-}
-
-export def zellij_themes [] {
-  let source = ($env.USR_LOCAL_SOURCE | path join zellij)
-  git_clone https://github.com/zellij-org/zellij.git $source
-  cp -r -p ($source | path join zellij-utils/assets/themes) ($env.HOME | path join .config/zellij/themes)
+  if $theme {
+    let source = ($env.USR_LOCAL_SOURCE | path join zellij)
+    git_clone https://github.com/zellij-org/zellij.git $source
+    let src = ($source | path join zellij-utils/assets/themes)
+    let dst = ($env.HOME | path join .config/zellij/themes)
+    if not ($dst | path exists) {
+      cp -r -p $src $dst
+    }
+  }
 }
 
 export def nushell [] {
@@ -113,9 +116,17 @@ export def mods [] {
   shortcut mods 'mods.yml'
 }
 
-export def alacritty [] {
-  print $'User Config: alacritty'
+export def alacritty [ --theme(-t) ] {
   shortcut alacritty alacritty.toml
+  if $theme {
+    let source = ($env.USR_LOCAL_SOURCE | path join alacritty-theme)
+    git_clone https://github.com/alacritty/alacritty-theme.git $source
+    let src = ($source | path join themes)
+    let dst = ($env.HOME | path join .config/alacritty/themes)
+    if not ($dst | path exists) {
+      cp -r -p $src $dst
+    }
+  }
 }
 
 def evremap-file [] {
@@ -125,12 +136,6 @@ def evremap-file [] {
 export def evremap [file: string@evremap-file] {
   print 'User Config: evremap'
   symlink_file evremap evremap $"($file).toml" config.toml
-}
-
-export def alacritty_themes [] {
-  let source = ($env.USR_LOCAL_SOURCE | path join alacritty-theme)
-  git_clone https://github.com/alacritty/alacritty-theme.git $source
-  cp -r -p ($source | path join themes) ($env.HOME | path join .config/alacritty/themes)
 }
 
 export def vieb [] {
@@ -170,17 +175,17 @@ export def input-remapper [] {
   }
 }
 
-export def github [] {
-  git config --global user.name 'Anthony Smith'
-  git config --global user.email 'anthonyasdeveloper@gmail.com'
-  git config --global core.editor 'hx'
-  git config --global init.defaultBranch 'main'
+export def git [] {
+  ^git config --global user.name 'Anthony Smith'
+  ^git config --global user.email 'anthonyasdeveloper@gmail.com'
+  ^git config --global core.editor 'hx'
+  ^git config --global init.defaultBranch 'main'
 }
 
 export def gitlab [] {
-  glab config set -g -h $env.GITLAB_HOST token $env.GITLAB_TOKEN
-  glab config set -g -h $env.GITLAB_HOST api_protocol http
-  glab config set -g -h $env.GITLAB_HOST git_protocol ssh
+  ^glab config set -g -h $env.GITLAB_HOST token $env.GITLAB_TOKEN
+  ^glab config set -g -h $env.GITLAB_HOST api_protocol http
+  ^glab config set -g -h $env.GITLAB_HOST git_protocol ssh
 }
 
 export def ubuntu-software [] {
@@ -201,5 +206,5 @@ export def core [] {
   input-remapper
 
   vieb
-  github
+  git
 }
