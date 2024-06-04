@@ -172,5 +172,5 @@ exec --no-startup-id [ -z "${NOTIFY_SOCKET-}" ] \
 # WM Custom
 ###############################################################################
 
-for_window [class="^mpv$" floating] sticky enable, resize set width 30ppt, move down 60ppt, move right 70ppt
-for_window [title="Picture in picture"] floating enable, resize set width 100ppt
+for_window [class="scrcpy"] floating enable, sticky enable, move right 700 ppt
+for_window [title="Picture in picture"] sticky enable, floating enable, resize set 40 ppt, move right 550 ppt, move down 250 ppt
