@@ -54,7 +54,7 @@ export def --wrapped exec [alias: string@alias, ...cmd: string] {
 }
 
 export def install [alias: string@alias] {
-  exec $alias 'bash ~/.local/nu_base/sh/server.sh'
+  exec $alias 'bash ~/.local/nu_base/sh/base.sh'
 }
 
 export def shell [alias: string@alias] {

@@ -235,6 +235,7 @@ export def dependency [] {
     neofetch
     lolcat
     mpv
+    wmctrl
 
     gnome-screenshot
   ] | uniq)

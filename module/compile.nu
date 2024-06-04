@@ -29,14 +29,14 @@ export def alacritty [ --global, --default, --desktop, --manual ] {
   }
 
   if $manual {
-    # with-env { PWD: $source } {
-    #   sudo mkdir -p /usr/local/share/man/man1
-    #   sudo mkdir -p /usr/local/share/man/man5
-    #   bash -c "scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null"
-    #   bash -c "scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null"
-    #   bash -c "scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null"
-    #   bash -c "scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null"
-    # }
+    sudo mkdir -p /usr/local/share/man/man1
+    sudo mkdir -p /usr/local/share/man/man5
+    with-path $source {||
+      bash -c "scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null"
+      bash -c "scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null"
+      bash -c "scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null"
+      bash -c "scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null"
+    }
   }
 }
 
@@ -123,56 +123,59 @@ export def zed [] {
 }
 
 export def riv [] {
-  cargo install --git https://github.com/Davejkane/riv
+  let path = ($env.USR_LOCAL_SOURCE | path join riv)
+  git_clone https://github.com/Davejkane/riv $path
+
+  with-wd $path {||
+    cargo install --path .
+  }
 }
 
 export def vimiv [] {
-  let dir = (mktemp -d)
-  git clone https://github.com/karlch/vimiv-qt $dir
-  mv ($dir | path join misc Makefile) $dir
-  PWD=$dir sudo make install
+  let path = ($env.USR_LOCAL_SOURCE | path join vimiv-qt)
+  git_clone https://github.com/karlch/vimiv-qt $path
+
+  with-wd $path {||
+    sudo make --file "misc/Makefile" install
+  }
 }
 
 export def hargo [] {
-  let dir = (mktemp -d)
-  git clone https://github.com/mrichman/hargo.git $dir
-  PWD=$dir make install
+  let path = ($env.USR_LOCAL_SOURCE | path join hargo)
+  git_clone https://github.com/mrichman/hargo $path
+
+  with-wd $path {||
+    make install
+  }
 }
 
 export def nchat [] {
-  let wd = pwd
-  let path = ($env.HOME | path join 'tmp' 'nchat')
-
+  let path = ($env.USR_LOCAL_SOURCE | path join nchat)
   git_clone https://github.com/d99kris/nchat $path
-  cd $path
 
-  bash -c ./make.sh deps
-  bash -c ./make.sh build
-  bash -c ./make.sh install
-
-  cd $wd
+  with-wd $path {||
+    bash make.sh deps
+    bash make.sh build
+    bash make.sh install
+  }
 }
 
 export def http-to-ws [] {
-  let wd = $env.PWD
+  let path = ($env.USR_LOCAL_SOURCE | path join http-to-ws)
+  git_clone https://github.com/AnthonySmithDev/http-to-ws $path
 
-  let path = ($env.HOME | path join 'tmp' 'http-to-ws')
-  if not ($path | path exists) {
-    mkdir $path
+  with-wd $path {||
+    go install .
   }
-
-  cd $path
-
-  git_clone https://github.com/AnthonySmithDev/http-to-ws.git $path
-  go install "."
-
-  cd $wd
 }
 
 export def tasklite [] {
   let path = ($env.USR_LOCAL_SOURCE | path join TaskLite)
   git_clone https://github.com/ad-si/TaskLite $path
-  PWD=$path stack install tasklite-core
+
+  with-wd $path {||
+    stack install tasklite-core
+  }
 }
 
 export def amp [] {
@@ -201,11 +204,11 @@ export def lapce [] {
   ln -sf $src $dst
 }
 
-
 export def scrcpy [] {
-  git clone 'https://github.com/Genymobile/scrcpy'
-  cd scrcpy/
-  bash ./install_release.sh
-  cd '..'
-  rm -rf scrcpy/
+  let path = ($env.USR_LOCAL_SOURCE | path join scrcpy)
+  git_clone https://github.com/Genymobile/scrcpy $path
+
+  with-wd $path {||
+    bash ./install_release.sh
+  }
 }
