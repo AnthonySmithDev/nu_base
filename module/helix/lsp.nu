@@ -78,6 +78,10 @@ export def java [] {
   download jdtls
 }
 
+export def kotlin [] {
+  download kotlin-language-server
+}
+
 export def rust [] {
   rustup component add rust-analyzer
 }

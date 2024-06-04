@@ -1722,7 +1722,7 @@ export def --env java [ --latest(-l) ] {
   symlink $path $env.JAVA_PATH
 }
 
-export def jdtls [] {
+export def --env jdtls [] {
   let path = share jdtls 'latest'
   if (no-exist $path) {
     https download https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz -o jdt-language-server-latest.tar.gz
@@ -1760,6 +1760,20 @@ export def --env kotlin-native [] {
   env-path $env.KOTLIN_NATIVE_BIN
 
   symlink $path $env.KOTLIN_NATIVE_PATH
+}
+
+export def --env kotlin-language-server [] {
+  let version = github get_version 'fwcd/kotlin-language-server'
+
+  let path = share kotlin-language-server $version
+  if (no-exist $path) {
+    https download $'https://github.com/fwcd/kotlin-language-server/releases/download/($version)/server.zip'
+    extract zip server.zip
+    umv -d server -p $path
+  }
+  env-path $env.KOTLIN_LSP_BIN
+
+  symlink $path $env.KOTLIN_LSP_PATH
 }
 
 def dart_latest [] {
