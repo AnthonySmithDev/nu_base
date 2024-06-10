@@ -67,3 +67,5 @@ alias snips = ssh snips.sh
 alias vieb = browser vieb
 alias brave = browser brave
 alias chrome = browser chrome
+
+alias sk = sudo /home/anthony/.usr/local/bin/kanata

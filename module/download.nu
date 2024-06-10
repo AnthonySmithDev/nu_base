@@ -745,6 +745,22 @@ export def upterm [] {
   symlink $path $bin
 }
 
+export def kanata [] {
+  let version = github get_version 'jtroo/kanata'
+
+  let bin = bin kanata
+  let path = share kanata $version
+
+  if (no-exist $path) {
+    https download $"https://github.com/jtroo/kanata/releases/download/v($version)/kanata" -o kanata
+    chmod 777 kanata
+    umv -f kanata -p $path
+  }
+  # sudo ./kanata --cfg kanata.kbd
+
+  symlink $path $bin
+}
+
 export def shell2http [] {
   let version = github get_version 'msoap/shell2http'
 

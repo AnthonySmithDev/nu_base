@@ -132,3 +132,24 @@ def git_history [file: string] {
     git show $"($commit):($file)" | bat -l go
   }
 }
+
+def "android debug start" [] {
+  watch . --glob=**/*.kt {||
+    sh gradlew assembleDebug
+    sh gradlew installDebug
+    adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.example.myapplication/.MainActivity
+  }
+}
+
+def "andorid debug restart" [] {
+  watch . --glob=**/*.kt {||
+    sh gradlew assembleDebug
+    adb install -r app/build/outputs/apk/debug/app-debug.apk
+    adb shell am force-stop com.example.myapplication
+    adb shell am start -n com.example.myapplication/.MainActivity
+  }
+}
+
+def "sser" [] {
+  sudo systemctl start evremap.service
+}
