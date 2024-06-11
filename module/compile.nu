@@ -92,7 +92,7 @@ export def helix [--desktop, --global] {
   }
 }
 
-export def evremap [ --service(-s) ] {
+export def evremap [ --service(-s), input ] {
   let source = ($env.USR_LOCAL_SOURCE | path join evremap)
   git_clone https://github.com/wez/evremap $source
 
@@ -104,12 +104,64 @@ export def evremap [ --service(-s) ] {
 
   ln -sf $src $dst
 
+  if $input {
+    if not (group-exists input) {
+      sudo groupadd uinput
+    }
+    sudo gpasswd -a $env.USER input
+    'KERNEL=="uinput", GROUP="input"' | sudo tee /etc/udev/rules.d/input.rules
+  }
+
   if $service {
     let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join evremap.service)
     sudo cp -f $src /usr/lib/systemd/system/
     sudo systemctl daemon-reload
     sudo systemctl enable evremap.service
     sudo systemctl start evremap.service
+  }
+}
+
+export def ktrl [ --input, --setup, --service ] {
+  let source = ($env.USR_LOCAL_SOURCE | path join ktrl)
+  git_clone https://github.com/ItayGarin/ktrl $source
+
+  let manifest = ($source | path join Cargo.toml)
+  cargo build --release --locked --manifest-path $manifest
+
+  let src = ($source | path join target release ktrl)
+  let dst = ($env.USR_LOCAL_BIN | path join ktrl)
+
+  ln -sf $src $dst
+  sudo ln -sf $src "/usr/local/bin/"
+  
+  if $input {
+    if not (user-exists ktrl) {
+      sudo useradd -r -s /bin/false ktrl
+    }
+    if not (group-exists uinput) {
+      sudo groupadd uinput
+    }
+    sudo usermod -aG input ktrl
+    sudo usermod -aG uinput ktrl
+    sudo usermod -aG audio ktrl
+
+    sudo cp ($source | path join etc/99-uinput.rules) /etc/udev/rules.d/
+  }
+
+  if $setup {
+    sudo mkdir -p /opt/ktrl
+    sudo cp -r ($source | path join assets) /opt/ktrl
+    sudo cp ($source | path join examples/cfg.ron) /opt/ktrl
+
+    sudo chown -R $"ktrl:($env.USER)" /opt/ktrl
+    sudo chmod -R 0770 /opt/ktrl
+  }
+
+  if $service {
+    edit ./etc/ktrl.service # change your device path
+    sudo cp ./etc/ktrl.service /etc/systemd/system
+    sudo systemctl daemon-reload
+    sudo systemctl start ktrl.service
   }
 }
 

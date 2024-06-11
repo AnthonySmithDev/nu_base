@@ -17,3 +17,11 @@ export def with-wd [path: string, closure: closure] {
   do $closure
   cd $pwd
 }
+
+export def group-exists [group: string] {
+  open /etc/group | str contains $group
+}
+
+export def user-exists [user: string] {
+  open /etc/passwd | str contains $user
+}

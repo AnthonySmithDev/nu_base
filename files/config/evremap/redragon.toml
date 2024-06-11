@@ -1,5 +1,5 @@
 device_name = "SINO WEALTH Gaming KB "
-phys = "usb-0000:00:14.0-4/input0"
+phys = "usb-0000:00:14.0-5/input0"
 
 [[dual_role]]
 input = "KEY_CAPSLOCK"

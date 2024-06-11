@@ -224,6 +224,12 @@ export def dependency [] {
     libx11-dev
     libxtst-dev
 
+    # ktrl
+    libalsa-ocaml-dev
+    autoconf
+    libtool
+    libtool-bin
+
     # tools
     ssh
     sshpass
