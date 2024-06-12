@@ -33,6 +33,7 @@ use build.nu
 use setup.nu
 use theme.nu
 use avd.nu
+use startup.nu
 
 use install
 

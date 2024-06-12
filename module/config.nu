@@ -116,6 +116,10 @@ export def mods [] {
   shortcut mods 'mods.yml'
 }
 
+export def mouseless [] {
+  shortcut mouseless config.yaml
+}
+
 export def alacritty [ --theme(-t) ] {
   shortcut alacritty alacritty.toml
   if $theme {

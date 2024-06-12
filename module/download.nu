@@ -329,6 +329,25 @@ export def task [ --global ] {
   symlink $path $bin
 }
 
+export def mouseless [ --global ] {
+  let version = github get_version 'jbensmann/mouseless'
+
+  let bin = bin mouseless
+  let path = share mouseless $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/jbensmann/mouseless/releases/download/v($version)/mouseless-linux-amd64.tar.gz'
+    extract tar mouseless-linux-amd64.tar.gz
+    umv -d dist -f mouseless -p $path
+  }
+
+  if $global {
+    global $bin
+  }
+
+  symlink $path $bin
+}
+
 export def websocat [] {
   let version = github get_version 'vi/websocat'
 
