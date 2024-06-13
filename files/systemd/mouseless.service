@@ -2,7 +2,7 @@
 Description=mouseless
 
 [Service]
-ExecStart=/home/anthony/.usr/local/bin/mouseless --debug --config /home/anthony/.config/mouseless/config.yaml
+ExecStart=/usr/local/bin/mouseless --debug --config /home/anthony/.config/mouseless/config.yaml
 
 [Install]
 WantedBy=multi-user.target

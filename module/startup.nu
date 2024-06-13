@@ -1,10 +1,5 @@
 
-export def mouseless [] {
-  let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join mouseless.service)
-  let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join mouseless.service)
-
-  cp -f $src $dst
-
+def uinput [] {
   let rules = $'/etc/udev/rules.d/99-($env.USER).rules'
   if not ($rules | path exists) {
     let lines = [
@@ -18,8 +13,54 @@ export def mouseless [] {
   if not ($conf | path exists) {
     "uinput" | sudo tee $conf
   }
+}
+
+export def mouseless-user [ --status, --remove ] {
+
+  let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join mouseless-user.service)
+  let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join mouseless.service)
+
+  if $status {
+    systemctl --user status mouseless.service
+    return
+  }
+
+  if $remove {
+    systemctl --user stop mouseless.service
+    systemctl --user disable mouseless.service
+    rm -rf $dst
+    return
+  }
+
+  cp -f $src $dst
+
+  uinput
 
   systemctl --user enable mouseless.service
   systemctl --user start mouseless.service
   systemctl --user status mouseless.service
+}
+
+export def mouseless [ --status, --remove ] {
+
+  let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join mouseless.service)
+  let dst = ("/etc/systemd/system/" | path join mouseless.service)
+
+  if $status {
+    sudo systemctl status mouseless.service
+    return
+  }
+
+  if $remove {
+    sudo systemctl stop mouseless.service
+    sudo systemctl disable mouseless.service
+    sudo rm -rf $dst
+    return
+  }
+
+  sudo cp -f $src $dst
+
+  sudo systemctl enable mouseless.service
+  sudo systemctl start mouseless.service
+  sudo systemctl status mouseless.service
 }
