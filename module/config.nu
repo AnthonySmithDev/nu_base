@@ -58,7 +58,7 @@ def symlink_file [dir_src: string, dir_dst: string, file_src: string, file_dst: 
     rm -f $path_dst
   }
 
-  ln -s $path_src $path_dst
+  ln -sf $path_src $path_dst
 }
 
 def symlink_dir [dir_src: string, dir_dst: string] {
@@ -66,7 +66,7 @@ def symlink_dir [dir_src: string, dir_dst: string] {
   let path_dst = ($env.CONFIG_DIR_USER | path join $dir_dst)
 
 	rm -rf $path_dst
-  ln -s $path_src $path_dst
+  ln -sf $path_src $path_dst
 }
 
 def shortcut [dir: string, file: string] {
@@ -116,10 +116,6 @@ export def mods [] {
   shortcut mods 'mods.yml'
 }
 
-export def mouseless [] {
-  shortcut mouseless config.yaml
-}
-
 export def alacritty [ --theme(-t) ] {
   shortcut alacritty alacritty.toml
   if $theme {
@@ -133,13 +129,18 @@ export def alacritty [ --theme(-t) ] {
   }
 }
 
-def evremap-file [] {
-  [logitech redragon]
+def keyboards [] {
+  [lily58 logitech redragon]
 }
 
-export def evremap [file: string@evremap-file] {
+export def mouseless [keyboard: string@keyboards] {
+  print 'User Config: mouseless'
+  symlink_file mouseless mouseless $"($keyboard).yaml" config.yaml
+}
+
+export def evremap [keyboard: string@keyboards] {
   print 'User Config: evremap'
-  symlink_file evremap evremap $"($file).toml" config.toml
+  symlink_file evremap evremap $"($keyboard).toml" config.toml
 }
 
 export def vieb [] {
