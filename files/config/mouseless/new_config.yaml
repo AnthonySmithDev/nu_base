@@ -15,11 +15,24 @@ mouseDecelerationCurve: 3.0
 layers:
 - name: initial
   bindings:
-    leftalt: tap-hold layer mouse ; toggle-layer system ; 200
-    leftalt: tap-hold layer qwerty ; toggle-layer system ; 200
+    apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
 
-    leftshift: tap-hold-next layer mouse ; leftshift ; 200
-    rightshift: tap-hold-next layer qwerty ; rightshift ; 200
+    esc: tap-hold esc ; capslock ; 400
+    capslock: tap-hold-next esc ; leftctrl ; 200
+
+- name: nav
+  passThrough: true
+  bindings:
+    r: reload-config
+    a: layer initial
+    s: layer homerow
+    d: layer mouse
+    f: layer system
+
+- name: homerow
+  passThrough: true
+  bindings:
+    apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
 
     esc: tap-hold esc ; capslock ; 400
     capslock: tap-hold-next esc ; leftctrl ; 200
@@ -34,31 +47,13 @@ layers:
     l: tap-hold-next l ; leftctrl ; 150
     semicolon: tap-hold-next semicolon ; leftalt ; 150
 
-- name: qwerty
-  passThrough: true
-  bindings:
-    leftalt: tap-hold layer initial ; toggle-layer system ; 200
-    leftalt: tap-hold layer mouse ; toggle-layer system ; 200
-
-    leftshift: tap-hold-next layer initial ; leftshift ; 200
-    rightshift: tap-hold-next layer mouse ; rightshift ; 200
-
-    esc: tap-hold esc ; capslock ; 400
-    capslock: tap-hold-next esc ; leftctrl ; 200
-
 - name: mouse
-  passThrough: true
+  passThrough: false
   bindings:
-    leftalt: tap-hold layer query ; toggle-layer system ; 200
-    leftalt: tap-hold layer initial ; toggle-layer system ; 200
-
-    leftshift: tap-hold layer qwerty ; leftshift ; 200
-    rightshift: tap-hold layer initial ; rightshift ; 200
+    apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
 
     esc: tap-hold esc ; capslock ; 400
     capslock: tap-hold-next esc ; leftctrl ; 200
-
-    r: reload-config
 
     l: move  1  0
     h: move -1  0
@@ -83,15 +78,29 @@ layers:
     d: button middle
     s: button right
 
+    leftshift: toggle-layer mouse_shift
+
+- name: mouse_shift
+  passThrough: false
+  bindings:
+    j: scroll down
+    k: scroll up
+
 - name: system
   passThrough: true
   bindings:
+    apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
+
+    esc: tap-hold esc ; capslock ; 400
+    capslock: tap-hold-next esc ; leftctrl ; 200
+
+    r: reload-config
     p: tap-hold p ; power ; 300
 
     h: mute
     j: volumedown
     k: volumeup
 
-    u: sleep
-    i: wakeup
-    o: screenlock
+    u: tap-hold u ; exec poweroff ; 1000
+    i: tap-hold i ; exec reboot ; 1000
+    o: tap-hold o ; sleep ; 1000
