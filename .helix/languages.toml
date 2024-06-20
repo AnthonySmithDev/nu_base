@@ -1,0 +1,4 @@
+
+[[language]]
+name = "bash"
+file-types = [{ glob = "config" }]

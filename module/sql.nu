@@ -19,8 +19,15 @@ export def dsn [dbname: bool = false] {
   } | url join
 }
 
-export def u_query [ query: string, dbname: bool = false ] {
-  let complete = (usql (dsn $dbname) -q -C -c $query | complete)
+export def u_query [ dsn: string, query: string, --csv ] {
+  mut args = [
+    "--command" $query
+    "--quiet"
+  ]
+  if $csv {
+    $args = ($args | append "--csv")
+  }
+  let complete = (usql $dsn ...$args | complete)
   if $complete.exit_code == 1 {
     let stderr = ($complete.stderr | str trim)
     error make -u { msg: $stderr }
@@ -29,15 +36,24 @@ export def u_query [ query: string, dbname: bool = false ] {
   if $stdout =~ "INSERT" {
     return { status: "OK" }
   }
-  return ($complete.stdout | from csv)
+  if $csv {
+    return ($complete.stdout | from csv)
+  }
+  return $complete.stdout
 }
 
-export def m_query [ query: string, dbname: bool = false ] {
-  mycli (dsn $dbname) --csv -e $query | from csv
+export def m_query [ dsn: string, query: string, --csv ] {
+  mut args = [
+    "--execute" $query
+  ]
+  if $csv {
+    $args = ($args | append "--csv")
+  }
+  return (mycli $dsn ...$args | from csv)
 }
 
 export def query [...query: string, --dbname(-n), --confirm(-c)] {
-  let query = ($query | str join ' ')
+  let query = ($query | str join ' ') + "\n\n"
 
   if $confirm {
     print ""
@@ -45,10 +61,10 @@ export def query [...query: string, --dbname(-n), --confirm(-c)] {
 
     do { gum confirm  "Are you sure to run this query?"}
     if ($env.LAST_EXIT_CODE == 0) {
-      u_query $query $dbname
+      u_query --csv (dsn $dbname) $query
     }
   } else {
-    u_query $query $dbname
+    u_query --csv (dsn $dbname) $query
   }
 }
 
@@ -72,12 +88,20 @@ export def show-tables [] {
   query -n SHOW TABLES | values | first
 }
 
-export def drop-table [table: string@show-tables] {
-  query -c -n DROP TABLE $table
+export def drop-table [...tables: string@show-tables] {
+  mut query = []
+  for $table in $tables {
+    $query = ($query | append $"DROP TABLE ($table);")
+  }
+  query -c -n ($query | str join "\n")
 }
 
-export def truncate-table [table: string@show-tables] {
-  query -c -n TRUNCATE TABLE $table
+export def truncate-table [...tables: string@show-tables] {
+  mut query = []
+  for $table in $tables {
+    $query = ($query | append $"TRUNCATE TABLE ($table);")
+  }
+  query -c -n ($query | str join "\n")
 }
 
 export def show-columns [table: string@show-tables] {
@@ -104,11 +128,19 @@ export def sanitization [] {
   }
 }
 
-export def insert [table: string@show-tables, data: record] {
-  let columns = ($data | columns | each {|it| $"`($it)`"} | str join ", ")
-  let values = ($data | values | sanitization | str join ", ")
+export def to-column [data: list] {
+  $"\( ($data | each {|it| $'`($it)`'} | str join ', ') \)"
+}
 
-  query -n $"INSERT INTO ($table) \( ($columns) \) VALUES \( ($values) \)"
+export def to-row [data: list] {
+  $"\( ($data | sanitization | str join ', ') \)"
+}
+
+export def insert [table: string@show-tables, data: record] {
+  let columns = to-column ($data | columns)
+  let values = to-row ($data | values)
+
+  query -n $"INSERT INTO ($table) ($columns) VALUES ($values)"
 }
 
 export def copy [src: string, dst: string, table: string] {
@@ -134,8 +166,8 @@ export def live [name: string@names] {
 export def context [...tables: string@show-tables] {
    mut text = "MySQL Database: \n\n"
    for table in $tables {
-      let desc = (show-columns $table | table -t markdown)
-      let result = (["Table: ", $table, "\n" $desc] | str join)
+      let desc = (u_query (dsn true) $"SHOW COLUMNS FROM ($table)")
+      let result = (["\n", "Table: ", $table, "\n" $desc] | str join)
       $text = ($text ++ $result)
    }
    return $text

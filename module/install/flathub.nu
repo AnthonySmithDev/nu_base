@@ -57,3 +57,7 @@ export def keepassxc [] {
 export def flameshot [] {
 	flatpak install -y flathub org.flameshot.Flameshot
 }
+
+export def vscodium [] {
+	flatpak install -y flathub com.vscodium.codium
+}

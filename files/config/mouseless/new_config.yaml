@@ -23,11 +23,11 @@ layers:
 - name: nav
   passThrough: true
   bindings:
-    r: reload-config
-    a: layer initial
-    s: layer homerow
-    d: layer mouse
-    f: layer system
+    r: multi reload-config ; exec show --mode config
+    a: multi layer initial ; exec show --mode initial
+    s: multi layer homerow ; exec show --mode homerow
+    d: multi layer mouse ; exec show --mode mouse
+    f: multi layer system ; exec show --mode system
 
 - name: homerow
   passThrough: true
@@ -47,13 +47,26 @@ layers:
     l: tap-hold-next l ; leftctrl ; 150
     semicolon: tap-hold-next semicolon ; leftalt ; 150
 
+    r: tap-hold-next r ; leftmeta+leftctrl ; 150
+    e: tap-hold-next e ; leftmeta+leftalt ; 150
+
+    u: tap-hold-next u ; rightmeta+rightctrl ; 150
+    i: tap-hold-next i ; rightmeta+rightalt ; 150
+
+
 - name: mouse
-  passThrough: false
+  passThrough: true
   bindings:
     apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
 
     esc: tap-hold esc ; capslock ; 400
     capslock: tap-hold-next esc ; leftctrl ; 200
+
+    u: move -1 -1
+    m: move  1  1
+
+    o: move  1 -1
+    n: move -1  1
 
     l: move  1  0
     h: move -1  0
@@ -67,18 +80,12 @@ layers:
     c: leftctrl+leftshift+c
     v: leftctrl+leftshift+v
 
-    p: scroll up
-    n: scroll down
-
-    u: speed 0.1
-    i: speed 0.3
-    o: speed 4.0
-
     f: button left
     d: button middle
     s: button right
 
     leftshift: toggle-layer mouse_shift
+    rightshift: toggle-layer mouse_shift
 
 - name: mouse_shift
   passThrough: false
@@ -86,12 +93,21 @@ layers:
     j: scroll down
     k: scroll up
 
+    w: move  4  0
+    b: move -4  0
+
+    a: speed 0.1
+    s: speed 0.5
+    d: speed 4
+    f: speed 8
+    g: speed 10
+
 - name: system
   passThrough: true
   bindings:
     apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
 
-    esc: tap-hold esc ; capslock ; 400
+    esc: tap-hold leftmeta ; capslock ; 400
     capslock: tap-hold-next esc ; leftctrl ; 200
 
     r: reload-config
@@ -104,3 +120,17 @@ layers:
     u: tap-hold u ; exec poweroff ; 1000
     i: tap-hold i ; exec reboot ; 1000
     o: tap-hold o ; sleep ; 1000
+
+- name: numpad
+  passThrough: true
+  bindings:
+    q: k1
+    w: k2
+    e: k3
+    r: k4
+    t: k5
+    y: k6
+    u: k7
+    i: k8
+    o: k9
+    p: k0

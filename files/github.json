@@ -23,9 +23,9 @@
   {
     "category": "core",
     "repository": "charmbracelet/mods",
-    "tag_name": "1.4.0",
+    "tag_name": "1.4.1",
     "prerelease": false,
-    "created_at": "2024-06-03T19:37:08Z"
+    "created_at": "2024-06-18T16:07:03Z"
   },
   {
     "category": "core",
@@ -128,9 +128,9 @@
   {
     "category": "core",
     "repository": "dundee/gdu",
-    "tag_name": "5.28.0",
+    "tag_name": "5.29.0",
     "prerelease": false,
-    "created_at": "2024-04-21T09:08:38Z"
+    "created_at": "2024-06-17T10:06:50Z"
   },
   {
     "category": "core",
@@ -212,9 +212,9 @@
   {
     "category": "core",
     "repository": "ariga/atlas",
-    "tag_name": "0.23.0",
+    "tag_name": "0.24.0",
     "prerelease": false,
-    "created_at": "2024-05-21T11:45:09Z"
+    "created_at": "2024-06-14T10:58:40Z"
   },
   {
     "category": "core",
@@ -233,16 +233,16 @@
   {
     "category": "extra",
     "repository": "metalbear-co/mirrord",
-    "tag_name": "3.105.0",
+    "tag_name": "3.106.0",
     "prerelease": false,
-    "created_at": "2024-06-12T08:56:03Z"
+    "created_at": "2024-06-18T11:12:06Z"
   },
   {
     "category": "extra",
     "repository": "altsem/gitu",
-    "tag_name": "0.20.1",
+    "tag_name": "0.21.1",
     "prerelease": false,
-    "created_at": "2024-05-08T19:48:12Z"
+    "created_at": "2024-06-19T15:32:40Z"
   },
   {
     "category": "extra",
@@ -296,9 +296,9 @@
   {
     "category": "extra",
     "repository": "mitmproxy/mitmproxy",
-    "tag_name": "10.3.0",
+    "tag_name": "10.3.1",
     "prerelease": false,
-    "created_at": "2024-04-17T11:31:13Z"
+    "created_at": "2024-06-12T22:56:10Z"
   },
   {
     "category": "extra",
@@ -317,9 +317,9 @@
   {
     "category": "extra",
     "repository": "derailed/k9s",
-    "tag_name": "0.32.4",
+    "tag_name": "0.32.5",
     "prerelease": false,
-    "created_at": "2024-03-20T19:16:25Z"
+    "created_at": "2024-06-15T17:10:45Z"
   },
   {
     "category": "extra",
@@ -359,9 +359,9 @@
   {
     "category": "extra",
     "repository": "rclone/rclone",
-    "tag_name": "1.66.0",
+    "tag_name": "1.67.0",
     "prerelease": false,
-    "created_at": "2024-03-10T11:22:50Z"
+    "created_at": "2024-06-14T15:04:58Z"
   },
   {
     "category": "extra",
@@ -513,9 +513,9 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.1.43",
+    "tag_name": "0.1.44",
     "prerelease": false,
-    "created_at": "2024-06-11T23:04:20Z"
+    "created_at": "2024-06-13T20:26:09Z"
   },
   {
     "category": "other",
@@ -527,9 +527,9 @@
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "2.16.0",
+    "tag_name": "2.17.1",
     "prerelease": false,
-    "created_at": "2024-05-24T07:41:13Z"
+    "created_at": "2024-06-19T00:28:50Z"
   },
   {
     "category": "other",
@@ -569,16 +569,16 @@
   {
     "category": "other",
     "repository": "VSCodium/vscodium",
-    "tag_name": "1.90.0.24158",
+    "tag_name": "1.90.2.24171",
     "prerelease": false,
-    "created_at": "2024-06-06T16:45:13Z"
+    "created_at": "2024-06-19T18:23:53Z"
   },
   {
     "category": "other",
     "repository": "coder/code-server",
-    "tag_name": "4.90.0",
+    "tag_name": "4.90.2",
     "prerelease": false,
-    "created_at": "2024-06-09T04:07:51Z"
+    "created_at": "2024-06-14T19:31:58Z"
   },
   {
     "category": "other",
@@ -765,16 +765,16 @@
   {
     "category": "other",
     "repository": "cli/cli",
-    "tag_name": "2.50.0",
+    "tag_name": "2.51.0",
     "prerelease": false,
-    "created_at": "2024-05-29T14:43:36Z"
+    "created_at": "2024-06-13T12:33:06Z"
   },
   {
     "category": "other",
     "repository": "astral-sh/ruff",
-    "tag_name": "0.4.8",
+    "tag_name": "0.4.9",
     "prerelease": false,
-    "created_at": "2024-06-05T15:34:08Z"
+    "created_at": "2024-06-14T15:19:47Z"
   },
   {
     "category": "other",
@@ -821,9 +821,9 @@
   {
     "category": "other",
     "repository": "bitcoin/bitcoin",
-    "tag_name": "27.0",
+    "tag_name": "27.1",
     "prerelease": false,
-    "created_at": "2024-04-15T16:30:05Z"
+    "created_at": "2024-06-11T13:22:28Z"
   },
   {
     "category": "other",
@@ -870,9 +870,9 @@
   {
     "category": "other",
     "repository": "mattermost/focalboard",
-    "tag_name": "7.11.4",
+    "tag_name": "8.0.0",
     "prerelease": false,
-    "created_at": "2023-09-25T18:17:01Z"
+    "created_at": "2024-06-10T16:59:45Z"
   },
   {
     "category": "other",

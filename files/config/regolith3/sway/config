@@ -174,3 +174,7 @@ exec --no-startup-id [ -z "${NOTIFY_SOCKET-}" ] \
 
 for_window [class="scrcpy"] floating enable, sticky enable, move right 700 ppt
 for_window [title="Picture in picture"] sticky enable, floating enable, resize set 35 ppt, move right 600 ppt, move down 300 ppt
+
+
+for_window [title="Mouseless GUI"] floating enable
+for_window [title="Mouseless GUI" floating] focus down

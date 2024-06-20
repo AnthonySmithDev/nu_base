@@ -764,7 +764,7 @@ export def upterm [] {
   symlink $path $bin
 }
 
-export def kanata [] {
+export def kanata [ --global ] {
   let version = github get_version 'jtroo/kanata'
 
   let bin = bin kanata
@@ -776,6 +776,10 @@ export def kanata [] {
     umv -f kanata -p $path
   }
   # sudo ./kanata --cfg kanata.kbd
+
+  if $global {
+    global $bin
+  }
 
   symlink $path $bin
 }

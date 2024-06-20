@@ -31,6 +31,16 @@ def add-multiverse [] {
   }
 }
 
+export def sources [] {
+  # sudo hx /etc/apt/sources.list
+
+  # libwebkit2gtk-4.0-dev/jammy-security
+  deb http://security.ubuntu.com/ubuntu jammy-security main
+
+  # libicu70/jammy
+  deb http://archive.ubuntu.com/ubuntu jammy main
+}
+
 export def dependency [] {
   add-universe
   add-multiverse
@@ -229,6 +239,11 @@ export def dependency [] {
     autoconf
     libtool
     libtool-bin
+
+    # wails
+    nsis
+    libwebkitgtk-6.0-dev
+    libwebkit2gtk-4.1-dev
 
     # tools
     ssh
