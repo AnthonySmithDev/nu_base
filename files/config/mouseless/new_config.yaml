@@ -13,54 +13,70 @@ mouseDecelerationTime: 300.0
 mouseDecelerationCurve: 3.0
 
 layers:
-- name: initial
+- name: homerow
   bindings:
-    apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
-
     esc: tap-hold esc ; capslock ; 400
-    capslock: tap-hold-next esc ; leftctrl ; 200
+    capslock: layer qwerty
 
-- name: nav
+    w: tap-hold-next w ; toggle-layer nav_left ; 200
+    o: tap-hold-next o ; toggle-layer nav_right ; 200
+
+    a: tap-hold-next a ; leftalt ; 200
+    s: tap-hold-next s ; leftctrl ; 200
+    d: tap-hold-next d ; leftshift ; 200
+    f: tap-hold-next f ; leftmeta ; 200
+
+    j: tap-hold-next j ; leftmeta ; 200
+    k: tap-hold-next k ; leftshift ; 200
+    l: tap-hold-next l ; leftctrl ; 200
+    semicolon: tap-hold-next semicolon ; leftalt ; 200
+
+    r: tap-hold-next r ; toggle-layer leftmeta_leftctrl ; 200
+    e: tap-hold-next e ; toggle-layer leftmeta_leftalt ; 200
+
+    u: tap-hold-next u ; toggle-layer leftmeta_leftctrl ; 200
+    i: tap-hold-next i ; toggle-layer leftmeta_leftalt ; 200
+
+- name: nav_left
   passThrough: true
   bindings:
-    r: multi reload-config ; exec show --mode config
-    a: multi layer initial ; exec show --mode initial
+    a: multi layer qwerty ; exec show --mode qwerty
     s: multi layer homerow ; exec show --mode homerow
     d: multi layer mouse ; exec show --mode mouse
     f: multi layer system ; exec show --mode system
+    g: multi layer numpad ; exec show --mode numpad
 
-- name: homerow
+- name: nav_right
   passThrough: true
   bindings:
-    apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
+    h: multi layer qwerty ; exec show --mode qwerty
+    j: multi layer homerow ; exec show --mode homerow
+    k: multi layer mouse ; exec show --mode mouse
+    l: multi layer system ; exec show --mode system
+    semicolon: multi layer numpad ; exec show --mode numpad
+
+- name: leftmeta_leftctrl
+  bindings:
+    _: leftmeta+leftctrl+_
+
+- name: leftmeta_leftalt
+  bindings:
+    _: leftmeta+leftalt+_
+
+- name: qwerty
+  passThrough: true
+  bindings:
+    f: tap-hold-next f ; toggle-layer nav_right ; 200
+    semicolon: tap-hold-next semicolon ; toggle-layer nav_left ; 200
 
     esc: tap-hold esc ; capslock ; 400
     capslock: tap-hold-next esc ; leftctrl ; 200
-
-    a: tap-hold-next a ; leftalt ; 150
-    s: tap-hold-next s ; leftctrl ; 150
-    d: tap-hold-next d ; leftshift ; 150
-    f: tap-hold-next f ; leftmeta ; 150
-
-    j: tap-hold-next j ; leftmeta ; 150
-    k: tap-hold-next k ; leftshift ; 150
-    l: tap-hold-next l ; leftctrl ; 150
-    semicolon: tap-hold-next semicolon ; leftalt ; 150
-
-    r: tap-hold-next r ; leftmeta+leftctrl ; 150
-    e: tap-hold-next e ; leftmeta+leftalt ; 150
-
-    u: tap-hold-next u ; rightmeta+rightctrl ; 150
-    i: tap-hold-next i ; rightmeta+rightalt ; 150
-
 
 - name: mouse
   passThrough: true
   bindings:
-    apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
-
     esc: tap-hold esc ; capslock ; 400
-    capslock: tap-hold-next esc ; leftctrl ; 200
+    capslock: layer qwerty
 
     u: move -1 -1
     m: move  1  1
@@ -76,7 +92,7 @@ layers:
     w: move  2  0
     b: move -2  0
 
-    y: leftctrl+c
+    y: multi leftctrl+c ; layer qwerty
     c: leftctrl+leftshift+c
     v: leftctrl+leftshift+v
 
@@ -105,10 +121,8 @@ layers:
 - name: system
   passThrough: true
   bindings:
-    apostrophe: tap-hold apostrophe ; toggle-layer nav ; 200
-
     esc: tap-hold leftmeta ; capslock ; 400
-    capslock: tap-hold-next esc ; leftctrl ; 200
+    capslock: layer qwerty
 
     r: reload-config
     p: tap-hold p ; power ; 300
@@ -124,6 +138,9 @@ layers:
 - name: numpad
   passThrough: true
   bindings:
+    esc: tap-hold leftmeta ; capslock ; 400
+    capslock: layer qwerty
+
     q: k1
     w: k2
     e: k3
