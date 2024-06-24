@@ -264,3 +264,15 @@ export def scrcpy [] {
     bash ./install_release.sh
   }
 }
+
+export def mouseless-status [] {
+  let source = ($env.USR_LOCAL_SOURCE | path join mouseless-status)
+  git_clone git@github.com:AnthonySmithDev/mouseless-status.git $source
+  let app = ($env.USR_LOCAL_BIN | path join ms)
+
+  with-wd $source {
+    go build -o ./app ms/main.go
+    mv ./app $app
+    sudo ln -sf $app /usr/local/bin/
+  }
+}

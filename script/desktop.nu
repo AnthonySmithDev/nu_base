@@ -44,6 +44,11 @@ def main [] {
 }
 
 def dev [] {
+  env-path $env.GOBIN
+  env-path $env.CARGOBIN
+  env-path $env.PIPX_BIN_DIR
+  env-path $env.NPM_CONFIG_BIN
+
   install go dev
   install npm dev
   install pipx dev
@@ -54,6 +59,7 @@ def extra [] {
   download gitlab
   config gitlab
 
+  compile mouseless-status
   download mouseless --global
   config mouseless normal
   startup mouseless

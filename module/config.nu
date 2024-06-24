@@ -161,10 +161,11 @@ export def lanmouse [file: string@lanmouse-files] {
 }
 
 export def regolith [] {
-  shortcut regolith3 'Xresources'
-  shortcut regolith3/i3 'config'
-  shortcut regolith3/sway 'config'
-  shortcut regolith3/picom 'config'
+  shortcut regolith3 Xresources
+  shortcut regolith3/i3 config
+  shortcut regolith3/sway config
+  shortcut regolith3/picom config
+  shortcut regolith3/i3status-rust config.toml
 }
 
 export def regolith-compositor [] {
