@@ -10,6 +10,8 @@ def main [] {
     install apt vieb
   }
 
+  nerd-font FiraCode
+
   download lsd
   download bat
   download mods
@@ -33,14 +35,10 @@ def main [] {
   download bottom
   download carapace
   download tailscale
-  download gitlab
 
   compile alacritty --default
 
-  nerd-font FiraCode
-
   config git
-  config gitlab
   config regolith
   config alacritty --theme
 }
@@ -52,7 +50,10 @@ def dev [] {
   install cargo dev
 }
 
-def mouseless [] {
+def extra [] {
+  download gitlab
+  config gitlab
+
   download mouseless --global
   config mouseless normal
   startup mouseless

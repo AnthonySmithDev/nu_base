@@ -1,6 +1,6 @@
 devices:
 # - "/dev/input/by-id/usb-SINO_WEALTH_Gaming_KB-event-kbd"
-- "/dev/input/by-id/usb-Logitech_Logi_TKL_Mechanical_Keyboard-event-kbd"
+# - "/dev/input/by-id/usb-Logitech_Logi_TKL_Mechanical_Keyboard-event-kbd"
 
 startCommand: "ms qwerty"
 

@@ -15,12 +15,23 @@ def uinput [] {
   }
 }
 
-export def mouseless-user [ --status, --remove ] {
-
+export def mouseless-user [
+  --init
+  --remove
+  --stop
+  --disable
+  --restart
+  --status
+] {
   let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join mouseless-user.service)
   let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join mouseless.service)
 
-  if $status {
+  if $init {
+    uinput
+
+    cp -f $src $dst
+    systemctl --user enable mouseless.service
+    systemctl --user start mouseless.service
     systemctl --user status mouseless.service
     return
   }
@@ -32,21 +43,43 @@ export def mouseless-user [ --status, --remove ] {
     return
   }
 
-  cp -f $src $dst
+  if $stop {
+    systemctl --user stop mouseless.service
+    return
+  }
 
-  uinput
+  if $disable {
+    systemctl --user disable mouseless.service
+    return
+  }
 
-  systemctl --user enable mouseless.service
-  systemctl --user start mouseless.service
-  systemctl --user status mouseless.service
+  if $restart {
+    systemctl --user restart mouseless.service
+    return
+  }
+
+  if $status {
+    systemctl --user status mouseless.service
+    return
+  }
 }
 
-export def mouseless [ --status, --remove ] {
+export def mouseless [
+  --init
+  --remove
+  --stop
+  --disable
+  --restart
+  --status
+] {
 
   let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join mouseless.service)
   let dst = ("/etc/systemd/system/" | path join mouseless.service)
 
-  if $status {
+  if $init {
+    sudo cp -f $src $dst
+    sudo systemctl enable mouseless.service
+    sudo systemctl start mouseless.service
     sudo systemctl status mouseless.service
     return
   }
@@ -58,11 +91,25 @@ export def mouseless [ --status, --remove ] {
     return
   }
 
-  sudo cp -f $src $dst
+  if $stop {
+    systemctl --user stop mouseless.service
+    return
+  }
 
-  sudo systemctl enable mouseless.service
-  sudo systemctl start mouseless.service
-  sudo systemctl status mouseless.service
+  if $disable {
+    systemctl --user disable mouseless.service
+    return
+  }
+
+  if $restart {
+    systemctl --user restart mouseless.service
+    return
+  }
+
+  if $status {
+    sudo systemctl status mouseless.service
+    return
+  }
 }
 
 export def evremap [] {

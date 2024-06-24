@@ -1,8 +1,1 @@
 regolith.look.path: /usr/share/regolith-look/ayu-dark
-
-wm.binding.next_free: Shift+o
-wm.binding.move_next_free: Ctrl+o
-wm.binding.take_next_free: o
-
-regolith.wallpaper.file: /usr/share/desktop-base/joy-theme/wallpaper/gnome-background.xml
-regolith.lockscreen.wallpaper.file: /usr/share/desktop-base/joy-theme/wallpaper/gnome-background.xml

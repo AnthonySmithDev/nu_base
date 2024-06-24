@@ -8,7 +8,7 @@ export def dev [] {
 	go install ariga.io/atlas/cmd/atlas@latest
 	go install ariga.io/entimport/cmd/entimport@latest
 
-	go install github.com/cosmtrek/air@latest
+	go install github.com/air-verse/air@latest
 	go install github.com/swaggo/swag/cmd/swag@latest
 	go install github.com/maruel/panicparse/v2/cmd/pp@latest
 }
