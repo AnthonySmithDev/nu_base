@@ -33,13 +33,14 @@ def main [] {
   download bottom
   download carapace
   download tailscale
+  download gitlab
 
-  compile evremap --service
   compile alacritty --default
 
   nerd-font FiraCode
 
   config git
+  config gitlab
   config regolith
   config alacritty --theme
 }
@@ -49,4 +50,10 @@ def dev [] {
   install npm dev
   install pipx dev
   install cargo dev
+}
+
+def mouseless [] {
+  download mouseless
+  config mouseless normal
+  startup mouseless-user
 }

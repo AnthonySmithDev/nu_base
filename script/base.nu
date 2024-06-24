@@ -36,6 +36,7 @@ def main [] {
   config zellij --theme
 
   nu_source
+  touch ~/.env.nu
 }
 
 def create_dir [] {

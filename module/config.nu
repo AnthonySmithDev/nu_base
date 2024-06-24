@@ -129,29 +129,33 @@ export def alacritty [ --theme(-t) ] {
   }
 }
 
-def keyboards [] {
-  [lily58 logitech redragon]
+def mouseless-files [] {
+  [normal custom]
 }
 
-export def mouseless [keyboard: string@keyboards] {
+export def mouseless [file: string@mouseless-files] {
   print 'User Config: mouseless'
-  symlink_file mouseless mouseless $"($keyboard).yaml" config.yaml
+  symlink_file mouseless mouseless $"($file).yaml" config.yaml
 }
 
-export def evremap [keyboard: string@keyboards] {
+def evremap-files [] {
+  [logitech redragon]
+}
+
+export def evremap [file: string@evremap-files] {
   print 'User Config: evremap'
-  symlink_file evremap evremap $"($keyboard).toml" config.toml
+  symlink_file evremap evremap $"($file).toml" config.toml
 }
 
 export def vieb [] {
   shortcut Vieb 'viebrc'
 }
 
-def lan-mouse-file [] {
+def lanmouse-files [] {
   [desktop micro]
 }
 
-export def lan-mouse [file: string@lan-mouse-file] {
+export def lanmouse [file: string@lanmouse-files] {
   print $'User Config: lan-mouse'
   symlink_file lan-mouse lan-mouse $"($file).toml" config.toml
 }

@@ -1174,7 +1174,7 @@ export def duf [] {
   umv -d duf_linux_x86_64 -f duf
 }
 
-export def gh [] {
+export def github [] {
   let version = github get_version 'cli/cli'
 
   let bin = bin gh
@@ -1189,8 +1189,8 @@ export def gh [] {
   symlink $path $bin
 }
 
-export def glab [] {
-  let version = "1.41.0"
+export def gitlab [] {
+  let version = "1.42.0"
 
   let bin = bin glab
   let path = share glab $version
