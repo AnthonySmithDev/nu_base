@@ -53,7 +53,7 @@ def dev [] {
 }
 
 def mouseless [] {
-  download mouseless
+  download mouseless --global
   config mouseless normal
-  startup mouseless-user
+  startup mouseless
 }

@@ -64,3 +64,10 @@ export def mouseless [ --status, --remove ] {
   sudo systemctl start mouseless.service
   sudo systemctl status mouseless.service
 }
+
+export def evremap [] {
+  sudo gpasswd -a $env.USER input
+  echo 'KERNEL=="uinput", GROUP="input"' | sudo tee /etc/udev/rules.d/input.rules
+
+  echo 'KERNEL=="event*", NAME="input/%k", MODE="660", GROUP="input"' | sudo tee /etc/udev/rules.d/input.rules
+}
