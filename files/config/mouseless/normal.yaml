@@ -30,8 +30,8 @@ layers:
     esc: multi esc ; exec ms qwerty
     capslock: multi layer qwerty ; exec ms qwerty
 
-    w: tap-hold w ; toggle-layer nav_left ; 200
-    o: tap-hold o ; toggle-layer nav_right ; 200
+    leftalt: tap-hold leftalt ; toggle-layer nav_right ; 200
+    rightalt: tap-hold rightalt ; toggle-layer nav_left ; 200
 
     a: tap-hold a ; leftalt ; 200
     s: tap-hold s ; leftctrl ; 200
@@ -43,11 +43,11 @@ layers:
     l: tap-hold l ; leftctrl ; 200
     semicolon: tap-hold semicolon ; leftalt ; 200
 
-    r: tap-hold r ; toggle-layer leftmeta_leftctrl ; 200
-    e: tap-hold e ; toggle-layer leftmeta_leftalt ; 200
+    w: tap-hold w ; toggle-layer leftmeta_leftalt ; 200
+    e: tap-hold e ; toggle-layer leftmeta_leftctrl ; 200
 
-    u: tap-hold u ; toggle-layer leftmeta_leftctrl ; 200
-    i: tap-hold i ; toggle-layer leftmeta_leftalt ; 200
+    i: tap-hold i ; toggle-layer leftmeta_leftctrl ; 200
+    o: tap-hold o ; toggle-layer leftmeta_leftalt ; 200
 
 - name: nav_left
   passThrough: true
@@ -81,11 +81,14 @@ layers:
     esc: multi esc ; exec ms qwerty
     capslock: multi layer qwerty ; exec ms qwerty
 
-    u: move -1 -1
-    m: move  1  1
+    leftalt: tap-hold leftalt ; toggle-layer nav_right ; 200
+    rightalt: tap-hold rightalt ; toggle-layer nav_left ; 200
 
-    o: move  1 -1
+    u: move -1 -1
+    i: move  1 -1
+
     n: move -1  1
+    m: move  1  1
 
     l: move  1  0
     h: move -1  0
@@ -127,6 +130,9 @@ layers:
     esc: multi esc ; exec ms qwerty
     capslock: multi layer qwerty ; exec ms qwerty
 
+    leftalt: tap-hold leftalt ; toggle-layer nav_right ; 200
+    rightalt: tap-hold rightalt ; toggle-layer nav_left ; 200
+
     r: multi reload-config ; exec ms qwerty
 
     h: mute
@@ -142,6 +148,9 @@ layers:
   bindings:
     esc: multi esc ; exec ms qwerty
     capslock: multi layer qwerty ; exec ms qwerty
+
+    leftalt: tap-hold leftalt ; toggle-layer nav_right ; 200
+    rightalt: tap-hold rightalt ; toggle-layer nav_left ; 200
 
     q: k1
     w: k2

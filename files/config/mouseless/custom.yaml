@@ -1,6 +1,8 @@
 # devices:
 # - "/dev/input/by-id/usb-*-event-kbd"
 
+startCommand: "ms qwerty"
+
 baseMouseSpeed: 750.0
 baseScrollSpeed: 20.0
 
@@ -13,15 +15,21 @@ mouseDecelerationTime: 300.0
 mouseDecelerationCurve: 3.0
 
 layers:
-- name: initial
+- name: qwerty
   bindings:
     f13: layer mouse
 
 - name: mouse
-  passThrough: false
+  passThrough: true
   bindings:
-    r: reload-config
-    f13: layer initial
+    esc: multi esc ; exec ms qwerty
+    capslock: multi layer qwerty ; exec ms qwerty
+
+    u: move -1 -1
+    i: move  1 -1
+
+    n: move -1  1
+    m: move  1  1
 
     l: move  1  0
     h: move -1  0
@@ -31,17 +39,28 @@ layers:
     w: move  2  0
     b: move -2  0
 
-    y: leftctrl+c
-    c: leftctrl+leftshift+c
-    v: leftctrl+leftshift+v
-
-    p: scroll up
-    n: scroll down
-
-    u: speed 0.1
-    i: speed 0.3
-    o: speed 4.0
-
     f: button left
     d: button middle
     s: button right
+
+    leftshift: toggle-layer mouse_shift
+    rightshift: toggle-layer mouse_shift
+
+    y: multi leftctrl+c ; layer qwerty
+    c: leftctrl+leftshift+c
+    v: leftctrl+leftshift+v
+
+- name: mouse_shift
+  passThrough: false
+  bindings:
+    j: scroll down
+    k: scroll up
+
+    w: move  4  0
+    b: move -4  0
+
+    a: speed 0.1
+    s: speed 0.5
+    d: speed 4
+    f: speed 8
+    g: speed 10
