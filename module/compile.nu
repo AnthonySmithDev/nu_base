@@ -133,7 +133,7 @@ export def ktrl [ --input, --setup, --service ] {
 
   ln -sf $src $dst
   sudo ln -sf $src "/usr/local/bin/"
-  
+
   if $input {
     if not (user-exists ktrl) {
       sudo useradd -r -s /bin/false ktrl
@@ -274,5 +274,27 @@ export def mouseless-status [] {
     go build -o ./app ms/main.go
     mv ./app $app
     sudo ln -sf $app /usr/local/bin/
+  }
+}
+
+export def audiosource [ --apk ] {
+  let source = ($env.USR_LOCAL_SOURCE | path join audiosource)
+  git_clone https://github.com/gdzx/audiosource $source
+
+  let src = ($source | path join audiosource)
+  let dst = ($env.USR_LOCAL_BIN | path join audiosource)
+  ln -sf $src $dst
+
+  if $apk {
+    let version = "1.1"
+    let filename = $"audiosource_($version).apk"
+    let output = ($source | path join $filename)
+
+    if not ($output | path exists) {
+      https download $"https://github.com/gdzx/audiosource/releases/download/v($version)/audiosource.apk" -o $output
+    }
+
+    $env.AUDIOSOURCE_APK = $output
+    ^audiosource install
   }
 }
