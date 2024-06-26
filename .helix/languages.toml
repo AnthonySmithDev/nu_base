@@ -1,4 +1,4 @@
 
 [[language]]
 name = "bash"
-file-types = [{ glob = "config" }]
+file-types = ["sh", { glob = "config" }]
