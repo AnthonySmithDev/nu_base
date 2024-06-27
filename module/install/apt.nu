@@ -336,29 +336,89 @@ export def input-remapper [] {
   sudo apt install -y input-remapper
 }
 
-export def input-remapper-file [] {
+export def input-remapper-file [ --force(-f) ] {
   let version = github get_version 'sezanzeb/input-remapper'
+  let filename = $"input-remapper_($version).deb"
 
-  let filepath = filepath $"input-remapper-($version).deb"
-  if ($filepath | path exists) {
-    return
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
   }
 
-  https download $'https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb' -o $filepath
-  sudo dpkg -i $filepath
-  input-remapper-control --command autoload
+  if $new or $force {
+    download https://github.com/sezanzeb/input-remapper/releases/download/($version)/input-remapper-($version).deb $filepath
+    sudo dpkg -i $filepath
+    input-remapper-control --command autoload
+  }
 }
 
-export def vieb [] {
-  let version = github get_version 'Jelmerro/Vieb'
+export def download [url: string, filename: string] {
+  wget --quiet --show-progress $url --output-document $filename
+}
 
-  let filepath = filepath vieb_($version)_amd64.deb
-  if ($filepath | path exists) {
-    return
+export def vieb [ --force(-f) ] {
+  let version = github get_version 'Jelmerro/Vieb'
+  let filename = $"vieb_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
   }
 
-  https download $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb' -o $filepath
-  sudo dpkg -i $filepath
+  if $new or $force {
+    download https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
+export def opera [ --force(-f) ] {
+  let version = "111.0.5168.43"
+  let filename = $"opera_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://download5.operacdn.com/ftp/pub/opera/desktop/($version)/linux/opera-stable_($version)_amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
+export def chrome [ --force(-f) ] {
+  let version = "latest"
+  let filename = $"google-chrome_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
+export def microsoft-edge [ --force(-f) ] {
+  let version = "126.0.2592.68-1"
+  let filename = $"microsoft-edge_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_($version)_amd64.deb?brand=M102 $filepath
+    sudo dpkg -i $filepath
+  }
 }
 
 export def brave [] {
@@ -375,34 +435,52 @@ export def brave [] {
   sudo apt install -y brave-browser
 }
 
-export def opera [] {
-  let version = '106.0.4998.19'
+export def steam [ --force(-f) ] {
+  let version = "latest"
+  let filename = $"steam_($version).deb"
 
-  wget --quiet --show-progress $'https://download3.operacdn.com/ftp/pub/opera/desktop/($version)/linux/opera-stable_($version)_amd64.deb'
-  sudo dpkg -i $'opera-stable_($version)_amd64.deb'
-  rm -rf $'opera-stable_($version)_amd64.deb*'
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb $filepath
+    sudo dpkg -i $filepath
+  }
 }
 
-export def chrome [] {
-  wget --quiet --show-progress 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb'
-  sudo dpkg -i 'google-chrome-stable_current_amd64.deb'
-  rm -rf 'google-chrome-stable_current_amd64.deb*'
+export def discord [ --force(-f) ] {
+  let version = "latest"
+  let filename = $"discord_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://discord.com/api/download?platform=linux&format=deb $filepath
+    sudo dpkg -i $filepath
+  }
 }
 
-export def microsoft-edge [] {
-  let version = '116.0.1938.76-1'
-
-  wget --quiet --show-progress $'https://packages.microsoft.com/repos/edge/pool/main/m/microsoft-edge-stable/microsoft-edge-stable_($version)_amd64.deb'
-  sudo dpkg -i $'microsoft-edge-stable_($version)_amd64.deb'
-  rm -rf $'microsoft-edge-stable_($version)_amd64.deb'
-}
-
-export def balena-etcher [] {
+export def balena-etcher [ --force(-f) ] {
   let version = github get_version 'balena-io/etcher'
+  let filename = $"balena-etcher_($version).deb"
 
-  wget --quiet --show-progress  $'https://github.com/balena-io/etcher/releases/download/v($version)/balena-etcher_($version)_amd64.deb'
-  sudo dpkg -i $'balena-etcher_($version)_amd64.deb'
-  rm $'balena-etcher_($version)_amd64.deb'
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://github.com/balena-io/etcher/releases/download/v($version)/balena-etcher_($version)_amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
 }
 
 export def docker [] {
@@ -508,12 +586,6 @@ export def remmina [] {
   sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
 }
 
-export def steam [] {
-  https download https://cdn.cloudflare.steamstatic.com/client/installer/steam.deb
-  sudo dpkg -i steam.deb
-  rm steam.deb
-}
-
 export def vagrant [] {
   wget -O- https://apt.releases.hashicorp.com/gpg |
   sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg | null
@@ -529,12 +601,20 @@ export def qemu [] {
   sudo apt install qemu-system-x86
 }
 
-export def obsidian [] {
+export def obsidian [ --force(-f) ] {
   let version = github get_version 'obsidianmd/obsidian-releases'
+  let filename = $"obsidian_($version).deb"
 
-  https download $"https://github.com/obsidianmd/obsidian-releases/releases/download/v($version)/obsidian_($version)_amd64.deb"
-  sudo dpkg -i $"obsidian_($version)_amd64.deb"
-  rm $"obsidian_($version)_amd64.deb"
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://github.com/obsidianmd/obsidian-releases/releases/download/v($version)/obsidian_($version)_amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
 }
 
 export def waydroid [] {
