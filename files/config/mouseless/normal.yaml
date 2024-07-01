@@ -30,24 +30,24 @@ layers:
     esc: multi esc ; exec ms qwerty
     capslock: multi layer qwerty ; exec ms qwerty
 
-    leftalt: tap-hold leftalt ; toggle-layer nav_right ; 200
-    rightalt: tap-hold rightalt ; toggle-layer nav_left ; 200
+    leftalt: tap-hold leftalt ; toggle-layer nav_right ; 150
+    rightalt: tap-hold rightalt ; toggle-layer nav_left ; 150
 
-    a: tap-hold a ; leftalt ; 200
-    s: tap-hold s ; leftctrl ; 200
-    d: tap-hold d ; leftshift ; 200
-    f: tap-hold f ; leftmeta ; 200
+    a: tap-hold a ; leftalt ; 150
+    s: tap-hold s ; leftctrl ; 150
+    d: tap-hold d ; leftshift ; 150
+    f: tap-hold f ; leftmeta ; 150
 
-    j: tap-hold j ; leftmeta ; 200
-    k: tap-hold k ; leftshift ; 200
-    l: tap-hold l ; leftctrl ; 200
-    semicolon: tap-hold semicolon ; leftalt ; 200
+    j: tap-hold j ; leftmeta ; 150
+    k: tap-hold k ; leftshift ; 150
+    l: tap-hold l ; leftctrl ; 150
+    semicolon: tap-hold semicolon ; leftalt ; 150
 
-    w: tap-hold w ; toggle-layer leftmeta_leftalt ; 200
-    e: tap-hold e ; toggle-layer leftmeta_leftctrl ; 200
+    w: tap-hold w ; toggle-layer leftmeta_leftalt ; 150
+    e: tap-hold e ; toggle-layer leftmeta_leftctrl ; 150
 
-    i: tap-hold i ; toggle-layer leftmeta_leftctrl ; 200
-    o: tap-hold o ; toggle-layer leftmeta_leftalt ; 200
+    i: tap-hold i ; toggle-layer leftmeta_leftctrl ; 150
+    o: tap-hold o ; toggle-layer leftmeta_leftalt ; 150
 
 - name: nav_left
   passThrough: true

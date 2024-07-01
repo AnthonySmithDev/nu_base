@@ -73,6 +73,13 @@ alias chrome = browser chrome
 
 alias ar = audiosource run
 
+alias dn = dir new
+alias fn = file new
+alias fo = file open
+alias frn = file rn
+alias frm = file rm
+alias fmv = file mv
+
 alias srm = systemctl --user restart mouseless.service
 alias ssm = systemctl --user status mouseless.service
 alias sdm = systemctl --user stop mouseless.service
