@@ -71,4 +71,8 @@ alias vieb = browser vieb
 alias brave = browser brave
 alias chrome = browser chrome
 
-alias sk = sudo /home/anthony/.usr/local/bin/kanata
+alias ar = audiosource run
+
+alias srm = systemctl --user restart mouseless.service
+alias ssm = systemctl --user status mouseless.service
+alias sdm = systemctl --user stop mouseless.service
