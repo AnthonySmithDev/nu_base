@@ -1,13 +1,13 @@
 
 def choose [] {
   mut options = []
-  if not (which brave-browser | is-empty) {
+  if (which brave-browser | is-not-empty) {
     $options = ($options | append brave-browser)
   }
-  if not (which google-chrome | is-empty) {
+  if (which google-chrome | is-not-empty) {
     $options = ($options | append google-chrome)
   }
-  if not (which opera | is-empty) {
+  if (which opera | is-not-empty) {
     $options = ($options | append opera)
   }
   gum choose ...$options | str trim
@@ -15,72 +15,101 @@ def choose [] {
 
 export def main [url: string] {
   let browser = choose
-  bg $browser
+  bg $browser $url
+}
+
+const extensions = [
+  'https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb'
+  'https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh'
+  'https://chromewebstore.google.com/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai'
+  'https://chromewebstore.google.com/detail/simple-translate/ibplnjkanclpjokhdolnendpplpjiace'
+  'https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld'
+  'https://chromewebstore.google.com/detail/sound-booster-increase-vo/nmigaijibiabddkkmjhlehchpmgbokfj'
+  'https://chromewebstore.google.com/detail/picture-in-picture-extens/hkgfoiooedgoejojocmhlaklaeopbecg'
+]
+
+export def extension [] {
+  let browser = choose
+  if (ps | where name =~ $browser | is-empty) {
+    bg $browser
+  }
+  for $extension in $extensions {
+    do -i {
+      ^$browser $extension
+    }
+  }
 }
 
 export def vieb [
+  url?: string
   --left(-l)
   --right(-r)
 ] {
+  mut args = [ '--config-file=~/.config/Vieb/viebrc' ]
   if $left {
-    bg vieb --datafolder=~/.config/ViebLeft --config-file=~/.config/Vieb/viebrc
-    return
+    $args = ($args | append '--datafolder=~/.config/ViebLeft')
   }
   if $right {
-    bg vieb --datafolder=~/.config/ViebRight --config-file=~/.config/Vieb/viebrc
-    return
+    $args = ($args | append '--datafolder=~/.config/ViebRight')
   }
-  bg vieb
+  if ($url | is-not-empty) {
+    $args = ($args | append $url)
+  }
+  bg vieb ...$args
 }
 
 export def brave [
   url?: string
+  --ext(-e)
   --left(-l)
   --right(-r)
   --proxy(-p)
 ] {
   mut args = []
+  if $ext {
+    $args = ($args | append $extensions)
+  }
   if $proxy {
     $args = ($args | append '--proxy-server=localhost:8080')
   }
-  if ($url != null) {
-    $args = ($args | append $url)
-  }
   if $left {
     let data = ($env.HOME | path join .config brave-browser-left)
-    bg brave-browser --user-data-dir=($data) ...$args
-    return
+    $args = ($args | append $'--user-data-dir=($data)')
   }
   if $right {
     let data = ($env.HOME | path join .config brave-browser-right)
-    bg brave-browser --user-data-dir=($data) ...$args
-    return
+    $args = ($args | append $'--user-data-dir=($data)')
+  }
+  if ($url | is-not-empty) {
+    $args = ($args | append $url)
   }
   bg brave-browser ...$args
 }
 
 export def chrome [
   url?: string
+  --ext(-e)
   --left(-l)
   --right(-r)
   --proxy(-p)
 ] {
   mut args = []
+  if $ext {
+    $args = ($args | append $extensions)
+  }
   if $proxy {
     $args = ($args | append '--proxy-server=localhost:8080')
   }
-  if ($url != null) {
-    $args = ($args | append $url)
-  }
   if $left {
     let data = ($env.HOME | path join .config google-chrome-left)
-    bg google-chrome --user-data-dir=($data) ...$args
-    return
+    $args = ($args | append $'--user-data-dir=($data)')
   }
   if $right {
     let data = ($env.HOME | path join .config google-chrome-right)
-    bg google-chrome --user-data-dir=($data) ...$args
-    return
+    $args = ($args | append $'--user-data-dir=($data)')
+  }
+  if ($url | is-not-empty) {
+    $args = ($args | append $url)
   }
   bg google-chrome ...$args
 }
@@ -105,25 +134,4 @@ export def proxify-crt [] {
   cp $src $dest
   sudo cp $src /usr/local/share/ca-certificates/proxify.crt
   sudo update-ca-certificates
-}
-
-export def extension [] {
-  let extensions = [
-    'https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb'
-    'https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh'
-    'https://chromewebstore.google.com/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai'
-    'https://chromewebstore.google.com/detail/simple-translate/ibplnjkanclpjokhdolnendpplpjiace'
-    'https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld'
-    'https://chromewebstore.google.com/detail/sound-booster-increase-vo/nmigaijibiabddkkmjhlehchpmgbokfj'
-    'https://chromewebstore.google.com/detail/picture-in-picture-extens/hkgfoiooedgoejojocmhlaklaeopbecg'
-  ]
-  let browser = choose
-  if (ps | where name =~ $browser | is-empty) {
-    bg $browser
-  }
-  for $extension in $extensions {
-    do -i {
-      ^$browser $extension
-    }
-  }
 }

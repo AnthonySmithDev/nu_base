@@ -5,8 +5,8 @@ alias zj = zellij
 alias zr = zellij run
 alias ze = zellij edit
 alias za = zellij action
-alias zk = zellij kill-sessions
-alias zd = zellij delete-sessions
+alias zk = zellij kill-session
+alias zd = zellij delete-session
 alias zka = zellij kill-all-sessions -y
 alias zda = zellij delete-all-sessions -y
 
