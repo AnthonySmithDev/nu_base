@@ -113,7 +113,7 @@ def redis [...cmd: string] {
    }
 }
 
-def "sql_ide" [] {
+def harsql [] {
    harlequin -a mysql -h $env.SQL_HOST -p $env.SQL_PORT -U $env.SQL_USER --password $env.SQL_PASS --database $env.SQL_NAME
 }
 
@@ -124,6 +124,10 @@ def redis_del [cmd: string] {
 def pastes [filename: string, --lang(-l): string = "plain"] {
   let url = (curl -s -T $filename -H $"Content-Type: text/($lang)" https://api.pastes.dev/post)
   return { url: $url }
+}
+
+def git_commit [...rest: string] {
+  git commit -m ($rest | str join ' ')
 }
 
 def git_history [file: string] {
@@ -150,6 +154,10 @@ def "andorid debug restart" [] {
   }
 }
 
-def "sser" [] {
-  sudo systemctl start evremap.service
+def __systemctl [] {
+  [status start stop restart]
+}
+
+def su [systemctl: string@__systemctl] {
+  systemctl --user $systemctl mouseless.service
 }

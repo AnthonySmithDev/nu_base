@@ -1,4 +1,6 @@
 
+alias la = ls -la
+
 alias zj = zellij
 alias zr = zellij run
 alias ze = zellij edit
@@ -9,9 +11,9 @@ alias zka = zellij kill-all-sessions -y
 alias zda = zellij delete-all-sessions -y
 
 alias zn = zellij options --session-name
-alias zna = zellij attach
-alias znl = zn left
-alias znr = zn right
+alias zat = zellij attach
+alias zle = zn left
+alias zri = zn right
 
 alias lzg = lazygit
 alias lzd = lazydocker
@@ -54,10 +56,7 @@ alias gc = git clone
 alias gi = git init
 alias gu = gitu
 
-def gcm [...rest: string] {
-  git commit -m ($rest | str join ' ')
-}
-
+alias gcm = git_commit
 alias gme = gitmoji -c
 
 alias docker! = ^($env.DOCKER_BIN | path join docker)
@@ -71,7 +70,11 @@ alias vieb = browser vieb
 alias brave = browser brave
 alias chrome = browser chrome
 
-alias ar = audiosource run
+alias vle = vieb --left
+alias vri = vieb --right
+
+alias ble = brave --left
+alias bri = brave --right
 
 alias dn = dir new
 alias fn = file new
@@ -80,6 +83,4 @@ alias frn = file rn
 alias frm = file rm
 alias fmv = file mv
 
-alias srm = systemctl --user restart mouseless.service
-alias ssm = systemctl --user status mouseless.service
-alias sdm = systemctl --user stop mouseless.service
+alias ar = audiosource run
