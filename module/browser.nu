@@ -65,6 +65,8 @@ export def brave [
   --right(-r)
   --proxy(-p)
 ] {
+  let config = ($env.HOME | path join .config/BraveSoftware/Brave-Browser)
+
   mut args = []
   if $ext {
     $args = ($args | append $extensions)
@@ -73,12 +75,18 @@ export def brave [
     $args = ($args | append '--proxy-server=localhost:8080')
   }
   if $left {
-    let data = ($env.HOME | path join .config brave-browser-left)
-    $args = ($args | append $'--user-data-dir=($data)')
+    let dir = ($env.HOME | path join .config brave-browser-left)
+    if not ($dir | path exists) {
+      cp -r $config $dir
+    }
+    $args = ($args | append $'--user-data-dir=($dir)')
   }
   if $right {
-    let data = ($env.HOME | path join .config brave-browser-right)
-    $args = ($args | append $'--user-data-dir=($data)')
+    let dir = ($env.HOME | path join .config brave-browser-right)
+    if not ($dir | path exists) {
+      cp -r $config $dir
+    }
+    $args = ($args | append $'--user-data-dir=($dir)')
   }
   if ($url | is-not-empty) {
     $args = ($args | append $url)
@@ -134,4 +142,9 @@ export def proxify-crt [] {
   cp $src $dest
   sudo cp $src /usr/local/share/ca-certificates/proxify.crt
   sudo update-ca-certificates
+}
+
+
+export def clone [] {
+  
 }

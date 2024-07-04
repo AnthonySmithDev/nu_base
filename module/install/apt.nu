@@ -250,6 +250,7 @@ export def dependency [] {
     sshpass
     qiv
     pqiv
+    p7zip-full
 
     htop
     xclip
