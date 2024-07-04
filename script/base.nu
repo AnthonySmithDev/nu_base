@@ -36,6 +36,7 @@ def main [] {
   config zellij --theme
 
   nu_source
+  nu_zoxide
   touch ~/.env.nu
 }
 
@@ -60,6 +61,7 @@ def nu_source [] {
   if ("~/.local/nu_base" | path exists) {
     $source = ($source | append "source ~/.local/nu_base/source.nu")
   }
+
   if ("~/nushell/nu_base" | path exists) {
     $source = ($source | append "source ~/nushell/nu_base/source.nu")
   }
@@ -70,4 +72,20 @@ def nu_source [] {
     $source = ($source | append "source ~/nushell/nu_home/source.nu")
   }
   $source | save -f ~/.source.nu
+}
+
+def nu_zoxide [] {
+  if ("~/.local/nu_base" | path exists) {
+    ^zoxide add "~/.local/nu_base"
+  }
+
+  if ("~/nushell/nu_base" | path exists) {
+    ^zoxide add "~/nushell/nu_base"
+  }
+  if ("~/nushell/nu_work" | path exists) {
+    ^zoxide add "~/nushell/nu_work"
+  }
+  if ("~/nushell/nu_home" | path exists) {
+    ^zoxide add "~/nushell/nu_home"
+  }
 }

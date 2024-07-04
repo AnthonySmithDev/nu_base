@@ -8,6 +8,7 @@ def main [] {
     install apt flathub
     install apt brave
     install apt vieb
+    install apt discord
   }
 
   nerd-font FiraCode
