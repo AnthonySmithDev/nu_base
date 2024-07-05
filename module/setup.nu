@@ -8,15 +8,16 @@ export def android [] {
     "emulator"
     "platform-tools"
 
-    "build-tools;34.0.0"
-    "platforms;android-34"
-    "sources;android-34"
-    "system-images;android-34;google_apis;x86_64"
-
     "build-tools;24.0.0"
     "platforms;android-24"
     "sources;android-24"
     "system-images;android-24;google_apis;x86_64"
+
+    "build-tools;35.0.0"
+    "platforms;android-35"
+    "sources;android-35"
+    "system-images;android-35;google_apis;x86_64"
+    "system-images;android-35;google_apis_playstore;x86_64" # if android >= 28
   ]
   ^sdkmanager --install ...$packages
 }

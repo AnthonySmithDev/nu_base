@@ -1862,7 +1862,7 @@ export def --env flutter [ --latest(-l) ] {
 }
 
 export def --env android-studio [ --desktop(-d) ] {
-  let version = '2023.3.1.19'
+  let version = '2024.1.1.11'
 
   let path = share android-studio $version
   if (no-exist $path) {
