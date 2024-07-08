@@ -84,3 +84,5 @@ alias frm = file rm
 alias fmv = file mv
 
 alias ar = audiosource run
+
+alias suk = srv user kanata

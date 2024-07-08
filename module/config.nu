@@ -138,6 +138,11 @@ export def mouseless [file: string@mouseless-files] {
   symlink_file mouseless mouseless $"($file).yaml" config.yaml
 }
 
+export def kanata [] {
+  print 'User Config: kanata'
+  symlink_file kanata kanata "config.kbd" config.kbd
+}
+
 def evremap-files [] {
   [logitech redragon]
 }

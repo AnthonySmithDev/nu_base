@@ -1,0 +1,131 @@
+
+(defcfg
+  movemouse-inherit-accel-state yes
+  linux-dev (
+    "/dev/input/by-id/usb-SINO_WEALTH_Gaming_KB-event-kbd"
+  )
+)
+
+(deflocalkeys-linux
+  < 86
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  caps a    s    d    f    g    h    j    k    l    ;    '    \    ret
+  lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defvar
+  fast-tap-timeout   50
+  fast-hold-timeout  100
+
+  ftt $fast-tap-timeout
+  fht $fast-hold-timeout
+
+  tap-timeout   100
+  hold-timeout  200
+
+  tt $tap-timeout
+  ht $hold-timeout
+)
+
+(defalias
+  cap (tap-hold $ftt $fht esc lctl)
+  nav (tap-hold $tt $ht f (layer-while-held navigation))
+  td (tap-dance 200 (@cap (caps-word 2000)))
+)
+(deflayer qwerty
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  @td a    s    d    @nav g    h    j    k    l    ;    '    \    ret
+  lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defalias
+  lsq (layer-switch qwerty)
+  lsh (layer-switch homerow)
+  lsm (layer-switch mouse)
+)
+(deflayer navigation
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    @lsq @lsh @lsm _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+
+(defalias
+  hra (tap-hold $tt $ht a lalt)
+  hrs (tap-hold $tt $ht s lctl)
+  hrd (tap-hold $tt $ht d lsft)
+  hrf (tap-hold $tt $ht f lmet)
+
+  hrj (tap-hold $tt $ht j rmet)
+  hrk (tap-hold $tt $ht k rsft)
+  hrl (tap-hold $tt $ht l rctl)
+  hr; (tap-hold $tt $ht ; ralt)
+)
+
+(deflayer homerow
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  @lsq @hra @hrs @hrd @hrf g    h    @hrj @hrk @hrl @hr; '    \    ret
+  lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet rctl
+)
+
+(defalias
+  mwu (mwheel-up 50 120)
+  mwd (mwheel-down 50 120)
+  mwl (mwheel-left 50 120)
+  mwr (mwheel-right 50 120)
+
+  ms↑ (movemouse-up 1 1)
+  ms← (movemouse-left 1 1)
+  ms↓ (movemouse-down 1 1)
+  ms→ (movemouse-right 1 1)
+
+  ma↑ (movemouse-accel-up 4 4000 1 5)
+  ma← (movemouse-accel-left 4 4000 1 5)
+  ma↓ (movemouse-accel-down 4 4000 1 5)
+  ma→ (movemouse-accel-right 4 4000 1 5)
+
+  fst (movemouse-speed 200)
+  slw (movemouse-speed 50)
+
+  msh (layer-while-held mouseshift)
+  msc (layer-while-held mousescroll)
+)
+
+(deflayer mouseNot
+  _    @mwu @mwd @mwl @mwr _    _    _    _    _    @ma↑ _    _    _
+  _    pgup bck  _    fwd  _    _    _    _    @ma← @ma↓ @ma→ _    _
+  @lsq pgdn mlft _    mrgt mmid _    mbck mfwd _    @ms↑ _    _
+  @fst _  _  mltp _    mrtp mmtp _    mbtp mftp @ms← @ms↓ @ms→
+  @lsq    _    _              _              _    _    _
+)
+(deflayer mouse
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    @fst @slw _    _    _
+  @lsq @msc _    mrgt mlft _    @ms← @ms↓ @ms↑ @ms→ _    _    _    _
+  @msh _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+(deflayer mouseshift
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    @ma← @ma↓ @ma↑ @ma→ _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)
+(deflayer mousescroll
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    @mwl @mwd @mwu @mwr _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _              _              _    _    _
+)

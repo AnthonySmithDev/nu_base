@@ -2,3 +2,8 @@
 [[language]]
 name = "bash"
 file-types = ["sh", { glob = "config" }]
+
+[[language]]
+name = "common-lisp"
+file-types = ["kbd"]
+comment-token = ";;"
