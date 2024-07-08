@@ -159,7 +159,7 @@ export def fzf [ --global(-g) ] {
   let path = share fzf $version
 
   if (no-exist $path) {
-    https download $'https://github.com/junegunn/fzf/releases/download/($version)/fzf-($version)-linux_amd64.tar.gz'
+    https download $'https://github.com/junegunn/fzf/releases/download/v($version)/fzf-($version)-linux_amd64.tar.gz'
     extract tar $'fzf-($version)-linux_amd64.tar.gz' -d 'fzf-linux_amd64'
     umv -d 'fzf-linux_amd64' -f 'fzf' -p $path
   }
