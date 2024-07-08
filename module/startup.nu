@@ -92,17 +92,17 @@ export def mouseless [
   }
 
   if $stop {
-    systemctl --user stop mouseless.service
+    sudo systemctl stop mouseless.service
     return
   }
 
   if $disable {
-    systemctl --user disable mouseless.service
+    sudo systemctl disable mouseless.service
     return
   }
 
   if $restart {
-    systemctl --user restart mouseless.service
+    sudo systemctl restart mouseless.service
     return
   }
 

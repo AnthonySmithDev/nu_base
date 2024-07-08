@@ -1,6 +1,6 @@
 
 export def helix [
-  --global
+  --global(-g)
   --editor
 ] {
   let version = github get_version 'helix-editor/helix'
@@ -38,7 +38,7 @@ export def nvim [] {
   symlink $path $env.NVIM_PATH
 }
 
-export def nushell [ --global ] {
+export def nushell [ --global(-g) ] {
   let version = github get_version 'nushell/nushell'
 
   let bin = bin nu
@@ -57,7 +57,7 @@ export def nushell [ --global ] {
   symlink $path $bin
 }
 
-export def starship [ --global ] {
+export def starship [ --global(-g) ] {
   let version = github get_version 'starship/starship'
 
   let bin = bin starship
@@ -76,7 +76,7 @@ export def starship [ --global ] {
   symlink $path $bin
 }
 
-export def zoxide [ --global ] {
+export def zoxide [ --global(-g) ] {
   let version = github get_version 'ajeetdsouza/zoxide'
 
   let bin = bin zoxide
@@ -95,7 +95,7 @@ export def zoxide [ --global ] {
   symlink $path $bin
 }
 
-export def zellij [ --global ] {
+export def zellij [ --global(-g) ] {
   let version = github get_version 'zellij-org/zellij'
 
   let bin = bin zellij
@@ -114,7 +114,7 @@ export def zellij [ --global ] {
   symlink $path $bin
 }
 
-export def rg [ --global ] {
+export def rg [ --global(-g) ] {
   let version = github get_version 'BurntSushi/ripgrep'
 
   let bin = bin rg
@@ -133,7 +133,7 @@ export def rg [ --global ] {
   symlink $path $bin
 }
 
-export def fd [ --global ] {
+export def fd [ --global(-g) ] {
   let version = github get_version 'sharkdp/fd'
 
   let bin = bin fd
@@ -152,7 +152,7 @@ export def fd [ --global ] {
   symlink $path $bin
 }
 
-export def fzf [ --global ] {
+export def fzf [ --global(-g) ] {
   let version = github get_version 'junegunn/fzf'
 
   let bin = bin fzf
@@ -276,7 +276,7 @@ export def bat [] {
   symlink $path $bin
 }
 
-export def gdu [ --global ] {
+export def gdu [ --global(-g) ] {
   let version = github get_version 'dundee/gdu'
 
   let bin = bin gdu
@@ -295,7 +295,7 @@ export def gdu [ --global ] {
   symlink $path $bin
 }
 
-export def xh [ --global ] {
+export def xh [ --global(-g) ] {
   let version = github get_version 'ducaale/xh'
 
   let bin = bin xh
@@ -314,7 +314,7 @@ export def xh [ --global ] {
   symlink $path $bin
 }
 
-export def task [ --global ] {
+export def task [ --global(-g) ] {
   let version = github get_version 'go-task/task'
 
   let bin = bin task
@@ -329,7 +329,7 @@ export def task [ --global ] {
   symlink $path $bin
 }
 
-export def mouseless [ --global ] {
+export def mouseless [ --global(-g) ] {
   let version = github get_version 'jbensmann/mouseless'
 
   let bin = bin mouseless
@@ -363,7 +363,7 @@ export def websocat [] {
   symlink $path $bin
 }
 
-export def gum [ --global ] {
+export def gum [ --global(-g) ] {
   let version = github get_version 'charmbracelet/gum'
 
   let bin = bin gum
@@ -764,7 +764,7 @@ export def upterm [] {
   symlink $path $bin
 }
 
-export def kanata [ --global ] {
+export def kanata [ --global(-g) ] {
   let version = github get_version 'jtroo/kanata'
 
   let bin = bin kanata
@@ -839,7 +839,7 @@ export def bore [] {
   symlink $path $bin
 }
 
-export def rclone [--global] {
+export def rclone [--global(-g)] {
   let version = github get_version 'rclone/rclone'
 
   let bin = bin rclone
@@ -1269,7 +1269,7 @@ export def k9s [] {
   symlink $path $bin
 }
 
-export def bettercap [ --global ] {
+export def bettercap [ --global(-g) ] {
   let version = github get_version 'bettercap/bettercap'
 
   let bin = bin bettercap
@@ -1468,7 +1468,7 @@ export def kbt [] {
   umv -d $'kbt-($version)-x86_64-unknown-linux-gnu' -f kbt
 }
 
-export def trippy [ --global ] {
+export def trippy [ --global(-g) ] {
   let version = github get_version 'fujiapple852/trippy'
 
   let bin = bin trippy

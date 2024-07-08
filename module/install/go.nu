@@ -4,13 +4,15 @@ export def dev [] {
 	go install github.com/go-delve/delve/cmd/dlv@latest
 	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 
-	go install entgo.io/ent/cmd/ent@latest
-	go install ariga.io/atlas/cmd/atlas@latest
-	go install ariga.io/entimport/cmd/entimport@latest
-
 	go install github.com/air-verse/air@latest
 	go install github.com/swaggo/swag/cmd/swag@latest
 	go install github.com/maruel/panicparse/v2/cmd/pp@latest
+}
+
+export def db [] {
+	go install entgo.io/ent/cmd/ent@latest
+	go install ariga.io/atlas/cmd/atlas@latest
+	go install ariga.io/entimport/cmd/entimport@latest
 }
 
 export def core [] {

@@ -1,7 +1,7 @@
 # devices:
 # - "/dev/input/by-id/usb-*-event-kbd"
 
-startCommand: "ms qwerty"
+# startCommand: "ms qwerty"
 
 baseMouseSpeed: 750.0
 baseScrollSpeed: 20.0
@@ -17,13 +17,12 @@ mouseDecelerationCurve: 3.0
 layers:
 - name: qwerty
   bindings:
-    f13: layer mouse
+    f13: multi layer mouse ; exec ms mouse
 
 - name: mouse
   passThrough: true
   bindings:
     esc: multi esc ; exec ms qwerty
-    capslock: multi layer qwerty ; exec ms qwerty
 
     u: move -1 -1
     i: move  1 -1

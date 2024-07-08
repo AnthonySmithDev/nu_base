@@ -30,10 +30,10 @@ use commit.nu
 use repository.nu
 use run.nu
 use build.nu
-use setup.nu
 use theme.nu
 use avd.nu
 use startup.nu
+use setup.nu
 
 use install
 

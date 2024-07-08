@@ -35,3 +35,9 @@ export def kotlin [] {
   download kotlin
   download kotlin-native
 }
+
+export def mouseless [] {
+  download mouseless --global
+  config mouseless custom
+  startup mouseless --init
+}
