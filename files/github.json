@@ -2,9 +2,9 @@
   {
     "category": "core",
     "repository": "ducaale/xh",
-    "tag_name": "0.22.0",
+    "tag_name": "0.22.2",
     "prerelease": false,
-    "created_at": "2024-04-12T22:34:00Z"
+    "created_at": "2024-07-08T22:16:09Z"
   },
   {
     "category": "core",
@@ -212,9 +212,9 @@
   {
     "category": "core",
     "repository": "ariga/atlas",
-    "tag_name": "0.24.0",
+    "tag_name": "0.25.0",
     "prerelease": false,
-    "created_at": "2024-06-14T10:58:40Z"
+    "created_at": "2024-07-08T12:51:54Z"
   },
   {
     "category": "core",
@@ -436,9 +436,9 @@
   {
     "category": "extra",
     "repository": "ms-jpq/sad",
-    "tag_name": "0.4.29",
+    "tag_name": "0.4.31",
     "prerelease": false,
-    "created_at": "2024-05-25T00:36:16Z"
+    "created_at": "2024-06-27T12:12:12Z"
   },
   {
     "category": "extra",
@@ -499,9 +499,9 @@
   {
     "category": "extra",
     "repository": "ast-grep/ast-grep",
-    "tag_name": "0.24.0",
+    "tag_name": "0.24.1",
     "prerelease": false,
-    "created_at": "2024-06-23T23:24:13Z"
+    "created_at": "2024-06-26T23:43:12Z"
   },
   {
     "category": "extra",
@@ -513,9 +513,9 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.1.45",
+    "tag_name": "0.2.1",
     "prerelease": false,
-    "created_at": "2024-06-20T17:46:24Z"
+    "created_at": "2024-07-09T05:32:15Z"
   },
   {
     "category": "other",
@@ -527,9 +527,9 @@
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "2.17.1",
+    "tag_name": "2.18.1",
     "prerelease": false,
-    "created_at": "2024-06-19T00:28:50Z"
+    "created_at": "2024-07-01T20:52:43Z"
   },
   {
     "category": "other",
@@ -569,9 +569,9 @@
   {
     "category": "other",
     "repository": "VSCodium/vscodium",
-    "tag_name": "1.90.2.24171",
+    "tag_name": "1.91.0.24190",
     "prerelease": false,
-    "created_at": "2024-06-19T18:23:53Z"
+    "created_at": "2024-07-08T15:17:26Z"
   },
   {
     "category": "other",
@@ -660,9 +660,9 @@
   {
     "category": "other",
     "repository": "pvolok/mprocs",
-    "tag_name": "0.6.4",
+    "tag_name": "0.7.1",
     "prerelease": false,
-    "created_at": "2022-10-02T21:54:42Z"
+    "created_at": "2024-06-29T14:50:56Z"
   },
   {
     "category": "other",
@@ -723,16 +723,16 @@
   {
     "category": "other",
     "repository": "rsteube/carapace-bin",
-    "tag_name": "1.0.3",
+    "tag_name": "1.0.4",
     "prerelease": false,
-    "created_at": "2024-05-31T18:49:10Z"
+    "created_at": "2024-06-30T09:39:09Z"
   },
   {
     "category": "other",
     "repository": "antonmedv/walk",
-    "tag_name": "1.9.0",
+    "tag_name": "1.10.0",
     "prerelease": false,
-    "created_at": "2024-06-21T20:53:41Z"
+    "created_at": "2024-06-27T13:12:05Z"
   },
   {
     "category": "other",

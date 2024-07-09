@@ -34,17 +34,20 @@
 )
 
 (defalias
+  lalt (tap-hold $tt $ht a lalt)
+  ralt (tap-hold $tt $ht ; ralt)
+
   qle (tap-hold $ftt $fht esc lctl)
   qri (tap-hold $ftt $fht ' rctl)
   nav (tap-hold $tt $ht f (layer-while-held navigation))
   cap (tap-dance 200 (@qle (caps-word 2000)))
 )
 (deflayer qwerty
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]
-  @cap a    s    d    @nav g    h    j    k    l    ;    @qri \    ret
-  lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet lalt           spc            ralt rmet rctl
+  grv  1     2    3    4    5    6    7    8    9    0     -    =    bspc
+  tab  q     w    e    r    t    y    u    i    o    p     [    ]
+  @cap @lalt s    d    @nav g    h    j    k    l    @ralt @qri \    ret
+  lsft <     z    x    c    v    b    n    m    ,    .     /    rsft
+  lctl lmet  lalt           spc            ralt rmet rctl
 )
 
 (defalias
