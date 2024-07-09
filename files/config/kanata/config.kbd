@@ -51,12 +51,13 @@
   lsq (layer-switch qwerty)
   lsh (layer-switch homerow)
   lsm (layer-switch mouse)
-  lhc (layer-while-held control)
+  lsa (layer-switch arrow)
+  lsc (layer-switch control)
 )
 (deflayer navigation
   •    •    •    •    •    •    •    •    •    •    •    •    •    •
-  •    •    •    •    •    •    •    •    •    •    •    •    •
-  •    •    •    @lhc •    •    •    •    @lsh @lsm •    •    •    •
+  •    •    •    •    •    •    •    •    @lsa @lsc •    •    •
+  •    •    •    •    •    •    •    •    @lsh @lsm •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •              •              •    •    •
 )
@@ -128,31 +129,37 @@
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •              •              •    •    •
 )
+(defalias
+  alc (tap-hold $tt $ht (layer-switch qwerty) lctl)
+  aco (layer-while-held control)
+)
+(deflayer arrow
+;;1    2    3       4      5    6    7      8     9    10    11   12    13   14
+  •    •    •       •      •    •    •      •     •    •     •    •     •    bspc
+  tab  •    C-right •      •    •    •      C-S-c C-up •     •    C-S-v •
+  @alc @aco •       C-down •    •    left   down  up   right •    rctl  •    ret
+  lsft •    C-z     C-x    C-c  C-v  C-left •     •    •     •    •     rsft
+  lctl lmet lalt                spc               ralt rmet  rctl
+)
 (deflayer control
+;;1    2    3    4    5    6    7    8    9    10   11   12   13   14
   •    •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •    •    •    •    home pgdn pgup end  •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •              •              •    •    •
 )
-(deflayer arrow
-  •    •    •    •    •    •    •    •    •    •    •    •    •    •
-  •    •    •    •    •    •    •    •    •    •    •    •    •
-  •    •    •    •    •    •    left down up   left •    •    •    •
-  •    •    •    •    •    •    •    •    •    •    •    •    •
-  •    •    •              •              •    •    •
-)
 (deflayer numpad
   •    •    •    •    •    •    •    •    •    •    •    •    •    •
   •    kp1  kp2  kp3  kp4  kp5  kp6  kp7  kp8  kp9  kp0  •    •
-  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  @lsq •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •              •              •    •    •
 )
 (deflayer function
   •    •    •    •    •    •    •    •    •    •    •    •    •    •
   •    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
-  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  @lsq •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •              •              •    •    •
 )
