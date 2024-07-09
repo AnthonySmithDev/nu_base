@@ -86,3 +86,4 @@ alias fmv = file mv
 alias ar = audiosource run
 
 alias suk = srv user kanata
+alias sum = srv user mouseless

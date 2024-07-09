@@ -6,8 +6,12 @@ if not ($env.NU_BASE_PATH | path exists) {
 
 $env.NU_BASE_FILES = ($env.NU_BASE_PATH | path join files)
 
-$env.CONFIG_SYSTEMD_USER_SRC = ($env.NU_BASE_FILES | path join systemd)
-$env.CONFIG_SYSTEMD_USER_DST = ($env.HOME | path join .config/systemd/user)
+$env.CONFIG_DIR_REPO = ($env.NU_BASE_FILES | path join config)
+$env.CONFIG_DIR_USER = ($env.HOME | path join .config)
+$env.CONFIG_DIR_ROOT = ('/root' | path join .config)
+
+$env.CONFIG_SYSTEMD_USER_SRC = ($env.CONFIG_DIR_REPO | path join systemd/user)
+$env.CONFIG_SYSTEMD_USER_DST = ($env.CONFIG_DIR_USER | path join systemd/user)
 
 $env.USR_LOCAL = ($env.HOME | path join .usr local)
 $env.USR_LOCAL_BIN = ($env.USR_LOCAL | path join bin)

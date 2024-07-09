@@ -1,35 +1,44 @@
 
-export def katana [
-  --init(-i)
-  --remove(-r)
-] {
-  let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join kanata.service)
-  let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join kanata.service)
+def services [] {
+  ls -s $env.CONFIG_SYSTEMD_USER_SRC | get name | split column . name | get name
+}
 
-  if $init {
+def commands [] {
+  [status start stop restart enable disable]
+}
+
+def filename [name: string] {
+  [$name service] | str join .
+}
+
+export def init [service: string@services] {
+  let unit = filename $service
+  let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join $unit)
+  let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join $unit)
+
+  if not ($dst | path exists) {
     cp -f $src $dst
     systemctl --user daemon-reload
-    systemctl --user enable kanata.service
-    systemctl --user start kanata.service
+    systemctl --user enable $unit
+    systemctl --user start $unit
   }
+}
 
-  if $remove {
-    systemctl --user stop kanata.service
-    systemctl --user disable kanata.service
+export def remove [service: string@services] {
+  let unit = filename $service
+  let dst = ($env.CONFIG_SYSTEMD_USER_DST | path join $unit)
+
+  if ($dst | path exists) {
+    systemctl --user stop $unit
+    systemctl --user disable $unit
     rm -rf $dst
   }
-
-  systemctl --user status kanata.service
-}
-
-export def services [] {
-  [kanata]
-}
-
-export def commands [] {
-  [status restart start stop enable disable]
 }
 
 export def user [service: string@services, command: string@commands] {
-  systemctl --user $command $"($service).service"
+  systemctl --user $command (filename $service)
+}
+
+export def sys [service: string@services, command: string@commands] {
+  sudo systemctl --user $command (filename $service)
 }

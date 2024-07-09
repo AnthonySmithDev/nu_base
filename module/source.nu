@@ -32,7 +32,6 @@ use run.nu
 use build.nu
 use theme.nu
 use avd.nu
-use startup.nu
 use srv.nu
 use uinput.nu
 use setup.nu

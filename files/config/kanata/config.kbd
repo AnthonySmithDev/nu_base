@@ -31,16 +31,23 @@
 
   tt $tap-timeout
   ht $hold-timeout
+
+  slow-tap-timeout   10
+  slow-hold-timeout  300
+
+  stt $slow-tap-timeout
+  sht $slow-hold-timeout
 )
 
 (defalias
-  lalt (tap-hold $tt $ht a lalt)
-  ralt (tap-hold $tt $ht ; ralt)
+  lalt (tap-hold $stt $sht a lalt)
+  ralt (tap-hold $stt $sht ; ralt)
 
   qle (tap-hold $ftt $fht esc lctl)
-  qri (tap-hold $ftt $fht ' rctl)
+  qri (tap-hold $tt $ht ' rctl)
+
   nav (tap-hold $tt $ht f (layer-while-held navigation))
-  cap (tap-dance 200 (@qle (caps-word 2000)))
+  cap (tap-dance 100 (@qle (caps-word 2000)))
 )
 (deflayer qwerty
   grv  1     2    3    4    5    6    7    8    9    0     -    =    bspc

@@ -1,10 +1,4 @@
 
-export-env {
-  $env.CONFIG_DIR_REPO = ($env.NU_BASE_FILES | path join config)
-  $env.CONFIG_DIR_USER = ($env.HOME | path join .config)
-  $env.CONFIG_DIR_ROOT = ('/root' | path join .config)
-}
-
 def exists [path: string] {
   let complete = (do { sudo test -d $path } | complete)
   if $complete.exit_code == 0 {
