@@ -3,6 +3,7 @@
   movemouse-inherit-accel-state yes
   linux-dev (
     "/dev/input/by-id/usb-SINO_WEALTH_Gaming_KB-event-kbd"
+    "/dev/input/by-id/usb-Logitech_Logi_TKL_Mechanical_Keyboard-event-kbd"
   )
 )
 
@@ -40,7 +41,7 @@
 (deflayer qwerty
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
-  @td a    s    d    @nav g    h    j    k    l    ;    '    \    ret
+  @td  a    s    d    @nav g    h    j    k    l    ;    '    \    ret
   lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
@@ -51,11 +52,11 @@
   lsm (layer-switch mouse)
 )
 (deflayer navigation
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    @lsq @lsh @lsm _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    •    @lsq @lsh @lsm •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •              •              •    •    •
 )
 
 (defalias
@@ -84,48 +85,44 @@
   mwl (mwheel-left 50 120)
   mwr (mwheel-right 50 120)
 
-  ms↑ (movemouse-up 1 1)
-  ms← (movemouse-left 1 1)
-  ms↓ (movemouse-down 1 1)
-  ms→ (movemouse-right 1 1)
+  ms↑ (movemouse-up 3 1)
+  ms← (movemouse-left 3 1)
+  ms↓ (movemouse-down 3 1)
+  ms→ (movemouse-right 3 1)
 
-  ma↑ (movemouse-accel-up 4 4000 1 5)
-  ma← (movemouse-accel-left 4 4000 1 5)
-  ma↓ (movemouse-accel-down 4 4000 1 5)
-  ma→ (movemouse-accel-right 4 4000 1 5)
+  msw (movemouse-right 1 2)
+  msb (movemouse-left 1 2)
+
+  ma↑ (movemouse-accel-up 1 1000 1 1)
+  ma← (movemouse-accel-left 1 1000 1 1)
+  ma↓ (movemouse-accel-down 1 1000 1 1)
+  ma→ (movemouse-accel-right 1 1000 1 1)
 
   fst (movemouse-speed 200)
-  slw (movemouse-speed 50)
+  slw (movemouse-speed 1)
 
   msh (layer-while-held mouseshift)
   msc (layer-while-held mousescroll)
 )
 
-(deflayer mouseNot
-  _    @mwu @mwd @mwl @mwr _    _    _    _    _    @ma↑ _    _    _
-  _    pgup bck  _    fwd  _    _    _    _    @ma← @ma↓ @ma→ _    _
-  @lsq pgdn mlft _    mrgt mmid _    mbck mfwd _    @ms↑ _    _
-  @fst _  _  mltp _    mrtp mmtp _    mbtp mftp @ms← @ms↓ @ms→
-  @lsq    _    _              _              _    _    _
-)
 (deflayer mouse
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    @fst @slw _    _    _
-  @lsq @msc _    mrgt mlft _    @ms← @ms↓ @ms↑ @ms→ _    _    _    _
-  @msh _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    @msw mmid •    •    •    •    •    •    •    •    •
+  @lsq @msc @slw mrgt mlft @fst @ms← @ms↓ @ms↑ @ms→ rctl •    •    •
+  @msh •    •    •    •    •    @msb •    •    •    •    •    •
+  •    •    •              •              •    •    •
 )
 (deflayer mouseshift
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    @ma← @ma↓ @ma↑ @ma→ _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    @ma← @ma↓ @ma↑ @ma→ •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •              •              •    •    •
 )
 (deflayer mousescroll
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _    _    _    _    @mwl @mwd @mwu @mwr _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _
-  _    _    _              _              _    _    _
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    @mwl @mwd @mwu @mwr •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •              •              •    •    •
 )
