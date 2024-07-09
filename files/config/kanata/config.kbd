@@ -34,14 +34,15 @@
 )
 
 (defalias
-  cap (tap-hold $ftt $fht esc lctl)
+  qle (tap-hold $ftt $fht esc lctl)
+  qri (tap-hold $ftt $fht ' rctl)
   nav (tap-hold $tt $ht f (layer-while-held navigation))
-  td (tap-dance 200 (@cap (caps-word 2000)))
+  cap (tap-dance 200 (@qle (caps-word 2000)))
 )
 (deflayer qwerty
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]
-  @td  a    s    d    @nav g    h    j    k    l    ;    '    \    ret
+  @cap a    s    d    @nav g    h    j    k    l    ;    @qri \    ret
   lsft <    z    x    c    v    b    n    m    ,    .    /    rsft
   lctl lmet lalt           spc            ralt rmet rctl
 )
@@ -50,11 +51,12 @@
   lsq (layer-switch qwerty)
   lsh (layer-switch homerow)
   lsm (layer-switch mouse)
+  lhc (layer-while-held control)
 )
 (deflayer navigation
   •    •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
-  •    •    •    •    •    •    •    @lsq @lsh @lsm •    •    •    •
+  •    •    •    @lhc •    •    •    •    @lsh @lsm •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •              •              •    •    •
 )
@@ -123,6 +125,34 @@
   •    •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •    •    •    •    @mwl @mwd @mwu @mwr •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •              •              •    •    •
+)
+(deflayer control
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    home pgdn pgup end  •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •              •              •    •    •
+)
+(deflayer arrow
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    left down up   left •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •              •              •    •    •
+)
+(deflayer numpad
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    kp1  kp2  kp3  kp4  kp5  kp6  kp7  kp8  kp9  kp0  •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    •    •              •              •    •    •
+)
+(deflayer function
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
+  •    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  •    •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •    •    •    •    •    •    •    •    •    •    •
   •    •    •              •              •    •    •
 )
