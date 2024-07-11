@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"log"
@@ -13,24 +14,30 @@ import (
 	"time"
 
 	"github.com/charmbracelet/lipgloss"
+	"github.com/dustin/go-humanize"
 )
 
 func main() {
-	// api, err := NewAPI()
-	// if err != nil {
-	// 	log.Fatalln(err)
-	// }
-	// value, err := api.ReleasesLatest("nushell/nushell")
-	// value, err := api.RateLimit()
-	// if err != nil {
-	// 	log.Fatalln(err)
-	// }
-	// fmt.Printf("%+v\n", value)
+	TestRepos()
+}
 
+func TestRepos() {
 	err := Update()
 	if err != nil {
 		log.Fatalln(err)
 	}
+}
+
+func TestApi() {
+	api, err := NewAPI()
+	if err != nil {
+		log.Fatalln(err)
+	}
+	value, err := api.ReleasesLatest("nushell/nushell")
+	if err != nil {
+		log.Fatalln(err)
+	}
+	fmt.Printf("%+v\n", value)
 }
 
 type API struct {
@@ -59,6 +66,10 @@ func (s *API) do(base string) ([]byte, error) {
 		return nil, err
 	}
 	defer resp.Body.Close()
+
+	if resp.StatusCode == 403 {
+		return nil, errors.New("Rate Limit")
+	}
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {
@@ -151,6 +162,7 @@ const (
 )
 
 var (
+	nada    = lipgloss.NewStyle()
 	red     = lipgloss.NewStyle().Foreground(lipgloss.Color("#E88388"))
 	green   = lipgloss.NewStyle().Foreground(lipgloss.Color("#A8CC8C"))
 	yellow  = lipgloss.NewStyle().Foreground(lipgloss.Color("#DBAB79"))
@@ -158,9 +170,23 @@ var (
 	magenta = lipgloss.NewStyle().Foreground(lipgloss.Color("#D290E4"))
 	cyan    = lipgloss.NewStyle().Foreground(lipgloss.Color("#66C2CD"))
 	gray    = lipgloss.NewStyle().Foreground(lipgloss.Color("#B9BFCA"))
+
+	repositorio    = lipgloss.NewStyle().Bold(true)
+	currentVersion = lipgloss.NewStyle().Faint(true)
+	oldVersion     = lipgloss.NewStyle().Foreground(lipgloss.Color("#E88388")).Bold(true)
+	newVersion     = lipgloss.NewStyle().Foreground(lipgloss.Color("#A8CC8C")).Bold(true)
 )
 
-var version = regexp.MustCompile(`([0-9]+\.){2}[0-9]+`)
+var re = regexp.MustCompile(`(?:v)?(\d+\.\d+(?:\.\d+)?)`)
+
+func getVersion(text, current string) string {
+	match := re.FindStringSubmatch(text)
+	fmt.Println(text, " -> ", match, " -> ", current)
+	if len(match) > 1 {
+		return match[1]
+	}
+	return ""
+}
 
 func Update() error {
 	api, err := NewAPI()
@@ -171,29 +197,38 @@ func Update() error {
 	if err != nil {
 		return err
 	}
+	rateLimit, err := api.RateLimit()
+	if err != nil {
+		return err
+	}
+	if rateLimit.Resources.Core.Remaining == 0 {
+		fecha := time.Unix(rateLimit.Resources.Core.Reset, 0)
+
+		fmt.Println("Rate limit", humanize.Time(fecha))
+		return nil
+	}
 	for index, repo := range repos {
 		latest, err := api.ReleasesLatest(repo.Repository)
 		if err != nil {
 			return err
 		}
-		tagName := version.FindString(latest.TagName)
+		tagName := getVersion(latest.TagName, repo.TagName)
 		if tagName != repo.TagName {
-			fmt.Println(repo.Repository, green.Render(tagName), red.Render(repo.TagName))
+			fmt.Println(repositorio.Render(repo.Repository), newVersion.Render(tagName), oldVersion.Render(repo.TagName))
 			repos[index].TagName = tagName
 			if err := SaveRepos(repos); err != nil {
 				return err
 			}
 		} else {
-			fmt.Println(repo.Repository, gray.Render(repo.TagName))
+			fmt.Println(repositorio.Render(repo.Repository), currentVersion.Render(repo.TagName))
 		}
 	}
 	return nil
+
 }
 
 func OpenRepos() (Repos, error) {
 	env := os.Getenv("GITHUB_REPOSITORY")
-	log.Println(env)
-
 	file, err := os.Open(env)
 	if err != nil {
 		return nil, err

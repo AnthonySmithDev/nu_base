@@ -1431,6 +1431,10 @@ export def vscodium [] {
   symlink $path $env.VSCODIUM_PATH
 }
 
+export def zed [] {
+  (curl https://zed.dev/install.sh | sh)
+}
+
 export def code-server [] {
   let version = github get_version 'coder/code-server'
 

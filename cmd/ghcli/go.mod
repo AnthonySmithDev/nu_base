@@ -2,7 +2,10 @@ module ghcli
 
 go 1.22.2
 
-require github.com/charmbracelet/lipgloss v0.10.1-0.20240413172830-d0be07ea6b9c
+require (
+	github.com/charmbracelet/lipgloss v0.10.1-0.20240413172830-d0be07ea6b9c
+	github.com/dustin/go-humanize v1.0.1
+)
 
 require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
