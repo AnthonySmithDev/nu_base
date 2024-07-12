@@ -452,6 +452,22 @@ export def steam [ --force(-f) ] {
   }
 }
 
+export def via [ --force(-f) ] {
+  let version = "3.0.0"
+  let filename = $"via-($version)-linux.deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download $"https://github.com/the-via/releases/releases/download/v($version)/via-($version)-linux.deb" $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
 export def discord [ --force(-f) ] {
   let version = "latest"
   let filename = $"discord_($version).deb"
@@ -630,4 +646,9 @@ def filepath [name: string] {
 
 def exists [app: string] {
   which $app --all | where type == external | is-not-empty
+}
+
+export def qmk [] {
+sudo cp /home/anthony/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
+let packags = [arm-none-eabi-gcc avr-gcc avrdude dfu-programmer dfu-util]
 }
