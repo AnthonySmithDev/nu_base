@@ -784,6 +784,14 @@ export def kanata [ --global(-g) ] {
   symlink $path $bin
 }
 
+export def mongosh [] {
+  https download https://downloads.mongodb.com/compass/mongosh-2.2.12-linux-x64.tgz
+  extract tar mongosh-2.2.12-linux-x64.tgz
+  chmod 777 mongosh-2.2.12-linux-x64/bin/mongosh
+  sudo cp mongosh-2.2.12-linux-x64/bin/mongosh /usr/local/bin/
+  sudo cp mongosh-2.2.12-linux-x64/bin/mongosh_crypt_v1.so /usr/local/lib/
+}
+
 export def shell2http [] {
   let version = github get_version 'msoap/shell2http'
 

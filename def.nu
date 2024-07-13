@@ -99,22 +99,28 @@ def sqlite [database: string] {
 }
 
 def mysql [] {
-   let dsn = $'mysql://($env.SQL_USER):($env.SQL_PASS)@($env.SQL_HOST):($env.SQL_PORT)/($env.SQL_NAME)'
-   print $dsn
-   mycli --auto-vertical-output $dsn
+  let dsn = $'mysql://($env.SQL_USER):($env.SQL_PASS)@($env.SQL_HOST):($env.SQL_PORT)/($env.SQL_NAME)'
+  print $dsn
+  mycli $dsn --auto-vertical-output
 }
 
 def redis [...cmd: string] {
-   let url = $"redis://:($env.REDIS_PASS)@($env.REDIS_HOST):($env.REDIS_PORT)"
-   if ($cmd | is-not-empty) {
-      iredis --url $url --raw ($cmd | str join ' ')
-   } else {
-      iredis --url $url
-   }
+  let url = $"redis://:($env.REDIS_PASS)@($env.REDIS_HOST):($env.REDIS_PORT)"
+  if ($cmd | is-empty) {
+    iredis --url $url
+  } else {
+    iredis --url $url --raw ($cmd | str join ' ')
+  }
+}
+
+def mongo [] {
+  let dsn = $'mongodb://($env.MONGO_USER):($env.MONGO_PASS)@($env.MONGO_HOST):($env.MONGO_PORT)'
+  print $dsn
+  mongosh --quiet $dsn
 }
 
 def harsql [] {
-   harlequin -a mysql -h $env.SQL_HOST -p $env.SQL_PORT -U $env.SQL_USER --password $env.SQL_PASS --database $env.SQL_NAME
+  harlequin -a mysql -h $env.SQL_HOST -p $env.SQL_PORT -U $env.SQL_USER --password $env.SQL_PASS --database $env.SQL_NAME
 }
 
 def redis_del [cmd: string] {
