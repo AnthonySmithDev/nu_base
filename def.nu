@@ -127,9 +127,18 @@ def redis_del [cmd: string] {
    redis DEL (redis KEYS $cmd | lines | str join ' ')
 }
 
-def pastes [filename: string, --lang(-l): string = "plain"] {
+def "paste new" [filename: string, --lang(-l): string = "plain"] {
   let url = (curl -s -T $filename -H $"Content-Type: text/($lang)" https://api.pastes.dev/post)
   return { url: $url }
+}
+
+def "paste view" [str: string] {
+  let key = if ($str | str contains https://pastes.dev/) {
+    $str | split row https://pastes.dev/ | last
+  } else {
+    $str
+  }
+  http get https://api.pastes.dev/($key)
 }
 
 def git_commit [...rest: string] {

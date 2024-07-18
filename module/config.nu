@@ -124,7 +124,7 @@ export def alacritty [ --theme(-t) ] {
 }
 
 def mouseless-files [] {
-  [normal custom]
+  [normal custom zmk]
 }
 
 export def mouseless [file: string@mouseless-files] {

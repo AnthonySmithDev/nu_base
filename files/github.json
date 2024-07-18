@@ -30,9 +30,9 @@
   {
     "category": "core",
     "repository": "helix-editor/helix",
-    "tag_name": "24.03",
+    "tag_name": "24.07",
     "prerelease": false,
-    "created_at": "2024-03-30T13:32:03Z"
+    "created_at": "2024-07-14T16:19:47Z"
   },
   {
     "category": "core",
@@ -100,9 +100,9 @@
   {
     "category": "core",
     "repository": "jesseduffield/lazygit",
-    "tag_name": "0.42.0",
+    "tag_name": "0.43.1",
     "prerelease": false,
-    "created_at": "2024-05-19T08:00:32Z"
+    "created_at": "2024-07-13T10:14:39Z"
   },
   {
     "category": "core",
@@ -198,9 +198,9 @@
   {
     "category": "core",
     "repository": "Canop/broot",
-    "tag_name": "1.39.2",
+    "tag_name": "1.40.0",
     "prerelease": false,
-    "created_at": "2024-07-08T09:29:00Z"
+    "created_at": "2024-07-16T14:36:17Z"
   },
   {
     "category": "core",
@@ -233,9 +233,9 @@
   {
     "category": "extra",
     "repository": "metalbear-co/mirrord",
-    "tag_name": "3.108.0",
+    "tag_name": "3.111.0",
     "prerelease": false,
-    "created_at": "2024-07-02T12:00:30Z"
+    "created_at": "2024-07-17T10:50:56Z"
   },
   {
     "category": "extra",
@@ -499,9 +499,9 @@
   {
     "category": "extra",
     "repository": "ast-grep/ast-grep",
-    "tag_name": "0.24.1",
+    "tag_name": "0.25.1",
     "prerelease": false,
-    "created_at": "2024-06-26T23:43:12Z"
+    "created_at": "2024-07-15T00:27:57Z"
   },
   {
     "category": "extra",
@@ -513,9 +513,9 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.2.1",
+    "tag_name": "0.2.5",
     "prerelease": false,
-    "created_at": "2024-07-09T05:32:15Z"
+    "created_at": "2024-07-13T22:08:00Z"
   },
   {
     "category": "other",
@@ -569,16 +569,16 @@
   {
     "category": "other",
     "repository": "VSCodium/vscodium",
-    "tag_name": "1.91.0.24190",
+    "tag_name": "1.91.1.24193",
     "prerelease": false,
-    "created_at": "2024-07-08T15:17:26Z"
+    "created_at": "2024-07-11T18:18:27Z"
   },
   {
     "category": "other",
     "repository": "coder/code-server",
-    "tag_name": "4.90.3",
+    "tag_name": "4.91.0",
     "prerelease": false,
-    "created_at": "2024-06-21T17:52:42Z"
+    "created_at": "2024-07-09T20:47:24Z"
   },
   {
     "category": "other",
@@ -590,9 +590,9 @@
   {
     "category": "other",
     "repository": "veeso/termscp",
-    "tag_name": "0.13.0",
+    "tag_name": "0.14.0",
     "prerelease": false,
-    "created_at": "2024-03-02T19:27:16Z"
+    "created_at": "2024-07-17T15:05:15Z"
   },
   {
     "category": "other",
