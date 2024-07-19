@@ -84,6 +84,9 @@ def "kill ps" [name = ""] {
 
 def "kill port" [port: int] {
   let list = (lsof -i :($port) | from ssv -m 1)
+  if ($list | is-empty) {
+    return
+  }
   let name = ($list | get COMMAND | gum filter --select-if-one ...$in)
   if ($name | is-empty) {
     return

@@ -1,8 +1,5 @@
 
-export def helix [
-  --global(-g)
-  --editor
-] {
+export def helix [ --global(-g) --editor ] {
   let version = github get_version 'helix-editor/helix'
 
   let bin = ($env.HELIX_PATH | path join hx)
@@ -2046,6 +2043,15 @@ def choose [versions: list] {
   } else {
     ($versions | input list)
   }
+}
+
+export def firefox-de [] {
+  https download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
+  extract tar firefox-129.0b6.tar.bz2
+
+  sudo mv firefox /opt
+  sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
+  sudo wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/install-firefox-linux/firefox.desktop -P /usr/local/share/applications
 }
 
 def share [name: string, version: string] {
