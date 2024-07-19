@@ -18,6 +18,7 @@ use bg.nu
 
 use board.nu
 use distro.nu
+use proxy.nu
 use browser.nu
 use network.nu
 use compile.nu

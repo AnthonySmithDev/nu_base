@@ -1557,7 +1557,7 @@ export def mitmproxy [] {
   let path = share mitmproxy $version
 
   if (no-exist $path) {
-    https download $'https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz'
+    https download wget $'https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz'
     extract tar $'mitmproxy-($version)-linux-x86_64.tar.gz' -d 'mitmproxy'
     umv -d 'mitmproxy' -p $path
   }

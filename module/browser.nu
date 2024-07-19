@@ -72,7 +72,7 @@ export def brave [
     $args = ($args | append $extensions)
   }
   if $proxy {
-    $args = ($args | append '--proxy-server=localhost:8080')
+    $args = ($args | append $'--proxy-server=($env.proxy_host):($env.proxy_port)')
   }
   if $left {
     let dir = ($env.HOME | path join .config brave-browser-left)
@@ -106,7 +106,7 @@ export def chrome [
     $args = ($args | append $extensions)
   }
   if $proxy {
-    $args = ($args | append '--proxy-server=localhost:8080')
+    $args = ($args | append $'--proxy-server=($env.proxy_host):($env.proxy_port)')
   }
   if $left {
     let data = ($env.HOME | path join .config google-chrome-left)
@@ -120,31 +120,4 @@ export def chrome [
     $args = ($args | append $url)
   }
   bg google-chrome ...$args
-}
-
-export def mitmproxy-crt [] {
-  let src = ($env.HOME | path join .mitmproxy mitmproxy-ca-cert.pem)
-  let dest = ($env.HOME | path join Documents mitmproxy.pem)
-  if not ($src | path exists) {
-    return
-  }
-  cp $src $dest
-  sudo cp $src /usr/local/share/ca-certificates/mitmproxy.crt
-  sudo update-ca-certificates
-}
-
-export def proxify-crt [] {
-  let src = ($env.HOME | path join .config proxify cacert.pem)
-  let dest = ($env.HOME | path join Documents proxify.pem)
-  if not ($src | path exists) {
-    return
-  }
-  cp $src $dest
-  sudo cp $src /usr/local/share/ca-certificates/proxify.crt
-  sudo update-ca-certificates
-}
-
-
-export def clone [] {
-  
 }
