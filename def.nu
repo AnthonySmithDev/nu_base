@@ -69,12 +69,13 @@ def ooc [] {
   OCO_AI_PROVIDER="ollama" ^opencommit
 }
 
-def "kill ps" [] {
-  let name = (ps | get name | gum filter ...$in )
+def "kill ps" [name = ""] {
+  let list = (ps | where name =~ $name)
+  let name = ($list | get name | gum filter --select-if-one ...$in)
   if ($name | is-empty) {
     return
   }
-  let process = (ps | where name == $name)
+  let process = ($list | where name == $name)
   if ($process | is-empty) {
     return
   }
@@ -82,7 +83,16 @@ def "kill ps" [] {
 }
 
 def "kill port" [port: int] {
-  sudo lsof -i $":($port)" | from ssv -m 1
+  let list = (lsof -i :($port) | from ssv -m 1)
+  let name = ($list | get COMMAND | gum filter --select-if-one ...$in)
+  if ($name | is-empty) {
+    return
+  }
+  let process = ($list | where COMMAND == $name)
+  if ($process | is-empty) {
+    return
+  }
+  kill --force ($process | first | get PID | into int)
 }
 
 def --wrapped sail [...cmd: string] {
@@ -175,4 +185,8 @@ def __systemctl [] {
 
 def su [systemctl: string@__systemctl] {
   systemctl --user $systemctl mouseless.service
+}
+
+def qmk-udev [] {
+  sudo cp /home/anthony/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
 }

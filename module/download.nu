@@ -1277,7 +1277,7 @@ export def k9s [] {
   symlink $path $bin
 }
 
-export def bettercap [ --global(-g) ] {
+export def bettercap [] {
   let version = github get_version 'bettercap/bettercap'
 
   let bin = bin bettercap
@@ -1289,9 +1289,7 @@ export def bettercap [ --global(-g) ] {
     umv -d 'bettercap_linux_amd64' -f 'bettercap' -p $path
   }
 
-  if $global {
-    global $bin
-  }
+  global $bin
 
   symlink $path $bin
 }
