@@ -190,3 +190,8 @@ def su [systemctl: string@__systemctl] {
 def qmk-udev [] {
   sudo cp /home/anthony/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
 }
+
+def --env mcd [name: string] {
+  mkdir $name
+  cd $name
+}

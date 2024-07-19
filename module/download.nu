@@ -1565,6 +1565,21 @@ export def mitmproxy [] {
   symlink $path $bin
 }
 
+export def hetty [] {
+  let version = github get_version 'dstotijn/hetty'
+
+  let bin = bin hetty
+  let path = share hetty $version
+
+  if (no-exist $path) {
+    https download https://github.com/dstotijn/hetty/releases/download/v($version)/hetty_($version)_Linux_x86_64.tar.gz
+    extract tar hetty_($version)_Linux_x86_64.tar.gz -d hetty
+    umv -d 'hetty' -f 'hetty' -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def fclones [] {
   let version = github get_version 'pkolaczk/fclones'
 
