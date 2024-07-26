@@ -296,7 +296,7 @@ export def snap [] {
 }
 
 export def flathub [] {
-  if (exists flatpak) {
+  if (external exists flatpak) {
     return
   }
 
@@ -406,6 +406,38 @@ export def chrome [ --force(-f) ] {
   }
 }
 
+export def vscodium [ --force(-f) ] {
+  let version = github get_version 'VSCodium/vscodium'
+  let filename = $"codium_($version)_amd64.deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://github.com/VSCodium/vscodium/releases/download/($version)/codium_($version)_amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
+export def mysql-workbench [ --force(-f) ] {
+  let version = "8.0.38-1ubuntu24.04"
+  let filename = $"mysql-workbench-community_($version)_amd64.deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_($version)_amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
 export def microsoft-edge [ --force(-f) ] {
   let version = "126.0.2592.68-1"
   let filename = $"microsoft-edge_($version).deb"
@@ -501,7 +533,7 @@ export def balena-etcher [ --force(-f) ] {
 }
 
 export def docker [] {
-  if (exists docker) {
+  if (external exists docker) {
     return
   }
 
@@ -542,7 +574,7 @@ export def docker [] {
 
 export def regolith [ --force(-f), --beta(-b) ] {
   if not $force {
-    if (exists regolith-session) {
+    if (external exists regolith-session) {
       return
     }
   }
@@ -644,11 +676,6 @@ def filepath [name: string] {
   $env.USR_LOCAL_SHARE_DOWNLOAD | path join $name
 }
 
-def exists [app: string] {
+def "external exists" [app: string] {
   which $app --all | where type == external | is-not-empty
-}
-
-export def qmk [] {
-sudo cp /home/anthony/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
-let packags = [arm-none-eabi-gcc avr-gcc avrdude dfu-programmer dfu-util]
 }

@@ -41,3 +41,9 @@ export def mouseless [] {
   config mouseless custom
   startup mouseless --init
 }
+
+export def qmk [] {
+  install pipx qmk
+  ^qmk setup
+  sudo cp ~/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
+}

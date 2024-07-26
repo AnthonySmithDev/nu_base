@@ -16,9 +16,9 @@
   {
     "category": "core",
     "repository": "charmbracelet/gum",
-    "tag_name": "0.14.1",
+    "tag_name": "0.14.3",
     "prerelease": false,
-    "created_at": "2024-05-25T18:58:02Z"
+    "created_at": "2024-07-24T20:45:10Z"
   },
   {
     "category": "core",
@@ -37,16 +37,16 @@
   {
     "category": "core",
     "repository": "nushell/nushell",
-    "tag_name": "0.95.0",
+    "tag_name": "0.96.0",
     "prerelease": false,
-    "created_at": "2024-06-25T18:29:47Z"
+    "created_at": "2024-07-23T23:10:35Z"
   },
   {
     "category": "core",
     "repository": "starship/starship",
-    "tag_name": "1.19.0",
+    "tag_name": "1.20.1",
     "prerelease": false,
-    "created_at": "2024-05-15T17:06:13Z"
+    "created_at": "2024-07-27T09:07:23Z"
   },
   {
     "category": "core",
@@ -86,9 +86,9 @@
   {
     "category": "core",
     "repository": "junegunn/fzf",
-    "tag_name": "0.54.1",
+    "tag_name": "0.54.2",
     "prerelease": false,
-    "created_at": "2024-07-19T08:11:18Z"
+    "created_at": "2024-07-26T10:11:00Z"
   },
   {
     "category": "core",
@@ -163,9 +163,9 @@
   {
     "category": "core",
     "repository": "ClementTsang/bottom",
-    "tag_name": "0.9.6",
+    "tag_name": "0.9.7",
     "prerelease": false,
-    "created_at": "2023-08-27T01:27:19Z"
+    "created_at": "2024-07-26T04:02:27Z"
   },
   {
     "category": "core",
@@ -240,9 +240,9 @@
   {
     "category": "extra",
     "repository": "altsem/gitu",
-    "tag_name": "0.23.0",
+    "tag_name": "0.23.1",
     "prerelease": false,
-    "created_at": "2024-07-18T21:08:33Z"
+    "created_at": "2024-07-23T22:52:42Z"
   },
   {
     "category": "extra",
@@ -275,9 +275,9 @@
   {
     "category": "extra",
     "repository": "neovim/neovim",
-    "tag_name": "0.10.0",
+    "tag_name": "0.10.1",
     "prerelease": false,
-    "created_at": "2024-05-16T12:35:44Z"
+    "created_at": "2024-07-24T07:22:01Z"
   },
   {
     "category": "extra",
@@ -296,9 +296,9 @@
   {
     "category": "extra",
     "repository": "mitmproxy/mitmproxy",
-    "tag_name": "10.3.1",
+    "tag_name": "10.4.0",
     "prerelease": false,
-    "created_at": "2024-06-12T22:56:10Z"
+    "created_at": "2024-07-25T13:45:53Z"
   },
   {
     "category": "extra",
@@ -499,16 +499,16 @@
   {
     "category": "extra",
     "repository": "orf/gping",
-    "tag_name": "gping-v1.16.1",
+    "tag_name": "gping-v1.17.3",
     "prerelease": false,
-    "created_at": "2024-02-17T11:44:14Z"
+    "created_at": "2024-07-21T23:26:48Z"
   },
   {
     "category": "extra",
     "repository": "ast-grep/ast-grep",
-    "tag_name": "0.25.1",
+    "tag_name": "0.25.3",
     "prerelease": false,
-    "created_at": "2024-07-15T00:27:57Z"
+    "created_at": "2024-07-23T05:38:52Z"
   },
   {
     "category": "extra",
@@ -520,9 +520,9 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.2.5",
+    "tag_name": "0.2.8",
     "prerelease": false,
-    "created_at": "2024-07-13T22:08:00Z"
+    "created_at": "2024-07-22T20:37:08Z"
   },
   {
     "category": "other",
@@ -534,9 +534,9 @@
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "2.18.1",
+    "tag_name": "2.19.1",
     "prerelease": false,
-    "created_at": "2024-07-01T20:52:43Z"
+    "created_at": "2024-07-20T07:15:48Z"
   },
   {
     "category": "other",
@@ -555,9 +555,9 @@
   {
     "category": "other",
     "repository": "JetBrains/kotlin",
-    "tag_name": "2.0.0",
+    "tag_name": "1.9.25",
     "prerelease": false,
-    "created_at": "2024-05-16T20:18:04Z"
+    "created_at": "2024-07-18T06:24:17Z"
   },
   {
     "category": "other",
@@ -583,9 +583,9 @@
   {
     "category": "other",
     "repository": "coder/code-server",
-    "tag_name": "4.91.0",
+    "tag_name": "4.91.1",
     "prerelease": false,
-    "created_at": "2024-07-09T20:47:24Z"
+    "created_at": "2024-07-15T17:57:32Z"
   },
   {
     "category": "other",

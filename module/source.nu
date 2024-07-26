@@ -16,6 +16,8 @@ use ssh.nu
 use sql.nu
 use bg.nu
 
+use install
+
 use board.nu
 use distro.nu
 use proxy.nu
@@ -25,15 +27,13 @@ use repository.nu
 use run.nu
 use avd.nu
 use srv.nu
-use setup.nu
 use nvim.nu
-
-use install
+use setup.nu
 
 # use image
 # use gpt.nu
 # use gtd.nu
-# use scr.nu
+use scr.nu
 # use steam.nu
 # use theme.nu
 # use commit.nu

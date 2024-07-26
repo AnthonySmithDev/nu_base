@@ -21,7 +21,7 @@ export def FiraCode [] {
       rm -rf 'FiraCode'
     }
 
-    extract zip 'FiraCode.zip' -d 'FiraCode'
+    extract zip FiraCode.zip -d FiraCode
     mv 'FiraCode' $path
   }
 
@@ -38,7 +38,7 @@ export def CascadiaCode [] {
       rm -rf 'CascadiaCode'
     }
 
-    extract zip 'CascadiaCode.zip' -d 'CascadiaCode'
+    extract zip CascadiaCode.zip -d CascadiaCode
     mv 'CascadiaCode' $path
   }
 
@@ -55,7 +55,7 @@ export def JetBrainsMono [] {
       rm -rf 'JetBrainsMono'
     }
 
-    extract zip 'JetBrainsMono.zip' -d 'JetBrainsMono'
+    extract zip JetBrainsMono.zip -d JetBrainsMono
     mv 'JetBrainsMono' $path
   }
 
