@@ -42,6 +42,8 @@ def main [] {
   config git
   config regolith
   config alacritty --theme
+
+  srv init pueued
 }
 
 def dev [] {
