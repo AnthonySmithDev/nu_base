@@ -147,6 +147,14 @@ set_from_resource $wm.font gtk.font_name Sans 13
 font pango:$wm.font
 
 ###############################################################################
+# Common Navigation Bindings
+###############################################################################
+set_from_resource $wm.binding.left wm.binding.left h
+set_from_resource $wm.binding.right wm.binding.right l
+set_from_resource $wm.binding.up wm.binding.up k
+set_from_resource $wm.binding.down wm.binding.down j
+
+###############################################################################
 # WM Config Partials
 ###############################################################################
 
@@ -167,14 +175,3 @@ include $HOME/.config/regolith3/sway/config.d/*
 exec --no-startup-id [ -z "${NOTIFY_SOCKET-}" ] \
   && systemctl --user start regolith-wayland.target \
   || systemd-notify --ready
-
-###############################################################################
-# WM Custom
-###############################################################################
-
-for_window [class="scrcpy"] floating enable, sticky enable, move right 700 ppt
-for_window [title="Picture in picture"] sticky enable, floating enable, resize set 35 ppt, move right 600 ppt, move down 300 ppt
-
-
-for_window [title="Mouseless GUI"] floating enable
-for_window [title="Mouseless GUI" floating] focus down
