@@ -628,6 +628,21 @@ export def delta [] {
   symlink $path $bin
 }
 
+export def difftastic [] {
+  let version = github get_version 'Wilfred/difftastic'
+
+  let bin = bin difft
+  let path = share difft $version
+
+  if (no-exist $path) {
+    https download https://github.com/Wilfred/difftastic/releases/download/($version)/difft-x86_64-unknown-linux-gnu.tar.gz
+    extract tar difft-x86_64-unknown-linux-gnu.tar.gz -d difftastic
+    umv -d difftastic -f difft -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def bottom [] {
   let version = github get_version 'ClementTsang/bottom'
 

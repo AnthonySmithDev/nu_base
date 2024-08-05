@@ -140,18 +140,14 @@ def redis_del [cmd: string] {
    redis DEL (redis KEYS $cmd | lines | str join ' ')
 }
 
-def "paste new" [filename: string, --lang(-l): string = "plain"] {
-  let url = (curl -s -T $filename -H $"Content-Type: text/($lang)" https://api.pastes.dev/post)
-  return { url: $url }
-}
-
-def "paste view" [str: string] {
-  let key = if ($str | str contains https://pastes.dev/) {
-    $str | split row https://pastes.dev/ | last
+def pastes [input: string] {
+  if $input =~ "https://pastes.dev" {
+    let path = ($input | url parse | get path)
+    let url = ("https://api.pastes.dev" + $path)
+    http get $url
   } else {
-    $str
+    curl -s -T $input https://api.pastes.dev/post
   }
-  http get https://api.pastes.dev/($key)
 }
 
 def git_commit [...rest: string] {

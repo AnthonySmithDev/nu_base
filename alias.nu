@@ -28,6 +28,7 @@ alias xpaste = xclip -o -selection clipboard
 alias wcopy = wl-copy
 alias wpaste = wl-paste
 
+alias gu = gitu
 alias gra = git remote add
 alias grr = git remote remove
 alias gP = git push
@@ -55,7 +56,12 @@ alias gcA = git commit --allow-empty --amend --no-edit
 alias gm = git merge
 alias gc = git clone
 alias gi = git init
-alias gu = gitu
+alias gsi = git submodule init
+alias gss = git submodule status
+alias gsu = git submodule update
+alias gsui = git submodule update --init
+alias gsum = git submodule update --merge
+alias gsur = git submodule update --recursive
 
 alias gcm = git_commit
 alias gme = gitmoji -c

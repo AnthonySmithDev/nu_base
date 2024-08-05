@@ -181,7 +181,7 @@ var re = regexp.MustCompile(`(?:v)?(\d+\.\d+(?:\.\d+)?)`)
 
 func getVersion(text, current string) string {
 	match := re.FindStringSubmatch(text)
-	fmt.Println(text, " -> ", match, " -> ", current)
+	// fmt.Println(text, " -> ", match, " -> ", current)
 	if len(match) > 1 {
 		return match[1]
 	}
