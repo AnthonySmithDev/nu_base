@@ -228,6 +228,21 @@ export def fm [] {
   symlink $path $bin
 }
 
+export def superfile [] {
+  let version = github get_version 'yorukot/superfile'
+
+  let bin = bin spf
+  let path = share spf $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/yorukot/superfile/releases/download/v($version)/superfile-linux-v($version)-amd64.tar.gz'
+    extract tar $'superfile-linux-v($version)-amd64.tar.gz'
+    umv -d dist -f $'superfile-linux-v($version)-amd64/spf' -p $path
+  }
+
+  symlink $path $bin
+}
+
 export def zk [] {
   let version = github get_version 'zk-org/zk'
 

@@ -260,6 +260,13 @@
   },
   {
     "category": "extra",
+    "repository": "yorukot/superfile",
+    "tag_name": "1.1.4",
+    "prerelease": false,
+    "created_at": "2024-04-14T17:21:21Z"
+  },
+  {
+    "category": "extra",
     "repository": "zk-org/zk",
     "tag_name": "0.14.1",
     "prerelease": false,
