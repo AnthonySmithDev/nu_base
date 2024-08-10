@@ -35,10 +35,8 @@ export def nvim [] {
   symlink $path $env.NVIM_PATH
 }
 
-export def nushell [ --global(-g) ] {
+export def nushell [] {
   let version = github get_version 'nushell/nushell'
-
-  let bin = bin nu
   let path = share nu $version
 
   if (no-exist $path) {
@@ -47,17 +45,11 @@ export def nushell [ --global(-g) ] {
     umv -d $'nu-($version)-x86_64-unknown-linux-gnu' -f 'nu' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r nu $path
 }
 
-export def starship [ --global(-g) ] {
+export def starship [] {
   let version = github get_version 'starship/starship'
-
-  let bin = bin starship
   let path = share starship $version
 
   if (no-exist $path) {
@@ -66,17 +58,11 @@ export def starship [ --global(-g) ] {
     umv -f 'starship' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r starship $path
 }
 
-export def zoxide [ --global(-g) ] {
+export def zoxide [] {
   let version = github get_version 'ajeetdsouza/zoxide'
-
-  let bin = bin zoxide
   let path = share zoxide $version
 
   if (no-exist $path) {
@@ -85,17 +71,11 @@ export def zoxide [ --global(-g) ] {
     umv -d 'zoxide-x86_64-unknown-linux-musl' -f 'zoxide' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r zoxide $path
 }
 
-export def zellij [ --global(-g) ] {
+export def zellij [] {
   let version = github get_version 'zellij-org/zellij'
-
-  let bin = bin zellij
   let path = share zellij $version
 
   if (no-exist $path) {
@@ -104,17 +84,11 @@ export def zellij [ --global(-g) ] {
     umv -f 'zellij' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r zellij $path
 }
 
-export def rg [ --global(-g) ] {
+export def rg [] {
   let version = github get_version 'BurntSushi/ripgrep'
-
-  let bin = bin rg
   let path = share rg $version
 
   if (no-exist $path) {
@@ -123,17 +97,11 @@ export def rg [ --global(-g) ] {
     umv -d $'ripgrep-($version)-x86_64-unknown-linux-musl' -f 'rg' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r rg $path
 }
 
-export def fd [ --global(-g) ] {
+export def fd [] {
   let version = github get_version 'sharkdp/fd'
-
-  let bin = bin fd
   let path = share fd $version
 
   if (no-exist $path) {
@@ -142,17 +110,11 @@ export def fd [ --global(-g) ] {
     umv -d $'fd-v($version)-x86_64-unknown-linux-gnu' -f 'fd' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r fd $path
 }
 
-export def fzf [ --global(-g) ] {
+export def fzf [] {
   let version = github get_version 'junegunn/fzf'
-
-  let bin = bin fzf
   let path = share fzf $version
 
   if (no-exist $path) {
@@ -161,11 +123,7 @@ export def fzf [ --global(-g) ] {
     umv -d 'fzf-linux_amd64' -f 'fzf' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r fzf $path
 }
 
 export def broot [] {
@@ -288,10 +246,8 @@ export def bat [] {
   symlink $path $bin
 }
 
-export def gdu [ --global(-g) ] {
+export def gdu [] {
   let version = github get_version 'dundee/gdu'
-
-  let bin = bin gdu
   let path = share gdu $version
 
   if (no-exist $path) {
@@ -300,17 +256,11 @@ export def gdu [ --global(-g) ] {
     umv -f 'gdu_linux_amd64' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r gdu $path
 }
 
-export def xh [ --global(-g) ] {
+export def xh [] {
   let version = github get_version 'ducaale/xh'
-
-  let bin = bin xh
   let path = share xh $version
 
   if (no-exist $path) {
@@ -319,17 +269,11 @@ export def xh [ --global(-g) ] {
     umv -d $'xh-v($version)-x86_64-unknown-linux-musl' -f 'xh' -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r xh $path
 }
 
-export def task [ --global(-g) ] {
+export def task [] {
   let version = github get_version 'go-task/task'
-
-  let bin = bin task
   let path = share task $version
 
   if (no-exist $path) {
@@ -338,13 +282,11 @@ export def task [ --global(-g) ] {
     umv -d task_linux_amd64 -f task -p $path
   }
 
-  symlink $path $bin
+  bind -r task $path
 }
 
-export def mouseless [ --global(-g) ] {
+export def mouseless [] {
   let version = github get_version 'jbensmann/mouseless'
-
-  let bin = bin mouseless
   let path = share mouseless $version
 
   if (no-exist $path) {
@@ -353,11 +295,7 @@ export def mouseless [ --global(-g) ] {
     umv -d dist -f mouseless -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r mouseless $path
 }
 
 export def websocat [] {
@@ -375,10 +313,8 @@ export def websocat [] {
   symlink $path $bin
 }
 
-export def gum [ --global(-g) ] {
+export def gum [] {
   let version = github get_version 'charmbracelet/gum'
-
-  let bin = bin gum
   let path = share gum $version
 
   if (no-exist $path) {
@@ -387,11 +323,7 @@ export def gum [ --global(-g) ] {
     umv -d $"gum_($version)_Linux_x86_64" -f gum -p $path
   }
 
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r gum $path
 }
 
 export def mods [] {
@@ -791,10 +723,8 @@ export def upterm [] {
   symlink $path $bin
 }
 
-export def kanata [ --global(-g) ] {
+export def kanata [] {
   let version = github get_version 'jtroo/kanata'
-
-  let bin = bin kanata
   let path = share kanata $version
 
   if (no-exist $path) {
@@ -803,12 +733,7 @@ export def kanata [ --global(-g) ] {
     umv -f kanata -p $path
   }
   # sudo ./kanata --cfg kanata.kbd
-
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r kanata $path
 }
 
 export def mongosh [] {
@@ -874,10 +799,8 @@ export def bore [] {
   symlink $path $bin
 }
 
-export def rclone [--global(-g)] {
+export def rclone [] {
   let version = github get_version 'rclone/rclone'
-
-  let bin = bin rclone
   let path = share rclone $version
 
   if (no-exist $path) {
@@ -886,11 +809,7 @@ export def rclone [--global(-g)] {
     umv -d $'rclone-v($version)-linux-amd64' -f 'rclone' -p $path
   }
 
-  symlink $path $bin
-
-  if $global {
-    global $bin
-  }
+  bind -r rclone $path
 }
 
 export def ffsend [] {
@@ -1306,8 +1225,6 @@ export def k9s [] {
 
 export def bettercap [] {
   let version = github get_version 'bettercap/bettercap'
-
-  let bin = bin bettercap
   let path = share bettercap $version
 
   if (no-exist $path) {
@@ -1316,9 +1233,7 @@ export def bettercap [] {
     umv -d 'bettercap_linux_amd64' -f 'bettercap' -p $path
   }
 
-  global $bin
-
-  symlink $path $bin
+  bind -r bettercap $path
 }
 
 export def viddy [] {
@@ -1505,10 +1420,8 @@ export def kbt [] {
   umv -d $'kbt-($version)-x86_64-unknown-linux-gnu' -f kbt
 }
 
-export def trippy [ --global(-g) ] {
+export def trippy [] {
   let version = github get_version 'fujiapple852/trippy'
-
-  let bin = bin trippy
   let path = share trippy $version
 
   if (no-exist $path) {
@@ -1517,12 +1430,7 @@ export def trippy [ --global(-g) ] {
     umv -d $'trippy-($version)-x86_64-unknown-linux-gnu' -f 'trip' -p $path
   }
 
-
-  if $global {
-    global $bin
-  }
-
-  symlink $path $bin
+  bind -r trippy $path
 }
 
 export def gitui [] {
@@ -1563,7 +1471,7 @@ export def ventoy [] {
 }
 
 export def stash [] {
-  let version = '0.25.1'
+  let version = '0.26.2'
 
   let bin = bin stash
   let path = share stash $version
@@ -1575,6 +1483,19 @@ export def stash [] {
   }
 
   symlink $path $bin
+}
+
+export def AdGuardHome [] {
+  let version = github get_version 'AdguardTeam/AdGuardHome'
+  let path = share AdGuardHome $version
+
+  if (no-exist $path) {
+    https download https://github.com/AdguardTeam/AdGuardHome/releases/download/v($version)/AdGuardHome_linux_amd64.tar.gz
+    extract tar AdGuardHome_linux_amd64.tar.gz
+    umv -d AdGuardHome -f AdGuardHome -p $path
+  }
+
+  bind -r AdGuardHome $path
 }
 
 export def mitmproxy [] {
@@ -2092,11 +2013,18 @@ def bin [name: string] {
   $env.USR_LOCAL_BIN | path join $name
 }
 
-def lib [name: string] {
-  $env.USR_LOCAL_LIB | path join $name
+def symlink [src: string, dst: string] {
+  rm -rf $dst
+  ln -sf $src $dst
 }
 
-def symlink [src: string, dst: string] {
+def bind [name: string, src: string, --root(-r)] {
+  if $root {
+    let dst = ($env.USR_ROOT_BIN | path join $name)
+    sudo rm -rf $dst
+    sudo ln -sf $src $dst
+  }
+  let dst = ($env.USR_LOCAL_BIN | path join $name)
   rm -rf $dst
   ln -sf $src $dst
 }

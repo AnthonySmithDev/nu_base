@@ -63,7 +63,7 @@ def extra [] {
   config gitlab
 
   compile mouseless-status
-  download mouseless --global
+  download mouseless
   config mouseless normal
   startup mouseless
 }

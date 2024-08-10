@@ -140,11 +140,16 @@ def redis_del [cmd: string] {
    redis DEL (redis KEYS $cmd | lines | str join ' ')
 }
 
-def pastes [input: string] {
+def pastes [input: string, --save(-s): string] {
   if $input =~ "https://pastes.dev" {
     let path = ($input | url parse | get path)
     let url = ("https://api.pastes.dev" + $path)
-    http get $url
+    let body = http get $url
+    if ($save | is-empty) {
+      $body
+    } else {
+      $body | save -f $save
+    }
   } else {
     curl -s -T $input https://api.pastes.dev/post
   }

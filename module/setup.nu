@@ -37,7 +37,7 @@ export def kotlin [] {
 }
 
 export def mouseless [] {
-  download mouseless --global
+  download mouseless
   config mouseless custom
   startup mouseless --init
 }
