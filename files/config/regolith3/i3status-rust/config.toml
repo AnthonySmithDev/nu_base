@@ -5,7 +5,7 @@ icons = "awesome"
 block = "custom"
 command = "ms"
 json = true
-interval = 0.5
+interval = 1
 
 [[block]]
 block = "net"

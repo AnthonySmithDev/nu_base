@@ -3,18 +3,22 @@ export def names [] {
   packages | get name
 }
 
-def install [package: record] {
-  pipx install $package.package
+def install [package: record, force: bool] {
+  if $force {
+    pipx install $package.package --force
+  } else {
+    pipx install $package.package
+  }
 }
 
-export def main [name: string@names] {
+export def main [name: string@names, --force(-f)] {
   let package = (packages | where name == $name | first)
-  install $package
+  install $package $force
 }
 
-export def dev [] {
+export def dev [ --force(-f) ] {
   for package in (packages | where category == dev) {
-    install $package
+    install $package $force
   }
 }
 
@@ -22,15 +26,15 @@ export def core [] {
   dev
 }
 
-export def extra [] {
+export def extra [ --force(-f) ] {
   for package in (packages | where category == extra) {
-    install $package
+    install $package $force
   }
 }
 
-export def other [] {
+export def other [ --force(-f) ] {
   for package in (packages | where category == other) {
-    install $package
+    install $package $force
   }
 }
 
@@ -41,12 +45,13 @@ export def packages [] {
     [ dev mycli mycli ]
     [ dev iredis iredis ]
     [ dev litecli litecli ]
-    [ dev harlequin 'harlequin[mysql]' ]
+    [ dev harlequin harlequin[mysql] ]
     [ dev httpie httpie ]
     [ dev ranger ranger-fm ]
 
     [ extra dooit dooit ]
     [ extra girok girok ]
+    [ extra dolphie dolphie ]
     [ extra calcure calcure ]
     [ extra scrapy scrapy ]
     [ extra http-prompt http-prompt ]
@@ -55,8 +60,8 @@ export def packages [] {
     [ other asciinema asciinema ]
     [ other shell-gpt shell-gpt ]
     [ other gpt-command-line gpt-command-line ]
-    [ other elia 'git+https://github.com/darrenburns/elia' ]
-    [ other termtyper 'git+https://github.com/kraanzu/termtyper' ]
-    [ other vimiv 'git+https://github.com/karlch/vimiv' ]
+    [ other elia git+https://github.com/darrenburns/elia ]
+    [ other termtyper git+https://github.com/kraanzu/termtyper ]
+    [ other vimiv git+https://github.com/karlch/vimiv ]
   ]
 }

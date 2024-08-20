@@ -29,6 +29,7 @@ use avd.nu
 use srv.nu
 use nvim.nu
 use setup.nu
+use shalom.nu
 
 # use image
 # use gpt.nu

@@ -1144,7 +1144,7 @@ export def github [] {
 }
 
 export def gitlab [] {
-  let version = "1.44.1"
+  let version = "1.45.0"
 
   let bin = bin glab
   let path = share glab $version

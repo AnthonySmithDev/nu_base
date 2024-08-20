@@ -19,10 +19,10 @@ layers:
 - name: qwerty
   bindings:
     esc: multi esc ; exec ms qwerty
-    capslock: tap-hold-next esc ; leftctrl ; 200
+    capslock: tap-hold-next esc ; leftctrl ; 150
 
-    leftalt: tap-hold leftalt ; toggle-layer nav_right ; 150
-    rightalt: tap-hold rightalt ; toggle-layer nav_left ; 150
+    # leftalt: tap-hold leftalt ; toggle-layer nav_right ; 150
+    # rightalt: tap-hold rightalt ; toggle-layer nav_left ; 150
 
     f: tap-hold f ; toggle-layer nav_right ; 200
     semicolon: tap-hold semicolon ; toggle-layer nav_left ; 200

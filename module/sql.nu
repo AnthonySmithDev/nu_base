@@ -108,6 +108,10 @@ export def show-columns [table: string@show-tables] {
   query -n SHOW COLUMNS FROM $table
 }
 
+export def show-indexes [table: string@show-tables] {
+  query -n SHOW INDEXES FROM $table
+}
+
 export def fields [table: string@show-tables] {
   show-columns $table | get field
 }
