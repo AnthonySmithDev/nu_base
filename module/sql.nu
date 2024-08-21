@@ -140,11 +140,23 @@ export def to-row [data: list] {
   $"\( ($data | sanitization | str join ', ') \)"
 }
 
-export def insert [table: string@show-tables, data: record] {
-  let columns = to-column ($data | columns)
-  let values = to-row ($data | values)
-
+export def insert [table: string@show-tables, row: record] {
+  let columns = to-column ($row | columns)
+  let values = to-row ($row | values)
   query -n $"INSERT INTO ($table) ($columns) VALUES ($values)"
+}
+
+export def inserts [table: string@show-tables, rows: table] {
+  let path = mktemp --tmpdir --suffix .sql
+  let columns = to-column ($rows| columns)
+  mut query = $"INSERT INTO ($table) ($columns) VALUES \n"
+  mut values = []
+  for $row in $rows {
+    let value = (to-row ($row | values))
+    $values = ($values | append $value)
+  }
+  $query + ($values | str join ",\n") + ";" | save -f $path
+  file $path
 }
 
 export def copy [src: string, dst: string, table: string] {
@@ -155,8 +167,8 @@ def names [] {
   fd -e sql | lines
 }
 
-export def file [name: string@names] {
-  query -n (open $name)
+export def file [path: string@names] {
+  usql --quiet --file $path (dsn true)
 }
 
 export def live [name: string@names] {

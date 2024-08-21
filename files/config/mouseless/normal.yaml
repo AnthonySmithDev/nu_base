@@ -25,7 +25,7 @@ layers:
     # rightalt: tap-hold rightalt ; toggle-layer nav_left ; 150
 
     f: tap-hold f ; toggle-layer nav_right ; 200
-    semicolon: tap-hold semicolon ; toggle-layer nav_left ; 200
+    # semicolon: tap-hold semicolon ; toggle-layer nav_left ; 200
 
 - name: homerow
   passThrough: true
