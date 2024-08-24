@@ -120,43 +120,56 @@ export def from [table: string@show-tables] {
   query -n SELECT * FROM $table
 }
 
-export def sanitization [] {
-  each {|it|
-    match ($it | describe) {
-      "string" => $"'($it)'"
-      "nothing" => "DEFAULT"
-      "int" => $it
-      "float" => $it
-      "bool" => ($it | into string | str upcase)
-    }
+export def to-type [] {
+  let it = $in
+  match ($it | describe) {
+    "nothing" => "DEFAULT"
+    "string" => $"'($it)'"
+    "int" => $it
+    "float" => $it
+    "bool" => ($it | into string | str upcase)
+    "date" => $"'($it)'"
+    "filesize" => $"'($it)'"
   }
 }
 
-export def to-column [data: list] {
+export def to-columns [data: list] {
   $"\( ($data | each {|it| $'`($it)`'} | str join ', ') \)"
 }
 
-export def to-row [data: list] {
-  $"\( ($data | sanitization | str join ', ') \)"
+export def to-values [data: list] {
+  $"\( ($data | each {|it| ($it | to-type)} | str join ', ') \)"
 }
 
 export def insert [table: string@show-tables, row: record] {
-  let columns = to-column ($row | columns)
-  let values = to-row ($row | values)
+  let columns = to-columns ($row | columns)
+  let values = to-values ($row | values)
   query -n $"INSERT INTO ($table) ($columns) VALUES ($values)"
 }
 
 export def inserts [table: string@show-tables, rows: table] {
   let path = mktemp --tmpdir --suffix .sql
-  let columns = to-column ($rows| columns)
+  let columns = to-columns ($rows| columns)
   mut query = $"INSERT INTO ($table) ($columns) VALUES \n"
   mut values = []
   for $row in $rows {
-    let value = (to-row ($row | values))
+    let value = (to-values ($row | values))
     $values = ($values | append $value)
   }
   $query + ($values | str join ",\n") + ";" | save -f $path
   file $path
+}
+
+export def where [wheres: record] {
+  mut list = []
+  for $where in ($wheres | transpose key value) {
+    $list = ($list | append $"($where.key) = ($where.value | to-type)")
+  }
+  return $"WHERE ($list | str join ' AND ')"
+}
+
+export def delete [table: string@show-tables, wheres: record] {
+  query -n $"DELETE FROM ($table) (where $wheres)"
 }
 
 export def copy [src: string, dst: string, table: string] {
