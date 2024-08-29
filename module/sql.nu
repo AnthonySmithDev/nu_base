@@ -116,8 +116,12 @@ export def fields [table: string@show-tables] {
   show-columns $table | get field
 }
 
-export def from [table: string@show-tables] {
-  query -n SELECT * FROM $table
+export def from [
+  table: string@show-tables
+  --limit: int = 10_000
+  --offset: int = 0
+] {
+  query -n SELECT * FROM $table LIMIT $"($limit)" OFFSET $"($offset)"
 }
 
 export def to-type [] {
