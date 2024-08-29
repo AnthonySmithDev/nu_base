@@ -2,7 +2,6 @@
 use https.nu
 use extract.nu
 use github.nu
-use essential.nu *
 
 use config.nu
 use download.nu
