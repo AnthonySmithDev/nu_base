@@ -318,9 +318,9 @@ export def gum [] {
   let path = share gum $version
 
   if (no-exist $path) {
-    https download $'https://github.com/charmbracelet/gum/releases/download/v($version)/gum_($version)_Linux_x86_64.tar.gz'
-    extract tar $'gum_($version)_Linux_x86_64.tar.gz'
-    umv -d $"gum_($version)_Linux_x86_64" -f gum -p $path
+    https download https://github.com/charmbracelet/gum/releases/download/v($version)/gum_($version)_Linux_x86_64.tar.gz
+    extract tar gum_($version)_Linux_x86_64.tar.gz
+    umv -d gum_($version)_Linux_x86_64 -f gum -p $path
   }
 
   bind -r gum $path
@@ -333,9 +333,9 @@ export def mods [] {
   let path = share mods $version
 
   if (no-exist $path) {
-    https download $'https://github.com/charmbracelet/mods/releases/download/v($version)/mods_($version)_Linux_x86_64.tar.gz'
-    extract tar $'mods_($version)_Linux_x86_64.tar.gz'
-    umv -d $'mods_($version)_Linux_x86_64' -f 'mods' -p $path
+    https download https://github.com/charmbracelet/mods/releases/download/v($version)/mods_($version)_Linux_x86_64.tar.gz
+    extract tar mods_($version)_Linux_x86_64.tar.gz
+    umv -d mods_($version)_Linux_x86_64 -f mods -p $path
   }
 
   symlink $path $bin
@@ -348,9 +348,9 @@ export def glow [] {
   let path = share glow $version
 
   if (no-exist $path) {
-    https download $'https://github.com/charmbracelet/glow/releases/download/v($version)/glow_Linux_x86_64.tar.gz'
-    extract tar 'glow_Linux_x86_64.tar.gz' -d 'glow_Linux_x86_64'
-    umv -d 'glow_Linux_x86_64' -f 'glow' -p $path
+    https download https://github.com/charmbracelet/glow/releases/download/v($version)/glow_($version)_Linux_x86_64.tar.gz
+    extract tar glow_($version)_Linux_x86_64.tar.gz
+    umv -d glow_($version)_Linux_x86_64 -f glow -p $path
   }
 
   symlink $path $bin
@@ -363,9 +363,9 @@ export def soft [] {
   let path = share soft $version
 
   if (no-exist $path) {
-    https download $'https://github.com/charmbracelet/soft-serve/releases/download/v($version)/soft-serve_($version)_Linux_x86_64.tar.gz'
-    extract tar $'soft-serve_($version)_Linux_x86_64.tar.gz' -d 'soft-serve_Linux_x86_64'
-    umv -d 'soft-serve_Linux_x86_64' -f 'soft' -p $path
+    https download https://github.com/charmbracelet/soft-serve/releases/download/v($version)/soft-serve_($version)_Linux_x86_64.tar.gz
+    extract tar soft-serve_($version)_Linux_x86_64.tar.gz
+    umv -d soft-serve_($version)_Linux_x86_64 -f soft -p $path
   }
 
   symlink $path $bin
@@ -379,8 +379,8 @@ export def vhs [] {
 
   if (no-exist $path) {
     https download https://github.com/charmbracelet/vhs/releases/download/v($version)/vhs_($version)_Linux_x86_64.tar.gz
-    extract tar vhs_($version)_Linux_x86_64.tar.gz -d 'vhs_linux_x86_64'
-    umv -d 'vhs_linux_x86_64' -f 'vhs' -p $path
+    extract tar vhs_($version)_Linux_x86_64.tar.gz
+    umv -d vhs_($version)_Linux_x86_64 -f vhs -p $path
   }
 
   symlink $path $bin
@@ -393,9 +393,9 @@ export def freeze [] {
   let path = share freeze $version
 
   if (no-exist $path) {
-    https download $'https://github.com/charmbracelet/freeze/releases/download/v($version)/freeze_($version)_Linux_x86_64.tar.gz'
-    extract tar $'freeze_($version)_Linux_x86_64.tar.gz'
-    umv -d $'freeze_($version)_Linux_x86_64' -f 'freeze' -p $path
+    https download https://github.com/charmbracelet/freeze/releases/download/v($version)/freeze_($version)_Linux_x86_64.tar.gz
+    extract tar freeze_($version)_Linux_x86_64.tar.gz
+    umv -d freeze_($version)_Linux_x86_64 -f freeze -p $path
   }
 
   symlink $path $bin
@@ -408,9 +408,9 @@ export def melt [] {
   let path = share melt $version
 
   if (no-exist $path) {
-    https download $'https://github.com/charmbracelet/melt/releases/download/v($version)/melt_($version)_Linux_x86_64.tar.gz'
-    extract tar $'melt_($version)_Linux_x86_64.tar.gz'
-    umv -d $'melt_($version)_Linux_x86_64' -f 'melt' -p $path
+    https download https://github.com/charmbracelet/melt/releases/download/v($version)/melt_($version)_Linux_x86_64.tar.gz
+    extract tar melt_($version)_Linux_x86_64.tar.gz
+    umv -d melt_($version)_Linux_x86_64 -f melt -p $path
   }
 
   symlink $path $bin
@@ -423,9 +423,9 @@ export def skate [] {
   let path = share skate $version
 
   if (no-exist $path) {
-    https download $'https://github.com/charmbracelet/skate/releases/download/v($version)/skate_($version)_Linux_x86_64.tar.gz'
-    extract tar $'skate_($version)_Linux_x86_64.tar.gz' -d 'skate_Linux_x86_64'
-    umv -d $'skate_Linux_x86_64' -f 'skate' -p $path
+    https download https://github.com/charmbracelet/skate/releases/download/v($version)/skate_($version)_Linux_x86_64.tar.gz
+    extract tar skate_($version)_Linux_x86_64.tar.gz -d skate_Linux_x86_64
+    umv -d skate_Linux_x86_64 -f skate -p $path
   }
 
   symlink $path $bin
