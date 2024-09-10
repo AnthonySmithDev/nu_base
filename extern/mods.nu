@@ -1,6 +1,6 @@
 
 export-env {
-  $env.MODS_WORD_WRAP = (term size | get columns)
+  $env.MODS_WORD_WRAP = (term size | get columns) - 1
 }
 
 export extern main [

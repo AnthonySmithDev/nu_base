@@ -153,12 +153,6 @@ def redis [...cmd: string] {
   }
 }
 
-def mongo [] {
-  let dsn = $'mongodb://($env.MONGO_USER):($env.MONGO_PASS)@($env.MONGO_HOST):($env.MONGO_PORT)'
-  print $dsn
-  mongosh --quiet $dsn
-}
-
 def harsql [] {
   harlequin -a mysql -h $env.SQL_HOST -p $env.SQL_PORT -U $env.SQL_USER --password $env.SQL_PASS --database $env.SQL_NAME
 }
