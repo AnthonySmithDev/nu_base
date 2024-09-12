@@ -1,6 +1,10 @@
 
 export-env {
-  $env.MODS_WORD_WRAP = (term size | get columns) - 1
+  $env.MODS_WORD_WRAP = (term size | get columns) - 2
+}
+
+def roles [] {
+  mods --list-roles | lines | split column ' ' roles | get roles
 }
 
 export extern main [
@@ -37,6 +41,8 @@ export extern main [
   --no-cache           # Disables caching of the prompt/response.
   --reset-settings     # Backup your old settings file and reset everything to the defaults.
   --settings           # Open settings in your $EDITOR.
-  --dirs               # Print the directories in which mods store its data
-  --role               # System role to use.
+  --dirs               # Print the directories in which mods store its data.
+  --role: string@roles # System role to use.
+  --list-roles         # List the roles defined in your configuration file
+  --theme              # Theme to use in the forms. Valid units are: 'charm', 'catppuccin', 'dracula', and 'base16'
 ]
