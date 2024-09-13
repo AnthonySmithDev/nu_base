@@ -1,10 +1,11 @@
 source ../env.nu
+source ../def.nu
 source ../module/source.nu
 
 def main [] {
 
   if (is_debian) {
-    install apt regolith --beta
+    # install apt regolith --beta
     install apt flathub
     install apt brave
     install apt vieb
@@ -37,11 +38,11 @@ def main [] {
   download carapace
   download tailscale
 
-  compile alacritty --default
+  # compile alacritty --default
 
   config git
-  config regolith
-  config alacritty --theme
+  # config regolith
+  # config alacritty --theme
 
   srv init pueued
 }

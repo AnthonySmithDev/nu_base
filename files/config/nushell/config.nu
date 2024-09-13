@@ -1,6 +1,6 @@
 # Nushell Config File
 #
-# version = "0.96.0"
+# version = "0.97.1"
 
 # For more information on defining custom themes, see
 # https://www.nushell.sh/book/coloring_and_theming.html
@@ -894,5 +894,3 @@ $env.config = {
 $env.config.color_config = $dark_theme
 
 source ~/.source.nu
-
-use '/home/anthony/.config/broot/launcher/nushell/br' *

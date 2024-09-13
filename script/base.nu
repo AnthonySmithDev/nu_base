@@ -1,4 +1,5 @@
 source ../env.nu
+source ../def.nu
 source ../module/source.nu
 
 def main [] {
@@ -17,27 +18,27 @@ def main [] {
 
   sudo echo "Sudo OK"
 
-  download xh --global
-  download gum --global
-  download helix --global
-  download nushell --global
-  download starship --global
-  download zoxide --global
-  download zellij --global
+  download xh
+  download gum
+  download helix
+  download nushell
+  download starship
+  download zoxide
+  download zellij
 
-  download rg --global
-  download fd --global
-  download fzf --global
-  download gdu --global
+  download rg
+  download fd
+  download fzf
+  download gdu
 
   config mods
   config helix
   config nushell
   config zellij --theme
 
+  touch ~/.env.nu
   nu_source
   nu_zoxide
-  touch ~/.env.nu
 }
 
 def create_dir [] {
