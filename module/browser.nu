@@ -75,14 +75,14 @@ export def brave [
     $args = ($args | append $'--proxy-server=($env.proxy_host):($env.proxy_port)')
   }
   if $left {
-    let dir = ($env.HOME | path join .config brave-browser-left)
+    let dir = ($env.HOME | path join .config BraveSoftware Brave-Browser-Left)
     if not ($dir | path exists) {
       cp -r $config $dir
     }
     $args = ($args | append $'--user-data-dir=($dir)')
   }
   if $right {
-    let dir = ($env.HOME | path join .config brave-browser-right)
+    let dir = ($env.HOME | path join .config BraveSoftware Brave-Browser-Right)
     if not ($dir | path exists) {
       cp -r $config $dir
     }

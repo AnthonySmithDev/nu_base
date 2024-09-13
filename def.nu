@@ -3,10 +3,6 @@ def seed [] {
   cat /dev/urandom | tr -dc '0-9A-F' | head -c 64
 }
 
-export def is_debian [] {
-  (sys host | get name) in ["Ubuntu"]
-}
-
 export def git_clone [repo: string, path: string] {
   if ($path | path exists) {
     git -C $path pull
@@ -81,7 +77,6 @@ def --env gfm [] {
     cd $path
   }
 }
-
 
 def --wrapped bg [...rest] {
   let cmd = $"($rest | str join ' ') > /dev/null 2>&1 &"
@@ -195,7 +190,7 @@ def "android debug start" [] {
   }
 }
 
-def "andorid debug restart" [] {
+def "android debug restart" [] {
   watch . --glob=**/*.kt {||
     sh gradlew assembleDebug
     adb install -r app/build/outputs/apk/debug/app-debug.apk
@@ -210,10 +205,6 @@ def __systemctl [] {
 
 def su [systemctl: string@__systemctl] {
   systemctl --user $systemctl mouseless.service
-}
-
-def qmk-udev [] {
-  sudo cp /home/anthony/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
 }
 
 def --env mcd [name: string] {
