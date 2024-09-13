@@ -4,15 +4,19 @@ source ../module/source.nu
 
 def main [] {
 
-  if (is_debian) {
-    # install apt regolith --beta
+  nerd-font FiraCode
+
+  if (external exists apt) {
     install apt flathub
     install apt brave
     install apt vieb
     install apt discord
   }
 
-  nerd-font FiraCode
+  if (confirm Install Regolith:) {
+    install apt regolith --beta
+    config regolith
+  }
 
   download lsd
   download bat
@@ -38,11 +42,10 @@ def main [] {
   download carapace
   download tailscale
 
-  # compile alacritty --default
+  compile alacritty --default
+  config alacritty --theme
 
   config git
-  # config regolith
-  # config alacritty --theme
 
   srv init pueued
 }

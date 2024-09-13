@@ -5,10 +5,14 @@ export extern main [
 ]
 
 # Choose an option from a list of choices
-export extern choose []
+export extern choose [
+  ...prompt: any
+]
 
 # Ask a user to confirm an action
-export extern confirm []
+export extern confirm [
+  ...prompt: any
+]
 
 # Pick a file from a folder
 export extern file []

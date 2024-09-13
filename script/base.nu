@@ -5,7 +5,7 @@ source ../module/source.nu
 def main [] {
   create_dir
 
-  if (is_debian) {
+  if (external exists apt) {
     install apt core
     install apt python
     install apt docker
@@ -77,16 +77,16 @@ def nu_source [] {
 
 def nu_zoxide [] {
   if ("~/.local/nu_base" | path exists) {
-    ^zoxide add "~/.local/nu_base"
+    ^zoxide add ~/.local/nu_base
   }
 
   if ("~/nushell/nu_base" | path exists) {
-    ^zoxide add "~/nushell/nu_base"
+    ^zoxide add ~/nushell/nu_base
   }
   if ("~/nushell/nu_work" | path exists) {
-    ^zoxide add "~/nushell/nu_work"
+    ^zoxide add ~/nushell/nu_work
   }
   if ("~/nushell/nu_home" | path exists) {
-    ^zoxide add "~/nushell/nu_home"
+    ^zoxide add ~/nushell/nu_home
   }
 }

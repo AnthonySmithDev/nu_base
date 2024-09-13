@@ -1,5 +1,9 @@
 
 export def alacritty [ --global, --default, --desktop, --manual ] {
+  if (external exists apt) {
+    sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+  }
+
   let source = ($env.USR_LOCAL_SOURCE | path join alacritty)
   git_clone https://github.com/alacritty/alacritty.git $source
 

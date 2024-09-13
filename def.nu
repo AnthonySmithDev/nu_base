@@ -231,3 +231,12 @@ def saup [] {
   sudo apt update
   sudo apt upgrade -y
 }
+
+def "external exists" [app: string] {
+  which $app --all | where type == external | is-not-empty
+}
+
+def confirm [...prompt: string] {
+  let header = ($prompt | str join ' ')
+  gum choose --header $header 'TRUE' 'FALSE' | into bool
+}

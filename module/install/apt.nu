@@ -675,7 +675,3 @@ export def waydroid [] {
 def filepath [name: string] {
   $env.USR_LOCAL_SHARE_DOWNLOAD | path join $name
 }
-
-def "external exists" [app: string] {
-  which $app --all | where type == external | is-not-empty
-}
