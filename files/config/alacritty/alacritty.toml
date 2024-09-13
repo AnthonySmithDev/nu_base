@@ -6,8 +6,9 @@ import = [
 program = "nu"
 
 [window]
-opacity = 0.9
+opacity = 0.95
 blur = true
+decorations = "None"
 
 [font.normal]
 family = "FiraCode Nerd Font"
