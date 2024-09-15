@@ -1,5 +1,5 @@
 
-export def alacritty [ --global, --default, --desktop, --manual ] {
+export def alacritty [ --default, --desktop, --manual ] {
   if (external exists apt) {
     sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
   }
@@ -17,9 +17,7 @@ export def alacritty [ --global, --default, --desktop, --manual ] {
 
   let bin = "/usr/local/bin/alacritty"
 
-  if $global {
-    sudo ln -sf $dst $bin
-  }
+  sudo ln -sf $dst $bin
 
   if $default {
     sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $dst 100

@@ -4,6 +4,9 @@ source ../module/source.nu
 
 def main [] {
   create_dir
+  nu_source
+  nu_zoxide
+  touch ~/.env.nu
 
   if (external exists apt) {
     install apt core
@@ -35,10 +38,6 @@ def main [] {
   config helix
   config nushell
   config zellij --theme
-
-  touch ~/.env.nu
-  nu_source
-  nu_zoxide
 }
 
 def create_dir [] {

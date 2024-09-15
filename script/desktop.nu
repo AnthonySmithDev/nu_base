@@ -13,10 +13,10 @@ def main [] {
     install apt discord
   }
 
-  if (confirm Install Regolith:) {
-    install apt regolith --beta
-    config regolith
-  }
+  # if (confirm Install Regolith:) {
+  #   install apt regolith --beta
+  #   config regolith
+  # }
 
   download lsd
   download bat
@@ -42,7 +42,7 @@ def main [] {
   download carapace
   download tailscale
 
-  compile alacritty --default
+  compile alacritty
   config alacritty --theme
 
   config git
