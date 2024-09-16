@@ -247,6 +247,6 @@ apis:
       deepseek-chat:
         aliases: ["ds-chat"]
         max-input-chars: 384000
-      deepseek-code:
+      deepseek-coder:
         aliases: ["ds-code"]
         max-input-chars: 384000
