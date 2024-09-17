@@ -975,6 +975,19 @@ export def chatgpt [] {
   umv -d 'chatgpt_Linux_x86_64' -f 'chatgpt'
 }
 
+export def aichat [] {
+  let version = github get_version 'sigoden/aichat'
+  let path = share aichat $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/sigoden/aichat/releases/download/v($version)/aichat-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'aichat-v($version)-x86_64-unknown-linux-musl.tar.gz' -d aichat-x86_64-unknown-linux-musl
+    umv -d aichat-x86_64-unknown-linux-musl -f aichat -p $path
+  }
+
+  bind aichat $path
+}
+
 export def tgpt [] {
   https download https://github.com/aandrew-me/tgpt/releases/download/v2.2.1/tgpt-linux-amd64 -o tgpt
   chmod 755 tgpt
