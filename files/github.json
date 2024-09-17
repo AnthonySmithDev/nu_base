@@ -1,912 +1,912 @@
 [
-   {
-      "category": "core",
-      "repository": "ducaale/xh",
-      "tag_name": "0.22.2",
-      "prerelease": false,
-      "created_at": "2024-07-08T22:16:09Z"
-   },
-   {
-      "category": "core",
-      "repository": "go-task/task",
-      "tag_name": "3.39.0",
-      "prerelease": false,
-      "created_at": "2024-06-30T14:50:47Z"
-   },
-   {
-      "category": "core",
-      "repository": "charmbracelet/gum",
-      "tag_name": "0.14.5",
-      "prerelease": false,
-      "created_at": "2024-07-24T20:45:10Z"
-   },
-   {
-      "category": "core",
-      "repository": "charmbracelet/mods",
-      "tag_name": "1.6.0",
-      "prerelease": false,
-      "created_at": "2024-07-30T17:34:01Z"
-   },
-   {
-      "category": "core",
-      "repository": "helix-editor/helix",
-      "tag_name": "24.07",
-      "prerelease": false,
-      "created_at": "2024-07-14T16:19:47Z"
-   },
-   {
-      "category": "core",
-      "repository": "nushell/nushell",
-      "tag_name": "0.97.1",
-      "prerelease": false,
-      "created_at": "2024-07-29T23:31:36Z"
-   },
-   {
-      "category": "core",
-      "repository": "starship/starship",
-      "tag_name": "1.20.1",
-      "prerelease": false,
-      "created_at": "2024-07-27T09:07:23Z"
-   },
-   {
-      "category": "core",
-      "repository": "ajeetdsouza/zoxide",
-      "tag_name": "0.9.5",
-      "prerelease": false,
-      "created_at": "2024-02-20T23:06:08Z"
-   },
-   {
-      "category": "core",
-      "repository": "zellij-org/zellij",
-      "tag_name": "0.40.1",
-      "prerelease": false,
-      "created_at": "2024-05-02T07:02:11Z"
-   },
-   {
-      "category": "core",
-      "repository": "alacritty/alacritty",
-      "tag_name": "0.13.2",
-      "prerelease": false,
-      "created_at": "2024-03-24T17:51:35Z"
-   },
-   {
-      "category": "core",
-      "repository": "BurntSushi/ripgrep",
-      "tag_name": "14.1.1",
-      "prerelease": false,
-      "created_at": "2024-01-06T19:33:27Z"
-   },
-   {
-      "category": "core",
-      "repository": "sharkdp/fd",
-      "tag_name": "10.2.0",
-      "prerelease": false,
-      "created_at": "2024-05-08T06:40:02Z"
-   },
-   {
-      "category": "core",
-      "repository": "junegunn/fzf",
-      "tag_name": "0.55.0",
-      "prerelease": false,
-      "created_at": "2024-07-31T12:57:02Z"
-   },
-   {
-      "category": "core",
-      "repository": "sharkdp/bat",
-      "tag_name": "0.24.0",
-      "prerelease": false,
-      "created_at": "2023-10-11T17:14:12Z"
-   },
-   {
-      "category": "core",
-      "repository": "jesseduffield/lazygit",
-      "tag_name": "0.44.0",
-      "prerelease": false,
-      "created_at": "2024-07-13T10:14:39Z"
-   },
-   {
-      "category": "core",
-      "repository": "jesseduffield/lazydocker",
-      "tag_name": "0.23.3",
-      "prerelease": false,
-      "created_at": "2024-05-26T04:19:55Z"
-   },
-   {
-      "category": "core",
-      "repository": "PaulJuliusMartinez/jless",
-      "tag_name": "0.9.0",
-      "prerelease": false,
-      "created_at": "2023-07-17T02:12:03Z"
-   },
-   {
-      "category": "core",
-      "repository": "smallhadroncollider/taskell",
-      "tag_name": "1.11.4",
-      "prerelease": false,
-      "created_at": "2021-08-26T12:32:23Z"
-   },
-   {
-      "category": "core",
-      "repository": "dundee/gdu",
-      "tag_name": "5.29.0",
-      "prerelease": false,
-      "created_at": "2024-06-17T10:06:50Z"
-   },
-   {
-      "category": "core",
-      "repository": "Nukesor/pueue",
-      "tag_name": "3.4.1",
-      "prerelease": false,
-      "created_at": "2024-06-04T13:49:52Z"
-   },
-   {
-      "category": "core",
-      "repository": "dandavison/delta",
-      "tag_name": "0.18.2",
-      "prerelease": false,
-      "created_at": "2024-03-16T14:25:15Z"
-   },
-   {
-      "category": "core",
-      "repository": "Wilfred/difftastic",
-      "tag_name": "0.60.0",
-      "prerelease": false,
-      "created_at": "2024-03-16T14:25:15Z"
-   },
-   {
-      "category": "core",
-      "repository": "sigoden/dufs",
-      "tag_name": "0.42.0",
-      "prerelease": false,
-      "created_at": "2024-05-22T03:20:24Z"
-   },
-   {
-      "category": "core",
-      "repository": "claudiodangelis/qrcp",
-      "tag_name": "0.11.3",
-      "prerelease": false,
-      "created_at": "2024-02-03T14:02:53Z"
-   },
-   {
-      "category": "core",
-      "repository": "ClementTsang/bottom",
-      "tag_name": "0.10.2",
-      "prerelease": false,
-      "created_at": "2024-08-01T15:56:39Z"
-   },
-   {
-      "category": "core",
-      "repository": "max-niederman/ttyper",
-      "tag_name": "1.6.0",
-      "prerelease": false,
-      "created_at": "2024-04-19T18:23:15Z"
-   },
-   {
-      "category": "core",
-      "repository": "Aloxaf/silicon",
-      "tag_name": "0.5.2",
-      "prerelease": false,
-      "created_at": "2023-11-22T07:14:56Z"
-   },
-   {
-      "category": "core",
-      "repository": "TomWright/dasel",
-      "tag_name": "2.8.1",
-      "prerelease": false,
-      "created_at": "2024-06-30T18:36:47Z"
-   },
-   {
-      "category": "core",
-      "repository": "dalance/amber",
-      "tag_name": "0.6.0",
-      "prerelease": false,
-      "created_at": "2023-12-27T07:47:31Z"
-   },
-   {
-      "category": "core",
-      "repository": "Canop/broot",
-      "tag_name": "1.44.0",
-      "prerelease": false,
-      "created_at": "2024-08-04T12:19:18Z"
-   },
-   {
-      "category": "core",
-      "repository": "xo/usql",
-      "tag_name": "0.19.3",
-      "prerelease": false,
-      "created_at": "2024-06-10T00:11:32Z"
-   },
-   {
-      "category": "core",
-      "repository": "ariga/atlas",
-      "tag_name": "0.27.0",
-      "prerelease": false,
-      "created_at": "2024-07-08T12:51:54Z"
-   },
-   {
-      "category": "core",
-      "repository": "jbensmann/mouseless",
-      "tag_name": "0.1.5",
-      "prerelease": false,
-      "created_at": "2023-05-14T12:23:54Z"
-   },
-   {
-      "category": "extra",
-      "repository": "lapce/lapce",
-      "tag_name": "0.4.2",
-      "prerelease": false,
-      "created_at": "2024-04-24T20:32:06Z"
-   },
-   {
-      "category": "extra",
-      "repository": "metalbear-co/mirrord",
-      "tag_name": "3.117.0",
-      "prerelease": false,
-      "created_at": "2024-08-05T11:59:53Z"
-   },
-   {
-      "category": "extra",
-      "repository": "altsem/gitu",
-      "tag_name": "0.25.0",
-      "prerelease": false,
-      "created_at": "2024-07-23T22:52:42Z"
-   },
-   {
-      "category": "extra",
-      "repository": "mistakenelf/fm",
-      "tag_name": "1.1.0",
-      "prerelease": false,
-      "created_at": "2024-04-14T17:21:21Z"
-   },
-   {
-      "category": "extra",
-      "repository": "yorukot/superfile",
-      "tag_name": "1.1.4",
-      "prerelease": false,
-      "created_at": "2024-04-14T17:21:21Z"
-   },
-   {
-      "category": "extra",
-      "repository": "zk-org/zk",
-      "tag_name": "0.14.1",
-      "prerelease": false,
-      "created_at": "2024-05-26T11:02:30Z"
-   },
-   {
-      "category": "extra",
-      "repository": "guumaster/hostctl",
-      "tag_name": "1.1.4",
-      "prerelease": false,
-      "created_at": "2023-05-02T12:19:36Z"
-   },
-   {
-      "category": "extra",
-      "repository": "sezanzeb/input-remapper",
-      "tag_name": "2.0.1",
-      "prerelease": false,
-      "created_at": "2023-09-18T21:42:29Z"
-   },
-   {
-      "category": "extra",
-      "repository": "neovim/neovim",
-      "tag_name": "0.10.1",
-      "prerelease": false,
-      "created_at": "2024-07-24T07:22:01Z"
-   },
-   {
-      "category": "extra",
-      "repository": "ekzhang/bore",
-      "tag_name": "0.5.1",
-      "prerelease": false,
-      "created_at": "2024-06-11T01:51:03Z"
-   },
-   {
-      "category": "extra",
-      "repository": "vi/websocat",
-      "tag_name": "1.13.0",
-      "prerelease": false,
-      "created_at": "2024-03-31T20:20:22Z"
-   },
-   {
-      "category": "extra",
-      "repository": "AdguardTeam/AdGuardHome",
-      "tag_name": "0.107.52",
-      "prerelease": false,
-      "created_at": "2024-08-02T09:16:22Z"
-   },
-   {
-      "category": "extra",
-      "repository": "mitmproxy/mitmproxy",
-      "tag_name": "10.4.2",
-      "prerelease": false,
-      "created_at": "2024-08-02T09:16:22Z"
-   },
-   {
-      "category": "extra",
-      "repository": "dstotijn/hetty",
-      "tag_name": "0.7.0",
-      "prerelease": false,
-      "created_at": "2022-03-29T12:08:35Z"
-   },
-   {
-      "category": "extra",
-      "repository": "pkolaczk/fclones",
-      "tag_name": "0.34.0",
-      "prerelease": false,
-      "created_at": "2023-10-29T16:51:18Z"
-   },
-   {
-      "category": "extra",
-      "repository": "Jelmerro/Vieb",
-      "tag_name": "12.0.0",
-      "prerelease": false,
-      "created_at": "2024-05-15T21:06:03Z"
-   },
-   {
-      "category": "extra",
-      "repository": "derailed/k9s",
-      "tag_name": "0.32.5",
-      "prerelease": false,
-      "created_at": "2024-06-15T17:10:45Z"
-   },
-   {
-      "category": "extra",
-      "repository": "bettercap/bettercap",
-      "tag_name": "2.4.0",
-      "prerelease": false,
-      "created_at": "2021-08-21T13:07:49Z"
-   },
-   {
-      "category": "extra",
-      "repository": "iawia002/lux",
-      "tag_name": "0.24.1",
-      "prerelease": false,
-      "created_at": "2024-05-06T01:31:30Z"
-   },
-   {
-      "category": "extra",
-      "repository": "mdp/qrterminal",
-      "tag_name": "3.2.0",
-      "prerelease": false,
-      "created_at": "2023-11-06T18:51:25Z"
-   },
-   {
-      "category": "extra",
-      "repository": "codesenberg/bombardier",
-      "tag_name": "1.2.6",
-      "prerelease": false,
-      "created_at": "2023-04-29T19:49:13Z"
-   },
-   {
-      "category": "extra",
-      "repository": "svenstaro/genact",
-      "tag_name": "1.4.2",
-      "prerelease": false,
-      "created_at": "2024-02-17T22:13:46Z"
-   },
-   {
-      "category": "extra",
-      "repository": "rclone/rclone",
-      "tag_name": "1.68.0",
-      "prerelease": false,
-      "created_at": "2024-06-14T15:04:58Z"
-   },
-   {
-      "category": "extra",
-      "repository": "charmbracelet/glow",
-      "tag_name": "2.0.0",
-      "prerelease": false,
-      "created_at": "2023-05-09T09:16:02Z"
-   },
-   {
-      "category": "extra",
-      "repository": "charmbracelet/vhs",
-      "tag_name": "0.8.0",
-      "prerelease": false,
-      "created_at": "2024-04-15T14:57:37Z"
-   },
-   {
-      "category": "extra",
-      "repository": "charmbracelet/freeze",
-      "tag_name": "0.1.6",
-      "prerelease": false,
-      "created_at": "2024-04-03T05:03:35Z"
-   },
-   {
-      "category": "extra",
-      "repository": "charmbracelet/melt",
-      "tag_name": "0.6.2",
-      "prerelease": false,
-      "created_at": "2024-03-15T19:24:38Z"
-   },
-   {
-      "category": "extra",
-      "repository": "charmbracelet/skate",
-      "tag_name": "0.2.2",
-      "prerelease": false,
-      "created_at": "2023-02-21T14:49:35Z"
-   },
-   {
-      "category": "extra",
-      "repository": "charmbracelet/soft-serve",
-      "tag_name": "0.7.6",
-      "prerelease": false,
-      "created_at": "2024-07-31T21:15:30Z"
-   },
-   {
-      "category": "extra",
-      "repository": "maaslalani/slides",
-      "tag_name": "0.9.0",
-      "prerelease": false,
-      "created_at": "2022-09-13T14:29:08Z"
-   },
-   {
-      "category": "extra",
-      "repository": "maaslalani/nap",
-      "tag_name": "0.1.1",
-      "prerelease": false,
-      "created_at": "2022-11-21T15:22:57Z"
-   },
-   {
-      "category": "extra",
-      "repository": "maaslalani/invoice",
-      "tag_name": "0.1.0",
-      "prerelease": false,
-      "created_at": "2023-06-29T02:52:33Z"
-   },
-   {
-      "category": "extra",
-      "repository": "chmln/sd",
-      "tag_name": "1.0.0",
-      "prerelease": false,
-      "created_at": "2023-11-08T02:19:46Z"
-   },
-   {
-      "category": "extra",
-      "repository": "ms-jpq/sad",
-      "tag_name": "0.4.31",
-      "prerelease": false,
-      "created_at": "2024-06-27T12:12:12Z"
-   },
-   {
-      "category": "extra",
-      "repository": "yudai/gotty",
-      "tag_name": "1.0.1",
-      "prerelease": false,
-      "created_at": "2017-08-08T08:32:38Z"
-   },
-   {
-      "category": "extra",
-      "repository": "tsl0922/ttyd",
-      "tag_name": "1.7.7",
-      "prerelease": false,
-      "created_at": "2024-03-30T03:04:51Z"
-   },
-   {
-      "category": "extra",
-      "repository": "elisescu/tty-share",
-      "tag_name": "2.4.0",
-      "prerelease": false,
-      "created_at": "2022-11-25T14:12:11Z"
-   },
-   {
-      "category": "extra",
-      "repository": "owenthereal/upterm",
-      "tag_name": "0.14.3",
-      "prerelease": false,
-      "created_at": "2024-05-21T07:24:17Z"
-   },
-   {
-      "category": "extra",
-      "repository": "jtroo/kanata",
-      "tag_name": "1.6.1",
-      "prerelease": false,
-      "created_at": "2024-05-04T05:08:03Z"
-   },
-   {
-      "category": "extra",
-      "repository": "msoap/shell2http",
-      "tag_name": "1.17.0",
-      "prerelease": false,
-      "created_at": "2024-03-23T20:47:03Z"
-   },
-   {
-      "category": "extra",
-      "repository": "lsd-rs/lsd",
-      "tag_name": "1.1.2",
-      "prerelease": false,
-      "created_at": "2024-03-25T16:28:42Z"
-   },
-   {
-      "category": "extra",
-      "repository": "orf/gping",
-      "tag_name": "gping-v1.17.3",
-      "prerelease": false,
-      "created_at": "2024-07-21T23:26:48Z"
-   },
-   {
-      "category": "extra",
-      "repository": "ast-grep/ast-grep",
-      "tag_name": "0.25.3",
-      "prerelease": false,
-      "created_at": "2024-07-23T05:38:52Z"
-   },
-   {
-      "category": "extra",
-      "repository": "terrastruct/d2",
-      "tag_name": "0.6.5",
-      "prerelease": false,
-      "created_at": "2024-04-18T05:12:43Z"
-   },
-   {
-      "category": "other",
-      "repository": "ollama/ollama",
-      "tag_name": "0.2.8",
-      "prerelease": false,
-      "created_at": "2024-07-22T20:37:08Z"
-   },
-   {
-      "category": "other",
-      "repository": "plandex-ai/plandex",
-      "tag_name": "cli/v1.1.1",
-      "prerelease": false,
-      "created_at": "2024-06-21T17:17:11Z"
-   },
-   {
-      "category": "other",
-      "repository": "mudler/LocalAI",
-      "tag_name": "2.19.1",
-      "prerelease": false,
-      "created_at": "2024-07-20T07:15:48Z"
-   },
-   {
-      "category": "other",
-      "repository": "feschber/lan-mouse",
-      "tag_name": "0.8.0",
-      "prerelease": false,
-      "created_at": "2024-05-17T16:07:18Z"
-   },
-   {
-      "category": "other",
-      "repository": "leoafarias/fvm",
-      "tag_name": "3.1.7",
-      "prerelease": false,
-      "created_at": "2024-06-04T15:31:52Z"
-   },
-   {
-      "category": "other",
-      "repository": "JetBrains/kotlin",
-      "tag_name": "1.9.25",
-      "prerelease": false,
-      "created_at": "2024-07-18T06:24:17Z"
-   },
-   {
-      "category": "other",
-      "repository": "fwcd/kotlin-language-server",
-      "tag_name": "1.3.9",
-      "prerelease": false,
-      "created_at": "2024-01-15T02:30:33Z"
-   },
-   {
-      "category": "other",
-      "repository": "ryanoasis/nerd-fonts",
-      "tag_name": "3.2.1",
-      "prerelease": false,
-      "created_at": "2024-04-12T14:41:15Z"
-   },
-   {
-      "category": "other",
-      "repository": "VSCodium/vscodium",
-      "tag_name": "1.91.1.24193",
-      "prerelease": false,
-      "created_at": "2024-07-11T18:18:27Z"
-   },
-   {
-      "category": "other",
-      "repository": "coder/code-server",
-      "tag_name": "4.91.1",
-      "prerelease": false,
-      "created_at": "2024-07-15T17:57:32Z"
-   },
-   {
-      "category": "other",
-      "repository": "gcla/termshark",
-      "tag_name": "2.4.0",
-      "prerelease": false,
-      "created_at": "2022-07-11T22:11:49Z"
-   },
-   {
-      "category": "other",
-      "repository": "veeso/termscp",
-      "tag_name": "0.14.0",
-      "prerelease": false,
-      "created_at": "2024-07-17T15:05:15Z"
-   },
-   {
-      "category": "other",
-      "repository": "bloznelis/kbt",
-      "tag_name": "2.1.0",
-      "prerelease": false,
-      "created_at": "2024-01-06T10:52:07Z"
-   },
-   {
-      "category": "other",
-      "repository": "fujiapple852/trippy",
-      "tag_name": "0.10.0",
-      "prerelease": false,
-      "created_at": "2024-03-31T13:00:02Z"
-   },
-   {
-      "category": "other",
-      "repository": "extrawurst/gitui",
-      "tag_name": "0.26.3",
-      "prerelease": false,
-      "created_at": "2024-06-02T12:49:32Z"
-   },
-   {
-      "category": "other",
-      "repository": "Y2Z/monolith",
-      "tag_name": "2.8.1",
-      "prerelease": false,
-      "created_at": "2024-01-14T02:02:39Z"
-   },
-   {
-      "category": "other",
-      "repository": "nerdypepper/dijo",
-      "tag_name": "0.2.7",
-      "prerelease": false,
-      "created_at": "2021-03-06T10:11:04Z"
-   },
-   {
-      "category": "other",
-      "repository": "sachaos/viddy",
-      "tag_name": "0.4.0",
-      "prerelease": false,
-      "created_at": "2023-10-15T07:35:58Z"
-   },
-   {
-      "category": "other",
-      "repository": "sxyazi/yazi",
-      "tag_name": "0.2.5",
-      "prerelease": false,
-      "created_at": "2024-04-23T08:35:17Z"
-   },
-   {
-      "category": "other",
-      "repository": "orhun/kmon",
-      "tag_name": "1.6.5",
-      "prerelease": false,
-      "created_at": "2024-04-12T10:59:43Z"
-   },
-   {
-      "category": "other",
-      "repository": "clangd/clangd",
-      "tag_name": "18.1.3",
-      "prerelease": false,
-      "created_at": "2023-11-17T12:29:30Z"
-   },
-   {
-      "category": "other",
-      "repository": "pvolok/mprocs",
-      "tag_name": "0.7.1",
-      "prerelease": false,
-      "created_at": "2024-06-29T14:50:56Z"
-   },
-   {
-      "category": "other",
-      "repository": "Byron/dua-cli",
-      "tag_name": "2.29.0",
-      "prerelease": false,
-      "created_at": "2024-03-10T07:28:37Z"
-   },
-   {
-      "category": "other",
-      "repository": "pemistahl/grex",
-      "tag_name": "1.4.5",
-      "prerelease": false,
-      "created_at": "2024-03-06T10:47:28Z"
-   },
-   {
-      "category": "other",
-      "repository": "denisidoro/navi",
-      "tag_name": "2.23.0",
-      "prerelease": false,
-      "created_at": "2023-12-10T09:37:30Z"
-   },
-   {
-      "category": "other",
-      "repository": "timvisee/ffsend",
-      "tag_name": "0.2.76",
-      "prerelease": false,
-      "created_at": "2022-06-20T08:09:16Z"
-   },
-   {
-      "category": "other",
-      "repository": "muesli/duf",
-      "tag_name": "0.8.1",
-      "prerelease": false,
-      "created_at": "2022-02-08T06:29:06Z"
-   },
-   {
-      "category": "other",
-      "repository": "swsnr/mdcat",
-      "tag_name": "mdcat-2.1.2",
-      "prerelease": false,
-      "created_at": "2024-03-11T16:12:02Z"
-   },
-   {
-      "category": "other",
-      "repository": "j178/chatgpt",
-      "tag_name": "1.3.5",
-      "prerelease": false,
-      "created_at": "2024-06-09T13:48:55Z"
-   },
-   {
-      "category": "other",
-      "repository": "uutils/coreutils",
-      "tag_name": "0.0.27",
-      "prerelease": false,
-      "created_at": "2024-06-23T17:10:32Z"
-   },
-   {
-      "category": "other",
-      "repository": "rsteube/carapace-bin",
-      "tag_name": "1.0.4",
-      "prerelease": false,
-      "created_at": "2024-06-30T09:39:09Z"
-   },
-   {
-      "category": "other",
-      "repository": "antonmedv/walk",
-      "tag_name": "1.10.0",
-      "prerelease": false,
-      "created_at": "2024-06-27T13:12:05Z"
-   },
-   {
-      "category": "other",
-      "repository": "mgunyho/tere",
-      "tag_name": "1.5.1",
-      "prerelease": false,
-      "created_at": "2023-08-24T18:35:44Z"
-   },
-   {
-      "category": "other",
-      "repository": "antonmedv/fx",
-      "tag_name": "34.0.0",
-      "prerelease": false,
-      "created_at": "2024-03-28T15:02:12Z"
-   },
-   {
-      "category": "other",
-      "repository": "noahgorstein/jqp",
-      "tag_name": "0.7.0",
-      "prerelease": false,
-      "created_at": "2024-06-09T22:07:07Z"
-   },
-   {
-      "category": "other",
-      "repository": "ouch-org/ouch",
-      "tag_name": "0.5.1",
-      "prerelease": false,
-      "created_at": "2023-12-05T22:24:48Z"
-   },
-   {
-      "category": "other",
-      "repository": "cli/cli",
-      "tag_name": "2.51.0",
-      "prerelease": false,
-      "created_at": "2024-06-13T12:33:06Z"
-   },
-   {
-      "category": "other",
-      "repository": "astral-sh/ruff",
-      "tag_name": "0.4.10",
-      "prerelease": false,
-      "created_at": "2024-06-20T17:43:13Z"
-   },
-   {
-      "category": "other",
-      "repository": "zyedidia/micro",
-      "tag_name": "2.0.13",
-      "prerelease": false,
-      "created_at": "2023-10-21T22:35:11Z"
-   },
-   {
-      "category": "other",
-      "repository": "svenstaro/miniserve",
-      "tag_name": "0.27.1",
-      "prerelease": false,
-      "created_at": "2024-03-16T11:34:24Z"
-   },
-   {
-      "category": "other",
-      "repository": "o2sh/onefetch",
-      "tag_name": "2.21.0",
-      "prerelease": false,
-      "created_at": "2024-05-07T22:05:47Z"
-   },
-   {
-      "category": "other",
-      "repository": "wagoodman/dive",
-      "tag_name": "0.12.0",
-      "prerelease": false,
-      "created_at": "2024-02-02T15:27:41Z"
-   },
-   {
-      "category": "other",
-      "repository": "sharkdp/hyperfine",
-      "tag_name": "1.18.0",
-      "prerelease": false,
-      "created_at": "2023-10-05T07:58:16Z"
-   },
-   {
-      "category": "other",
-      "repository": "balena-io/etcher",
-      "tag_name": "1.19.21",
-      "prerelease": false,
-      "created_at": "2024-05-30T15:00:39Z"
-   },
-   {
-      "category": "other",
-      "repository": "bitcoin/bitcoin",
-      "tag_name": "27.1",
-      "prerelease": false,
-      "created_at": "2024-06-11T13:22:28Z"
-   },
-   {
-      "category": "other",
-      "repository": "lightningnetwork/lnd",
-      "tag_name": "0.18.0-beta",
-      "prerelease": false,
-      "created_at": "2024-05-30T13:56:13Z"
-   },
-   {
-      "category": "other",
-      "repository": "obsidianmd/obsidian-releases",
-      "tag_name": "1.6.3",
-      "prerelease": false,
-      "created_at": "2024-06-08T17:39:32Z"
-   },
-   {
-      "category": "other",
-      "repository": "siyuan-note/siyuan",
-      "tag_name": "3.0.17",
-      "prerelease": false,
-      "created_at": "2024-06-03T15:58:39Z"
-   },
-   {
-      "category": "other",
-      "repository": "logseq/logseq",
-      "tag_name": "0.10.9",
-      "prerelease": false,
-      "created_at": "2024-04-23T04:24:30Z"
-   },
-   {
-      "category": "other",
-      "repository": "toeverything/AFFiNE",
-      "tag_name": "0.14.9",
-      "prerelease": false,
-      "created_at": "2024-06-04T02:38:36Z"
-   },
-   {
-      "category": "other",
-      "repository": "AppFlowy-IO/AppFlowy",
-      "tag_name": "0.6.1",
-      "prerelease": false,
-      "created_at": "2024-06-20T13:19:39Z"
-   },
-   {
-      "category": "other",
-      "repository": "mattermost/focalboard",
-      "tag_name": "8.0.0",
-      "prerelease": false,
-      "created_at": "2024-06-10T16:59:45Z"
-   },
-   {
-      "category": "other",
-      "repository": "nanocurrency/nano-work-server",
-      "tag_name": "V0.3.0",
-      "prerelease": false,
-      "created_at": "2020-08-31T15:26:11Z"
-   }
+  {
+    "category": "core",
+    "repository": "ducaale/xh",
+    "tag_name": "0.22.2",
+    "prerelease": false,
+    "created_at": "2024-07-08T22:16:09Z"
+  },
+  {
+    "category": "core",
+    "repository": "go-task/task",
+    "tag_name": "3.39.0",
+    "prerelease": false,
+    "created_at": "2024-09-07T20:05:46Z"
+  },
+  {
+    "category": "core",
+    "repository": "charmbracelet/gum",
+    "tag_name": "0.14.5",
+    "prerelease": false,
+    "created_at": "2024-09-06T16:39:31Z"
+  },
+  {
+    "category": "core",
+    "repository": "charmbracelet/mods",
+    "tag_name": "1.6.0",
+    "prerelease": false,
+    "created_at": "2024-09-12T18:35:04Z"
+  },
+  {
+    "category": "core",
+    "repository": "helix-editor/helix",
+    "tag_name": "24.07",
+    "prerelease": false,
+    "created_at": "2024-07-14T16:19:47Z"
+  },
+  {
+    "category": "core",
+    "repository": "nushell/nushell",
+    "tag_name": "0.97.1",
+    "prerelease": false,
+    "created_at": "2024-08-21T03:21:12Z"
+  },
+  {
+    "category": "core",
+    "repository": "starship/starship",
+    "tag_name": "1.20.1",
+    "prerelease": false,
+    "created_at": "2024-07-27T09:07:23Z"
+  },
+  {
+    "category": "core",
+    "repository": "ajeetdsouza/zoxide",
+    "tag_name": "0.9.5",
+    "prerelease": false,
+    "created_at": "2024-09-13T00:47:34Z"
+  },
+  {
+    "category": "core",
+    "repository": "zellij-org/zellij",
+    "tag_name": "0.40.1",
+    "prerelease": false,
+    "created_at": "2024-05-02T07:02:11Z"
+  },
+  {
+    "category": "core",
+    "repository": "alacritty/alacritty",
+    "tag_name": "0.13.2",
+    "prerelease": false,
+    "created_at": "2024-03-24T17:51:35Z"
+  },
+  {
+    "category": "core",
+    "repository": "BurntSushi/ripgrep",
+    "tag_name": "14.1.1",
+    "prerelease": false,
+    "created_at": "2024-09-09T02:15:00Z"
+  },
+  {
+    "category": "core",
+    "repository": "sharkdp/fd",
+    "tag_name": "10.2.0",
+    "prerelease": false,
+    "created_at": "2024-08-22T19:27:40Z"
+  },
+  {
+    "category": "core",
+    "repository": "junegunn/fzf",
+    "tag_name": "0.55.0",
+    "prerelease": false,
+    "created_at": "2024-08-29T08:11:31Z"
+  },
+  {
+    "category": "core",
+    "repository": "sharkdp/bat",
+    "tag_name": "0.24.0",
+    "prerelease": false,
+    "created_at": "2023-10-11T17:14:12Z"
+  },
+  {
+    "category": "core",
+    "repository": "jesseduffield/lazygit",
+    "tag_name": "0.44.0",
+    "prerelease": false,
+    "created_at": "2024-09-06T11:21:49Z"
+  },
+  {
+    "category": "core",
+    "repository": "jesseduffield/lazydocker",
+    "tag_name": "0.23.3",
+    "prerelease": false,
+    "created_at": "2024-05-26T04:19:55Z"
+  },
+  {
+    "category": "core",
+    "repository": "PaulJuliusMartinez/jless",
+    "tag_name": "0.9.0",
+    "prerelease": false,
+    "created_at": "2023-07-17T02:12:03Z"
+  },
+  {
+    "category": "core",
+    "repository": "smallhadroncollider/taskell",
+    "tag_name": "1.11.4",
+    "prerelease": false,
+    "created_at": "2021-08-26T12:32:23Z"
+  },
+  {
+    "category": "core",
+    "repository": "dundee/gdu",
+    "tag_name": "5.29.0",
+    "prerelease": false,
+    "created_at": "2024-06-17T10:06:50Z"
+  },
+  {
+    "category": "core",
+    "repository": "Nukesor/pueue",
+    "tag_name": "3.4.1",
+    "prerelease": false,
+    "created_at": "2024-06-04T13:49:52Z"
+  },
+  {
+    "category": "core",
+    "repository": "dandavison/delta",
+    "tag_name": "0.18.2",
+    "prerelease": false,
+    "created_at": "2024-09-11T12:29:53Z"
+  },
+  {
+    "category": "core",
+    "repository": "Wilfred/difftastic",
+    "tag_name": "0.60.0",
+    "prerelease": false,
+    "created_at": "2024-07-30T23:16:34Z"
+  },
+  {
+    "category": "core",
+    "repository": "sigoden/dufs",
+    "tag_name": "0.42.0",
+    "prerelease": false,
+    "created_at": "2024-09-02T03:57:13Z"
+  },
+  {
+    "category": "core",
+    "repository": "claudiodangelis/qrcp",
+    "tag_name": "0.11.3",
+    "prerelease": false,
+    "created_at": "2024-09-01T14:31:14Z"
+  },
+  {
+    "category": "core",
+    "repository": "ClementTsang/bottom",
+    "tag_name": "0.10.2",
+    "prerelease": false,
+    "created_at": "2024-08-06T00:28:17Z"
+  },
+  {
+    "category": "core",
+    "repository": "max-niederman/ttyper",
+    "tag_name": "1.6.0",
+    "prerelease": false,
+    "created_at": "2024-08-12T22:27:29Z"
+  },
+  {
+    "category": "core",
+    "repository": "Aloxaf/silicon",
+    "tag_name": "0.5.2",
+    "prerelease": false,
+    "created_at": "2023-11-22T07:14:56Z"
+  },
+  {
+    "category": "core",
+    "repository": "TomWright/dasel",
+    "tag_name": "2.8.1",
+    "prerelease": false,
+    "created_at": "2024-06-30T18:36:47Z"
+  },
+  {
+    "category": "core",
+    "repository": "dalance/amber",
+    "tag_name": "0.6.0",
+    "prerelease": false,
+    "created_at": "2023-12-27T07:47:31Z"
+  },
+  {
+    "category": "core",
+    "repository": "Canop/broot",
+    "tag_name": "1.44.0",
+    "prerelease": false,
+    "created_at": "2024-09-07T10:06:27Z"
+  },
+  {
+    "category": "core",
+    "repository": "xo/usql",
+    "tag_name": "0.19.3",
+    "prerelease": false,
+    "created_at": "2024-06-10T00:11:32Z"
+  },
+  {
+    "category": "core",
+    "repository": "ariga/atlas",
+    "tag_name": "0.27.0",
+    "prerelease": false,
+    "created_at": "2024-09-03T07:40:55Z"
+  },
+  {
+    "category": "core",
+    "repository": "jbensmann/mouseless",
+    "tag_name": "0.1.5",
+    "prerelease": false,
+    "created_at": "2023-05-14T12:23:54Z"
+  },
+  {
+    "category": "extra",
+    "repository": "lapce/lapce",
+    "tag_name": "0.4.2",
+    "prerelease": false,
+    "created_at": "2024-08-24T18:44:43Z"
+  },
+  {
+    "category": "extra",
+    "repository": "metalbear-co/mirrord",
+    "tag_name": "3.117.0",
+    "prerelease": false,
+    "created_at": "2024-09-12T17:47:12Z"
+  },
+  {
+    "category": "extra",
+    "repository": "altsem/gitu",
+    "tag_name": "0.25.0",
+    "prerelease": false,
+    "created_at": "2024-09-03T16:29:15Z"
+  },
+  {
+    "category": "extra",
+    "repository": "mistakenelf/fm",
+    "tag_name": "1.1.0",
+    "prerelease": false,
+    "created_at": "2024-04-14T17:21:21Z"
+  },
+  {
+    "category": "extra",
+    "repository": "yorukot/superfile",
+    "tag_name": "1.1.4",
+    "prerelease": false,
+    "created_at": "2024-08-01T17:40:05Z"
+  },
+  {
+    "category": "extra",
+    "repository": "zk-org/zk",
+    "tag_name": "0.14.1",
+    "prerelease": false,
+    "created_at": "2024-05-26T11:02:30Z"
+  },
+  {
+    "category": "extra",
+    "repository": "guumaster/hostctl",
+    "tag_name": "1.1.4",
+    "prerelease": false,
+    "created_at": "2023-05-02T12:19:36Z"
+  },
+  {
+    "category": "extra",
+    "repository": "sezanzeb/input-remapper",
+    "tag_name": "2.0.1",
+    "prerelease": false,
+    "created_at": "2023-09-18T21:42:29Z"
+  },
+  {
+    "category": "extra",
+    "repository": "neovim/neovim",
+    "tag_name": "0.10.1",
+    "prerelease": false,
+    "created_at": "2024-07-24T07:22:01Z"
+  },
+  {
+    "category": "extra",
+    "repository": "ekzhang/bore",
+    "tag_name": "0.5.1",
+    "prerelease": false,
+    "created_at": "2024-06-11T01:51:03Z"
+  },
+  {
+    "category": "extra",
+    "repository": "vi/websocat",
+    "tag_name": "1.13.0",
+    "prerelease": false,
+    "created_at": "2024-03-31T20:20:22Z"
+  },
+  {
+    "category": "extra",
+    "repository": "AdguardTeam/AdGuardHome",
+    "tag_name": "0.107.52",
+    "prerelease": false,
+    "created_at": "2024-07-04T15:39:09Z"
+  },
+  {
+    "category": "extra",
+    "repository": "mitmproxy/mitmproxy",
+    "tag_name": "10.4.2",
+    "prerelease": false,
+    "created_at": "2024-08-02T09:16:22Z"
+  },
+  {
+    "category": "extra",
+    "repository": "dstotijn/hetty",
+    "tag_name": "0.7.0",
+    "prerelease": false,
+    "created_at": "2022-03-29T12:08:35Z"
+  },
+  {
+    "category": "extra",
+    "repository": "pkolaczk/fclones",
+    "tag_name": "0.34.0",
+    "prerelease": false,
+    "created_at": "2023-10-29T16:51:18Z"
+  },
+  {
+    "category": "extra",
+    "repository": "Jelmerro/Vieb",
+    "tag_name": "12.0.0",
+    "prerelease": false,
+    "created_at": "2024-05-15T21:06:03Z"
+  },
+  {
+    "category": "extra",
+    "repository": "derailed/k9s",
+    "tag_name": "0.32.5",
+    "prerelease": false,
+    "created_at": "2024-06-15T17:10:45Z"
+  },
+  {
+    "category": "extra",
+    "repository": "bettercap/bettercap",
+    "tag_name": "2.40.0",
+    "prerelease": false,
+    "created_at": "2024-09-14T21:36:07Z"
+  },
+  {
+    "category": "extra",
+    "repository": "iawia002/lux",
+    "tag_name": "0.24.1",
+    "prerelease": false,
+    "created_at": "2024-05-06T01:31:30Z"
+  },
+  {
+    "category": "extra",
+    "repository": "mdp/qrterminal",
+    "tag_name": "3.2.0",
+    "prerelease": false,
+    "created_at": "2023-11-06T18:51:25Z"
+  },
+  {
+    "category": "extra",
+    "repository": "codesenberg/bombardier",
+    "tag_name": "1.2.6",
+    "prerelease": false,
+    "created_at": "2023-04-29T19:49:13Z"
+  },
+  {
+    "category": "extra",
+    "repository": "svenstaro/genact",
+    "tag_name": "1.4.2",
+    "prerelease": false,
+    "created_at": "2024-02-17T22:13:46Z"
+  },
+  {
+    "category": "extra",
+    "repository": "rclone/rclone",
+    "tag_name": "1.68.0",
+    "prerelease": false,
+    "created_at": "2024-09-08T15:22:18Z"
+  },
+  {
+    "category": "extra",
+    "repository": "charmbracelet/glow",
+    "tag_name": "2.0.0",
+    "prerelease": false,
+    "created_at": "2024-08-23T19:04:44Z"
+  },
+  {
+    "category": "extra",
+    "repository": "charmbracelet/vhs",
+    "tag_name": "0.8.0",
+    "prerelease": false,
+    "created_at": "2024-09-06T17:00:06Z"
+  },
+  {
+    "category": "extra",
+    "repository": "charmbracelet/freeze",
+    "tag_name": "0.1.6",
+    "prerelease": false,
+    "created_at": "2024-04-03T05:03:35Z"
+  },
+  {
+    "category": "extra",
+    "repository": "charmbracelet/melt",
+    "tag_name": "0.6.2",
+    "prerelease": false,
+    "created_at": "2024-08-15T18:37:26Z"
+  },
+  {
+    "category": "extra",
+    "repository": "charmbracelet/skate",
+    "tag_name": "1.0.0",
+    "prerelease": false,
+    "created_at": "2024-08-23T19:45:14Z"
+  },
+  {
+    "category": "extra",
+    "repository": "charmbracelet/soft-serve",
+    "tag_name": "0.7.6",
+    "prerelease": false,
+    "created_at": "2024-07-31T21:15:30Z"
+  },
+  {
+    "category": "extra",
+    "repository": "maaslalani/slides",
+    "tag_name": "0.9.0",
+    "prerelease": false,
+    "created_at": "2022-09-13T14:29:08Z"
+  },
+  {
+    "category": "extra",
+    "repository": "maaslalani/nap",
+    "tag_name": "0.1.1",
+    "prerelease": false,
+    "created_at": "2022-11-21T15:22:57Z"
+  },
+  {
+    "category": "extra",
+    "repository": "maaslalani/invoice",
+    "tag_name": "0.1.0",
+    "prerelease": false,
+    "created_at": "2023-06-29T02:52:33Z"
+  },
+  {
+    "category": "extra",
+    "repository": "chmln/sd",
+    "tag_name": "1.0.0",
+    "prerelease": false,
+    "created_at": "2023-11-08T02:19:46Z"
+  },
+  {
+    "category": "extra",
+    "repository": "ms-jpq/sad",
+    "tag_name": "0.4.31",
+    "prerelease": false,
+    "created_at": "2024-06-27T12:12:12Z"
+  },
+  {
+    "category": "extra",
+    "repository": "yudai/gotty",
+    "tag_name": "1.0.1",
+    "prerelease": false,
+    "created_at": "2017-08-08T08:32:38Z"
+  },
+  {
+    "category": "extra",
+    "repository": "tsl0922/ttyd",
+    "tag_name": "1.7.7",
+    "prerelease": false,
+    "created_at": "2024-03-30T03:04:51Z"
+  },
+  {
+    "category": "extra",
+    "repository": "elisescu/tty-share",
+    "tag_name": "2.4.0",
+    "prerelease": false,
+    "created_at": "2022-11-25T14:12:11Z"
+  },
+  {
+    "category": "extra",
+    "repository": "owenthereal/upterm",
+    "tag_name": "0.14.3",
+    "prerelease": false,
+    "created_at": "2024-05-21T07:24:17Z"
+  },
+  {
+    "category": "extra",
+    "repository": "jtroo/kanata",
+    "tag_name": "1.6.1",
+    "prerelease": false,
+    "created_at": "2024-05-04T05:08:03Z"
+  },
+  {
+    "category": "extra",
+    "repository": "msoap/shell2http",
+    "tag_name": "1.17.0",
+    "prerelease": false,
+    "created_at": "2024-03-23T20:47:03Z"
+  },
+  {
+    "category": "extra",
+    "repository": "lsd-rs/lsd",
+    "tag_name": "1.1.5",
+    "prerelease": false,
+    "created_at": "2024-08-20T16:25:29Z"
+  },
+  {
+    "category": "extra",
+    "repository": "orf/gping",
+    "tag_name": "gping-v1.17.3",
+    "prerelease": false,
+    "created_at": "2024-07-21T23:26:48Z"
+  },
+  {
+    "category": "extra",
+    "repository": "ast-grep/ast-grep",
+    "tag_name": "0.27.1",
+    "prerelease": false,
+    "created_at": "2024-09-08T15:35:13Z"
+  },
+  {
+    "category": "extra",
+    "repository": "terrastruct/d2",
+    "tag_name": "0.6.6",
+    "prerelease": false,
+    "created_at": "2024-08-02T03:40:35Z"
+  },
+  {
+    "category": "other",
+    "repository": "ollama/ollama",
+    "tag_name": "0.3.10",
+    "prerelease": false,
+    "created_at": "2024-09-07T16:08:08Z"
+  },
+  {
+    "category": "other",
+    "repository": "plandex-ai/plandex",
+    "tag_name": "cli/v1.1.1",
+    "prerelease": false,
+    "created_at": "2024-06-21T17:17:11Z"
+  },
+  {
+    "category": "other",
+    "repository": "mudler/LocalAI",
+    "tag_name": "2.20.1",
+    "prerelease": false,
+    "created_at": "2024-08-23T08:29:04Z"
+  },
+  {
+    "category": "other",
+    "repository": "feschber/lan-mouse",
+    "tag_name": "0.9.1",
+    "prerelease": false,
+    "created_at": "2024-07-30T09:13:22Z"
+  },
+  {
+    "category": "other",
+    "repository": "leoafarias/fvm",
+    "tag_name": "3.2.1",
+    "prerelease": false,
+    "created_at": "2024-08-26T12:55:55Z"
+  },
+  {
+    "category": "other",
+    "repository": "JetBrains/kotlin",
+    "tag_name": "2.0.20",
+    "prerelease": false,
+    "created_at": "2024-08-20T10:32:15Z"
+  },
+  {
+    "category": "other",
+    "repository": "fwcd/kotlin-language-server",
+    "tag_name": "1.3.12",
+    "prerelease": false,
+    "created_at": "2024-07-29T00:05:26Z"
+  },
+  {
+    "category": "other",
+    "repository": "ryanoasis/nerd-fonts",
+    "tag_name": "3.2.1",
+    "prerelease": false,
+    "created_at": "2024-04-12T14:41:15Z"
+  },
+  {
+    "category": "other",
+    "repository": "VSCodium/vscodium",
+    "tag_name": "1.93.1.24256",
+    "prerelease": false,
+    "created_at": "2024-09-12T18:20:35Z"
+  },
+  {
+    "category": "other",
+    "repository": "coder/code-server",
+    "tag_name": "4.92.2",
+    "prerelease": false,
+    "created_at": "2024-08-16T09:50:10Z"
+  },
+  {
+    "category": "other",
+    "repository": "gcla/termshark",
+    "tag_name": "2.4.0",
+    "prerelease": false,
+    "created_at": "2022-07-11T22:11:49Z"
+  },
+  {
+    "category": "other",
+    "repository": "veeso/termscp",
+    "tag_name": "0.14.0",
+    "prerelease": false,
+    "created_at": "2024-07-17T15:05:15Z"
+  },
+  {
+    "category": "other",
+    "repository": "bloznelis/kbt",
+    "tag_name": "2.1.0",
+    "prerelease": false,
+    "created_at": "2024-01-06T10:52:07Z"
+  },
+  {
+    "category": "other",
+    "repository": "fujiapple852/trippy",
+    "tag_name": "0.11.0",
+    "prerelease": false,
+    "created_at": "2024-08-11T12:25:34Z"
+  },
+  {
+    "category": "other",
+    "repository": "extrawurst/gitui",
+    "tag_name": "0.26.3",
+    "prerelease": false,
+    "created_at": "2024-06-02T12:49:32Z"
+  },
+  {
+    "category": "other",
+    "repository": "Y2Z/monolith",
+    "tag_name": "2.8.3",
+    "prerelease": false,
+    "created_at": "2024-09-05T23:00:24Z"
+  },
+  {
+    "category": "other",
+    "repository": "nerdypepper/dijo",
+    "tag_name": "0.2.7",
+    "prerelease": false,
+    "created_at": "2021-03-06T10:11:04Z"
+  },
+  {
+    "category": "other",
+    "repository": "sachaos/viddy",
+    "tag_name": "1.1.2",
+    "prerelease": false,
+    "created_at": "2024-09-05T09:30:05Z"
+  },
+  {
+    "category": "other",
+    "repository": "sxyazi/yazi",
+    "tag_name": "0.3.3",
+    "prerelease": false,
+    "created_at": "2024-09-04T15:16:18Z"
+  },
+  {
+    "category": "other",
+    "repository": "orhun/kmon",
+    "tag_name": "1.6.5",
+    "prerelease": false,
+    "created_at": "2024-04-12T10:59:43Z"
+  },
+  {
+    "category": "other",
+    "repository": "clangd/clangd",
+    "tag_name": "18.1.3",
+    "prerelease": false,
+    "created_at": "2023-11-17T12:29:30Z"
+  },
+  {
+    "category": "other",
+    "repository": "pvolok/mprocs",
+    "tag_name": "0.7.1",
+    "prerelease": false,
+    "created_at": "2024-06-29T14:50:56Z"
+  },
+  {
+    "category": "other",
+    "repository": "Byron/dua-cli",
+    "tag_name": "2.29.2",
+    "prerelease": false,
+    "created_at": "2024-08-10T14:12:26Z"
+  },
+  {
+    "category": "other",
+    "repository": "pemistahl/grex",
+    "tag_name": "1.4.5",
+    "prerelease": false,
+    "created_at": "2024-03-06T10:47:28Z"
+  },
+  {
+    "category": "other",
+    "repository": "denisidoro/navi",
+    "tag_name": "2.23.0",
+    "prerelease": false,
+    "created_at": "2023-12-10T09:37:30Z"
+  },
+  {
+    "category": "other",
+    "repository": "timvisee/ffsend",
+    "tag_name": "0.2.76",
+    "prerelease": false,
+    "created_at": "2022-06-20T08:09:16Z"
+  },
+  {
+    "category": "other",
+    "repository": "muesli/duf",
+    "tag_name": "0.8.1",
+    "prerelease": false,
+    "created_at": "2022-02-08T06:29:06Z"
+  },
+  {
+    "category": "other",
+    "repository": "swsnr/mdcat",
+    "tag_name": "mdcat-2.3.1",
+    "prerelease": false,
+    "created_at": "2024-08-04T06:30:02Z"
+  },
+  {
+    "category": "other",
+    "repository": "j178/chatgpt",
+    "tag_name": "1.3.5",
+    "prerelease": false,
+    "created_at": "2024-06-09T13:48:55Z"
+  },
+  {
+    "category": "other",
+    "repository": "uutils/coreutils",
+    "tag_name": "0.0.27",
+    "prerelease": false,
+    "created_at": "2024-06-23T17:10:32Z"
+  },
+  {
+    "category": "other",
+    "repository": "rsteube/carapace-bin",
+    "tag_name": "1.0.6",
+    "prerelease": false,
+    "created_at": "2024-09-03T18:59:20Z"
+  },
+  {
+    "category": "other",
+    "repository": "antonmedv/walk",
+    "tag_name": "1.10.0",
+    "prerelease": false,
+    "created_at": "2024-06-27T13:12:05Z"
+  },
+  {
+    "category": "other",
+    "repository": "mgunyho/tere",
+    "tag_name": "1.6.0",
+    "prerelease": false,
+    "created_at": "2024-09-15T20:13:23Z"
+  },
+  {
+    "category": "other",
+    "repository": "antonmedv/fx",
+    "tag_name": "35.0.0",
+    "prerelease": false,
+    "created_at": "2024-06-27T09:58:41Z"
+  },
+  {
+    "category": "other",
+    "repository": "noahgorstein/jqp",
+    "tag_name": "0.7.0",
+    "prerelease": false,
+    "created_at": "2024-06-09T22:07:07Z"
+  },
+  {
+    "category": "other",
+    "repository": "ouch-org/ouch",
+    "tag_name": "0.5.1",
+    "prerelease": false,
+    "created_at": "2023-12-05T22:24:48Z"
+  },
+  {
+    "category": "other",
+    "repository": "cli/cli",
+    "tag_name": "2.57.0",
+    "prerelease": false,
+    "created_at": "2024-09-16T13:53:44Z"
+  },
+  {
+    "category": "other",
+    "repository": "astral-sh/ruff",
+    "tag_name": "0.6.5",
+    "prerelease": false,
+    "created_at": "2024-09-13T14:42:26Z"
+  },
+  {
+    "category": "other",
+    "repository": "zyedidia/micro",
+    "tag_name": "2.0.14",
+    "prerelease": false,
+    "created_at": "2024-08-27T17:58:59Z"
+  },
+  {
+    "category": "other",
+    "repository": "svenstaro/miniserve",
+    "tag_name": "0.28.0",
+    "prerelease": false,
+    "created_at": "2024-09-12T02:13:42Z"
+  },
+  {
+    "category": "other",
+    "repository": "o2sh/onefetch",
+    "tag_name": "2.21.0",
+    "prerelease": false,
+    "created_at": "2024-05-07T22:05:47Z"
+  },
+  {
+    "category": "other",
+    "repository": "wagoodman/dive",
+    "tag_name": "0.12.0",
+    "prerelease": false,
+    "created_at": "2024-02-02T15:27:41Z"
+  },
+  {
+    "category": "other",
+    "repository": "sharkdp/hyperfine",
+    "tag_name": "1.18.0",
+    "prerelease": false,
+    "created_at": "2023-10-05T07:58:16Z"
+  },
+  {
+    "category": "other",
+    "repository": "balena-io/etcher",
+    "tag_name": "1.19.21",
+    "prerelease": false,
+    "created_at": "2024-05-30T15:00:39Z"
+  },
+  {
+    "category": "other",
+    "repository": "bitcoin/bitcoin",
+    "tag_name": "26.2",
+    "prerelease": false,
+    "created_at": "2024-07-03T15:55:00Z"
+  },
+  {
+    "category": "other",
+    "repository": "lightningnetwork/lnd",
+    "tag_name": "0.18.3-beta",
+    "prerelease": false,
+    "created_at": "2024-09-11T11:23:30Z"
+  },
+  {
+    "category": "other",
+    "repository": "obsidianmd/obsidian-releases",
+    "tag_name": "1.6.7",
+    "prerelease": false,
+    "created_at": "2024-07-18T15:06:38Z"
+  },
+  {
+    "category": "other",
+    "repository": "siyuan-note/siyuan",
+    "tag_name": "3.1.6",
+    "prerelease": false,
+    "created_at": "2024-09-10T02:24:51Z"
+  },
+  {
+    "category": "other",
+    "repository": "logseq/logseq",
+    "tag_name": "0.10.9",
+    "prerelease": false,
+    "created_at": "2024-04-23T04:24:30Z"
+  },
+  {
+    "category": "other",
+    "repository": "toeverything/AFFiNE",
+    "tag_name": "0.16.3",
+    "prerelease": false,
+    "created_at": "2024-08-14T05:58:15Z"
+  },
+  {
+    "category": "other",
+    "repository": "AppFlowy-IO/AppFlowy",
+    "tag_name": "0.6.9",
+    "prerelease": false,
+    "created_at": "2024-09-09T23:56:13Z"
+  },
+  {
+    "category": "other",
+    "repository": "mattermost/focalboard",
+    "tag_name": "8.0.0",
+    "prerelease": false,
+    "created_at": "2024-06-10T16:59:45Z"
+  },
+  {
+    "category": "other",
+    "repository": "nanocurrency/nano-work-server",
+    "tag_name": "V0.3.0",
+    "prerelease": false,
+    "created_at": "2020-08-31T15:26:11Z"
+  }
 ]
