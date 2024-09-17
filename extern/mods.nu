@@ -3,10 +3,6 @@ export-env {
   $env.MODS_WORD_WRAP = (term size | get columns) - 2
 }
 
-def roles [] {
-  mods --list-roles | lines | split column ' ' roles | get roles
-}
-
 def models [] {
   mut models = []
   for api in (open ~/.config/mods/mods.yml | get apis | transpose key value) {
@@ -17,11 +13,23 @@ def models [] {
   return $models
 }
 
+def apis [] {
+  [openai, localai]
+}
+
+def roles [] {
+  mods --list-roles | lines | split column ' ' roles | get roles
+}
+
+def themes [] {
+  [charm, catppuccin, dracula base16]
+}
+
 export extern main [
   ...term: string
   --model(-m): string@models # Default model (gpt-3.5-turbo, gpt-4, ggml-gpt4all-j...).
   --ask-model(-M)            # Ask which model to use with an interactive prompt.
-  --api(-a)                  # OpenAI compatible REST API (openai, localai).
+  --api(-a): string@apis     # OpenAI compatible REST API (openai, localai).
   --http-proxy(-x)           # HTTP proxy to use for API requests.
   --format(-f)               # Ask for the response to be formatted as markdown unless otherwise set.
   --format-as
@@ -54,5 +62,5 @@ export extern main [
   --dirs                     # Print the directories in which mods store its data.
   --role: string@roles       # System role to use.
   --list-roles               # List the roles defined in your configuration file
-  --theme                    # Theme to use in the forms. Valid units are: 'charm', 'catppuccin', 'dracula', and 'base16'
+  --theme: string@themes     # Theme to use in the forms. Valid units are: 'charm', 'catppuccin', 'dracula', and 'base16'
 ]
