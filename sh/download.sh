@@ -1,4 +1,4 @@
-version="0.97.1"
+version="0.98.0"
 bin="$HOME/.local/bin"
 share="$bin/share"
 path="$share/nu_$version"
