@@ -737,11 +737,13 @@ export def kanata [] {
 }
 
 export def mongosh [] {
-  https download https://downloads.mongodb.com/compass/mongosh-2.3.1-linux-x64.tgz
-  extract tar mongosh-2.3.1-linux-x64.tgz
-  chmod 777 mongosh-2.3.1-linux-x64/bin/mongosh
-  sudo cp mongosh-2.3.1-linux-x64/bin/mongosh /usr/local/bin/
-  sudo cp mongosh-2.3.1-linux-x64/bin/mongosh_crypt_v1.so /usr/local/lib/
+  let version = "2.3.1"
+  https download $"https://downloads.mongodb.com/compass/mongosh-($version)-linux-x64.tgz"
+  extract tar $"mongosh-($version)-linux-x64.tgz"
+  chmod 777 $"mongosh-($version)-linux-x64/bin/mongosh"
+  sudo cp $"mongosh-($version)-linux-x64/bin/mongosh" /usr/local/bin/
+  sudo cp $"mongosh-($version)-linux-x64/bin/mongosh_crypt_v1.so" /usr/local/lib/
+  rm -rf $"mongosh-($version)-linux-x64"
 }
 
 export def shell2http [] {

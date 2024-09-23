@@ -231,3 +231,23 @@ def confirm [...prompt: string] {
   let header = ($prompt | str join ' ')
   gum choose --header $header 'TRUE' 'FALSE' | into bool
 }
+
+def imods [] {
+  let file = (fd --type file --extension go | fzf --exact)
+  print $file
+  hx $file
+
+  loop {
+    mut input = ""
+    try {
+      $input = (gum input)
+    } catch {
+      break
+    }
+    try {
+      mods --quiet $input (open $file) | tee { save --force $file }
+    } catch {
+      break
+    }
+  }
+}
