@@ -228,8 +228,12 @@ def "external exists" [app: string] {
 }
 
 def confirm [...prompt: string] {
-  let header = ($prompt | str join ' ')
-  gum choose --header $header 'TRUE' 'FALSE' | into bool
+  try {
+    gum confirm ($prompt | str join ' ')
+  } catch {
+    return false
+  }
+  return true
 }
 
 def imods [] {

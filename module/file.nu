@@ -132,11 +132,13 @@ export def rm [] {
     print 'source is empty'
     return
   }
-  do { gum confirm }
-  if ($env.LAST_EXIT_CODE == 0) {
-    for $name in $src {
-      ^rm $name
-    }
+  try {
+    gum confirm
+  } catch {
+    return
+  }
+  for $name in $src {
+    ^rm $name
   }
 }
 

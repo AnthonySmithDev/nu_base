@@ -125,11 +125,13 @@ export def rm [] {
     print 'source is empty'
     return
   }
-  let exit_code = (gum confirm | complete | get exit_code)
-  if ($exit_code == 0) {
-    for $name in $src {
-      ^rm -rf $name
-    }
+  try {
+    gum confirm
+  } catch {
+    return
+  }
+  for $name in $src {
+    ^rm -rf $name
   }
 }
 

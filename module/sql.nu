@@ -58,11 +58,12 @@ export def query [...query: string, --dbname(-n), --confirm(-c)] {
   if $confirm {
     print ""
     $query | bat -pp -l sql
-
-    do { gum confirm  "Are you sure to run this query?"}
-    if ($env.LAST_EXIT_CODE == 0) {
-      u_query --csv (dsn $dbname) $query
+    try {
+      gum confirm "Are you sure to run this query?"
+    } catch {
+      return
     }
+    u_query --csv (dsn $dbname) $query
   } else {
     u_query --csv (dsn $dbname) $query
   }
