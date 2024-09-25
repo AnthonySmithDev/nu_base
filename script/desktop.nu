@@ -35,11 +35,15 @@ def main [] {
   download usql
   download amber
   download delta
-  download rclone
-  download kubectl
+  download pueue
   download ttyper
   download bottom
+  download rclone
   download carapace
+  download difftastic
+
+  download gitlab
+  download kubectl
   download tailscale
 
   compile alacritty
@@ -48,6 +52,7 @@ def main [] {
   config git
 
   srv init pueued
+  srv user pueued start
 }
 
 def dev [] {
@@ -63,9 +68,6 @@ def dev [] {
 }
 
 def extra [] {
-  download gitlab
-  config gitlab
-
   compile mouseless-status
   download mouseless
   config mouseless normal

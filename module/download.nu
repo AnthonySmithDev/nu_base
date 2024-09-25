@@ -1159,7 +1159,7 @@ export def github [] {
 }
 
 export def gitlab [] {
-  let version = "1.45.0"
+  let version = "1.46.1"
 
   let bin = bin glab
   let path = share glab $version

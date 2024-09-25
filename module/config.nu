@@ -193,12 +193,6 @@ export def git [] {
   ^git config --global init.defaultBranch 'main'
 }
 
-export def gitlab [] {
-  ^glab config set -g -h $env.GITLAB_HOST token $env.GITLAB_TOKEN
-  ^glab config set -g -h $env.GITLAB_HOST api_protocol http
-  ^glab config set -g -h $env.GITLAB_HOST git_protocol ssh
-}
-
 export def ubuntu-software [] {
   sudo sed -i 's/http:\/\/pe\.archive\.ubuntu\.com\/ubuntu/http:\/\/archive\.ubuntu\.com\/ubuntu/g' /etc/apt/sources.list
 }

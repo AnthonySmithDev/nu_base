@@ -30,7 +30,9 @@ alias wpaste = wl-paste
 
 alias gu = gitu
 alias gra = git remote add
-alias grr = git remote remove
+alias grr = git remote rename
+alias grR = git remote remove
+alias grv = git remote --verbose
 alias gP = git push
 alias gPF = git push --force
 alias gPU = git push -u origin main

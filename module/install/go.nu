@@ -36,6 +36,10 @@ export def extra [] {
   }
 }
 
+export def touchpad [] {
+  go install -tags uinput github.com/unrud/remote-touchpad@latest
+}
+
 export def packages [] {
   [
     [ category name url];

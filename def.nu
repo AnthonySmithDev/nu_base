@@ -251,3 +251,21 @@ def imods [] {
     }
   }
 }
+
+def "bulk rename" [] {
+  let preview = 'lsd --tree --color=always --icon=always {}'
+  let base = (fd --type directory | fzf --layout reverse --border --preview $preview | str trim)
+  let names = (ls -s $base | get name)
+  let filename = mktemp --tmpdir --suffix .txt
+  $names | save -f $filename
+  hx $filename
+  let news = (open $filename | lines)
+  for  $it in ($names | enumerate) {
+    let src = $it.item
+    let dst = ($news | get $it.index)
+    if $src == $dst {
+      continue
+    }
+    mv -i ($base | path join $src) ($base | path join $dst)
+  }
+}

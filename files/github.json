@@ -387,9 +387,9 @@
   {
     "category": "extra",
     "repository": "rclone/rclone",
-    "tag_name": "1.68.0",
+    "tag_name": "1.68.1",
     "prerelease": false,
-    "created_at": "2024-09-08T15:22:18Z"
+    "created_at": "2024-09-24T14:47:06Z"
   },
   {
     "category": "extra",
