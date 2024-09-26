@@ -3,7 +3,7 @@ source ../def.nu
 source ../module/source.nu
 
 def main [] {
-
+  nu_zoxide
   nerd-font FiraCode
 
   if (external exists apt) {
@@ -72,4 +72,15 @@ def extra [] {
   download mouseless
   config mouseless normal
   startup mouseless
+}
+
+def nu_zoxide [] {
+  ^zoxide add ~/Desktop
+  ^zoxide add ~/Documents
+  ^zoxide add ~/Downloads
+  ^zoxide add ~/Music
+  ^zoxide add ~/Pictures
+  ^zoxide add ~/Public
+  ^zoxide add ~/Templates
+  ^zoxide add ~/Videos
 }
