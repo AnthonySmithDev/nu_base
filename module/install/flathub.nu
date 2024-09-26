@@ -61,3 +61,7 @@ export def flameshot [] {
 export def vscodium [] {
 	flatpak install -y flathub com.vscodium.codium
 }
+
+export def obs [] {
+	flatpak install -y flathub com.obsproject.Studio
+}

@@ -21,10 +21,10 @@ export def main [url: string] {
 const extensions = [
   'https://chromewebstore.google.com/detail/vimium/dbepggeogbaibhgnhhndojpepiihcmeb'
   'https://chromewebstore.google.com/detail/dark-reader/eimadpbcbfnmbkopoojfekhnkhdbieeh'
-  'https://chromewebstore.google.com/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai'
-  'https://chromewebstore.google.com/detail/simple-translate/ibplnjkanclpjokhdolnendpplpjiace'
-  'https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld'
-  'https://chromewebstore.google.com/detail/sound-booster-increase-vo/nmigaijibiabddkkmjhlehchpmgbokfj'
+  # 'https://chromewebstore.google.com/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai'
+  # 'https://chromewebstore.google.com/detail/simple-translate/ibplnjkanclpjokhdolnendpplpjiace'
+  # 'https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld'
+  # 'https://chromewebstore.google.com/detail/sound-booster-increase-vo/nmigaijibiabddkkmjhlehchpmgbokfj'
   'https://chromewebstore.google.com/detail/picture-in-picture-extens/hkgfoiooedgoejojocmhlaklaeopbecg'
 ]
 
@@ -44,6 +44,7 @@ export def vieb [
   url?: string
   --left(-l)
   --right(-r)
+  --rm
 ] {
   mut args = [ '--config-file=~/.config/Vieb/viebrc' ]
   if $left {
@@ -64,6 +65,7 @@ export def brave [
   --left(-l)
   --right(-r)
   --proxy(-p)
+  --rm
 ] {
   let config = ($env.HOME | path join .config/BraveSoftware/Brave-Browser)
 
@@ -76,6 +78,9 @@ export def brave [
   }
   if $left {
     let dir = ($env.HOME | path join .config BraveSoftware Brave-Browser-Left)
+    if $rm {
+      return (rm -rf $dir)
+    }
     if not ($dir | path exists) {
       cp -r $config $dir
     }
@@ -83,6 +88,9 @@ export def brave [
   }
   if $right {
     let dir = ($env.HOME | path join .config BraveSoftware Brave-Browser-Right)
+    if $rm {
+      return (rm -rf $dir)
+    }
     if not ($dir | path exists) {
       cp -r $config $dir
     }

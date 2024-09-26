@@ -672,6 +672,13 @@ export def waydroid [] {
   sudo apt install waydroid -y
 }
 
+export def obs [] {
+  sudo apt install -y ffmpeg
+  sudo add-apt-repository -y ppa:obsproject/obs-studio
+  sudo apt update -y
+  sudo apt install -y obs-studio
+}
+
 def filepath [name: string] {
   $env.USR_LOCAL_SHARE_DOWNLOAD | path join $name
 }
