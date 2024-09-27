@@ -1,6 +1,6 @@
 
 export def create [name: string] {
-  ^avdmanager --silent create avd -n $name -k "system-images;android-34;google_apis;x86_64"
+  ^avdmanager --silent create avd -n $name -k "system-images;android-35;google_apis;x86_64"
 }
 
 export def list [] {
@@ -12,5 +12,5 @@ export def delete [name: string@list] {
 }
 
 export def run [name: string@list] {
-  ^emulator -avd $name
+  ^emulator -avd $name -no-window
 }

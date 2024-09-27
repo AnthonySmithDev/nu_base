@@ -48,6 +48,7 @@ export def packages [] {
     [ dev harlequin harlequin[mysql] ]
     [ dev httpie httpie ]
     [ dev ranger ranger-fm ]
+    [ dev pyclip pyclip ]
 
     [ extra dooit dooit ]
     [ extra girok girok ]

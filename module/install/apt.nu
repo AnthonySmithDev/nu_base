@@ -667,9 +667,24 @@ export def obsidian [ --force(-f) ] {
 }
 
 export def waydroid [] {
-  sudo apt install curl ca-certificates -y
+  let modules = ($env.LOCAL_SHARE | path join modules)
+  git_clone https://github.com/choff/anbox-modules.git $modules
+  bash ($modules | path join INSTALL.sh)
+
+  sudo apt install -y curl ca-certificates
   curl https://repo.waydro.id | sudo bash
-  sudo apt install waydroid -y
+  sudo apt install -y waydroid
+
+  ^waydroid prop set persist.waydroid.width 576
+  ^waydroid prop set persist.waydroid.height 1024
+  sudo systemctl restart waydroid-container
+
+  # sudo systemctl enable --now waydroid-container
+  # sudo waydroid init -f -s GAPPS
+  # sudo waydroid init --force
+  # sudo waydroid container start
+  # sudo waydroid container stop
+  # ^waydroid session start
 }
 
 export def obs [] {

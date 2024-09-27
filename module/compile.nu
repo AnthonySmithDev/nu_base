@@ -288,7 +288,7 @@ export def audiosource [ --apk ] {
   ln -sf $src $dst
 
   if $apk {
-    let version = "1.1"
+    let version = "1.2"
     let filename = $"audiosource_($version).apk"
     let output = ($source | path join $filename)
 
