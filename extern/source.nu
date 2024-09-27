@@ -11,6 +11,7 @@ use silicon.nu
 use tailscale.nu
 use ollama.nu
 use aichat.nu
+use waydroid.nu
 source broot.nu
 
 # use helix.nu hx
