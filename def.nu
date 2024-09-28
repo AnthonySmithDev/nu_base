@@ -237,7 +237,8 @@ def confirm [...prompt: string] {
 }
 
 def imods [] {
-  let file = (fd --type file --extension go | fzf --exact)
+  let preview = 'bat --plain --number --color=always {}'
+  let file = (fd  --extension go --type file | fzf --exact --layout reverse --border --preview $preview | str trim)
   print $file
   hx $file
 
