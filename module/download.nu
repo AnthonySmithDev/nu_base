@@ -120,10 +120,49 @@ export def fzf [] {
   if (no-exist $path) {
     https download $'https://github.com/junegunn/fzf/releases/download/v($version)/fzf-($version)-linux_amd64.tar.gz'
     extract tar $'fzf-($version)-linux_amd64.tar.gz' -d 'fzf-linux_amd64'
-    umv -d 'fzf-linux_amd64' -f 'fzf' -p $path
+    umv -d fzf-linux_amd64 -f fzf -p $path
   }
 
   bind -r fzf $path
+}
+
+export def marksman [] {
+  let version = github get_version 'artempyanykh/marksman'
+  let path = share marksman $version
+
+  if (no-exist $path) {
+    https download https://github.com/artempyanykh/marksman/releases/download/2023-12-09/marksman-linux-x64 -o marksman
+    chmod 755 marksman
+    umv  -f marksman -p $path
+  }
+
+  bind marksman $path
+}
+
+export def v-analyzer [] {
+  let version = github get_version 'vlang/v-analyzer'
+  let path = share v-analyzer $version
+
+  if (no-exist $path) {
+    https download https://github.com/vlang/v-analyzer/releases/download/($version)/v-analyzer-linux-x86_64.zip
+    extract zip v-analyzer-linux-x86_64.zip
+    umv  -f v-analyzer -p $path
+  }
+
+  bind v-analyzer $path
+}
+
+export def zls [] {
+  let version = github get_version 'zigtools/zls'
+  let path = share zls $version
+
+  if (no-exist $path) {
+    https download https://github.com/zigtools/zls/releases/download/($version)/zls-x86_64-linux.tar.xz
+    extract tar zls-x86_64-linux.tar.xz -d zls-x86_64-linux
+    umv -d zls-x86_64-linux -f zls -p $path
+  }
+
+  bind zls $path
 }
 
 export def broot [] {
@@ -1043,10 +1082,15 @@ export def invoice [] {
 
 export def clangd [] {
   let version = github get_version 'clangd/clangd'
+  let path = share clangd $version
 
-  https download $'https://github.com/clangd/clangd/releases/download/($version)/clangd-linux-($version).zip'
-  extract zip $'clangd-linux-($version).zip'
-  umv -d $'clangd_($version)' -f 'bin/clangd'
+  if (no-exist $path) {
+    https download $'https://github.com/clangd/clangd/releases/download/($version)/clangd-linux-($version).zip'
+    extract zip $'clangd-linux-($version).zip'
+    umv -d $'clangd_($version)' -f 'bin/clangd' -p $path
+  }
+
+  bind -r clangd $path
 }
 
 export def coreutils [] {
@@ -1513,6 +1557,19 @@ export def AdGuardHome [] {
   bind -r AdGuardHome $path
 }
 
+export def superhtml [] {
+  let version = github get_version 'kristoff-it/superhtml'
+  let path = share superhtml $version
+
+  if (no-exist $path) {
+    https download https://github.com/kristoff-it/superhtml/releases/download/v($version)/x86_64-linux-musl.tar.gz
+    extract tar x86_64-linux-musl.tar.gz
+    umv -d x86_64-linux-musl -f superhtml -p $path
+  }
+
+  bind superhtml $path
+}
+
 export def mitmproxy [] {
   let version = github get_version 'mitmproxy/mitmproxy'
 
@@ -1644,6 +1701,10 @@ export def tailscale [] {
   }
 }
 
+export def deno [] {
+  curl -fsSL https://deno.land/install.sh | sh
+}
+
 export def --env node [ --latest ] {
   let versions = ["21.2.0" "20.9.0" "18.18.2"]
 
@@ -1659,8 +1720,8 @@ export def --env node [ --latest ] {
     extract tar $'node-v($version)-linux-x64.tar.gz'
     umv -d $'node-v($version)-linux-x64' -p $path
   }
-  env-path $env.NODE_BIN
 
+  env-path $env.NODE_BIN
   symlink $path $env.NODE_PATH
 }
 
@@ -1680,8 +1741,8 @@ export def --env golang [ --latest ] {
     extract tar $'go($version).linux-amd64.tar.gz'
     umv -d go -p $path
   }
-  env-path $env.GOBIN
 
+  env-path $env.GOBIN
   symlink $path $env.GOROOT
 }
 
@@ -1708,8 +1769,8 @@ export def vlang [] {
     extract zip v_linux.zip
     umv -d 'v' -p $path
   }
-  env-path $env.VLANG_PATH
 
+  env-path $env.VLANG_PATH
   symlink $path $env.VLANG_PATH
 }
 
@@ -1744,8 +1805,8 @@ export def --env java [ --latest(-l) ] {
     extract tar $'openjdk-($version)_linux-x64_bin.tar.gz'
     umv -d $'jdk-($version)' -p $path
   }
-  env-path $env.JAVA_BIN
 
+  env-path $env.JAVA_BIN
   symlink $path $env.JAVA_PATH
 }
 
@@ -1756,8 +1817,8 @@ export def --env jdtls [] {
     extract tar jdt-language-server-latest.tar.gz -d jdtls
     umv -d jdtls -p $path
   }
-  env-path $env.JDTLS_BIN
 
+  env-path $env.JDTLS_BIN
   symlink $path $env.JDTLS_PATH
 }
 
@@ -1770,8 +1831,8 @@ export def --env kotlin [] {
     extract zip $"kotlin-compiler-($version).zip"
     umv -d kotlinc -p $path
   }
-  env-path $env.KOTLIN_BIN
 
+  env-path $env.KOTLIN_BIN
   symlink $path $env.KOTLIN_PATH
 }
 
@@ -1784,8 +1845,8 @@ export def --env kotlin-native [] {
     extract tar $'kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
     umv -d $'kotlin-native-prebuilt-linux-x86_64-($version)' -p $path
   }
-  env-path $env.KOTLIN_NATIVE_BIN
 
+  env-path $env.KOTLIN_NATIVE_BIN
   symlink $path $env.KOTLIN_NATIVE_PATH
 }
 
@@ -1798,9 +1859,23 @@ export def --env kotlin-language-server [] {
     extract zip server.zip
     umv -d server -p $path
   }
-  env-path $env.KOTLIN_LSP_BIN
 
+  env-path $env.KOTLIN_LSP_BIN
   symlink $path $env.KOTLIN_LSP_PATH
+}
+
+export def lua-language-server [] {
+  let version = github get_version 'LuaLS/lua-language-server'
+  let path = share lua-language-server $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/LuaLS/lua-language-server/releases/download/($version)/lua-language-server-($version)-linux-x64.tar.gz'
+    extract tar $'lua-language-server-($version)-linux-x64.tar.gz' -d lua-language-server
+    umv -d lua-language-server -p $path
+  }
+
+  env-path $env.LUA_LSP_BIN
+  symlink $path $env.LUA_LSP_PATH
 }
 
 def dart_latest [] {
@@ -1816,8 +1891,8 @@ export def --env dart [] {
     extract zip 'dartsdk-linux-x64-release.zip'
     umv -d 'dart-sdk' -p $path
   }
-  env-path $env.DART_BIN
 
+  env-path $env.DART_BIN
   symlink $path $env.DART_PATH
 }
 
@@ -1844,8 +1919,8 @@ export def --env flutter [ --latest(-l) ] {
     extract tar $'flutter_linux_($version)-stable.tar.xz'
     umv -d 'flutter' -p $path
   }
-  env-path $env.FLUTTER_BIN
 
+  env-path $env.FLUTTER_BIN
   symlink $path $env.FLUTTER_PATH
 }
 
@@ -1897,8 +1972,8 @@ export def --env bitcoin [] {
     extract tar $'bitcoin-($version)-x86_64-linux-gnu.tar.gz'
     umv -d $'bitcoin-($version)' -p $path
   }
-  env-path $env.BITCOIN_BIN
 
+  env-path $env.BITCOIN_BIN
   symlink $path $env.BITCOIN_PATH
 }
 
@@ -1912,8 +1987,8 @@ export def --env lightning-network [] {
     extract tar $'lnd-linux-amd64-v($version).tar.gz'
     umv -d $'lnd-linux-amd64-v($version)' -p $path
   }
-  env-path $env.LIGHTNING_PATH
 
+  env-path $env.LIGHTNING_PATH
   symlink $path $env.LIGHTNING_PATH
 }
 

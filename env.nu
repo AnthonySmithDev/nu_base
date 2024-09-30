@@ -51,9 +51,17 @@ env-path $env.DOCKER_BIN
 
 $env.VENTOY_PATH = ($env.USR_LOCAL_LIB | path join ventoy)
 
+$env.DENO_PATH = ($env.HOME | path join .deno)
+$env.DENO_BIN = ($env.DENO_PATH | path join bin)
+env-path $env.DENO_BIN
+
 $env.NODE_PATH = ($env.USR_LOCAL_LIB | path join node)
 $env.NODE_BIN = ($env.NODE_PATH | path join bin)
 env-path $env.NODE_BIN
+
+$env.LUA_LSP_PATH = ($env.USR_LOCAL_LIB | path join lua-lsp)
+$env.LUA_LSP_BIN = ($env.LUA_LSP_PATH | path join bin)
+env-path $env.LUA_LSP_BIN
 
 $env.GOROOT = ($env.USR_LOCAL_LIB | path join go)
 $env.GOROOTBIN = ($env.GOROOT | path join bin)
