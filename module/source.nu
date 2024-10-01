@@ -5,7 +5,6 @@ use github.nu
 
 use config.nu
 use download.nu
-use nerd-font.nu
 
 use fm.nu
 use dir.nu
@@ -40,8 +39,10 @@ use scr.nu
 # use uinput.nu
 # use network.nu
 
+export module lsp.nu
+export module helix.nu
 export module flutter.nu
 export module laravel.nu
+export module nerd-font.nu
 
-export module helix
 export module virtual

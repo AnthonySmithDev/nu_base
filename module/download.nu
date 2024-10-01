@@ -457,17 +457,15 @@ export def melt [] {
 
 export def skate [] {
   let version = github get_version 'charmbracelet/skate'
-
-  let bin = bin skate
   let path = share skate $version
 
   if (no-exist $path) {
     https download https://github.com/charmbracelet/skate/releases/download/v($version)/skate_($version)_Linux_x86_64.tar.gz
-    extract tar skate_($version)_Linux_x86_64.tar.gz -d skate_Linux_x86_64
-    umv -d skate_Linux_x86_64 -f skate -p $path
+    extract tar skate_($version)_Linux_x86_64.tar.gz
+    umv -d skate_($version)_Linux_x86_64 -f skate -p $path
   }
 
-  symlink $path $bin
+  bind skate $path
 }
 
 export def amber [] {

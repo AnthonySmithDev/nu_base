@@ -1,6 +1,4 @@
 
-export module lsp.nu
-
 export def background [] {
   let theme = ($env.HELIX_RUNTIME | path join themes/ayu_dark.toml)
   sed -i '38s/"background"/""/' $theme

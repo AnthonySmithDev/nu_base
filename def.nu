@@ -236,21 +236,37 @@ def confirm [...prompt: string] {
   return true
 }
 
-def imods [] {
+def select-file [] {
   let preview = 'bat --plain --number --color=always {}'
-  let file = (fd  --extension go --type file | fzf --exact --layout reverse --border --preview $preview | str trim)
-  print $file
-  hx $file
+  return (fd --type file | fzf --layout reverse --border --preview $preview | str trim)
+}
+
+def modf [...rest: string] {
+  let file = (select-file)
+  mods (open $file) ...$rest
+}
+
+def imods [] {
+  mods --quiet Hola
 
   loop {
     mut input = ""
+    mut file = ""
     try {
-      $input = (gum input)
-    } catch {
-      break
-    }
-    try {
-      mods --quiet $input (open $file) | tee { save --force $file }
+      print ""
+      $input = (gum write)
+      if ($input | str contains ".file") {
+        $file = (select-file)
+      }
+      mut args = [
+        --quiet
+        --continue-last
+        $input
+      ]
+      if ($file | is-not-empty) {
+        $args = ($args | append (open $file))
+      }
+      mods ...$args
     } catch {
       break
     }
