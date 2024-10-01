@@ -56,3 +56,11 @@
 # name = "env"
 # scope = "source.env"
 # file-types = [{ glob = ".env" }, { glob = ".env.*" }, { glob = ".envrc" }, { glob = ".envrc.*" }, { glob = "*.env" }]
+
+
+[language-server.hx-lsp]
+command = "hx-lsp"
+
+[[language]]
+name = "go"
+language-servers = [ "gopls", "golangci-lint-lsp", "hx-lsp" ]

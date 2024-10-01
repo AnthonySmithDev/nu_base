@@ -51,6 +51,10 @@ env-path $env.DOCKER_BIN
 
 $env.VENTOY_PATH = ($env.USR_LOCAL_LIB | path join ventoy)
 
+$env.OLLAMA_PATH = ($env.USR_LOCAL_LIB | path join ollama)
+$env.OLLAMA_BIN = ($env.OLLAMA_PATH | path join bin)
+env-path $env.OLLAMA_BIN
+
 $env.DENO_PATH = ($env.HOME | path join .deno)
 $env.DENO_BIN = ($env.DENO_PATH | path join bin)
 env-path $env.DENO_BIN

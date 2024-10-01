@@ -1297,10 +1297,15 @@ export def bettercap [] {
 
 export def viddy [] {
   let version = github get_version 'sachaos/viddy'
+  let path = share viddy $version
 
-  https download $'https://github.com/sachaos/viddy/releases/download/v($version)/viddy_Linux_x86_64.tar.gz'
-  extract tar viddy_Linux_x86_64.tar.gz -d viddy_Linux_x86_64
-  umv -d viddy_Linux_x86_64 -f viddy
+  if (no-exist $path) {
+    https download $'https://github.com/sachaos/viddy/releases/download/v($version)/viddy-v($version)-linux-x86_64.tar.gz'
+    extract tar $'viddy-v($version)-linux-x86_64.tar.gz'
+    umv -f viddy -p $path
+  }
+
+  bind viddy $path
 }
 
 export def yazi [] {
@@ -1319,19 +1324,22 @@ export def kmon [] {
   umv -d $'kmon-($version)' -f kmon
 }
 
-export def ollama [] {
-  let version = github get_version 'ollama/ollama'
+def "move dir" [src: string, dst: string] {
+  mv -p -f $src $dst
+}
 
-  let bin = bin ollama
+export def --env ollama [] {
+  let version = github get_version 'ollama/ollama'
   let path = share ollama $version
 
   if (no-exist $path) {
-    https download https://github.com/jmorganca/ollama/releases/download/v($version)/ollama-linux-amd64 -o ollama
-    chmod 755 ollama
-    umv -f ollama -p $path
+    https download https://github.com/ollama/ollama/releases/download/v0.3.12/ollama-linux-amd64.tgz
+    extract tar ollama-linux-amd64.tgz -d ollama-linux-amd64
+    move dir ollama-linux-amd64 $path
   }
 
-  symlink $path $bin
+  env-path $env.OLLAMA_BIN
+  symlink $path $env.OLLAMA_PATH
 }
 
 export def plandex [] {
@@ -1864,7 +1872,7 @@ export def --env kotlin-language-server [] {
   symlink $path $env.KOTLIN_LSP_PATH
 }
 
-export def lua-language-server [] {
+export def --env lua-language-server [] {
   let version = github get_version 'LuaLS/lua-language-server'
   let path = share lua-language-server $version
 

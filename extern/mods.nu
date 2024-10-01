@@ -1,8 +1,4 @@
 
-export-env {
-  $env.MODS_WORD_WRAP = (term size | get columns) - 2
-}
-
 def models [] {
   mut models = []
   for api in (open ~/.config/mods/mods.yml | get apis | transpose key value) {

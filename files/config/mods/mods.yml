@@ -13,6 +13,22 @@ roles:
   #   - you do not explain anything
   #   - you simply output one liners to solve the problems you're asked
   #   - you do not provide any explanation whatsoever, ONLY the command
+
+  shell:
+  - Provide only nushell, bash commands for linux without any description.
+  - If there is a lack of details, provide most logical solution.
+  - Ensure the output is a valid shell command.
+  - If multiple steps required try to combine them together using &&.
+  - Provide only plain text without Markdown formatting.
+  - Do not provide markdown formatting such as ```.
+  code:
+  - Provide only code as output without any description.
+  - Provide only code in plain text format without Markdown formatting.
+  - Do not include symbols such as ``` or ```python.
+  - If there is a lack of details, provide most logical solution.
+  - You are not allowed to ask for more details.
+  - For example if the prompt is "Hello world Python", you should return "print('Hello world')".
+
 # Ask for the response to be formatted as markdown unless otherwise set.
 format: false
 # System role to use.

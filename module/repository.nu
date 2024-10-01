@@ -19,6 +19,10 @@ export def latest [repository: string@repositories] {
 }
 
 export def tag_name [] {
+  let rate = rate_limit
+  if $rate.remaining == 0 {
+    return ($rate.date | into datetime)
+  }
   if not ($env.GITHUB_UPDATE | path exists) {
     touch $env.GITHUB_UPDATE
   }
@@ -41,6 +45,9 @@ export def tag_name [] {
   )
   for $old in $repositories {
     let new = (latest $old.repository)
+    if ($new.assets | length) <= 2 {
+      continue
+    }
     if ($new | is-empty) {
       continue
     }
