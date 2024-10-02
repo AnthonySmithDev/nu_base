@@ -23,7 +23,6 @@ export def helix [ --global(-g) --editor ] {
 
 export def nvim [] {
   let version = github get_version 'neovim/neovim'
-
   let path = share nvim $version
 
   if (no-exist $path) {
@@ -167,8 +166,6 @@ export def zls [] {
 
 export def broot [] {
   let version = github get_version 'Canop/broot'
-
-  let bin = bin broot
   let path = share broot $version
 
   if (no-exist $path) {
@@ -177,13 +174,11 @@ export def broot [] {
     umv -d 'broot' -f 'x86_64-linux/broot' -p $path
   }
 
-  symlink $path $bin
+  bind broot $path
 }
 
 export def mirrord [] {
   let version = github get_version 'metalbear-co/mirrord'
-
-  let bin = bin mirrord
   let path = share mirrord $version
 
   if (no-exist $path) {
@@ -192,13 +187,11 @@ export def mirrord [] {
     umv -f mirrord -p $path
   }
 
-  symlink $path $bin
+  bind mirrord $path
 }
 
 export def gitu [] {
   let version = github get_version 'altsem/gitu'
-
-  let bin = bin gitu
   let path = share gitu $version
 
   if (no-exist $path) {
@@ -207,13 +200,11 @@ export def gitu [] {
     umv -d $'gitu-v($version)-x86_64-unknown-linux-gnu' -f 'gitu' -p $path
   }
 
-  symlink $path $bin
+  bind gitu $path
 }
 
 export def fm [] {
   let version = github get_version 'mistakenelf/fm'
-
-  let bin = bin fm
   let path = share fm $version
 
   if (no-exist $path) {
@@ -222,13 +213,11 @@ export def fm [] {
     umv -d $'fm_linux_amd64' -f 'fm' -p $path
   }
 
-  symlink $path $bin
+  bind fm $path
 }
 
 export def superfile [] {
   let version = github get_version 'yorukot/superfile'
-
-  let bin = bin spf
   let path = share spf $version
 
   if (no-exist $path) {
@@ -237,13 +226,11 @@ export def superfile [] {
     umv -d dist -f $'superfile-linux-v($version)-amd64/spf' -p $path
   }
 
-  symlink $path $bin
+  bind spf $path
 }
 
 export def zk [] {
   let version = github get_version 'zk-org/zk'
-
-  let bin = bin zk
   let path = share zk $version
 
   if (no-exist $path) {
@@ -252,13 +239,11 @@ export def zk [] {
     umv -d $'zk_linux_amd64' -f 'zk' -p $path
   }
 
-  symlink $path $bin
+  bind zk $path
 }
 
 export def hostctl [] {
   let version = github get_version 'guumaster/hostctl'
-
-  let bin = bin hostctl
   let path = share hostctl $version
 
   if (no-exist $path) {
@@ -267,13 +252,11 @@ export def hostctl [] {
     umv -d "hostctl_linux" -f hostctl -p $path
   }
 
-  symlink $path $bin
+  bind hostctl $path
 }
 
 export def bat [] {
   let version = github get_version 'sharkdp/bat'
-
-  let bin = bin bat
   let path = share bat $version
 
   if (no-exist $path) {
@@ -282,7 +265,7 @@ export def bat [] {
     umv -d $'bat-v($version)-x86_64-unknown-linux-gnu' -f 'bat' -p $path
   }
 
-  symlink $path $bin
+  bind bat $path
 }
 
 export def gdu [] {
@@ -339,8 +322,6 @@ export def mouseless [] {
 
 export def websocat [] {
   let version = github get_version 'vi/websocat'
-
-  let bin = bin websocat
   let path = share websocat $version
 
   if (no-exist $path) {
@@ -349,7 +330,7 @@ export def websocat [] {
     umv -f websocat -p $path
   }
 
-  symlink $path $bin
+  bind websocat $path
 }
 
 export def gum [] {
@@ -362,13 +343,11 @@ export def gum [] {
     umv -d gum_($version)_Linux_x86_64 -f gum -p $path
   }
 
-  bind -r gum $path
+  bind gum $path
 }
 
 export def mods [] {
   let version = github get_version 'charmbracelet/mods'
-
-  let bin = bin mods
   let path = share mods $version
 
   if (no-exist $path) {
@@ -377,13 +356,11 @@ export def mods [] {
     umv -d mods_($version)_Linux_x86_64 -f mods -p $path
   }
 
-  symlink $path $bin
+  bind mods $path
 }
 
 export def glow [] {
   let version = github get_version 'charmbracelet/glow'
-
-  let bin = bin glow
   let path = share glow $version
 
   if (no-exist $path) {
@@ -392,13 +369,11 @@ export def glow [] {
     umv -d glow_($version)_Linux_x86_64 -f glow -p $path
   }
 
-  symlink $path $bin
+  bind glow $path
 }
 
 export def soft [] {
   let version = github get_version 'charmbracelet/soft-serve'
-
-  let bin = bin soft
   let path = share soft $version
 
   if (no-exist $path) {
@@ -407,13 +382,11 @@ export def soft [] {
     umv -d soft-serve_($version)_Linux_x86_64 -f soft -p $path
   }
 
-  symlink $path $bin
+  bind soft $path
 }
 
 export def vhs [] {
   let version = github get_version 'charmbracelet/vhs'
-
-  let bin = bin vhs
   let path = share vhs $version
 
   if (no-exist $path) {
@@ -422,13 +395,11 @@ export def vhs [] {
     umv -d vhs_($version)_Linux_x86_64 -f vhs -p $path
   }
 
-  symlink $path $bin
+  bind vhs $path
 }
 
 export def freeze [] {
   let version = github get_version 'charmbracelet/freeze'
-
-  let bin = bin freeze
   let path = share freeze $version
 
   if (no-exist $path) {
@@ -437,13 +408,11 @@ export def freeze [] {
     umv -d freeze_($version)_Linux_x86_64 -f freeze -p $path
   }
 
-  symlink $path $bin
+  bind freeze $path
 }
 
 export def melt [] {
   let version = github get_version 'charmbracelet/melt'
-
-  let bin = bin melt
   let path = share melt $version
 
   if (no-exist $path) {
@@ -452,7 +421,7 @@ export def melt [] {
     umv -d melt_($version)_Linux_x86_64 -f melt -p $path
   }
 
-  symlink $path $bin
+  bind melt $path
 }
 
 export def skate [] {
@@ -470,8 +439,6 @@ export def skate [] {
 
 export def amber [] {
   let version = github get_version 'dalance/amber'
-
-  let bin = bin amber
   let path = share amber $version
 
   if (no-exist $path) {
@@ -480,88 +447,76 @@ export def amber [] {
     umv -d 'amber-x86_64-lnx' -p $path
   }
 
-  symlink $path $bin
+  symlink $path $env.AMBER_BIN
 }
 
 export def obsidian-cli [] {
   let version = "0.1.6"
-
-  let bin = bin obs
   let path = share obs $version
 
   if (no-exist $path) {
     https download $'https://github.com/Yakitrak/obsidian-cli/releases/download/v($version)/obsidian-cli_($version)_linux_amd64.tar.gz'
     extract tar $"obsidian-cli_($version)_linux_amd64.tar.gz" -d "obsidian-cli_linux_amd64"
-    umv -d 'obsidian-cli_linux_amd64' -f 'obs' -p $path
+    umv -d obsidian-cli_linux_amd64 -f obs -p $path
   }
 
-  symlink $path $bin
+  bind obs $path
 }
 
 export def lazygit [] {
   let version = github get_version 'jesseduffield/lazygit'
-
-  let bin = bin lazygit
   let path = share lazygit $version
 
   if (no-exist $path) {
     https download $'https://github.com/jesseduffield/lazygit/releases/download/v($version)/lazygit_($version)_Linux_x86_64.tar.gz'
     extract tar $'lazygit_($version)_Linux_x86_64.tar.gz' -d 'lazygit_Linux_x86_64'
-    umv -d 'lazygit_Linux_x86_64' -f 'lazygit' -p $path
+    umv -d lazygit_Linux_x86_64 -f lazygit -p $path
   }
 
-  symlink $path $bin
+  bind lazygit $path
 }
 
 export def lazydocker [] {
   let version = github get_version 'jesseduffield/lazydocker'
-
-  let bin = bin lazydocker
   let path = share lazydocker $version
 
   if (no-exist $path) {
     https download $'https://github.com/jesseduffield/lazydocker/releases/download/v($version)/lazydocker_($version)_Linux_x86_64.tar.gz'
     extract tar $'lazydocker_($version)_Linux_x86_64.tar.gz' -d 'lazydocker_Linux_x86_64'
-    umv -d 'lazydocker_Linux_x86_64' -f 'lazydocker' -p $path
+    umv -d lazydocker_Linux_x86_64 -f lazydocker -p $path
   }
 
-  symlink $path $bin
+  bind lazydocker $path
 }
 
 export def jless [] {
   let version = github get_version 'PaulJuliusMartinez/jless'
-
-  let bin = bin jless
   let path = share jless $version
 
   if (no-exist $path) {
     https download $'https://github.com/PaulJuliusMartinez/jless/releases/download/v($version)/jless-v($version)-x86_64-unknown-linux-gnu.zip'
     extract zip $'jless-v($version)-x86_64-unknown-linux-gnu.zip' -d 'jless-x86_64-unknown-linux-gnu'
-    umv -d 'jless-x86_64-unknown-linux-gnu' -f 'jless' -p $path
+    umv -d jless-x86_64-unknown-linux-gnu -f jless -p $path
   }
 
-  symlink $path $bin
+  bind jless $path
 }
 
 export def silicon [] {
   let version = github get_version 'Aloxaf/silicon'
-
-  let bin = bin silicon
   let path = share silicon $version
 
   if (no-exist $path) {
     https download $'https://github.com/Aloxaf/silicon/releases/download/v($version)/silicon-v($version)-x86_64-unknown-linux-gnu.tar.gz'
     extract tar $'silicon-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-    umv -f 'silicon' -p $path
+    umv -f silicon -p $path
   }
 
-  symlink $path $bin
+  bind silicon $path
 }
 
 export def dasel [] {
   let version = github get_version 'TomWright/dasel'
-
-  let bin = bin dasel
   let path = share dasel $version
 
   if (no-exist $path) {
@@ -570,7 +525,7 @@ export def dasel [] {
     umv -f dasel -p $path
   }
 
-  symlink $path $bin
+  bind share $path
 }
 
 export def pueue [] {
@@ -599,8 +554,6 @@ export def pueue [] {
 
 export def delta [] {
   let version = github get_version 'dandavison/delta'
-
-  let bin = bin delta
   let path = share delta $version
 
   if (no-exist $path) {
@@ -609,13 +562,11 @@ export def delta [] {
     umv -d $'delta-($version)-x86_64-unknown-linux-gnu' -f 'delta' -p $path
   }
 
-  symlink $path $bin
+  bind delta $path
 }
 
 export def difftastic [] {
   let version = github get_version 'Wilfred/difftastic'
-
-  let bin = bin difft
   let path = share difft $version
 
   if (no-exist $path) {
@@ -624,13 +575,11 @@ export def difftastic [] {
     umv -d difftastic -f difft -p $path
   }
 
-  symlink $path $bin
+  bind difft $path
 }
 
 export def bottom [] {
   let version = github get_version 'ClementTsang/bottom'
-
-  let bin = bin btm
   let path = share btm $version
 
   if (no-exist $path) {
@@ -639,13 +588,11 @@ export def bottom [] {
     umv -d 'bottom_x86_64-unknown-linux-gnu' -f 'btm' -p $path
   }
 
-  symlink $path $bin
+  bind btm $path
 }
 
 export def ttyper [] {
   let version = github get_version 'max-niederman/ttyper'
-
-  let bin = bin ttyper
   let path = share ttyper $version
 
   if (no-exist $path) {
@@ -654,13 +601,11 @@ export def ttyper [] {
     umv -d 'ttyper-x86_64-unknown-linux-gnu' -f 'ttyper' -p $path
   }
 
-  symlink $path $bin
+  bind ttyper $path
 }
 
 export def qrcp [] {
   let version = github get_version 'claudiodangelis/qrcp'
-
-  let bin = bin qrcp
   let path = share qrcp $version
 
   if (no-exist $path) {
@@ -669,13 +614,11 @@ export def qrcp [] {
     umv -d 'qrcp_linux_amd64' -f 'qrcp' -p $path
   }
 
-  symlink $path $bin
+  bind qrcp $path
 }
 
 export def usql [] {
   let version = github get_version 'xo/usql'
-
-  let bin = bin usql
   let path = share usql $version
 
   if (no-exist $path) {
@@ -684,13 +627,11 @@ export def usql [] {
     umv -d 'usql-linux-amd64' -f 'usql' -p $path
   }
 
-  symlink $path $bin
+  bind usql $path
 }
 
 export def atlas [--eula] {
   let version = github get_version 'ariga/atlas'
-
-  let bin = bin atlas
   let path = share atlas $version
 
   if (no-exist $path) {
@@ -704,21 +645,24 @@ export def atlas [--eula] {
     umv -f atlas -p $path
   }
 
-  symlink $path $bin
+  bind atlas $path
 }
 
 export def gotty [] {
   let version = github get_version 'yudai/gotty'
+  let path = share atlas $version
 
-  https download $'https://github.com/yudai/gotty/releases/download/v($version)/gotty_linux_amd64.tar.gz'
-  extract tar gotty_linux_amd64.tar.gz
-  umv -f gotty
+  if (no-exist $path) {
+    https download $'https://github.com/yudai/gotty/releases/download/v($version)/gotty_linux_amd64.tar.gz'
+    extract tar gotty_linux_amd64.tar.gz
+    umv -f gotty -p $path
+  }
+
+  bind gotty $path
 }
 
 export def ttyd [] {
   let version = github get_version 'tsl0922/ttyd'
-
-  let bin = bin ttyd
   let path = share ttyd $version
 
   if (no-exist $path) {
@@ -727,13 +671,11 @@ export def ttyd [] {
     umv -f ttyd -p $path
   }
 
-  symlink $path $bin
+  bind ttyd $path
 }
 
 export def tty-share [] {
   let version = github get_version 'elisescu/tty-share'
-
-  let bin = bin tty-share
   let path = share tty-share $version
 
   if (no-exist $path) {
@@ -742,13 +684,11 @@ export def tty-share [] {
     umv -f tty-share -p $path
   }
 
-  symlink $path $bin
+  bind tty-share $path
 }
 
 export def upterm [] {
   let version = github get_version 'owenthereal/upterm'
-
-  let bin = bin upterm
   let path = share upterm $version
 
   if (no-exist $path) {
@@ -757,7 +697,7 @@ export def upterm [] {
     umv -d 'upterm_linux_amd64' -f 'upterm' -p $path
   }
 
-  symlink $path $bin
+  bind upterm $path
 }
 
 export def kanata [] {
@@ -769,18 +709,21 @@ export def kanata [] {
     chmod 777 kanata
     umv -f kanata -p $path
   }
-  # sudo ./kanata --cfg kanata.kbd
+
   bind -r kanata $path
 }
 
 export def mongosh [] {
   let version = "2.3.1"
-  https download $"https://downloads.mongodb.com/compass/mongosh-($version)-linux-x64.tgz"
-  extract tar $"mongosh-($version)-linux-x64.tgz"
-  chmod 777 $"mongosh-($version)-linux-x64/bin/mongosh"
-  sudo cp $"mongosh-($version)-linux-x64/bin/mongosh" /usr/local/bin/
-  sudo cp $"mongosh-($version)-linux-x64/bin/mongosh_crypt_v1.so" /usr/local/lib/
-  rm -rf $"mongosh-($version)-linux-x64"
+  let path = share mongosh $version
+
+  if (no-exist $path) {
+    https download $"https://downloads.mongodb.com/compass/mongosh-($version)-linux-x64.tgz"
+    extract tar $"mongosh-($version)-linux-x64.tgz"
+    mv $"mongosh-($version)-linux-x64/bin" $path
+  }
+
+  symlink $path $env.MONGOSH_BIN
 }
 
 export def shell2http [] {
@@ -825,8 +768,6 @@ export def navi [] {
 
 export def bore [] {
   let version = github get_version 'ekzhang/bore'
-
-  let bin = bin bore
   let path = share bore $version
 
   if (no-exist $path) {
@@ -835,7 +776,7 @@ export def bore [] {
     umv -f bore -p $path
   }
 
-  symlink $path $bin
+  bind bore $path
 }
 
 export def rclone [] {
@@ -909,8 +850,6 @@ export def jqp [] {
 
 export def lux [] {
   let version = github get_version 'iawia002/lux'
-
-  let bin = bin lux
   let path = share lux $version
 
   if (no-exist $path) {
@@ -919,7 +858,7 @@ export def lux [] {
     umv -f lux -p $path
   }
 
-  symlink $path $bin
+  bind lux $path
 }
 
 export def qrterminal [] {
@@ -932,8 +871,6 @@ export def qrterminal [] {
 
 export def genact [] {
   let version = github get_version 'svenstaro/genact'
-
-  let bin = bin genact
   let path = share genact $version
 
   if (no-exist $path) {
@@ -942,7 +879,7 @@ export def genact [] {
     umv -f genact -p $path
   }
 
-  symlink $path $bin
+  bind genact $path
 }
 
 export def ouch [] {
@@ -955,8 +892,6 @@ export def ouch [] {
 
 export def lsd [] {
   let version = github get_version 'lsd-rs/lsd'
-
-  let bin = bin lsd
   let path = share lsd $version
 
   if (no-exist $path) {
@@ -965,13 +900,11 @@ export def lsd [] {
     umv -d $'lsd-v($version)-x86_64-unknown-linux-gnu' -f 'lsd' -p $path
   }
 
-  symlink $path $bin
+  bind lsd $path
 }
 
 export def ast-grep [] {
   let version = github get_version 'ast-grep/ast-grep'
-
-  let bin = bin sg
   let path = share sg $version
 
   if (no-exist $path) {
@@ -980,13 +913,11 @@ export def ast-grep [] {
     umv -f sg -p $path
   }
 
-  symlink $path $bin
+  bind sg $path
 }
 
 export def d2 [] {
   let version = github get_version 'terrastruct/d2'
-
-  let bin = bin d2
   let path = share d2 $version
 
   if (no-exist $path) {
@@ -995,7 +926,7 @@ export def d2 [] {
     umv -d $'d2-v($version)' -f 'bin/d2' -p $path
   }
 
-  symlink $path $bin
+  bind d2 $path
 }
 
 export def mdcat [] {
@@ -1035,8 +966,6 @@ export def tgpt [] {
 
 export def slices [] {
   let version = github get_version 'maaslalani/slides'
-
-  let bin = bin slices
   let path = share slices $version
 
   if (no-exist $path) {
@@ -1045,13 +974,11 @@ export def slices [] {
     umv -d slides_linux_amd64 -f slides -p $path
   }
 
-  symlink $path $bin
+  bind slices $path
 }
 
 export def nap [] {
   let version = github get_version 'maaslalani/nap'
-
-  let bin = bin nap
   let path = share nap $version
 
   if (no-exist $path) {
@@ -1060,13 +987,11 @@ export def nap [] {
     umv -d nap_linux_amd64 -f nap -p $path
   }
 
-  symlink $path $bin
+  bind nap $path
 }
 
 export def invoice [] {
   let version = github get_version 'maaslalani/invoice'
-
-  let bin = bin invoice
   let path = share invoice $version
 
   if (no-exist $path) {
@@ -1075,7 +1000,7 @@ export def invoice [] {
     umv -d invoice_linux_amd64 -f invoice -p $path
   }
 
-  symlink $path $bin
+  bind invoice $path
 }
 
 export def clangd [] {
@@ -1101,8 +1026,6 @@ export def coreutils [] {
 
 export def carapace [] {
   let version = github get_version 'rsteube/carapace-bin'
-
-  let bin = bin carapace
   let path = share carapace $version
 
   if (no-exist $path) {
@@ -1111,7 +1034,7 @@ export def carapace [] {
     umv -d 'carapace-bin_linux_amd64' -f 'carapace' -p $path
   }
 
-  symlink $path $bin
+  bind carapace $path
 }
 
 export def bombardier [] {
@@ -1124,8 +1047,6 @@ export def bombardier [] {
 
 export def ruff [] {
   let version = github get_version 'astral-sh/ruff'
-
-  let bin = bin ruff
   let path = share ruff $version
 
   if (no-exist $path) {
@@ -1134,7 +1055,7 @@ export def ruff [] {
     umv -f ruff -p $path
   }
 
-  symlink $path $bin
+  bidn ruff $path
 }
 
 export def micro [] {
@@ -1187,8 +1108,6 @@ export def duf [] {
 
 export def github [] {
   let version = github get_version 'cli/cli'
-
-  let bin = bin gh
   let path = share gh $version
 
   if (no-exist $path) {
@@ -1197,13 +1116,11 @@ export def github [] {
     umv -d gh_($version)_linux_amd64 -f bin/gh -p $path
   }
 
-  symlink $path $bin
+  bind gh $path
 }
 
 export def gitlab [] {
   let version = "1.46.1"
-
-  let bin = bin glab
   let path = share glab $version
 
   if (no-exist $path) {
@@ -1212,7 +1129,7 @@ export def gitlab [] {
     umv -d glab_Linux_x86_64 -f bin/glab -p $path
   }
 
-  symlink $path $bin
+  bind glab $path
 }
 
 export def dive [] {
@@ -1233,8 +1150,6 @@ export def hyperfine [] {
 
 export def taskell [] {
   let version = github get_version 'smallhadroncollider/taskell'
-
-  let bin = bin taskell
   let path = share taskell $version
 
   if (no-exist $path) {
@@ -1243,13 +1158,11 @@ export def taskell [] {
     umv -d taskell_x86-64-linux -f taskell -p $path
   }
 
-  symlink $path $bin
+  bind taskell $path
 }
 
 export def kubectl [--install] {
   let version = http get https://dl.k8s.io/release/stable.txt
-
-  let bin = bin kubectl
   let path = share kubectl $version
 
   if (no-exist $path) {
@@ -1262,13 +1175,11 @@ export def kubectl [--install] {
     sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
   }
 
-  symlink $path $bin
+  bind kubectl $path
 }
 
 export def k9s [] {
   let version = github get_version 'derailed/k9s'
-
-  let bin = bin k9s
   let path = share k9s $version
 
   if (no-exist $path) {
@@ -1277,7 +1188,7 @@ export def k9s [] {
     umv -d k9s_Linux_amd64 -f k9s -p $path
   }
 
-  symlink $path $bin
+  bind k9s $path
 }
 
 export def bettercap [] {
@@ -1342,8 +1253,6 @@ export def --env ollama [] {
 
 export def plandex [] {
   let version = github get_version 'plandex-ai/plandex'
-
-  let bin = bin plandex
   let path = share plandex $version
 
   if (no-exist $path) {
@@ -1352,7 +1261,7 @@ export def plandex [] {
     umv -d plandex_linux_amd64 -f plandex -p $path
   }
 
-  symlink $path $bin
+  bind plandex $path
 }
 
 export def localAI [] {
@@ -1405,8 +1314,8 @@ export def volta [--node] {
 
 export def fvm [] {
   let version = github get_version 'leoafarias/fvm'
-
   let path = share fvm $version
+
   if (no-exist $path) {
     https download $'https://github.com/leoafarias/fvm/releases/download/($version)/fvm-($version)-linux-x64.tar.gz'
     extract tar $'fvm-($version)-linux-x64.tar.gz'
@@ -1418,8 +1327,6 @@ export def fvm [] {
 
 export def lapce [] {
   let version = github get_version 'lapce/lapce'
-
-  let bin = bin lapce
   let path = share lapce $version
 
   if (no-exist $path) {
@@ -1428,13 +1335,13 @@ export def lapce [] {
     umv -d Lapce -f lapce -p $path
   }
 
-  symlink $path $bin
+  bind lapce $path
 }
 
 export def vscodium [] {
   let version = github get_version 'VSCodium/vscodium'
-
   let path = share vscodium $version
+
   if (no-exist $path) {
     https download $'https://github.com/VSCodium/vscodium/releases/download/($version)/VSCodium-linux-x64-($version).tar.gz'
     extract tar $'VSCodium-linux-x64-($version).tar.gz' -d vscodium
@@ -1450,8 +1357,8 @@ export def zed [] {
 
 export def code-server [] {
   let version = github get_version 'coder/code-server'
-
   let path = share code-server $version
+
   if (no-exist $path) {
     https download $'https://github.com/coder/code-server/releases/download/v($version)/code-server-($version)-linux-amd64.tar.gz'
     extract tar $'code-server-($version)-linux-amd64.tar.gz'
@@ -1524,8 +1431,8 @@ export def dijo [] {
 
 export def ventoy [] {
   let version = '1.0.98'
-
   let path = share ventoy $version
+
   if (no-exist $path) {
     https download $'https://github.com/ventoy/Ventoy/releases/download/v($version)/ventoy-($version)-linux.tar.gz'
     extract tar $'ventoy-($version)-linux.tar.gz'
@@ -1536,9 +1443,7 @@ export def ventoy [] {
 }
 
 export def stash [] {
-  let version = '0.26.2'
-
-  let bin = bin stash
+  let version = '0.27.0'
   let path = share stash $version
 
   if (no-exist $path) {
@@ -1547,7 +1452,7 @@ export def stash [] {
     umv -f stash -p $path
   }
 
-  symlink $path $bin
+  bind stash $path
 }
 
 export def AdGuardHome [] {
@@ -1578,8 +1483,6 @@ export def superhtml [] {
 
 export def mitmproxy [] {
   let version = github get_version 'mitmproxy/mitmproxy'
-
-  let bin = bin mitmproxy
   let path = share mitmproxy $version
 
   if (no-exist $path) {
@@ -1588,13 +1491,11 @@ export def mitmproxy [] {
     umv -d 'mitmproxy' -p $path
   }
 
-  symlink $path $bin
+  symlink $path $env.MITMPROXY_BIN
 }
 
 export def hetty [] {
   let version = github get_version 'dstotijn/hetty'
-
-  let bin = bin hetty
   let path = share hetty $version
 
   if (no-exist $path) {
@@ -1603,13 +1504,11 @@ export def hetty [] {
     umv -d 'hetty' -f 'hetty' -p $path
   }
 
-  symlink $path $bin
+  bind hetty $path
 }
 
 export def fclones [] {
   let version = github get_version 'pkolaczk/fclones'
-
-  let bin = bin fclones
   let path = share fclones $version
 
   if (no-exist $path) {
@@ -1619,13 +1518,11 @@ export def fclones [] {
     rm -rf target
   }
 
-  symlink $path $bin
+  bind fclones $path
 }
 
 export def nano-work-server [] {
   let version = github get_version 'nanocurrency/nano-work-server'
-
-  let bin = bin nano-work-server
   let path = share nano-work-server $version
 
   if (no-exist $path) {
@@ -1634,11 +1531,10 @@ export def nano-work-server [] {
     umv -f nano-work-server -p $path
   }
 
-  symlink $path $bin
+  bind nano-work-server $path
 }
 
 export def devtunnel [] {
-  let bin = bin devtunnel
   let path = share devtunnel latest
 
   if (no-exist $path) {
@@ -1647,11 +1543,10 @@ export def devtunnel [] {
     umv -f devtunnel -p $path
   }
 
-  symlink $path $bin
+  bind devtunnel $path
 }
 
 export def cloudflared [] {
-  let bin = bin cloudflared
   let path = share cloudflared latest
 
   if (no-exist $path) {
@@ -1660,11 +1555,10 @@ export def cloudflared [] {
     umv -f cloudflared -p $path
   }
 
-  symlink $path $bin
+  bind cloudflared $path
 }
 
 export def pinggy [] {
-  let bin = bin pinggy
   let path = share pinggy latest
 
   if (no-exist $path) {
@@ -1673,13 +1567,11 @@ export def pinggy [] {
     umv -f pinggy -p $path
   }
 
-  symlink $path $bin
+  bind pinggy $path
 }
 
 export def speedtest [] {
   let version = '1.2.0'
-
-  let bin = bin speedtest
   let path = share speedtest $version
 
   if (no-exist $path) {
@@ -1688,7 +1580,7 @@ export def speedtest [] {
     umv -d 'ookla-speedtest-linux-x86_64' -f 'speedtest' -p $path
   }
 
-  symlink $path $bin
+  bind speedtest $path
 }
 
 export def nix [] {
@@ -1711,8 +1603,15 @@ export def deno [] {
   curl -fsSL https://deno.land/install.sh | sh
 }
 
+def node-versions [] {
+  [
+    (http get https://nodejs.org/download/release/index.json | get version | first | str trim -c 'v')
+    "21.2.0" "20.9.0" "18.18.2"
+  ]
+}
+
 export def --env node [ --latest ] {
-  let versions = ["21.2.0" "20.9.0" "18.18.2"]
+  let versions = node-versions
 
   let version = if $latest {
     ($versions | first)
@@ -1722,7 +1621,7 @@ export def --env node [ --latest ] {
 
   let path = share node $version
   if (no-exist $path) {
-    https download $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz'
+    https download wget $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz'
     extract tar $'node-v($version)-linux-x64.tar.gz'
     umv -d $'node-v($version)-linux-x64' -p $path
   }
@@ -1731,9 +1630,14 @@ export def --env node [ --latest ] {
   symlink $path $env.NODE_PATH
 }
 
+def go-versions [] {
+  [
+    ...(http get https://go.dev/dl/?mode=json | get version)
+  ]
+}
+
 export def --env golang [ --latest ] {
-  # https://go.dev/dl/?mode=json
-  let versions = ['1.22.2' '1.21.5' '1.20.12' '1.20.3' '1.19.13']
+  let versions = go-versions
 
   let version = if $latest {
     ($versions | first)
@@ -1743,8 +1647,8 @@ export def --env golang [ --latest ] {
 
   let path = share go $version
   if (no-exist $path) {
-    https download $'https://go.dev/dl/go($version).linux-amd64.tar.gz'
-    extract tar $'go($version).linux-amd64.tar.gz'
+    https download $'https://go.dev/dl/($version).linux-amd64.tar.gz'
+    extract tar $'($version).linux-amd64.tar.gz'
     umv -d go -p $path
   }
 
@@ -1768,8 +1672,8 @@ export def haskell [ --latest ] {
 
 export def vlang [] {
   let version = 'latest'
-
   let path = share vlang $version
+
   if (no-exist $path) {
     https download $'https://github.com/vlang/v/releases/($version)/download/v_linux.zip'
     extract zip v_linux.zip
@@ -1830,8 +1734,8 @@ export def --env jdtls [] {
 
 export def --env kotlin [] {
   let version = github get_version 'JetBrains/kotlin'
-
   let path = share kotlin $version
+
   if (no-exist $path) {
     https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-compiler-($version).zip"
     extract zip $"kotlin-compiler-($version).zip"
@@ -1844,8 +1748,8 @@ export def --env kotlin [] {
 
 export def --env kotlin-native [] {
   let version = github get_version 'JetBrains/kotlin'
-
   let path = share kotlin-native $version
+
   if (no-exist $path) {
     https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-prebuilt-linux-x86_64-($version).tar.gz"
     extract tar $'kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
@@ -1858,8 +1762,8 @@ export def --env kotlin-native [] {
 
 export def --env kotlin-language-server [] {
   let version = github get_version 'fwcd/kotlin-language-server'
-
   let path = share kotlin-language-server $version
+
   if (no-exist $path) {
     https download $'https://github.com/fwcd/kotlin-language-server/releases/download/($version)/server.zip'
     extract zip server.zip
@@ -1885,13 +1789,13 @@ export def --env lua-language-server [] {
 }
 
 def dart_latest [] {
-  http get https://storage.googleapis.com/dart-archive/channels/stable/release/latest/VERSION  | from json | get version
+  http get https://storage.googleapis.com/dart-archive/channels/stable/release/latest/VERSION | decode | from json | get version
 }
 
 export def --env dart [] {
   let version = (dart_latest)
-
   let path = share dart $version
+
   if (no-exist $path) {
     https download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip'
     extract zip 'dartsdk-linux-x64-release.zip'
@@ -2015,8 +1919,6 @@ export def remote-mouse [] {
 
 export def docker [--group] {
   let version = '26.1.3'
-
-  let bin = bin docker
   let path = share docker $version
 
   if (no-exist $path) {
@@ -2030,7 +1932,7 @@ export def docker [--group] {
     sudo usermod -aG docker $env.USER
   }
 
-  symlink $path $bin
+  symlink $path $env.DOCKER_BIN
 }
 
 export def core [] {
@@ -2058,7 +1960,7 @@ export def core [] {
   gitu
   ttyper
   bottom
-  silicon
+  freeze
   amber
   broot
   usql

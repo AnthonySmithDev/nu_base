@@ -46,6 +46,9 @@ env-path $env.MITMPROXY_BIN
 $env.AMBER_BIN = ($env.USR_LOCAL_BIN | path join amber)
 env-path $env.AMBER_BIN
 
+$env.MONGOSH_BIN = ($env.USR_LOCAL_BIN | path join mongosh)
+env-path $env.MONGOSH_BIN
+
 $env.DOCKER_BIN = ($env.USR_LOCAL_BIN | path join docker)
 env-path $env.DOCKER_BIN
 
