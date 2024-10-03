@@ -702,6 +702,11 @@ export def obs [] {
   sudo apt install -y obs-studio
 }
 
+export def podman [] {
+  sudo apt update
+  sudo apt install -y podman
+}
+
 def filepath [name: string] {
   $env.USR_LOCAL_SHARE_DOWNLOAD | path join $name
 }

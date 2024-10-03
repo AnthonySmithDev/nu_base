@@ -65,3 +65,7 @@ export def vscodium [] {
 export def obs [] {
 	flatpak install -y flathub com.obsproject.Studio
 }
+
+export def podman [] {
+	flatpak install -y flathub io.podman_desktop.PodmanDesktop
+}

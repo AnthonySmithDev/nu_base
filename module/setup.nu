@@ -51,3 +51,8 @@ export def qmk [] {
   ^qmk setup
   sudo cp ~/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
 }
+
+export def podman [] {
+  install apt podman
+  install flathub podman
+}
