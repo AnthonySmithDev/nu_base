@@ -8,9 +8,10 @@ def main [] {
 
   if (external exists apt) {
     install apt flathub
+    install apt discord
     install apt brave
     install apt vieb
-    install apt discord
+    config vieb
   }
 
   # if (confirm Install Regolith:) {
@@ -50,6 +51,7 @@ def main [] {
   config alacritty --theme
 
   config git
+  config helix background
 
   srv init pueued
   srv user pueued start

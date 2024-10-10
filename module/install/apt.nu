@@ -47,6 +47,7 @@ export def dependency [] {
 
   let packages = ([
     # essential
+    wl-clipboard
     build-essential
     pkg-config
     libssl-dev
@@ -64,6 +65,9 @@ export def dependency [] {
     python3-pydantic
     python3-pydbus
     python3-typing-extensions
+
+    # vieb
+    libxss1
 
     # helix
     libc6-dev
@@ -542,10 +546,12 @@ export def docker [] {
     sudo rm $gpg
   }
 
-  sudo install -m 0755 -d /etc/apt/keyrings
-  curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg' |
-  sudo gpg --dearmor -o '/etc/apt/keyrings/docker.gpg' | null
-  sudo chmod a+r '/etc/apt/keyrings/docker.gpg'
+  try {
+    sudo install -m 0755 -d /etc/apt/keyrings
+    curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg' |
+    sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg | null
+    sudo chmod a+r /etc/apt/keyrings/docker.gpg
+  }
 
   let arch = (dpkg --print-architecture)
   let codename = (bash -c '. /etc/os-release && echo "$VERSION_CODENAME"')

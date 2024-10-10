@@ -4,8 +4,8 @@ source ../module/source.nu
 
 def main [] {
   create_dir
+
   nu_source
-  nu_zoxide
   touch ~/.env.nu
 
   if (external exists apt) {
@@ -38,6 +38,8 @@ def main [] {
   config helix
   config nushell
   config zellij --theme
+
+  nu_zoxide
 }
 
 def create_dir [] {

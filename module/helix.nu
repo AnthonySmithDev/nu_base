@@ -1,13 +1,4 @@
 
-export def background [] {
-  let theme = ($env.HELIX_RUNTIME | path join themes/ayu_dark.toml)
-  sed -i '38s/"background"/""/' $theme
-  sed -i '44s/"black"/""/' $theme
-  sed -i '49s/"black"/""/' $theme
-  sed -i '51s/"black"/""/' $theme
-  sed -i '58s/"black"/""/' $theme
-}
-
 export def grammar [] {
   hx --grammar fetch
   hx --grammar build

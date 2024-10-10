@@ -52,7 +52,7 @@ export def podman [] {
 }
 
 export def evremap [file: string@'config files-evremap'] {
-  compile evremap
+  compile evremap --uinput
   config evremap $file
   srv init evremap
 }

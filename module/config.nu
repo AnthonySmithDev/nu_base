@@ -83,6 +83,16 @@ export def bat [] {
 export def helix [] {
   shortcut helix 'config.toml'
   shortcut helix 'languages.toml'
+
+}
+
+export def 'helix background' [] {
+  let theme = ($env.HELIX_RUNTIME | path join themes/ayu_dark.toml)
+  sed -i '38s/"background"/""/' $theme
+  sed -i '44s/"black"/""/' $theme
+  sed -i '49s/"black"/""/' $theme
+  sed -i '51s/"black"/""/' $theme
+  sed -i '58s/"black"/""/' $theme
 }
 
 export def zellij [ --theme(-t) ] {

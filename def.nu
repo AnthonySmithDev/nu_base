@@ -3,11 +3,14 @@ def seed [] {
   cat /dev/urandom | tr -dc '0-9A-F' | head -c 64
 }
 
-export def git_clone [repo: string, path: string] {
+export def git_clone [repo: string, path: string, tag?: string] {
   if ($path | path exists) {
     git -C $path pull
   } else {
     git clone $repo $path
+  }
+  if ($tag | is-not-empty) {
+    git -C $path switch $tag
   }
 }
 

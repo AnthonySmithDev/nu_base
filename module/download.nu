@@ -1430,7 +1430,7 @@ export def dijo [] {
 }
 
 export def ventoy [] {
-  let version = '1.0.98'
+  let version = '1.0.99'
   let path = share ventoy $version
 
   if (no-exist $path) {
