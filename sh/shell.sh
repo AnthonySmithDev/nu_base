@@ -1,1 +1,1 @@
-exec ~/.local/bin/nu
+exec ~/.usr/local/bin/nu

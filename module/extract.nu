@@ -8,7 +8,7 @@ export def tar [
     mkdir $dir
     $args = ($args | append ['-C' $dir])
   }
-  if not (^which gum | is-empty) {
+  if (^which gum | is-not-empty) {
     gum spin --spinner dot --title 'Extract tar...' -- tar ...$args
   } else {
     ^tar ...$args
@@ -25,7 +25,7 @@ export def zip [
     mkdir $dir
     $args = ($args | append ['-d' $dir])
   }
-  if not (^which gum | is-empty) {
+  if (^which gum | is-not-empty) {
     gum spin --spinner dot --title 'Extract zip...' -- unzip ...$args
   } else {
     unzip ...$args

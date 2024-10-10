@@ -22,11 +22,11 @@ def main [] {
   download bat
   download mods
   download glow
+  download freeze
   download soft
   download qrcp
   download jless
   download taskell
-  download silicon
   download lazygit
   download lazydocker
 
@@ -65,13 +65,6 @@ def dev [] {
   install npm dev
   install pipx dev
   install cargo dev
-}
-
-def extra [] {
-  compile mouseless-status
-  download mouseless
-  config mouseless normal
-  startup mouseless
 }
 
 def nu_zoxide [] {

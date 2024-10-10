@@ -58,7 +58,7 @@ export def install [alias: string@alias] {
 }
 
 export def shell [alias: string@alias] {
-  exec $alias 'exec ~/.local/bin/nu -e "source ~/.local/nu_base/source.nu"'
+  exec $alias 'exec ~/.usr/local/bin/nu -e "source ~/.local/nu_base/source.nu"'
 }
 
 export def copy [alias: string@alias, src: string, dest: string] {

@@ -94,7 +94,7 @@ export def helix [--desktop, --global] {
   }
 }
 
-export def evremap [ --service(-s), input ] {
+export def evremap [ --uinput(-u) ] {
   let source = ($env.USR_LOCAL_SOURCE | path join evremap)
   git_clone https://github.com/wez/evremap $source
 
@@ -102,24 +102,16 @@ export def evremap [ --service(-s), input ] {
   cargo build --release --locked --manifest-path $manifest
 
   let src = ($source | path join target release evremap)
-  let dst = ($env.USR_LOCAL_BIN | path join evremap)
 
-  ln -sf $src $dst
+  ln -sf $src ($env.USR_LOCAL_BIN | path join evremap)
+  sudo ln -sf $src /usr/local/bin/
 
-  if $input {
+  if $uinput {
     if not (group-exists input) {
       sudo groupadd uinput
     }
     sudo gpasswd -a $env.USER input
-    'KERNEL=="uinput", GROUP="input"' | sudo tee /etc/udev/rules.d/input.rules
-  }
-
-  if $service {
-    let src = ($env.CONFIG_SYSTEMD_USER_SRC | path join evremap.service)
-    sudo cp -f $src /usr/lib/systemd/system/
-    sudo systemctl daemon-reload
-    sudo systemctl enable evremap.service
-    sudo systemctl start evremap.service
+    'KERNEL=="uinput", GROUP="input"' | sudo tee /etc/udev/rules.d/input.rules | null
   }
 }
 

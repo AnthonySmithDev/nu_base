@@ -123,11 +123,11 @@ export def alacritty [ --theme(-t) ] {
   }
 }
 
-def mouseless-files [] {
+export def files-mouseless [] {
   [normal custom zmk]
 }
 
-export def mouseless [file: string@mouseless-files] {
+export def mouseless [file: string@files-mouseless] {
   print 'User Config: mouseless'
   symlink_file mouseless mouseless $"($file).yaml" config.yaml
 }
@@ -137,11 +137,11 @@ export def kanata [] {
   symlink_file kanata kanata "config.kbd" config.kbd
 }
 
-def evremap-files [] {
-  [logitech redragon]
+export def files-evremap [] {
+  [logitech redragon laptop]
 }
 
-export def evremap [file: string@evremap-files] {
+export def evremap [file: string@files-evremap] {
   print 'User Config: evremap'
   symlink_file evremap evremap $"($file).toml" config.toml
 }
@@ -150,11 +150,11 @@ export def vieb [] {
   shortcut Vieb 'viebrc'
 }
 
-def lanmouse-files [] {
+export def files-lanmouse [] {
   [desktop micro]
 }
 
-export def lanmouse [file: string@lanmouse-files] {
+export def lanmouse [file: string@files-lanmouse] {
   print $'User Config: lan-mouse'
   symlink_file lan-mouse lan-mouse $"($file).toml" config.toml
 }

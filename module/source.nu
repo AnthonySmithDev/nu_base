@@ -28,6 +28,7 @@ use srv.nu
 use nvim.nu
 use setup.nu
 use shalom.nu
+use nerd-font.nu
 
 # use image
 # use gpt.nu
@@ -43,6 +44,5 @@ export module lsp.nu
 export module helix.nu
 export module flutter.nu
 export module laravel.nu
-export module nerd-font.nu
 
 export module virtual

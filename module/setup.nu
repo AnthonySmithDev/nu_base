@@ -40,12 +40,6 @@ export def kotlin [] {
   download kotlin-native
 }
 
-export def mouseless [] {
-  download mouseless
-  config mouseless custom
-  startup mouseless --init
-}
-
 export def qmk [] {
   install pipx qmk
   ^qmk setup
@@ -55,4 +49,16 @@ export def qmk [] {
 export def podman [] {
   install apt podman
   install flathub podman
+}
+
+export def evremap [file: string@'config files-evremap'] {
+  compile evremap
+  config evremap $file
+  srv init evremap
+}
+
+export def mouseless [file: string@'config files-mouseless'] {
+  download mouseless
+  config mouseless $file
+  srv init mouseless
 }
