@@ -1684,34 +1684,24 @@ export def vlang [] {
   symlink $path $env.VLANG_PATH
 }
 
-export def --env java [ --latest(-l) ] {
-  let versions = [
-    [version, build, hash];
-    ['21' '35' 'fd2272bbf8e04c3dbaee13770090416c']
-    ['17' '35' '0d483333a00540d886896bac774ff48b']
-  ]
-
-  let release = if $latest {
-    ($versions | first)
-  } else {
-    let select = choose ($versions | get version)
-    if ($select | is-empty) {
-      return
-    }
-    let element = ($versions | where version == $select)
-    if ($element | is-empty) {
-      return
-    }
-    ($element | first)
+def java-list [] {
+  {
+    '11': 'https://download.java.net/java/ga/jdk11/openjdk-11_linux-x64_bin.tar.gz'
+    '17': 'https://download.java.net/java/GA/jdk17/0d483333a00540d886896bac774ff48b/35/GPL/openjdk-17_linux-x64_bin.tar.gz'
+    '21': 'https://download.java.net/java/GA/jdk21/fd2272bbf8e04c3dbaee13770090416c/35/GPL/openjdk-21_linux-x64_bin.tar.gz'
   }
+}
 
-  let hash = ($release | get hash)
-  let build = ($release | get build)
-  let version = ($release | get version)
+def java-version [] {
+  java-list | columns
+}
 
+export def --env java [ version: string@java-version = '21' ] {
   let path = share java $version
+  let url = (java-list | get $version)
+
   if (no-exist $path) {
-    https download $'https://download.java.net/java/GA/jdk($version)/($hash)/($build)/GPL/openjdk-($version)_linux-x64_bin.tar.gz'
+    https download $url
     extract tar $'openjdk-($version)_linux-x64_bin.tar.gz'
     umv -d $'jdk-($version)' -p $path
   }
@@ -1835,9 +1825,9 @@ export def --env flutter [ --latest(-l) ] {
 }
 
 export def --env android-studio [ --desktop(-d) ] {
-  let version = '2024.1.1.11'
-
+  let version = '2024.2.1.9'
   let path = share android-studio $version
+
   if (no-exist $path) {
     https download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz'
     extract tar $'android-studio-($version)-linux.tar.gz'
@@ -1854,11 +1844,11 @@ export def --env android-studio [ --desktop(-d) ] {
 }
 
 export def --env android-cmdline-tools [] {
-  if not ($env.ANDROID_CMDLINE_TOOLS_PATH | path exists) {
+  if not ($env.ANDROID_CMDLINE_TOOLS | path exists) {
     https download https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
     extract zip commandlinetools-linux-11076708_latest.zip
-    mkdir ($env.ANDROID_CMDLINE_TOOLS_PATH | path dirname)
-    umv -d cmdline-tools -p $env.ANDROID_CMDLINE_TOOLS_PATH
+    mkdir ($env.ANDROID_CMDLINE_TOOLS | path dirname)
+    umv -d cmdline-tools -p $env.ANDROID_CMDLINE_TOOLS
   }
   env-path $env.ANDROID_CMDLINE_TOOLS_BIN
 }

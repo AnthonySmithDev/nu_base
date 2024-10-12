@@ -160,6 +160,7 @@ $env.PIPX_BIN_DIR = ($env.PIPX_HOME | path join bin)
 env-path $env.PIPX_BIN_DIR
 
 $env.ANDROID_HOME = ($env.HOME | path join Android Sdk)
+$env.ANDROID_SDK_ROOT = ($env.HOME | path join Android Sdk)
 
 $env.ANDROID_EMULATOR = ($env.ANDROID_HOME | path join emulator)
 env-path $env.ANDROID_EMULATOR
@@ -167,8 +168,8 @@ env-path $env.ANDROID_EMULATOR
 $env.ANDROID_PLATFORM_TOOLS = ($env.ANDROID_HOME | path join platform-tools)
 env-path $env.ANDROID_PLATFORM_TOOLS
 
-$env.ANDROID_CMDLINE_TOOLS_PATH = ($env.ANDROID_HOME | path join cmdline-tools latest)
-$env.ANDROID_CMDLINE_TOOLS_BIN = ($env.ANDROID_CMDLINE_TOOLS_PATH | path join bin)
+$env.ANDROID_CMDLINE_TOOLS = ($env.ANDROID_HOME | path join cmdline-tools latest)
+$env.ANDROID_CMDLINE_TOOLS_BIN = ($env.ANDROID_CMDLINE_TOOLS | path join bin)
 env-path $env.ANDROID_CMDLINE_TOOLS_BIN
 
 $env.EDITOR = 'hx'

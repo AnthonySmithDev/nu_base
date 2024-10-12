@@ -14,8 +14,8 @@ def main [] {
     install apt docker
   }
 
+  download java
   download node --latest
-  download java --latest
   download rust --latest
   download golang --latest
 

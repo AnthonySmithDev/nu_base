@@ -322,6 +322,10 @@ export def python [] {
 }
 
 export def java [] {
+  # sudo apt install -y openjdk-8-jdk
+  # sudo apt install -y openjdk-11-jdk
+  # sudo apt install -y openjdk-17-jdk
+  # sudo apt install -y openjdk-21-jdk
   sudo apt install -y default-jdk
 }
 

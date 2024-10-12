@@ -293,3 +293,16 @@ def "bulk rename" [] {
     mv -i ($base | path join $src) ($base | path join $dst)
   }
 }
+
+def gradlew-tasks [] {
+  if ('gradlew' | path exists) {
+    return (./gradlew tasks | rg ' - ' | parse '{value} - {description}')
+  }
+  return []
+}
+
+def gradlew [task: string@gradlew-tasks] {
+  if ('gradlew' | path exists) {
+    ./gradlew $task
+  }
+}

@@ -1,6 +1,7 @@
 
 export def create [name: string] {
-  ^avdmanager --silent create avd -n $name -k "system-images;android-35;google_apis;x86_64"
+  ^sdkmanager --install "system-images;android-35;google_apis_playstore;x86_64" # if android >= 28
+  ^avdmanager --silent create avd -n $name -k "system-images;android-35;google_apis_playstore;x86_64"
 }
 
 export def list [] {
