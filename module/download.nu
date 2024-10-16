@@ -622,12 +622,25 @@ export def qrsync [] {
   let path = share qrsync $version
 
   if (no-exist $path) {
-    https download https://github.com/crisidev/qrsync/releases/download/v0.3.0/qrsync-x86_64-unknown-linux-gnu.tar.gz
+    https download $'https://github.com/crisidev/qrsync/releases/download/v($version)/qrsync-x86_64-unknown-linux-gnu.tar.gz'
     extract tar qrsync-x86_64-unknown-linux-gnu.tar.gz
     umv -f qrsync -p $path
   }
 
   bind qrsync $path
+}
+
+export def binsider [] {
+  let version = github get_version 'orhun/binsider'
+  let path = share binsider $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/orhun/binsider/releases/download/v($version)/binsider-($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'binsider-($version)-x86_64-unknown-linux-musl.tar.gz'
+    umv -d $'binsider-($version)' -f binsider -p $path
+  }
+
+  bind binsider $path
 }
 
 export def usql [] {
