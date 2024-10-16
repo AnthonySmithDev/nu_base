@@ -610,11 +610,24 @@ export def qrcp [] {
 
   if (no-exist $path) {
     https download $'https://github.com/claudiodangelis/qrcp/releases/download/($version)/qrcp_($version)_linux_amd64.tar.gz'
-    extract tar $'qrcp_($version)_linux_amd64.tar.gz' -d 'qrcp_linux_amd64'
-    umv -d 'qrcp_linux_amd64' -f 'qrcp' -p $path
+    extract tar qrcp_($version)_linux_amd64.tar.gz -d qrcp_linux_amd64
+    umv -d qrcp_linux_amd64 -f qrcp -p $path
   }
 
   bind qrcp $path
+}
+
+export def qrsync [] {
+  let version = github get_version 'crisidev/qrsync'
+  let path = share qrsync $version
+
+  if (no-exist $path) {
+    https download https://github.com/crisidev/qrsync/releases/download/v0.3.0/qrsync-x86_64-unknown-linux-gnu.tar.gz
+    extract tar qrsync-x86_64-unknown-linux-gnu.tar.gz
+    umv -f qrsync -p $path
+  }
+
+  bind qrsync $path
 }
 
 export def usql [] {

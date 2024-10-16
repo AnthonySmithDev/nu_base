@@ -19,6 +19,7 @@ enable = true
 
 [keys.normal]
 C-r = ":reload"
+C-q = ":quit"
 
 [keys.insert]
 j = { k = "normal_mode" }
