@@ -175,7 +175,7 @@ env-path $env.ANDROID_CMDLINE_TOOLS_BIN
 $env.EDITOR = 'hx'
 $env.VISUAL = 'hx'
 # $env.SHELL = ($env.USR_LOCAL_BIN | path join 'nu')
-$env.MANPAGER = "sh -c 'col -bx | bat -l man -p'"
+# $env.MANPAGER = "sh -c 'col -bx | bat -l man -p'"
 $env.SOFT_SERVE_DATA_PATH = ($env.HOME | path join '.soft-server')
 
 let admin_keys = ($env.HOME | path join .ssh/id_ed25519.pub)

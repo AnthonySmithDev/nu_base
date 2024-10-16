@@ -21,7 +21,7 @@ export def latest [repository: string@repositories] {
 export def tag_name [] {
   let rate = rate_limit
   if $rate.remaining == 0 {
-    return ($rate.date | into datetime)
+    return ($rate.date)
   }
   if not ($env.GITHUB_UPDATE | path exists) {
     touch $env.GITHUB_UPDATE

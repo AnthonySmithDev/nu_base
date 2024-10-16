@@ -1,4 +1,4 @@
-version="0.98.0"
+version="0.99.0"
 
 src_dir="$HOME/.usr/local/share"
 src_file="$src_dir/nu_$version"

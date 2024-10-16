@@ -306,3 +306,12 @@ def gradlew [task: string@gradlew-tasks] {
     ./gradlew $task
   }
 }
+
+def "create camare" [] {
+  # https://adityatelange.in/blog/android-phone-webcam-linux/
+  sudo apt install v4l2loopback-dkms v4l2loopback-utils
+  sudo modprobe -v v4l2loopback exclusive_caps=1 card_label="Android Webcam"
+  let n = (ls /dev/video* | length)
+  v4l2-ctl --list-devices
+  scrcpy --no-video --no-playback --video-source=camera --camera-id=0 --camera-size=1920x1080 --v4l2-sink=/dev/video0
+}
