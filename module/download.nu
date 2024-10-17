@@ -489,6 +489,45 @@ export def lazydocker [] {
   bind lazydocker $path
 }
 
+export def lazycli [] {
+  let version = github get_version 'jesseduffield/lazycli'
+  let path = share lazycli $version
+
+  if (no-exist $path) {
+    https download https://github.com/jesseduffield/lazycli/releases/download/v($version)/lazycli-linux-x64.tar.gz
+    extract tar lazycli-linux-x64.tar.gz
+    umv -f lazycli -p $path
+  }
+
+  bind lazycli $path
+}
+
+export def horcrux [] {
+  let version = github get_version 'jesseduffield/horcrux'
+  let path = share horcrux $version
+
+  if (no-exist $path) {
+    https download https://github.com/jesseduffield/horcrux/releases/download/v($version)/horcrux_($version)_Linux_x86_64.tar.gz
+    extract tar horcrux_($version)_Linux_x86_64.tar.gz -d horcrux_Linux_x86_64
+    umv -d horcrux_Linux_x86_64 -f horcrux -p $path
+  }
+
+  bind horcrux $path
+}
+
+export def tweety [] {
+  let version = github get_version 'pomdtr/tweety'
+  let path = share tweety $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/pomdtr/tweety/releases/download/v($version)/tweety-($version)-linux_amd64.tar.gz'
+    extract tar $'tweety-($version)-linux_amd64.tar.gz' -d tweety-linux_amd64
+    umv -d tweety-linux_amd64 -f tweety -p $path
+  }
+
+  bind tweety $path
+}
+
 export def jless [] {
   let version = github get_version 'PaulJuliusMartinez/jless'
   let path = share jless $version
@@ -1146,7 +1185,7 @@ export def github [] {
 }
 
 export def gitlab [] {
-  let version = "1.46.1"
+  let version = "1.48.0"
   let path = share glab $version
 
   if (no-exist $path) {

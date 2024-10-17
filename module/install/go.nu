@@ -91,5 +91,8 @@ export def packages [] {
 		[ extra bit github.com/chriswalz/bit@latest ]
 
 		[ extra slides github.com/maaslalani/slides@latest ]
+		[ extra confetty github.com/maaslalani/confetty@latest ]
+		[ extra gat github.com/koki-develop/gat@latest ]
+		[ extra gambit github.com/maaslalani/gambit@latest ]
 	]
 }
