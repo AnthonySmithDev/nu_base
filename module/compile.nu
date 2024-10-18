@@ -5,7 +5,7 @@ export def alacritty [ --default, --desktop, --manual ] {
   }
 
   let source = ($env.USR_LOCAL_SOURCE | path join alacritty)
-  git_clone https://github.com/alacritty/alacritty.git $source v0.13
+  git_clone https://github.com/alacritty/alacritty.git $source v0.14
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --manifest-path $manifest --release --no-default-features --features=wayland

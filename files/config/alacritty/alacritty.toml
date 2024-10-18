@@ -1,14 +1,14 @@
-import = [
-"~/.config/alacritty/themes/ayu_dark.toml",
-]
 
-[shell]
-program = "nu"
+[general]
+import = [ "themes/ayu_dark.toml" ]
+
+[terminal]
+shell = "nu"
 
 [window]
+decorations = "None"
 opacity = 0.95
 blur = true
-decorations = "None"
 
 [font.normal]
 family = "FiraCode Nerd Font"
