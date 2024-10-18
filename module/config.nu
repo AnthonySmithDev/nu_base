@@ -196,6 +196,16 @@ export def input-remapper [] {
   }
 }
 
+export def cosmic [] {
+  let src = ($env.CONFIG_DIR_REPO | path join cosmic/shortcuts.ron)
+  let dst = ($env.CONFIG_DIR_USER | path join cosmic/com.system76.CosmicSettings.Shortcuts/v1/custom)
+  ln -sf $src $dst
+
+  let src = ($env.CONFIG_DIR_REPO | path join cosmic/cosmic.nu)
+  let dst = ($env.HOME | path join cosmic)
+  ln -sf $src $dst
+}
+
 export def git [] {
   ^git config --global user.name 'Anthony Smith'
   ^git config --global user.email 'anthonyasdeveloper@gmail.com'
