@@ -2073,7 +2073,7 @@ def symlink [src: string, dst: string] {
 
 def bind [name: string, src: string, --root(-r)] {
   if $root {
-    let dst = ($env.USR_ROOT_BIN | path join $name)
+    let dst = ($env.SYS_LOCAL_BIN | path join $name)
     sudo rm -rf $dst
     sudo ln -sf $src $dst
   }

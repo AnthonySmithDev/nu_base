@@ -13,7 +13,8 @@ $env.CONFIG_DIR_ROOT = ('/root' | path join .config)
 $env.CONFIG_SYSTEMD_USER_SRC = ($env.CONFIG_DIR_REPO | path join systemd/user)
 $env.CONFIG_SYSTEMD_USER_DST = ($env.CONFIG_DIR_USER | path join systemd/user)
 
-$env.USR_ROOT_BIN = "/usr/local/bin"
+$env.SYS_LOCAL = "/usr/local"
+$env.SYS_LOCAL_BIN = ($env.SYS_LOCAL | path join bin)
 
 $env.USR_LOCAL = ($env.HOME | path join .usr local)
 $env.USR_LOCAL_BIN = ($env.USR_LOCAL | path join bin)

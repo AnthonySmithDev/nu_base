@@ -11,14 +11,12 @@ export def alacritty [ --default, --desktop, --manual ] {
   cargo build --manifest-path $manifest --release --no-default-features --features=wayland
   # cargo build --manifest-path $manifest --release
 
-  let src = ($source | path join target release alacritty)
-  let dst = ($env.USR_LOCAL_BIN | path join alacritty)
+  let name = "alacritty"
+  let src = ($source | path join target release $name)
+  let dst = ($env.USR_LOCAL_BIN | path join $name)
 
   ln -sf $src $dst
-
-  let bin = "/usr/local/bin/alacritty"
-
-  sudo ln -sf $dst $bin
+  sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
 
   if $default {
     sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $dst 100
@@ -67,20 +65,36 @@ export def nushell [ --global,--plugin ] {
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --workspace --manifest-path $manifest
 
-  let src = ($source | path join target release nu)
-  let dst = ($env.USR_LOCAL_BIN | path join nu)
-
+  let name = 'nu'
+  let src = ($source | path join target release $name)
+  let dst = ($env.USR_LOCAL_BIN | path join $name)
   ln -sf $src $dst
 
-  let bin = "/usr/local/bin/nu"
-
   if $global {
-    sudo ln -sf $dst $bin
+    sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
   }
 
   if $plugin {
     let nu_plugin_query = ($source | path join target release nu_plugin_query)
     nu -c $'plugin add ($nu_plugin_query)'
+  }
+}
+
+export def zellij [ --global,--plugin ] {
+  let source = ($env.USR_LOCAL_SOURCE | path join zellij)
+  git_clone https://github.com/zellij-org/zellij.git $source
+
+  let manifest = ($source | path join Cargo.toml)
+  cargo build --release --locked --manifest-path $manifest
+
+  let name = 'zellij'
+  let src = ($source | path join target release $name)
+  let dst = ($env.USR_LOCAL_BIN | path join $name)
+
+  ln -sf $src $dst
+
+  if $global {
+    sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
   }
 }
 
@@ -95,13 +109,14 @@ export def helix [--desktop, --global] {
     mkdir $env.HELIX_PATH
   }
 
-  let src = ($source | path join target release hx)
-  let dst = ($env.HELIX_PATH | path join hx)
+  let name = 'hx'
+  let src = ($source | path join target release $name)
+  let dst = ($env.HELIX_PATH | path join $name)
 
   ln -sf $src $dst
 
   if $global {
-    sudo ln -sf $dst "/usr/local/bin/hx"
+    sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
   }
 
   cp -r -u -p ($source | path join runtime) $env.HELIX_RUNTIME
@@ -119,10 +134,10 @@ export def evremap [ --uinput(-u) ] {
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --locked --manifest-path $manifest
 
-  let src = ($source | path join target release evremap)
-
-  ln -sf $src ($env.USR_LOCAL_BIN | path join evremap)
-  sudo ln -sf $src /usr/local/bin/
+  let name = 'evremap'
+  let src = ($source | path join target release $name)
+  ln -sf $src ($env.USR_LOCAL_BIN | path join $name)
+  sudo ln -sf $src ($env.SYS_LOCAL_BIN | path join $name)
 
   if $uinput {
     if not (group-exists input) {
@@ -140,11 +155,10 @@ export def ktrl [ --input, --setup, --service ] {
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --locked --manifest-path $manifest
 
-  let src = ($source | path join target release ktrl)
-  let dst = ($env.USR_LOCAL_BIN | path join ktrl)
-
-  ln -sf $src $dst
-  sudo ln -sf $src "/usr/local/bin/"
+  let name = 'ktrl'
+  let src = ($source | path join target release $name)
+  ln -sf $src ($env.USR_LOCAL_BIN | path join $name)
+  sudo ln -sf $src ($env.SYS_LOCAL_BIN | path join $name)
 
   if $input {
     if not (user-exists ktrl) {
