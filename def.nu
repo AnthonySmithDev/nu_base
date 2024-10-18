@@ -14,7 +14,7 @@ export def git_clone [repo: string, path: string, tag?: string] {
   }
 }
 
-export def with-wd [path: string, closure: closure] {
+export def --env with-wd [path: string, closure: closure] {
   let pwd = pwd
   cd $path
   do $closure

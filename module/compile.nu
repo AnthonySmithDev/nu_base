@@ -8,7 +8,8 @@ export def alacritty [ --default, --desktop, --manual ] {
   git_clone https://github.com/alacritty/alacritty.git $source v0.13
 
   let manifest = ($source | path join Cargo.toml)
-  cargo build --release --manifest-path $manifest
+  cargo build --manifest-path $manifest --release --no-default-features --features=wayland
+  # cargo build --manifest-path $manifest --release
 
   let src = ($source | path join target release alacritty)
   let dst = ($env.USR_LOCAL_BIN | path join alacritty)
@@ -25,7 +26,7 @@ export def alacritty [ --default, --desktop, --manual ] {
   }
 
   if $desktop {
-    sudo cp -f ($source | path join extra/logo/alacritty-term.svg /usr/share/pixmaps/Alacritty.svg)
+    sudo cp -f ($source | path join extra/logo/alacritty-term.svg) /usr/share/pixmaps/Alacritty.svg
     sudo desktop-file-install ($source | path join extra/linux/Alacritty.desktop)
     sudo update-desktop-database
   }
@@ -34,11 +35,28 @@ export def alacritty [ --default, --desktop, --manual ] {
     sudo mkdir -p /usr/local/share/man/man1
     sudo mkdir -p /usr/local/share/man/man5
     with-path $source {||
-      bash -c "scdoc < extra/man/alacritty.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null"
-      bash -c "scdoc < extra/man/alacritty-msg.1.scd | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null"
-      bash -c "scdoc < extra/man/alacritty.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz > /dev/null"
-      bash -c "scdoc < extra/man/alacritty-bindings.5.scd | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz > /dev/null"
+      open extra/man/alacritty.1.scd | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz | null
+      open extra/man/alacritty-msg.1.scd | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz | null
+      open extra/man/alacritty.5.scd | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz | null
+      open extra/man/alacritty-bindings.5.scd | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz | null
     }
+  }
+}
+
+export def --env foot [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join foot)
+  git_clone https://codeberg.org/dnkl/foot $path
+
+  with-wd $path {||
+    mkdir bld/release
+    cd bld/release
+
+    $env.CFLAGS = " -O3"
+    meson ... -Ddefault-terminfo=foot -Dterminfo-base-name=foot-extra
+    meson --buildtype=release --prefix=/usr -Db_lto=true ../..
+    ninja
+    ninja test
+    ninja install
   }
 }
 
