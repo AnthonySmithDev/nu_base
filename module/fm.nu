@@ -69,10 +69,11 @@ export def copy [
 }
 
 export def paste [
+    dir?: path
     --mark (-m): string
   ] {
 
-  let destination = ($env.PWD)
+  let destination = ($env.PWD | path join $dir)
 
   let source = (dest $mark)
   if ($source | path exists) {
