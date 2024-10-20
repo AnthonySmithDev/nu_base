@@ -13,6 +13,7 @@ use text.nu
 use ssh.nu
 use sql.nu
 use bg.nu
+use deps.nu
 
 use install
 

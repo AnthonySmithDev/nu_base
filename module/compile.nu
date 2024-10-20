@@ -283,6 +283,8 @@ export def lapce [] {
 }
 
 export def scrcpy [] {
+  deps scrcpy
+
   let path = ($env.USR_LOCAL_SOURCE | path join scrcpy)
   git_clone https://github.com/Genymobile/scrcpy $path
 
@@ -303,24 +305,11 @@ export def mouseless-status [] {
   }
 }
 
-export def audiosource [ --apk ] {
+export def audiosource [] {
   let source = ($env.USR_LOCAL_SOURCE | path join audiosource)
   git_clone https://github.com/gdzx/audiosource $source
 
   let src = ($source | path join audiosource)
   let dst = ($env.USR_LOCAL_BIN | path join audiosource)
   ln -sf $src $dst
-
-  if $apk {
-    let version = "1.2"
-    let filename = $"audiosource_($version).apk"
-    let output = ($source | path join $filename)
-
-    if not ($output | path exists) {
-      https download $"https://github.com/gdzx/audiosource/releases/download/v($version)/audiosource.apk" -o $output
-    }
-
-    $env.AUDIOSOURCE_APK = $output
-    ^audiosource install
-  }
 }

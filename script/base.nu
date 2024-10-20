@@ -9,8 +9,8 @@ def main [] {
   touch ~/.env.nu
 
   if (external exists apt) {
-    install apt core
-    install apt python
+    install apt basic
+    # install apt python
     install apt docker
   }
 
@@ -46,6 +46,7 @@ def create_dir [] {
   mkdir $env.USR_LOCAL_BIN
   mkdir $env.USR_LOCAL_LIB
   mkdir $env.USR_LOCAL_SOURCE
+  mkdir $env.USR_LOCAL_APK
   mkdir $env.USR_LOCAL_SHARE
   mkdir $env.USR_LOCAL_SHARE_FONTS
   mkdir $env.USR_LOCAL_SHARE_DOWNLOAD

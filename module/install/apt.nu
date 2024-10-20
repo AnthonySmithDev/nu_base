@@ -41,9 +41,17 @@ export def sources [] {
   deb http://archive.ubuntu.com/ubuntu jammy main
 }
 
+export def basic [] {
+  let packages = [
+    wl-clipboard
+  ]
+
+  sudo apt install -y ...$packages
+}
+
 export def dependency [] {
-  add-universe
-  add-multiverse
+  # add-universe
+  # add-multiverse
 
   let packages = ([
     # essential
@@ -53,18 +61,6 @@ export def dependency [] {
     libssl-dev
     cmake
 
-    # input remapper
-    gettext
-    gir1.2-gtksource-4
-    libgtksourceview-4-0
-    libgtksourceview-4-common
-    libgtksourceview-4-dev
-    libpython3-dev
-    python3-evdev
-    python3-packaging
-    python3-pydantic
-    python3-pydbus
-    python3-typing-extensions
 
     # vieb
     libxss1
@@ -106,25 +102,6 @@ export def dependency [] {
     libgtk-3-dev
     liblzma-dev
     libstdc++-12-dev
-
-    # scrcpy
-    ffmpeg
-    adb
-    wget
-    gcc
-    git
-    pkg-config
-    meson
-    ninja-build
-    libsdl2-dev
-    libavcodec-dev
-    libsdl2-2.0-0
-    libavdevice-dev
-    libavformat-dev
-    libavutil-dev
-    libswresample-dev
-    libusb-1.0-0
-    libusb-1.0-0-dev
 
     # gnome toolkit
     libcanberra-gtk-module
@@ -189,48 +166,6 @@ export def dependency [] {
 
     # Pake
     libsoup2.4-dev
-
-    # Hyperland
-    meson
-    wget
-    build-essential
-    ninja-build
-    cmake-extras
-    cmake
-    gettext
-    gettext-base
-    fontconfig
-    libfontconfig-dev
-    libffi-dev
-    libxml2-dev
-    libdrm-dev
-    libxkbcommon-x11-dev
-    libxkbregistry-dev
-    libxkbcommon-dev
-    libpixman-1-dev
-    libudev-dev
-    libseat-dev
-    seatd
-    libxcb-dri3-dev
-    libegl-dev
-    libgles2
-    libegl1-mesa-dev
-    glslang-tools
-    libinput-bin
-    libinput-dev
-    libxcb-composite0-dev
-    libavutil-dev
-    libavcodec-dev
-    libavformat-dev
-    libxcb-ewmh2
-    libxcb-ewmh-dev
-    libxcb-present-dev
-    libxcb-icccm4-dev
-    libxcb-render-util0-dev
-    libxcb-res0-dev
-    libxcb-xinput-dev
-    xdg-desktop-portal-wlr
-    libtomlplusplus3t64
 
     # lan-mouse
     libadwaita-1-dev
@@ -339,10 +274,6 @@ export def dart [] {
 
   sudo apt update
   sudo apt install -y dart
-}
-
-export def input-remapper [] {
-  sudo apt install -y input-remapper
 }
 
 export def input-remapper-file [ --force(-f) ] {

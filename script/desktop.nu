@@ -7,17 +7,12 @@ def main [] {
   nerd-font FiraCode
 
   if (external exists apt) {
-    install apt flathub
-    install apt discord
+    # install apt flathub
+    # install apt discord
     install apt brave
-    install apt vieb
-    config vieb
+    # install apt vieb
+    # config vieb
   }
-
-  # if (confirm Install Regolith:) {
-  #   install apt regolith --beta
-  #   config regolith
-  # }
 
   download lsd
   download bat
@@ -43,11 +38,11 @@ def main [] {
   download carapace
   download difftastic
 
-  download gitlab
+  # download gitlab
   download kubectl
   download tailscale
 
-  compile alacritty
+  compile alacritty --desktop
   config alacritty --theme
 
   config git
