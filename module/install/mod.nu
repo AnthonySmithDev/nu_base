@@ -7,3 +7,4 @@ export module go.nu
 export module npm.nu
 export module pipx.nu
 export module snap.nu
+export module apk.nu
