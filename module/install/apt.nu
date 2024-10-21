@@ -607,6 +607,24 @@ export def obsidian [ --force(-f) ] {
   }
 }
 
+export def localsend [ --force(-f) ] {
+  deps localsend
+
+  let version = github get_version 'localsend/localsend'
+  let filename = $"localsend_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download $'https://github.com/localsend/localsend/releases/download/v($version)/LocalSend-($version)-linux-x86-64.deb' $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
 export def waydroid [] {
   let modules = ($env.LOCAL_SHARE | path join modules)
   git_clone https://github.com/choff/anbox-modules.git $modules

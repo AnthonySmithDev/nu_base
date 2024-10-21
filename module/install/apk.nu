@@ -161,7 +161,7 @@ export def sharik [] {
 }
 
 export def localsend [] {
-  let version = '1.15.4'
+  let version = github get_version 'localsend/localsend'
   let name = $'localsend_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
 
@@ -203,6 +203,30 @@ export def ServerBox [] {
 
   if not ($output | path exists) {
     https download $'https://github.com/lollipopkit/flutter_server_box/releases/download/v($version)/ServerBox_v($version)_arm64.apk' -o $output
+  }
+
+  install $output
+}
+
+export def DataBackup [] {
+  let version = '2.0.3'
+  let name = $'DataBackup_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+
+  if not ($output | path exists) {
+    https download $'https://github.com/XayahSuSuSu/Android-DataBackup/releases/download/($version)/DataBackup-($version)-arm64-v8a-foss-release.apk' -o $output
+  }
+
+  install $output
+}
+
+export def stratumauth [] {
+  let version = '1.0.2'
+  let name = $'stratumauth_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+
+  if not ($output | path exists) {
+    https download $'https://github.com/stratumauth/app/releases/download/v($version)/com.stratumauth.app.fdroid.apk' -o $output
   }
 
   install $output

@@ -985,5 +985,12 @@
     "tag_name": "V0.3.0",
     "prerelease": false,
     "created_at": "2020-08-31T15:26:11Z"
+  },
+  {
+    "category": "other",
+    "repository": "localsend/localsend",
+    "tag_name": "1.15.4",
+    "prerelease": false,
+    "created_at": "2020-08-31T15:26:11Z"
   }
 ]

@@ -23,3 +23,13 @@ export def scrcpy [] {
     sudo apt install -y ...$pkgs
   }
 }
+
+export def localsend [] {
+  if (external exists apt) {
+    let pkgs = [
+      gir1.2-appindicator3-0.1
+      gir1.2-ayatanaappindicator3-0.1
+    ]
+    sudo apt install -y ...$pkgs
+  }
+}
