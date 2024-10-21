@@ -325,3 +325,10 @@ def --env y [...args] {
 	}
 	rm -fp $tmp
 }
+
+def gic [lang: string] {
+  let output = 'clipboard.png'
+  wl-paste | freeze --output $output --theme dracula --language $lang
+  open $output | wl-copy
+  rm $output
+}

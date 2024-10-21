@@ -1189,9 +1189,9 @@ export def gitlab [] {
   let path = share glab $version
 
   if (no-exist $path) {
-    https download $"https://gitlab.com/gitlab-org/cli/-/releases/v($version)/downloads/glab_($version)_Linux_x86_64.tar.gz"
-    extract tar $"glab_($version)_Linux_x86_64.tar.gz" -d glab_Linux_x86_64
-    umv -d glab_Linux_x86_64 -f bin/glab -p $path
+    https download https://gitlab.com/gitlab-org/cli/-/releases/v($version)/downloads/glab_($version)_linux_amd64.tar.gz
+    extract tar glab_($version)_linux_amd64.tar.gz -d glab_linux_amd64
+    umv -d glab_linux_amd64 -f bin/glab -p $path
   }
 
   bind glab $path

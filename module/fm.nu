@@ -69,7 +69,7 @@ export def copy [
 }
 
 export def paste [
-    dir?: path
+    dir: path = ''
     --mark (-m): string
   ] {
 

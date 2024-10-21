@@ -37,9 +37,9 @@
   {
     "category": "core",
     "repository": "nushell/nushell",
-    "tag_name": "0.99.0",
+    "tag_name": "0.99.1",
     "prerelease": false,
-    "created_at": "2024-10-15T19:01:08Z"
+    "created_at": "2024-10-20T02:45:05Z"
   },
   {
     "category": "core",
@@ -226,9 +226,9 @@
   {
     "category": "core",
     "repository": "xo/usql",
-    "tag_name": "0.19.3",
+    "tag_name": "0.19.4",
     "prerelease": false,
-    "created_at": "2024-06-10T00:11:32Z"
+    "created_at": "2024-10-21T13:45:52Z"
   },
   {
     "category": "core",
@@ -548,9 +548,9 @@
   {
     "category": "extra",
     "repository": "ast-grep/ast-grep",
-    "tag_name": "0.27.3",
+    "tag_name": "0.28.1",
     "prerelease": false,
-    "created_at": "2024-09-22T18:37:14Z"
+    "created_at": "2024-10-20T05:12:57Z"
   },
   {
     "category": "extra",
@@ -564,28 +564,28 @@
     "repository": "jesseduffield/lazycli",
     "tag_name": "0.1.15",
     "prerelease": false,
-    "created_at": "2024-05-26T04:19:55Z"
+    "created_at": "2021-06-02T07:37:39Z"
   },
   {
     "category": "core",
     "repository": "jesseduffield/horcrux",
     "tag_name": "0.2",
     "prerelease": false,
-    "created_at": "2024-05-26T04:19:55Z"
+    "created_at": "2020-01-03T06:05:51Z"
   },
   {
     "category": "core",
     "repository": "pomdtr/tweety",
     "tag_name": "0.9.0",
     "prerelease": false,
-    "created_at": "2024-05-26T04:19:55Z"
+    "created_at": "2024-01-27T19:31:49Z"
   },
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.3.13",
+    "tag_name": "0.3.14",
     "prerelease": false,
-    "created_at": "2024-09-24T22:18:10Z"
+    "created_at": "2024-10-17T18:59:52Z"
   },
   {
     "category": "other",
@@ -597,9 +597,9 @@
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "2.21.1",
+    "tag_name": "2.22.1",
     "prerelease": false,
-    "created_at": "2024-09-25T10:44:32Z"
+    "created_at": "2024-10-21T09:47:52Z"
   },
   {
     "category": "other",
@@ -618,23 +618,23 @@
   {
     "category": "other",
     "repository": "JetBrains/kotlin",
-    "tag_name": "2.0.20",
+    "tag_name": "2.0.21",
     "prerelease": false,
-    "created_at": "2024-08-20T10:32:15Z"
+    "created_at": "2024-09-26T14:17:58Z"
   },
   {
     "category": "other",
     "repository": "LuaLS/lua-language-server",
-    "tag_name": "3.11.0",
+    "tag_name": "3.11.1",
     "prerelease": false,
-    "created_at": "2024-09-30T09:43:20Z"
+    "created_at": "2024-10-09T06:28:02Z"
   },
   {
     "category": "other",
     "repository": "artempyanykh/marksman",
-    "tag_name": "2023-12-09",
+    "tag_name": "2024-10-07",
     "prerelease": false,
-    "created_at": "2023-12-09T18:39:23Z"
+    "created_at": "2024-10-07T07:55:13Z"
   },
   {
     "category": "other",
@@ -667,9 +667,9 @@
   {
     "category": "other",
     "repository": "VSCodium/vscodium",
-    "tag_name": "1.93.1.24256",
+    "tag_name": "1.94.2.24286",
     "prerelease": false,
-    "created_at": "2024-09-12T18:20:35Z"
+    "created_at": "2024-10-12T19:57:19Z"
   },
   {
     "category": "other",
@@ -690,7 +690,7 @@
     "repository": "veeso/termscp",
     "tag_name": "0.16.0",
     "prerelease": false,
-    "created_at": "2024-07-17T15:05:15Z"
+    "created_at": "2024-10-14T14:36:36Z"
   },
   {
     "category": "other",
@@ -730,9 +730,9 @@
   {
     "category": "other",
     "repository": "sachaos/viddy",
-    "tag_name": "1.1.5",
+    "tag_name": "1.2.0",
     "prerelease": false,
-    "created_at": "2024-09-30T01:01:05Z"
+    "created_at": "2024-10-13T17:59:34Z"
   },
   {
     "category": "other",
@@ -828,9 +828,9 @@
   {
     "category": "other",
     "repository": "rsteube/carapace-bin",
-    "tag_name": "1.0.6",
+    "tag_name": "1.0.7",
     "prerelease": false,
-    "created_at": "2024-09-03T18:59:20Z"
+    "created_at": "2024-10-03T19:08:10Z"
   },
   {
     "category": "other",
@@ -870,16 +870,16 @@
   {
     "category": "other",
     "repository": "cli/cli",
-    "tag_name": "2.58.0",
+    "tag_name": "2.59.0",
     "prerelease": false,
-    "created_at": "2024-10-01T20:18:20Z"
+    "created_at": "2024-10-15T23:26:13Z"
   },
   {
     "category": "other",
     "repository": "astral-sh/ruff",
-    "tag_name": "0.6.8",
+    "tag_name": "0.7.0",
     "prerelease": false,
-    "created_at": "2024-09-26T12:09:03Z"
+    "created_at": "2024-10-17T16:14:21Z"
   },
   {
     "category": "other",
@@ -919,9 +919,9 @@
   {
     "category": "other",
     "repository": "balena-io/etcher",
-    "tag_name": "1.19.21",
+    "tag_name": "1.19.25",
     "prerelease": false,
-    "created_at": "2024-05-30T15:00:39Z"
+    "created_at": "2024-10-10T10:03:37Z"
   },
   {
     "category": "other",
@@ -940,16 +940,16 @@
   {
     "category": "other",
     "repository": "obsidianmd/obsidian-releases",
-    "tag_name": "1.6.7",
+    "tag_name": "1.7.4",
     "prerelease": false,
-    "created_at": "2024-07-18T15:06:38Z"
+    "created_at": "2024-10-16T19:37:31Z"
   },
   {
     "category": "other",
     "repository": "siyuan-note/siyuan",
-    "tag_name": "3.1.8",
+    "tag_name": "3.1.9",
     "prerelease": false,
-    "created_at": "2024-09-29T03:27:56Z"
+    "created_at": "2024-10-15T02:33:50Z"
   },
   {
     "category": "other",
@@ -961,16 +961,16 @@
   {
     "category": "other",
     "repository": "toeverything/AFFiNE",
-    "tag_name": "0.17.2",
+    "tag_name": "0.17.5",
     "prerelease": false,
-    "created_at": "2024-09-27T08:39:41Z"
+    "created_at": "2024-10-21T02:15:04Z"
   },
   {
     "category": "other",
     "repository": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.7.0",
+    "tag_name": "0.7.1",
     "prerelease": false,
-    "created_at": "2024-09-24T12:33:23Z"
+    "created_at": "2024-10-08T10:28:07Z"
   },
   {
     "category": "other",

@@ -38,7 +38,7 @@ def main [] {
   download carapace
   download difftastic
 
-  # download gitlab
+  download gitlab
   download kubectl
   download tailscale
 
