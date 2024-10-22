@@ -40,6 +40,10 @@ def other [] {
   }
 }
 
+def cruster [] {
+  cargo install --git https://github.com/sinKettu/cruster --tag "v0.7.2"
+}
+
 export def packages [] {
   [
     [ category name features]; 

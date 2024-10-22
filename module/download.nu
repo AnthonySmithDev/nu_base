@@ -996,10 +996,15 @@ export def d2 [] {
 
 export def mdcat [] {
   let version = github get_version 'swsnr/mdcat'
+  let path = share mdcat $version
 
-  https download $'https://github.com/swsnr/mdcat/releases/download/($version)/($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'($version)-x86_64-unknown-linux-musl.tar.gz'
-  umv -d $'($version)-x86_64-unknown-linux-musl' -f 'mdcat'
+  if (no-exist $path) {
+    https download $'https://github.com/swsnr/mdcat/releases/download/($version)/($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'($version)-x86_64-unknown-linux-musl.tar.gz'
+    umv -d $'($version)-x86_64-unknown-linux-musl' -f 'mdcat' -p $path
+  }
+
+  bind mdcat $path
 }
 
 export def chatgpt [] {
@@ -1141,10 +1146,28 @@ export def dufs [] {
 
 export def miniserve [] {
   let version = github get_version 'svenstaro/miniserve'
+  let path = share miniserve $version
 
-  https download $'https://github.com/svenstaro/miniserve/releases/download/v($version)/miniserve-($version)-x86_64-unknown-linux-gnu' -o miniserve
-  chmod 755 miniserve
-  umv -f miniserve
+  if (no-exist $path) {
+    https download $'https://github.com/svenstaro/miniserve/releases/download/v($version)/miniserve-($version)-x86_64-unknown-linux-gnu' -o miniserve
+    chmod 755 miniserve
+    umv -f miniserve -p $path
+  }
+
+  bind miniserve $path
+}
+
+export def simple-http-server [] {
+  let version = github get_version 'TheWaWaR/simple-http-server'
+  let path = share simple-http-server $version
+
+  if (no-exist $path) {
+    https download https://github.com/TheWaWaR/simple-http-server/releases/download/v($version)/x86_64-unknown-linux-musl-simple-http-server -o simple-http-server
+    chmod 755 simple-http-server
+    umv -f simple-http-server -p $path
+  }
+
+  bind simple-http-server $path
 }
 
 export def onefetch [] {
@@ -1284,10 +1307,15 @@ export def viddy [] {
 
 export def yazi [] {
   let version = github get_version 'sxyazi/yazi'
+  let path = share yazi $version
 
-  https download $'https://github.com/sxyazi/yazi/releases/download/v($version)/yazi-x86_64-unknown-linux-gnu.zip'
-  extract zip yazi-x86_64-unknown-linux-gnu.zip
-  umv -d yazi-x86_64-unknown-linux-gnu -f yazi
+  if (no-exist $path) {
+    https download $'https://github.com/sxyazi/yazi/releases/download/v($version)/yazi-x86_64-unknown-linux-gnu.zip'
+    extract zip yazi-x86_64-unknown-linux-gnu.zip
+    umv -d yazi-x86_64-unknown-linux-gnu -f yazi -p $path
+  }
+
+  bind yazi $path
 }
 
 export def kmon [] {
@@ -1443,10 +1471,15 @@ export def termshark [] {
 
 export def termscp [] {
   let version = github get_version 'veeso/termscp'
+  let path = share termscp $version
 
-  https download $'https://github.com/veeso/termscp/releases/download/v($version)/termscp-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'termscp-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  umv -f termscp
+  if (no-exist $path) {
+    https download $'https://github.com/veeso/termscp/releases/download/v($version)/termscp-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'termscp-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    umv -f termscp -p $path
+  }
+
+  bind termscp $path
 }
 
 export def kbt [] {
@@ -1597,6 +1630,21 @@ export def nano-work-server [] {
   }
 
   bind nano-work-server $path
+}
+
+export def mkcert [] {
+  deps mkcert
+
+  let version = github get_version 'FiloSottile/mkcert'
+  let path = share mkcert $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/FiloSottile/mkcert/releases/download/v($version)/mkcert-v($version)-linux-amd64' -o mkcert
+    chmod 755 mkcert
+    umv -f mkcert -p $path
+  }
+
+  bind mkcert $path
 }
 
 export def devtunnel [] {

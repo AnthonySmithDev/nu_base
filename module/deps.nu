@@ -33,3 +33,9 @@ export def localsend [] {
     sudo apt install -y ...$pkgs
   }
 }
+
+export def mkcert [] {
+  if (external exists apt) {
+    sudo apt install -y libnss3-tools
+  }
+}

@@ -232,6 +232,30 @@ export def stratumauth [] {
   install $output
 }
 
+export def HTTPShortcuts [] {
+  let version = '3.18.0'
+  let name = $'HTTPShortcuts_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+
+  if not ($output | path exists) {
+    https download $'https://github.com/Waboodoo/HTTP-Shortcuts/releases/download/v($version)/app-arm64-v8a-release.apk' -o $output
+  }
+
+  install $output
+}
+
+export def Acode [] {
+  let version = '1.10.5'
+  let name = $'Acode_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+
+  if not ($output | path exists) {
+    https download $'https://github.com/deadlyjack/Acode/releases/download/v($version)/app-release.apk' -o $output
+  }
+
+  install $output
+}
+
 export def core [] {
   NewPipe
   LibreTube
