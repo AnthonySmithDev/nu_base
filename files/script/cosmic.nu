@@ -1,3 +1,4 @@
+#!/usr/bin/env nu
 
 const BUTTON = {
   BACK: "70 150"
@@ -136,6 +137,6 @@ export def "main media play" [] {
   adb shell input keyevent $KEYCODE.MEDIA_PLAY_PAUSE
 }
 
-export def "main test" [] {
-  alacritty --title test
+export def "main terminal" [] {
+  alacritty
 }

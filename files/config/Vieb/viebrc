@@ -150,7 +150,7 @@ set translatelang=en-us
 set translateurl=https://api-free.deepl.com/v2/
 set nouserscript
 set nouserstyle
-" set vimcommand='alacritty --command hx'
+set vimcommand=nu/vieb
 set windowfullscreen=restore
 set windowmaximize=restore
 set windowposition=restore

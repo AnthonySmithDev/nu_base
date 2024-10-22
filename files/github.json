@@ -254,9 +254,9 @@
   {
     "category": "extra",
     "repository": "metalbear-co/mirrord",
-    "tag_name": "3.121.0",
+    "tag_name": "3.121.1",
     "prerelease": false,
-    "created_at": "2024-10-17T10:13:23Z"
+    "created_at": "2024-10-22T11:50:40Z"
   },
   {
     "category": "extra",
@@ -947,9 +947,9 @@
   {
     "category": "other",
     "repository": "siyuan-note/siyuan",
-    "tag_name": "3.1.9",
+    "tag_name": "3.1.10",
     "prerelease": false,
-    "created_at": "2024-10-15T02:33:50Z"
+    "created_at": "2024-10-22T01:48:26Z"
   },
   {
     "category": "other",
@@ -968,9 +968,9 @@
   {
     "category": "other",
     "repository": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.7.1",
+    "tag_name": "0.7.2",
     "prerelease": false,
-    "created_at": "2024-10-08T10:28:07Z"
+    "created_at": "2024-10-22T02:22:25Z"
   },
   {
     "category": "other",
@@ -991,6 +991,6 @@
     "repository": "localsend/localsend",
     "tag_name": "1.15.4",
     "prerelease": false,
-    "created_at": "2020-08-31T15:26:11Z"
+    "created_at": "2024-08-20T00:58:01Z"
   }
 ]

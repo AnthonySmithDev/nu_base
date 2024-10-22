@@ -158,6 +158,10 @@ export def evremap [file: string@files-evremap] {
 
 export def vieb [] {
   shortcut Vieb 'viebrc'
+
+  let src = ($env.SCRIPT_DIR_SRC | path join vieb.nu)
+  let dst = ($env.SCRIPT_DIR_DST | path join vieb)
+  ln -sf $src $dst
 }
 
 export def files-lanmouse [] {
@@ -201,8 +205,8 @@ export def cosmic [] {
   let dst = ($env.CONFIG_DIR_USER | path join cosmic/com.system76.CosmicSettings.Shortcuts/v1/custom)
   ln -sf $src $dst
 
-  let src = ($env.CONFIG_DIR_REPO | path join cosmic/cosmic.nu)
-  let dst = ($env.HOME | path join cosmic)
+  let src = ($env.SCRIPT_DIR_SRC | path join cosmic.nu)
+  let dst = ($env.SCRIPT_DIR_DST | path join cosmic)
   ln -sf $src $dst
 }
 

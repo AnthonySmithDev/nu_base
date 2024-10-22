@@ -10,6 +10,9 @@ $env.CONFIG_DIR_REPO = ($env.NU_BASE_FILES | path join config)
 $env.CONFIG_DIR_USER = ($env.HOME | path join .config)
 $env.CONFIG_DIR_ROOT = ('/root' | path join .config)
 
+$env.SCRIPT_DIR_SRC = ($env.NU_BASE_FILES | path join script)
+$env.SCRIPT_DIR_DST = ($env.HOME | path join nu)
+
 $env.CONFIG_SYSTEMD_USER_SRC = ($env.CONFIG_DIR_REPO | path join systemd/user)
 $env.CONFIG_SYSTEMD_USER_DST = ($env.CONFIG_DIR_USER | path join systemd/user)
 
