@@ -1,5 +1,6 @@
 
 export module apt.nu
+export module deb.nu
 export module arch.nu
 export module cargo.nu
 export module flathub.nu

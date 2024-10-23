@@ -50,6 +50,7 @@ def create_dir [] {
   mkdir $env.USR_LOCAL_SHARE
   mkdir $env.USR_LOCAL_SHARE_FONTS
   mkdir $env.USR_LOCAL_SHARE_DOWNLOAD
+  mkdir $env.SCRIPT_DIR_DST
 
   mkdir $env.LOCAL_BIN
   mkdir $env.LOCAL_SHARE

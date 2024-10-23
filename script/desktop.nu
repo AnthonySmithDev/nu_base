@@ -8,10 +8,11 @@ def main [] {
 
   if (external exists apt) {
     # install apt flathub
-    # install apt discord
     install apt brave
-    # install apt vieb
-    # config vieb
+
+    install deb discord
+    install deb vieb
+    config vieb
   }
 
   download lsd
