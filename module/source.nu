@@ -1,4 +1,6 @@
 
+use root/
+
 use https.nu
 use extract.nu
 use github.nu
@@ -14,7 +16,7 @@ use ssh.nu
 use sql.nu
 use bg.nu
 use deps.nu
-use install
+use install/
 
 use browser.nu
 use compile.nu

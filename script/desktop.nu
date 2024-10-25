@@ -4,6 +4,8 @@ source ../module/source.nu
 
 def main [] {
   nu_zoxide
+
+  config git
   nerd-font FiraCode
 
   if (exists-external apt) {
@@ -45,9 +47,6 @@ def main [] {
 
   compile alacritty
   config alacritty --theme
-
-  config git
-  config helix background
 
   srv init pueued
   srv user pueued start

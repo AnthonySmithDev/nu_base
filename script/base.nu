@@ -34,9 +34,13 @@ def main [] {
   install bin gdu
 
   config mods
-  config helix
   config nushell
+  config helix --theme
   config zellij --theme
+
+  root config nushell
+  root config helix
+  root config zellij
 
   nu_zoxide
 }
