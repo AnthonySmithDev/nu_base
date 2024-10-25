@@ -30,6 +30,7 @@ use nvim.nu
 use setup.nu
 use shalom.nu
 use nerd-font.nu
+use tailsc.nu
 
 # use image
 # use gpt.nu
