@@ -1,8 +1,6 @@
 
 export def alacritty [] {
-  if (exists-external apt) {
-    sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
-  }
+  deps alacritty
 
   let source = ($env.USR_LOCAL_SOURCE | path join alacritty)
   git-down https://github.com/alacritty/alacritty.git $source v0.14
@@ -181,6 +179,23 @@ export def ktrl [ --input, --setup, --service ] {
     sudo systemctl daemon-reload
     sudo systemctl start ktrl.service
   }
+}
+
+export def kanata-uinput [] {
+  if not (exists-group uinput) {
+    sudo groupadd uinput
+  }
+  sudo usermod -aG input $env.USER
+  sudo usermod -aG uinput $env.USER
+
+  let text = 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"'
+  $text | sudo tee /etc/udev/rules.d/99-input.rules
+
+  sudo udevadm control --reload-rules
+  sudo udevadm trigger
+
+  ls -l /dev/uinput
+  sudo modprobe uinput
 }
 
 export def zed [] {

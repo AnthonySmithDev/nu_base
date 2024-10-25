@@ -15,6 +15,14 @@ export def exists-external [app: string] {
   which $app --all | where type == external | is-not-empty
 }
 
+export def path-not-exists [] {
+  not ($in | path exists)
+}
+
+export def add-execute [file: path] {
+  chmod 777 $file
+}
+
 export def --env mkcd [name: string] {
   mkdir $name
   cd $name

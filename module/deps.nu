@@ -1,4 +1,19 @@
 
+export def alacritty [] {
+  let pkgs = [
+    cmake
+    pkg-config
+    libfreetype6-dev
+    libfontconfig1-dev
+    libxcb-xfixes0-dev
+    libxkbcommon-dev
+    python3
+  ]
+  if (exists-external apt) {
+    sudo apt install -y ...$pkgs
+  }
+}
+
 export def scrcpy [] {
   if (exists-external apt) {
     let pkgs = [
@@ -41,5 +56,7 @@ export def mkcert [] {
 }
 
 export def qt [] {
-  sudo apt install  qtwebengine5-dev qtpositioning5-dev
+  if (exists-external apt) {
+    sudo apt install  qtwebengine5-dev qtpositioning5-dev
+  }
 }

@@ -31,7 +31,6 @@ env-path -p $env.USR_LOCAL_BIN
 
 $env.HELIX_PATH = ($env.USR_LOCAL_LIB | path join helix)
 $env.HELIX_RUNTIME = ($env.HELIX_PATH | path join runtime)
-env-path $env.HELIX_PATH
 
 $env.NVIM_PATH = ($env.USR_LOCAL_LIB | path join nvim)
 $env.NVIM_BIN = ($env.NVIM_PATH | path join bin)

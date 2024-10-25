@@ -14,37 +14,33 @@ use ssh.nu
 use sql.nu
 use bg.nu
 use deps.nu
-
 use install
 
-use board.nu
-use distro.nu
-use proxy.nu
 use browser.nu
 use compile.nu
 use repository.nu
 use run.nu
-use avd.nu
 use srv.nu
-use nvim.nu
 use setup.nu
-use shalom.nu
 use nerd-font.nu
 use tailsc.nu
 
 # use image
 # use gpt.nu
 # use gtd.nu
-use scr.nu
 # use steam.nu
 # use theme.nu
 # use commit.nu
-# use uinput.nu
 # use network.nu
 
-export module lsp.nu
-export module helix.nu
-export module flutter.nu
-export module laravel.nu
-
-export module virtual
+# export module distro.nu
+# export module proxy.nu
+# export module shalom.nu
+# export module board.nu
+# export module nvim.nu
+# export module avd.nu
+# export module lsp.nu
+# export module helix.nu
+# export module flutter.nu
+# export module laravel.nu
+# export module virtual
