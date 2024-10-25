@@ -1,4 +1,5 @@
 
+export module bin.nu
 export module apt.nu
 export module deb.nu
 export module arch.nu

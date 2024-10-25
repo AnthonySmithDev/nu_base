@@ -10,29 +10,28 @@ def main [] {
 
   if (external exists apt) {
     install apt basic
-    # install apt python
     install apt docker
   }
 
-  download java
-  download node --latest
-  download rust --latest
-  download golang --latest
+  install bin java
+  install bin node --latest
+  install bin rust --latest
+  install bin golang --latest
 
   sudo echo "Sudo OK"
 
-  download xh
-  download gum
-  download helix
-  download nushell
-  download starship
-  download zoxide
-  download zellij
+  install bin xh
+  install bin gum
+  install bin helix
+  install bin nushell
+  install bin starship
+  install bin zoxide
+  install bin zellij
 
-  download rg
-  download fd
-  download fzf
-  download gdu
+  install bin rg
+  install bin fd
+  install bin fzf
+  install bin gdu
 
   config mods
   config helix
