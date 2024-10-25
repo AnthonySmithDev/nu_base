@@ -6,7 +6,7 @@ def main [] {
   nu_zoxide
   nerd-font FiraCode
 
-  if (external exists apt) {
+  if (exists-external apt) {
     # install apt flathub
     install apt brave
 

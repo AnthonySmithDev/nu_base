@@ -1,6 +1,6 @@
 
 export def scrcpy [] {
-  if (external exists apt) {
+  if (exists-external apt) {
     let pkgs = [
       ffmpeg
       libsdl2-2.0-0
@@ -25,7 +25,7 @@ export def scrcpy [] {
 }
 
 export def localsend [] {
-  if (external exists apt) {
+  if (exists-external apt) {
     let pkgs = [
       gir1.2-appindicator3-0.1
       gir1.2-ayatanaappindicator3-0.1
@@ -35,7 +35,7 @@ export def localsend [] {
 }
 
 export def mkcert [] {
-  if (external exists apt) {
+  if (exists-external apt) {
     sudo apt install -y libnss3-tools
   }
 }

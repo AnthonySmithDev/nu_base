@@ -235,7 +235,7 @@ export def snap [] {
 }
 
 export def flathub [] {
-  if (external exists flatpak) {
+  if (exists-external flatpak) {
     return
   }
 
@@ -291,7 +291,7 @@ export def brave [] {
 }
 
 export def docker [] {
-  if (external exists docker) {
+  if (exists-external docker) {
     return
   }
 
@@ -334,7 +334,7 @@ export def docker [] {
 
 export def regolith [ --force(-f), --beta(-b) ] {
   if not $force {
-    if (external exists regolith-session) {
+    if (exists-external regolith-session) {
       return
     }
   }
@@ -412,7 +412,7 @@ export def qemu [] {
 
 export def waydroid [] {
   let modules = ($env.LOCAL_SHARE | path join modules)
-  git_clone https://github.com/choff/anbox-modules.git $modules
+  git-down https://github.com/choff/anbox-modules.git $modules
   with-wd $modules {
     bash INSTALL.sh
   }

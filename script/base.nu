@@ -8,7 +8,7 @@ def main [] {
   nu_source
   touch ~/.env.nu
 
-  if (external exists apt) {
+  if (exists-external apt) {
     install apt basic
     install apt docker
   }

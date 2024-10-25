@@ -1,11 +1,11 @@
 
 export def alacritty [] {
-  if (external exists apt) {
+  if (exists-external apt) {
     sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
   }
 
   let source = ($env.USR_LOCAL_SOURCE | path join alacritty)
-  git_clone https://github.com/alacritty/alacritty.git $source v0.14
+  git-down https://github.com/alacritty/alacritty.git $source v0.14
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --manifest-path $manifest --release --no-default-features --features=wayland
@@ -37,7 +37,7 @@ export def alacritty [] {
 
 export def nushell [ --plugin ] {
   let source = ($env.USR_LOCAL_SOURCE | path join nushell)
-  git_clone https://github.com/nushell/nushell.git $source
+  git-down https://github.com/nushell/nushell.git $source
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --workspace --manifest-path $manifest
@@ -60,7 +60,7 @@ export def nushell [ --plugin ] {
 
 export def zellij [] {
   let source = ($env.USR_LOCAL_SOURCE | path join zellij)
-  git_clone https://github.com/zellij-org/zellij.git $source
+  git-down https://github.com/zellij-org/zellij.git $source
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --locked --manifest-path $manifest
@@ -78,7 +78,7 @@ export def zellij [] {
 
 export def audiosource [] {
   let source = ($env.USR_LOCAL_SOURCE | path join audiosource)
-  git_clone https://github.com/gdzx/audiosource $source
+  git-down https://github.com/gdzx/audiosource $source
 
   let name = 'audiosource'
   let src = ($source | path join $name)
@@ -92,7 +92,7 @@ export def audiosource [] {
 
 export def helix [--desktop, --global] {
   let source = ($env.USR_LOCAL_SOURCE | path join helix)
-  git_clone https://github.com/helix-editor/helix $source
+  git-down https://github.com/helix-editor/helix $source
 
   let manifest = ($source | path join helix-term Cargo.toml)
   cargo build --release --locked --manifest-path $manifest
@@ -121,7 +121,7 @@ export def helix [--desktop, --global] {
 
 export def evremap [ --uinput(-u) ] {
   let source = ($env.USR_LOCAL_SOURCE | path join evremap)
-  git_clone https://github.com/wez/evremap $source
+  git-down https://github.com/wez/evremap $source
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --locked --manifest-path $manifest
@@ -132,7 +132,7 @@ export def evremap [ --uinput(-u) ] {
   sudo ln -sf $src ($env.SYS_LOCAL_BIN | path join $name)
 
   if $uinput {
-    if not (group-exists input) {
+    if not (exists-group input) {
       sudo groupadd uinput
     }
     sudo gpasswd -a $env.USER input
@@ -142,7 +142,7 @@ export def evremap [ --uinput(-u) ] {
 
 export def ktrl [ --input, --setup, --service ] {
   let source = ($env.USR_LOCAL_SOURCE | path join ktrl)
-  git_clone https://github.com/ItayGarin/ktrl $source
+  git-down https://github.com/ItayGarin/ktrl $source
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --locked --manifest-path $manifest
@@ -153,10 +153,10 @@ export def ktrl [ --input, --setup, --service ] {
   sudo ln -sf $src ($env.SYS_LOCAL_BIN | path join $name)
 
   if $input {
-    if not (user-exists ktrl) {
+    if not (exists-user ktrl) {
       sudo useradd -r -s /bin/false ktrl
     }
-    if not (group-exists uinput) {
+    if not (exists-group uinput) {
       sudo groupadd uinput
     }
     sudo usermod -aG input ktrl
@@ -185,7 +185,7 @@ export def ktrl [ --input, --setup, --service ] {
 
 export def zed [] {
   let source = ($env.USR_LOCAL_SOURCE | path join zed)
-  git_clone https://github.com/zed-industries/zed $source
+  git-down https://github.com/zed-industries/zed $source
 
   git submodule update --init --recursive
   let manifest = ($source | path join Cargo.toml)
@@ -194,7 +194,7 @@ export def zed [] {
 
 export def riv [] {
   let path = ($env.USR_LOCAL_SOURCE | path join riv)
-  git_clone https://github.com/Davejkane/riv $path
+  git-down https://github.com/Davejkane/riv $path
 
   with-wd $path {||
     cargo install --path .
@@ -203,7 +203,7 @@ export def riv [] {
 
 export def vimiv [] {
   let path = ($env.USR_LOCAL_SOURCE | path join vimiv-qt)
-  git_clone https://github.com/karlch/vimiv-qt $path
+  git-down https://github.com/karlch/vimiv-qt $path
 
   with-wd $path {||
     sudo make --file "misc/Makefile" install
@@ -212,7 +212,7 @@ export def vimiv [] {
 
 export def hargo [] {
   let path = ($env.USR_LOCAL_SOURCE | path join hargo)
-  git_clone https://github.com/mrichman/hargo $path
+  git-down https://github.com/mrichman/hargo $path
 
   with-wd $path {||
     make install
@@ -221,7 +221,7 @@ export def hargo [] {
 
 export def nchat [] {
   let path = ($env.USR_LOCAL_SOURCE | path join nchat)
-  git_clone https://github.com/d99kris/nchat $path
+  git-down https://github.com/d99kris/nchat $path
 
   with-wd $path {||
     bash make.sh deps
@@ -232,7 +232,7 @@ export def nchat [] {
 
 export def http-to-ws [] {
   let path = ($env.USR_LOCAL_SOURCE | path join http-to-ws)
-  git_clone https://github.com/AnthonySmithDev/http-to-ws $path
+  git-down https://github.com/AnthonySmithDev/http-to-ws $path
 
   with-wd $path {||
     go install .
@@ -241,7 +241,7 @@ export def http-to-ws [] {
 
 export def tasklite [] {
   let path = ($env.USR_LOCAL_SOURCE | path join TaskLite)
-  git_clone https://github.com/ad-si/TaskLite $path
+  git-down https://github.com/ad-si/TaskLite $path
 
   with-wd $path {||
     stack install tasklite-core
@@ -250,7 +250,7 @@ export def tasklite [] {
 
 export def amp [] {
   let source = ($env.USR_LOCAL_SOURCE | path join amp)
-  git_clone https://github.com/jmacdonald/amp $source
+  git-down https://github.com/jmacdonald/amp $source
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --manifest-path $manifest
@@ -263,7 +263,7 @@ export def amp [] {
 
 export def lapce [] {
   let source = ($env.USR_LOCAL_SOURCE | path join lapce)
-  git_clone https://github.com/lapce/lapce $source
+  git-down https://github.com/lapce/lapce $source
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --release --manifest-path $manifest
@@ -278,7 +278,7 @@ export def scrcpy [] {
   deps scrcpy
 
   let path = ($env.USR_LOCAL_SOURCE | path join scrcpy)
-  git_clone https://github.com/Genymobile/scrcpy $path
+  git-down https://github.com/Genymobile/scrcpy $path
 
   with-wd $path {||
     bash ./install_release.sh
@@ -287,7 +287,7 @@ export def scrcpy [] {
 
 export def mouseless-status [] {
   let source = ($env.USR_LOCAL_SOURCE | path join mouseless-status)
-  git_clone git@github.com:AnthonySmithDev/mouseless-status.git $source
+  git-down git@github.com:AnthonySmithDev/mouseless-status.git $source
   let app = ($env.USR_LOCAL_BIN | path join ms)
 
   with-wd $source {
@@ -299,7 +299,7 @@ export def mouseless-status [] {
 
 export def --env foot [] {
   let path = ($env.USR_LOCAL_SOURCE | path join foot)
-  git_clone https://codeberg.org/dnkl/foot $path
+  git-down https://codeberg.org/dnkl/foot $path
 
   with-wd $path {||
     mkdir bld/release

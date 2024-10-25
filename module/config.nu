@@ -99,7 +99,7 @@ export def zellij [ --theme(-t) ] {
   shortcut zellij 'config.kdl'
   if $theme {
     let source = ($env.USR_LOCAL_SOURCE | path join zellij)
-    git_clone https://github.com/zellij-org/zellij.git $source
+    git-down https://github.com/zellij-org/zellij.git $source
     let src = ($source | path join zellij-utils/assets/themes)
     let dst = ($env.HOME | path join .config/zellij/themes)
     if not ($dst | path exists) {
@@ -124,7 +124,7 @@ export def alacritty [ --theme(-t) ] {
   shortcut alacritty alacritty.toml
   if $theme {
     let source = ($env.USR_LOCAL_SOURCE | path join alacritty-theme)
-    git_clone https://github.com/alacritty/alacritty-theme.git $source
+    git-down https://github.com/alacritty/alacritty-theme.git $source
     let src = ($source | path join themes)
     let dst = ($env.HOME | path join .config/alacritty/themes)
     if not ($dst | path exists) {

@@ -1,34 +1,4 @@
 
-def seed [] {
-  cat /dev/urandom | tr -dc '0-9A-F' | head -c 64
-}
-
-export def git_clone [repo: string, path: string, tag?: string] {
-  if ($path | path exists) {
-    git -C $path pull
-  } else {
-    git clone $repo $path
-  }
-  if ($tag | is-not-empty) {
-    git -C $path switch $tag
-  }
-}
-
-export def --env with-wd [path: string, closure: closure] {
-  let pwd = pwd
-  cd $path
-  do $closure
-  cd $pwd
-}
-
-export def group-exists [group: string] {
-  open /etc/group | str contains $group
-}
-
-export def user-exists [user: string] {
-  open /etc/passwd | str contains $user
-}
-
 def 'chmod nu_base' [] {
   chmod '+x' sh/shell.sh
   chmod '+x' sh/install.sh
@@ -123,15 +93,6 @@ def "kill port" [port: int] {
   kill --force ($process | first | get PID | into int)
 }
 
-def --wrapped sail [...cmd: string] {
-  let sail = ($env.PWD | path join vendor/bin/sail)
-  if ($sail | path exists) {
-    ^$sail ...$cmd
-  } else {
-    print "Sail not found"
-  }
-}
-
 def sqlite [database: string] {
    litecli $database --auto-vertical-output
 }
@@ -202,19 +163,6 @@ def "android debug restart" [] {
   }
 }
 
-def __systemctl [] {
-  [status start stop restart]
-}
-
-def su [systemctl: string@__systemctl] {
-  systemctl --user $systemctl mouseless.service
-}
-
-def --env mcd [name: string] {
-  mkdir $name
-  cd $name
-}
-
 def ghcli [] {
   with-wd /home/anthony/nushell/nu_base/cmd/ghcli {
     go run .
@@ -224,10 +172,6 @@ def ghcli [] {
 def saup [] {
   sudo apt update
   sudo apt upgrade -y
-}
-
-def "external exists" [app: string] {
-  which $app --all | where type == external | is-not-empty
 }
 
 def confirm [...prompt: string] {
@@ -244,7 +188,7 @@ def select-file [] {
   return (fd --type file | fzf --layout reverse --border --preview $preview | str trim)
 }
 
-def modf [...rest: string] {
+def modf [...rest] {
   let file = (select-file)
   mods (open $file) ...$rest
 }
@@ -294,19 +238,6 @@ def "bulk rename" [] {
   }
 }
 
-def gradlew-tasks [] {
-  if ('gradlew' | path exists) {
-    return (./gradlew tasks | rg ' - ' | parse '{value} - {description}')
-  }
-  return []
-}
-
-def gradlew [task: string@gradlew-tasks] {
-  if ('gradlew' | path exists) {
-    ./gradlew $task
-  }
-}
-
 def "create camare" [] {
   # https://adityatelange.in/blog/android-phone-webcam-linux/
   sudo apt install v4l2loopback-dkms v4l2loopback-utils
@@ -331,12 +262,4 @@ def gic [lang: string] {
   wl-paste | freeze --output $output --theme dracula --language $lang
   open $output | wl-copy
   rm $output
-}
-
-def --wrapped 'adb d' [ ...rest ] {
-  adb devices ...$rest
-}
-
-def --wrapped 'adb c' [ ...rest ] {
-  adb connect ...$rest
 }

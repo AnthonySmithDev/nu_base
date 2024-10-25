@@ -1,6 +1,6 @@
 
 export def kanata [] {
-  if not (group-exists uinput) {
+  if not (exists-group uinput) {
     sudo groupadd uinput
   }
   sudo usermod -aG input $env.USER
