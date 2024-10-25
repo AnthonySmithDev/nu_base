@@ -32,7 +32,7 @@ export def nushell [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/nushell/nushell/releases/download/($version)/nu-($version)-x86_64-unknown-linux-gnu.tar.gz'
     extract tar $'nu-($version)-x86_64-unknown-linux-gnu.tar.gz'
-    move -d $'nu-($version)-x86_64-unknown-linux-gnu' -f 'nu' -p $path
+    move -d $'nu-($version)-x86_64-unknown-linux-gnu' -f nu -p $path
   }
 
   bind file -r nu $path
@@ -45,7 +45,7 @@ export def starship [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/starship/starship/releases/download/v($version)/starship-x86_64-unknown-linux-gnu.tar.gz'
     extract tar 'starship-x86_64-unknown-linux-gnu.tar.gz'
-    move -f 'starship' -p $path
+    move -f starship -p $path
   }
 
   bind file -r starship $path
@@ -58,7 +58,7 @@ export def zoxide [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/ajeetdsouza/zoxide/releases/download/v($version)/zoxide-($version)-x86_64-unknown-linux-musl.tar.gz'
     extract tar $'zoxide-($version)-x86_64-unknown-linux-musl.tar.gz' -d 'zoxide-x86_64-unknown-linux-musl'
-    move -d 'zoxide-x86_64-unknown-linux-musl' -f 'zoxide' -p $path
+    move -d 'zoxide-x86_64-unknown-linux-musl' -f zoxide -p $path
   }
 
   bind file -r zoxide $path
@@ -71,7 +71,7 @@ export def zellij [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/zellij-org/zellij/releases/download/v($version)/zellij-x86_64-unknown-linux-musl.tar.gz'
     extract tar 'zellij-x86_64-unknown-linux-musl.tar.gz'
-    move -f 'zellij' -p $path
+    move -f zellij -p $path
   }
 
   bind file -r zellij $path
@@ -84,7 +84,7 @@ export def rg [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/BurntSushi/ripgrep/releases/download/($version)/ripgrep-($version)-x86_64-unknown-linux-musl.tar.gz'
     extract tar $'ripgrep-($version)-x86_64-unknown-linux-musl.tar.gz'
-    move -d $'ripgrep-($version)-x86_64-unknown-linux-musl' -f 'rg' -p $path
+    move -d $'ripgrep-($version)-x86_64-unknown-linux-musl' -f rg -p $path
   }
 
   bind file -r rg $path
@@ -97,7 +97,7 @@ export def fd [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/sharkdp/fd/releases/download/v($version)/fd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
     extract tar $'fd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-    move -d $'fd-v($version)-x86_64-unknown-linux-gnu' -f 'fd' -p $path
+    move -d $'fd-v($version)-x86_64-unknown-linux-gnu' -f fd -p $path
   }
 
   bind file -r fd $path
@@ -162,7 +162,7 @@ export def broot [] {
   if ($path | path-not-exists) {
     https download https://github.com/Canop/broot/releases/download/v($version)/broot_($version).zip
     extract zip broot_($version).zip -d 'broot'
-    move -d 'broot' -f 'x86_64-linux/broot' -p $path
+    move -d 'broot' -f x86_64-linux/broot -p $path
   }
 
   bind file broot $path
@@ -188,7 +188,7 @@ export def gitu [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/altsem/gitu/releases/download/v($version)/gitu-v($version)-x86_64-unknown-linux-gnu.tar.gz'
     extract tar $'gitu-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-    move -d $'gitu-v($version)-x86_64-unknown-linux-gnu' -f 'gitu' -p $path
+    move -d $'gitu-v($version)-x86_64-unknown-linux-gnu' -f gitu -p $path
   }
 
   bind file gitu $path
@@ -201,7 +201,7 @@ export def fm [] {
   if ($path | path-not-exists) {
     https download $"https://github.com/mistakenelf/fm/releases/download/v($version)/fm_($version)_linux_amd64.tar.gz"
     extract tar $"fm_($version)_linux_amd64.tar.gz" -d fm_linux_amd64
-    move -d $'fm_linux_amd64' -f 'fm' -p $path
+    move -d $'fm_linux_amd64' -f fm -p $path
   }
 
   bind file fm $path
@@ -227,7 +227,7 @@ export def zk [] {
   if ($path | path-not-exists) {
     https download $"https://github.com/zk-org/zk/releases/download/v($version)/zk-v($version)-linux-amd64.tar.gz"
     extract tar $"zk-v($version)-linux-amd64.tar.gz" -d zk_linux_amd64
-    move -d $'zk_linux_amd64' -f 'zk' -p $path
+    move -d $'zk_linux_amd64' -f zk -p $path
   }
 
   bind file zk $path
@@ -253,7 +253,7 @@ export def bat [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/sharkdp/bat/releases/download/v($version)/bat-v($version)-x86_64-unknown-linux-gnu.tar.gz'
     extract tar $'bat-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-    move -d $'bat-v($version)-x86_64-unknown-linux-gnu' -f 'bat' -p $path
+    move -d $'bat-v($version)-x86_64-unknown-linux-gnu' -f bat -p $path
   }
 
   bind file bat $path
@@ -266,7 +266,7 @@ export def gdu [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/dundee/gdu/releases/download/v($version)/gdu_linux_amd64.tgz'
     extract tar 'gdu_linux_amd64.tgz'
-    move -f 'gdu_linux_amd64' -p $path
+    move -f gdu_linux_amd64 -p $path
   }
 
   bind file -r gdu $path
@@ -279,7 +279,7 @@ export def xh [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/ducaale/xh/releases/download/v($version)/xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
     extract tar $'xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
-    move -d $'xh-v($version)-x86_64-unknown-linux-musl' -f 'xh' -p $path
+    move -d $'xh-v($version)-x86_64-unknown-linux-musl' -f xh -p $path
   }
 
   bind file -r xh $path
@@ -585,7 +585,7 @@ export def delta [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/dandavison/delta/releases/download/($version)/delta-($version)-x86_64-unknown-linux-gnu.tar.gz'
     extract tar $'delta-($version)-x86_64-unknown-linux-gnu.tar.gz'
-    move -d $'delta-($version)-x86_64-unknown-linux-gnu' -f 'delta' -p $path
+    move -d $'delta-($version)-x86_64-unknown-linux-gnu' -f delta -p $path
   }
 
   bind file delta $path
@@ -611,7 +611,7 @@ export def bottom [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/ClementTsang/bottom/releases/download/($version)/bottom_x86_64-unknown-linux-gnu.tar.gz'
     extract tar 'bottom_x86_64-unknown-linux-gnu.tar.gz' -d 'bottom_x86_64-unknown-linux-gnu'
-    move -d 'bottom_x86_64-unknown-linux-gnu' -f 'btm' -p $path
+    move -d 'bottom_x86_64-unknown-linux-gnu' -f btm -p $path
   }
 
   bind file btm $path
@@ -624,7 +624,7 @@ export def ttyper [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/max-niederman/ttyper/releases/download/v($version)/ttyper-x86_64-unknown-linux-gnu.tar.gz'
     extract tar 'ttyper-x86_64-unknown-linux-gnu.tar.gz' -d 'ttyper-x86_64-unknown-linux-gnu'
-    move -d 'ttyper-x86_64-unknown-linux-gnu' -f 'ttyper' -p $path
+    move -d 'ttyper-x86_64-unknown-linux-gnu' -f ttyper -p $path
   }
 
   bind file ttyper $path
@@ -676,7 +676,7 @@ export def usql [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/xo/usql/releases/download/v($version)/usql-($version)-linux-amd64.tar.bz2'
     extract tar $'usql-($version)-linux-amd64.tar.bz2' -d 'usql-linux-amd64'
-    move -d 'usql-linux-amd64' -f 'usql' -p $path
+    move -d 'usql-linux-amd64' -f usql -p $path
   }
 
   bind file usql $path
@@ -746,7 +746,7 @@ export def upterm [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/owenthereal/upterm/releases/download/v($version)/upterm_linux_amd64.tar.gz'
     extract tar 'upterm_linux_amd64.tar.gz' -d upterm_linux_amd64
-    move -d 'upterm_linux_amd64' -f 'upterm' -p $path
+    move -d 'upterm_linux_amd64' -f upterm -p $path
   }
 
   bind file upterm $path
@@ -819,42 +819,67 @@ export def mongosh [] {
 
 export def shell2http [] {
   let version = github get_version 'msoap/shell2http'
+  let path = share shell2http $version
 
-  https download $'https://github.com/msoap/shell2http/releases/download/v($version)/shell2http_($version)_linux_amd64.tar.gz'
-  extract tar $'shell2http_($version)_linux_amd64.tar.gz' -d 'shell2http_linux_amd64'
-  move -d 'shell2http_linux_amd64' -f 'shell2http'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/msoap/shell2http/releases/download/v($version)/shell2http_($version)_linux_amd64.tar.gz'
+    extract tar $'shell2http_($version)_linux_amd64.tar.gz' -d 'shell2http_linux_amd64'
+    move -d 'shell2http_linux_amd64' -f shell2http -p $path
+  }
+
+  bind file shell2http $path
 }
 
 export def mprocs [] {
   let version = github get_version 'pvolok/mprocs'
+  let path = share mprocs $version
 
-  https download $'https://github.com/pvolok/mprocs/releases/download/v($version)/mprocs-($version)-linux64.tar.gz'
-  extract tar $'mprocs-($version)-linux64.tar.gz'
-  move -f 'mprocs'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/pvolok/mprocs/releases/download/v($version)/mprocs-($version)-linux64.tar.gz'
+    extract tar $'mprocs-($version)-linux64.tar.gz'
+    move -f mprocs -p $path
+  }
+
+  bind file mprocs $path
 }
 
 export def dua [] {
   let version = github get_version 'Byron/dua-cli'
+  let path = share dua $version
 
-  https download $'https://github.com/Byron/dua-cli/releases/download/v($version)/dua-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'dua-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -d $'dua-v($version)-x86_64-unknown-linux-musl' -f 'dua'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/Byron/dua-cli/releases/download/v($version)/dua-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'dua-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -d $'dua-v($version)-x86_64-unknown-linux-musl' -f dua -p $path
+  }
+
+  bind file dua $path
 }
 
 export def grex [] {
   let version = github get_version 'pemistahl/grex'
+  let path = share grex $version
 
-  https download $'https://github.com/pemistahl/grex/releases/download/v($version)/grex-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'grex-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -f 'grex'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/pemistahl/grex/releases/download/v($version)/grex-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'grex-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -f grex -p $path
+  }
+
+  bind file grex $path
 }
 
 export def navi [] {
   let version = github get_version 'denisidoro/navi'
+  let path = share navi $version
 
-  https download $'https://github.com/denisidoro/navi/releases/download/v($version)/navi-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'navi-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -f 'navi'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/denisidoro/navi/releases/download/v($version)/navi-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'navi-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -f navi -p $path
+  }
+
+  bind file navi $path
 }
 
 export def bore [] {
@@ -877,7 +902,7 @@ export def rclone [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/rclone/rclone/releases/download/v($version)/rclone-v($version)-linux-amd64.zip'
     extract zip $'rclone-v($version)-linux-amd64.zip'
-    move -d $'rclone-v($version)-linux-amd64' -f 'rclone' -p $path
+    move -d $'rclone-v($version)-linux-amd64' -f rclone -p $path
   }
 
   bind file -r rclone $path
@@ -885,58 +910,93 @@ export def rclone [] {
 
 export def ffsend [] {
   let version = github get_version 'timvisee/ffsend'
+  let path = share ffsend $version
 
-  https download $'https://github.com/timvisee/ffsend/releases/download/v($version)/ffsend-v($version)-linux-x64-static' -o ffsend
-  add-execute ffsend
-  move -f 'ffsend'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/timvisee/ffsend/releases/download/v($version)/ffsend-v($version)-linux-x64-static' -o ffsend
+    add-execute ffsend
+    move -f ffsend -p $path
+  }
+
+  bind file ffsend $path
 }
 
 export def walk [] {
   let version = github get_version 'antonmedv/walk'
+  let path = share walk $version
 
-  https download $'https://github.com/antonmedv/walk/releases/download/v($version)/walk_linux_amd64' -o walk
-  add-execute walk
-  move -f 'walk'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/antonmedv/walk/releases/download/v($version)/walk_linux_amd64' -o walk
+    add-execute walk
+    move -f walk -p $path
+  }
+
+  bind file walk $path
 }
 
 export def tere [] {
   let version = github get_version 'mgunyho/tere'
+  let path = share tere $version
 
-  https download $'https://github.com/mgunyho/tere/releases/download/v($version)/tere-($version)-x86_64-unknown-linux-gnu.zip'
-  extract zip $'tere-($version)-x86_64-unknown-linux-gnu.zip'
-  move -f 'tere'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/mgunyho/tere/releases/download/v($version)/tere-($version)-x86_64-unknown-linux-gnu.zip'
+    extract zip $'tere-($version)-x86_64-unknown-linux-gnu.zip'
+    move -f tere -p $path
+  }
+
+  bind file tere $path
 }
 
 export def sd [] {
   let version = github get_version 'chmln/sd'
+  let path = share sd $version
 
-  https download $'https://github.com/chmln/sd/releases/download/v($version)/sd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'sd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'sd-v($version)-x86_64-unknown-linux-gnu' -f 'sd'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/chmln/sd/releases/download/v($version)/sd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'sd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    move -d $'sd-v($version)-x86_64-unknown-linux-gnu' -f sd -p $path
+  }
+
+  bind file sd $path
 }
 
 export def sad [] {
   let version = github get_version 'ms-jpq/sad'
+  let path = share sad $version
 
-  https download $'https://github.com/ms-jpq/sad/releases/download/v($version)/x86_64-unknown-linux-gnu.zip'
-  extract zip 'x86_64-unknown-linux-gnu.zip'
-  move -f 'sad'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/ms-jpq/sad/releases/download/v($version)/x86_64-unknown-linux-gnu.zip'
+    extract zip 'x86_64-unknown-linux-gnu.zip'
+    move -f sad -p $path
+  }
+
+  bind file sad $path
 }
 
 export def fx [] {
   let version = github get_version 'antonmedv/fx'
+  let path = share fx $version
 
-  https download $'https://github.com/antonmedv/fx/releases/download/($version)/fx_linux_amd64' -o fx
-  add-execute fx
-  move -f 'fx'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/antonmedv/fx/releases/download/($version)/fx_linux_amd64' -o fx
+    add-execute fx
+    move -f fx -p $path
+  }
+
+  bind file fx $path
 }
 
 export def jqp [] {
   let version = github get_version 'noahgorstein/jqp'
+  let path = share jqp $version
 
-  https download $'https://github.com/noahgorstein/jqp/releases/download/v($version)/jqp_Linux_x86_64.tar.gz'
-  extract tar jqp_Linux_x86_64.tar.gz -d jqp_Linux_x86_64
-  move -d jqp_Linux_x86_64 -f jqp
+  if ($path | path-not-exists) {
+    https download $'https://github.com/noahgorstein/jqp/releases/download/v($version)/jqp_Linux_x86_64.tar.gz'
+    extract tar jqp_Linux_x86_64.tar.gz -d jqp_Linux_x86_64
+    move -d jqp_Linux_x86_64 -f jqp -p $path
+  }
+
+  bind file jqp $path
 }
 
 export def lux [] {
@@ -954,10 +1014,15 @@ export def lux [] {
 
 export def qrterminal [] {
   let version = github get_version 'mdp/qrterminal'
+  let path = share qrterminal $version
 
-  https download https://github.com/mdp/qrterminal/releases/download/v($version)/qrterminal_Linux_x86_64.tar.gz
-  extract tar qrterminal_Linux_x86_64.tar.gz -d qrterminal_Linux_x86_64
-  move -d qrterminal_Linux_x86_64 -f qrterminal
+  if ($path | path-not-exists) {
+    https download https://github.com/mdp/qrterminal/releases/download/v($version)/qrterminal_Linux_x86_64.tar.gz
+    extract tar qrterminal_Linux_x86_64.tar.gz -d qrterminal_Linux_x86_64
+    move -d qrterminal_Linux_x86_64 -f qrterminal -p $path
+  }
+
+  bind file qrterminal $path
 }
 
 export def genact [] {
@@ -975,10 +1040,15 @@ export def genact [] {
 
 export def ouch [] {
   let version = github get_version 'ouch-org/ouch'
+  let path = share ouch $version
 
-  https download $'https://github.com/ouch-org/ouch/releases/download/($version)/ouch-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar 'ouch-x86_64-unknown-linux-gnu.tar.gz'
-  move -d 'ouch-x86_64-unknown-linux-gnu' -f 'ouch'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/ouch-org/ouch/releases/download/($version)/ouch-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar 'ouch-x86_64-unknown-linux-gnu.tar.gz'
+    move -d 'ouch-x86_64-unknown-linux-gnu' -f ouch -p $path
+  }
+
+  bind file ouch $path
 }
 
 export def lsd [] {
@@ -988,7 +1058,7 @@ export def lsd [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/lsd-rs/lsd/releases/download/v($version)/lsd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
     extract tar $'lsd-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-    move -d $'lsd-v($version)-x86_64-unknown-linux-gnu' -f 'lsd' -p $path
+    move -d $'lsd-v($version)-x86_64-unknown-linux-gnu' -f lsd -p $path
   }
 
   bind file lsd $path
@@ -1014,7 +1084,7 @@ export def d2 [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/terrastruct/d2/releases/download/v($version)/d2-v($version)-linux-amd64.tar.gz'
     extract tar $'d2-v($version)-linux-amd64.tar.gz'
-    move -d $'d2-v($version)' -f 'bin/d2' -p $path
+    move -d $'d2-v($version)' -f bin/d2 -p $path
   }
 
   bind file d2 $path
@@ -1027,7 +1097,7 @@ export def mdcat [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/swsnr/mdcat/releases/download/($version)/($version)-x86_64-unknown-linux-musl.tar.gz'
     extract tar $'($version)-x86_64-unknown-linux-musl.tar.gz'
-    move -d $'($version)-x86_64-unknown-linux-musl' -f 'mdcat' -p $path
+    move -d $'($version)-x86_64-unknown-linux-musl' -f mdcat -p $path
   }
 
   bind file mdcat $path
@@ -1035,10 +1105,15 @@ export def mdcat [] {
 
 export def chatgpt [] {
   let version = github get_version 'j178/chatgpt'
+  let path = share chatgpt $version
 
-  https download $'https://github.com/j178/chatgpt/releases/download/v($version)/chatgpt_Linux_x86_64.tar.gz'
-  extract tar 'chatgpt_Linux_x86_64.tar.gz' -d 'chatgpt_Linux_x86_64'
-  move -d 'chatgpt_Linux_x86_64' -f 'chatgpt'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/j178/chatgpt/releases/download/v($version)/chatgpt_Linux_x86_64.tar.gz'
+    extract tar 'chatgpt_Linux_x86_64.tar.gz' -d 'chatgpt_Linux_x86_64'
+    move -d 'chatgpt_Linux_x86_64' -f chatgpt -p $path
+  }
+
+  bind file chatgpt $path
 }
 
 export def aichat [] {
@@ -1055,9 +1130,16 @@ export def aichat [] {
 }
 
 export def tgpt [] {
-  https download https://github.com/aandrew-me/tgpt/releases/download/v2.2.1/tgpt-linux-amd64 -o tgpt
-  add-execute tgpt
-  move -f tgpt
+  let version = '2.2.1'
+  let path = share tgpt $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/aandrew-me/tgpt/releases/download/v($version)/tgpt-linux-amd64 -o tgpt
+    add-execute tgpt
+    move -f tgpt -p $path
+  }
+
+  bind file tgpt $path
 }
 
 export def slices [] {
@@ -1106,7 +1188,7 @@ export def clangd [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/clangd/clangd/releases/download/($version)/clangd-linux-($version).zip'
     extract zip $'clangd-linux-($version).zip'
-    move -d $'clangd_($version)' -f 'bin/clangd' -p $path
+    move -d $'clangd_($version)' -f bin/clangd -p $path
   }
 
   bind file -r clangd $path
@@ -1114,10 +1196,15 @@ export def clangd [] {
 
 export def coreutils [] {
   let version = github get_version 'uutils/coreutils'
+  let path = share coreutils $version
 
-  https download $'https://github.com/uutils/coreutils/releases/download/($version)/coreutils-($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'coreutils-($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -d $'coreutils-($version)-x86_64-unknown-linux-musl' -f 'coreutils'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/uutils/coreutils/releases/download/($version)/coreutils-($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'coreutils-($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -d $'coreutils-($version)-x86_64-unknown-linux-musl' -f coreutils -p $path
+  }
+
+  bind file coreutils $path
 }
 
 export def carapace [] {
@@ -1127,7 +1214,7 @@ export def carapace [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/rsteube/carapace-bin/releases/download/v($version)/carapace-bin_linux_amd64.tar.gz'
     extract tar 'carapace-bin_linux_amd64.tar.gz' -d 'carapace-bin_linux_amd64'
-    move -d 'carapace-bin_linux_amd64' -f 'carapace' -p $path
+    move -d 'carapace-bin_linux_amd64' -f carapace -p $path
   }
 
   bind file carapace $path
@@ -1135,10 +1222,15 @@ export def carapace [] {
 
 export def bombardier [] {
   let version = github get_version 'codesenberg/bombardier'
+  let path = share bombardier $version
 
-  https download $'https://github.com/codesenberg/bombardier/releases/download/v($version)/bombardier-linux-amd64' -o bombardier
-  add-execute bombardier
-  move -f 'bombardier'
+  if ($path | path-not-exists) {
+    https download $'https://github.com/codesenberg/bombardier/releases/download/v($version)/bombardier-linux-amd64' -o bombardier
+    add-execute bombardier
+    move -f bombardier -p $path
+  }
+
+  bind file bombardier $path
 }
 
 export def ruff [] {
@@ -1151,23 +1243,33 @@ export def ruff [] {
     move -f ruff -p $path
   }
 
-  bidn ruff $path
+  bind file ruff $path
 }
 
 export def micro [] {
   let version = github get_version 'zyedidia/micro'
+  let path = share micro $version
 
-  https download $'https://github.com/zyedidia/micro/releases/download/v($version)/micro-($version)-linux64.tar.gz'
-  extract tar $'micro-($version)-linux64.tar.gz'
-  move -d $'micro-($version)' -f micro
+  if ($path | path-not-exists) {
+    https download $'https://github.com/zyedidia/micro/releases/download/v($version)/micro-($version)-linux64.tar.gz'
+    extract tar $'micro-($version)-linux64.tar.gz'
+    move -d $'micro-($version)' -f micro -p $path
+  }
+
+  bind file micro $path
 }
 
 export def dufs [] {
   let version = github get_version 'sigoden/dufs'
+  let path = share dufs $version
 
-  https download $'https://github.com/sigoden/dufs/releases/download/v($version)/dufs-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  extract tar $'dufs-v($version)-x86_64-unknown-linux-musl.tar.gz'
-  move -f dufs
+  if ($path | path-not-exists) {
+    https download $'https://github.com/sigoden/dufs/releases/download/v($version)/dufs-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'dufs-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -f dufs -p $path
+  }
+
+  bind file dufs $path
 }
 
 export def miniserve [] {
@@ -1224,10 +1326,15 @@ export def gping [] {
 
 export def duf [] {
   let version = github get_version 'muesli/duf'
+  let path = share duf $version
 
-  https download https://github.com/muesli/duf/releases/download/v($version)/duf_($version)_linux_x86_64.tar.gz
-  extract tar duf_($version)_linux_x86_64.tar.gz -d duf_linux_x86_64
-  move -d duf_linux_x86_64 -f duf
+  if ($path | path-not-exists) {
+    https download https://github.com/muesli/duf/releases/download/v($version)/duf_($version)_linux_x86_64.tar.gz
+    extract tar duf_($version)_linux_x86_64.tar.gz -d duf_linux_x86_64
+    move -d duf_linux_x86_64 -f duf -p $path
+  }
+
+  bind file duf $path
 }
 
 export def github [] {
@@ -1258,18 +1365,28 @@ export def gitlab [] {
 
 export def dive [] {
   let version = github get_version 'wagoodman/dive'
+  let path = share dive $version
 
-  https download https://github.com/wagoodman/dive/releases/download/v($version)/dive_($version)_linux_amd64.tar.gz
-  extract tar dive_($version)_linux_amd64.tar.gz -d dive_linux_amd64
-  move -d dive_linux_amd64 -f dive
+  if ($path | path-not-exists) {
+    https download https://github.com/wagoodman/dive/releases/download/v($version)/dive_($version)_linux_amd64.tar.gz
+    extract tar dive_($version)_linux_amd64.tar.gz -d dive_linux_amd64
+    move -d dive_linux_amd64 -f dive -p $path
+  }
+
+  bind file dive $path
 }
 
 export def hyperfine [] {
   let version = github get_version 'sharkdp/hyperfine'
+  let path = share hyperfine $version
 
-  https download $'https://github.com/sharkdp/hyperfine/releases/download/v($version)/hyperfine-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'hyperfine-v($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'hyperfine-v($version)-x86_64-unknown-linux-gnu' -f hyperfine
+  if ($path | path-not-exists) {
+    https download $'https://github.com/sharkdp/hyperfine/releases/download/v($version)/hyperfine-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'hyperfine-v($version)-x86_64-unknown-linux-gnu.tar.gz'
+    move -d $'hyperfine-v($version)-x86_64-unknown-linux-gnu' -f hyperfine -p $path
+  }
+
+  bind file hyperfine $path
 }
 
 export def taskell [] {
@@ -1322,7 +1439,7 @@ export def bettercap [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/bettercap/bettercap/releases/download/v($version)/bettercap_linux_amd64_v($version).zip'
     extract zip $'bettercap_linux_amd64_v($version).zip' -d bettercap_linux_amd64
-    move -d 'bettercap_linux_amd64' -f 'bettercap' -p $path
+    move -d 'bettercap_linux_amd64' -f bettercap -p $path
   }
 
   bind file -r bettercap $path
@@ -1356,10 +1473,15 @@ export def yazi [] {
 
 export def kmon [] {
   let version = github get_version 'orhun/kmon'
+  let path = share kmon $version
 
-  https download $'https://github.com/orhun/kmon/releases/download/v($version)/kmon-($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'kmon-($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'kmon-($version)' -f kmon
+  if ($path | path-not-exists) {
+    https download $'https://github.com/orhun/kmon/releases/download/v($version)/kmon-($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'kmon-($version)-x86_64-unknown-linux-gnu.tar.gz'
+    move -d $'kmon-($version)' -f kmon -p $path
+  }
+
+  bind file kmon $path
 }
 
 export def --env ollama [] {
@@ -1372,8 +1494,8 @@ export def --env ollama [] {
     move dir ollama-linux-amd64 $path
   }
 
-  env-path $env.OLLAMA_BIN
   bind dir $path $env.OLLAMA_PATH
+  env-path $env.OLLAMA_BIN
 }
 
 export def plandex [] {
@@ -1433,7 +1555,7 @@ export def volta [--node] {
 
   https download $'https://github.com/volta-cli/volta/releases/download/v($version)/volta-($version)-linux.tar.gz'
   extract tar $'volta-($version)-linux.tar.gz' -d 'volta-linux'
-  move -d $'volta-($version)-linux' -f '*'
+  move -d $'volta-($version)-linux' -f *
 
   if $node {
     ^volta install node@latest
@@ -1498,10 +1620,15 @@ export def code-server [] {
 
 export def termshark [] {
   let version = github get_version 'gcla/termshark'
+  let path = share termshark $version
 
-  https download $'https://github.com/gcla/termshark/releases/download/v($version)/termshark_($version)_linux_x64.tar.gz'
-  extract tar $'termshark_($version)_linux_x64.tar.gz'
-  move -d $'termshark_($version)_linux_x64' -f termshark
+  if ($path | path-not-exists) {
+    https download $'https://github.com/gcla/termshark/releases/download/v($version)/termshark_($version)_linux_x64.tar.gz'
+    extract tar $'termshark_($version)_linux_x64.tar.gz'
+    move -d $'termshark_($version)_linux_x64' -f termshark -p $path
+  }
+
+  bind file termshark $path
 }
 
 export def termscp [] {
@@ -1519,10 +1646,15 @@ export def termscp [] {
 
 export def kbt [] {
   let version = github get_version 'bloznelis/kbt'
+  let path = share kbt $version
 
-  https download $'https://github.com/bloznelis/kbt/releases/download/($version)/kbt-($version)-x86_64-unknown-linux-gnu.tar.gz'
-  extract tar $'kbt-($version)-x86_64-unknown-linux-gnu.tar.gz'
-  move -d $'kbt-($version)-x86_64-unknown-linux-gnu' -f kbt
+  if ($path | path-not-exists) {
+    https download $'https://github.com/bloznelis/kbt/releases/download/($version)/kbt-($version)-x86_64-unknown-linux-gnu.tar.gz'
+    extract tar $'kbt-($version)-x86_64-unknown-linux-gnu.tar.gz'
+    move -d $'kbt-($version)-x86_64-unknown-linux-gnu' -f kbt -p $path
+  }
+
+  bind file kbt $path
 }
 
 export def trippy [] {
@@ -1532,7 +1664,7 @@ export def trippy [] {
   if ($path | path-not-exists) {
     https download $'https://github.com/fujiapple852/trippy/releases/download/($version)/trippy-($version)-x86_64-unknown-linux-gnu.tar.gz'
     extract tar $'trippy-($version)-x86_64-unknown-linux-gnu.tar.gz'
-    move -d $'trippy-($version)-x86_64-unknown-linux-gnu' -f 'trip' -p $path
+    move -d $'trippy-($version)-x86_64-unknown-linux-gnu' -f trip -p $path
   }
 
   bind file -r trippy $path
@@ -1540,26 +1672,41 @@ export def trippy [] {
 
 export def gitui [] {
   let version = github get_version 'extrawurst/gitui'
+  let path = share gitui $version
+  
+  if ($path | path-not-exists) {
+    https download $'https://github.com/extrawurst/gitui/releases/download/v($version)/gitui-linux-musl.tar.gz'
+    extract tar gitui-linux-musl.tar.gz
+    move -f gitui -p $path
+  }
 
-  https download $'https://github.com/extrawurst/gitui/releases/download/v($version)/gitui-linux-musl.tar.gz'
-  extract tar gitui-linux-musl.tar.gz
-  move -f gitui
+  bind file gitui $path
 }
 
 export def monolith [] {
   let version = github get_version 'Y2Z/monolith'
+  let path = share monolith $version
+  
+  if ($path | path-not-exists) {
+    https download https://github.com/Y2Z/monolith/releases/download/v2.7.0/monolith-gnu-linux-x86_64 -o monolith
+    add-execute monolith
+    move -f monolith -p $path
+  }
 
-  https download https://github.com/Y2Z/monolith/releases/download/v2.7.0/monolith-gnu-linux-x86_64 -o monolith
-  add-execute monolith
-  move -f monolith
+  bind file monolith $path
 }
 
 export def dijo [] {
   let version = github get_version 'nerdypepper/dijo'
+  let path = share dijo $version
+  
+  if ($path | path-not-exists) {
+    https download $'https://github.com/nerdypepper/dijo/releases/download/v($version)/dijo-x86_64-linux' -o dijo
+    add-execute dijo
+    move -f dijo -p $path
+  }
 
-  https download $'https://github.com/nerdypepper/dijo/releases/download/v($version)/dijo-x86_64-linux' -o dijo
-  add-execute dijo
-  move -f dijo
+  bind file dijo $path
 }
 
 export def ventoy [] {
@@ -1634,7 +1781,7 @@ export def hetty [] {
   if ($path | path-not-exists) {
     https download https://github.com/dstotijn/hetty/releases/download/v($version)/hetty_($version)_Linux_x86_64.tar.gz
     extract tar hetty_($version)_Linux_x86_64.tar.gz -d hetty
-    move -d 'hetty' -f 'hetty' -p $path
+    move -d 'hetty' -f hetty -p $path
   }
 
   bind file hetty $path
@@ -1725,7 +1872,7 @@ export def speedtest [] {
   if ($path | path-not-exists) {
     https download $'https://install.speedtest.net/app/cli/ookla-speedtest-($version)-linux-x86_64.tgz'
     extract tar $'ookla-speedtest-($version)-linux-x86_64.tgz' -d 'ookla-speedtest-linux-x86_64'
-    move -d 'ookla-speedtest-linux-x86_64' -f 'speedtest' -p $path
+    move -d 'ookla-speedtest-linux-x86_64' -f speedtest -p $path
   }
 
   bind file speedtest $path
@@ -1774,8 +1921,8 @@ export def --env node [ --latest ] {
     move -d $'node-v($version)-linux-x64' -p $path
   }
 
-  env-path $env.NODE_BIN
   bind dir $path $env.NODE_PATH
+  env-path $env.NODE_BIN
 }
 
 def go-versions [] {
@@ -1800,8 +1947,8 @@ export def --env golang [ --latest ] {
     move -d go -p $path
   }
 
-  env-path $env.GOBIN
   bind dir $path $env.GOROOT
+  env-path $env.GOBIN
 }
 
 export def --env rust [ --latest, --force ] {
@@ -1818,7 +1965,7 @@ export def haskell [ --latest ] {
   }
 }
 
-export def vlang [] {
+export def --env vlang [] {
   let version = 'latest'
   let path = share vlang $version
 
@@ -1828,8 +1975,8 @@ export def vlang [] {
     move -d 'v' -p $path
   }
 
-  env-path $env.VLANG_PATH
   bind dir $path $env.VLANG_PATH
+  env-path $env.VLANG_PATH
 }
 
 def java-list [] {
@@ -1854,8 +2001,8 @@ export def --env java [ version: string@java-version = '21' ] {
     move -d $'jdk-($version)' -p $path
   }
 
-  env-path $env.JAVA_BIN
   bind dir $path $env.JAVA_PATH
+  env-path $env.JAVA_BIN
 }
 
 export def --env jdtls [] {
@@ -1866,8 +2013,8 @@ export def --env jdtls [] {
     move -d jdtls -p $path
   }
 
-  env-path $env.JDTLS_BIN
   bind dir $path $env.JDTLS_PATH
+  env-path $env.JDTLS_BIN
 }
 
 export def --env kotlin [] {
@@ -1880,8 +2027,8 @@ export def --env kotlin [] {
     move -d kotlinc -p $path
   }
 
-  env-path $env.KOTLIN_BIN
   bind dir $path $env.KOTLIN_PATH
+  env-path $env.KOTLIN_BIN
 }
 
 export def --env kotlin-native [] {
@@ -1894,8 +2041,8 @@ export def --env kotlin-native [] {
     move -d $'kotlin-native-prebuilt-linux-x86_64-($version)' -p $path
   }
 
-  env-path $env.KOTLIN_NATIVE_BIN
   bind dir $path $env.KOTLIN_NATIVE_PATH
+  env-path $env.KOTLIN_NATIVE_BIN
 }
 
 export def --env kotlin-language-server [] {
@@ -1908,8 +2055,8 @@ export def --env kotlin-language-server [] {
     move -d server -p $path
   }
 
-  env-path $env.KOTLIN_LSP_BIN
   bind dir $path $env.KOTLIN_LSP_PATH
+  env-path $env.KOTLIN_LSP_BIN
 }
 
 export def --env lua-language-server [] {
@@ -1922,8 +2069,8 @@ export def --env lua-language-server [] {
     move -d lua-language-server -p $path
   }
 
-  env-path $env.LUA_LSP_BIN
   bind dir $path $env.LUA_LSP_PATH
+  env-path $env.LUA_LSP_BIN
 }
 
 def dart_latest [] {
@@ -1940,8 +2087,8 @@ export def --env dart [] {
     move -d 'dart-sdk' -p $path
   }
 
-  env-path $env.DART_BIN
   bind dir $path $env.DART_PATH
+  env-path $env.DART_BIN
 }
 
 def flutter_latest [] {
@@ -1968,8 +2115,8 @@ export def --env flutter [ --latest(-l) ] {
     move -d 'flutter' -p $path
   }
 
-  env-path $env.FLUTTER_BIN
   bind dir $path $env.FLUTTER_PATH
+  env-path $env.FLUTTER_BIN
 }
 
 export def --env android-studio [ --desktop(-d) ] {
@@ -1981,9 +2128,9 @@ export def --env android-studio [ --desktop(-d) ] {
     extract tar $'android-studio-($version)-linux.tar.gz'
     move -d android-studio -p $path
   }
-  env-path $env.ANDROID_STUDIO_BIN
 
   bind dir $path $env.ANDORID_STUDIO_PATH
+  env-path $env.ANDROID_STUDIO_BIN
 
   if $desktop {
     let src = ($env.NU_BASE_FILES | path join applications android-studio.desktop)
@@ -2012,7 +2159,6 @@ export def --env android-platform-tools [] {
 
 export def --env bitcoin [] {
   let version = github get_version 'bitcoin/bitcoin'
-
   let path = share bitcoin $version
 
   if ($path | path-not-exists) {
@@ -2021,13 +2167,12 @@ export def --env bitcoin [] {
     move -d $'bitcoin-($version)' -p $path
   }
 
-  env-path $env.BITCOIN_BIN
   bind dir $path $env.BITCOIN_PATH
+  env-path $env.BITCOIN_BIN
 }
 
 export def --env lightning-network [] {
   let version = github get_version 'lightningnetwork/lnd'
-
   let path = share lightning $version
 
   if ($path | path-not-exists) {
@@ -2036,16 +2181,22 @@ export def --env lightning-network [] {
     move -d $'lnd-linux-amd64-v($version)' -p $path
   }
 
-  env-path $env.LIGHTNING_PATH
   bind dir $path $env.LIGHTNING_PATH
+  env-path $env.LIGHTNING_PATH
 }
 
-export def scilab [] {
+export def --env scilab [] {
   let version = '2024.1.0'
+  let path = share scilab $version
 
-  https download $'https://www.scilab.org/download/($version)/scilab-($version).bin.x86_64-linux-gnu.tar.xz'
-  extract tar $'scilab-($version).bin.x86_64-linux-gnu.tar.xz'
-  move -d $'scilab-($version)' -p $env.SCILAB_PATH
+  if ($path | path-not-exists) {
+    https download $'https://www.scilab.org/download/($version)/scilab-($version).bin.x86_64-linux-gnu.tar.xz'
+    extract tar $'scilab-($version).bin.x86_64-linux-gnu.tar.xz'
+    move -d $'scilab-($version)' -p $path
+  }
+
+  bind dir $path $env.SCILAB_PATH
+  env-path $env.SCILAB_BIN
 }
 
 export def remote-mouse [] {
@@ -2165,23 +2316,8 @@ def 'bind file' [name: string, src: string, --root(-r)] {
   ln -sf $src $dst
 }
 
-def move [
-  --dir(-d): string = "",
-  --file(-f): string = "",
-  --path(-p): string = "",
-  ] {
-  let dest = if ($path | is-empty) {
-    ($env.USR_LOCAL_BIN | path join ($file | path basename))
-  } else { $path }
-  let src = ([$dir, $file] | path join)
-
-  if ($dest | path exists) {
-    rm -rf $dest
-  }
-
-  mv -f $src $dest
-
-  if ($dir | path exists) {
-    rm -rf $dir
-  }
+def move [ --dir(-d): string, --file(-f): string, --path(-p): string, ] {
+  if ($path | path exists) { rm -rf $path }
+  mv -f ($dir | path join $file) $path
+  if ($dir | path exists) { rm -rf $dir }
 }
