@@ -39,3 +39,7 @@ export def mkcert [] {
     sudo apt install -y libnss3-tools
   }
 }
+
+export def qt [] {
+  sudo apt install  qtwebengine5-dev qtpositioning5-dev
+}

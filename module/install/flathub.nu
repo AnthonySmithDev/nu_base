@@ -69,3 +69,15 @@ export def obs [] {
 export def podman [] {
 	flatpak install -y flathub io.podman_desktop.PodmanDesktop
 }
+
+export def ferdium [] {
+	flatpak install -y flathub org.ferdium.Ferdium
+}
+
+export def zapzap [] {
+	flatpak install -y flathub com.rtosta.zapzap
+}
+
+export def umftpd [] {
+	flatpak install -y flathub eu.ithz.umftpd
+}

@@ -256,6 +256,30 @@ export def Acode [] {
   install $output
 }
 
+export def AppFlowy [] {
+  let version = github get_version 'AppFlowy-IO/AppFlowy'
+  let filename = $'AppFlowy_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/AppFlowy-IO/AppFlowy/releases/download/($version)/AppFlowy-($version)-android-arm64-v8a.apk' -o $filepath
+  }
+
+  install $filepath
+}
+
+export def siyuan [ --force(-f) ] {
+  let version = github get_version 'siyuan-note/siyuan'
+  let filename = $"siyuan_($version).apk"
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/siyuan-note/siyuan/releases/download/v($version)/siyuan-($version).apk' -o $filepath
+  }
+
+  install $filepath
+}
+
 export def core [] {
   NewPipe
   LibreTube

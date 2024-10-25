@@ -1,5 +1,5 @@
 
-export def alacritty [ --default, --desktop, --manual ] {
+export def alacritty [] {
   if (external exists apt) {
     sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
   }
@@ -9,56 +9,33 @@ export def alacritty [ --default, --desktop, --manual ] {
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --manifest-path $manifest --release --no-default-features --features=wayland
-  # cargo build --manifest-path $manifest --release
 
   let name = "alacritty"
   let src = ($source | path join target release $name)
-  let dst = ($env.USR_LOCAL_BIN | path join $name)
+  let dst = ($env.USR_LOCAL_SHARE | path join alacritty_source)
 
-  ln -sf $src $dst
+  rm -f $dst
+  cp -f $src $dst
+
+  ln -sf $dst ($env.USR_LOCAL_BIN | path join $name)
   sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
 
-  if $default {
-    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $dst 100
-    # sudo update-alternatives --config x-terminal-emulator
-  }
+  sudo cp -f ($source | path join extra/logo/alacritty-term.svg) /usr/share/pixmaps/Alacritty.svg
+  sudo desktop-file-install ($source | path join extra/linux/Alacritty.desktop)
+  sudo update-desktop-database
 
-  if $desktop {
-    sudo cp -f ($source | path join extra/logo/alacritty-term.svg) /usr/share/pixmaps/Alacritty.svg
-    sudo desktop-file-install ($source | path join extra/linux/Alacritty.desktop)
-    sudo update-desktop-database
-  }
+  sudo mkdir -p /usr/local/share/man/man1
+  sudo mkdir -p /usr/local/share/man/man5
+  open ($source | path join extra/man/alacritty.1.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz | null
+  open ($source | path join extra/man/alacritty-msg.1.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz | null
+  open ($source | path join extra/man/alacritty.5.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz | null
+  open ($source | path join extra/man/alacritty-bindings.5.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz | null
 
-  if $manual {
-    sudo mkdir -p /usr/local/share/man/man1
-    sudo mkdir -p /usr/local/share/man/man5
-    with-path $source {||
-      open extra/man/alacritty.1.scd | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz | null
-      open extra/man/alacritty-msg.1.scd | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz | null
-      open extra/man/alacritty.5.scd | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz | null
-      open extra/man/alacritty-bindings.5.scd | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz | null
-    }
-  }
+  # sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $dst 100
+  # sudo update-alternatives --config x-terminal-emulator
 }
 
-export def --env foot [] {
-  let path = ($env.USR_LOCAL_SOURCE | path join foot)
-  git_clone https://codeberg.org/dnkl/foot $path
-
-  with-wd $path {||
-    mkdir bld/release
-    cd bld/release
-
-    $env.CFLAGS = " -O3"
-    meson ... -Ddefault-terminfo=foot -Dterminfo-base-name=foot-extra
-    meson --buildtype=release --prefix=/usr -Db_lto=true ../..
-    ninja
-    ninja test
-    ninja install
-  }
-}
-
-export def nushell [ --global,--plugin ] {
+export def nushell [ --plugin ] {
   let source = ($env.USR_LOCAL_SOURCE | path join nushell)
   git_clone https://github.com/nushell/nushell.git $source
 
@@ -67,12 +44,13 @@ export def nushell [ --global,--plugin ] {
 
   let name = 'nu'
   let src = ($source | path join target release $name)
-  let dst = ($env.USR_LOCAL_BIN | path join $name)
-  ln -sf $src $dst
+  let dst = ($env.USR_LOCAL_SHARE | path join nu_source)
 
-  if $global {
-    sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
-  }
+  rm -f $dst
+  cp -f $src $dst
+
+  ln -sf $dst ($env.USR_LOCAL_BIN | path join $name)
+  sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
 
   if $plugin {
     let nu_plugin_query = ($source | path join target release nu_plugin_query)
@@ -80,7 +58,7 @@ export def nushell [ --global,--plugin ] {
   }
 }
 
-export def zellij [ --global,--plugin ] {
+export def zellij [] {
   let source = ($env.USR_LOCAL_SOURCE | path join zellij)
   git_clone https://github.com/zellij-org/zellij.git $source
 
@@ -89,13 +67,27 @@ export def zellij [ --global,--plugin ] {
 
   let name = 'zellij'
   let src = ($source | path join target release $name)
-  let dst = ($env.USR_LOCAL_BIN | path join $name)
+  let dst = ($env.USR_LOCAL_SHARE | path join zellij_source)
 
-  ln -sf $src $dst
+  rm -f $dst
+  cp -f $src $dst
 
-  if $global {
-    sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
-  }
+  ln -sf $dst ($env.USR_LOCAL_BIN | path join $name)
+  sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
+}
+
+export def audiosource [] {
+  let source = ($env.USR_LOCAL_SOURCE | path join audiosource)
+  git_clone https://github.com/gdzx/audiosource $source
+
+  let name = 'audiosource'
+  let src = ($source | path join $name)
+  let dst = ($env.USR_LOCAL_SHARE | path join audiosource_source)
+
+  rm -f $dst
+  cp -f $src $dst
+
+  ln -sf $dst ($env.USR_LOCAL_BIN | path join $name)
 }
 
 export def helix [--desktop, --global] {
@@ -305,11 +297,19 @@ export def mouseless-status [] {
   }
 }
 
-export def audiosource [] {
-  let source = ($env.USR_LOCAL_SOURCE | path join audiosource)
-  git_clone https://github.com/gdzx/audiosource $source
+export def --env foot [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join foot)
+  git_clone https://codeberg.org/dnkl/foot $path
 
-  let src = ($source | path join audiosource)
-  let dst = ($env.USR_LOCAL_BIN | path join audiosource)
-  ln -sf $src $dst
+  with-wd $path {||
+    mkdir bld/release
+    cd bld/release
+
+    $env.CFLAGS = " -O3"
+    meson ... -Ddefault-terminfo=foot -Dterminfo-base-name=foot-extra
+    meson --buildtype=release --prefix=/usr -Db_lto=true ../..
+    ninja
+    ninja test
+    ninja install
+  }
 }

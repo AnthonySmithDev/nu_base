@@ -332,3 +332,11 @@ def gic [lang: string] {
   open $output | wl-copy
   rm $output
 }
+
+def --wrapped 'adb d' [ ...rest ] {
+  adb devices ...$rest
+}
+
+def --wrapped 'adb c' [ ...rest ] {
+  adb connect ...$rest
+}

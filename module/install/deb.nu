@@ -217,3 +217,35 @@ export def localsend [ --force(-f) ] {
     sudo dpkg -i $filepath
   }
 }
+
+export def appflowy [ --force(-f) ] {
+  let version = github get_version 'AppFlowy-IO/AppFlowy'
+  let filename = $"appflowy_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download $'https://github.com/AppFlowy-IO/AppFlowy/releases/download/($version)/AppFlowy-($version)-linux-x86_64.deb' $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
+export def siyuan [ --force(-f) ] {
+  let version = github get_version 'siyuan-note/siyuan'
+  let filename = $"siyuan_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download $'https://github.com/siyuan-note/siyuan/releases/download/v($version)/siyuan-($version)-linux-arm64.deb' $filepath
+    sudo dpkg -i $filepath
+  }
+}

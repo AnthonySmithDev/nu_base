@@ -43,7 +43,7 @@ def main [] {
   install bin kubectl
   install bin tailscale
 
-  compile alacritty --desktop
+  compile alacritty
   config alacritty --theme
 
   config git
