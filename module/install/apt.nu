@@ -450,3 +450,10 @@ export def podman [] {
   sudo apt update
   sudo apt install -y podman
 }
+
+export def sftpgo [] {
+  sudo add-apt-repository ppa:sftpgo/sftpgo
+  sudo apt update
+  sudo apt install -y sftpgo
+  systemctl status sftpgo
+}

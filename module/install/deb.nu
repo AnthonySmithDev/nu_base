@@ -249,3 +249,19 @@ export def siyuan [ --force(-f) ] {
     sudo dpkg -i $filepath
   }
 }
+
+export def sftpgo [ --force(-f) ] {
+  let version = github get_version 'drakkan/sftpgo'
+  let filename = $"sftpgo_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download $'https://github.com/drakkan/sftpgo/releases/download/v($version)/sftpgo_($version)-1_amd64.deb' $filepath
+    sudo dpkg -i $filepath
+  }
+}

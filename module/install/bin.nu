@@ -564,31 +564,27 @@ export def dasel [] {
     umv -f dasel -p $path
   }
 
-  bind share $path
+  bind dasel $path
 }
 
 export def pueue [] {
   let version = github get_version 'Nukesor/pueue'
 
-  let bin = bin pueue
   let path = share pueue $version
-
   if (no-exist $path) {
     https download $'https://github.com/Nukesor/pueue/releases/download/v($version)/pueue-linux-x86_64' -o pueue
     chmod 755 pueue
     umv -f pueue -p $path
   }
-  symlink $path $bin
+  bind pueue $path
 
-  let bin = bin pueued
   let path = share pueued $version
-
   if (no-exist $path) {
     https download $'https://github.com/Nukesor/pueue/releases/download/v($version)/pueued-linux-x86_64' -o pueued
     chmod 755 pueued
     umv -f pueued -p $path
   }
-  symlink $path $bin
+  bind pueued $path
 }
 
 export def delta [] {
@@ -763,6 +759,45 @@ export def upterm [] {
   }
 
   bind upterm $path
+}
+
+export def sftpgo [] {
+  let version = github get_version 'drakkan/sftpgo'
+  let path = share sftpgo $version
+
+  if (no-exist $path) {
+    https download https://github.com/drakkan/sftpgo/releases/download/v($version)/sftpgo_v($version)_linux_x86_64.tar.xz
+    extract tar sftpgo_v($version)_linux_x86_64.tar.xz -d sftpgo_linux_x86_64
+    umv -d sftpgo_linux_x86_64 -p $path
+  }
+
+  symlink $path $env.SFTPGO_PATH
+}
+
+export def telegram [] {
+  let version = github get_version 'telegramdesktop/tdesktop'
+  let path = share telegram $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/telegramdesktop/tdesktop/releases/download/v($version)/tsetup.($version).tar.xz'
+    extract tar $'tsetup.($version).tar.xz'
+    umv -d Telegram -f Telegram -p $path
+  }
+
+  bind telegram $path
+}
+
+export def tdl [] {
+  let version = github get_version 'iyear/tdl'
+  let path = share tdl $version
+
+  if (no-exist $path) {
+    https download $'https://github.com/iyear/tdl/releases/download/v($version)/tdl_Linux_64bit.tar.gz'
+    extract tar tdl_Linux_64bit.tar.gz -d tdl_Linux_64bit
+    umv -d tdl_Linux_64bit -f tdl -p $path
+  }
+
+  bind tdl $path
 }
 
 export def kanata [] {

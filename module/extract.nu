@@ -1,6 +1,6 @@
 
 export def tar [
-  file: string
+  file?: string
   --dir(-d): string
 ] {
   mut args = ['-xf' $file]
@@ -16,8 +16,10 @@ export def tar [
   rm -rf $file
 }
 
+export alias t = tar
+
 export def zip [
-  file: string
+  file?: string
   --dir(-d): string
 ] {
   mut args = ['-q' $file]
@@ -32,3 +34,5 @@ export def zip [
   }
   rm -rf $file
 }
+
+export alias z = zip

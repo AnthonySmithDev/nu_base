@@ -4,7 +4,7 @@ export def bench [url: string] {
 }
 
 export def download [
-  url: string
+  url?: string
   --output(-o): string
 ] {
    if (^which xh | is-not-empty) {
@@ -15,6 +15,8 @@ export def download [
     download wget $url --output $output
   }
 }
+
+export alias d = download
 
 export def 'download xh' [
   url: string

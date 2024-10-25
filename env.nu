@@ -37,6 +37,9 @@ $env.NVIM_PATH = ($env.USR_LOCAL_LIB | path join nvim)
 $env.NVIM_BIN = ($env.NVIM_PATH | path join bin)
 env-path $env.NVIM_BIN
 
+$env.SFTPGO_PATH = ($env.USR_LOCAL_LIB | path join sftpgo)
+env-path $env.SFTPGO_PATH
+
 $env.VSCODIUM_PATH = ($env.USR_LOCAL_LIB | path join vscodium)
 $env.VSCODIUM_BIN = ($env.VSCODIUM_PATH | path join bin)
 env-path $env.VSCODIUM_BIN
