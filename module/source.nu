@@ -8,6 +8,7 @@ use github.nu
 use config.nu
 use download.nu
 
+use tdown.nu
 use fm.nu
 use dir.nu
 use file.nu
