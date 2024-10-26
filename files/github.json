@@ -65,9 +65,9 @@
   {
     "category": "core",
     "repository": "alacritty/alacritty",
-    "tag_name": "0.13.2",
+    "tag_name": "0.14.0",
     "prerelease": false,
-    "created_at": "2024-03-24T17:51:35Z"
+    "created_at": "2024-10-22T23:10:44Z"
   },
   {
     "category": "core",
@@ -149,9 +149,9 @@
   {
     "category": "core",
     "repository": "Wilfred/difftastic",
-    "tag_name": "0.60.0",
+    "tag_name": "0.61.0",
     "prerelease": false,
-    "created_at": "2024-07-30T23:16:34Z"
+    "created_at": "2024-10-24T05:27:01Z"
   },
   {
     "category": "core",
@@ -226,9 +226,9 @@
   {
     "category": "core",
     "repository": "xo/usql",
-    "tag_name": "0.19.4",
+    "tag_name": "0.19.12",
     "prerelease": false,
-    "created_at": "2024-10-21T13:45:52Z"
+    "created_at": "2024-10-24T07:52:08Z"
   },
   {
     "category": "core",
@@ -261,9 +261,9 @@
   {
     "category": "extra",
     "repository": "altsem/gitu",
-    "tag_name": "0.25.0",
+    "tag_name": "0.26.0",
     "prerelease": false,
-    "created_at": "2024-09-03T16:29:15Z"
+    "created_at": "2024-10-24T17:42:50Z"
   },
   {
     "category": "extra",
@@ -729,6 +729,13 @@
   },
   {
     "category": "other",
+    "repository": "ventoy/Ventoy",
+    "tag_name": "1.0.99",
+    "prerelease": false,
+    "created_at": "2021-03-06T10:11:04Z"
+  },
+  {
+    "category": "other",
     "repository": "sachaos/viddy",
     "tag_name": "1.2.0",
     "prerelease": false,
@@ -814,9 +821,9 @@
   {
     "category": "other",
     "repository": "sigoden/aichat",
-    "tag_name": "0.22.0",
+    "tag_name": "0.23.0",
     "prerelease": false,
-    "created_at": "2024-09-18T00:12:20Z"
+    "created_at": "2024-10-24T08:43:54Z"
   },
   {
     "category": "other",
@@ -870,16 +877,16 @@
   {
     "category": "other",
     "repository": "cli/cli",
-    "tag_name": "2.59.0",
+    "tag_name": "2.60.1",
     "prerelease": false,
-    "created_at": "2024-10-15T23:26:13Z"
+    "created_at": "2024-10-25T16:21:52Z"
   },
   {
     "category": "other",
     "repository": "astral-sh/ruff",
-    "tag_name": "0.7.0",
+    "tag_name": "0.7.1",
     "prerelease": false,
-    "created_at": "2024-10-17T16:14:21Z"
+    "created_at": "2024-10-24T15:27:07Z"
   },
   {
     "category": "other",
@@ -900,7 +907,7 @@
     "repository": "TheWaWaR/simple-http-server",
     "tag_name": "0.6.9",
     "prerelease": false,
-    "created_at": "2024-09-12T02:13:42Z"
+    "created_at": "2024-03-04T05:23:33Z"
   },
   {
     "category": "other",
@@ -943,6 +950,13 @@
     "tag_name": "0.18.3-beta",
     "prerelease": false,
     "created_at": "2024-09-11T11:23:30Z"
+  },
+  {
+    "category": "other",
+    "repository": "Yakitrak/obsidian-cli",
+    "tag_name": "1.7.4",
+    "prerelease": false,
+    "created_at": "2024-10-16T19:37:31Z"
   },
   {
     "category": "other",
@@ -998,7 +1012,7 @@
     "repository": "FiloSottile/mkcert",
     "tag_name": "1.4.4",
     "prerelease": false,
-    "created_at": "2020-08-31T15:26:11Z"
+    "created_at": "2022-04-26T17:37:25Z"
   },
   {
     "category": "other",
@@ -1012,20 +1026,27 @@
     "repository": "drakkan/sftpgo",
     "tag_name": "2.6.2",
     "prerelease": false,
-    "created_at": "2024-08-20T00:58:01Z"
+    "created_at": "2024-06-21T17:06:18Z"
   },
   {
     "category": "other",
     "repository": "telegramdesktop/tdesktop",
     "tag_name": "5.6.3",
     "prerelease": false,
-    "created_at": "2024-08-20T00:58:01Z"
+    "created_at": "2024-10-15T18:13:06Z"
   },
   {
     "category": "other",
     "repository": "iyear/tdl",
-    "tag_name": "0.17.5",
+    "tag_name": "0.17.6",
     "prerelease": false,
-    "created_at": "2024-08-20T00:58:01Z"
+    "created_at": "2024-10-25T06:38:43Z"
+  },
+  {
+    "category": "other",
+    "repository": "librespeed/speedtest-cli",
+    "tag_name": "1.0.11",
+    "prerelease": false,
+    "created_at": "2024-10-25T06:38:43Z"
   }
 ]

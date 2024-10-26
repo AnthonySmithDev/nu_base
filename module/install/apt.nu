@@ -234,6 +234,11 @@ export def snap [] {
   sudo apt install -y snapd
 }
 
+export def speedtest [] {
+  curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
+  sudo apt install -y speedtest
+}
+
 export def flathub [] {
   if (exists-external flatpak) {
     return

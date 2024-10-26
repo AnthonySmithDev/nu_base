@@ -1,4 +1,17 @@
 
+export def xh [] {
+  let version = github get_version 'ducaale/xh'
+  let path = share xh $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/ducaale/xh/releases/download/v($version)/xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -d $'xh-v($version)-x86_64-unknown-linux-musl' -f xh -p $path
+  }
+
+  bind file -r xh $path
+}
+
 export def helix [] {
   let version = github get_version 'helix-editor/helix'
   let path = share helix $version
@@ -10,19 +23,6 @@ export def helix [] {
   }
 
   bind file -r hx ($path | path join hx)
-}
-
-export def nvim [] {
-  let version = github get_version 'neovim/neovim'
-  let path = share nvim $version
-
-  if ($path | path-not-exists) {
-    https download $'https://github.com/neovim/neovim/releases/download/v($version)/nvim-linux64.tar.gz'
-    extract tar nvim-linux64.tar.gz
-    move -f nvim-linux64 -p $path
-  }
-
-  bind dir $path $env.NVIM_PATH
 }
 
 export def nushell [] {
@@ -116,43 +116,121 @@ export def fzf [] {
   bind file -r fzf $path
 }
 
-export def marksman [] {
-  let version = github get_version 'artempyanykh/marksman'
-  let path = share marksman $version
+export def gum [] {
+  let version = github get_version 'charmbracelet/gum'
+  let path = share gum $version
 
   if ($path | path-not-exists) {
-    https download https://github.com/artempyanykh/marksman/releases/download/2023-12-09/marksman-linux-x64 -o marksman
-    add-execute marksman
-    move -f marksman -p $path
+    https download https://github.com/charmbracelet/gum/releases/download/v($version)/gum_($version)_Linux_x86_64.tar.gz
+    extract tar gum_($version)_Linux_x86_64.tar.gz
+    move -d gum_($version)_Linux_x86_64 -f gum -p $path
   }
 
-  bind file marksman $path
+  bind file gum $path
 }
 
-export def v-analyzer [] {
-  let version = github get_version 'vlang/v-analyzer'
-  let path = share v-analyzer $version
+export def mods [] {
+  let version = github get_version 'charmbracelet/mods'
+  let path = share mods $version
 
   if ($path | path-not-exists) {
-    https download https://github.com/vlang/v-analyzer/releases/download/($version)/v-analyzer-linux-x86_64.zip
-    extract zip v-analyzer-linux-x86_64.zip
-    move  -f v-analyzer -p $path
+    https download https://github.com/charmbracelet/mods/releases/download/v($version)/mods_($version)_Linux_x86_64.tar.gz
+    extract tar mods_($version)_Linux_x86_64.tar.gz
+    move -d mods_($version)_Linux_x86_64 -f mods -p $path
   }
 
-  bind file v-analyzer $path
+  bind file mods $path
 }
 
-export def zls [] {
-  let version = github get_version 'zigtools/zls'
-  let path = share zls $version
+export def glow [] {
+  let version = github get_version 'charmbracelet/glow'
+  let path = share glow $version
 
   if ($path | path-not-exists) {
-    https download https://github.com/zigtools/zls/releases/download/($version)/zls-x86_64-linux.tar.xz
-    extract tar zls-x86_64-linux.tar.xz -d zls-x86_64-linux
-    move -d zls-x86_64-linux -f zls -p $path
+    https download https://github.com/charmbracelet/glow/releases/download/v($version)/glow_($version)_Linux_x86_64.tar.gz
+    extract tar glow_($version)_Linux_x86_64.tar.gz
+    move -d glow_($version)_Linux_x86_64 -f glow -p $path
   }
 
-  bind file zls $path
+  bind file glow $path
+}
+
+export def soft [] {
+  let version = github get_version 'charmbracelet/soft-serve'
+  let path = share soft $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/charmbracelet/soft-serve/releases/download/v($version)/soft-serve_($version)_Linux_x86_64.tar.gz
+    extract tar soft-serve_($version)_Linux_x86_64.tar.gz
+    move -d soft-serve_($version)_Linux_x86_64 -f soft -p $path
+  }
+
+  bind file soft $path
+}
+
+export def vhs [] {
+  let version = github get_version 'charmbracelet/vhs'
+  let path = share vhs $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/charmbracelet/vhs/releases/download/v($version)/vhs_($version)_Linux_x86_64.tar.gz
+    extract tar vhs_($version)_Linux_x86_64.tar.gz
+    move -d vhs_($version)_Linux_x86_64 -f vhs -p $path
+  }
+
+  bind file vhs $path
+}
+
+export def freeze [] {
+  let version = github get_version 'charmbracelet/freeze'
+  let path = share freeze $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/charmbracelet/freeze/releases/download/v($version)/freeze_($version)_Linux_x86_64.tar.gz
+    extract tar freeze_($version)_Linux_x86_64.tar.gz
+    move -d freeze_($version)_Linux_x86_64 -f freeze -p $path
+  }
+
+  bind file freeze $path
+}
+
+export def melt [] {
+  let version = github get_version 'charmbracelet/melt'
+  let path = share melt $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/charmbracelet/melt/releases/download/v($version)/melt_($version)_Linux_x86_64.tar.gz
+    extract tar melt_($version)_Linux_x86_64.tar.gz
+    move -d melt_($version)_Linux_x86_64 -f melt -p $path
+  }
+
+  bind file melt $path
+}
+
+export def skate [] {
+  let version = github get_version 'charmbracelet/skate'
+  let path = share skate $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/charmbracelet/skate/releases/download/v($version)/skate_($version)_Linux_x86_64.tar.gz
+    extract tar skate_($version)_Linux_x86_64.tar.gz
+    move -d skate_($version)_Linux_x86_64 -f skate -p $path
+  }
+
+  bind file skate $path
+}
+
+export def nvim [] {
+  let version = github get_version 'neovim/neovim'
+  let path = share nvim $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/neovim/neovim/releases/download/v($version)/nvim-linux64.tar.gz'
+    extract tar nvim-linux64.tar.gz
+    move -f nvim-linux64 -p $path
+  }
+
+  bind dir $path $env.NVIM_PATH
 }
 
 export def broot [] {
@@ -272,19 +350,6 @@ export def gdu [] {
   bind file -r gdu $path
 }
 
-export def xh [] {
-  let version = github get_version 'ducaale/xh'
-  let path = share xh $version
-
-  if ($path | path-not-exists) {
-    https download $'https://github.com/ducaale/xh/releases/download/v($version)/xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
-    extract tar $'xh-v($version)-x86_64-unknown-linux-musl.tar.gz'
-    move -d $'xh-v($version)-x86_64-unknown-linux-musl' -f xh -p $path
-  }
-
-  bind file -r xh $path
-}
-
 export def task [] {
   let version = github get_version 'go-task/task'
   let path = share task $version
@@ -324,110 +389,6 @@ export def websocat [] {
   bind file websocat $path
 }
 
-export def gum [] {
-  let version = github get_version 'charmbracelet/gum'
-  let path = share gum $version
-
-  if ($path | path-not-exists) {
-    https download https://github.com/charmbracelet/gum/releases/download/v($version)/gum_($version)_Linux_x86_64.tar.gz
-    extract tar gum_($version)_Linux_x86_64.tar.gz
-    move -d gum_($version)_Linux_x86_64 -f gum -p $path
-  }
-
-  bind file gum $path
-}
-
-export def mods [] {
-  let version = github get_version 'charmbracelet/mods'
-  let path = share mods $version
-
-  if ($path | path-not-exists) {
-    https download https://github.com/charmbracelet/mods/releases/download/v($version)/mods_($version)_Linux_x86_64.tar.gz
-    extract tar mods_($version)_Linux_x86_64.tar.gz
-    move -d mods_($version)_Linux_x86_64 -f mods -p $path
-  }
-
-  bind file mods $path
-}
-
-export def glow [] {
-  let version = github get_version 'charmbracelet/glow'
-  let path = share glow $version
-
-  if ($path | path-not-exists) {
-    https download https://github.com/charmbracelet/glow/releases/download/v($version)/glow_($version)_Linux_x86_64.tar.gz
-    extract tar glow_($version)_Linux_x86_64.tar.gz
-    move -d glow_($version)_Linux_x86_64 -f glow -p $path
-  }
-
-  bind file glow $path
-}
-
-export def soft [] {
-  let version = github get_version 'charmbracelet/soft-serve'
-  let path = share soft $version
-
-  if ($path | path-not-exists) {
-    https download https://github.com/charmbracelet/soft-serve/releases/download/v($version)/soft-serve_($version)_Linux_x86_64.tar.gz
-    extract tar soft-serve_($version)_Linux_x86_64.tar.gz
-    move -d soft-serve_($version)_Linux_x86_64 -f soft -p $path
-  }
-
-  bind file soft $path
-}
-
-export def vhs [] {
-  let version = github get_version 'charmbracelet/vhs'
-  let path = share vhs $version
-
-  if ($path | path-not-exists) {
-    https download https://github.com/charmbracelet/vhs/releases/download/v($version)/vhs_($version)_Linux_x86_64.tar.gz
-    extract tar vhs_($version)_Linux_x86_64.tar.gz
-    move -d vhs_($version)_Linux_x86_64 -f vhs -p $path
-  }
-
-  bind file vhs $path
-}
-
-export def freeze [] {
-  let version = github get_version 'charmbracelet/freeze'
-  let path = share freeze $version
-
-  if ($path | path-not-exists) {
-    https download https://github.com/charmbracelet/freeze/releases/download/v($version)/freeze_($version)_Linux_x86_64.tar.gz
-    extract tar freeze_($version)_Linux_x86_64.tar.gz
-    move -d freeze_($version)_Linux_x86_64 -f freeze -p $path
-  }
-
-  bind file freeze $path
-}
-
-export def melt [] {
-  let version = github get_version 'charmbracelet/melt'
-  let path = share melt $version
-
-  if ($path | path-not-exists) {
-    https download https://github.com/charmbracelet/melt/releases/download/v($version)/melt_($version)_Linux_x86_64.tar.gz
-    extract tar melt_($version)_Linux_x86_64.tar.gz
-    move -d melt_($version)_Linux_x86_64 -f melt -p $path
-  }
-
-  bind file melt $path
-}
-
-export def skate [] {
-  let version = github get_version 'charmbracelet/skate'
-  let path = share skate $version
-
-  if ($path | path-not-exists) {
-    https download https://github.com/charmbracelet/skate/releases/download/v($version)/skate_($version)_Linux_x86_64.tar.gz
-    extract tar skate_($version)_Linux_x86_64.tar.gz
-    move -d skate_($version)_Linux_x86_64 -f skate -p $path
-  }
-
-  bind file skate $path
-}
-
 export def amber [] {
   let version = github get_version 'dalance/amber'
   let path = share amber $version
@@ -442,16 +403,16 @@ export def amber [] {
 }
 
 export def obsidian-cli [] {
-  let version = "0.1.6"
-  let path = share obs $version
+  let version = github get_version 'Yakitrak/obsidian-cli'
+  let path = share obsidian-cli $version
 
   if ($path | path-not-exists) {
     https download $'https://github.com/Yakitrak/obsidian-cli/releases/download/v($version)/obsidian-cli_($version)_linux_amd64.tar.gz'
     extract tar $"obsidian-cli_($version)_linux_amd64.tar.gz" -d "obsidian-cli_linux_amd64"
-    move -d obsidian-cli_linux_amd64 -f obs -p $path
+    move -d obsidian-cli_linux_amd64 -f obsidian-cli -p $path
   }
 
-  bind file obs $path
+  bind file obsidian-cli $path
 }
 
 export def lazygit [] {
@@ -805,7 +766,7 @@ export def kanata [] {
 }
 
 export def mongosh [] {
-  let version = "2.3.1"
+  let version = '2.3.1'
   let path = share mongosh $version
 
   if ($path | path-not-exists) {
@@ -1181,19 +1142,6 @@ export def invoice [] {
   bind file invoice $path
 }
 
-export def clangd [] {
-  let version = github get_version 'clangd/clangd'
-  let path = share clangd $version
-
-  if ($path | path-not-exists) {
-    https download $'https://github.com/clangd/clangd/releases/download/($version)/clangd-linux-($version).zip'
-    extract zip $'clangd-linux-($version).zip'
-    move -d $'clangd_($version)' -f bin/clangd -p $path
-  }
-
-  bind file -r clangd $path
-}
-
 export def coreutils [] {
   let version = github get_version 'uutils/coreutils'
   let path = share coreutils $version
@@ -1351,7 +1299,7 @@ export def github [] {
 }
 
 export def gitlab [] {
-  let version = "1.48.0"
+  let version = '1.48.0'
   let path = share glab $version
 
   if ($path | path-not-exists) {
@@ -1511,7 +1459,7 @@ export def plandex [] {
   bind file plandex $path
 }
 
-export def localAI [] {
+export def local-ai [] {
   let version = github get_version 'mudler/LocalAI'
   let path = share local-ai $version
 
@@ -1548,31 +1496,6 @@ export def lan-mouse [ --desktop(-d), --service(-s) ] {
     systemctl --user enable lan-mouse.service
     systemctl --user start lan-mouse.service
   }
-}
-
-export def volta [--node] {
-  let version = github get_version 'volta-cli/volta'
-
-  https download $'https://github.com/volta-cli/volta/releases/download/v($version)/volta-($version)-linux.tar.gz'
-  extract tar $'volta-($version)-linux.tar.gz' -d 'volta-linux'
-  move -d $'volta-($version)-linux' -f *
-
-  if $node {
-    ^volta install node@latest
-  }
-}
-
-export def fvm [] {
-  let version = github get_version 'leoafarias/fvm'
-  let path = share fvm $version
-
-  if ($path | path-not-exists) {
-    https download $'https://github.com/leoafarias/fvm/releases/download/($version)/fvm-($version)-linux-x64.tar.gz'
-    extract tar $'fvm-($version)-linux-x64.tar.gz'
-    move -d fvm -p $path
-  }
-
-  bind dir $path $env.FVM_PATH
 }
 
 export def lapce [] {
@@ -1710,7 +1633,7 @@ export def dijo [] {
 }
 
 export def ventoy [] {
-  let version = '1.0.99'
+  let version = github get_version 'ventoy/Ventoy'
   let path = share ventoy $version
 
   if ($path | path-not-exists) {
@@ -1723,7 +1646,7 @@ export def ventoy [] {
 }
 
 export def stash [] {
-  let version = '0.27.0'
+  let version = '0.27.2'
   let path = share stash $version
 
   if ($path | path-not-exists) {
@@ -1878,6 +1801,19 @@ export def speedtest [] {
   bind file speedtest $path
 }
 
+export def librespeed [] {
+  let version = github get_version 'librespeed/speedtest-cli'
+  let path = share librespeed $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/librespeed/speedtest-cli/releases/download/v($version)/librespeed-cli_($version)_linux_amd64.tar.gz'
+    extract tar $'librespeed-cli_($version)_linux_amd64.tar.gz' -d librespeed-cli_linux_amd64
+    move -d librespeed-cli_linux_amd64 -f librespeed-cli -p $path
+  }
+
+  bind file librespeed $path
+}
+
 export def nix [] {
   curl -L 'https://nixos.org/nix/install' | bash -s -- --daemon
 }
@@ -1894,8 +1830,54 @@ export def tailscale [] {
   }
 }
 
-export def deno [] {
-  curl -fsSL https://deno.land/install.sh | sh
+export def remote-mouse [] {
+  https download 'https://www.remotemouse.net/downloads/linux/RemoteMouse_x86_64.zip'
+  extract zip 'RemoteMouse_x86_64.zip' -d 'RemoteMouse_x86_64'
+  move -d 'RemoteMouse_x86_64' -p $env.REMOTE_MOUSE_PATH
+  rm ($env.REMOTE_MOUSE_PATH | path join install.sh)
+}
+
+export def docker [--group] {
+  let version = '26.1.3'
+  let path = share docker $version
+
+  if ($path | path-not-exists) {
+    https download https://download.docker.com/linux/static/stable/x86_64/docker-($version).tgz
+    extract tar docker-($version).tgz
+    move -f docker -p $path
+  }
+
+  if $group {
+    sudo groupadd docker
+    sudo usermod -aG docker $env.USER
+  }
+
+  bind dir $path $env.DOCKER_BIN
+}
+
+export def volta [--node] {
+  let version = github get_version 'volta-cli/volta'
+
+  https download $'https://github.com/volta-cli/volta/releases/download/v($version)/volta-($version)-linux.tar.gz'
+  extract tar $'volta-($version)-linux.tar.gz' -d 'volta-linux'
+  move -d $'volta-($version)-linux' -f *
+
+  if $node {
+    ^volta install node@latest
+  }
+}
+
+export def fvm [] {
+  let version = github get_version 'leoafarias/fvm'
+  let path = share fvm $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/leoafarias/fvm/releases/download/($version)/fvm-($version)-linux-x64.tar.gz'
+    extract tar $'fvm-($version)-linux-x64.tar.gz'
+    move -d fvm -p $path
+  }
+
+  bind dir $path $env.FVM_PATH
 }
 
 def node-versions [] {
@@ -1923,6 +1905,10 @@ export def --env node [ --latest ] {
 
   bind dir $path $env.NODE_PATH
   env-path $env.NODE_BIN
+}
+
+export def deno [] {
+  curl -fsSL https://deno.land/install.sh | sh
 }
 
 def go-versions [] {
@@ -2199,29 +2185,56 @@ export def --env scilab [] {
   env-path $env.SCILAB_BIN
 }
 
-export def remote-mouse [] {
-  https download 'https://www.remotemouse.net/downloads/linux/RemoteMouse_x86_64.zip'
-  extract zip 'RemoteMouse_x86_64.zip' -d 'RemoteMouse_x86_64'
-  move -d 'RemoteMouse_x86_64' -p $env.REMOTE_MOUSE_PATH
-  rm ($env.REMOTE_MOUSE_PATH | path join install.sh)
-}
-
-export def docker [--group] {
-  let version = '26.1.3'
-  let path = share docker $version
+export def clangd [] {
+  let version = github get_version 'clangd/clangd'
+  let path = share clangd $version
 
   if ($path | path-not-exists) {
-    https download https://download.docker.com/linux/static/stable/x86_64/docker-($version).tgz
-    extract tar docker-($version).tgz
-    move -f docker -p $path
+    https download $'https://github.com/clangd/clangd/releases/download/($version)/clangd-linux-($version).zip'
+    extract zip $'clangd-linux-($version).zip'
+    move -d $'clangd_($version)' -f bin/clangd -p $path
   }
 
-  if $group {
-    sudo groupadd docker
-    sudo usermod -aG docker $env.USER
+  bind file -r clangd $path
+}
+
+export def marksman [] {
+  let version = github get_version 'artempyanykh/marksman'
+  let path = share marksman $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/artempyanykh/marksman/releases/download/($version)/marksman-linux-x64 -o marksman
+    add-execute marksman
+    move -f marksman -p $path
   }
 
-  bind dir $path $env.DOCKER_BIN
+  bind file marksman $path
+}
+
+export def v-analyzer [] {
+  let version = github get_version 'vlang/v-analyzer'
+  let path = share v-analyzer $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/vlang/v-analyzer/releases/download/($version)/v-analyzer-linux-x86_64.zip
+    extract zip v-analyzer-linux-x86_64.zip
+    move  -f v-analyzer -p $path
+  }
+
+  bind file v-analyzer $path
+}
+
+export def zls [] {
+  let version = github get_version 'zigtools/zls'
+  let path = share zls $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/zigtools/zls/releases/download/($version)/zls-x86_64-linux.tar.xz
+    extract tar zls-x86_64-linux.tar.xz -d zls-x86_64-linux
+    move -d zls-x86_64-linux -f zls -p $path
+  }
+
+  bind file zls $path
 }
 
 export def core [] {

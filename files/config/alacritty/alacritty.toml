@@ -7,7 +7,7 @@ shell = "nu"
 
 [window]
 decorations = "None"
-opacity = 0.90
+opacity = 1
 blur = true
 
 [font.normal]
