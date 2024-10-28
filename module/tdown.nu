@@ -24,8 +24,9 @@ def chats_get_name_by_id [id: int] {
 }
 
 export def 'chat export' [id: int@chats_get_id --size: int = 200 ] {
-  let name = (gum input --header="Export name: " --value (chats_get_name_by_id $id))
-  let output = ($env.TELEGRAM_CHAT_DIR | path join $"($id) - ($name).json")
+  let name = (chats_get_name_by_id $id | path-safe)
+  let filename = (gum input --header="Export name: " --value $name)
+  let output = ($env.TELEGRAM_CHAT_DIR | path join $"($id) - ($filename).json")
   tdl chat export --chat $id --output $output --filter $"Media.Size < ($size)*1024*1024"
 }
 
@@ -37,13 +38,13 @@ def files_get_ids [] {
   files | rename value description
 }
 
-def files_get_name_by_id [id: int] {
+def files_get_name_by_id [id: string] {
   files | where id == $id | first | get name
 }
 
-export def 'download' [id: int@files_get_ids] {
+export def 'download' [id: string@files_get_ids] {
   let name = files_get_name_by_id $id
-  let dir = ($env.TELEGRAM_CHAT_DIR | path join ($id | into string))
+  let dir = ($env.TELEGRAM_CHAT_DIR | path join $"($id) - ($name)")
   let file = ($env.TELEGRAM_CHAT_DIR | path join $"($id) - ($name).json")
-  tdl download --dir $dir --file $file --continue
+  tdl download --dir $dir --file $file --skip-same --continue
 }

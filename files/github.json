@@ -86,9 +86,9 @@
   {
     "category": "core",
     "repository": "junegunn/fzf",
-    "tag_name": "0.55.0",
+    "tag_name": "0.56.0",
     "prerelease": false,
-    "created_at": "2024-08-29T08:11:31Z"
+    "created_at": "2024-10-27T03:03:50Z"
   },
   {
     "category": "core",
@@ -520,9 +520,9 @@
   {
     "category": "extra",
     "repository": "jtroo/kanata",
-    "tag_name": "1.6.1",
+    "tag_name": "1.7.0",
     "prerelease": false,
-    "created_at": "2024-05-04T05:08:03Z"
+    "created_at": "2024-10-27T07:23:43Z"
   },
   {
     "category": "extra",
@@ -732,7 +732,7 @@
     "repository": "ventoy/Ventoy",
     "tag_name": "1.0.99",
     "prerelease": false,
-    "created_at": "2021-03-06T10:11:04Z"
+    "created_at": "2024-06-08T09:26:33Z"
   },
   {
     "category": "other",
@@ -905,9 +905,9 @@
   {
     "category": "other",
     "repository": "TheWaWaR/simple-http-server",
-    "tag_name": "0.6.9",
+    "tag_name": "0.6.10",
     "prerelease": false,
-    "created_at": "2024-03-04T05:23:33Z"
+    "created_at": "2024-10-27T02:58:47Z"
   },
   {
     "category": "other",
@@ -954,9 +954,9 @@
   {
     "category": "other",
     "repository": "Yakitrak/obsidian-cli",
-    "tag_name": "1.7.4",
+    "tag_name": "0.1.7",
     "prerelease": false,
-    "created_at": "2024-10-16T19:37:31Z"
+    "created_at": "2024-07-13T17:07:37Z"
   },
   {
     "category": "other",
@@ -1047,6 +1047,6 @@
     "repository": "librespeed/speedtest-cli",
     "tag_name": "1.0.11",
     "prerelease": false,
-    "created_at": "2024-10-25T06:38:43Z"
+    "created_at": "2024-09-10T15:22:34Z"
   }
 ]

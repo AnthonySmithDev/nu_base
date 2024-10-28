@@ -3,6 +3,10 @@ export def seed [] {
   cat /dev/urandom | tr -dc '0-9A-F' | head -c 64
 }
 
+export def path-safe [] {
+  tr -cd '[:alnum:] ' | str trim
+}
+
 export def exists-group [group: string] {
   open /etc/group | str contains $group
 }
