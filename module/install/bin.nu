@@ -1363,21 +1363,30 @@ export def taskell [] {
   bind file taskell $path
 }
 
-export def kubectl [--install] {
+export def kubectl [] {
   let version = http get https://dl.k8s.io/release/stable.txt
   let path = share kubectl $version
 
   if ($path | path-not-exists) {
-    https download $"https://dl.k8s.io/release/($version)/bin/linux/amd64/kubectl" -o kubectl
+    https download https://dl.k8s.io/release/($version)/bin/linux/amd64/kubectl -o kubectl
     add-execute kubectl
     move -f kubectl -p $path
   }
 
-  if $install {
-    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+  bind file -r kubectl $path
+}
+
+export def kubetui [] {
+  let version = http get sarub0b0/kubetui
+  let path = share kubetui $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/sarub0b0/kubetui/releases/download/v1.5.3/kubetui-x86_64-unknown-linux-musl -o kubetui
+    add-execute kubetui
+    move -f kubetui -p $path
   }
 
-  bind file kubectl $path
+  bind file kubetui $path
 }
 
 export def k9s [] {
