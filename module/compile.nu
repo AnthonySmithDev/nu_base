@@ -328,3 +328,15 @@ export def --env foot [] {
     ninja install
   }
 }
+
+export def contour [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join contour)
+  git-down https://github.com/contour-terminal/contour.git $path
+
+  with-wd $path {||
+    bash scripts/install-deps.sh
+    # cmake --preset linux-release
+    # cmake --build --preset linux-release
+    cmake --build --preset linux-release --target install
+  }
+}

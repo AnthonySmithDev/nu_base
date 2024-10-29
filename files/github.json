@@ -372,6 +372,13 @@
   },
   {
     "category": "extra",
+    "repository": "sarub0b0/kubetui",
+    "tag_name": "1.5.3",
+    "prerelease": false,
+    "created_at": "2024-06-15T17:10:45Z"
+  },
+  {
+    "category": "extra",
     "repository": "bettercap/bettercap",
     "tag_name": "2.40.0",
     "prerelease": false,
@@ -1060,6 +1067,13 @@
     "category": "other",
     "repository": "mfontanini/presenterm",
     "tag_name": "0.9.0",
+    "prerelease": false,
+    "created_at": "2024-09-10T15:22:34Z"
+  },
+  {
+    "category": "other",
+    "repository": "contour-terminal/contour",
+    "tag_name": "0.5.1.7247",
     "prerelease": false,
     "created_at": "2024-09-10T15:22:34Z"
   }

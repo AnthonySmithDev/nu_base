@@ -1,26 +1,27 @@
 
 alias la = ls -la
+alias cat = bat -P --plain
+alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 
-alias zj = zellij
+alias zl = zellij
 alias zr = zellij run
 alias ze = zellij edit
 alias za = zellij action
-alias zk = zellij kill-session
-alias zd = zellij delete-session
-alias zka = zellij kill-all-sessions -y
-alias zda = zellij delete-all-sessions -y
-alias zrf = zellij run --floating --
+alias zt = zellij attach
 
+alias zks = zellij kill-session
+alias zds = zellij delete-session
+alias zkS = zellij kill-all-sessions -y
+alias zdS = zellij delete-all-sessions -y
+
+alias zf = zellij run --floating --
 alias zn = zellij options --session-name
-alias zat = zellij attach
+
 alias zle = zn left
 alias zri = zn right
 
 alias lzg = lazygit
 alias lzd = lazydocker
-
-alias remote-mouse = bash -c 'RemoteMouse > /dev/null &'
-alias irc = input-remapper-control --command autoload
 
 alias xcopy = xclip -i -selection clipboard
 alias xpaste = xclip -o -selection clipboard
@@ -29,6 +30,9 @@ alias wcopy = wl-copy
 alias wpaste = wl-paste
 
 alias gu = gitu
+alias gme = gitmoji -c
+alias gcm = git_commit
+
 alias gra = git remote add
 alias grr = git remote rename
 alias grR = git remote remove
@@ -41,6 +45,7 @@ alias gPD = git push --delete origin
 alias gPT = git push --tags origin
 alias gp = git pull --no-edit
 alias gs = git status
+alias gsw = git switch
 alias gl = git log
 alias glp = git log -p
 alias gf = git fetch
@@ -74,16 +79,6 @@ alias gsum = git submodule update --merge
 alias gsur = git submodule update --recursive
 alias gls = git ls-remote
 
-alias gcm = git_commit
-alias gme = gitmoji -c
-
-alias docker! = ^($env.DOCKER_BIN | path join docker)
-alias dockerd! = sudo ($env.DOCKER_BIN | path join dockerd)
-
-alias ventoyGUI = sudo ($env.VENTOY_PATH | path join VentoyGUI.x86_64)
-
-alias snips = ssh snips.sh
-
 alias vieb = browser vieb
 alias brave = browser brave
 alias chrome = browser chrome
@@ -101,9 +96,20 @@ alias frn = file rn
 alias frm = file rm
 alias fmv = file mv
 
-alias ar = audiosource run
-
 alias suk = srv user kanata
 alias sum = srv user mouseless
 
+alias asr = audiosource run
+
+alias snips = ssh snips.sh
+
+alias irc = input-remapper-control --command autoload
+
+alias remote-mouse = bash -c 'RemoteMouse > /dev/null &'
+
+alias docker! = bash -c ($env.DOCKER_BIN | path join docker)
+alias dockerd! = sudo ($env.DOCKER_BIN | path join dockerd)
+
 alias ftpd = ftpserver -conf ~/.config/ftpserver/ftpserver.json
+
+alias ventoyGUI = sudo ($env.VENTOY_PATH | path join VentoyGUI.x86_64)

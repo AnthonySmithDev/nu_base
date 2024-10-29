@@ -1377,11 +1377,11 @@ export def kubectl [] {
 }
 
 export def kubetui [] {
-  let version = http get sarub0b0/kubetui
+  let version = github get_version 'sarub0b0/kubetui'
   let path = share kubetui $version
 
   if ($path | path-not-exists) {
-    https download https://github.com/sarub0b0/kubetui/releases/download/v1.5.3/kubetui-x86_64-unknown-linux-musl -o kubetui
+    https download https://github.com/sarub0b0/kubetui/releases/download/v($version)/kubetui-x86_64-unknown-linux-musl -o kubetui
     add-execute kubetui
     move -f kubetui -p $path
   }
@@ -1459,7 +1459,7 @@ export def --env ollama [] {
   let path = share ollama $version
 
   if ($path | path-not-exists) {
-    https download https://github.com/ollama/ollama/releases/download/v0.3.12/ollama-linux-amd64.tgz
+    https download https://github.com/ollama/ollama/releases/download/v($version)/ollama-linux-amd64.tgz
     extract tar ollama-linux-amd64.tgz -d ollama-linux-amd64
     move dir ollama-linux-amd64 $path
   }
@@ -2272,6 +2272,20 @@ export def presenterm [] {
   bind file presenterm $path
 }
 
+export def contour [] {
+  let version = github get_version 'contour-terminal/contour'
+  let path = share contour $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/contour-terminal/contour/releases/download/v($version)/contour-($version)-x86-64.Linux-static.tgz'
+    extract tar $'contour-($version)-x86-64.Linux-static.tgz'
+    mv $'contour-($version)-x86-64.Linux' contour
+    move -f contour -p $path
+  }
+
+  bind file contour $path
+}
+
 export def firefox-de [] {
   https download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2
@@ -2313,7 +2327,11 @@ def 'bind file' [name: string, src: string, --root(-r)] {
   ln -sf $src $dst
 }
 
-def move [ --dir(-d): string, --file(-f): string, --path(-p): string, ] {
+def move [
+  --dir(-d): string = '',
+  --file(-f): string,
+  --path(-p): string,
+] {
   if ($path | path exists) { rm -rf $path }
   mv -f ($dir | path join $file) $path
   if ($dir | path exists) { rm -rf $dir }
