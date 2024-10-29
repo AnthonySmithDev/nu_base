@@ -7,6 +7,10 @@ def --wrapped 'adb c' [ ...rest ] {
   adb connect ...$rest
 }
 
+def --wrapped 'adb p' [ ...rest ] {
+  adb pair ...$rest
+}
+
 def gradlew_tasks [] {
   let script = ($env.PWD | path join gradlew)
   if ($script | path exists) {

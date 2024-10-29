@@ -27,7 +27,15 @@ export def 'chat export' [id: int@chats_get_id --size: int = 200 ] {
   let name = (chats_get_name_by_id $id | path-safe)
   let filename = (gum input --header="Export name: " --value $name)
   let output = ($env.TELEGRAM_CHAT_DIR | path join $"($id) - ($filename).json")
-  tdl chat export --chat $id --output $output --filter $"Media.Size < ($size)*1024*1024"
+  let args = [
+    # --raw
+    --chat $id
+    --output $output
+    # --type last
+    # --input 10000
+    --filter $"Media.Size < ($size)*1024*1024"
+  ]
+  tdl chat export ...$args
 }
 
 def files [] {
@@ -46,5 +54,13 @@ export def 'download' [id: string@files_get_ids] {
   let name = files_get_name_by_id $id
   let dir = ($env.TELEGRAM_CHAT_DIR | path join $"($id) - ($name)")
   let file = ($env.TELEGRAM_CHAT_DIR | path join $"($id) - ($name).json")
-  tdl download --dir $dir --file $file --skip-same --continue
+  let args = [
+    # --limit 4
+    # --threads 8
+    --dir $dir
+    --file $file
+    --skip-same
+    --continue
+  ]
+  tdl download ...$args
 }

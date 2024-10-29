@@ -11,8 +11,8 @@ def symlink_file [
   let dst_dir = ($env.CONFIG_DIR_USER | path join $dst_dirname)
   let dst_file = ($dst_dir | path join $dst_basename)
 
-  if not ($dst_dir | path-exists) {
-    sudo mkdir $dst_dir
+  if not ($dst_dir | path exists) {
+    mkdir $dst_dir
   }
 
   ln -sf $src_file $dst_file
@@ -148,14 +148,10 @@ export def lanmouse [file: string@files-lanmouse] {
 export def regolith [] {
   shortcut regolith3 Xresources
   shortcut regolith3/common-wm/config.d config
+  shortcut regolith3/i3status-rust config.toml
   # shortcut regolith3/i3 config
   # shortcut regolith3/sway config
   # shortcut regolith3/picom config
-  shortcut regolith3/i3status-rust config.toml
-}
-
-export def regolith-compositor [] {
-  sudo sed -i 's/\/usr\/bin\/picom/\/usr\/bin\/picom --experimental-backends/g' /usr/share/regolith-compositor/init
 }
 
 export def input-remapper [] {
@@ -193,19 +189,18 @@ export def ubuntu-software [] {
   sudo sed -i 's/http:\/\/pe\.archive\.ubuntu\.com\/ubuntu/http:\/\/archive\.ubuntu\.com\/ubuntu/g' /etc/apt/sources.list
 }
 
-export def core [] {
-  helix
-  zellij
-  nushell
-  dooit
-  mods
+export def ftpserver [] {
+  print $'User Config: ftpserver'
+  shortcut ftpserver ftpserver.json
+}
 
-  foot
-  alacritty
+export def rclone [] {
+  print $'User Config: rclone'
+  shortcut rclone rclone.conf
+}
 
-  regolith
-  input-remapper
-
-  vieb
-  git
+export def termscp [] {
+  print $'User Config: termscp'
+  shortcut termscp config.toml
+  shortcut termscp bookmarks.toml
 }

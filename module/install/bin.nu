@@ -1246,6 +1246,19 @@ export def simple-http-server [] {
   bind file simple-http-server $path
 }
 
+export def ftpserver [] {
+  let version = github get_version 'fclairamb/ftpserver'
+  let path = share ftpserver $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/fclairamb/ftpserver/releases/download/v($version)/ftpserver_($version)_linux_amd64.tar.gz
+    extract tar ftpserver_($version)_linux_amd64.tar.gz -d ftpserver_linux_amd64
+    move -d ftpserver_linux_amd64 -f ftpserver -p $path
+  }
+
+  bind file ftpserver $path
+}
+
 export def onefetch [] {
   let version = github get_version 'o2sh/onefetch'
   let path = share onefetch $version
