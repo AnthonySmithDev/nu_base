@@ -1055,5 +1055,12 @@
     "tag_name": "1.0.11",
     "prerelease": false,
     "created_at": "2024-09-10T15:22:34Z"
+  },
+  {
+    "category": "other",
+    "repository": "mfontanini/presenterm",
+    "tag_name": "0.9.0",
+    "prerelease": false,
+    "created_at": "2024-09-10T15:22:34Z"
   }
 ]

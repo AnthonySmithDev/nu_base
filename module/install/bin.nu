@@ -2259,63 +2259,17 @@ export def zls [] {
   bind file zls $path
 }
 
-export def core [] {
-  xh
-  gum
-  mods
-  glow
+export def presenterm [] {
+  let version = github get_version 'mfontanini/presenterm'
+  let path = share presenterm $version
 
-  helix
-  nushell
-  starship
-  zoxide
-  zellij
-
-  rg
-  fd
-  bat
-  fzf
-  jless
-  lazygit
-  lazydocker
-
-  gdu
-  qrcp
-  gitu
-  ttyper
-  bottom
-  freeze
-  amber
-  broot
-  usql
-}
-
-export def extra [] {
-  lux
-  genact
-  qrterminal
-  bombardier
-  rclone
-  vhs
-  nap
-  sd
-  sad
-  lsd
-  gping
-}
-
-export def lang [] {
-  node
-  golang
-  rust
-}
-
-def choose [versions: list] {
-  if not (^which gum | is-empty) {
-    (^gum choose ...$versions)
-  } else {
-    ($versions | input list)
+  if ($path | path-not-exists) {
+    https download $'https://github.com/mfontanini/presenterm/releases/download/v($version)/presenterm-($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'presenterm-($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -d $'presenterm-($version)' -f presenterm -p $path
   }
+
+  bind file presenterm $path
 }
 
 export def firefox-de [] {
@@ -2325,6 +2279,14 @@ export def firefox-de [] {
   sudo mv firefox /opt
   sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
   sudo wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/install-firefox-linux/firefox.desktop -P /usr/local/share/applications
+}
+
+def choose [versions: list] {
+  if not (^which gum | is-empty) {
+    (^gum choose ...$versions)
+  } else {
+    ($versions | input list)
+  }
 }
 
 def share [name: string, version: string] {
@@ -2355,4 +2317,35 @@ def move [ --dir(-d): string, --file(-f): string, --path(-p): string, ] {
   if ($path | path exists) { rm -rf $path }
   mv -f ($dir | path join $file) $path
   if ($dir | path exists) { rm -rf $dir }
+}
+
+export def core [] {
+  xh
+  gum
+  mods
+  glow
+
+  helix
+  nushell
+  starship
+  zoxide
+  zellij
+
+  rg
+  fd
+  bat
+  fzf
+  jless
+  lazygit
+  lazydocker
+
+  gdu
+  qrcp
+  gitu
+  ttyper
+  bottom
+  freeze
+  amber
+  broot
+  usql
 }
