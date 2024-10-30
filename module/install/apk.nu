@@ -46,7 +46,7 @@ export def AudioSource [] {
   let output = ($env.USR_LOCAL_APK | path join $name)
 
   if not ($output | path exists) {
-    https download $"https://github.com/gdzx/audiosource/releases/download/v($version)/audiosource.apk" -o $output
+    https download $'https://github.com/gdzx/audiosource/releases/download/v($version)/audiosource.apk' -o $output
   }
 
   install $output
@@ -270,11 +270,35 @@ export def AppFlowy [] {
 
 export def siyuan [ --force(-f) ] {
   let version = github get_version 'siyuan-note/siyuan'
-  let filename = $"siyuan_($version).apk"
+  let filename = $'siyuan_($version).apk'
   let filepath = ($env.USR_LOCAL_APK | path join $filename)
 
   if not ($filepath | path exists) {
     https download $'https://github.com/siyuan-note/siyuan/releases/download/v($version)/siyuan-($version).apk' -o $filepath
+  }
+
+  install $filepath
+}
+
+export def LinkSheet [ --force(-f) ] {
+  let version = github get_version 'LinkSheet/LinkSheet'
+  let filename = $'LinkSheet_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/LinkSheet/LinkSheet/releases/download/($version)/LinkSheet-($version).apk' -o $filepath
+  }
+
+  install $filepath
+}
+
+export def Linkora [ --force(-f) ] {
+  let version = github get_version 'sakethpathike/Linkora'
+  let filename = $'Linkora_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/sakethpathike/Linkora/releases/download/release-v($version)/app-fdroid-release.apk' -o $filepath
   }
 
   install $filepath
