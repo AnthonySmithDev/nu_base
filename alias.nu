@@ -2,6 +2,7 @@
 alias la = ls -la
 alias cat = bat -P --plain
 alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
+alias top = btm --basic
 
 alias zl = zellij
 alias zr = zellij run

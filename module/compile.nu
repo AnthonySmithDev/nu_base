@@ -88,28 +88,21 @@ export def audiosource [] {
   ln -sf $dst ($env.USR_LOCAL_BIN | path join $name)
 }
 
-export def helix [--desktop, --global] {
+export def helix [ --desktop ] {
   let source = ($env.USR_LOCAL_SOURCE | path join helix)
   git-down https://github.com/helix-editor/helix $source
 
   let manifest = ($source | path join helix-term Cargo.toml)
   cargo build --release --locked --manifest-path $manifest
 
-  if not ($env.HELIX_PATH | path exists) {
-    mkdir $env.HELIX_PATH
-  }
+  let src_bin = ($source | path join target release hx)
+  let src_runtime = ($source | path join runtime)
 
-  let name = 'hx'
-  let src = ($source | path join target release $name)
-  let dst = ($env.HELIX_PATH | path join $name)
+  ln -sf $src_bin ($env.USR_LOCAL_BIN | path join hx)
+  sudo ln -sf $src_bin ($env.SYS_LOCAL_BIN | path join hx)
 
-  ln -sf $src $dst
-
-  if $global {
-    sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
-  }
-
-  cp -r -u -p ($source | path join runtime) $env.HELIX_RUNTIME
+  ln -sf $src_runtime ($env.USR_LOCAL_BIN | path join runtime)
+  sudo ln -sf $src_runtime ($env.SYS_LOCAL_BIN | path join runtime)
 
   if $desktop {
     cp ($source | path join contrib/Helix.desktop) ($env.HOME | path join .local/share/applications)
