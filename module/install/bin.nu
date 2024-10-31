@@ -986,6 +986,19 @@ export def qrterminal [] {
   bind file qrterminal $path
 }
 
+export def qrrs [] {
+  let version = github get_version 'Lenivaya/qrrs'
+  let path = share qrrs $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/Lenivaya/qrrs/releases/download/v($version)/qrrs-x86_64-unknown-linux-musl.tar.gz
+    extract tar qrrs-x86_64-unknown-linux-musl.tar.gz
+    move -f qrrs -p $path
+  }
+
+  bind file qrrs $path
+}
+
 export def genact [] {
   let version = github get_version 'svenstaro/genact'
   let path = share genact $version
@@ -1361,6 +1374,19 @@ export def taskell [] {
   }
 
   bind file taskell $path
+}
+
+export def doctl [] {
+  let version = github get_version 'digitalocean/doctl'
+  let path = share doctl $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/digitalocean/doctl/releases/download/v($version)/doctl-($version)-linux-amd64.tar.gz'
+    extract tar $'doctl-($version)-linux-amd64.tar.gz'
+    move -f doctl -p $path
+  }
+
+  bind file doctl $path
 }
 
 export def kubectl [] {
