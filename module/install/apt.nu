@@ -462,3 +462,11 @@ export def sftpgo [] {
   sudo apt install -y sftpgo
   systemctl status sftpgo
 }
+
+export def timg [] {
+  sudo apt install -y timg
+}
+
+export def sixel [] {
+  sudo apt install -y libsixel-dev libsixel1 libsixel-bin
+}

@@ -4,6 +4,9 @@ alias cat = bat -P --plain
 alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 alias top = btm --basic
 
+alias tsix = timg -p sixel
+alias isix = img2sixel
+
 alias zl = zellij
 alias zr = zellij run
 alias ze = zellij edit

@@ -30,6 +30,22 @@ def shortcut [dirname: string, basename: string] {
   symlink_file $dirname $dirname $basename $basename
 }
 
+export def rio [ --theme ] {
+  shortcut rio config.toml
+  if $theme {
+    rio theme
+  }
+}
+
+def 'rio theme' [] {
+  let source = ($env.USR_LOCAL_SOURCE | path join rio-theme)
+  git-down https://github.com/raphamorim/rio-terminal-themes.git $source
+  let src = ($source | path join themes)
+  let dst = ($env.HOME | path join .config/rio/themes)
+  rm -rf $dst
+  ln -sf $src $dst
+}
+
 export def alacritty [ --theme ] {
   shortcut alacritty alacritty.toml
   if $theme {
@@ -42,9 +58,8 @@ def 'alacritty theme' [] {
   git-down https://github.com/alacritty/alacritty-theme.git $source
   let src = ($source | path join themes)
   let dst = ($env.HOME | path join .config/alacritty/themes)
-  if not ($dst | path exists) {
-    cp -r -p $src $dst
-  }
+  rm -rf $dst
+  ln -sf $src $dst
 }
 
 export def zellij [ --theme ] {
