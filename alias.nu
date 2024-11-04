@@ -12,8 +12,8 @@ alias zt = zellij attach
 
 alias zks = zellij kill-session
 alias zds = zellij delete-session
-alias zkS = zellij kill-all-sessions -y
-alias zdS = zellij delete-all-sessions -y
+alias zkas = zellij kill-all-sessions -y
+alias zdas = zellij delete-all-sessions -y
 
 alias zf = zellij run --floating --
 alias zn = zellij options --session-name
