@@ -128,7 +128,7 @@ args = []
 # width = 600
 # height = 400
 mode = "Maximized"
-opacity = 0.9
+opacity = 0.95
 blur = true
 decorations = "Disabled"
 
@@ -250,7 +250,7 @@ divider = 1.0
 #
 # Example:
 [navigation]
-mode = "Bookmark"
+mode = "Plain"
 clickable = false
 hide-if-single = true
 use-current-path = false

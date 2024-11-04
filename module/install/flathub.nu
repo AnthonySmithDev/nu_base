@@ -81,3 +81,7 @@ export def zapzap [] {
 export def umftpd [] {
 	flatpak install -y flathub eu.ithz.umftpd
 }
+
+export def blackbox [] {
+	flatpak install -y flathub com.raggesilver.BlackBox
+}
