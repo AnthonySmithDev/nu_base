@@ -59,9 +59,8 @@ def 'zellij theme' [] {
   git-down https://github.com/zellij-org/zellij.git $source
   let src = ($source | path join zellij-utils/assets/themes)
   let dst = ($env.HOME | path join .config/zellij/themes)
-  if not ($dst | path exists) {
-    cp -r -p $src $dst
-  }
+  rm -rf $dst
+  ln -sf $src $dst
 }
 
 export def helix [ --theme ] {

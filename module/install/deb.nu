@@ -265,3 +265,20 @@ export def sftpgo [ --force(-f) ] {
     sudo dpkg -i $filepath
   }
 }
+
+export def rio [ --force(-f) ] {
+  sudo apt install devtodo
+  let version = github get_version 'raphamorim/rio'
+  let filename = $"rio_($version).deb"
+
+  mut new = false
+  let filepath = filepath $filename
+  if not ($filepath | path exists) {
+    $new = true
+  }
+
+  if $new or $force {
+    download $'https://github.com/raphamorim/rio/releases/download/v($version)/rio_($version)-1_amd64_wayland.deb' $filepath
+    sudo dpkg -i $filepath
+  }
+}

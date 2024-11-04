@@ -56,6 +56,24 @@ export def nushell [ --plugin ] {
   }
 }
 
+export def rio [] {
+  let source = ($env.USR_LOCAL_SOURCE | path join rio)
+  git-down https://github.com/raphamorim/rio.git $source
+
+  let manifest = ($source | path join Cargo.toml)
+  cargo build -p rioterm --release --no-default-features --features=wayland --manifest-path $manifest
+
+  let name = 'rio'
+  let src = ($source | path join target release $name)
+  let dst = ($env.USR_LOCAL_SHARE | path join rio_source)
+
+  rm -f $dst
+  cp -f $src $dst
+
+  ln -sf $dst ($env.USR_LOCAL_BIN | path join $name)
+  sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
+}
+
 export def zellij [] {
   let source = ($env.USR_LOCAL_SOURCE | path join zellij)
   git-down https://github.com/zellij-org/zellij.git $source
