@@ -245,7 +245,7 @@ export def siyuan [ --force(-f) ] {
   }
 
   if $new or $force {
-    download $'https://github.com/siyuan-note/siyuan/releases/download/v($version)/siyuan-($version)-linux-arm64.deb' $filepath
+    download $'https://github.com/siyuan-note/siyuan/releases/download/v($version)/siyuan-($version)-linux.deb' $filepath
     sudo dpkg -i $filepath
   }
 }

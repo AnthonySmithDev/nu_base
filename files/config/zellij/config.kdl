@@ -148,6 +148,9 @@ keybinds clear-defaults=true {
         bind "Alt n" { NewPane; }
         bind "Alt o" { MoveTab "right"; }
 
+        bind "Alt s" { SwitchToMode "scroll"; }
+        bind "Alt r" { SwitchToMode "resize"; }
+
         bind "Alt t" { NewTab; }
         bind "Alt x" { CloseFocus; }
         bind "Alt f" { ToggleFocusFullscreen; }

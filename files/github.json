@@ -156,9 +156,9 @@
   {
     "category": "core",
     "repository": "sigoden/dufs",
-    "tag_name": "0.42.0",
+    "tag_name": "0.43.0",
     "prerelease": false,
-    "created_at": "2024-09-02T03:57:13Z"
+    "created_at": "2024-11-05T09:08:43Z"
   },
   {
     "category": "core",
@@ -254,9 +254,9 @@
   {
     "category": "extra",
     "repository": "metalbear-co/mirrord",
-    "tag_name": "3.122.1",
+    "tag_name": "3.123.0",
     "prerelease": false,
-    "created_at": "2024-10-30T15:07:11Z"
+    "created_at": "2024-11-05T07:08:30Z"
   },
   {
     "category": "extra",
@@ -982,16 +982,16 @@
   {
     "category": "other",
     "repository": "obsidianmd/obsidian-releases",
-    "tag_name": "1.7.4",
+    "tag_name": "1.7.5",
     "prerelease": false,
-    "created_at": "2024-10-16T19:37:31Z"
+    "created_at": "2024-11-04T21:07:18Z"
   },
   {
     "category": "other",
     "repository": "siyuan-note/siyuan",
-    "tag_name": "3.1.10",
+    "tag_name": "3.1.11",
     "prerelease": false,
-    "created_at": "2024-10-22T01:48:26Z"
+    "created_at": "2024-11-05T08:12:37Z"
   },
   {
     "category": "other",
@@ -1038,9 +1038,9 @@
   {
     "category": "other",
     "repository": "localsend/localsend",
-    "tag_name": "1.16.0",
+    "tag_name": "1.16.1",
     "prerelease": false,
-    "created_at": "2024-11-03T03:10:48Z"
+    "created_at": "2024-11-04T23:25:53Z"
   },
   {
     "category": "other",
@@ -1052,9 +1052,9 @@
   {
     "category": "other",
     "repository": "telegramdesktop/tdesktop",
-    "tag_name": "5.7.1",
+    "tag_name": "5.7.2",
     "prerelease": false,
-    "created_at": "2024-11-01T18:25:07Z"
+    "created_at": "2024-11-05T08:45:43Z"
   },
   {
     "category": "other",
@@ -1110,6 +1110,6 @@
     "repository": "raphamorim/rio",
     "tag_name": "0.1.17",
     "prerelease": false,
-    "created_at": "2024-09-10T15:22:34Z"
+    "created_at": "2024-10-06T07:58:23Z"
   }
 ]

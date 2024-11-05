@@ -263,3 +263,21 @@ def gic [lang: string] {
   open $output | wl-copy
   rm $output
 }
+
+def 'adb x' [] {
+  let port = gum input --header "PORT"
+  adb connect $"192.168.0.120:($port)"
+}
+
+def 'zellij drop' [] {
+  let choose = (zellij list-sessions | gum choose --no-limit | lines | parse '{name} {desc}')
+  let active = ($choose | where desc !~ 'EXITED' | get name)
+  let exited = ($choose | get name)
+
+  for $session in $active {
+    zellij kill-session $session
+  }
+  for $session in $exited {
+    zellij delete-session --force $session
+  }
+}
