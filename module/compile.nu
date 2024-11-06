@@ -57,6 +57,8 @@ export def nushell [ --plugin ] {
 }
 
 export def rio [] {
+  deps rio
+
   let source = ($env.USR_LOCAL_SOURCE | path join rio)
   git-down https://github.com/raphamorim/rio.git $source
 
@@ -349,5 +351,18 @@ export def contour [] {
     # cmake --preset linux-release
     # cmake --build --preset linux-release
     cmake --build --preset linux-release --target install
+  }
+}
+
+export def chafa [] {
+  sudo apt install -y libavif-dev librsvg2-dev libjxl-dev
+
+  let path = ($env.USR_LOCAL_SOURCE | path join chafa)
+  git-down https://github.com/hpjansson/chafa.git $path
+
+  with-wd $path {||
+    bash autogen.sh
+    make
+    sudo make install
   }
 }

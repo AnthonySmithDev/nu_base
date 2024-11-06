@@ -267,7 +267,7 @@ export def sftpgo [ --force(-f) ] {
 }
 
 export def rio [ --force(-f) ] {
-  sudo apt install devtodo
+  # sudo apt install devtodo
   let version = github get_version 'raphamorim/rio'
   let filename = $"rio_($version).deb"
 

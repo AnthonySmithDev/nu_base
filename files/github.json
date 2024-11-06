@@ -9,9 +9,9 @@
   {
     "category": "core",
     "repository": "go-task/task",
-    "tag_name": "3.39.2",
+    "tag_name": "3.40.0",
     "prerelease": false,
-    "created_at": "2024-09-19T12:25:29Z"
+    "created_at": "2024-11-06T01:34:38Z"
   },
   {
     "category": "core",
@@ -261,9 +261,9 @@
   {
     "category": "extra",
     "repository": "altsem/gitu",
-    "tag_name": "0.26.0",
+    "tag_name": "0.27.0",
     "prerelease": false,
-    "created_at": "2024-10-24T17:42:50Z"
+    "created_at": "2024-11-05T17:47:03Z"
   },
   {
     "category": "extra",
@@ -324,9 +324,9 @@
   {
     "category": "extra",
     "repository": "AdguardTeam/AdGuardHome",
-    "tag_name": "0.107.53",
+    "tag_name": "0.107.54",
     "prerelease": false,
-    "created_at": "2024-10-03T12:35:40Z"
+    "created_at": "2024-11-06T13:13:20Z"
   },
   {
     "category": "extra",
@@ -1109,6 +1109,13 @@
     "category": "other",
     "repository": "raphamorim/rio",
     "tag_name": "0.1.17",
+    "prerelease": false,
+    "created_at": "2024-10-06T07:58:23Z"
+  },
+  {
+    "category": "other",
+    "repository": "atanunq/viu",
+    "tag_name": "1.5.1",
     "prerelease": false,
     "created_at": "2024-10-06T07:58:23Z"
   }

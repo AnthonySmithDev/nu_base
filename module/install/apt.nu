@@ -208,13 +208,13 @@ export def dependency [] {
 }
 
 export def helix [] {
-  sudo add-apt-repository ppa:maveonair/helix-editor
+  sudo add-apt-repository -y ppa:maveonair/helix-editor
   sudo apt update
   sudo apt install -y helix
 }
 
 export def alacritty [] {
-  sudo add-apt-repository ppa:aslatter/ppa
+  sudo add-apt-repository -y ppa:aslatter/ppa
   sudo apt update
   sudo apt install -y alacritty
 }
@@ -224,7 +224,7 @@ export def chafa [] {
 }
 
 export def keepassxc [] {
-  sudo add-apt-repository ppa:phoerious/keepassxc
+  sudo add-apt-repository -y ppa:phoerious/keepassxc
   sudo apt update
   sudo apt install -y keepassxc
 }

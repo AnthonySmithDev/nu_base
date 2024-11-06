@@ -2312,6 +2312,19 @@ export def contour [] {
   bind file contour $path
 }
 
+export def viu [] {
+  let version = github get_version 'atanunq/viu'
+  let path = share viu $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/atanunq/viu/releases/download/v1.5.1/viu-x86_64-unknown-linux-musl -o viu
+    add-execute viu
+    move -f viu -p $path
+  }
+
+  bind file viu $path
+}
+
 export def firefox-de [] {
   https download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2
@@ -2355,7 +2368,7 @@ def 'bind file' [name: string, src: string, --root(-r)] {
 
 def move [
   --dir(-d): string = '',
-  --file(-f): string,
+  --file(-f): string = '',
   --path(-p): string,
 ] {
   if ($path | path exists) { rm -rf $path }
