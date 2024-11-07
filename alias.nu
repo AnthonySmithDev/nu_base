@@ -7,7 +7,7 @@ alias top = btm --basic
 alias tsix = timg -p sixel
 alias isix = img2sixel
 
-alias zl = zellij
+alias zj = zellij
 alias zr = zellij run
 alias ze = zellij edit
 alias za = zellij action
@@ -23,6 +23,9 @@ alias zn = zellij options --session-name
 
 alias zle = zn left
 alias zri = zn right
+
+alias zdr = zellij drop
+alias zda = zellij drop --all
 
 alias lzg = lazygit
 alias lzd = lazydocker

@@ -269,8 +269,16 @@ def 'adb x' [] {
   adb connect $"192.168.0.120:($port)"
 }
 
-def 'zellij drop' [] {
-  let choose = (zellij list-sessions | gum choose --no-limit | lines | parse '{name} {desc}')
+def 'zellij drop' [ --all ] {
+  let sessions = (zellij list-sessions | lines)
+  if ($sessions | length) == 0 {
+    return
+  }
+  let choose = if $all {
+    $sessions | ansi strip | parse '{name} {desc}'
+  } else {
+    gum choose --no-limit ...$sessions | lines | parse '{name} {desc}'
+  }
   let active = ($choose | where desc !~ 'EXITED' | get name)
   let exited = ($choose | get name)
 
