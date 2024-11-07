@@ -125,6 +125,9 @@ $env.BITCOIN_PATH = ($env.USR_LOCAL_LIB | path join bitcoin)
 $env.BITCOIN_BIN = ($env.BITCOIN_PATH | path join bin)
 env-path $env.BITCOIN_BIN
 
+$env.BTCD_PATH = ($env.USR_LOCAL_LIB | path join btcd)
+env-path $env.BTCD_PATH
+
 $env.LIGHTNING_PATH = ($env.USR_LOCAL_LIB | path join lightning)
 env-path $env.LIGHTNING_PATH
 

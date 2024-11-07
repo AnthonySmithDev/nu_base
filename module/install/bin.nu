@@ -1389,6 +1389,19 @@ export def doctl [] {
   bind file doctl $path
 }
 
+export def hcloud [] {
+  let version = github get_version 'hetznercloud/cli'
+  let path = share hcloud $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/hetznercloud/cli/releases/download/v($version)/hcloud-linux-amd64.tar.gz
+    extract tar hcloud-linux-amd64.tar.gz -d hcloud-linux-amd64
+    move -d hcloud-linux-amd64 -f hcloud -p $path
+  }
+
+  bind file hcloud $path
+}
+
 export def kubectl [] {
   let version = http get https://dl.k8s.io/release/stable.txt
   let path = share kubectl $version
@@ -2189,6 +2202,20 @@ export def --env android-platform-tools [] {
     move -d platform-tools -p $env.ANDROID_PLATFORM_TOOLS
   }
   env-path $env.ANDROID_PLATFORM_TOOLS
+}
+
+export def --env btcd [] {
+  let version = github get_version 'btcsuite/btcd'
+  let path = share btcd $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/btcsuite/btcd/releases/download/v($version)/btcd-linux-amd64-v($version).tar.gz'
+    extract tar $'btcd-linux-amd64-v($version).tar.gz'
+    move -d $'btcd-linux-amd64-v($version)' -p $path
+  }
+
+  bind dir $path $env.BTCD_PATH
+  env-path $env.BTCD_PATH
 }
 
 export def --env bitcoin [] {

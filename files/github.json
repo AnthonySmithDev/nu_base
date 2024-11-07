@@ -960,8 +960,15 @@
   },
   {
     "category": "other",
+    "repository": "btcsuite/btcd",
+    "tag_name": "0.24.2",
+    "prerelease": false,
+    "created_at": "2024-07-03T15:55:00Z"
+  },
+  {
+    "category": "other",
     "repository": "bitcoin/bitcoin",
-    "tag_name": "26.2",
+    "tag_name": "27.2",
     "prerelease": false,
     "created_at": "2024-07-03T15:55:00Z"
   },
@@ -1088,6 +1095,13 @@
     "category": "other",
     "repository": "digitalocean/doctl",
     "tag_name": "1.117.0",
+    "prerelease": false,
+    "created_at": "2024-10-25T18:27:55Z"
+  },
+  {
+    "category": "other",
+    "repository": "hetznercloud/cli",
+    "tag_name": "1.48.0",
     "prerelease": false,
     "created_at": "2024-10-25T18:27:55Z"
   },

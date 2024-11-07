@@ -140,3 +140,7 @@ export def "main media play" [] {
 export def "main terminal" [] {
   alacritty
 }
+
+export def "main scrcpy audio" [] {
+  scrcpy --no-window
+}

@@ -49,6 +49,13 @@
             Super,
             Alt,
         ],
+        key: "a",
+    ): Spawn("nu/cosmic scrcpy audio"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
         key: "h",
     ): Spawn("nu/cosmic swipe left"),
     (
