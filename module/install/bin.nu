@@ -1441,6 +1441,19 @@ export def k9s [] {
   bind file k9s $path
 }
 
+export def kdash [] {
+  let version = github get_version 'kdash-rs/kdash'
+  let path = share kdash $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/kdash-rs/kdash/releases/download/v($version)/kdash-linux-musl.tar.gz
+    extract tar kdash-linux-musl.tar.gz
+    move -f kdash -p $path
+  }
+
+  bind file kdash $path
+}
+
 export def bettercap [] {
   let version = github get_version 'bettercap/bettercap'
   let path = share bettercap $version
