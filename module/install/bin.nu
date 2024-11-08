@@ -480,6 +480,19 @@ export def tweety [] {
   bind file tweety $path
 }
 
+export def podman-tui [] {
+  let version = ghub version 'containers/podman-tui'
+  let path = share podman-tui $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/containers/podman-tui/releases/download/v1.2.3/podman-tui-release-linux_amd64.zip
+    extract zip podman-tui-release-linux_amd64.zip
+    move -d podman-tui-release-linux_amd64 -f podman-tui-($version)/podman-tui -p $path
+  }
+
+  bind file -r podman-tui $path
+}
+
 export def jless [] {
   let version = ghub version 'PaulJuliusMartinez/jless'
   let path = share jless $version
