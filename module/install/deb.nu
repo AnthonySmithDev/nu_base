@@ -8,7 +8,7 @@ export def download [url: string, filename: string] {
 }
 
 export def input-remapper-file [ --force(-f) ] {
-  let version = github get_version 'sezanzeb/input-remapper'
+  let version = ghub version 'sezanzeb/input-remapper'
   let filename = $"input-remapper_($version).deb"
 
   mut new = false
@@ -25,7 +25,7 @@ export def input-remapper-file [ --force(-f) ] {
 }
 
 export def vieb [ --force(-f) ] {
-  let version = github get_version 'Jelmerro/Vieb'
+  let version = ghub version 'Jelmerro/Vieb'
   let filename = $"vieb_($version).deb"
 
   mut new = false
@@ -73,7 +73,7 @@ export def chrome [ --force(-f) ] {
 }
 
 export def vscodium [ --force(-f) ] {
-  let version = github get_version 'VSCodium/vscodium'
+  let version = ghub version 'VSCodium/vscodium'
   let filename = $"codium_($version)_amd64.deb"
 
   mut new = false
@@ -169,7 +169,7 @@ export def discord [ --force(-f) ] {
 }
 
 export def balena-etcher [ --force(-f) ] {
-  let version = github get_version 'balena-io/etcher'
+  let version = ghub version 'balena-io/etcher'
   let filename = $"balena-etcher_($version).deb"
 
   mut new = false
@@ -185,7 +185,7 @@ export def balena-etcher [ --force(-f) ] {
 }
 
 export def obsidian [ --force(-f) ] {
-  let version = github get_version 'obsidianmd/obsidian-releases'
+  let version = ghub version 'obsidianmd/obsidian-releases'
   let filename = $"obsidian_($version).deb"
 
   mut new = false
@@ -203,7 +203,7 @@ export def obsidian [ --force(-f) ] {
 export def localsend [ --force(-f) ] {
   deps localsend
 
-  let version = github get_version 'localsend/localsend'
+  let version = ghub version 'localsend/localsend'
   let filename = $"localsend_($version).deb"
 
   mut new = false
@@ -219,7 +219,7 @@ export def localsend [ --force(-f) ] {
 }
 
 export def appflowy [ --force(-f) ] {
-  let version = github get_version 'AppFlowy-IO/AppFlowy'
+  let version = ghub version 'AppFlowy-IO/AppFlowy'
   let filename = $"appflowy_($version).deb"
 
   mut new = false
@@ -235,7 +235,7 @@ export def appflowy [ --force(-f) ] {
 }
 
 export def siyuan [ --force(-f) ] {
-  let version = github get_version 'siyuan-note/siyuan'
+  let version = ghub version 'siyuan-note/siyuan'
   let filename = $"siyuan_($version).deb"
 
   mut new = false
@@ -251,7 +251,7 @@ export def siyuan [ --force(-f) ] {
 }
 
 export def sftpgo [ --force(-f) ] {
-  let version = github get_version 'drakkan/sftpgo'
+  let version = ghub version 'drakkan/sftpgo'
   let filename = $"sftpgo_($version).deb"
 
   mut new = false
@@ -268,7 +268,7 @@ export def sftpgo [ --force(-f) ] {
 
 export def rio [ --force(-f) ] {
   # sudo apt install devtodo
-  let version = github get_version 'raphamorim/rio'
+  let version = ghub version 'raphamorim/rio'
   let filename = $"rio_($version).deb"
 
   mut new = false

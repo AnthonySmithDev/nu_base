@@ -3,7 +3,7 @@ use root/
 
 use https.nu
 use extract.nu
-use github.nu
+use ghub.nu
 
 use config.nu
 use download.nu
@@ -20,7 +20,6 @@ use install/
 
 use browser.nu
 use compile.nu
-use repository.nu
 use run.nu
 use srv.nu
 use setup.nu

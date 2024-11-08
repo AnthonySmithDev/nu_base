@@ -161,7 +161,7 @@ export def sharik [] {
 }
 
 export def localsend [] {
-  let version = github get_version 'localsend/localsend'
+  let version = ghub version 'localsend/localsend'
   let name = $'localsend_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
 
@@ -257,7 +257,7 @@ export def Acode [] {
 }
 
 export def AppFlowy [] {
-  let version = github get_version 'AppFlowy-IO/AppFlowy'
+  let version = ghub version 'AppFlowy-IO/AppFlowy'
   let filename = $'AppFlowy_($version).apk'
   let filepath = ($env.USR_LOCAL_APK | path join $filename)
 
@@ -269,7 +269,7 @@ export def AppFlowy [] {
 }
 
 export def siyuan [ --force(-f) ] {
-  let version = github get_version 'siyuan-note/siyuan'
+  let version = ghub version 'siyuan-note/siyuan'
   let filename = $'siyuan_($version).apk'
   let filepath = ($env.USR_LOCAL_APK | path join $filename)
 
@@ -281,7 +281,7 @@ export def siyuan [ --force(-f) ] {
 }
 
 export def LinkSheet [ --force(-f) ] {
-  let version = github get_version 'LinkSheet/LinkSheet'
+  let version = ghub version 'LinkSheet/LinkSheet'
   let filename = $'LinkSheet_($version).apk'
   let filepath = ($env.USR_LOCAL_APK | path join $filename)
 
@@ -293,7 +293,7 @@ export def LinkSheet [ --force(-f) ] {
 }
 
 export def Linkora [ --force(-f) ] {
-  let version = github get_version 'sakethpathike/Linkora'
+  let version = ghub version 'sakethpathike/Linkora'
   let filename = $'Linkora_($version).apk'
   let filepath = ($env.USR_LOCAL_APK | path join $filename)
 

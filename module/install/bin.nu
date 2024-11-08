@@ -1,6 +1,6 @@
 
 export def xh [] {
-  let version = github get_version 'ducaale/xh'
+  let version = ghub version 'ducaale/xh'
   let path = share xh $version
 
   if ($path | path-not-exists) {
@@ -13,7 +13,7 @@ export def xh [] {
 }
 
 export def helix [] {
-  let version = github get_version 'helix-editor/helix'
+  let version = ghub version 'helix-editor/helix'
   let path = share helix $version
 
   if ($path | path-not-exists) {
@@ -26,7 +26,7 @@ export def helix [] {
 }
 
 export def nushell [] {
-  let version = github get_version 'nushell/nushell'
+  let version = ghub version 'nushell/nushell'
   let path = share nu $version
 
   if ($path | path-not-exists) {
@@ -39,7 +39,7 @@ export def nushell [] {
 }
 
 export def starship [] {
-  let version = github get_version 'starship/starship'
+  let version = ghub version 'starship/starship'
   let path = share starship $version
 
   if ($path | path-not-exists) {
@@ -52,7 +52,7 @@ export def starship [] {
 }
 
 export def zoxide [] {
-  let version = github get_version 'ajeetdsouza/zoxide'
+  let version = ghub version 'ajeetdsouza/zoxide'
   let path = share zoxide $version
 
   if ($path | path-not-exists) {
@@ -65,7 +65,7 @@ export def zoxide [] {
 }
 
 export def zellij [] {
-  let version = github get_version 'zellij-org/zellij'
+  let version = ghub version 'zellij-org/zellij'
   let path = share zellij $version
 
   if ($path | path-not-exists) {
@@ -78,7 +78,7 @@ export def zellij [] {
 }
 
 export def rg [] {
-  let version = github get_version 'BurntSushi/ripgrep'
+  let version = ghub version 'BurntSushi/ripgrep'
   let path = share rg $version
 
   if ($path | path-not-exists) {
@@ -91,7 +91,7 @@ export def rg [] {
 }
 
 export def fd [] {
-  let version = github get_version 'sharkdp/fd'
+  let version = ghub version 'sharkdp/fd'
   let path = share fd $version
 
   if ($path | path-not-exists) {
@@ -104,7 +104,7 @@ export def fd [] {
 }
 
 export def fzf [] {
-  let version = github get_version 'junegunn/fzf'
+  let version = ghub version 'junegunn/fzf'
   let path = share fzf $version
 
   if ($path | path-not-exists) {
@@ -117,7 +117,7 @@ export def fzf [] {
 }
 
 export def gum [] {
-  let version = github get_version 'charmbracelet/gum'
+  let version = ghub version 'charmbracelet/gum'
   let path = share gum $version
 
   if ($path | path-not-exists) {
@@ -130,7 +130,7 @@ export def gum [] {
 }
 
 export def mods [] {
-  let version = github get_version 'charmbracelet/mods'
+  let version = ghub version 'charmbracelet/mods'
   let path = share mods $version
 
   if ($path | path-not-exists) {
@@ -143,7 +143,7 @@ export def mods [] {
 }
 
 export def glow [] {
-  let version = github get_version 'charmbracelet/glow'
+  let version = ghub version 'charmbracelet/glow'
   let path = share glow $version
 
   if ($path | path-not-exists) {
@@ -156,7 +156,7 @@ export def glow [] {
 }
 
 export def soft [] {
-  let version = github get_version 'charmbracelet/soft-serve'
+  let version = ghub version 'charmbracelet/soft-serve'
   let path = share soft $version
 
   if ($path | path-not-exists) {
@@ -169,7 +169,7 @@ export def soft [] {
 }
 
 export def vhs [] {
-  let version = github get_version 'charmbracelet/vhs'
+  let version = ghub version 'charmbracelet/vhs'
   let path = share vhs $version
 
   if ($path | path-not-exists) {
@@ -182,7 +182,7 @@ export def vhs [] {
 }
 
 export def freeze [] {
-  let version = github get_version 'charmbracelet/freeze'
+  let version = ghub version 'charmbracelet/freeze'
   let path = share freeze $version
 
   if ($path | path-not-exists) {
@@ -195,7 +195,7 @@ export def freeze [] {
 }
 
 export def melt [] {
-  let version = github get_version 'charmbracelet/melt'
+  let version = ghub version 'charmbracelet/melt'
   let path = share melt $version
 
   if ($path | path-not-exists) {
@@ -208,7 +208,7 @@ export def melt [] {
 }
 
 export def skate [] {
-  let version = github get_version 'charmbracelet/skate'
+  let version = ghub version 'charmbracelet/skate'
   let path = share skate $version
 
   if ($path | path-not-exists) {
@@ -221,7 +221,7 @@ export def skate [] {
 }
 
 export def nvim [] {
-  let version = github get_version 'neovim/neovim'
+  let version = ghub version 'neovim/neovim'
   let path = share nvim $version
 
   if ($path | path-not-exists) {
@@ -234,7 +234,7 @@ export def nvim [] {
 }
 
 export def broot [] {
-  let version = github get_version 'Canop/broot'
+  let version = ghub version 'Canop/broot'
   let path = share broot $version
 
   if ($path | path-not-exists) {
@@ -247,7 +247,7 @@ export def broot [] {
 }
 
 export def mirrord [] {
-  let version = github get_version 'metalbear-co/mirrord'
+  let version = ghub version 'metalbear-co/mirrord'
   let path = share mirrord $version
 
   if ($path | path-not-exists) {
@@ -260,7 +260,7 @@ export def mirrord [] {
 }
 
 export def gitu [] {
-  let version = github get_version 'altsem/gitu'
+  let version = ghub version 'altsem/gitu'
   let path = share gitu $version
 
   if ($path | path-not-exists) {
@@ -273,7 +273,7 @@ export def gitu [] {
 }
 
 export def fm [] {
-  let version = github get_version 'mistakenelf/fm'
+  let version = ghub version 'mistakenelf/fm'
   let path = share fm $version
 
   if ($path | path-not-exists) {
@@ -286,7 +286,7 @@ export def fm [] {
 }
 
 export def superfile [] {
-  let version = github get_version 'yorukot/superfile'
+  let version = ghub version 'yorukot/superfile'
   let path = share spf $version
 
   if ($path | path-not-exists) {
@@ -299,7 +299,7 @@ export def superfile [] {
 }
 
 export def zk [] {
-  let version = github get_version 'zk-org/zk'
+  let version = ghub version 'zk-org/zk'
   let path = share zk $version
 
   if ($path | path-not-exists) {
@@ -312,7 +312,7 @@ export def zk [] {
 }
 
 export def hostctl [] {
-  let version = github get_version 'guumaster/hostctl'
+  let version = ghub version 'guumaster/hostctl'
   let path = share hostctl $version
 
   if ($path | path-not-exists) {
@@ -325,7 +325,7 @@ export def hostctl [] {
 }
 
 export def bat [] {
-  let version = github get_version 'sharkdp/bat'
+  let version = ghub version 'sharkdp/bat'
   let path = share bat $version
 
   if ($path | path-not-exists) {
@@ -338,7 +338,7 @@ export def bat [] {
 }
 
 export def gdu [] {
-  let version = github get_version 'dundee/gdu'
+  let version = ghub version 'dundee/gdu'
   let path = share gdu $version
 
   if ($path | path-not-exists) {
@@ -351,7 +351,7 @@ export def gdu [] {
 }
 
 export def task [] {
-  let version = github get_version 'go-task/task'
+  let version = ghub version 'go-task/task'
   let path = share task $version
 
   if ($path | path-not-exists) {
@@ -364,7 +364,7 @@ export def task [] {
 }
 
 export def mouseless [] {
-  let version = github get_version 'jbensmann/mouseless'
+  let version = ghub version 'jbensmann/mouseless'
   let path = share mouseless $version
 
   if ($path | path-not-exists) {
@@ -377,7 +377,7 @@ export def mouseless [] {
 }
 
 export def websocat [] {
-  let version = github get_version 'vi/websocat'
+  let version = ghub version 'vi/websocat'
   let path = share websocat $version
 
   if ($path | path-not-exists) {
@@ -390,7 +390,7 @@ export def websocat [] {
 }
 
 export def amber [] {
-  let version = github get_version 'dalance/amber'
+  let version = ghub version 'dalance/amber'
   let path = share amber $version
 
   if ($path | path-not-exists) {
@@ -403,7 +403,7 @@ export def amber [] {
 }
 
 export def obsidian-cli [] {
-  let version = github get_version 'Yakitrak/obsidian-cli'
+  let version = ghub version 'Yakitrak/obsidian-cli'
   let path = share obsidian-cli $version
 
   if ($path | path-not-exists) {
@@ -416,7 +416,7 @@ export def obsidian-cli [] {
 }
 
 export def lazygit [] {
-  let version = github get_version 'jesseduffield/lazygit'
+  let version = ghub version 'jesseduffield/lazygit'
   let path = share lazygit $version
 
   if ($path | path-not-exists) {
@@ -429,7 +429,7 @@ export def lazygit [] {
 }
 
 export def lazydocker [] {
-  let version = github get_version 'jesseduffield/lazydocker'
+  let version = ghub version 'jesseduffield/lazydocker'
   let path = share lazydocker $version
 
   if ($path | path-not-exists) {
@@ -442,7 +442,7 @@ export def lazydocker [] {
 }
 
 export def lazycli [] {
-  let version = github get_version 'jesseduffield/lazycli'
+  let version = ghub version 'jesseduffield/lazycli'
   let path = share lazycli $version
 
   if ($path | path-not-exists) {
@@ -455,7 +455,7 @@ export def lazycli [] {
 }
 
 export def horcrux [] {
-  let version = github get_version 'jesseduffield/horcrux'
+  let version = ghub version 'jesseduffield/horcrux'
   let path = share horcrux $version
 
   if ($path | path-not-exists) {
@@ -468,7 +468,7 @@ export def horcrux [] {
 }
 
 export def tweety [] {
-  let version = github get_version 'pomdtr/tweety'
+  let version = ghub version 'pomdtr/tweety'
   let path = share tweety $version
 
   if ($path | path-not-exists) {
@@ -481,7 +481,7 @@ export def tweety [] {
 }
 
 export def jless [] {
-  let version = github get_version 'PaulJuliusMartinez/jless'
+  let version = ghub version 'PaulJuliusMartinez/jless'
   let path = share jless $version
 
   if ($path | path-not-exists) {
@@ -494,7 +494,7 @@ export def jless [] {
 }
 
 export def silicon [] {
-  let version = github get_version 'Aloxaf/silicon'
+  let version = ghub version 'Aloxaf/silicon'
   let path = share silicon $version
 
   if ($path | path-not-exists) {
@@ -507,7 +507,7 @@ export def silicon [] {
 }
 
 export def dasel [] {
-  let version = github get_version 'TomWright/dasel'
+  let version = ghub version 'TomWright/dasel'
   let path = share dasel $version
 
   if ($path | path-not-exists) {
@@ -520,7 +520,7 @@ export def dasel [] {
 }
 
 export def pueue [] {
-  let version = github get_version 'Nukesor/pueue'
+  let version = ghub version 'Nukesor/pueue'
 
   let path = share pueue $version
   if ($path | path-not-exists) {
@@ -540,7 +540,7 @@ export def pueue [] {
 }
 
 export def delta [] {
-  let version = github get_version 'dandavison/delta'
+  let version = ghub version 'dandavison/delta'
   let path = share delta $version
 
   if ($path | path-not-exists) {
@@ -553,7 +553,7 @@ export def delta [] {
 }
 
 export def difftastic [] {
-  let version = github get_version 'Wilfred/difftastic'
+  let version = ghub version 'Wilfred/difftastic'
   let path = share difft $version
 
   if ($path | path-not-exists) {
@@ -566,7 +566,7 @@ export def difftastic [] {
 }
 
 export def bottom [] {
-  let version = github get_version 'ClementTsang/bottom'
+  let version = ghub version 'ClementTsang/bottom'
   let path = share btm $version
 
   if ($path | path-not-exists) {
@@ -579,7 +579,7 @@ export def bottom [] {
 }
 
 export def ttyper [] {
-  let version = github get_version 'max-niederman/ttyper'
+  let version = ghub version 'max-niederman/ttyper'
   let path = share ttyper $version
 
   if ($path | path-not-exists) {
@@ -592,7 +592,7 @@ export def ttyper [] {
 }
 
 export def qrcp [] {
-  let version = github get_version 'claudiodangelis/qrcp'
+  let version = ghub version 'claudiodangelis/qrcp'
   let path = share qrcp $version
 
   if ($path | path-not-exists) {
@@ -605,7 +605,7 @@ export def qrcp [] {
 }
 
 export def qrsync [] {
-  let version = github get_version 'crisidev/qrsync'
+  let version = ghub version 'crisidev/qrsync'
   let path = share qrsync $version
 
   if ($path | path-not-exists) {
@@ -618,7 +618,7 @@ export def qrsync [] {
 }
 
 export def binsider [] {
-  let version = github get_version 'orhun/binsider'
+  let version = ghub version 'orhun/binsider'
   let path = share binsider $version
 
   if ($path | path-not-exists) {
@@ -631,7 +631,7 @@ export def binsider [] {
 }
 
 export def usql [] {
-  let version = github get_version 'xo/usql'
+  let version = ghub version 'xo/usql'
   let path = share usql $version
 
   if ($path | path-not-exists) {
@@ -644,7 +644,7 @@ export def usql [] {
 }
 
 export def atlas [--eula] {
-  let version = github get_version 'ariga/atlas'
+  let version = ghub version 'ariga/atlas'
   let path = share atlas $version
 
   if ($path | path-not-exists) {
@@ -662,7 +662,7 @@ export def atlas [--eula] {
 }
 
 export def gotty [] {
-  let version = github get_version 'yudai/gotty'
+  let version = ghub version 'yudai/gotty'
   let path = share atlas $version
 
   if ($path | path-not-exists) {
@@ -675,7 +675,7 @@ export def gotty [] {
 }
 
 export def ttyd [] {
-  let version = github get_version 'tsl0922/ttyd'
+  let version = ghub version 'tsl0922/ttyd'
   let path = share ttyd $version
 
   if ($path | path-not-exists) {
@@ -688,7 +688,7 @@ export def ttyd [] {
 }
 
 export def tty-share [] {
-  let version = github get_version 'elisescu/tty-share'
+  let version = ghub version 'elisescu/tty-share'
   let path = share tty-share $version
 
   if ($path | path-not-exists) {
@@ -701,7 +701,7 @@ export def tty-share [] {
 }
 
 export def upterm [] {
-  let version = github get_version 'owenthereal/upterm'
+  let version = ghub version 'owenthereal/upterm'
   let path = share upterm $version
 
   if ($path | path-not-exists) {
@@ -714,7 +714,7 @@ export def upterm [] {
 }
 
 export def sftpgo [] {
-  let version = github get_version 'drakkan/sftpgo'
+  let version = ghub version 'drakkan/sftpgo'
   let path = share sftpgo $version
 
   if ($path | path-not-exists) {
@@ -727,7 +727,7 @@ export def sftpgo [] {
 }
 
 export def telegram [] {
-  let version = github get_version 'telegramdesktop/tdesktop'
+  let version = ghub version 'telegramdesktop/tdesktop'
   let path = share telegram $version
 
   if ($path | path-not-exists) {
@@ -740,7 +740,7 @@ export def telegram [] {
 }
 
 export def tdl [] {
-  let version = github get_version 'iyear/tdl'
+  let version = ghub version 'iyear/tdl'
   let path = share tdl $version
 
   if ($path | path-not-exists) {
@@ -753,7 +753,7 @@ export def tdl [] {
 }
 
 export def kanata [] {
-  let version = github get_version 'jtroo/kanata'
+  let version = ghub version 'jtroo/kanata'
   let path = share kanata $version
 
   if ($path | path-not-exists) {
@@ -779,7 +779,7 @@ export def mongosh [] {
 }
 
 export def shell2http [] {
-  let version = github get_version 'msoap/shell2http'
+  let version = ghub version 'msoap/shell2http'
   let path = share shell2http $version
 
   if ($path | path-not-exists) {
@@ -792,7 +792,7 @@ export def shell2http [] {
 }
 
 export def mprocs [] {
-  let version = github get_version 'pvolok/mprocs'
+  let version = ghub version 'pvolok/mprocs'
   let path = share mprocs $version
 
   if ($path | path-not-exists) {
@@ -805,7 +805,7 @@ export def mprocs [] {
 }
 
 export def dua [] {
-  let version = github get_version 'Byron/dua-cli'
+  let version = ghub version 'Byron/dua-cli'
   let path = share dua $version
 
   if ($path | path-not-exists) {
@@ -818,7 +818,7 @@ export def dua [] {
 }
 
 export def grex [] {
-  let version = github get_version 'pemistahl/grex'
+  let version = ghub version 'pemistahl/grex'
   let path = share grex $version
 
   if ($path | path-not-exists) {
@@ -831,7 +831,7 @@ export def grex [] {
 }
 
 export def navi [] {
-  let version = github get_version 'denisidoro/navi'
+  let version = ghub version 'denisidoro/navi'
   let path = share navi $version
 
   if ($path | path-not-exists) {
@@ -844,7 +844,7 @@ export def navi [] {
 }
 
 export def bore [] {
-  let version = github get_version 'ekzhang/bore'
+  let version = ghub version 'ekzhang/bore'
   let path = share bore $version
 
   if ($path | path-not-exists) {
@@ -857,7 +857,7 @@ export def bore [] {
 }
 
 export def rclone [] {
-  let version = github get_version 'rclone/rclone'
+  let version = ghub version 'rclone/rclone'
   let path = share rclone $version
 
   if ($path | path-not-exists) {
@@ -870,7 +870,7 @@ export def rclone [] {
 }
 
 export def ffsend [] {
-  let version = github get_version 'timvisee/ffsend'
+  let version = ghub version 'timvisee/ffsend'
   let path = share ffsend $version
 
   if ($path | path-not-exists) {
@@ -883,7 +883,7 @@ export def ffsend [] {
 }
 
 export def walk [] {
-  let version = github get_version 'antonmedv/walk'
+  let version = ghub version 'antonmedv/walk'
   let path = share walk $version
 
   if ($path | path-not-exists) {
@@ -896,7 +896,7 @@ export def walk [] {
 }
 
 export def tere [] {
-  let version = github get_version 'mgunyho/tere'
+  let version = ghub version 'mgunyho/tere'
   let path = share tere $version
 
   if ($path | path-not-exists) {
@@ -909,7 +909,7 @@ export def tere [] {
 }
 
 export def sd [] {
-  let version = github get_version 'chmln/sd'
+  let version = ghub version 'chmln/sd'
   let path = share sd $version
 
   if ($path | path-not-exists) {
@@ -922,7 +922,7 @@ export def sd [] {
 }
 
 export def sad [] {
-  let version = github get_version 'ms-jpq/sad'
+  let version = ghub version 'ms-jpq/sad'
   let path = share sad $version
 
   if ($path | path-not-exists) {
@@ -935,7 +935,7 @@ export def sad [] {
 }
 
 export def fx [] {
-  let version = github get_version 'antonmedv/fx'
+  let version = ghub version 'antonmedv/fx'
   let path = share fx $version
 
   if ($path | path-not-exists) {
@@ -948,7 +948,7 @@ export def fx [] {
 }
 
 export def jqp [] {
-  let version = github get_version 'noahgorstein/jqp'
+  let version = ghub version 'noahgorstein/jqp'
   let path = share jqp $version
 
   if ($path | path-not-exists) {
@@ -961,7 +961,7 @@ export def jqp [] {
 }
 
 export def lux [] {
-  let version = github get_version 'iawia002/lux'
+  let version = ghub version 'iawia002/lux'
   let path = share lux $version
 
   if ($path | path-not-exists) {
@@ -974,7 +974,7 @@ export def lux [] {
 }
 
 export def qrterminal [] {
-  let version = github get_version 'mdp/qrterminal'
+  let version = ghub version 'mdp/qrterminal'
   let path = share qrterminal $version
 
   if ($path | path-not-exists) {
@@ -987,7 +987,7 @@ export def qrterminal [] {
 }
 
 export def qrrs [] {
-  let version = github get_version 'Lenivaya/qrrs'
+  let version = ghub version 'Lenivaya/qrrs'
   let path = share qrrs $version
 
   if ($path | path-not-exists) {
@@ -1000,7 +1000,7 @@ export def qrrs [] {
 }
 
 export def genact [] {
-  let version = github get_version 'svenstaro/genact'
+  let version = ghub version 'svenstaro/genact'
   let path = share genact $version
 
   if ($path | path-not-exists) {
@@ -1013,7 +1013,7 @@ export def genact [] {
 }
 
 export def ouch [] {
-  let version = github get_version 'ouch-org/ouch'
+  let version = ghub version 'ouch-org/ouch'
   let path = share ouch $version
 
   if ($path | path-not-exists) {
@@ -1026,7 +1026,7 @@ export def ouch [] {
 }
 
 export def lsd [] {
-  let version = github get_version 'lsd-rs/lsd'
+  let version = ghub version 'lsd-rs/lsd'
   let path = share lsd $version
 
   if ($path | path-not-exists) {
@@ -1039,7 +1039,7 @@ export def lsd [] {
 }
 
 export def ast-grep [] {
-  let version = github get_version 'ast-grep/ast-grep'
+  let version = ghub version 'ast-grep/ast-grep'
   let path = share sg $version
 
   if ($path | path-not-exists) {
@@ -1052,7 +1052,7 @@ export def ast-grep [] {
 }
 
 export def d2 [] {
-  let version = github get_version 'terrastruct/d2'
+  let version = ghub version 'terrastruct/d2'
   let path = share d2 $version
 
   if ($path | path-not-exists) {
@@ -1065,7 +1065,7 @@ export def d2 [] {
 }
 
 export def mdcat [] {
-  let version = github get_version 'swsnr/mdcat'
+  let version = ghub version 'swsnr/mdcat'
   let path = share mdcat $version
 
   if ($path | path-not-exists) {
@@ -1078,7 +1078,7 @@ export def mdcat [] {
 }
 
 export def chatgpt [] {
-  let version = github get_version 'j178/chatgpt'
+  let version = ghub version 'j178/chatgpt'
   let path = share chatgpt $version
 
   if ($path | path-not-exists) {
@@ -1091,7 +1091,7 @@ export def chatgpt [] {
 }
 
 export def aichat [] {
-  let version = github get_version 'sigoden/aichat'
+  let version = ghub version 'sigoden/aichat'
   let path = share aichat $version
 
   if ($path | path-not-exists) {
@@ -1117,7 +1117,7 @@ export def tgpt [] {
 }
 
 export def slices [] {
-  let version = github get_version 'maaslalani/slides'
+  let version = ghub version 'maaslalani/slides'
   let path = share slices $version
 
   if ($path | path-not-exists) {
@@ -1130,7 +1130,7 @@ export def slices [] {
 }
 
 export def nap [] {
-  let version = github get_version 'maaslalani/nap'
+  let version = ghub version 'maaslalani/nap'
   let path = share nap $version
 
   if ($path | path-not-exists) {
@@ -1143,7 +1143,7 @@ export def nap [] {
 }
 
 export def invoice [] {
-  let version = github get_version 'maaslalani/invoice'
+  let version = ghub version 'maaslalani/invoice'
   let path = share invoice $version
 
   if ($path | path-not-exists) {
@@ -1156,7 +1156,7 @@ export def invoice [] {
 }
 
 export def coreutils [] {
-  let version = github get_version 'uutils/coreutils'
+  let version = ghub version 'uutils/coreutils'
   let path = share coreutils $version
 
   if ($path | path-not-exists) {
@@ -1169,7 +1169,7 @@ export def coreutils [] {
 }
 
 export def carapace [] {
-  let version = github get_version 'rsteube/carapace-bin'
+  let version = ghub version 'rsteube/carapace-bin'
   let path = share carapace $version
 
   if ($path | path-not-exists) {
@@ -1182,7 +1182,7 @@ export def carapace [] {
 }
 
 export def bombardier [] {
-  let version = github get_version 'codesenberg/bombardier'
+  let version = ghub version 'codesenberg/bombardier'
   let path = share bombardier $version
 
   if ($path | path-not-exists) {
@@ -1195,7 +1195,7 @@ export def bombardier [] {
 }
 
 export def ruff [] {
-  let version = github get_version 'astral-sh/ruff'
+  let version = ghub version 'astral-sh/ruff'
   let path = share ruff $version
 
   if ($path | path-not-exists) {
@@ -1208,7 +1208,7 @@ export def ruff [] {
 }
 
 export def micro [] {
-  let version = github get_version 'zyedidia/micro'
+  let version = ghub version 'zyedidia/micro'
   let path = share micro $version
 
   if ($path | path-not-exists) {
@@ -1221,7 +1221,7 @@ export def micro [] {
 }
 
 export def dufs [] {
-  let version = github get_version 'sigoden/dufs'
+  let version = ghub version 'sigoden/dufs'
   let path = share dufs $version
 
   if ($path | path-not-exists) {
@@ -1234,7 +1234,7 @@ export def dufs [] {
 }
 
 export def miniserve [] {
-  let version = github get_version 'svenstaro/miniserve'
+  let version = ghub version 'svenstaro/miniserve'
   let path = share miniserve $version
 
   if ($path | path-not-exists) {
@@ -1247,7 +1247,7 @@ export def miniserve [] {
 }
 
 export def simple-http-server [] {
-  let version = github get_version 'TheWaWaR/simple-http-server'
+  let version = ghub version 'TheWaWaR/simple-http-server'
   let path = share simple-http-server $version
 
   if ($path | path-not-exists) {
@@ -1260,7 +1260,7 @@ export def simple-http-server [] {
 }
 
 export def ftpserver [] {
-  let version = github get_version 'fclairamb/ftpserver'
+  let version = ghub version 'fclairamb/ftpserver'
   let path = share ftpserver $version
 
   if ($path | path-not-exists) {
@@ -1273,7 +1273,7 @@ export def ftpserver [] {
 }
 
 export def onefetch [] {
-  let version = github get_version 'o2sh/onefetch'
+  let version = ghub version 'o2sh/onefetch'
   let path = share onefetch $version
 
   if ($path | path-not-exists) {
@@ -1286,7 +1286,7 @@ export def onefetch [] {
 }
 
 export def gping [] {
-  let version = github get_version 'orf/gping'
+  let version = ghub version 'orf/gping'
   let path = share gping $version
 
   if ($path | path-not-exists) {
@@ -1299,7 +1299,7 @@ export def gping [] {
 }
 
 export def duf [] {
-  let version = github get_version 'muesli/duf'
+  let version = ghub version 'muesli/duf'
   let path = share duf $version
 
   if ($path | path-not-exists) {
@@ -1312,7 +1312,7 @@ export def duf [] {
 }
 
 export def github [] {
-  let version = github get_version 'cli/cli'
+  let version = ghub version 'cli/cli'
   let path = share gh $version
 
   if ($path | path-not-exists) {
@@ -1338,7 +1338,7 @@ export def gitlab [] {
 }
 
 export def dive [] {
-  let version = github get_version 'wagoodman/dive'
+  let version = ghub version 'wagoodman/dive'
   let path = share dive $version
 
   if ($path | path-not-exists) {
@@ -1351,7 +1351,7 @@ export def dive [] {
 }
 
 export def hyperfine [] {
-  let version = github get_version 'sharkdp/hyperfine'
+  let version = ghub version 'sharkdp/hyperfine'
   let path = share hyperfine $version
 
   if ($path | path-not-exists) {
@@ -1364,7 +1364,7 @@ export def hyperfine [] {
 }
 
 export def taskell [] {
-  let version = github get_version 'smallhadroncollider/taskell'
+  let version = ghub version 'smallhadroncollider/taskell'
   let path = share taskell $version
 
   if ($path | path-not-exists) {
@@ -1377,7 +1377,7 @@ export def taskell [] {
 }
 
 export def doctl [] {
-  let version = github get_version 'digitalocean/doctl'
+  let version = ghub version 'digitalocean/doctl'
   let path = share doctl $version
 
   if ($path | path-not-exists) {
@@ -1390,7 +1390,7 @@ export def doctl [] {
 }
 
 export def hcloud [] {
-  let version = github get_version 'hetznercloud/cli'
+  let version = ghub version 'hetznercloud/cli'
   let path = share hcloud $version
 
   if ($path | path-not-exists) {
@@ -1416,7 +1416,7 @@ export def kubectl [] {
 }
 
 export def kubetui [] {
-  let version = github get_version 'sarub0b0/kubetui'
+  let version = ghub version 'sarub0b0/kubetui'
   let path = share kubetui $version
 
   if ($path | path-not-exists) {
@@ -1429,7 +1429,7 @@ export def kubetui [] {
 }
 
 export def k9s [] {
-  let version = github get_version 'derailed/k9s'
+  let version = ghub version 'derailed/k9s'
   let path = share k9s $version
 
   if ($path | path-not-exists) {
@@ -1442,7 +1442,7 @@ export def k9s [] {
 }
 
 export def kdash [] {
-  let version = github get_version 'kdash-rs/kdash'
+  let version = ghub version 'kdash-rs/kdash'
   let path = share kdash $version
 
   if ($path | path-not-exists) {
@@ -1455,7 +1455,7 @@ export def kdash [] {
 }
 
 export def bettercap [] {
-  let version = github get_version 'bettercap/bettercap'
+  let version = ghub version 'bettercap/bettercap'
   let path = share bettercap $version
 
   if ($path | path-not-exists) {
@@ -1468,7 +1468,7 @@ export def bettercap [] {
 }
 
 export def viddy [] {
-  let version = github get_version 'sachaos/viddy'
+  let version = ghub version 'sachaos/viddy'
   let path = share viddy $version
 
   if ($path | path-not-exists) {
@@ -1481,7 +1481,7 @@ export def viddy [] {
 }
 
 export def yazi [] {
-  let version = github get_version 'sxyazi/yazi'
+  let version = ghub version 'sxyazi/yazi'
   let path = share yazi $version
 
   if ($path | path-not-exists) {
@@ -1494,7 +1494,7 @@ export def yazi [] {
 }
 
 export def kmon [] {
-  let version = github get_version 'orhun/kmon'
+  let version = ghub version 'orhun/kmon'
   let path = share kmon $version
 
   if ($path | path-not-exists) {
@@ -1507,7 +1507,7 @@ export def kmon [] {
 }
 
 export def --env ollama [] {
-  let version = github get_version 'ollama/ollama'
+  let version = ghub version 'ollama/ollama'
   let path = share ollama $version
 
   if ($path | path-not-exists) {
@@ -1521,7 +1521,7 @@ export def --env ollama [] {
 }
 
 export def plandex [] {
-  let version = github get_version 'plandex-ai/plandex'
+  let version = ghub version 'plandex-ai/plandex'
   let path = share plandex $version
 
   if ($path | path-not-exists) {
@@ -1534,7 +1534,7 @@ export def plandex [] {
 }
 
 export def local-ai [] {
-  let version = github get_version 'mudler/LocalAI'
+  let version = ghub version 'mudler/LocalAI'
   let path = share local-ai $version
 
   if ($path | path-not-exists) {
@@ -1547,7 +1547,7 @@ export def local-ai [] {
 }
 
 export def lan-mouse [ --desktop(-d), --service(-s) ] {
-  let version = github get_version 'feschber/lan-mouse'
+  let version = ghub version 'feschber/lan-mouse'
   let path = share lan-mouse $version
 
   if ($path | path-not-exists) {
@@ -1573,7 +1573,7 @@ export def lan-mouse [ --desktop(-d), --service(-s) ] {
 }
 
 export def lapce [] {
-  let version = github get_version 'lapce/lapce'
+  let version = ghub version 'lapce/lapce'
   let path = share lapce $version
 
   if ($path | path-not-exists) {
@@ -1586,7 +1586,7 @@ export def lapce [] {
 }
 
 export def vscodium [] {
-  let version = github get_version 'VSCodium/vscodium'
+  let version = ghub version 'VSCodium/vscodium'
   let path = share vscodium $version
 
   if ($path | path-not-exists) {
@@ -1603,7 +1603,7 @@ export def zed [] {
 }
 
 export def code-server [] {
-  let version = github get_version 'coder/code-server'
+  let version = ghub version 'coder/code-server'
   let path = share code-server $version
 
   if ($path | path-not-exists) {
@@ -1616,7 +1616,7 @@ export def code-server [] {
 }
 
 export def termshark [] {
-  let version = github get_version 'gcla/termshark'
+  let version = ghub version 'gcla/termshark'
   let path = share termshark $version
 
   if ($path | path-not-exists) {
@@ -1629,7 +1629,7 @@ export def termshark [] {
 }
 
 export def termscp [] {
-  let version = github get_version 'veeso/termscp'
+  let version = ghub version 'veeso/termscp'
   let path = share termscp $version
 
   if ($path | path-not-exists) {
@@ -1642,7 +1642,7 @@ export def termscp [] {
 }
 
 export def kbt [] {
-  let version = github get_version 'bloznelis/kbt'
+  let version = ghub version 'bloznelis/kbt'
   let path = share kbt $version
 
   if ($path | path-not-exists) {
@@ -1655,7 +1655,7 @@ export def kbt [] {
 }
 
 export def trippy [] {
-  let version = github get_version 'fujiapple852/trippy'
+  let version = ghub version 'fujiapple852/trippy'
   let path = share trippy $version
 
   if ($path | path-not-exists) {
@@ -1668,7 +1668,7 @@ export def trippy [] {
 }
 
 export def gitui [] {
-  let version = github get_version 'extrawurst/gitui'
+  let version = ghub version 'extrawurst/gitui'
   let path = share gitui $version
   
   if ($path | path-not-exists) {
@@ -1681,7 +1681,7 @@ export def gitui [] {
 }
 
 export def monolith [] {
-  let version = github get_version 'Y2Z/monolith'
+  let version = ghub version 'Y2Z/monolith'
   let path = share monolith $version
   
   if ($path | path-not-exists) {
@@ -1694,7 +1694,7 @@ export def monolith [] {
 }
 
 export def dijo [] {
-  let version = github get_version 'nerdypepper/dijo'
+  let version = ghub version 'nerdypepper/dijo'
   let path = share dijo $version
   
   if ($path | path-not-exists) {
@@ -1707,7 +1707,7 @@ export def dijo [] {
 }
 
 export def ventoy [] {
-  let version = github get_version 'ventoy/Ventoy'
+  let version = ghub version 'ventoy/Ventoy'
   let path = share ventoy $version
 
   if ($path | path-not-exists) {
@@ -1733,7 +1733,7 @@ export def stash [] {
 }
 
 export def AdGuardHome [] {
-  let version = github get_version 'AdguardTeam/AdGuardHome'
+  let version = ghub version 'AdguardTeam/AdGuardHome'
   let path = share AdGuardHome $version
 
   if ($path | path-not-exists) {
@@ -1746,7 +1746,7 @@ export def AdGuardHome [] {
 }
 
 export def superhtml [] {
-  let version = github get_version 'kristoff-it/superhtml'
+  let version = ghub version 'kristoff-it/superhtml'
   let path = share superhtml $version
 
   if ($path | path-not-exists) {
@@ -1759,7 +1759,7 @@ export def superhtml [] {
 }
 
 export def mitmproxy [] {
-  let version = github get_version 'mitmproxy/mitmproxy'
+  let version = ghub version 'mitmproxy/mitmproxy'
   let path = share mitmproxy $version
 
   if ($path | path-not-exists) {
@@ -1772,7 +1772,7 @@ export def mitmproxy [] {
 }
 
 export def hetty [] {
-  let version = github get_version 'dstotijn/hetty'
+  let version = ghub version 'dstotijn/hetty'
   let path = share hetty $version
 
   if ($path | path-not-exists) {
@@ -1785,7 +1785,7 @@ export def hetty [] {
 }
 
 export def fclones [] {
-  let version = github get_version 'pkolaczk/fclones'
+  let version = ghub version 'pkolaczk/fclones'
   let path = share fclones $version
 
   if ($path | path-not-exists) {
@@ -1799,7 +1799,7 @@ export def fclones [] {
 }
 
 export def nano-work-server [] {
-  let version = github get_version 'nanocurrency/nano-work-server'
+  let version = ghub version 'nanocurrency/nano-work-server'
   let path = share nano-work-server $version
 
   if ($path | path-not-exists) {
@@ -1814,7 +1814,7 @@ export def nano-work-server [] {
 export def mkcert [] {
   deps mkcert
 
-  let version = github get_version 'FiloSottile/mkcert'
+  let version = ghub version 'FiloSottile/mkcert'
   let path = share mkcert $version
 
   if ($path | path-not-exists) {
@@ -1876,7 +1876,7 @@ export def speedtest [] {
 }
 
 export def librespeed [] {
-  let version = github get_version 'librespeed/speedtest-cli'
+  let version = ghub version 'librespeed/speedtest-cli'
   let path = share librespeed $version
 
   if ($path | path-not-exists) {
@@ -1930,7 +1930,7 @@ export def docker [--group] {
 }
 
 export def volta [--node] {
-  let version = github get_version 'volta-cli/volta'
+  let version = ghub version 'volta-cli/volta'
 
   https download $'https://github.com/volta-cli/volta/releases/download/v($version)/volta-($version)-linux.tar.gz'
   extract tar $'volta-($version)-linux.tar.gz' -d 'volta-linux'
@@ -1942,7 +1942,7 @@ export def volta [--node] {
 }
 
 export def fvm [] {
-  let version = github get_version 'leoafarias/fvm'
+  let version = ghub version 'leoafarias/fvm'
   let path = share fvm $version
 
   if ($path | path-not-exists) {
@@ -2078,7 +2078,7 @@ export def --env jdtls [] {
 }
 
 export def --env kotlin [] {
-  let version = github get_version 'JetBrains/kotlin'
+  let version = ghub version 'JetBrains/kotlin'
   let path = share kotlin $version
 
   if ($path | path-not-exists) {
@@ -2092,7 +2092,7 @@ export def --env kotlin [] {
 }
 
 export def --env kotlin-native [] {
-  let version = github get_version 'JetBrains/kotlin'
+  let version = ghub version 'JetBrains/kotlin'
   let path = share kotlin-native $version
 
   if ($path | path-not-exists) {
@@ -2106,7 +2106,7 @@ export def --env kotlin-native [] {
 }
 
 export def --env kotlin-language-server [] {
-  let version = github get_version 'fwcd/kotlin-language-server'
+  let version = ghub version 'fwcd/kotlin-language-server'
   let path = share kotlin-language-server $version
 
   if ($path | path-not-exists) {
@@ -2120,7 +2120,7 @@ export def --env kotlin-language-server [] {
 }
 
 export def --env lua-language-server [] {
-  let version = github get_version 'LuaLS/lua-language-server'
+  let version = ghub version 'LuaLS/lua-language-server'
   let path = share lua-language-server $version
 
   if ($path | path-not-exists) {
@@ -2218,7 +2218,7 @@ export def --env android-platform-tools [] {
 }
 
 export def --env btcd [] {
-  let version = github get_version 'btcsuite/btcd'
+  let version = ghub version 'btcsuite/btcd'
   let path = share btcd $version
 
   if ($path | path-not-exists) {
@@ -2232,7 +2232,7 @@ export def --env btcd [] {
 }
 
 export def --env bitcoin [] {
-  let version = github get_version 'bitcoin/bitcoin'
+  let version = ghub version 'bitcoin/bitcoin'
   let path = share bitcoin $version
 
   if ($path | path-not-exists) {
@@ -2246,7 +2246,7 @@ export def --env bitcoin [] {
 }
 
 export def --env lightning-network [] {
-  let version = github get_version 'lightningnetwork/lnd'
+  let version = ghub version 'lightningnetwork/lnd'
   let path = share lightning $version
 
   if ($path | path-not-exists) {
@@ -2274,7 +2274,7 @@ export def --env scilab [] {
 }
 
 export def clangd [] {
-  let version = github get_version 'clangd/clangd'
+  let version = ghub version 'clangd/clangd'
   let path = share clangd $version
 
   if ($path | path-not-exists) {
@@ -2287,7 +2287,7 @@ export def clangd [] {
 }
 
 export def marksman [] {
-  let version = github get_version 'artempyanykh/marksman'
+  let version = ghub version 'artempyanykh/marksman'
   let path = share marksman $version
 
   if ($path | path-not-exists) {
@@ -2300,7 +2300,7 @@ export def marksman [] {
 }
 
 export def v-analyzer [] {
-  let version = github get_version 'vlang/v-analyzer'
+  let version = ghub version 'vlang/v-analyzer'
   let path = share v-analyzer $version
 
   if ($path | path-not-exists) {
@@ -2313,7 +2313,7 @@ export def v-analyzer [] {
 }
 
 export def zls [] {
-  let version = github get_version 'zigtools/zls'
+  let version = ghub version 'zigtools/zls'
   let path = share zls $version
 
   if ($path | path-not-exists) {
@@ -2326,7 +2326,7 @@ export def zls [] {
 }
 
 export def presenterm [] {
-  let version = github get_version 'mfontanini/presenterm'
+  let version = ghub version 'mfontanini/presenterm'
   let path = share presenterm $version
 
   if ($path | path-not-exists) {
@@ -2339,7 +2339,7 @@ export def presenterm [] {
 }
 
 export def contour [] {
-  let version = github get_version 'contour-terminal/contour'
+  let version = ghub version 'contour-terminal/contour'
   let path = share contour $version
 
   if ($path | path-not-exists) {
@@ -2353,7 +2353,7 @@ export def contour [] {
 }
 
 export def viu [] {
-  let version = github get_version 'atanunq/viu'
+  let version = ghub version 'atanunq/viu'
   let path = share viu $version
 
   if ($path | path-not-exists) {
