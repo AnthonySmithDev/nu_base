@@ -86,9 +86,9 @@
   {
     "category": "core",
     "repository": "junegunn/fzf",
-    "tag_name": "0.56.0",
+    "tag_name": "0.56.2",
     "prerelease": false,
-    "created_at": "2024-10-27T03:03:50Z"
+    "created_at": "2024-11-11T15:58:12Z"
   },
   {
     "category": "core",
@@ -364,11 +364,18 @@
     "created_at": "2024-05-15T21:06:03Z"
   },
   {
+    "category": "core",
+    "repository": "mrjackwills/oxker",
+    "tag_name": "0.8.0",
+    "prerelease": false,
+    "created_at": "2024-10-22T10:02:07Z"
+  },
+  {
     "category": "extra",
     "repository": "derailed/k9s",
-    "tag_name": "0.32.5",
+    "tag_name": "0.32.6",
     "prerelease": false,
-    "created_at": "2024-06-15T17:10:45Z"
+    "created_at": "2024-11-10T17:10:10Z"
   },
   {
     "category": "extra",

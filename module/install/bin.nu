@@ -441,6 +441,19 @@ export def lazydocker [] {
   bind file lazydocker $path
 }
 
+export def oxker [] {
+  let version = ghub version 'mrjackwills/oxker'
+  let path = share oxker $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/mrjackwills/oxker/releases/download/v($version)/oxker_linux_x86_64.tar.gz
+    extract tar oxker_linux_x86_64.tar.gz
+    move -f oxker -p $path
+  }
+
+  bind file oxker $path
+}
+
 export def lazycli [] {
   let version = ghub version 'jesseduffield/lazycli'
   let path = share lazycli $version

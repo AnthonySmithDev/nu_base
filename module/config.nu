@@ -220,3 +220,7 @@ export def termscp [] {
   shortcut termscp config.toml
   shortcut termscp bookmarks.toml
 }
+
+export def docker [] {
+  sudo usermod -aG docker $env.USER
+}

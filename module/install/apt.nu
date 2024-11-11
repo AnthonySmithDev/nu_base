@@ -43,6 +43,8 @@ export def sources [] {
 
 export def basic [] {
   let packages = [
+    ssh
+    openssh-server
     wl-clipboard
   ]
 
