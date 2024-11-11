@@ -8,11 +8,13 @@ use ghub.nu
 use config.nu
 use download.nu
 
+use immich.nu
+
 use fm.nu
 use dir.nu
 use file.nu
 use text.nu
-use ssh.nu
+use rsh.nu
 use sql.nu
 use bg.nu
 use deps.nu

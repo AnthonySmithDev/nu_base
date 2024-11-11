@@ -1,5 +1,6 @@
 source ../env.nu
 source ../def.nu
+source ../builtin.nu
 source ../module/source.nu
 
 def main [] {

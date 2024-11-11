@@ -1350,6 +1350,14 @@ export def gitlab [] {
   bind file glab $path
 }
 
+export def gitlab-runner [] {
+  sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+  sudo chmod 777 /usr/local/bin/gitlab-runner
+  sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+  sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+  sudo gitlab-runner start
+}
+
 export def dive [] {
   let version = ghub version 'wagoodman/dive'
   let path = share dive $version
@@ -1683,7 +1691,7 @@ export def trippy [] {
 export def gitui [] {
   let version = ghub version 'extrawurst/gitui'
   let path = share gitui $version
-  
+ 
   if ($path | path-not-exists) {
     https download $'https://github.com/extrawurst/gitui/releases/download/v($version)/gitui-linux-musl.tar.gz'
     extract tar gitui-linux-musl.tar.gz
@@ -1696,7 +1704,7 @@ export def gitui [] {
 export def monolith [] {
   let version = ghub version 'Y2Z/monolith'
   let path = share monolith $version
-  
+ 
   if ($path | path-not-exists) {
     https download https://github.com/Y2Z/monolith/releases/download/v2.7.0/monolith-gnu-linux-x86_64 -o monolith
     add-execute monolith
@@ -1709,7 +1717,7 @@ export def monolith [] {
 export def dijo [] {
   let version = ghub version 'nerdypepper/dijo'
   let path = share dijo $version
-  
+ 
   if ($path | path-not-exists) {
     https download $'https://github.com/nerdypepper/dijo/releases/download/v($version)/dijo-x86_64-linux' -o dijo
     add-execute dijo
