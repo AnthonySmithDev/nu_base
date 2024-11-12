@@ -8,6 +8,7 @@ use ghub.nu
 use config.nu
 use download.nu
 
+use dock.nu
 use immich.nu
 
 use fm.nu

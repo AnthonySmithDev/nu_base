@@ -304,6 +304,18 @@ export def Linkora [ --force(-f) ] {
   install $filepath
 }
 
+export def immich [ --force(-f) ] {
+  let version = ghub version 'immich-app/immich'
+  let filename = $'immich_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download https://github.com/immich-app/immich/releases/download/v($version)/app-armeabi-v7a-release.apk -o $filepath
+  }
+
+  install $filepath
+}
+
 export def core [] {
   NewPipe
   LibreTube

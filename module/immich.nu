@@ -57,3 +57,37 @@ export def logs [ ...services: string@active-services ] {
     docker logs --follow ...$services
   }
 }
+
+export def pull [ ...services: string@all-services ] {
+  if ($env.IMMICH_COMPOSE | path exists) {
+    docker compose -f $env.IMMICH_COMPOSE pull
+  }
+}
+
+def commands [] {
+  [
+    [value, description];
+    [reset-admin-password, 'Reset the admin password']
+    [enable-password-login, 'Enable password login']
+    [disable-password-login, 'Disable password login']
+    [enable-oauth-login, 'Enable OAuth login']
+    [disable-oauth-login, 'Disable OAuth login']
+    [list-users, 'List Immich users']
+    [help, 'display help for command']
+  ]
+}
+
+export def --wrapped admin [ command: string@commands, ...rest ] {
+  if ($env.IMMICH_COMPOSE | path exists) {
+    docker exec -it immich_server immich-admin $command ...$rest
+  }
+}
+
+export def machine_learning [] {
+  if not (dock volume exists model-cache) {
+    docker volume create model-cache
+  }
+  if not (dock container exists immich_machine_learning) {
+    docker run -d --name immich_machine_learning -v model-cache:/cache --restart always -p 3003:3003 ghcr.io/immich-app/immich-machine-learning:release
+  }
+}

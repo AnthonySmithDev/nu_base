@@ -1153,5 +1153,12 @@
     "tag_name": "1.2.3",
     "prerelease": false,
     "created_at": "2024-10-19T00:58:46Z"
+  },
+  {
+    "category": "other",
+    "repository": "immich-app/immich",
+    "tag_name": "1.120.2",
+    "prerelease": false,
+    "created_at": "2024-10-19T00:58:46Z"
   }
 ]
