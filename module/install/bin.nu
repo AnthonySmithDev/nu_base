@@ -1632,8 +1632,10 @@ export def vscodium [] {
   bind dir $path $env.VSCODIUM_PATH
 }
 
-export def zed [] {
-  curl https://zed.dev/install.sh | sh
+export def zed [ --force(-f) ] {
+  if $force or (which zed | is-empty) {
+    curl https://zed.dev/install.sh | sh
+  }
 }
 
 export def code-server [] {
@@ -1922,18 +1924,20 @@ export def librespeed [] {
   bind file librespeed $path
 }
 
-export def nix [] {
-  curl -L 'https://nixos.org/nix/install' | bash -s -- --daemon
-}
-
-export def devbox [] {
-  if (which devbox | is-empty) {
-    curl -fsSL 'https://get.jetpack.io/devbox' | bash
+export def nix [ --force(-f) ] {
+  if $force or (which nix | is-empty) {
+    curl -L 'https://nixos.org/nix/install' | bash -s -- --daemon
   }
 }
 
-export def tailscale [] {
-  if (which tailscale | is-empty) {
+export def devbox [ --force(-f) ] {
+  if $force or (which devbox | is-empty) {
+    curl -fsSL https://get.jetify.com/devbox | bash
+  }
+}
+
+export def tailscale [ --force(-f) ] {
+  if $force or (which tailscale | is-empty) {
     curl -fsSL 'https://tailscale.com/install.sh' | sh
   }
 }
@@ -2015,8 +2019,10 @@ export def --env node [ --latest ] {
   env-path $env.NODE_BIN
 }
 
-export def deno [] {
-  curl -fsSL https://deno.land/install.sh | sh
+export def deno [ --force(-f) ] {
+  if $force or (which deno | is-empty) {
+    curl -fsSL https://deno.land/install.sh | sh
+  }
 }
 
 def go-versions [] {
@@ -2045,16 +2051,16 @@ export def --env golang [ --latest ] {
   env-path $env.GOBIN
 }
 
-export def --env rust [ --latest, --force ] {
-  if $force or not ("~/.rustup/toolchains" | path exists) {
+export def --env rust [ --latest(-l), --force(-f) ] {
+  if $force or (which rustup | is-empty) {
     # curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
     wget -O- --https-only --secure-protocol=auto --quiet --show-progress https://sh.rustup.rs | sh -s -- -q -y
   }
   env-path $env.CARGOBIN
 }
 
-export def haskell [ --latest ] {
-  if not ("~/.ghcup" | path exists) {
+export def haskell [ --latest(-l), --force(-f) ] {
+  if $force or (which ghcup | is-empty) {
     curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
   }
 }
