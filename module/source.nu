@@ -26,7 +26,7 @@ use run.nu
 use srv.nu
 use setup.nu
 use nerd-font.nu
-use tailsc.nu
+use tscale.nu
 
 # use image
 # use gpt.nu
