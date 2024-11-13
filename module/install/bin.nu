@@ -2405,6 +2405,19 @@ export def viu [] {
   bind file viu $path
 }
 
+export def immich-go [] {
+  let version = ghub version 'simulot/immich-go'
+  let path = share immich-go $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/simulot/immich-go/releases/download/($version)/immich-go_Linux_x86_64.tar.gz
+    extract tar immich-go_Linux_x86_64.tar.gz -d immich-go_linux_x86_64
+    move -d immich-go_linux_x86_64 -f immich-go -p $path
+  }
+
+  bind file immich-go $path
+}
+
 export def firefox-de [] {
   https download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2
