@@ -1,6 +1,6 @@
 
 export def seed [] {
-  cat /dev/urandom | tr -dc '0-9A-F' | head -c 64
+  ^cat /dev/urandom | tr -dc '0-9A-F' | head -c 64
 }
 
 export def path-safe [] {
@@ -48,4 +48,20 @@ export def git-down [repository: string, path: string, tag?: string] {
   if ($tag | is-not-empty) {
     git -C $path switch $tag
   }
+}
+
+def files [] {
+  fd --type file | lines
+}
+
+def dirs [] {
+  fd --type dir | lines
+}
+
+def json [] {
+  to json | jless --mode line
+}
+
+def cat [file: string@files] {
+  bat -P --plain $file
 }

@@ -38,10 +38,6 @@ def help! [cmd?: string] {
   }
 }
 
-def json [] {
-  to json | jless --mode line
-}
-
 def --env gfm [] {
   let path = gum file --file --directory
   if ($path | path type) == 'file' {

@@ -28,5 +28,5 @@ export def "tileOS river" [] {
 }
 
 export def "pop-os" [] {
-  https download https://iso.pop-os.org/24.04/amd64/intel/10/pop-os_24.04_amd64_intel_10.iso
+  https download https://iso.pop-os.org/24.04/amd64/intel/11/pop-os_24.04_amd64_intel_11.iso
 }

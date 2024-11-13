@@ -46,6 +46,8 @@ export def basic [] {
     ssh
     openssh-server
     wl-clipboard
+    libxss1
+    scdoc
   ]
 
   sudo apt install -y ...$packages

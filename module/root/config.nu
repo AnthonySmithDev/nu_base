@@ -17,7 +17,7 @@ def symlink [
   let dst_file = ($dst_dir | path join $basename)
 
   if not ($dst_dir | path-exists) {
-    sudo mkdir $dst_dir
+    sudo mkdir -p $dst_dir
   }
 
   sudo ln -sf $src_file $dst_file

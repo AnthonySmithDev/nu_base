@@ -1,5 +1,6 @@
 source ../env.nu
 source ../def.nu
+source ../builtin.nu
 source ../module/source.nu
 
 def main [] {
@@ -17,23 +18,23 @@ def main [] {
     config vieb
   }
 
-  install bin lsd
-  install bin bat
+  install bin melt
   install bin mods
   install bin glow
-  install bin freeze
   install bin soft
+  install bin freeze
+
+  install bin lsd
+  install bin bat
   install bin qrcp
   install bin jless
   install bin taskell
   install bin lazygit
   install bin lazydocker
 
-  install bin melt
   install bin task
   install bin usql
   install bin amber
-  install bin delta
   install bin pueue
   install bin ttyper
   install bin bottom

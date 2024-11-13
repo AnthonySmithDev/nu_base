@@ -10,6 +10,7 @@ def main [] {
   touch ~/.env.nu
 
   if (exists-external apt) {
+    install apt update
     install apt basic
     install apt docker
   }

@@ -150,6 +150,7 @@ export def vieb [] {
   let src = ($env.SCRIPT_DIR_SRC | path join vieb.nu)
   let dst = ($env.SCRIPT_DIR_DST | path join vieb)
   ln -sf $src $dst
+  chmod 777 $dst
 }
 
 export def files-lanmouse [] {
@@ -192,6 +193,7 @@ export def cosmic [] {
   let src = ($env.SCRIPT_DIR_SRC | path join cosmic.nu)
   let dst = ($env.SCRIPT_DIR_DST | path join cosmic)
   ln -sf $src $dst
+  chmod 777 $dst
 }
 
 export def git [] {
