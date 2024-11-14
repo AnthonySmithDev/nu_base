@@ -4,6 +4,11 @@ export-env {
   $env.IMMICH_COMPOSE = ($env.IMMICH_DIR | path join docker-compose.yml)
 }
 
+export def --env set [] {
+  $env.IMMICH_DIR = ($env.PWD | path join immich-app)
+  $env.IMMICH_COMPOSE = ($env.IMMICH_DIR | path join docker-compose.yml)
+}
+
 export def download [ --force ] {
   mkdir $env.IMMICH_DIR
 
@@ -90,4 +95,16 @@ export def machine_learning [] {
   if not (dock container exists immich_machine_learning) {
     docker run -d --name immich_machine_learning -v model-cache:/cache --restart always -p 3003:3003 ghcr.io/immich-app/immich-machine-learning:release
   }
+}
+
+export def --wrapped upload [...rest] {
+  let key = 'RX6AWkBzV9Gn4VFtej4TH3ky70OZVo2N0alkX3fA4'
+  let url = 'http://localhost:2283'
+  immich-go -server=($url) -key=($key) upload ...$rest
+}
+
+export def sync [] {
+  let src = '/media/anthony/B3/immich-app'
+  let dst = '/media/anthony/B2/immich-app'
+  sudo rclone sync --progress --check-first --metadata --fast-list $src $dst
 }

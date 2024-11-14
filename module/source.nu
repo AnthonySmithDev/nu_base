@@ -9,7 +9,7 @@ use config.nu
 use download.nu
 
 use dock.nu
-use immich.nu
+use photos.nu
 
 use fm.nu
 use dir.nu
