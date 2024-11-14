@@ -43,6 +43,9 @@ export def sources [] {
 
 export def basic [] {
   let packages = [
+    mpv
+    vlc
+
     ssh
     openssh-server
     wl-clipboard
@@ -469,6 +472,10 @@ export def sftpgo [] {
 
 export def timg [] {
   sudo apt install -y timg
+}
+
+export def nautilus [] {
+  sudo apt install -y nautilus
 }
 
 export def sixel [] {

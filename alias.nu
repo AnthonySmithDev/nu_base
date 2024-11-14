@@ -12,6 +12,7 @@ alias ze = zellij edit
 alias za = zellij action
 alias zt = zellij attach
 
+alias zls = zellij list-sessions
 alias zks = zellij kill-session
 alias zds = zellij delete-session
 alias zkas = zellij kill-all-sessions -y
