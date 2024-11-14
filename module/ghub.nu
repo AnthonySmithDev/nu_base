@@ -29,6 +29,10 @@ export def version [name: string@names] {
 }
 
 export def update [] {
+  if not ($env.GITHUB_UPDATE | path exists) {
+    '0' | save --force $env.GITHUB_UPDATE
+  }
+  touch $env.GITHUB_UPDATE
   let rate = (http get https://api.github.com/rate_limit | get rate)
   let reset = ($rate | get reset | $in * 1_000_000_000 | into datetime --offset -5)
   if $rate.remaining == 0 {
