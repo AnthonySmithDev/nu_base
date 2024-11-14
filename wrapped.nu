@@ -36,3 +36,7 @@ def --wrapped sail  [...rest ] {
     print "Sail script not found"
   }
 }
+
+def tunnel [port: int] {
+  cloudflared tunnel --url http://localhost:($port)
+}

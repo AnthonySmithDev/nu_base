@@ -220,7 +220,7 @@ export def skate [] {
   bind file skate $path
 }
 
-export def nvim [] {
+export def --env nvim [] {
   let version = ghub version 'neovim/neovim'
   let path = share nvim $version
 
@@ -231,6 +231,7 @@ export def nvim [] {
   }
 
   bind dir $path $env.NVIM_PATH
+  env-path $env.NVIM_BIN
 }
 
 export def broot [] {
@@ -389,7 +390,7 @@ export def websocat [] {
   bind file websocat $path
 }
 
-export def amber [] {
+export def --env amber [] {
   let version = ghub version 'dalance/amber'
   let path = share amber $version
 
@@ -400,6 +401,7 @@ export def amber [] {
   }
 
   bind dir $path $env.AMBER_BIN
+  env-path $env.AMBER_BIN
 }
 
 export def obsidian-cli [] {
@@ -739,7 +741,7 @@ export def upterm [] {
   bind file upterm $path
 }
 
-export def sftpgo [] {
+export def --env sftpgo [] {
   let version = ghub version 'drakkan/sftpgo'
   let path = share sftpgo $version
 
@@ -750,6 +752,7 @@ export def sftpgo [] {
   }
 
   bind dir $path $env.SFTPGO_PATH
+  env-path $env.SFTPGO_PATH
 }
 
 export def telegram [] {
@@ -791,7 +794,7 @@ export def kanata [] {
   bind file -r kanata $path
 }
 
-export def mongosh [] {
+export def --env mongosh [] {
   let version = '2.3.1'
   let path = share mongosh $version
 
@@ -802,6 +805,7 @@ export def mongosh [] {
   }
 
   bind dir $path $env.MONGOSH_BIN
+  env-path $env.MONGOSH_BIN
 }
 
 export def shell2http [] {
@@ -822,8 +826,8 @@ export def mprocs [] {
   let path = share mprocs $version
 
   if ($path | path-not-exists) {
-    https download $'https://github.com/pvolok/mprocs/releases/download/v($version)/mprocs-($version)-linux64.tar.gz'
-    extract tar $'mprocs-($version)-linux64.tar.gz'
+    https download $'https://github.com/pvolok/mprocs/releases/download/v($version)/mprocs-($version)-linux-x86_64-musl.tar.gz'
+    extract tar $'mprocs-($version)-linux-x86_64-musl.tar.gz'
     move -f mprocs -p $path
   }
 
@@ -1233,6 +1237,21 @@ export def ruff [] {
   bind file ruff $path
 }
 
+export def --env uv [] {
+  let version = ghub version 'astral-sh/uv'
+  let path = share uv $version
+
+  env-path $env.MITMPROXY_BIN
+  if ($path | path-not-exists) {
+    https download https://github.com/astral-sh/uv/releases/download/($version)/uv-x86_64-unknown-linux-musl.tar.gz
+    extract tar uv-x86_64-unknown-linux-musl.tar.gz
+    move -d uv-x86_64-unknown-linux-musl -p $path
+  }
+
+  bind dir $path $env.UV_BIN
+  env-path $env.UV_BIN
+}
+
 export def micro [] {
   let version = ghub version 'zyedidia/micro'
   let path = share micro $version
@@ -1619,7 +1638,7 @@ export def lapce [] {
   bind file lapce $path
 }
 
-export def vscodium [] {
+export def --env vscodium [] {
   let version = ghub version 'VSCodium/vscodium'
   let path = share vscodium $version
 
@@ -1630,6 +1649,7 @@ export def vscodium [] {
   }
 
   bind dir $path $env.VSCODIUM_PATH
+  env-path $env.VSCODIUM_BIN
 }
 
 export def zed [ --force(-f) ] {
@@ -1638,7 +1658,7 @@ export def zed [ --force(-f) ] {
   }
 }
 
-export def code-server [] {
+export def --env code-server [] {
   let version = ghub version 'coder/code-server'
   let path = share code-server $version
 
@@ -1649,6 +1669,7 @@ export def code-server [] {
   }
 
   bind dir $path $env.CODE_SERVER_PATH
+  env-path $env.CODE_SERVER_BIN
 }
 
 export def termshark [] {
@@ -1794,7 +1815,7 @@ export def superhtml [] {
   bind file superhtml $path
 }
 
-export def mitmproxy [] {
+export def --env mitmproxy [] {
   let version = ghub version 'mitmproxy/mitmproxy'
   let path = share mitmproxy $version
 
@@ -1805,6 +1826,7 @@ export def mitmproxy [] {
   }
 
   bind dir $path $env.MITMPROXY_BIN
+  env-path $env.MITMPROXY_BIN
 }
 
 export def hetty [] {
@@ -1949,7 +1971,7 @@ export def remote-mouse [] {
   rm ($env.REMOTE_MOUSE_PATH | path join install.sh)
 }
 
-export def docker [--group] {
+export def --env docker [--group] {
   let version = '26.1.3'
   let path = share docker $version
 
@@ -1965,6 +1987,7 @@ export def docker [--group] {
   }
 
   bind dir $path $env.DOCKER_BIN
+  env-path $env.DOCKER_BIN
 }
 
 export def volta [--node] {
@@ -1979,7 +2002,7 @@ export def volta [--node] {
   }
 }
 
-export def fvm [] {
+export def --env fvm [] {
   let version = ghub version 'leoafarias/fvm'
   let path = share fvm $version
 
@@ -1990,6 +2013,7 @@ export def fvm [] {
   }
 
   bind dir $path $env.FVM_PATH
+  env-path $env.FVM_PATH
 }
 
 def node-versions [] {
