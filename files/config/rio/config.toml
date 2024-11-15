@@ -85,7 +85,7 @@ confirm-before-quit = false
 # shape - Default cursor shape is 'block'
 # Other available options are: 'underline', 'beam' or 'hidden'
 #
-# blinking - Whether the cursor blinks. The default is true
+# blinking - Whether the cursor blinks. The default is false
 #
 # blinking-interval - Cursor update on milliseconds interval
 #
@@ -96,7 +96,8 @@ blinking-interval = 800
 
 # Editor
 #
-# Default editor is "vi".
+# Default editor on Linux and MacOS is "vi",
+# on Windows it is "notepad".
 #
 # Whenever the key binding `OpenConfigEditor` is triggered it will
 # use the value of the editor along with the rio configuration path.
@@ -127,10 +128,10 @@ args = []
 [window]
 # width = 600
 # height = 400
-mode = "Maximized"
+mode = "maximized"
 opacity = 0.95
 blur = true
-decorations = "Disabled"
+decorations = "disabled"
 
 # Renderer
 #
@@ -153,12 +154,15 @@ decorations = "Disabled"
 #       will be done like enable font ligatures or emoji support.
 #       For more information please check the docs.
 #
+# • filters: A list of paths to RetroArch slang shaders. Might not work with OpenGL.
+#
 # Example:
-[renderer]
-performance = "high"
-backend = "automatic"
-disable-unfocused-render = false
-level = 1
+# [renderer]
+# performance = "high"
+# backend = "automatic"
+# disable-unfocused-render = false
+# level = 1
+# filters = []
 
 # Keyboard
 #
@@ -179,9 +183,9 @@ level = 1
 # Note: You can set different font families but Rio terminal
 # will always look for regular font bounds whene
 #
-# You can also set family on root to overwrite all fonts
+# You can also set family on root to overwrite all fonts.
 # [fonts]
-#   family = "cascadiamono"
+# family = "cascadiamono"
 #
 # You can also specify extra fonts to load
 # [fonts]
@@ -194,12 +198,16 @@ level = 1
 # Note: Font features do not have support to live reload on configuration,
 # so to reflect your changes, you will need to close and reopen Rio.
 #
+# You can also disable font hinting. Font hinting is enabled by default.
+# [fonts]
+# hinting = false
+#
 # Example:
-[fonts]
-size = 15
-
-[fonts.regular]
-family = "FiraCode Nerd Font"
+# [fonts]
+# size = 18
+#
+# [fonts.regular]
+# family = "cascadiamono"
 # style = "normal"
 # weight = 400
 #
@@ -218,6 +226,11 @@ family = "FiraCode Nerd Font"
 # style = "italic"
 # weight = 800
 
+[fonts]
+family = "FiraCode Nerd Font"
+hinting = true
+size = 15
+
 # Scroll
 #
 # You can change how many lines are scrolled each time by setting this option.
@@ -230,9 +243,9 @@ family = "FiraCode Nerd Font"
 # Multiplier default is 3.0.
 # Divider default is 1.0.
 # Example:
-[scroll]
-multiplier = 3.0
-divider = 1.0
+# [scroll]
+# multiplier = 3.0
+# divider = 1.0
 
 # Navigation
 #
@@ -249,12 +262,12 @@ divider = 1.0
 # "color-automation" - Set a specific color for the tab whenever a specific program is running, or in a specific directory.
 #
 # Example:
-[navigation]
-mode = "Plain"
-clickable = false
-hide-if-single = true
-use-current-path = false
-color-automation = []
+# [navigation]
+# mode = "bookmark"
+# clickable = false
+# hide-if-single = true
+# use-current-path = false
+# color-automation = []
 
 # Shell
 #
@@ -268,9 +281,9 @@ color-automation = []
 #
 # Example 1 using fish shell from bin path:
 #
-[shell]
-program = "nu"
-args = [""]
+# [shell]
+# program = "/bin/fish"
+# args = ["--login"]
 #
 # Example 2 for Windows using powershell
 #
@@ -290,6 +303,10 @@ args = [""]
 # program = "/opt/homebrew/bin/tmux"
 # args = ["new-session", "-c", "/var/www"]
 
+[shell]
+program = "nu"
+args = []
+
 # Colors
 #
 # Colors definition will overwrite any property in theme
@@ -297,27 +314,15 @@ args = [""]
 #
 # Example:
 [colors]
-background = '#0f1419'
-foreground = '#e6e1cf'
-selection-background = '#253340'
-selection-foreground = '#e6e1cf'
-cursor = '#f29718'
-black = '#000000'
-red = '#ff3333'
-green = '#b8cc52'
-yellow = '#e7c547'
-blue = '#36a3d9'
-magenta = '#f07178'
-cyan = '#95e6cb'
-white = '#ffffff'
-light_black = '#323232'
-light_red = '#ff6565'
-light_green = '#eafe84'
-light_yellow = '#fff779'
-light_blue = '#68d5ff'
-light_magenta = '#ffa3aa'
-light_cyan = '#c7fffd'
-light_white = '#ffffff'
+background = '#0A0E14'
+foreground = '#B3B1AD'
+cursor = '#F38BA3'
+tabs = '#443d40'
+tabs-active = '#F38BA3'
+green = '#91B362'
+red = '#EA6C73'
+blue = '#53BDFA'
+yellow = '#F9AF4F'
 
 # Bindings
 #
