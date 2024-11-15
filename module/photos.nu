@@ -4,8 +4,12 @@ export-env {
   $env.IMMICH_COMPOSE = ($env.IMMICH_DIR | path join docker-compose.yml)
 }
 
-export def --env set [] {
-  $env.IMMICH_DIR = ($env.PWD | path join immich-app)
+def disks [] {
+  [B3 B2 B1]
+}
+
+export def --env set [disk: string@disks] {
+  $env.IMMICH_DIR = ('/media/anthony' | path join $disk immich-app)
   $env.IMMICH_COMPOSE = ($env.IMMICH_DIR | path join docker-compose.yml)
 }
 
@@ -83,7 +87,7 @@ def commands [] {
 }
 
 export def --wrapped admin [ command: string@commands, ...rest ] {
-  if ($env.IMMICH_COMPOSE | path exists) {
+  if not (dock container exists immich_server) {
     docker exec -it immich_server immich-admin $command ...$rest
   }
 }
@@ -103,8 +107,8 @@ export def --wrapped upload [...rest] {
   immich-go -server=($url) -key=($key) upload ...$rest
 }
 
-export def sync [] {
-  let src = '/media/anthony/B3/immich-app'
-  let dst = '/media/anthony/B2/immich-app'
+export def sync [src_disk: string@disks = 'B3', dst_disk: string@disks = 'B2'] {
+  let src = $'/media/anthony/($src_disk)/immich-app'
+  let dst = $'/media/anthony/($dst_disk)/immich-app'
   sudo rclone sync --progress --check-first --metadata --fast-list --create-empty-src-dirs -v $src $dst
 }
