@@ -315,3 +315,7 @@ def lsix [] {
   let grid = if ($isBig and $isMany) { 6 } else { 3 }
   timg --title --pixelation sixel --grid $grid ...$images
 }
+
+def 'rsftp' [] {
+  rclone copy --sftp-host '192.168.0.20' --sftp-user 'anthony' --sftp-port 8022 --sftp-pass 'Smithg'
+}

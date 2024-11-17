@@ -43,14 +43,23 @@ export def sources [] {
 
 export def basic [] {
   let packages = [
+    build-essential
+
     mpv
-    vlc
+    pqiv
+    p7zip-full
+
+    axel
+    aria2
+
+    scdoc
+    wl-clipboard
 
     ssh
     openssh-server
-    wl-clipboard
+
     libxss1
-    scdoc
+    libqt5concurrent5
   ]
 
   sudo apt install -y ...$packages
