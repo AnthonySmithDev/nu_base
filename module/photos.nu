@@ -110,5 +110,5 @@ export def --wrapped upload [...rest] {
 export def sync [src_disk: string@disks = 'B3', dst_disk: string@disks = 'B2'] {
   let src = $'/media/anthony/($src_disk)/immich-app'
   let dst = $'/media/anthony/($dst_disk)/immich-app'
-  sudo rclone sync --progress --check-first --metadata --fast-list --create-empty-src-dirs -v $src $dst
+  sudo rclone sync --progress --metadata --fast-list --create-empty-src-dirs $src $dst
 }

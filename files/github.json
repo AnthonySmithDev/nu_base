@@ -373,9 +373,9 @@
   {
     "category": "extra",
     "repository": "derailed/k9s",
-    "tag_name": "0.32.6",
+    "tag_name": "0.32.7",
     "prerelease": false,
-    "created_at": "2024-11-10T17:10:10Z"
+    "created_at": "2024-11-16T20:21:49Z"
   },
   {
     "category": "extra",
@@ -569,9 +569,9 @@
   {
     "category": "extra",
     "repository": "orf/gping",
-    "tag_name": "gping-v1.17.3",
+    "tag_name": "gping-v1.18.0",
     "prerelease": false,
-    "created_at": "2024-07-21T23:26:48Z"
+    "created_at": "2024-11-16T23:05:49Z"
   },
   {
     "category": "extra",
@@ -765,9 +765,9 @@
   {
     "category": "other",
     "repository": "sachaos/viddy",
-    "tag_name": "1.2.0",
+    "tag_name": "1.2.1",
     "prerelease": false,
-    "created_at": "2024-10-13T17:59:34Z"
+    "created_at": "2024-11-16T19:35:15Z"
   },
   {
     "category": "other",
@@ -1080,9 +1080,9 @@
   {
     "category": "other",
     "repository": "telegramdesktop/tdesktop",
-    "tag_name": "5.7.2",
+    "tag_name": "5.8.1",
     "prerelease": false,
-    "created_at": "2024-11-05T08:45:43Z"
+    "created_at": "2024-11-17T19:33:45Z"
   },
   {
     "category": "other",
@@ -1174,5 +1174,12 @@
     "tag_name": "0.22.1",
     "prerelease": false,
     "created_at": "2024-10-15T19:49:03Z"
+  },
+  {
+    "category": "other",
+    "repository": "Picocrypt/CLI",
+    "tag_name": "2.09",
+    "prerelease": false,
+    "created_at": "2024-11-12T00:25:09Z"
   }
 ]

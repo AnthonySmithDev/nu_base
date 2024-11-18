@@ -2442,6 +2442,19 @@ export def immich-go [] {
   bind file immich-go $path
 }
 
+export def picocrypt [] {
+  let version = ghub version 'Picocrypt/CLI'
+  let path = share picocrypt $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/Picocrypt/CLI/releases/download/($version)/picocrypt-linux-amd64 -o picocrypt
+    add-execute picocrypt
+    move -f picocrypt -p $path
+  }
+
+  bind file picocrypt $path
+}
+
 export def firefox-de [] {
   https download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2
