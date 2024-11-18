@@ -47,6 +47,12 @@
     (
         modifiers: [
             Super,
+        ],
+        key: "f",
+    ): Spawn("nu/cosmic files"),
+    (
+        modifiers: [
+            Super,
             Alt,
         ],
         key: "a",

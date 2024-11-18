@@ -141,6 +141,10 @@ export def "main terminal" [] {
   alacritty
 }
 
+export def "main files" [] {
+  nautilus
+}
+
 export def "main scrcpy audio" [] {
   scrcpy --no-window
 }

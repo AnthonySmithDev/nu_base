@@ -57,12 +57,19 @@ export def mkcert [] {
 
 export def qt [] {
   if (exists-external apt) {
-    sudo apt install  qtwebengine5-dev qtpositioning5-dev
+    sudo apt install -y qtwebengine5-dev qtpositioning5-dev
   }
 }
 
 export def rio [] {
   if (exists-external apt) {
-    sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+    # sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+    sudo apt install -y devtodo
+  }
+}
+
+export def steam [] {
+  if (exists-external apt) {
+    sudo apt install zenity
   }
 }
