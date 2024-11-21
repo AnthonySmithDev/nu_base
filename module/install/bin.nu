@@ -1727,7 +1727,7 @@ export def trippy [] {
 export def gitui [] {
   let version = ghub version 'extrawurst/gitui'
   let path = share gitui $version
- 
+
   if ($path | path-not-exists) {
     https download $'https://github.com/extrawurst/gitui/releases/download/v($version)/gitui-linux-musl.tar.gz'
     extract tar gitui-linux-musl.tar.gz
@@ -1740,7 +1740,7 @@ export def gitui [] {
 export def monolith [] {
   let version = ghub version 'Y2Z/monolith'
   let path = share monolith $version
- 
+
   if ($path | path-not-exists) {
     https download https://github.com/Y2Z/monolith/releases/download/v2.7.0/monolith-gnu-linux-x86_64 -o monolith
     add-execute monolith
@@ -1753,7 +1753,7 @@ export def monolith [] {
 export def dijo [] {
   let version = ghub version 'nerdypepper/dijo'
   let path = share dijo $version
- 
+
   if ($path | path-not-exists) {
     https download $'https://github.com/nerdypepper/dijo/releases/download/v($version)/dijo-x86_64-linux' -o dijo
     add-execute dijo
@@ -1990,18 +1990,6 @@ export def --env docker [--group] {
   env-path $env.DOCKER_BIN
 }
 
-export def volta [--node] {
-  let version = ghub version 'volta-cli/volta'
-
-  https download $'https://github.com/volta-cli/volta/releases/download/v($version)/volta-($version)-linux.tar.gz'
-  extract tar $'volta-($version)-linux.tar.gz' -d 'volta-linux'
-  move -d $'volta-($version)-linux' -f *
-
-  if $node {
-    ^volta install node@latest
-  }
-}
-
 export def --env fvm [] {
   let version = ghub version 'leoafarias/fvm'
   let path = share fvm $version
@@ -2014,6 +2002,37 @@ export def --env fvm [] {
 
   bind dir $path $env.FVM_PATH
   env-path $env.FVM_PATH
+}
+
+export def --env volta [--node] {
+  let version = ghub version 'volta-cli/volta'
+  let path = share volta-cli $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/volta-cli/volta/releases/download/v($version)/volta-($version)-linux.tar.gz'
+    extract tar $'volta-($version)-linux.tar.gz' -d volta-linux
+    move -d volta-linux -p $path
+  }
+
+  bind dir $path $env.VOLTA_PATH
+  env-path $env.VOLTA_PATH
+
+  if $node {
+    ^volta install node@latest
+  }
+}
+
+export def pnpm [] {
+  let version = ghub version 'pnpm/pnpm'
+  let path = share pnpm $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/pnpm/pnpm/releases/download/v($version)/pnpm-linux-x64 -o pnpm
+    add-execute pnpm
+    move -f pnpm -p $path
+  }
+
+  bind file pnpm $path
 }
 
 def node-versions [] {
@@ -2453,6 +2472,45 @@ export def picocrypt [] {
   }
 
   bind file picocrypt $path
+}
+
+export def --env ringboard [] {
+  let version = ghub version 'SUPERCILEX/clipboard-history'
+  let path = share ringboard $version
+
+  mkdir linux-musl-ringboard
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/SUPERCILEX/clipboard-history/releases/download/($version)/x86_64-unknown-linux-musl-ringboard' -o linux-musl-ringboard/ringboard
+    add-execute linux-musl-ringboard/ringboard
+
+    https download $'https://github.com/SUPERCILEX/clipboard-history/releases/download/($version)/x86_64-unknown-linux-musl-ringboard-egui' -o linux-musl-ringboard/ringboard-egui
+    add-execute linux-musl-ringboard/ringboard-egui
+
+    https download $'https://github.com/SUPERCILEX/clipboard-history/releases/download/($version)/x86_64-unknown-linux-musl-ringboard-server' -o linux-musl-ringboard/ringboard-server
+    add-execute linux-musl-ringboard/ringboard-server
+
+    https download $'https://github.com/SUPERCILEX/clipboard-history/releases/download/($version)/x86_64-unknown-linux-musl-ringboard-tui' -o linux-musl-ringboard/ringboard-tui
+    add-execute linux-musl-ringboard/ringboard-tui
+  }
+
+  move -d linux-musl-ringboard -p $path
+
+  bind dir $path $env.RINGBOARD_BIN
+  env-path $env.RINGBOARD_BIN
+}
+
+export def vi-mongo [] {
+  let version = ghub version 'kopecmaciej/vi-mongo'
+  let path = share vi-mongo $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/kopecmaciej/vi-mongo/releases/download/v0.1.18/vi-mongo_Linux_x86_64.tar.gz
+    extract tar vi-mongo_Linux_x86_64.tar.gz -d vi-mongo_Linux_x86_64
+    move -d vi-mongo_Linux_x86_64 -f vi-mongo -p $path
+  }
+
+  bind file vi-mongo $path
 }
 
 export def firefox-de [] {

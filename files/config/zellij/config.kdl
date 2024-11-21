@@ -156,7 +156,7 @@ keybinds clear-defaults=true {
         bind "Alt f" { ToggleFocusFullscreen; }
         bind "Alt e" { TogglePaneEmbedOrFloating; }
         bind "Alt b" { BreakPane; }
-        bind "Alt d" { NewPane "right"; }
+        bind "Alt d" { NewPane "down"; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }

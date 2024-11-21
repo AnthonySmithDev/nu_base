@@ -247,3 +247,16 @@ export def rio [ --force(-f) ] {
     sudo dpkg -i $filepath
   }
 }
+
+export def qopy [ --force(-f) ] {
+  let version = ghub version '0PandaDEV/Qopy'
+  let filename = $"qopy_($version).deb"
+
+  let filepath = filepath $filename
+  let new = ($filepath | path-not-exists)
+
+  if $new or $force {
+    download $"https://github.com/0PandaDEV/Qopy/releases/download/v($version)/Qopy-($version).deb" $filepath
+    sudo dpkg -i $filepath
+  }
+}

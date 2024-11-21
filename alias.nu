@@ -3,6 +3,13 @@ alias la = ls -la
 alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 alias top = btm --basic
 
+alias sas = apt search
+alias sai = sudo apt install -y
+alias sar = sudo apt remove -y
+alias saa = sudo apt autoremove
+alias saud = sudo apt update
+alias saug = sudo apt upgrade
+
 alias tsix = timg -p sixel
 alias isix = img2sixel
 
@@ -120,3 +127,5 @@ alias dockerd! = sudo ($env.DOCKER_BIN | path join dockerd)
 alias ftpd = ftpserver -conf ~/.config/ftpserver/ftpserver.json
 
 alias ventoyGUI = sudo ($env.VENTOY_PATH | path join VentoyGUI.x86_64)
+
+alias rcopy = rclone copy -P -M

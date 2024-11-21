@@ -166,7 +166,7 @@ def ghcli [] {
 }
 
 def saup [] {
-  sudo apt update
+  sudo apt update -y;
   sudo apt upgrade -y
 }
 

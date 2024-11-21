@@ -54,6 +54,9 @@ env-path $env.MITMPROXY_BIN
 $env.AMBER_BIN = ($env.USR_LOCAL_BIN | path join amber)
 env-path $env.AMBER_BIN
 
+$env.RINGBOARD_BIN = ($env.USR_LOCAL_BIN | path join ringboard)
+env-path $env.RINGBOARD_BIN
+
 $env.UV_BIN = ($env.USR_LOCAL_BIN | path join uv)
 env-path $env.UV_BIN
 
@@ -111,6 +114,12 @@ env-path $env.KOTLIN_LSP_BIN
 
 $env.FVM_PATH = ($env.USR_LOCAL_LIB | path join fvm)
 env-path $env.FVM_PATH
+
+$env.VOLTA_PATH = ($env.USR_LOCAL_LIB | path join volta)
+env-path $env.VOLTA_PATH
+
+$env.PNPM_HOME = ($env.HOME | path join .pnpm)
+env-path $env.PNPM_HOME
 
 $env.FLUTTER_PATH = ($env.USR_LOCAL_LIB | path join flutter)
 $env.FLUTTER_BIN = ($env.FLUTTER_PATH | path join bin)

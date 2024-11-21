@@ -1,26 +1,26 @@
 
-export def dev [] {
-  npm install --global serve
-  npm install --global wscat
-  npm install --global prettier
-  npm install --global opencommit
-  npm install --global gitmoji-cli
-  npm install --global localtunnel
+export def install [pkg: string] {
+  pnpm install --global $pkg
 }
 
 export def core [] {
-  dev
+  install serve
+  install wscat
+  install prettier
+  install opencommit
+  install gitmoji-cli
+  install localtunnel
 }
 
 export def extra [] {
-  npm install --global pake-cli
-  npm install --global tldr
-  npm install --global surge
-  npm install --global httpyac
-  npm install --global taskbook
-  npm install --global carbon-now-cli
+  install pake-cli
+  install tldr
+  install surge
+  install httpyac
+  install taskbook
+  install carbon-now-cli
 }
 
 export def nativescript [] {
-  npm install -g nativescript
+  install nativescript
 }

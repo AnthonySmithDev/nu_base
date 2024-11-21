@@ -366,3 +366,15 @@ export def chafa [] {
     sudo make install
   }
 }
+
+export def cosmic-clipboard-manager [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join cosmic-clipboard-manager)
+  git-down https://github.com/cosmic-utils/clipboard-manager.git $path
+
+  with-wd $path {||
+    # git checkout '0.1.0'
+    sudo apt install libsqlite3-dev sqlite3 just cargo libxkbcommon-dev
+    just build-release
+    sudo just install
+  }
+}
