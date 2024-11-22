@@ -19,7 +19,7 @@ use rsh.nu
 use sql.nu
 use bg.nu
 use deps.nu
-use install/
+use pkg/
 
 use browser.nu
 use compile.nu
