@@ -207,6 +207,10 @@ export def ubuntu-software [] {
   sudo sed -i 's/http:\/\/pe\.archive\.ubuntu\.com\/ubuntu/http:\/\/archive\.ubuntu\.com\/ubuntu/g' /etc/apt/sources.list
 }
 
+export def docker [] {
+  sudo usermod -aG docker $env.USER
+}
+
 export def ftpserver [] {
   print $'User Config: ftpserver'
   shortcut ftpserver ftpserver.json
@@ -223,6 +227,7 @@ export def termscp [] {
   shortcut termscp bookmarks.toml
 }
 
-export def docker [] {
-  sudo usermod -aG docker $env.USER
+export def vi-mongo [] {
+  print $'User Config: vi-mongo'
+  shortcut vi-mongo config.yaml
 }
