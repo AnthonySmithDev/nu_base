@@ -2513,6 +2513,45 @@ export def vi-mongo [] {
   bind file vi-mongo $path
 }
 
+export def cloak [] {
+  let version = ghub version 'evansmurithi/cloak'
+  let path = share cloak $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/evansmurithi/cloak/releases/download/v($version)/cloak-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'cloak-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -d $'cloak-v($version)-x86_64-unknown-linux-musl' -f cloak -p $path
+  }
+
+  bind file cloak $path
+}
+
+export def totp [] {
+  let version = ghub version 'Zebradil/rustotpony'
+  let path = share totp $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/Zebradil/rustotpony/releases/download/($version)/totp-linux -o totp
+    add-execute totp
+    move -f totp -p $path
+  }
+
+  bind file totp $path
+}
+
+export def totp-cli [] {
+  let version = ghub version 'yitsushi/totp-cli'
+  let path = share totp-cli $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/yitsushi/totp-cli/releases/download/v($version)/totp-cli_Linux_x86_64.tar.gz
+    extract tar totp-cli_Linux_x86_64.tar.gz -d totp-cli_Linux_x86_64
+    move -d totp-cli_Linux_x86_64 -f totp-cli -p $path
+  }
+
+  bind file totp-cli $path
+}
+
 export def firefox-de [] {
   https download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2
