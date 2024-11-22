@@ -10,30 +10,33 @@ def main [] {
   touch ~/.env.nu
 
   if (exists-external apt) {
-    install apt update
-    install apt basic
-    install apt docker
+    pkg apt update
+    pkg apt basic
+    pkg apt docker
   }
 
-  install bin java
-  install bin node --latest
-  install bin rust --latest
-  install bin golang --latest
+  pkg bin java
+  pkg bin node --latest
+  pkg bin rust --latest
+  pkg bin golang --latest
+
+  pkg bin uv
+  pkg bin pnpm
 
   sudo echo "Sudo OK"
 
-  install bin xh
-  install bin gum
-  install bin helix
-  install bin nushell
-  install bin starship
-  install bin zoxide
-  install bin zellij
+  pkg bin xh
+  pkg bin gum
+  pkg bin helix
+  pkg bin nushell
+  pkg bin starship
+  pkg bin zoxide
+  pkg bin zellij
 
-  install bin rg
-  install bin fd
-  install bin fzf
-  install bin gdu
+  pkg bin rg
+  pkg bin fd
+  pkg bin fzf
+  pkg bin gdu
 
   config mods
   config nushell

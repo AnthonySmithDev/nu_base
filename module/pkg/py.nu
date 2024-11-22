@@ -1,46 +1,31 @@
 
-export def names [] {
-  packages | get name
-}
-
-def install [package: record, force: bool] {
-  if $force {
-    pipx install $package.package --force
-  } else {
-    pipx install $package.package
-  }
-}
-
-export def main [name: string@names, --force(-f)] {
+export def --wrapped install [name: string@names, ...rest] {
   let package = (packages | where name == $name | first)
-  install $package $force
+  uv tool install $package.package ...$rest
 }
 
-export def dev [ --force(-f) ] {
+export def dev [] {
   for package in (packages | where category == dev) {
-    install $package $force
+    install $package.name
   }
 }
 
-export def core [] {
-  dev
-}
-
-export def extra [ --force(-f) ] {
+export def extra [] {
   for package in (packages | where category == extra) {
-    install $package $force
+    install $package.name
   }
 }
 
-export def other [ --force(-f) ] {
+export def other [] {
   for package in (packages | where category == other) {
-    install $package $force
+    install $package.name
   }
 }
 
 export def packages [] {
   [
     [ category name package];
+
     [ dev qmk qmk ]
     [ dev mycli mycli ]
     [ dev iredis iredis ]
@@ -49,6 +34,7 @@ export def packages [] {
     [ dev httpie httpie ]
     [ dev ranger ranger-fm ]
     [ dev pyclip pyclip ]
+    [ dev posting posting ]
 
     [ extra dooit dooit ]
     [ extra girok girok ]
@@ -65,4 +51,8 @@ export def packages [] {
     [ other termtyper git+https://github.com/kraanzu/termtyper ]
     [ other vimiv git+https://github.com/karlch/vimiv ]
   ]
+}
+
+export def names [] {
+  packages | get name
 }

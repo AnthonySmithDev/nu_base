@@ -28,7 +28,7 @@ export def flutter [] {
 
 export def quasar [] {
   android
-  npm install -g @quasar/cli
+  pkg js install quasar
 }
 
 export def kotlin [] {
@@ -38,14 +38,14 @@ export def kotlin [] {
 }
 
 export def qmk [] {
-  install pipx qmk
+  pkg py install qmk
   ^qmk setup
   sudo cp ~/qmk_firmware/util/udev/50-qmk.rules /etc/udev/rules.d/
 }
 
 export def podman [] {
-  install apt podman
-  install flathub podman
+  pkg apt podman
+  pkg flathub podman
 }
 
 export def evremap [file: string@'config files-evremap'] {

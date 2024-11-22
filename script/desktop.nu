@@ -10,41 +10,41 @@ def main [] {
   nerd-font FiraCode
 
   if (exists-external apt) {
-    # install apt flathub
-    install apt brave
+    # pkg apt flathub
+    pkg apt brave
 
-    install deb discord
-    install deb vieb
+    pkg deb discord
+    pkg deb vieb
     config vieb
   }
 
-  install bin melt
-  install bin mods
-  install bin glow
-  install bin soft
-  install bin freeze
+  pkg bin melt
+  pkg bin mods
+  pkg bin glow
+  pkg bin soft
+  pkg bin freeze
 
-  install bin lsd
-  install bin bat
-  install bin qrcp
-  install bin jless
-  install bin taskell
-  install bin lazygit
-  install bin lazydocker
+  pkg bin lsd
+  pkg bin bat
+  pkg bin qrcp
+  pkg bin jless
+  pkg bin taskell
+  pkg bin lazygit
+  pkg bin lazydocker
 
-  install bin task
-  install bin usql
-  install bin amber
-  install bin pueue
-  install bin ttyper
-  install bin bottom
-  install bin rclone
-  install bin carapace
-  install bin difftastic
+  pkg bin task
+  pkg bin usql
+  pkg bin amber
+  pkg bin pueue
+  pkg bin ttyper
+  pkg bin bottom
+  pkg bin rclone
+  pkg bin carapace
+  pkg bin difftastic
 
-  install bin gitlab
-  install bin kubectl
-  install bin tailscale
+  pkg bin gitlab
+  pkg bin kubectl
+  pkg bin tailscale
 
   compile alacritty
   config alacritty --theme
@@ -59,10 +59,10 @@ def dev [] {
   env-path $env.PIPX_BIN_DIR
   env-path $env.NPM_CONFIG_BIN
 
-  install go dev
-  install npm dev
-  install pipx dev
-  install cargo dev
+  pkg go dev
+  pkg js dev
+  pkg py dev
+  pkg cargo dev
 }
 
 def nu_zoxide [] {

@@ -30,6 +30,7 @@ alias zn = zellij options --session-name
 
 alias zle = zn left
 alias zri = zn right
+alias zma = zn main
 
 alias zdr = zellij drop
 alias zda = zellij drop --all
