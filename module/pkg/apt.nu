@@ -54,6 +54,7 @@ export def basic [] {
 
     scdoc
     wl-clipboard
+    qrencode
 
     ssh
     openssh-server

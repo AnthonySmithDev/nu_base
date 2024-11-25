@@ -1481,6 +1481,19 @@ export def kubetui [] {
   bind file kubetui $path
 }
 
+export def kube-prompt [] {
+  let version = ghub version 'c-bata/kube-prompt'
+  let path = share kube-prompt $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/c-bata/kube-prompt/releases/download/v($version)/kube-prompt_v($version)_linux_amd64.zip
+    extract zip kube-prompt_v($version)_linux_amd64.zip
+    move -f kube-prompt -p $path
+  }
+
+  bind file kube-prompt $path
+}
+
 export def k9s [] {
   let version = ghub version 'derailed/k9s'
   let path = share k9s $version
@@ -2500,6 +2513,19 @@ export def --env ringboard [] {
   env-path $env.RINGBOARD_BIN
 }
 
+export def clipboard [] {
+  let version = ghub version 'Slackadays/Clipboard'
+  let path = share cb $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/Slackadays/Clipboard/releases/download/($version)/clipboard-linux-amd64.zip -o clipboard-linux-amd64.zip
+    extract zip clipboard-linux-amd64.zip -d clipboard-linux-amd64
+    move -d clipboard-linux-amd64 -f bin/cb -p $path
+  }
+
+  bind file cb $path
+}
+
 export def vi-mongo [] {
   let version = ghub version 'kopecmaciej/vi-mongo'
   let path = share vi-mongo $version
@@ -2550,6 +2576,45 @@ export def totp-cli [] {
   }
 
   bind file totp-cli $path
+}
+
+export def jnv [] {
+  let version = ghub version 'ynqa/jnv'
+  let path = share jnv $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/ynqa/jnv/releases/download/v($version)/jnv-x86_64-unknown-linux-musl.tar.xz
+    extract tar jnv-x86_64-unknown-linux-musl.tar.xz
+    move -d jnv-x86_64-unknown-linux-musl -f jnv -p $path
+  }
+
+  bind file jnv $path
+}
+
+export def devspace [] {
+  let version = ghub version 'devspace-sh/devspace'
+  let path = share devspace $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/devspace-sh/devspace/releases/download/v($version)/devspace-linux-amd64 -o devspace
+    add-execute devspace
+    move -f devspace -p $path
+  }
+
+  bind file devspace $path
+}
+
+export def atto [] {
+  let version = ghub version 'codesoap/atto'
+  let path = share atto $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/codesoap/atto/releases/download/v($version)/atto_($version)_Linux_amd64.tar.gz
+    extract tar atto_($version)_Linux_amd64.tar.gz
+    move -f atto -p $path
+  }
+
+  bind file atto $path
 }
 
 export def firefox-de [] {

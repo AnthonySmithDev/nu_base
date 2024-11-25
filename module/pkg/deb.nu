@@ -260,3 +260,29 @@ export def qopy [ --force(-f) ] {
     sudo dpkg -i $filepath
   }
 }
+
+export def runjs [ --force(-f) ] {
+  let version = ghub version 'lukehaas/RunJS'
+  let filename = $"runjs_($version).deb"
+
+  let filepath = filepath $filename
+  let new = ($filepath | path-not-exists)
+
+  if $new or $force {
+    download https://github.com/lukehaas/RunJS/releases/download/v($version)/runjs_($version)_amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
+export def warp [ --force(-f) ] {
+  let version = 'latest'
+  let filename = $"runjs_($version).deb"
+
+  let filepath = filepath $filename
+  let new = ($filepath | path-not-exists)
+
+  if $new or $force {
+    download https://app.warp.dev/download?package=deb $filepath
+    sudo dpkg -i $filepath
+  }
+}

@@ -260,9 +260,36 @@ def gic [lang: string] {
   rm $output
 }
 
-def 'adb x' [] {
-  let port = gum input --header "PORT"
-  adb connect $"192.168.0.120:($port)"
+def mdns-scan [resolve: string] {
+  let columns = [type interface protocol 'service name' 'service type' 'host name' scope ip port info]
+  avahi-browse -p -t -r $resolve | rg '=' | from csv --noheaders --separator ';' | rename ...$columns
+}
+
+def 'adbx c' [] {
+  let devices = (mdns-scan _adb-tls-connect._tcp)
+  if ($devices | length) > 0 {
+    let device = ($devices | where protocol == IPv4 | first)
+    adb connect $"($device.ip):($device.port)"
+  }
+}
+
+def 'adbx p' [] {
+  let nameId = random chars -l 10;
+  let password = random chars -l 10;
+  let name = $'ADB_WIFI_($nameId)';
+
+  $'WIFI:T:ADB;S:($name);P:($password);;' | qrencode -t ANSI -m 1
+
+  loop {
+    let devices = (mdns-scan _adb-tls-pairing._tcp)
+    if ($devices | length) > 0 {
+      let device = ($devices | where protocol == IPv4 | where 'service name' == $name | first)
+      adb pair $"($device.ip):($device.port)" $password
+      adbx c
+      break
+    }
+    sleep 1sec
+  }
 }
 
 def 'zellij drop' [ --all ] {

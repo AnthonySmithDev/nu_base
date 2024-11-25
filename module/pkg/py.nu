@@ -46,6 +46,7 @@ export def packages [] {
     [ other ipython ipython ]
     [ other asciinema asciinema ]
     [ other shell-gpt shell-gpt ]
+    [ other kube-shell kube-shell ]
     [ other gpt-command-line gpt-command-line ]
     [ other elia git+https://github.com/darrenburns/elia ]
     [ other termtyper git+https://github.com/kraanzu/termtyper ]
