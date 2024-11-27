@@ -611,9 +611,9 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.4.5",
+    "tag_name": "0.4.6",
     "prerelease": false,
-    "created_at": "2024-11-25T23:08:34Z"
+    "created_at": "2024-11-27T21:40:57Z"
   },
   {
     "category": "other",
@@ -905,9 +905,9 @@
   {
     "category": "other",
     "repository": "cli/cli",
-    "tag_name": "2.62.0",
+    "tag_name": "2.63.0",
     "prerelease": false,
-    "created_at": "2024-11-14T15:44:45Z"
+    "created_at": "2024-11-27T20:57:08Z"
   },
   {
     "category": "other",
@@ -1031,9 +1031,9 @@
   {
     "category": "other",
     "repository": "toeverything/AFFiNE",
-    "tag_name": "0.18.1",
+    "tag_name": "0.18.2",
     "prerelease": false,
-    "created_at": "2024-11-20T08:26:36Z"
+    "created_at": "2024-11-27T07:08:04Z"
   },
   {
     "category": "other",
@@ -1073,9 +1073,9 @@
   {
     "category": "other",
     "repository": "drakkan/sftpgo",
-    "tag_name": "2.6.3",
+    "tag_name": "2.6.4",
     "prerelease": false,
-    "created_at": "2024-11-15T16:26:44Z"
+    "created_at": "2024-11-27T18:08:13Z"
   },
   {
     "category": "other",
@@ -1290,9 +1290,9 @@
   {
     "category": "other",
     "repository": "hoppscotch/releases",
-    "tag_name": "24.10.2-0",
+    "tag_name": "24.11.0-0",
     "prerelease": false,
-    "created_at": "2024-11-07T15:00:03Z"
+    "created_at": "2024-11-28T11:03:02Z"
   },
   {
     "category": "other",

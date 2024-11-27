@@ -1,25 +1,37 @@
 
 export-env {
   $env.IMMICH_DIR = ($env.HOME | path join immich-app)
-  $env.IMMICH_COMPOSE = ($env.IMMICH_DIR | path join docker-compose.yml)
 }
 
 def disks [] {
   [B3 B2 B1]
 }
 
-export def --env set [disk: string@disks] {
+export def --env disk [disk: string@disks] {
   $env.IMMICH_DIR = ('/media/anthony' | path join $disk immich-app)
-  $env.IMMICH_COMPOSE = ($env.IMMICH_DIR | path join docker-compose.yml)
 }
 
-export def download [ --force ] {
-  mkdir $env.IMMICH_DIR
+export def --env set [dir: string] {
+  $env.IMMICH_DIR = ($env.PWD | path join $dir)
+}
 
-  let docker = ($env.IMMICH_DIR | path join docker-compose.yml)
-  let enviroment = ($env.IMMICH_DIR | path join .env)
-  let ml = ($env.IMMICH_DIR | path join hwaccel.ml.yml)
-  let transcoding = ($env.IMMICH_DIR | path join hwaccel.transcoding.yml)
+def dir [path?: string] {
+  if ($path | is-not-empty) { $env.PWD | path join $path } else { $env.IMMICH_DIR }
+}
+
+def file [path?: string] {
+  return (dir $path | path join docker-compose.yml)
+}
+
+export def download [ --path(-p): string, --force ] {
+  let dir = dir $path
+
+  mkdir $dir
+
+  let docker = ($dir | path join docker-compose.yml)
+  let enviroment = ($dir | path join .env)
+  let ml = ($dir | path join hwaccel.ml.yml)
+  let transcoding = ($dir | path join hwaccel.transcoding.yml)
 
   if $force or ($docker | path-not-exists) {
     https download https://github.com/immich-app/immich/releases/latest/download/docker-compose.yml -o $docker
@@ -35,41 +47,49 @@ export def download [ --force ] {
   }
 }
 
-export def ps [] {
-  if ($env.IMMICH_COMPOSE | path exists) {
-    docker compose -f $env.IMMICH_COMPOSE ps | from ssv
+export def ps [ --path(-p): string ] {
+  let compose = file $path
+  if ($compose | path exists) {
+    docker compose --file $compose ps | from ssv
   }
 }
 
-def all-services [] {
-  open $env.IMMICH_COMPOSE | get services | columns
+def all-services [ --path(-p): string ] {
+  let compose = file $path
+  if ($compose | path exists) {
+    open $compose | get services | columns
+  }
 }
 
 def active-services [] {
   ps | get name
 }
 
-export def up [ ...services: string@all-services ] {
-  if ($env.IMMICH_COMPOSE | path exists) {
-    docker compose -f $env.IMMICH_COMPOSE up -d ...$services
+export def up [ --path(-p): string, ...services: string@all-services ] {
+  let compose = file $path
+  if ($compose | path exists) {
+    docker compose --file $compose up -d ...$services
   }
 }
 
-export def down [ ...services: string@active-services ] {
-  if ($env.IMMICH_COMPOSE | path exists) {
-    docker compose -f $env.IMMICH_COMPOSE down ...$services
+export def down [ --path(-p): string, ...services: string@active-services ] {
+  let compose = file $path
+  if ($compose | path exists) {
+    docker compose --file $compose down ...$services
   }
 }
 
-export def logs [ ...services: string@active-services ] {
-  if ($env.IMMICH_COMPOSE | path exists) {
+export def logs [ --path(-p): string, ...services: string@active-services ] {
+  let compose = file $path
+  if ($compose | path exists) {
     docker logs --follow ...$services
   }
 }
 
-export def pull [ ...services: string@all-services ] {
-  if ($env.IMMICH_COMPOSE | path exists) {
-    docker compose -f $env.IMMICH_COMPOSE pull
+export def pull [ --path(-p): string, ...services: string@all-services ] {
+  let compose = file $path
+  if ($compose | path exists) {
+    docker compose --file $compose pull
   }
 }
 

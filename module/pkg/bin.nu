@@ -1371,7 +1371,7 @@ export def github [] {
 }
 
 export def gitlab [] {
-  let version = '1.48.0'
+  let version = '1.49.0'
   let path = share glab $version
 
   if ($path | path-not-exists) {
