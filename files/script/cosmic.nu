@@ -21,9 +21,9 @@ const TOP = {
 }
 
 const CENTER = {
-  LEFT: "100 1000"
+  LEFT: "200 1000"
   CENTER: "500 1000"
-  RIGHT: "1000 1000"
+  RIGHT: "800 1000"
 }
 
 const BOTTOM = {

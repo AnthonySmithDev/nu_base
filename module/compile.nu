@@ -378,3 +378,12 @@ export def cosmic-clipboard-manager [] {
     sudo just install
   }
 }
+
+export def websocket-inspector [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join websocket-inspector)
+  git-down https://github.com/ecthiender/websocket-inspector.git $path
+
+  with-wd $path {||
+    stack install
+  }
+}

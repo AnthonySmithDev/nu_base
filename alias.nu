@@ -9,6 +9,12 @@ alias sar = sudo apt remove -y
 alias saa = sudo apt autoremove
 alias saud = sudo apt update
 alias saug = sudo apt upgrade
+alias saif = sudo apt install --fix-broken
+
+alias pyi = uv tool install
+alias jsi = pnpm install --global
+alias rsi = cargo install --locked
+alias goi = go install
 
 alias tsix = timg -p sixel
 alias isix = img2sixel

@@ -286,3 +286,16 @@ export def warp [ --force(-f) ] {
     sudo dpkg -i $filepath
   }
 }
+
+export def hoppscotch [ --force(-f) ] {
+  let version = ghub version 'hoppscotch/releases'
+  let filename = $"hoppscotch_($version).deb"
+
+  let filepath = filepath $filename
+  let new = ($filepath | path-not-exists)
+
+  if $new or $force {
+    download https://github.com/hoppscotch/releases/releases/latest/download/Hoppscotch_linux_x64.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}

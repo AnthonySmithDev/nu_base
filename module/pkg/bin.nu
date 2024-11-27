@@ -379,10 +379,12 @@ export def mouseless [] {
 
 export def websocat [] {
   let version = ghub version 'vi/websocat'
-  let path = share websocat $version
+  let path = share websocat latest
+  # let path = share websocat $version
 
   if ($path | path-not-exists) {
-    https download $'https://github.com/vi/websocat/releases/download/v($version)/websocat.x86_64-unknown-linux-musl' -o websocat
+    https download https://github.com/vi/websocat/releases/download/v4.0.0-alpha1/websocat4.x86_64-unknown-linux-musl -o websocat
+    # https download $'https://github.com/vi/websocat/releases/download/v($version)/websocat.x86_64-unknown-linux-musl' -o websocat
     add-execute websocat
     move -f websocat -p $path
   }
@@ -1241,7 +1243,6 @@ export def --env uv [] {
   let version = ghub version 'astral-sh/uv'
   let path = share uv $version
 
-  env-path $env.MITMPROXY_BIN
   if ($path | path-not-exists) {
     https download https://github.com/astral-sh/uv/releases/download/($version)/uv-x86_64-unknown-linux-musl.tar.gz
     extract tar uv-x86_64-unknown-linux-musl.tar.gz
@@ -1840,6 +1841,19 @@ export def --env mitmproxy [] {
 
   bind dir $path $env.MITMPROXY_BIN
   env-path $env.MITMPROXY_BIN
+}
+
+export def proxyfor [] {
+  let version = ghub version 'sigoden/proxyfor'
+  let path = share proxyfor $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/sigoden/proxyfor/releases/download/v($version)/proxyfor-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'proxyfor-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -f proxyfor -p $path
+  }
+
+  bind file proxyfor $path
 }
 
 export def hetty [] {
@@ -2615,6 +2629,19 @@ export def atto [] {
   }
 
   bind file atto $path
+}
+
+export def wsget [] {
+  let version = ghub version 'ksysoev/wsget'
+  let path = share wsget $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/ksysoev/wsget/releases/download/v($version)/wsget_Linux_x86_64.tar.gz
+    extract tar wsget_Linux_x86_64.tar.gz -d wsget_Linux_x86_64
+    move -d wsget_Linux_x86_64 -f wsget -p $path
+  }
+
+  bind file wsget $path
 }
 
 export def firefox-de [] {
