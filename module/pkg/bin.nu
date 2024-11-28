@@ -1469,6 +1469,19 @@ export def kubectl [] {
   bind file -r kubectl $path
 }
 
+export def kubecolor [] {
+  let version = ghub version 'kubecolor/kubecolor'
+  let path = share kubecolor $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/kubecolor/kubecolor/releases/download/v($version)/kubecolor_($version)_linux_amd64.tar.gz
+    extract tar kubecolor_($version)_linux_amd64.tar.gz -d kubecolor_linux_amd64
+    move -d kubecolor_linux_amd64 -f kubecolor -p $path
+  }
+
+  bind file kubecolor $path
+}
+
 export def kubetui [] {
   let version = ghub version 'sarub0b0/kubetui'
   let path = share kubetui $version
@@ -1545,6 +1558,19 @@ export def viddy [] {
   }
 
   bind file viddy $path
+}
+
+export def hwatch [] {
+  let version = ghub version 'blacknon/hwatch'
+  let path = share hwatch $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/blacknon/hwatch/releases/download/($version)/hwatch-($version).x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'hwatch-($version).x86_64-unknown-linux-musl.tar.gz' -d hwatch-unknown-linux
+    move -d hwatch-unknown-linux -f bin/hwatch -p $path
+  }
+
+  bind file hwatch $path
 }
 
 export def yazi [] {
@@ -2644,6 +2670,123 @@ export def wsget [] {
   bind file wsget $path
 }
 
+export def koji [] {
+  let version = ghub version 'cococonscious/koji'
+  let path = share koji $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/cococonscious/koji/releases/download/v3.0.0/koji-x86_64-unknown-linux-gnu.tar.gz
+    extract tar koji-x86_64-unknown-linux-gnu.tar.gz
+    move -f koji -p $path
+  }
+
+  bind file koji $path
+}
+
+export def smartcat [] {
+  let version = ghub version 'efugier/smartcat'
+  let path = share sc $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/efugier/smartcat/releases/download/($version)/sc--x86_64-unknown-linux-gnu.tar.gz
+    extract tar sc--x86_64-unknown-linux-gnu.tar.gz
+    move -d sc--x86_64-unknown-linux-gnu -f sc -p $path
+  }
+
+  bind file sc $path
+}
+
+export def jwt [] {
+  let version = ghub version 'mike-engel/jwt-cli'
+  let path = share jwt $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/mike-engel/jwt-cli/releases/download/6.2.0/jwt-linux-musl.tar.gz
+    extract tar jwt-linux-musl.tar.gz
+    move -f jwt -p $path
+  }
+
+  bind file jwt $path
+}
+
+export def procs [] {
+  let version = ghub version 'dalance/procs'
+  let path = share procs $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/dalance/procs/releases/download/v($version)/procs-v($version)-x86_64-linux.zip'
+    extract zip $'procs-v($version)-x86_64-linux.zip'
+    move -f procs -p $path
+  }
+
+  bind file procs $path
+}
+
+export def oha [] {
+  let version = ghub version 'hatoo/oha'
+  let path = share oha $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/hatoo/oha/releases/download/v($version)/oha-linux-amd64 -o oha
+    add-execute oha
+    move -f oha -p $path
+  }
+
+  bind file oha $path
+}
+
+export def adguardian [] {
+  let version = ghub version 'Lissy93/AdGuardian-Term'
+  let path = share adguardian $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/Lissy93/AdGuardian-Term/releases/download/($version)/adguardian-x86_64 -o adguardian
+    add-execute adguardian
+    move -f adguardian -p $path
+  }
+
+  bind file adguardian $path
+}
+
+export def gix [] {
+  let version = ghub version 'GitoxideLabs/gitoxide'
+  let path = share gix $version
+
+  if ($path | path-not-exists) {
+    https download $'https://github.com/GitoxideLabs/gitoxide/releases/download/v($version)/gitoxide-max-pure-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'gitoxide-max-pure-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    move -d $'gitoxide-max-pure-v($version)-x86_64-unknown-linux-musl' -f gix -p $path
+  }
+
+  bind file gix $path
+}
+
+export def kubewall [] {
+  let version = ghub version 'kubewall/kubewall'
+  let path = share kubewall $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/kubewall/kubewall/releases/download/v($version)/kubewall_Linux_x86_64.tar.gz
+    extract tar kubewall_Linux_x86_64.tar.gz -d kubewall_Linux_x86_64
+    move -d kubewall_Linux_x86_64 -f kubewall -p $path
+  }
+
+  bind file kubewall $path
+}
+
+export def f2 [] {
+  let version = ghub version 'ayoisaiah/f2'
+  let path = share f2 $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/ayoisaiah/f2/releases/download/v2.0.3/f2_2.0.3_linux_amd64.tar.gz
+    extract tar f2_2.0.3_linux_amd64.tar.gz -d f2_linux_amd64
+    move -d f2_linux_amd64 -f f2 -p $path
+  }
+
+  bind file f2 $path
+}
+
 export def firefox-de [] {
   https download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2
@@ -2697,10 +2840,6 @@ def move [
 
 export def core [] {
   xh
-  gum
-  mods
-  glow
-
   helix
   nushell
   starship
@@ -2715,13 +2854,33 @@ export def core [] {
   lazygit
   lazydocker
 
+  usql
+  mongosh
+  kubectl
+  kubecolor
+
+  uv
+  pnpm
+
+  gum
+  mods
+  glow
+  freeze
+
   gdu
   qrcp
   gitu
   ttyper
   bottom
-  freeze
   amber
   broot
-  usql
+  task
+  pueue
+  difftastic
+  rclone
+  qrrs
+  taskell
+  viddy
+  tailscale
+  wsget
 }

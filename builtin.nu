@@ -61,7 +61,3 @@ def dirs [] {
 def json [] {
   to json | jless --mode line
 }
-
-def cat [file: string@files] {
-  bat -P --plain $file
-}

@@ -299,3 +299,16 @@ export def hoppscotch [ --force(-f) ] {
     sudo dpkg -i $filepath
   }
 }
+
+export def lapce [ --force(-f) ] {
+  let version = ghub version 'lapce/lapce'
+  let filename = $"lapce_($version).deb"
+
+  let filepath = filepath $filename
+  let new = ($filepath | path-not-exists)
+
+  if $new or $force {
+    download https://github.com/lapce/lapce/releases/download/v($version)/lapce.ubuntu.mantic.amd64.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}

@@ -1,7 +1,8 @@
 
 alias la = ls -la
-alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
+alias tk = taskell
 alias top = btm --basic
+alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 
 alias sas = apt search
 alias sai = sudo apt install -y

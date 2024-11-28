@@ -95,5 +95,6 @@ export def packages [] {
     [ other viu null]
     [ other grex null]
     [ other coreutils unix ]
+    [ other fzf-make null ]
   ]
 }
