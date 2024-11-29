@@ -216,21 +216,48 @@ def imods [] {
   }
 }
 
-def "bulk rename" [] {
+def rn [glob: string] {
+  let src_paths = (fd $glob | lines)
+  if ($src_paths | length) == 0 {
+    return
+  }
+
+  let indexs = ($src_paths | enumerate | get index)
+  let tempfile = mktemp --tmpdir --suffix .txt
+  $src_paths | save --force $tempfile
+
+  hx $tempfile
+  let dst_paths = (open $tempfile | lines)
+
+  for index in $indexs {
+    let src = ($src_paths | get $index)
+    let dst = ($dst_paths | get $index)
+    if $src == $dst { continue }
+    mv -i $src $dst
+  }
+}
+
+def 'rn dir' [] {
   let preview = 'lsd --tree --color=always --icon=always {}'
-  let base = (fd --type directory | fzf --layout reverse --border --preview $preview | str trim)
-  let names = (ls -s $base | get name)
-  let filename = mktemp --tmpdir --suffix .txt
-  $names | save -f $filename
-  hx $filename
-  let news = (open $filename | lines)
-  for  $it in ($names | enumerate) {
-    let src = $it.item
-    let dst = ($news | get $it.index)
-    if $src == $dst {
-      continue
-    }
-    mv -i ($base | path join $src) ($base | path join $dst)
+  let dirname = (fd --type directory | fzf --layout reverse --border --preview $preview | str trim)
+
+  let src_paths = (ls -s $dirname | get name)
+  if ($src_paths | length) == 0 {
+    return
+  }
+
+  let indexs = ($src_paths | enumerate | get index)
+  let tempfile = mktemp --tmpdir --suffix .txt
+  $src_paths | save --force $tempfile
+
+  hx $tempfile
+  let dst_paths = (open $tempfile | lines)
+
+  for $index in $indexs {
+    let src = ($src_paths | get $index)
+    let dst = ($dst_paths | get $index)
+    if $src == $dst { continue }
+    mv -i ($dirname | path join $src) ($dirname | path join $dst)
   }
 }
 
