@@ -554,7 +554,7 @@ export def pueue [] {
 
   let path = share pueue $version
   if ($path | path-not-exists) {
-    https download $'https://github.com/Nukesor/pueue/releases/download/v($version)/pueue-linux-x86_64' -o pueue
+    https download https://github.com/Nukesor/pueue/releases/download/v($version)/pueue-x86_64-unknown-linux-musl -o pueue
     add-execute pueue
     move -f pueue -p $path
   }
@@ -562,7 +562,7 @@ export def pueue [] {
 
   let path = share pueued $version
   if ($path | path-not-exists) {
-    https download $'https://github.com/Nukesor/pueue/releases/download/v($version)/pueued-linux-x86_64' -o pueued
+    https download https://github.com/Nukesor/pueue/releases/download/v($version)/pueued-x86_64-unknown-linux-musl -o pueued
     add-execute pueued
     move -f pueued -p $path
   }
@@ -2785,6 +2785,19 @@ export def f2 [] {
   }
 
   bind file f2 $path
+}
+
+export def doggo [] {
+  let version = ghub version 'mr-karan/doggo'
+  let path = share doggo $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/mr-karan/doggo/releases/download/v($version)/doggo_($version)_Linux_x86_64.tar.gz
+    extract tar doggo_($version)_Linux_x86_64.tar.gz
+    move -d doggo_($version)_Linux_x86_64 -f doggo -p $path
+  }
+
+  bind file doggo $path
 }
 
 export def firefox-de [] {
