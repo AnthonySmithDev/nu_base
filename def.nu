@@ -184,9 +184,14 @@ def select-file [] {
   return (fd --type file | fzf --layout reverse --border --preview $preview | str trim)
 }
 
-def modf [...rest] {
-  let file = (select-file)
-  mods (open $file) ...$rest
+def show [...rest: path] {
+  bat --paging never --style header ...$rest
+}
+
+def mof [...rest] {
+  let filter = (gum filter --no-limit | lines)
+  if ($filter | is-empty) { return }
+  show ...$filter | mods ...$rest
 }
 
 def imods [] {
@@ -362,8 +367,11 @@ def 'rfzf' [query: string = ''] {
   fzf ...$args
 }
 
-def lsix [] {
-  let images = (fd -e png -e jpg -d 1 | lines)
+def lsi [] {
+  let images = (fd -e png -e jpg -e jpeg -d 1 | lines)
+  if ($images | is-empty) {
+    return
+  }
   let isBig = (term size | get columns) > 110
   let isMany = ($images | length) > 6
   let grid = if ($isBig and $isMany) { 6 } else { 3 }
@@ -372,4 +380,25 @@ def lsix [] {
 
 def 'rsftp' [] {
   rclone copy --sftp-host '192.168.0.20' --sftp-user 'anthony' --sftp-port 8022 --sftp-pass 'Smithg'
+}
+
+def --wrapped dockerctl [...rest] {
+  if (ps | where name =~ dockerd | is-empty) {
+    sudo ($env.DOCKER_BIN | path join dockerd)
+  }
+  if ($env.DOCKER_BIN | path join docker | path exists) {
+    bash -c ($env.DOCKER_BIN | path join docker) ...$rest
+  }
+}
+
+def ventoy [] {
+  bash -c $"($env.VENTOY_PATH | path join VentoyGUI.x86_64)"
+}
+
+def remote-mouse [] {
+  bash -c $"($env.REMOTE_MOUSE_PATH | path join RemoteMouse)"
+}
+
+def ftpd [] {
+  ftpserver -conf ~/.config/ftpserver/ftpserver.json
 }

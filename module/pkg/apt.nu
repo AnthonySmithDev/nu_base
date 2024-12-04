@@ -298,8 +298,19 @@ export def dart [] {
   sudo apt install -y dart
 }
 
-export def brave [] {
-  if (which brave-browser | is-not-empty) {
+export def libwebkit2gtk [] {
+  "deb http://archive.ubuntu.com/ubuntu jammy main"
+  sudo apt update
+  sudo apt install -y ibwebkit2gtk-4.0-dev
+}
+
+def exists [ app: string ] {
+  which --all $app | where type == external | is-not-empty
+}
+
+export def brave [ --force(-f) ] {
+
+  if not $force and (exists brave-browser) {
     return
   }
 

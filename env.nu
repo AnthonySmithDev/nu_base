@@ -148,8 +148,7 @@ $env.SCILAB_BIN = ($env.SCILAB_PATH | path join bin)
 env-path $env.SCILAB_BIN
 
 $env.REMOTE_MOUSE_PATH = ($env.USR_LOCAL_LIB | path join remote-mouse)
-$env.REMOTE_MOUSE_LIB = ($env.REMOTE_MOUSE_PATH | path join lib)
-env-path $env.REMOTE_MOUSE_PATH
+# $env.REMOTE_MOUSE_LIB = ($env.REMOTE_MOUSE_PATH | path join lib)
 
 $env.LOCAL_PATH = ($env.HOME | path join .local)
 $env.LOCAL_BIN = ($env.LOCAL_PATH | path join bin)

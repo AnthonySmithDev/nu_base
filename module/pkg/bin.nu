@@ -2005,10 +2005,17 @@ export def nix [ --force(-f) ] {
   }
 }
 
-export def devbox [ --force(-f) ] {
-  if $force or (which devbox | is-empty) {
-    curl -fsSL https://get.jetify.com/devbox | bash
+export def devbox [] {
+  let version = ghub version 'jetify-com/devbox'
+  let path = share devbox $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/jetify-com/devbox/releases/download/($version)/devbox_($version)_linux_amd64.tar.gz
+    extract tar devbox_($version)_linux_amd64.tar.gz
+    move -f devbox -p $path
   }
+
+  bind file devbox $path
 }
 
 export def tailscale [ --force(-f) ] {
@@ -2017,15 +2024,20 @@ export def tailscale [ --force(-f) ] {
   }
 }
 
-export def remote-mouse [] {
-  https download 'https://www.remotemouse.net/downloads/linux/RemoteMouse_x86_64.zip'
-  extract zip 'RemoteMouse_x86_64.zip' -d 'RemoteMouse_x86_64'
-  move -d 'RemoteMouse_x86_64' -p $env.REMOTE_MOUSE_PATH
-  rm ($env.REMOTE_MOUSE_PATH | path join install.sh)
+export def remote-mouse [ --force(-f) ] {
+  let version = 'latest'
+  let path = share remotemouse $version
+
+  if $force or ($path | path-not-exists) {
+    https download wget 'https://www.remotemouse.net/downloads/linux/RemoteMouse_x86_64.zip'
+    extract zip RemoteMouse_x86_64.zip -d RemoteMouse_x86_64
+    move -d 'RemoteMouse_x86_64' -p $env.REMOTE_MOUSE_PATH
+    # rm ($env.REMOTE_MOUSE_PATH | path join install.sh)
+  }
 }
 
 export def --env docker [--group] {
-  let version = '26.1.3'
+  let version = '27.3.1'
   let path = share docker $version
 
   if ($path | path-not-exists) {

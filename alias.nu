@@ -11,6 +11,7 @@ alias saa = sudo apt autoremove
 alias saud = sudo apt update
 alias saug = sudo apt upgrade
 alias saif = sudo apt install --fix-broken
+alias salu = sudo apt list --upgradable
 
 alias pyi = uv tool install
 alias jsi = pnpm install --global
@@ -45,11 +46,15 @@ alias zda = zellij drop --all
 alias lzg = lazygit
 alias lzd = lazydocker
 
-alias xcopy = xclip -i -selection clipboard
-alias xpaste = xclip -o -selection clipboard
+alias mo = mods
+alias ms = mods --show-last
+alias mc = mods --continue-last
 
-alias wcopy = wl-copy
-alias wpaste = wl-paste
+alias xcp = xclip -i -selection clipboard
+alias xps = xclip -o -selection clipboard
+
+alias wcp = wl-copy
+alias wps = wl-paste
 
 alias gu = gitu
 alias gme = gitmoji -c
@@ -121,19 +126,10 @@ alias fmv = file mv
 alias suk = srv user kanata
 alias sum = srv user mouseless
 
+alias irc = input-remapper-control --command autoload
+
 alias asr = audiosource run
 
 alias snips = ssh snips.sh
-
-alias irc = input-remapper-control --command autoload
-
-alias remote-mouse = bash -c 'RemoteMouse > /dev/null &'
-
-alias docker! = bash -c ($env.DOCKER_BIN | path join docker)
-alias dockerd! = sudo ($env.DOCKER_BIN | path join dockerd)
-
-alias ftpd = ftpserver -conf ~/.config/ftpserver/ftpserver.json
-
-alias ventoyGUI = sudo ($env.VENTOY_PATH | path join VentoyGUI.x86_64)
 
 alias rcopy = rclone copy -P -M
