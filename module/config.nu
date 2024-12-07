@@ -186,9 +186,9 @@ export def input-remapper [] {
 }
 
 export def cosmic [] {
-  let src = ($env.CONFIG_DIR_REPO | path join cosmic/shortcuts.ron)
-  let dst = ($env.CONFIG_DIR_USER | path join cosmic/com.system76.CosmicSettings.Shortcuts/v1/custom)
-  ln -sf $src $dst
+  let src = ($env.CONFIG_DIR_REPO | path join cosmic/)
+  let dst = ($env.CONFIG_DIR_USER | path join cosmic/)
+  rsync -av $src $dst
 
   let src = ($env.SCRIPT_DIR_SRC | path join cosmic.nu)
   let dst = ($env.SCRIPT_DIR_DST | path join cosmic)

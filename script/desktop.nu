@@ -2,6 +2,7 @@ source ../env.nu
 source ../def.nu
 source ../builtin.nu
 source ../module/source.nu
+use ../module/nerd-font.nu
 
 def main [] {
   nu_zoxide
