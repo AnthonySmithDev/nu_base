@@ -402,3 +402,20 @@ def remote-mouse [] {
 def ftpd [] {
   ftpserver -conf ~/.config/ftpserver/ftpserver.json
 }
+
+def cosmic-config-backup [] {
+  let cosmic = ($env.HOME | path join cosmic)
+  mkdir $cosmic
+
+  for file in (git -C ($env.HOME | path join .config/cosmic) status --short  | parse "{_}  {files}" | get files) {
+    let dirname = ($file | path dirname)
+    let basename = ($file | path basename)
+    mkdir ($cosmic | path join $dirname)
+    cp $file ($cosmic | path join $dirname $basename)
+  }
+}
+
+def create-phone-backup [] {
+  rclone copy -P -M anthony-android-work:/DCIM ~/Backup/
+  rclone copy -P -M anthony-android-work:/Backup/ ~/Backup/
+}
