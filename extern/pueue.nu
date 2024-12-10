@@ -107,7 +107,7 @@ export extern "send" [
   --help(-h)                # Print help
 ]
 
-# Adjust editable properties of a task. A temporary folder folder will be opened by your $EDITOR, which contains  a file for each editable property.
+# Adjust editable properties of a task. A temporary folder folder will be opened by your $EDITOR, which contains a file for each editable property.
 export extern "edit" [
   ...task_ids: string       # The ids of all tasks that should be edited
   --help(-h)                # Print help
@@ -307,7 +307,7 @@ export extern "help kill" [
 export extern "help send" [
 ]
 
-# Adjust editable properties of a task. A temporary folder folder will be opened by your $EDITOR, which contains  a file for each editable property.
+# Adjust editable properties of a task. A temporary folder folder will be opened by your $EDITOR, which contains a file for each editable property.
 export extern "help edit" [
 ]
 

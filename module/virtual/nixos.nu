@@ -52,7 +52,7 @@ export def up [--minimal] {
   if $minimal {
     download --minimal
     image --minimal
-    system  --minimal
+    system --minimal
   } else {
     download
     image

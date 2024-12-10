@@ -87,7 +87,7 @@ export alias y = copy
 # Delete item
 export def delete [...ids: int@ids, --force(-f) ] {
   if $force {
-    read | where  {|e| ($e.id in $ids) } | write
+    read | where {|e| ($e.id in $ids) } | write
   } else {
     let closure = {|e|
       if ($e.id in $ids) {

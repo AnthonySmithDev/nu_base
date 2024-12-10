@@ -9,10 +9,11 @@ export def xh [] {
     move -d $'xh-v($version)-x86_64-unknown-linux-musl' -f xh -p $path
   }
 
-  bind file -r xh $path
+  bind file xh $path
+  bind root xh $path
 }
 
-export def helix [] {
+export def --env helix [] {
   let version = ghub version 'helix-editor/helix'
   let path = share helix $version
 
@@ -22,7 +23,11 @@ export def helix [] {
     move -d $'helix-($version)-x86_64-linux' -p $path
   }
 
-  bind file -r hx ($path | path join hx)
+  bind dir $path $env.HELIX_PATH
+  env-path $env.HELIX_PATH
+
+  bind file hx ($env.HELIX_PATH | path join hx)
+  bind root hx ($env.HELIX_PATH | path join hx)
 }
 
 export def nushell [] {
@@ -35,7 +40,8 @@ export def nushell [] {
     move -d $'nu-($version)-x86_64-unknown-linux-gnu' -f nu -p $path
   }
 
-  bind file -r nu $path
+  bind file nu $path
+  bind root nu $path
 }
 
 export def starship [] {
@@ -48,7 +54,8 @@ export def starship [] {
     move -f starship -p $path
   }
 
-  bind file -r starship $path
+  bind file starship $path
+  bind root starship $path
 }
 
 export def zoxide [] {
@@ -61,7 +68,8 @@ export def zoxide [] {
     move -d 'zoxide-x86_64-unknown-linux-musl' -f zoxide -p $path
   }
 
-  bind file -r zoxide $path
+  bind file zoxide $path
+  bind root zoxide $path
 }
 
 export def zellij [] {
@@ -74,7 +82,8 @@ export def zellij [] {
     move -f zellij -p $path
   }
 
-  bind file -r zellij $path
+  bind file zellij $path
+  bind root zellij $path
 }
 
 export def rg [] {
@@ -87,7 +96,8 @@ export def rg [] {
     move -d $'ripgrep-($version)-x86_64-unknown-linux-musl' -f rg -p $path
   }
 
-  bind file -r rg $path
+  bind file rg $path
+  bind root rg $path
 }
 
 export def fd [] {
@@ -100,7 +110,8 @@ export def fd [] {
     move -d $'fd-v($version)-x86_64-unknown-linux-gnu' -f fd -p $path
   }
 
-  bind file -r fd $path
+  bind file fd $path
+  bind root fd $path
 }
 
 export def fzf [] {
@@ -113,7 +124,8 @@ export def fzf [] {
     move -d fzf-linux_amd64 -f fzf -p $path
   }
 
-  bind file -r fzf $path
+  bind file fzf $path
+  bind root fzf $path
 }
 
 export def gum [] {
@@ -348,7 +360,8 @@ export def gdu [] {
     move -f gdu_linux_amd64 -p $path
   }
 
-  bind file -r gdu $path
+  bind file gdu $path
+  bind root gdu $path
 }
 
 export def task [] {
@@ -361,7 +374,8 @@ export def task [] {
     move -d task_linux_amd64 -f task -p $path
   }
 
-  bind file -r task $path
+  bind file task $path
+  bind root task $path
 }
 
 export def mouseless [] {
@@ -374,7 +388,8 @@ export def mouseless [] {
     move -d dist -f mouseless -p $path
   }
 
-  bind file -r mouseless $path
+  bind file mouseless $path
+  bind root mouseless $path
 }
 
 export def websocat [] {
@@ -507,7 +522,8 @@ export def podman-tui [] {
     move -d podman-tui-release-linux_amd64 -f podman-tui-($version)/podman-tui -p $path
   }
 
-  bind file -r podman-tui $path
+  bind file podman-tui $path
+  bind root podman-tui $path
 }
 
 export def jless [] {
@@ -793,7 +809,8 @@ export def kanata [] {
     move -f kanata -p $path
   }
 
-  bind file -r kanata $path
+  bind file kanata $path
+  bind root kanata $path
 }
 
 export def --env mongosh [] {
@@ -898,7 +915,8 @@ export def rclone [] {
     move -d $'rclone-v($version)-linux-amd64' -f rclone -p $path
   }
 
-  bind file -r rclone $path
+  bind file rclone $path
+  bind root rclone $path
 }
 
 export def ffsend [] {
@@ -1075,9 +1093,9 @@ export def ast-grep [] {
   let path = share sg $version
 
   if ($path | path-not-exists) {
-    https download https://github.com/ast-grep/ast-grep/releases/download/($version)/sg-x86_64-unknown-linux-gnu.zip
-    extract zip sg-x86_64-unknown-linux-gnu.zip
-    move -f sg -p $path
+    https download https://github.com/ast-grep/ast-grep/releases/download/($version)/app-x86_64-unknown-linux-gnu.zip
+    extract zip app-x86_64-unknown-linux-gnu.zip -d app-x86_64-unknown-linux-gnu
+    move -d app-x86_64-unknown-linux-gnu -f sg -p $path
   }
 
   bind file sg $path
@@ -1205,9 +1223,9 @@ export def carapace [] {
   let path = share carapace $version
 
   if ($path | path-not-exists) {
-    https download $'https://github.com/rsteube/carapace-bin/releases/download/v($version)/carapace-bin_linux_amd64.tar.gz'
-    extract tar 'carapace-bin_linux_amd64.tar.gz' -d 'carapace-bin_linux_amd64'
-    move -d 'carapace-bin_linux_amd64' -f carapace -p $path
+    https download $'https://github.com/rsteube/carapace-bin/releases/download/v($version)/carapace-bin_($version)_linux_amd64.tar.gz'
+    extract tar carapace-bin_($version)_linux_amd64.tar.gz -d 'carapace-bin_linux_amd64'
+    move -d carapace-bin_linux_amd64 -f carapace -p $path
   }
 
   bind file carapace $path
@@ -1466,7 +1484,8 @@ export def kubectl [] {
     move -f kubectl -p $path
   }
 
-  bind file -r kubectl $path
+  bind file kubectl $path
+  bind root kubectl $path
 }
 
 export def kubecolor [] {
@@ -1544,7 +1563,8 @@ export def bettercap [] {
     move -d 'bettercap_linux_amd64' -f bettercap -p $path
   }
 
-  bind file -r bettercap $path
+  bind file bettercap $path
+  bind root bettercap $path
 }
 
 export def viddy [] {
@@ -1761,7 +1781,8 @@ export def trippy [] {
     move -d $'trippy-($version)-x86_64-unknown-linux-gnu' -f trip -p $path
   }
 
-  bind file -r trippy $path
+  bind file trippy $path
+  bind root trippy $path
 }
 
 export def gitui [] {
@@ -1839,7 +1860,8 @@ export def AdGuardHome [] {
     move -d AdGuardHome -f AdGuardHome -p $path
   }
 
-  bind file -r AdGuardHome $path
+  bind file AdGuardHome $path
+  bind root AdGuardHome $path
 }
 
 export def superhtml [] {
@@ -2431,7 +2453,8 @@ export def clangd [] {
     move -d $'clangd_($version)' -f bin/clangd -p $path
   }
 
-  bind file -r clangd $path
+  bind file clangd $path
+  bind root clangd $path
 }
 
 export def marksman [] {
@@ -2454,7 +2477,7 @@ export def v-analyzer [] {
   if ($path | path-not-exists) {
     https download https://github.com/vlang/v-analyzer/releases/download/($version)/v-analyzer-linux-x86_64.zip
     extract zip v-analyzer-linux-x86_64.zip
-    move  -f v-analyzer -p $path
+    move -f v-analyzer -p $path
   }
 
   bind file v-analyzer $path
@@ -2842,15 +2865,16 @@ def 'bind dir' [src: string, dst: string] {
   ln -sf $src $dst
 }
 
-def 'bind file' [name: string, src: string, --root(-r)] {
-  if $root {
-    let dst = ($env.SYS_LOCAL_BIN | path join $name)
-    sudo rm -rf $dst
-    sudo ln -sf $src $dst
-  }
-  let dst = ($env.USR_LOCAL_BIN | path join $name)
+def 'bind file' [cmd: string, src: string] {
+  let dst = ($env.USR_LOCAL_BIN | path join $cmd)
   rm -rf $dst
   ln -sf $src $dst
+}
+
+def 'bind root' [cmd: string, src: string] {
+  let dst = ($env.SYS_LOCAL_BIN | path join $cmd)
+  sudo rm -rf $dst
+  sudo ln -sf $src $dst
 }
 
 def move [

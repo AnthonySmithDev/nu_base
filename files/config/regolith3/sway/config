@@ -20,8 +20,8 @@
 ###############################################################################
 
 # Meta Key - Alt key is Mod1, and Windows key is Mod4
-set_from_resource $mod  wm.mod Mod4
-set_from_resource $alt  wm.alt Mod1
+set_from_resource $mod wm.mod Mod4
+set_from_resource $alt wm.alt Mod1
 
 ###############################################################################
 # Workspace Names

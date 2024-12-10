@@ -226,9 +226,9 @@
   {
     "category": "core",
     "repository": "xo/usql",
-    "tag_name": "0.19.12",
+    "tag_name": "0.19.14",
     "prerelease": false,
-    "created_at": "2024-10-24T07:52:08Z"
+    "created_at": "2024-12-09T00:38:28Z"
   },
   {
     "category": "core",
@@ -254,9 +254,9 @@
   {
     "category": "extra",
     "repository": "metalbear-co/mirrord",
-    "tag_name": "3.126.0",
+    "tag_name": "3.127.0",
     "prerelease": false,
-    "created_at": "2024-12-06T13:52:24Z"
+    "created_at": "2024-12-10T11:10:54Z"
   },
   {
     "category": "extra",
@@ -485,9 +485,9 @@
   {
     "category": "extra",
     "repository": "charmbracelet/soft-serve",
-    "tag_name": "0.7.6",
+    "tag_name": "0.8.0",
     "prerelease": false,
-    "created_at": "2024-07-31T21:15:30Z"
+    "created_at": "2024-12-09T15:39:50Z"
   },
   {
     "category": "extra",
@@ -583,9 +583,9 @@
   {
     "category": "extra",
     "repository": "ast-grep/ast-grep",
-    "tag_name": "0.31.0",
+    "tag_name": "0.31.1",
     "prerelease": false,
-    "created_at": "2024-12-02T16:09:08Z"
+    "created_at": "2024-12-08T20:31:23Z"
   },
   {
     "category": "extra",
@@ -632,9 +632,9 @@
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "2.24.0",
+    "tag_name": "2.24.2",
     "prerelease": false,
-    "created_at": "2024-12-04T17:35:54Z"
+    "created_at": "2024-12-10T14:51:45Z"
   },
   {
     "category": "other",
@@ -786,9 +786,9 @@
   {
     "category": "other",
     "repository": "sxyazi/yazi",
-    "tag_name": "0.3.3",
+    "tag_name": "0.4.1",
     "prerelease": false,
-    "created_at": "2024-09-04T15:16:18Z"
+    "created_at": "2024-12-10T12:19:15Z"
   },
   {
     "category": "other",
@@ -863,9 +863,9 @@
   {
     "category": "other",
     "repository": "sigoden/aichat",
-    "tag_name": "0.24.0",
+    "tag_name": "0.25.0",
     "prerelease": false,
-    "created_at": "2024-11-25T09:22:23Z"
+    "created_at": "2024-12-10T04:38:42Z"
   },
   {
     "category": "other",
@@ -877,9 +877,9 @@
   {
     "category": "other",
     "repository": "rsteube/carapace-bin",
-    "tag_name": "1.0.7",
+    "tag_name": "1.1.0",
     "prerelease": false,
-    "created_at": "2024-10-03T19:08:10Z"
+    "created_at": "2024-12-08T15:12:37Z"
   },
   {
     "category": "other",
@@ -933,9 +933,9 @@
   {
     "category": "other",
     "repository": "astral-sh/uv",
-    "tag_name": "0.5.6",
+    "tag_name": "0.5.7",
     "prerelease": false,
-    "created_at": "2024-12-03T20:13:32Z"
+    "created_at": "2024-12-06T23:50:21Z"
   },
   {
     "category": "other",
@@ -1031,9 +1031,9 @@
   {
     "category": "other",
     "repository": "siyuan-note/siyuan",
-    "tag_name": "3.1.14",
+    "tag_name": "3.1.15",
     "prerelease": false,
-    "created_at": "2024-12-03T00:36:34Z"
+    "created_at": "2024-12-10T01:20:39Z"
   },
   {
     "category": "other",
@@ -1052,9 +1052,9 @@
   {
     "category": "other",
     "repository": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.7.6",
+    "tag_name": "0.7.7",
     "prerelease": false,
-    "created_at": "2024-12-03T13:38:28Z"
+    "created_at": "2024-12-09T09:50:45Z"
   },
   {
     "category": "other",
@@ -1178,9 +1178,9 @@
   {
     "category": "other",
     "repository": "immich-app/immich",
-    "tag_name": "1.122.1",
+    "tag_name": "1.122.2",
     "prerelease": false,
-    "created_at": "2024-12-06T13:49:14Z"
+    "created_at": "2024-12-08T23:41:22Z"
   },
   {
     "category": "other",
@@ -1234,9 +1234,9 @@
   {
     "category": "other",
     "repository": "kopecmaciej/vi-mongo",
-    "tag_name": "0.1.19",
+    "tag_name": "0.1.20",
     "prerelease": false,
-    "created_at": "2024-11-21T19:25:38Z"
+    "created_at": "2024-12-09T21:02:11Z"
   },
   {
     "category": "other",
