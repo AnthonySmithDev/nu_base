@@ -416,6 +416,6 @@ def cosmic-config-backup [] {
 }
 
 def create-phone-backup [] {
-  rclone copy -P -M anthony-android-work:/DCIM ~/Backup/
-  rclone copy -P -M anthony-android-work:/Backup/ ~/Backup/
+  rclone copy --multi-thread-streams 2 -P -M anthony-android-work:/DCIM ~/Backup/
+  rclone copy --multi-thread-streams 2 -P -M anthony-android-work:/Backup/ ~/Backup/
 }

@@ -1,9 +1,12 @@
 
 [[language]]
 name = "bash"
-file-types = ["sh", { glob = "config" }]
+file-types = ["sh", { glob = "bat/**" }, { glob = "regolith3/**" }]
 
 [[language]]
 name = "common-lisp"
-file-types = ["kbd"]
-comment-token = ";;"
+file-types = ["lisp", { glob = "kanata/**" }]
+
+[[language]]
+name = "ron"
+file-types = ["ron", { glob = "cosmic/**" }]
