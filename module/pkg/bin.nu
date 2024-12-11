@@ -821,6 +821,7 @@ export def --env mongosh [] {
     https download $"https://downloads.mongodb.com/compass/mongosh-($version)-linux-x64.tgz"
     extract tar $"mongosh-($version)-linux-x64.tgz"
     mv $"mongosh-($version)-linux-x64/bin" $path
+    rm -rf $"mongosh-($version)-linux-x64"
   }
 
   bind dir $path $env.MONGOSH_BIN
@@ -1086,6 +1087,19 @@ export def lsd [] {
   }
 
   bind file lsd $path
+}
+
+export def eza [] {
+  let version = ghub version 'eza-community/eza'
+  let path = share eza $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/eza-community/eza/releases/download/v($version)/eza_x86_64-unknown-linux-musl.tar.gz
+    extract tar eza_x86_64-unknown-linux-musl.tar.gz
+    move -f eza -p $path
+  }
+
+  bind file eza $path
 }
 
 export def ast-grep [] {

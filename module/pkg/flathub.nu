@@ -85,3 +85,15 @@ export def umftpd [] {
 export def blackbox [] {
 	flatpak install -y flathub com.raggesilver.BlackBox
 }
+
+export def netbeans [] {
+	flatpak install -y flathub org.apache.netbeans
+}
+
+export def eclipse [] {
+	flatpak install -y flathub org.eclipse.Java
+}
+
+export def intellij-idea [] {
+	flatpak install -y flathub com.jetbrains.IntelliJ-IDEA-Community
+}

@@ -51,6 +51,7 @@ export def basic [] {
 
     axel
     aria2
+    tree
 
     scdoc
     wl-clipboard

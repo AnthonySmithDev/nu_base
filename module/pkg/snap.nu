@@ -63,6 +63,18 @@ export def flameshot [] {
   sudo snap install flameshot
 }
 
+export def netbeans [] {
+  sudo snap install netbeans --classic
+}
+
+export def eclipse [] {
+  sudo snap install eclipse --classic
+}
+
+export def intellij-idea [] {
+  sudo snap install intellij-idea-community --classic
+}
+
 export def docker [] {
   sudo snap install docker
   sudo addgroup --system docker
