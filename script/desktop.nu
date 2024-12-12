@@ -25,7 +25,7 @@ def main [] {
   pkg bin soft
   pkg bin freeze
 
-  pkg bin lsd
+  pkg bin eza
   pkg bin bat
   pkg bin qrcp
   pkg bin jless

@@ -243,7 +243,7 @@ def rn [glob: string] {
 }
 
 def 'rn dir' [] {
-  let preview = 'lsd --tree --color=always --icon=always {}'
+  let preview = 'eza --tree --color=always --icon=always {}'
   let dirname = (fd --type directory | fzf --layout reverse --border --preview $preview | str trim)
 
   let src_paths = (ls -s $dirname | get name)

@@ -62,6 +62,13 @@
             Super,
             Alt,
         ],
+        key: "t",
+    ): Spawn("nu/cosmic scrcpy tiktok"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
         key: "h",
     ): Spawn("nu/cosmic swipe left"),
     (

@@ -113,8 +113,10 @@ alias chrome = browser chrome
 alias vle = vieb --left
 alias vri = vieb --right
 
-alias ble = brave --left
-alias bri = brave --right
+alias ble = brave --dir left
+alias bri = brave --dir right
+alias bfi = brave --dir first
+alias bse = brave --dir second
 
 alias dn = dir new
 alias fn = file new

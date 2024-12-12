@@ -62,12 +62,12 @@ export def vieb [
 export def brave [
   url?: string
   --ext(-e)
-  --left(-l)
-  --right(-r)
   --proxy(-p)
+  --dir(-d): string
   --rm
 ] {
-  let config = ($env.HOME | path join .config/BraveSoftware/Brave-Browser)
+  let config = ($env.HOME | path join .config/BraveSoftware)
+  let default = ($config | path join Brave-Browser)
 
   mut args = []
   if $ext {
@@ -76,25 +76,15 @@ export def brave [
   if $proxy {
     $args = ($args | append $'--proxy-server=($env.proxy_host):($env.proxy_port)')
   }
-  if $left {
-    let dir = ($env.HOME | path join .config BraveSoftware Brave-Browser-Left)
+  if ($dir | is-not-empty) {
+    let user_data = ($config | path join Brave-Browser-($dir | str capitalize))
     if $rm {
-      return (rm -rf $dir)
+      return (rm -rf $user_data)
     }
-    if not ($dir | path exists) {
-      cp -r $config $dir
+    if not ($user_data | path exists) {
+      cp -r $default $user_data
     }
-    $args = ($args | append $'--user-data-dir=($dir)')
-  }
-  if $right {
-    let dir = ($env.HOME | path join .config BraveSoftware Brave-Browser-Right)
-    if $rm {
-      return (rm -rf $dir)
-    }
-    if not ($dir | path exists) {
-      cp -r $config $dir
-    }
-    $args = ($args | append $'--user-data-dir=($dir)')
+    $args = ($args | append $'--user-data-dir=($user_data)')
   }
   if ($url | is-not-empty) {
     $args = ($args | append $url)

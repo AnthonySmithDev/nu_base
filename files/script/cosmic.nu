@@ -148,3 +148,8 @@ export def "main files" [] {
 export def "main scrcpy audio" [] {
   scrcpy --no-window
 }
+
+export def "main scrcpy tiktok" [] {
+  # scrcpy --new-display --no-vd-destroy-content --start-app=?tiktok
+  scrcpy --start-app=?tiktok
+}

@@ -1,6 +1,6 @@
 
 export def filter [--multi (-m)] {
-  let preview = 'lsd --tree --color=always --icon=always {}'
+  let preview = 'eza --tree --color=always --icon=always {}'
   if $multi {
     fd --type directory | fzf --layout reverse --border --preview $preview -m | lines
   } else {

@@ -2849,6 +2849,19 @@ export def doggo [] {
   bind file doggo $path
 }
 
+export def scrcpy [] {
+  let version = ghub version 'Genymobile/scrcpy'
+  let path = share scrcpy $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/Genymobile/scrcpy/releases/download/v3.1/scrcpy-linux-x86_64-v3.1.tar.gz
+    extract tar scrcpy-linux-x86_64-v3.1.tar.gz
+    move -d scrcpy-linux-x86_64-v3.1 -f scrcpy -p $path
+  }
+
+  bind file scrcpy $path
+}
+
 export def firefox-de [] {
   https download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2

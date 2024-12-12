@@ -387,3 +387,19 @@ export def websocket-inspector [] {
     stack install
   }
 }
+
+export def ente [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join ente)
+  git-down https://github.com/ente-io/ente.git $path
+
+  with-wd ($path | path join server) {||
+    docker compose up -d --build
+    curl http://localhost:8080/ping
+  }
+
+  with-wd ($path | path join web) {||
+    git submodule update --init --recursive
+    yarn install
+    NEXT_PUBLIC_ENTE_ENDPOINT=http://localhost:8080 yarn dev
+  }
+}
