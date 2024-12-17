@@ -98,7 +98,7 @@
             Alt,
         ],
         key: "s",
-    ): Spawn("nu/cosmic media play"),
+    ): Spawn("nu/cosmic power"),
     (
         modifiers: [
             Super,
@@ -113,6 +113,13 @@
         ],
         key: "f",
     ): Spawn("nu/cosmic media previous"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "g",
+    ): Spawn("nu/cosmic media play"),
     (
         modifiers: [
             Super,

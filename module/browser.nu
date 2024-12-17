@@ -64,7 +64,8 @@ export def brave [
   --ext(-e)
   --proxy(-p)
   --dir(-d): string
-  --rm
+  --rm(-r)
+  --copy(-c)
 ] {
   let config = ($env.HOME | path join .config/BraveSoftware)
   let default = ($config | path join Brave-Browser)
@@ -81,8 +82,10 @@ export def brave [
     if $rm {
       return (rm -rf $user_data)
     }
-    if not ($user_data | path exists) {
-      cp -r $default $user_data
+    if $copy {
+      if not ($user_data | path exists) {
+        cp -r $default $user_data
+      }
     }
     $args = ($args | append $'--user-data-dir=($user_data)')
   }

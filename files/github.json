@@ -86,9 +86,9 @@
   {
     "category": "core",
     "repository": "junegunn/fzf",
-    "tag_name": "0.56.3",
+    "tag_name": "0.57.0",
     "prerelease": false,
-    "created_at": "2024-11-15T01:06:30Z"
+    "created_at": "2024-12-15T08:04:14Z"
   },
   {
     "category": "core",
@@ -394,9 +394,9 @@
   {
     "category": "extra",
     "repository": "sarub0b0/kubetui",
-    "tag_name": "1.5.3",
+    "tag_name": "1.5.4",
     "prerelease": false,
-    "created_at": "2024-07-23T10:01:43Z"
+    "created_at": "2024-12-15T14:00:19Z"
   },
   {
     "category": "extra",
@@ -590,9 +590,9 @@
   {
     "category": "extra",
     "repository": "ast-grep/ast-grep",
-    "tag_name": "0.31.1",
+    "tag_name": "0.32.1",
     "prerelease": false,
-    "created_at": "2024-12-08T20:31:23Z"
+    "created_at": "2024-12-17T06:17:48Z"
   },
   {
     "category": "extra",
@@ -625,9 +625,9 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "0.5.1",
+    "tag_name": "0.5.3",
     "prerelease": false,
-    "created_at": "2024-12-06T22:13:15Z"
+    "created_at": "2024-12-17T05:57:49Z"
   },
   {
     "category": "other",
@@ -800,9 +800,9 @@
   {
     "category": "other",
     "repository": "orhun/kmon",
-    "tag_name": "1.7.0",
+    "tag_name": "1.7.1",
     "prerelease": false,
-    "created_at": "2024-12-12T19:06:32Z"
+    "created_at": "2024-12-15T17:12:00Z"
   },
   {
     "category": "other",
@@ -856,9 +856,9 @@
   {
     "category": "other",
     "repository": "swsnr/mdcat",
-    "tag_name": "mdcat-2.7.0",
+    "tag_name": "mdcat-2.7.1",
     "prerelease": false,
-    "created_at": "2024-11-24T14:41:25Z"
+    "created_at": "2024-12-14T16:03:55Z"
   },
   {
     "category": "other",
@@ -883,10 +883,10 @@
   },
   {
     "category": "other",
-    "repository": "rsteube/carapace-bin",
-    "tag_name": "1.1.0",
+    "repository": "carapace-sh/carapace-bin",
+    "tag_name": "1.1.1",
     "prerelease": false,
-    "created_at": "2024-12-08T15:12:37Z"
+    "created_at": "2024-12-17T11:56:44Z"
   },
   {
     "category": "other",
@@ -940,9 +940,9 @@
   {
     "category": "other",
     "repository": "astral-sh/uv",
-    "tag_name": "0.5.8",
+    "tag_name": "0.5.9",
     "prerelease": false,
-    "created_at": "2024-12-11T15:18:51Z"
+    "created_at": "2024-12-13T22:28:19Z"
   },
   {
     "category": "other",
@@ -1199,9 +1199,9 @@
   {
     "category": "other",
     "repository": "Picocrypt/CLI",
-    "tag_name": "2.10",
+    "tag_name": "1.45",
     "prerelease": false,
-    "created_at": "2024-11-22T04:36:29Z"
+    "created_at": "2024-12-16T03:05:48Z"
   },
   {
     "category": "other",
@@ -1262,9 +1262,9 @@
   {
     "category": "other",
     "repository": "yitsushi/totp-cli",
-    "tag_name": "1.8.7",
+    "tag_name": "1.8.8",
     "prerelease": false,
-    "created_at": "2024-01-07T08:42:05Z"
+    "created_at": "2024-12-15T00:30:03Z"
   },
   {
     "category": "other",
@@ -1276,9 +1276,9 @@
   {
     "category": "other",
     "repository": "ynqa/jnv",
-    "tag_name": "0.4.1",
+    "tag_name": "0.4.2",
     "prerelease": false,
-    "created_at": "2024-09-25T11:23:05Z"
+    "created_at": "2024-12-16T14:28:49Z"
   },
   {
     "category": "other",
@@ -1325,9 +1325,9 @@
   {
     "category": "other",
     "repository": "ksysoev/wsget",
-    "tag_name": "0.5.0",
+    "tag_name": "0.6.0",
     "prerelease": false,
-    "created_at": "2024-11-27T14:45:17Z"
+    "created_at": "2024-12-14T14:49:23Z"
   },
   {
     "category": "other",
@@ -1381,9 +1381,9 @@
   {
     "category": "other",
     "repository": "kubewall/kubewall",
-    "tag_name": "0.0.9",
+    "tag_name": "0.0.10",
     "prerelease": false,
-    "created_at": "2024-10-14T09:56:46Z"
+    "created_at": "2024-12-15T15:16:20Z"
   },
   {
     "category": "other",

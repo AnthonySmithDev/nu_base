@@ -33,6 +33,8 @@ const BOTTOM = {
 }
 
 const KEYCODE = {
+  POWER: 'KEYCODE_POWER'
+  SLEEP: 'KEYCODE_SLEEP'
   VOLUME_UP: 'KEYCODE_VOLUME_UP'
   VOLUME_DOWN: 'KEYCODE_VOLUME_DOWN'
   VOLUME_MUTE: 'KEYCODE_VOLUME_MUTE'
@@ -111,6 +113,14 @@ export def "main download" [] {
   adb shell input swipe $CENTER.CENTER $CENTER.CENTER 1000
   sleep 500ms
   adb shell input tap $BUTTON.DOWNLOAD
+}
+
+export def "main power" [] {
+  adb shell input keyevent $KEYCODE.POWER
+}
+
+export def "main sleep" [] {
+  adb shell input keyevent $KEYCODE.SLEEP
 }
 
 export def "main volumen up" [] {

@@ -73,6 +73,7 @@ alias gPT = git push --tags origin
 alias gp = git pull --no-edit
 alias gs = git status
 alias gsw = git switch
+alias gsc = git switch --create
 alias gl = git log
 alias glp = git log -p
 alias gf = git fetch
