@@ -58,6 +58,7 @@ export def basic [] {
     qrencode
 
     ssh
+    sshpass
     openssh-server
 
     libxss1

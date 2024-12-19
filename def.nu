@@ -185,13 +185,14 @@ def select-file [] {
 }
 
 def show [...rest: path] {
+  if ($rest | is-empty) { return }
   bat --paging never --style header ...$rest
 }
 
-def mof [...rest] {
+def showf [] {
   let filter = (gum filter --no-limit | lines)
   if ($filter | is-empty) { return }
-  show ...$filter | mods ...$rest
+  show ...$filter
 }
 
 def imods [] {
