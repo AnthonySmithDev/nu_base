@@ -4,6 +4,13 @@ if not ($env.NU_BASE_PATH | path exists) {
   $env.NU_BASE_PATH = ($env.HOME | path join .local nu_base)
 }
 
+let COLUMNS = (term size | get columns | math floor) - 2
+if $COLUMNS > 100 {
+  $env.MODS_WORD_WRAP = 100 - 2
+} else {
+  $env.MODS_WORD_WRAP = $COLUMNS
+}
+
 $env.NU_BASE_FILES = ($env.NU_BASE_PATH | path join files)
 
 $env.CONFIG_DIR_REPO = ($env.NU_BASE_FILES | path join config)

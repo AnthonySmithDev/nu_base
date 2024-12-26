@@ -312,3 +312,16 @@ export def lapce [ --force(-f) ] {
     sudo dpkg -i $filepath
   }
 }
+
+export def pacstall [ --force(-f) ] {
+  let version = ghub version 'pacstall/pacstall'
+  let filename = $"pacstall_($version).deb"
+
+  let filepath = filepath $filename
+  let new = ($filepath | path-not-exists)
+
+  if $new or $force {
+    download https://github.com/pacstall/pacstall/releases/download/5.5.0/pacstall_5.5.0-pacstall2_all.deb $filepath
+    sudo dpkg -i $filepath
+  }
+}

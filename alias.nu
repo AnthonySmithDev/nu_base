@@ -13,6 +13,19 @@ alias saug = sudo apt upgrade
 alias saif = sudo apt install --fix-broken
 alias salu = sudo apt list --upgradable
 
+alias snap = sudo nala autopurge
+alias snar = sudo nala autoremove
+alias snf = sudo nala full-upgrade
+alias snh = sudo nala history
+alias sni = sudo nala install -y
+alias snl = sudo nala list
+alias snp = sudo nala purge
+alias snr = sudo nala remove
+alias sns = sudo nala search
+alias snS = sudo nala show
+alias snu = sudo nala update
+alias snU = sudo nala upgrade
+
 alias pyi = uv tool install
 alias jsi = pnpm install --global
 alias rsi = cargo install --locked

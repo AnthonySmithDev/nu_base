@@ -403,3 +403,14 @@ export def ente [] {
     NEXT_PUBLIC_ENTE_ENDPOINT=http://localhost:8080 yarn dev
   }
 }
+
+export def apx [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join apx)
+  git clone --recursive https://github.com/Vanilla-OS/apx.git $path
+
+  with-wd $path {||
+    make build
+    sudo make install
+    sudo make install-manpages
+  }
+}
