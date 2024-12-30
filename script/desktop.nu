@@ -47,7 +47,7 @@ def main [] {
   pkg bin kubectl
   pkg bin tailscale
 
-  compile alacritty
+  pkg compile alacritty
   config alacritty --theme
 
   srv init pueued

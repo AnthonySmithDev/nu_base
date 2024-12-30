@@ -22,7 +22,6 @@ use deps.nu
 use pkg/
 
 use browser.nu
-use compile.nu
 use run.nu
 use srv.nu
 use setup.nu
