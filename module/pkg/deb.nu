@@ -321,7 +321,20 @@ export def pacstall [ --force(-f) ] {
   let new = ($filepath | path-not-exists)
 
   if $new or $force {
-    download https://github.com/pacstall/pacstall/releases/download/5.5.0/pacstall_5.5.0-pacstall2_all.deb $filepath
+    download $'https://github.com/pacstall/pacstall/releases/download/($version)/pacstall_($version)-pacstall2_all.deb' $filepath
+    sudo dpkg -i $filepath
+  }
+}
+
+export def contour [ --force(-f) ] {
+  let version = ghub version 'contour-terminal/contour'
+  let filename = $"contour_($version).deb"
+
+  let filepath = filepath $filename
+  let new = ($filepath | path-not-exists)
+
+  if $new or $force {
+    download $'https://github.com/contour-terminal/contour/releases/download/v($version)/contour-($version)-ubuntu24.04-amd64.deb' $filepath
     sudo dpkg -i $filepath
   }
 }
