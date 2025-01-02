@@ -18,7 +18,6 @@ use text.nu
 use rsh.nu
 use sql.nu
 use bg.nu
-use deps.nu
 use pkg/
 
 use browser.nu

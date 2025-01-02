@@ -1,4 +1,5 @@
 
+export use deps.nu
 export module bin.nu
 export module apt.nu
 export module deb.nu
