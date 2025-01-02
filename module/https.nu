@@ -23,16 +23,18 @@ export def 'download xh' [
   --output(-o): string
 ] {
   mut args = [
-    '--body'
-    '--download'
+    --quiet
+    --body
+    --download
   ]
-  if $output != null {
+  if ($output | is-not-empty) {
     $args = ($args | append ['--output' $output])
   }
   try {
     ^xh ...$args $url
   } catch { ||
-    print ($url)
+    if ($output | is-not-empty) { rm -rf $output }
+    error make -u { msg: $"Not found: ($url)" }
   }
 }
 
@@ -41,16 +43,17 @@ export def 'download https' [
   --output(-o): string
 ] {
   mut args = [
-    '--body'
-    '--download'
+    --body
+    --download
   ]
-  if $output != null {
+  if ($output | is-not-empty) {
     $args = ($args | append ['--output' $output])
   }
   try {
     ^https ...$args $url
   } catch { ||
-    print ($url)
+    if ($output | is-not-empty) { rm -rf $output }
+    error make -u { msg: $"Not found: ($url)" }
   }
 }
 
@@ -59,15 +62,16 @@ export def 'download wget' [
   --output(-o): string
 ] {
   mut args = [
-    '--quiet'
-    '--show-progress'
+    --quiet
+    --show-progress
   ]
-  if $output != null {
+  if ($output | is-not-empty) {
     $args = ($args | append ['--output-document' $output])
   }
   try {
     ^wget ...$args $url
   } catch { ||
-    print ($url)
+    if ($output | is-not-empty) { rm -rf $output }
+    error make -u { msg: $"Not found: ($url)" }
   }
 }

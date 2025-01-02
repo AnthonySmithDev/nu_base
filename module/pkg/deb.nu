@@ -4,7 +4,12 @@ def filepath [name: string] {
 }
 
 export def download [url: string, filename: string] {
-  wget --quiet --show-progress $url --output-document $filename
+  try {
+    ^wget --quiet --show-progress $url --output-document $filename
+  } catch {|err|
+    if ($filename | is-not-empty) { rm -rf $filename }
+    error make -u { msg: $"Not found: ($url)" }
+  }
 }
 
 export def vieb [ --force(-f) ] {
@@ -321,7 +326,7 @@ export def pacstall [ --force(-f) ] {
   let new = ($filepath | path-not-exists)
 
   if $new or $force {
-    download $'https://github.com/pacstall/pacstall/releases/download/($version)/pacstall_($version)-pacstall2_all.deb' $filepath
+    download $'https://github.com/pacstall/pacstall/releases/download/($version)/pacstall_($version)-pacstall1_all.deb' $filepath
     sudo dpkg -i $filepath
   }
 }

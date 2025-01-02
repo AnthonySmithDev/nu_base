@@ -4,8 +4,12 @@ export-env {
   $env.GITHUB_UPDATE = ($env.HOME | path join .github.update)
 }
 
+export def list [] {
+  open $env.GITHUB_REPOSITORY
+}
+
 export def names [] {
-  open $env.GITHUB_REPOSITORY | get repository
+  list | get repository
 }
 
 export def latest [repository: string@names] {
@@ -19,16 +23,32 @@ export def latest [repository: string@names] {
   $release | get body
 }
 
+export def find [repository: string@names] {
+  return (list | where repository =~ $repository)
+}
+
 export def view [repository: string@names] {
-  let repos = (open $env.GITHUB_REPOSITORY | where repository == $repository)
+  let repos = (list | where repository == $repository)
   if ($repos | is-empty) {
-    error make -u {msg: "the repository does not exist"}
+    error make -u { msg: "Repository does not exist" }
   }
   return ($repos | first)
 }
 
+def to-version [] {
+  str trim --char 'v' | str trim --char 'V'
+}
+
+def to-created-at [] {
+  into datetime --offset -5 | date humanize
+}
+
 export def version [repository: string@names] {
-  view $repository | get version
+  let repo = view $repository
+  let version = ($repo.tag_name | to-version)
+  let created_at = ($repo.created_at | to-created-at)
+  print $"(link $repository $repo.tag_name) (white $version) (italic $created_at)"
+  return $version
 }
 
 def get-last-index [] {
@@ -49,46 +69,46 @@ export def rate_limit [] {
 }
 
 export def update [] {
-  let rate = rate_limit
-  if $rate.remaining == 0 {
-    return ($rate | select reset remaining)
+  let rate_limit = rate_limit
+  if $rate_limit.remaining == 0 {
+    return ($rate_limit | select reset remaining)
   }
 
   let last_index = get-last-index
-  mut repos = (open $env.GITHUB_REPOSITORY)
-  for $it in ($repos | enumerate | skip $last_index | first $rate.remaining) {
-    let new = (latest $it.item.repository)
-    let version = ($new.tag_name | str trim --char 'v' | str trim --char 'V')
-    let created_at = ($new.created_at | into datetime --offset -5 | date humanize)
+  mut repos = list
+  let length = ($repos | length)
+  for $it in ($repos | enumerate | skip $last_index | first $rate_limit.remaining) {
+    let old = $it.item
+    let old_version = ($old.tag_name | to-version)
 
-    if ($new.assets | length) < 1 {
-      print $"(link $it.item.repository $new.tag_name) (purple $it.item.version) (cyan $version) (italic $created_at)"
-      continue
-    }
-    if ($new | is-empty) {
-      continue
-    }
+    let new = latest $old.repository
+    let new_version = ($new.tag_name | to-version)
+    let new_created_at = ($new.created_at | to-created-at)
 
-    if $it.item.tag_name == $new.tag_name {
-      print $"(link $it.item.repository $it.item.tag_name) (white $it.item.version) (italic $created_at)"
-    } else {
-      print $"(link $it.item.repository $new.tag_name) (red $it.item.version) (green $version) (italic $created_at)"
-    }
-
-    let repository = ($it.item
-          | upsert version $version
-          | upsert tag_name $new.tag_name
-          | upsert prerelease $new.prerelease
-          | upsert created_at $new.created_at)
-
-    $repos = ($repos | upsert $it.index $repository)
-    $repos | save --force $env.GITHUB_REPOSITORY
-
-    if ($it.index + 1) == ($repos | length) {
+    if ($it.index + 1) == $length {
       set-last-index 0
     } else {
       set-last-index ($it.index + 1 )
     }
+
+    if $old.tag_name == $new.tag_name {
+      print $"(link $old.repository $old.tag_name) (white $old_version) (italic $new_created_at)"
+      continue
+    }
+    if ($new.assets | length) < 1 {
+      print $"(link $old.repository $new.tag_name) (purple $old_version) (cyan $new_version) (italic $new_created_at)"
+      continue
+    }
+
+    print $"(link $old.repository $new.tag_name) (red $old_version) (green $new_version) (italic $new_created_at)"
+
+    mut repo = ($old | upsert tag_name $new.tag_name | upsert created_at $new.created_at)
+    if $new.prerelease {
+      $repo = ($repo | upsert prerelease $new.prerelease)
+    }
+
+    $repos = ($repos | upsert $it.index $repo)
+    $repos | save --force $env.GITHUB_REPOSITORY
   }
 }
 
