@@ -1,13 +1,11 @@
 source ../env.nu
 source ../def.nu
 source ../builtin.nu
-source ../module/source.nu
+source ../module/mod.nu
 
 def main [] {
-  create_dir
-
-  nu_source
-  touch ~/.env.nu
+  setup_dir
+  setup_nu
 
   if (exists-external apt) {
     pkg apt update
@@ -47,10 +45,10 @@ def main [] {
   root config helix
   root config zellij
 
-  nu_zoxide
+  setup_zoxide
 }
 
-def create_dir [] {
+def setup_dir [] {
   mkdir $env.USR_LOCAL_BIN
   mkdir $env.USR_LOCAL_LIB
   mkdir $env.USR_LOCAL_SOURCE
@@ -68,25 +66,26 @@ def create_dir [] {
   mkdir $env.CONFIG_SYSTEMD_USER_DST
 }
 
-def nu_source [] {
+def setup_nu [] {
   mut source = []
   if ("~/.local/nu_base" | path exists) {
-    $source = ($source | append "source ~/.local/nu_base/source.nu")
+    $source = ($source | append "source ~/.local/nu_base/mod.nu")
   }
 
   if ("~/nushell/nu_base" | path exists) {
-    $source = ($source | append "source ~/nushell/nu_base/source.nu")
+    $source = ($source | append "source ~/nushell/nu_base/mod.nu")
   }
   if ("~/nushell/nu_work" | path exists) {
-    $source = ($source | append "source ~/nushell/nu_work/source.nu")
+    $source = ($source | append "source ~/nushell/nu_work/mod.nu")
   }
   if ("~/nushell/nu_home" | path exists) {
-    $source = ($source | append "source ~/nushell/nu_home/source.nu")
+    $source = ($source | append "source ~/nushell/nu_home/mod.nu")
   }
   $source | save -f ~/.source.nu
+  touch ~/.env.nu
 }
 
-def nu_zoxide [] {
+def setup_zoxide [] {
   if ("~/.local/nu_base" | path exists) {
     ^zoxide add ~/.local/nu_base
   }

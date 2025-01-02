@@ -1,20 +1,20 @@
 source ../env.nu
 source ../def.nu
 source ../builtin.nu
-source ../module/source.nu
+source ../module/mod.nu
 use ../module/nerd-font.nu
 
 def main [] {
-  nu_zoxide
+  setup_zoxide
 
   config git
   nerd-font FiraCode
 
   if (exists-external apt) {
-    # pkg apt flathub
+    pkg apt flathub
     pkg apt brave
-
     pkg deb discord
+
     pkg deb vieb
     config vieb
   }
@@ -54,7 +54,7 @@ def main [] {
   srv user pueued start
 }
 
-def dev [] {
+def --env dev [] {
   env-path $env.GOBIN
   env-path $env.CARGOBIN
   env-path $env.PIPX_BIN_DIR
@@ -66,7 +66,7 @@ def dev [] {
   pkg cargo dev
 }
 
-def nu_zoxide [] {
+def setup_zoxide [] {
   ^zoxide add ~/Desktop
   ^zoxide add ~/Documents
   ^zoxide add ~/Downloads
