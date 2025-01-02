@@ -642,7 +642,7 @@ export def qrcp [] {
   let path = share qrcp $version
 
   if ($path | path-not-exists) {
-    https download $'https://github.com/claudiodangelis/qrcp/releases/download/($version)/qrcp_($version)_linux_amd64.tar.gz'
+    https download $'https://github.com/claudiodangelis/qrcp/releases/download/v($version)/qrcp_($version)_linux_amd64.tar.gz'
     extract tar qrcp_($version)_linux_amd64.tar.gz -d qrcp_linux_amd64
     move -d qrcp_linux_amd64 -f qrcp -p $path
   }

@@ -29,7 +29,11 @@ export def 'download xh' [
   if $output != null {
     $args = ($args | append ['--output' $output])
   }
-  ^xh ...$args $url
+  try {
+    ^xh ...$args $url
+  } catch { ||
+    print ($url)
+  }
 }
 
 export def 'download https' [
@@ -43,7 +47,11 @@ export def 'download https' [
   if $output != null {
     $args = ($args | append ['--output' $output])
   }
-  ^https ...$args $url
+  try {
+    ^https ...$args $url
+  } catch { ||
+    print ($url)
+  }
 }
 
 export def 'download wget' [
@@ -57,5 +65,9 @@ export def 'download wget' [
   if $output != null {
     $args = ($args | append ['--output-document' $output])
   }
-  ^wget ...$args  $url
+  try {
+    ^wget ...$args $url
+  } catch { ||
+    print ($url)
+  }
 }
