@@ -1,31 +1,33 @@
 
-use root/
+# use root/
 
 use https.nu
 use extract.nu
 use ghub.nu
 
-use config.nu
-use download.nu
-
 use dock.nu
-use photos.nu
-
-use fm.nu
-use dir.nu
-use file.nu
-use text.nu
+use config.nu
 use rsh.nu
-use sql.nu
-use bg.nu
-use pkg/
+use fm.nu
+
+# use download.nu
+# use photos.nu
+
+# use dir.nu
+# use file.nu
+# use text.nu
+# use sql.nu
+# use bg.nu
 
 use browser.nu
-use run.nu
 use srv.nu
-use setup.nu
 use tscale.nu
-# use nerd-font.nu
+
+# use run.nu
+# use setup.nu
+
+const pkg = "~/nushell/nu_base/module/pkg"
+# use $pkg
 
 # use image
 # use gpt.nu

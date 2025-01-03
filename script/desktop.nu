@@ -1,14 +1,17 @@
 source ../env.nu
 source ../def.nu
 source ../builtin.nu
-source ../module/mod.nu
-use ../module/nerd-font.nu
+
+use ../module/config.nu
+use ../module/ghub.nu
+use ../module/srv.nu
+use ../module/pkg/
 
 def main [] {
   setup_zoxide
 
   config git
-  nerd-font FiraCode
+  pkg font FiraCode
 
   if (exists-external apt) {
     pkg apt flathub

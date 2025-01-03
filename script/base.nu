@@ -1,7 +1,11 @@
 source ../env.nu
 source ../def.nu
 source ../builtin.nu
-source ../module/mod.nu
+
+use ../module/config.nu
+use ../module/ghub.nu
+use ../module/root/
+use ../module/pkg/
 
 def main [] {
   setup_dir

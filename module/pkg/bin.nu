@@ -1233,11 +1233,12 @@ export def coreutils [] {
 }
 
 export def carapace [] {
-  let version = ghub version 'rsteube/carapace-bin'
+
+  let version = ghub version 'carapace-sh/carapace-bin'
   let path = share carapace $version
 
   if ($path | path-not-exists) {
-    https download $'https://github.com/rsteube/carapace-bin/releases/download/v($version)/carapace-bin_($version)_linux_amd64.tar.gz'
+    https download $'https://github.com/carapace-sh/carapace-bin/releases/download/v($version)/carapace-bin_($version)_linux_amd64.tar.gz'
     extract tar carapace-bin_($version)_linux_amd64.tar.gz -d 'carapace-bin_linux_amd64'
     move -d carapace-bin_linux_amd64 -f carapace -p $path
   }
