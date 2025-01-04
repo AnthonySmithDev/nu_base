@@ -49,9 +49,11 @@ alias zdas = zellij delete-all-sessions -y
 alias zf = zellij run --floating --
 alias zn = zellij options --session-name
 
-alias zle = zn left
-alias zri = zn right
-alias zma = zn main
+alias zna = zn a
+alias znb = zn b
+
+alias zaa = zt a
+alias zab = zt b
 
 alias zdr = zellij drop
 alias zda = zellij drop --all
@@ -127,10 +129,8 @@ alias chrome = browser chrome
 alias vle = vieb --left
 alias vri = vieb --right
 
-alias ble = brave --dir left
-alias bri = brave --dir right
-alias bfi = brave --dir first
-alias bse = brave --dir second
+alias bra = brave --dir a
+alias brb = brave --dir b
 
 alias dn = dir new
 alias fn = file new
