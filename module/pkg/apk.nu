@@ -316,6 +316,78 @@ export def immich [ --force(-f) ] {
   install $filepath
 }
 
+export def uhabits [ --force(-f) ] {
+  let version = ghub version 'iSoron/uhabits'
+  let filename = $'uhabits_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $"https://github.com/iSoron/uhabits/releases/download/v($version)/loop-($version)-release.apk" -o $filepath
+  }
+
+  install $filepath
+}
+
+export def Habo [ --force(-f) ] {
+  let version = ghub version 'xpavle00/Habo'
+  let filename = $'Habo_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download https://github.com/xpavle00/Habo/releases/download/v($version)/app-arm64-v8a-release.apk -o $filepath
+  }
+
+  install $filepath
+}
+
+export def mhabit [ --force(-f) ] {
+  let version = ghub version 'FriesI23/mhabit'
+  let filename = $'mhabit_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download https://github.com/FriesI23/mhabit/releases/download/v($version)/app-arm64-v8a-release.apk -o $filepath
+  }
+
+  install $filepath
+}
+
+export def HabitBuilder [ --force(-f) ] {
+  let version = ghub version 'ofalvai/HabitBuilder'
+  let filename = $'HabitBuilder_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download https://github.com/ofalvai/HabitBuilder/releases/download/($version)/app-release.apk -o $filepath
+  }
+
+  install $filepath
+}
+
+export def RoutineTracker [ --force(-f) ] {
+  let version = ghub version 'DanielRendox/RoutineTracker'
+  let filename = $'RoutineTracker_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $"https://github.com/DanielRendox/RoutineTracker/releases/download/v($version)/routinetracker-v($version).apk" -o $filepath
+  }
+
+  install $filepath
+}
+
+export def habits [ --force(-f) ] {
+  let version = ghub version 'willbsp/habits'
+  let filename = $'habits_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $"https://github.com/willbsp/habits/releases/download/v($version)/habits-github-($version).apk" -o $filepath
+  }
+
+  install $filepath
+}
+
 export def core [] {
   NewPipe
   LibreTube
