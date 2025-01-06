@@ -46,6 +46,7 @@ export def packages [] {
 		[ dev gopls golang.org/x/tools/gopls@latest ]
 		[ dev dlv github.com/go-delve/delve/cmd/dlv@latest ]
 		[ dev golangci-lint github.com/golangci/golangci-lint/cmd/golangci-lint@latest ]
+		[ dev golangci-lint github.com/nametake/golangci-lint-langserver@latest ]
 
 		[ dev air github.com/air-verse/air@latest ]
 		[ dev swag github.com/swaggo/swag/cmd/swag@latest ]
