@@ -414,3 +414,21 @@ export def apx [] {
     sudo make install-manpages
   }
 }
+
+export def virtualpen [] {
+  sudo apt-get install libusb-1.0-0-dev libgl1-mesa-dev qt6-base-dev
+
+  let path = ($env.USR_LOCAL_SOURCE | path join virtualpen)
+  git-down https://github.com/androidvirtualpen/virtualpen $path
+
+  with-wd ($path | path join virtual-pen-linux-host) {||
+    cmake ./
+    make
+
+    let dir = "virtual-pen-linux-host"
+    let name = "virtual-pen-linux-host"
+    let path = ($env.USR_LOCAL_SOURCE | path join virtualpen $dir $name)
+    ln -sf $path ($env.USR_LOCAL_BIN | path join $name)
+    sudo ln -sf $path ($env.SYS_LOCAL_BIN | path join $name)
+  }
+}

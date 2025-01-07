@@ -29,12 +29,61 @@ export def LibreTube [] {
 }
 
 export def InnerTune [] {
-  let version = '0.5.10'
+  let version = ghub version 'z-huang/InnerTune'
   let name = $'InnerTune_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
 
   if not ($output | path exists) {
     https download $'https://github.com/z-huang/InnerTune/releases/download/v($version)/InnerTune_v($version)_foss.apk' -o $output
+  }
+
+  install $output
+}
+
+export def OpenTune [] {
+  let version = ghub version 'Arturo254/OpenTune'
+  let name = $'OpenTune_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+
+  if not ($output | path exists) {
+    https download https://github.com/Arturo254/OpenTune/releases/download/($version)/app-foss-release.apk -o $output
+  }
+
+  install $output
+}
+
+export def OuterTune [] {
+  let version = ghub version 'DD3Boh/OuterTune'
+  let name = $'OuterTune_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+
+  if not ($output | path exists) {
+    https download $'https://github.com/DD3Boh/OuterTune/releases/download/v($version)/OuterTune-($version)-arm64-release.apk' -o $output
+  }
+
+  install $output
+}
+
+export def Metrolist [] {
+  let version = ghub version 'mostafaalagamy/Metrolist'
+  let name = $'Metrolist_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+
+  if not ($output | path exists) {
+    https download https://github.com/mostafaalagamy/Metrolist/releases/download/v10.8.0/Metrolist.apk -o $output
+  }
+
+  install $output
+}
+
+export def RiMusic [] {
+  let version = ghub version 'fast4x/RiMusic'
+  let name = $'RiMusic_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+  https://github.com/fast4x/RiMusic/releases/download/v0.6.65.1/app-foss-release.apk
+
+  if not ($output | path exists) {
+    https download $'https://github.com/fast4x/RiMusic/releases/download/v($version)/app-foss-release.apk' -o $output
   }
 
   install $output
@@ -65,7 +114,7 @@ export def ScreenStream [] {
 }
 
 export def ToDark [] {
-  let version = '1.5.4'
+  let version = ghub version 'darkmoonight/ToDark'
   let name = $'ToDark_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
 
@@ -77,7 +126,7 @@ export def ToDark [] {
 }
 
 export def IvyWallet [] {
-  let version = '2024.10.20-204'
+  let version = ghub version 'Ivy-Apps/ivy-wallet'
   let name = $'IvyWallet_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
 
@@ -89,36 +138,24 @@ export def IvyWallet [] {
 }
 
 export def NatriumWallet [] {
-  let version = '2.5.2'
+  let version = ghub version 'appditto/natrium_wallet_flutter'
   let name = $'NatriumWallet_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
 
   if not ($output | path exists) {
-    https download $'https://github.com/appditto/natrium_wallet_flutter/releases/download/v($version)/natrium_v252.apk' -o $output
+    https download $'https://github.com/appditto/natrium_wallet_flutter/releases/download/v($version)/natrium_v($version | str replace . '').apk' -o $output
   }
 
   install $output
 }
 
 export def DroidIfy [] {
-  let version = '0.6.3'
+  let version = ghub version 'Droid-ify/client'
   let name = $'DroidIfy_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
 
   if not ($output | path exists) {
     https download $'https://github.com/Droid-ify/client/releases/download/v($version)/app-release.apk' -o $output
-  }
-
-  install $output
-}
-
-export def RiMusic [] {
-  let version = '0.6.57.1'
-  let name = $'RiMusic_($version).apk'
-  let output = ($env.USR_LOCAL_APK | path join $name)
-
-  if not ($output | path exists) {
-    https download $'https://github.com/fast4x/RiMusic/releases/download/v($version)/app-foss-release.apk' -o $output
   }
 
   install $output
@@ -221,7 +258,7 @@ export def DataBackup [] {
 }
 
 export def stratumauth [] {
-  let version = '1.0.2'
+  let version = ghub version 'stratumauth/app'
   let name = $'stratumauth_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
 
@@ -388,18 +425,77 @@ export def habits [ --force(-f) ] {
   install $filepath
 }
 
-export def core [] {
+export def saber [ --force(-f) ] {
+  let version = ghub version 'saber-notes/saber'
+  let filename = $'saber_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/saber-notes/saber/releases/download/v($version)/Saber_v($version).apk' -o $filepath
+  }
+
+  install $filepath
+}
+
+export def PdfReaderPro [ --force(-f) ] {
+  let version = ghub version 'ahmmedrejowan/PdfReaderPro'
+  let filename = $'PdfReaderPro_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/ahmmedrejowan/PdfReaderPro/releases/download/($version)/PdfReaderPro.apk' -o $filepath
+  }
+
+  install $filepath
+}
+
+export def MaterialFiles [ --force(-f) ] {
+  let version = ghub version 'zhanghai/MaterialFiles'
+  let filename = $'MaterialFiles_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/zhanghai/MaterialFiles/releases/download/v($version)/app-release-universal.apk' -o $filepath
+  }
+
+  install $filepath
+}
+
+export def KeePassDX [ --force(-f) ] {
+  let version = ghub version 'Kunzisoft/KeePassDX'
+  let filename = $'KeePassDX_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/Kunzisoft/KeePassDX/releases/download/($version)/KeePassDX-($version)-libre.apk' -o $filepath
+  }
+
+  install $filepath
+}
+
+export def VirtualHosts [ --force(-f) ] {
+  let version = ghub version 'x-falcon/Virtual-Hosts'
+  let filename = $'VirtualHosts_($version).apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download $'https://github.com/x-falcon/Virtual-Hosts/releases/download/($version)/app-Github-release.apk' -o $filepath
+  }
+
+  install $filepath
+}
+
+export def basic [] {
+  DroidIfy
   NewPipe
-  LibreTube
-  InnerTune
-  AudioSource
-  ScreenStream
+  mhabit
   ToDark
   IvyWallet
+  AudioSource
   NatriumWallet
-  DroidIfy
-  RiMusic
-  qrserv
-  sharik
-  localsend
+  MaterialFiles
+  PdfReaderPro
+  KeePassDX
+  InnerTune
+  stratumauth
 }

@@ -23,7 +23,6 @@ export def 'download xh' [
   --output(-o): string
 ] {
   mut args = [
-    --quiet
     --body
     --download
   ]

@@ -236,8 +236,8 @@
   {
     "category": "extra",
     "repository": "yorukot/superfile",
-    "tag_name": "v1.1.7",
-    "created_at": "2025-01-05T16:14:54Z"
+    "tag_name": "v1.1.7.1",
+    "created_at": "2025-01-06T07:45:29Z"
   },
   {
     "category": "extra",
@@ -338,8 +338,8 @@
   {
     "category": "extra",
     "repository": "sarub0b0/kubetui",
-    "tag_name": "v1.5.4",
-    "created_at": "2024-12-15T14:00:19Z"
+    "tag_name": "v1.6.0",
+    "created_at": "2025-01-06T16:44:44Z"
   },
   {
     "category": "extra",
@@ -416,8 +416,8 @@
   {
     "category": "extra",
     "repository": "charmbracelet/soft-serve",
-    "tag_name": "v0.8.1",
-    "created_at": "2024-12-11T18:31:46Z"
+    "tag_name": "v0.8.2",
+    "created_at": "2025-01-07T11:32:40Z"
   },
   {
     "category": "extra",
@@ -794,8 +794,8 @@
   {
     "category": "other",
     "repository": "cli/cli",
-    "tag_name": "v2.64.0",
-    "created_at": "2024-12-18T16:21:34Z"
+    "tag_name": "v2.65.0",
+    "created_at": "2025-01-06T19:38:49Z"
   },
   {
     "category": "other",
@@ -806,8 +806,8 @@
   {
     "category": "other",
     "repository": "astral-sh/uv",
-    "tag_name": "0.5.14",
-    "created_at": "2025-01-02T19:31:04Z"
+    "tag_name": "0.5.15",
+    "created_at": "2025-01-07T00:04:25Z"
   },
   {
     "category": "other",
@@ -890,8 +890,8 @@
   {
     "category": "other",
     "repository": "siyuan-note/siyuan",
-    "tag_name": "v3.1.18",
-    "created_at": "2024-12-31T01:29:55Z"
+    "tag_name": "v3.1.19",
+    "created_at": "2025-01-07T00:40:03Z"
   },
   {
     "category": "other",
@@ -908,8 +908,8 @@
   {
     "category": "other",
     "repository": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.7.9",
-    "created_at": "2024-12-30T09:57:00Z"
+    "tag_name": "0.8.0",
+    "created_at": "2025-01-07T10:13:11Z"
   },
   {
     "category": "other",
@@ -944,8 +944,8 @@
   {
     "category": "other",
     "repository": "telegramdesktop/tdesktop",
-    "tag_name": "v5.10.0",
-    "created_at": "2025-01-02T08:23:07Z"
+    "tag_name": "v5.10.1",
+    "created_at": "2025-01-06T17:42:23Z"
   },
   {
     "category": "other",
@@ -974,8 +974,8 @@
   {
     "category": "other",
     "repository": "digitalocean/doctl",
-    "tag_name": "v1.120.0",
-    "created_at": "2024-12-12T16:00:04Z"
+    "tag_name": "v1.120.1",
+    "created_at": "2025-01-06T15:52:27Z"
   },
   {
     "category": "other",
@@ -1218,39 +1218,129 @@
     "created_at": "2024-12-30T06:47:58Z"
   },
   {
+    "category": "other",
+    "repository": "saber-notes/saber",
+    "tag_name": "v0.25.3",
+    "created_at": "2024-12-14T03:17:45Z"
+  },
+  {
     "category": "android",
     "repository": "iSoron/uhabits",
     "tag_name": "v2.2.0",
-    "created_at": "2024-12-30T06:47:58Z"
+    "created_at": "2024-01-31T01:15:22Z"
   },
   {
     "category": "android",
     "repository": "xpavle00/Habo",
     "tag_name": "v2.1.1",
-    "created_at": "2024-12-30T06:47:58Z"
+    "created_at": "2024-01-18T16:21:33Z"
   },
   {
     "category": "android",
     "repository": "FriesI23/mhabit",
-    "tag_name": "v1.14.4+57",
-    "created_at": "2024-12-30T06:47:58Z"
+    "tag_name": "v1.15.3+61",
+    "created_at": "2025-01-07T09:22:20Z"
   },
   {
     "category": "android",
     "repository": "ofalvai/HabitBuilder",
     "tag_name": "1.1.4",
-    "created_at": "2024-12-30T06:47:58Z"
+    "created_at": "2024-11-11T08:52:37Z"
   },
   {
     "category": "android",
     "repository": "DanielRendox/RoutineTracker",
     "tag_name": "v0.1.0",
-    "created_at": "2024-12-30T06:47:58Z"
+    "created_at": "2024-02-07T11:04:14Z"
   },
   {
     "category": "android",
     "repository": "willbsp/habits",
     "tag_name": "v1.2.2",
-    "created_at": "2024-12-30T06:47:58Z"
+    "created_at": "2024-08-24T12:39:35Z"
+  },
+  {
+    "category": "android",
+    "repository": "zhanghai/MaterialFiles",
+    "tag_name": "v1.7.4",
+    "created_at": "2024-06-30T05:07:51Z"
+  },
+  {
+    "category": "android",
+    "repository": "stratumauth/app",
+    "tag_name": "v1.1.0",
+    "created_at": "2024-12-01T10:23:40Z"
+  },
+  {
+    "category": "android",
+    "repository": "Kunzisoft/KeePassDX",
+    "tag_name": "4.1.1",
+    "created_at": "2024-11-24T14:46:03Z"
+  },
+  {
+    "category": "android",
+    "repository": "darkmoonight/ToDark",
+    "tag_name": "v1.5.4",
+    "created_at": "2024-10-12T14:51:04Z"
+  },
+  {
+    "category": "android",
+    "repository": "Droid-ify/client",
+    "tag_name": "v0.6.4",
+    "created_at": "2024-12-25T19:04:55Z"
+  },
+  {
+    "category": "android",
+    "repository": "z-huang/InnerTune",
+    "tag_name": "v0.5.10",
+    "created_at": "2024-09-01T14:15:33Z"
+  },
+  {
+    "category": "android",
+    "repository": "Arturo254/OpenTune",
+    "tag_name": "1.9.3",
+    "created_at": "2024-12-30T02:22:48Z"
+  },
+  {
+    "category": "android",
+    "repository": "DD3Boh/OuterTune",
+    "tag_name": "v0.6.4",
+    "created_at": "2024-12-18T17:56:48Z"
+  },
+  {
+    "category": "android",
+    "repository": "mostafaalagamy/Metrolist",
+    "tag_name": "v10.8.0",
+    "created_at": "2024-12-17T23:37:10Z"
+  },
+  {
+    "category": "android",
+    "repository": "fast4x/RiMusic",
+    "tag_name": "v0.6.65.1",
+    "created_at": "2024-12-23T01:07:11Z"
+  },
+  {
+    "category": "android",
+    "repository": "Ivy-Apps/ivy-wallet",
+    "tag_name": "v2024.11.05-205",
+    "created_at": "2024-11-05T15:58:29Z"
+  },
+  {
+    "category": "android",
+    "repository": "appditto/natrium_wallet_flutter",
+    "tag_name": "v2.5.2",
+    "created_at": "2024-10-08T14:19:55Z"
+  },
+  {
+    "category": "android",
+    "repository": "ahmmedrejowan/PdfReaderPro",
+    "tag_name": "1.0.0",
+    "created_at": "2024-05-14T19:18:52Z"
+  },
+  {
+    "category": "android",
+    "repository": "x-falcon/Virtual-Hosts",
+    "tag_name": "2.1.0",
+    "created_at": "2019-03-06T11:16:30Z"
   }
 ]
