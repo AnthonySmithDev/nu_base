@@ -485,6 +485,21 @@ export def VirtualHosts [ --force(-f) ] {
   install $filepath
 }
 
+export def RootlessJamesDSP [ --force(-f) ] {
+  let filename = $'RootlessJamesDSP_f-droid.apk'
+  let filepath = ($env.USR_LOCAL_APK | path join $filename)
+
+  if not ($filepath | path exists) {
+    https download https://f-droid.org/repo/me.timschneeberger.rootlessjamesdsp_50.apk -o $filepath
+  }
+
+  install $filepath
+
+  adb shell pm grant me.timschneeberger.rootlessjamesdsp android.permission.DUMP
+  adb shell appops set me.timschneeberger.rootlessjamesdsp PROJECT_MEDIA allow
+  adb shell appops set me.timschneeberger.rootlessjamesdsp SYSTEM_ALERT_WINDOW allow
+}
+
 export def basic [] {
   DroidIfy
   NewPipe
