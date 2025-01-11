@@ -264,7 +264,7 @@ export def mirrord [] {
   let path = share mirrord $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/metalbear-co/mirrord/releases/download/($version)/mirrord_linux_x86_64" -o mirrord
+    https download $'https://github.com/metalbear-co/mirrord/releases/download/($version)/mirrord_linux_x86_64' -o mirrord
     add-execute mirrord
     move -f mirrord -p $path
   }
@@ -290,9 +290,9 @@ export def fm [] {
   let path = share fm $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/mistakenelf/fm/releases/download/v($version)/fm_($version)_linux_amd64.tar.gz"
-    extract tar $"fm_($version)_linux_amd64.tar.gz" -d fm_linux_amd64
-    move -d $'fm_linux_amd64' -f fm -p $path
+    https download $'https://github.com/mistakenelf/fm/releases/download/v($version)/fm_($version)_linux_amd64.tar.gz'
+    extract tar $'fm_($version)_linux_amd64.tar.gz' -d fm_linux_amd64
+    move -d fm_linux_amd64 -f fm -p $path
   }
 
   bind file fm $path
@@ -316,9 +316,9 @@ export def zk [] {
   let path = share zk $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/zk-org/zk/releases/download/v($version)/zk-v($version)-linux-amd64.tar.gz"
-    extract tar $"zk-v($version)-linux-amd64.tar.gz" -d zk_linux_amd64
-    move -d $'zk_linux_amd64' -f zk -p $path
+    https download $'https://github.com/zk-org/zk/releases/download/v($version)/zk-v($version)-linux-amd64.tar.gz'
+    extract tar $'zk-v($version)-linux-amd64.tar.gz' -d zk_linux_amd64
+    move -d zk_linux_amd64 -f zk -p $path
   }
 
   bind file zk $path
@@ -329,9 +329,9 @@ export def hostctl [] {
   let path = share hostctl $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/guumaster/hostctl/releases/download/v($version)/hostctl_($version)_linux_64-bit.tar.gz"
-    extract tar $'hostctl_($version)_linux_64-bit.tar.gz' -d "hostctl_linux"
-    move -d "hostctl_linux" -f hostctl -p $path
+    https download $'https://github.com/guumaster/hostctl/releases/download/v($version)/hostctl_($version)_linux_64-bit.tar.gz'
+    extract tar $'hostctl_($version)_linux_64-bit.tar.gz' -d 'hostctl_linux'
+    move -d 'hostctl_linux' -f hostctl -p $path
   }
 
   bind file hostctl $path
@@ -369,7 +369,7 @@ export def task [] {
   let path = share task $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/go-task/task/releases/download/v($version)/task_linux_amd64.tar.gz"
+    https download $'https://github.com/go-task/task/releases/download/v($version)/task_linux_amd64.tar.gz'
     extract tar task_linux_amd64.tar.gz -d task_linux_amd64
     move -d task_linux_amd64 -f task -p $path
   }
@@ -427,7 +427,7 @@ export def obsidian-cli [] {
 
   if ($path | path-not-exists) {
     https download $'https://github.com/Yakitrak/obsidian-cli/releases/download/v($version)/obsidian-cli_($version)_linux_amd64.tar.gz'
-    extract tar $"obsidian-cli_($version)_linux_amd64.tar.gz" -d "obsidian-cli_linux_amd64"
+    extract tar $'obsidian-cli_($version)_linux_amd64.tar.gz' -d 'obsidian-cli_linux_amd64'
     move -d obsidian-cli_linux_amd64 -f obsidian-cli -p $path
   }
 
@@ -557,7 +557,7 @@ export def dasel [] {
   let path = share dasel $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/TomWright/dasel/releases/download/v($version)/dasel_linux_amd64" -o dasel
+    https download $'https://github.com/TomWright/dasel/releases/download/v($version)/dasel_linux_amd64' -o dasel
     add-execute dasel
     move -f dasel -p $path
   }
@@ -695,11 +695,11 @@ export def atlas [--eula] {
 
   if ($path | path-not-exists) {
     let filename = if $eula {
-      "atlas-linux-amd64-latest"
+      'atlas-linux-amd64-latest'
     } else {
-      "atlas-community-linux-amd64-latest"
+      'atlas-community-linux-amd64-latest'
     }
-    https download $"https://release.ariga.io/atlas/($filename)" -o atlas
+    https download $'https://release.ariga.io/atlas/($filename)' -o atlas
     add-execute atlas
     move -f atlas -p $path
   }
@@ -804,7 +804,7 @@ export def kanata [] {
   let path = share kanata $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/jtroo/kanata/releases/download/v($version)/kanata" -o kanata
+    https download $'https://github.com/jtroo/kanata/releases/download/v($version)/kanata' -o kanata
     add-execute kanata
     move -f kanata -p $path
   }
@@ -818,10 +818,10 @@ export def --env mongosh [] {
   let path = share mongosh $version
 
   if ($path | path-not-exists) {
-    https download $"https://downloads.mongodb.com/compass/mongosh-($version)-linux-x64.tgz"
-    extract tar $"mongosh-($version)-linux-x64.tgz"
-    mv $"mongosh-($version)-linux-x64/bin" $path
-    rm -rf $"mongosh-($version)-linux-x64"
+    https download $'https://downloads.mongodb.com/compass/mongosh-($version)-linux-x64.tgz'
+    extract tar $'mongosh-($version)-linux-x64.tgz'
+    mv $'mongosh-($version)-linux-x64/bin' $path
+    rm -rf $'mongosh-($version)-linux-x64'
   }
 
   bind dir $path $env.MONGOSH_BIN
@@ -898,8 +898,8 @@ export def bore [] {
   let path = share bore $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/ekzhang/bore/releases/download/v($version)/bore-v($version)-x86_64-unknown-linux-musl.tar.gz"
-    extract tar $"bore-v($version)-x86_64-unknown-linux-musl.tar.gz"
+    https download $'https://github.com/ekzhang/bore/releases/download/v($version)/bore-v($version)-x86_64-unknown-linux-musl.tar.gz'
+    extract tar $'bore-v($version)-x86_64-unknown-linux-musl.tar.gz'
     move -f bore -p $path
   }
 
@@ -1417,7 +1417,7 @@ export def gitlab [] {
 }
 
 export def gitlab-runner [] {
-  sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
+  sudo curl -L --output /usr/local/bin/gitlab-runner 'https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64'
   sudo chmod 777 /usr/local/bin/gitlab-runner
   sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
   sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
@@ -1547,7 +1547,7 @@ export def k9s [] {
   let path = share k9s $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/derailed/k9s/releases/download/v($version)/k9s_Linux_amd64.tar.gz"
+    https download $'https://github.com/derailed/k9s/releases/download/v($version)/k9s_Linux_amd64.tar.gz'
     extract tar k9s_Linux_amd64.tar.gz -d k9s_Linux_amd64
     move -d k9s_Linux_amd64 -f k9s -p $path
   }
@@ -1653,8 +1653,8 @@ export def plandex [] {
   let path = share plandex $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/plandex-ai/plandex/releases/download/cli%2Fv($version)/plandex_($version)_linux_amd64.tar.gz"
-    extract tar $"plandex_($version)_linux_amd64.tar.gz" -d plandex_linux_amd64
+    https download $'https://github.com/plandex-ai/plandex/releases/download/cli%2Fv($version)/plandex_($version)_linux_amd64.tar.gz'
+    extract tar $'plandex_($version)_linux_amd64.tar.gz' -d plandex_linux_amd64
     move -d plandex_linux_amd64 -f plandex -p $path
   }
 
@@ -1679,7 +1679,7 @@ export def lan-mouse [ --desktop(-d), --service(-s) ] {
   let path = share lan-mouse $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/feschber/lan-mouse/releases/download/v($version)/lan-mouse" -o lan-mouse
+    https download $'https://github.com/feschber/lan-mouse/releases/download/v($version)/lan-mouse' -o lan-mouse
     add-execute lan-mouse
     move -f lan-mouse -p $path
   }
@@ -1879,6 +1879,20 @@ export def AdGuardHome [] {
   bind root AdGuardHome $path
 }
 
+export def zen [] {
+  let version = ghub version 'anfragment/zen'
+  let path = share zen $version
+
+  if ($path | path-not-exists) {
+    https download https://github.com/anfragment/zen/releases/download/v0.7.1/Zen_linux_amd64.tar.gz
+    extract tar Zen_linux_amd64.tar.gz
+    move -f Zen -p $path
+  }
+
+  bind file Zen $path
+  bind root Zen $path
+}
+
 export def superhtml [] {
   let version = ghub version 'kristoff-it/superhtml'
   let path = share superhtml $version
@@ -1937,8 +1951,8 @@ export def fclones [] {
   let path = share fclones $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/pkolaczk/fclones/releases/download/v($version)/fclones-($version)-linux-musl-x86_64.tar.gz"
-    extract tar $"fclones-($version)-linux-musl-x86_64.tar.gz"
+    https download $'https://github.com/pkolaczk/fclones/releases/download/v($version)/fclones-($version)-linux-musl-x86_64.tar.gz'
+    extract tar $'fclones-($version)-linux-musl-x86_64.tar.gz'
     move -d target -f x86_64-unknown-linux-musl/release/fclones -p $path
     rm -rf target
   }
@@ -1951,7 +1965,7 @@ export def nano-work-server [] {
   let path = share nano-work-server $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/nanocurrency/nano-work-server/releases/download/V($version)/nano-work-server" -o nano-work-server
+    https download $'https://github.com/nanocurrency/nano-work-server/releases/download/V($version)/nano-work-server' -o nano-work-server
     add-execute nano-work-server
     move -f nano-work-server -p $path
   }
@@ -2140,7 +2154,7 @@ export def pnpm [] {
 def node-versions [] {
   [
     (http get https://nodejs.org/download/release/index.json | get version | first | str trim -c 'v')
-    "21.2.0" "20.9.0" "18.18.2"
+    '21.2.0' '20.9.0' '18.18.2'
   ]
 }
 
@@ -2267,8 +2281,8 @@ export def --env kotlin [] {
   let path = share kotlin $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-compiler-($version).zip"
-    extract zip $"kotlin-compiler-($version).zip"
+    https download $'https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-compiler-($version).zip'
+    extract zip $'kotlin-compiler-($version).zip'
     move -d kotlinc -p $path
   }
 
@@ -2281,7 +2295,7 @@ export def --env kotlin-native [] {
   let path = share kotlin-native $version
 
   if ($path | path-not-exists) {
-    https download $"https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-prebuilt-linux-x86_64-($version).tar.gz"
+    https download $'https://github.com/JetBrains/kotlin/releases/download/v($version)/kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
     extract tar $'kotlin-native-prebuilt-linux-x86_64-($version).tar.gz'
     move -d $'kotlin-native-prebuilt-linux-x86_64-($version)' -p $path
   }
@@ -2906,7 +2920,7 @@ def 'bind root' [cmd: string, src: string] {
 }
 
 def move [
-  --dir(-d): string = '',
+  --dir(-d): string = ''
   --file(-f): string = '',
   --path(-p): string,
 ] {

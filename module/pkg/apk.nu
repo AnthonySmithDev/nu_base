@@ -70,7 +70,19 @@ export def Metrolist [] {
   let output = ($env.USR_LOCAL_APK | path join $name)
 
   if not ($output | path exists) {
-    https download https://github.com/mostafaalagamy/Metrolist/releases/download/v10.8.0/Metrolist.apk -o $output
+    https download https://github.com/mostafaalagamy/Metrolist/releases/download/v($version)/Metrolist.apk -o $output
+  }
+
+  install $output
+}
+
+export def SimpMusic [] {
+  let version = ghub version 'maxrave-dev/SimpMusic'
+  let name = $'SimpMusic_($version).apk'
+  let output = ($env.USR_LOCAL_APK | path join $name)
+
+  if not ($output | path exists) {
+    https download $'https://github.com/maxrave-dev/SimpMusic/releases/download/v($version)/SimpMusic_v($version)-fdroid.apk' -o $output
   }
 
   install $output
@@ -80,7 +92,6 @@ export def RiMusic [] {
   let version = ghub version 'fast4x/RiMusic'
   let name = $'RiMusic_($version).apk'
   let output = ($env.USR_LOCAL_APK | path join $name)
-  https://github.com/fast4x/RiMusic/releases/download/v0.6.65.1/app-foss-release.apk
 
   if not ($output | path exists) {
     https download $'https://github.com/fast4x/RiMusic/releases/download/v($version)/app-foss-release.apk' -o $output
@@ -359,7 +370,7 @@ export def uhabits [ --force(-f) ] {
   let filepath = ($env.USR_LOCAL_APK | path join $filename)
 
   if not ($filepath | path exists) {
-    https download $"https://github.com/iSoron/uhabits/releases/download/v($version)/loop-($version)-release.apk" -o $filepath
+    https download $'https://github.com/iSoron/uhabits/releases/download/v($version)/loop-($version)-release.apk' -o $filepath
   }
 
   install $filepath
@@ -407,7 +418,7 @@ export def RoutineTracker [ --force(-f) ] {
   let filepath = ($env.USR_LOCAL_APK | path join $filename)
 
   if not ($filepath | path exists) {
-    https download $"https://github.com/DanielRendox/RoutineTracker/releases/download/v($version)/routinetracker-v($version).apk" -o $filepath
+    https download $'https://github.com/DanielRendox/RoutineTracker/releases/download/v($version)/routinetracker-v($version).apk' -o $filepath
   }
 
   install $filepath
@@ -419,7 +430,7 @@ export def habits [ --force(-f) ] {
   let filepath = ($env.USR_LOCAL_APK | path join $filename)
 
   if not ($filepath | path exists) {
-    https download $"https://github.com/willbsp/habits/releases/download/v($version)/habits-github-($version).apk" -o $filepath
+    https download $'https://github.com/willbsp/habits/releases/download/v($version)/habits-github-($version).apk' -o $filepath
   }
 
   install $filepath
@@ -514,3 +525,5 @@ export def basic [] {
   InnerTune
   stratumauth
 }
+
+# 528 lines
