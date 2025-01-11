@@ -16,6 +16,7 @@ alias salu = sudo apt list --upgradable
 alias snap = sudo nala autopurge
 alias snar = sudo nala autoremove
 alias snf = sudo nala full-upgrade
+alias snF = sudo nala full-upgrade -y
 alias snh = sudo nala history
 alias sni = sudo nala install -y
 alias snl = sudo nala list
