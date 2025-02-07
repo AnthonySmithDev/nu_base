@@ -1,0 +1,33 @@
+version: 1.0.0
+log:
+    path: /tmp/vi-mongo.log
+    level: info
+    prettyPrint: true
+editor:
+    command: hx
+    env: EDITOR
+showConnectionPage: false
+showWelcomePage: false
+currentConnection: payzum kube dev
+connections:
+    - url: ""
+      host: 0.0.0.0
+      port: 27018
+      database: ""
+      username: payzum_root_user
+      password: payzum_root_pass
+      name: payzum dev
+      timeout: 5
+      options: {}
+    - url: ""
+      host: 0.0.0.0
+      port: 17018
+      database: ""
+      username: payzum_admin
+      password: wiweh7FOG3WJWGT0PSOX8GDSdambSvm2k6tLicj00pZlw6wS3N
+      name: payzum kube dev
+      timeout: 5
+      options: {}
+styles:
+    betterSymbols: true
+    currentStyle: dark-blue.yaml

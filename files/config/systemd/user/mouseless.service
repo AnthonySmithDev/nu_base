@@ -1,0 +1,10 @@
+[Unit]
+Description=mouseless
+
+[Service]
+Environment=PATH=/usr/local/bin:/usr/local/sbin:/usr/bin:/bin
+Environment=DISPLAY=:0
+ExecStart=/home/anthony/.usr/local/bin/mouseless --debug --config /home/anthony/.config/mouseless/config.yaml
+
+[Install]
+WantedBy=multi-user.target
