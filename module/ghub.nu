@@ -77,7 +77,7 @@ export def tag_name [name: string@names] {
   return $r.tag_name
 }
 
-export def asset [name: string, tag_name: string, first?: string] {
+export def asset [name: string@names, tag_name: string, first?: string] {
   let r = view $name
   mut assets = $r.assets
   if $first != null {

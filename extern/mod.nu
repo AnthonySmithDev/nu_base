@@ -7,7 +7,7 @@ use mods.nu
 use zellij.nu
 use pueue.nu
 # use tailscale.nu
-# use ollama.nu
+use ollama.nu
 # use waydroid.nu
 
 # use cpp.nu

@@ -3,7 +3,13 @@
 # Función para verificar la conexión a Internet
 check_internet_connection() {
     echo "Verificando conexión a Internet..."
-    if ping -n 1 -w 2000 google.com &> /dev/null; then
+
+    local ping_cmd="ping -c 1 -W 3 google.com"
+    if [[ "$(uname -s)" =~ ^(CYGWIN|MINGW|MSYS).* ]]; then
+        ping_cmd="ping -n 1 -w 3000 google.com"
+    fi
+
+    if $ping_cmd &> /dev/null; then
         echo "Conexión a Internet detectada."
         return 0
     else
@@ -14,8 +20,6 @@ check_internet_connection() {
 
 # Versión de Nushell a descargar
 VERSION="0.102.0"
-
-# URL base para las descargas
 BASE_URL="https://github.com/nushell/nushell/releases/download/$VERSION"
 
 # Determinar la arquitectura y el sistema operativo
@@ -55,12 +59,12 @@ esac
 DOWNLOAD_URL="$BASE_URL/$FILE"
 
 # Directorio temporal para la descarga
-DOWNLOAD_DIR="$HOME/tmp/file"
-mkdir -p "$DOWNLOAD_DIR"
+HOME_TMP_FILE="$HOME/tmp/file"
+mkdir -p "$HOME_TMP_FILE"
 
 # Verificar si el archivo ya existe
-if [ -f "$DOWNLOAD_DIR/$FILE" ]; then
-    echo "El archivo $FILE ya existe en $DOWNLOAD_DIR. No se descargará nuevamente."
+if [ -f "$HOME_TMP_FILE/$FILE" ]; then
+    echo "El archivo $FILE ya existe en $HOME_TMP_FILE. No se descargará nuevamente."
 else
     # Verificar conexión a Internet antes de descargar
     if ! check_internet_connection; then
@@ -70,9 +74,9 @@ else
 
     # Descargar el archivo
     if command -v wget &> /dev/null; then
-        wget --quiet --show-progress -O "$DOWNLOAD_DIR/$FILE" "$DOWNLOAD_URL"
+        wget --quiet --show-progress -O "$HOME_TMP_FILE/$FILE" "$DOWNLOAD_URL"
     elif command -v curl &> /dev/null; then
-        curl -L -o "$DOWNLOAD_DIR/$FILE" "$DOWNLOAD_URL"
+        curl -L -o "$HOME_TMP_FILE/$FILE" "$DOWNLOAD_URL"
     else
         echo "No se encontró ni wget ni curl. Por favor, instala uno de ellos."
         exit 1
@@ -80,13 +84,16 @@ else
 fi
 
 # Directorio temporal para la descompresión
-TEMP_DIR=$(mktemp -d "$HOME/tmp/dir/nushell_XXXXXX")
+HOME_TMP_DIR="$HOME/tmp/dir"
+mkdir "$HOME_TMP_DIR"
+
+TEMP_DIR=$(mktemp -d "$HOME_TMP_DIR/nushell_XXXXXX")
 
 # Descomprimir el archivo
 if [[ "$FILE" == *.tar.gz ]]; then
-    tar -xzf "$DOWNLOAD_DIR/$FILE" -C "$TEMP_DIR"
+    tar -xzf "$HOME_TMP_FILE/$FILE" -C "$TEMP_DIR"
 elif [[ "$FILE" == *.zip ]]; then
-    unzip "$DOWNLOAD_DIR/$FILE" -d "$TEMP_DIR"
+    unzip "$HOME_TMP_FILE/$FILE" -d "$TEMP_DIR"
 else
     echo "Formato de archivo no soportado: $FILE"
     exit 1

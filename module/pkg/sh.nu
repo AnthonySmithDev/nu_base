@@ -56,6 +56,11 @@ export def devbox [ --force(-f) ] {
 export def fnm [ --force(-f) ] {
   if not (exists-external fnm) or $force {
     curl -fsSL https://fnm.vercel.app/install | bash
+  }
+}
 
+export def ollama [ --force(-f) ] {
+  if not (exists-external ollama) or $force {
+    curl -fsSL https://ollama.com/install.sh | sh
   }
 }

@@ -38,7 +38,7 @@ def help! [cmd?: string] {
   }
 }
 
-def --env gfm [] {
+def --env scd [] {
   let path = gum file --file --directory
   if ($path | path type) == 'file' {
     hx $path

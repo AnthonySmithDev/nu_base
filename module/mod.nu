@@ -26,8 +26,7 @@ use tscale.nu
 # use run.nu
 # use setup.nu
 
-const pkg = "~/nushell/nu_base/module/pkg"
-use $pkg
+use pkg/
 
 # use image
 # use gpt.nu
