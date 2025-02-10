@@ -4,7 +4,7 @@ source broot.nu
 # use gum.nu
 use mods.nu
 
-use zellij.nu
+# use zellij.nu
 use pueue.nu
 # use tailscale.nu
 use ollama.nu

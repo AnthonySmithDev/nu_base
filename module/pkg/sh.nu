@@ -64,3 +64,9 @@ export def ollama [ --force(-f) ] {
     curl -fsSL https://ollama.com/install.sh | sh
   }
 }
+
+export def zellij [ --force(-f) ] {
+  if not (exists-external ollama) or $force {
+    curl -L https://zellij.dev/launch | bash
+  }
+}

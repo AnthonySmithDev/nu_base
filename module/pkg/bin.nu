@@ -3597,6 +3597,5 @@ export def core [ --force(-f) ] {
   qrrs
   taskell
   viddy
-  tailscale
   wsget
 }

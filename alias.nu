@@ -44,7 +44,7 @@ alias zj = zellij
 alias zr = zellij run
 alias ze = zellij edit
 alias za = zellij action
-alias zt = zellij attach
+alias zat = zellij attach
 
 alias zls = zellij list-sessions
 alias zks = zellij kill-session
@@ -52,17 +52,23 @@ alias zds = zellij delete-session
 alias zkas = zellij kill-all-sessions -y
 alias zdas = zellij delete-all-sessions -y
 
-alias zf = zellij run --floating --
-alias zn = zellij options --session-name
-
-alias zna = zn a
-alias znb = zn b
-
-alias zaa = zt a
-alias zab = zt b
-
 alias zdr = zellij drop
 alias zda = zellij drop --all
+
+alias zl = zellij --layout
+alias zot = zellij options --theme
+alias zon = zellij options --session-name
+alias zrf = zellij run --floating --
+
+alias zna = zon a
+alias znb = zon b
+alias znc = zon c
+alias znd = zon d
+
+alias zaa = zat a
+alias zab = zat b
+alias zac = zat c
+alias zad = zat d
 
 alias lzg = lazygit
 alias lzd = lazydocker
@@ -72,9 +78,15 @@ alias mos = mods --show-last
 alias mor = mods --show-last --raw
 alias moc = mods --continue-last
 
+def mol [] { mods --list --raw }
 def moe [] { mos | hx }
 def mop [...rest] { wl-paste | mo ...$rest }
 def moP [...rest] { wl-paste | moc ...$rest }
+
+def moi [] { mol | parse "{id}\t{desc}" | rename value description }
+def moS [id: string@moi] { mods --show $id }
+def moR [id: string@moi] { mods --show $id --raw }
+def moC [id: string@moi, ...rest] { mods --continue $id ...$rest }
 
 alias xcp = xclip -i -selection clipboard
 alias xps = xclip -o -selection clipboard
