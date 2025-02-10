@@ -7,21 +7,19 @@
 
 # Initialize hook to add new entries to the database.
 export-env {
-  let hooked = (
-    $env.config?.hooks?.env_change?.PWD?
-    | default []
-    | any { try {get zoxide} catch { false } }
+  $env.config = (
+    $env.config?
+    | default {}
+    | upsert hooks { default {} }
+    | upsert hooks.env_change { default {} }
+    | upsert hooks.env_change.PWD { default [] }
   )
-  if not $hooked {
-    $env.config = (
-      $env.config? | default {}
-      | upsert hooks { default {} }
-      | upsert hooks.env_change { default {} }
-      | upsert hooks.env_change.PWD { default [] }
-    )
-
+  let __zoxide_hooked = (
+    $env.config.hooks.env_change.PWD | any { try { get __zoxide_hook } catch { false } }
+  )
+  if not $__zoxide_hooked {
     $env.config.hooks.env_change.PWD = ($env.config.hooks.env_change.PWD | append {
-      zoxide: true,
+      __zoxide_hook: true,
       code: {|_, dir| zoxide add -- $dir}
     })
   }
@@ -69,4 +67,4 @@ alias zi = __zoxide_zi
 #
 #   source ~/.zoxide.nu
 #
-# Note: zoxide only supports Nushell v0.94.0+.
+# Note: zoxide only supports Nushell v0.89.0+.

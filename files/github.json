@@ -212,23 +212,23 @@
   {
     "category": "core",
     "repository": "ajeetdsouza/zoxide",
-    "tag_name": "v0.9.6",
-    "created_at": "2024-09-19T08:11:26Z",
+    "tag_name": "v0.9.7",
+    "created_at": "2025-02-09T21:49:05Z",
     "assets": [
-      "zoxide-0.9.6-aarch64-apple-darwin.tar.gz",
-      "zoxide-0.9.6-aarch64-linux-android.tar.gz",
-      "zoxide-0.9.6-aarch64-pc-windows-msvc.zip",
-      "zoxide-0.9.6-aarch64-unknown-linux-musl.tar.gz",
-      "zoxide-0.9.6-arm-unknown-linux-musleabihf.tar.gz",
-      "zoxide-0.9.6-armv7-unknown-linux-musleabihf.tar.gz",
-      "zoxide-0.9.6-i686-unknown-linux-musl.tar.gz",
-      "zoxide-0.9.6-x86_64-apple-darwin.tar.gz",
-      "zoxide-0.9.6-x86_64-pc-windows-msvc.zip",
-      "zoxide-0.9.6-x86_64-unknown-linux-musl.tar.gz",
-      "zoxide_0.9.6-1_amd64.deb",
-      "zoxide_0.9.6-1_arm64.deb",
-      "zoxide_0.9.6-1_armhf.deb",
-      "zoxide_0.9.6-1_i386.deb"
+      "zoxide-0.9.7-aarch64-apple-darwin.tar.gz",
+      "zoxide-0.9.7-aarch64-linux-android.tar.gz",
+      "zoxide-0.9.7-aarch64-pc-windows-msvc.zip",
+      "zoxide-0.9.7-aarch64-unknown-linux-musl.tar.gz",
+      "zoxide-0.9.7-arm-unknown-linux-musleabihf.tar.gz",
+      "zoxide-0.9.7-armv7-unknown-linux-musleabihf.tar.gz",
+      "zoxide-0.9.7-i686-unknown-linux-musl.tar.gz",
+      "zoxide-0.9.7-x86_64-apple-darwin.tar.gz",
+      "zoxide-0.9.7-x86_64-pc-windows-msvc.zip",
+      "zoxide-0.9.7-x86_64-unknown-linux-musl.tar.gz",
+      "zoxide_0.9.7-1_amd64.deb",
+      "zoxide_0.9.7-1_arm64.deb",
+      "zoxide_0.9.7-1_armhf.deb",
+      "zoxide_0.9.7-1_i386.deb"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -975,17 +975,18 @@
   {
     "category": "extra",
     "repository": "zk-org/zk",
-    "tag_name": "v0.14.1",
-    "created_at": "2024-05-26T11:02:30Z",
+    "tag_name": "v0.14.2",
+    "created_at": "2025-02-07T20:59:10Z",
     "assets": [
-      "zk-v0.14.1-alpine-amd64.tar.gz",
-      "zk-v0.14.1-alpine-arm64.tar.gz",
-      "zk-v0.14.1-alpine-i386.tar.gz",
-      "zk-v0.14.1-linux-amd64.tar.gz",
-      "zk-v0.14.1-linux-arm64.tar.gz",
-      "zk-v0.14.1-linux-i386.tar.gz",
-      "zk-v0.14.1-macos-arm64.zip",
-      "zk-v0.14.1-macos-x86_64.zip"
+      "zk-v0.14.2-alpine-amd64.tar.gz",
+      "zk-v0.14.2-alpine-arm64.tar.gz",
+      "zk-v0.14.2-alpine-i386.tar.gz",
+      "zk-v0.14.2-linux-amd64.tar.gz",
+      "zk-v0.14.2-linux-arm64.tar.gz",
+      "zk-v0.14.2-linux-i386.tar.gz",
+      "zk-v0.14.2-macos-x86_64.tar.gz",
+      "zk-v0.14.2-macos_arm64.tar.gz",
+      "zk-v0.14.2-windows_x64_86.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux-amd64.tar.gz"
@@ -1013,10 +1014,10 @@
   {
     "category": "extra",
     "repository": "sezanzeb/input-remapper",
-    "tag_name": "2.0.1",
-    "created_at": "2023-09-18T21:42:29Z",
+    "tag_name": "2.1.0",
+    "created_at": "2025-02-08T13:13:52Z",
     "assets": [
-      "input-remapper-2.0.1.deb"
+      "input-remapper-2.1.0.deb"
     ]
   },
   {
@@ -1965,8 +1966,8 @@
   {
     "category": "extra",
     "repository": "jtroo/kanata",
-    "tag_name": "v1.7.0",
-    "created_at": "2024-10-27T07:23:43Z",
+    "tag_name": "v1.8.0",
+    "created_at": "2025-02-09T06:43:10Z",
     "assets": [
       "kanata",
       "kanata.exe",
@@ -3174,8 +3175,8 @@
   {
     "category": "other",
     "repository": "antonmedv/walk",
-    "tag_name": "v1.11.0",
-    "created_at": "2025-02-07T15:01:43Z",
+    "tag_name": "v1.12.0",
+    "created_at": "2025-02-09T21:33:16Z",
     "assets": [
       "walk_darwin_amd64",
       "walk_darwin_arm64",
@@ -3893,29 +3894,29 @@
   {
     "category": "other",
     "repository": "drakkan/sftpgo",
-    "tag_name": "v2.6.4",
-    "created_at": "2024-11-27T18:08:13Z",
+    "tag_name": "v2.6.5",
+    "created_at": "2025-02-07T17:40:00Z",
     "assets": [
-      "sftpgo-2.6.4-1.aarch64.rpm",
-      "sftpgo-2.6.4-1.armv7hl.rpm",
-      "sftpgo-2.6.4-1.ppc64le.rpm",
-      "sftpgo-2.6.4-1.x86_64.rpm",
-      "sftpgo_2.6.4-1_amd64.deb",
-      "sftpgo_2.6.4-1_arm64.deb",
-      "sftpgo_2.6.4-1_armhf.deb",
-      "sftpgo_2.6.4-1_ppc64el.deb",
-      "sftpgo_v2.6.4_linux_arm64.tar.xz",
-      "sftpgo_v2.6.4_linux_armv7.tar.xz",
-      "sftpgo_v2.6.4_linux_bundle.tar.xz",
-      "sftpgo_v2.6.4_linux_ppc64le.tar.xz",
-      "sftpgo_v2.6.4_linux_x86_64.tar.xz",
-      "sftpgo_v2.6.4_macOS_arm64.tar.xz",
-      "sftpgo_v2.6.4_macOS_x86_64.tar.xz",
-      "sftpgo_v2.6.4_src_with_deps.tar.xz",
-      "sftpgo_v2.6.4_windows_arm64.exe",
-      "sftpgo_v2.6.4_windows_portable.zip",
-      "sftpgo_v2.6.4_windows_x86.exe",
-      "sftpgo_v2.6.4_windows_x86_64.exe"
+      "sftpgo-2.6.5-1.aarch64.rpm",
+      "sftpgo-2.6.5-1.armv7hl.rpm",
+      "sftpgo-2.6.5-1.ppc64le.rpm",
+      "sftpgo-2.6.5-1.x86_64.rpm",
+      "sftpgo_2.6.5-1_amd64.deb",
+      "sftpgo_2.6.5-1_arm64.deb",
+      "sftpgo_2.6.5-1_armhf.deb",
+      "sftpgo_2.6.5-1_ppc64el.deb",
+      "sftpgo_v2.6.5_linux_arm64.tar.xz",
+      "sftpgo_v2.6.5_linux_armv7.tar.xz",
+      "sftpgo_v2.6.5_linux_bundle.tar.xz",
+      "sftpgo_v2.6.5_linux_ppc64le.tar.xz",
+      "sftpgo_v2.6.5_linux_x86_64.tar.xz",
+      "sftpgo_v2.6.5_macOS_arm64.tar.xz",
+      "sftpgo_v2.6.5_macOS_x86_64.tar.xz",
+      "sftpgo_v2.6.5_src_with_deps.tar.xz",
+      "sftpgo_v2.6.5_windows_arm64.exe",
+      "sftpgo_v2.6.5_windows_portable.zip",
+      "sftpgo_v2.6.5_windows_x86.exe",
+      "sftpgo_v2.6.5_windows_x86_64.exe"
     ],
     "linux_x64": {
       "ends": "linux_x86_64.tar.xz"
@@ -4140,18 +4141,19 @@
   {
     "category": "other",
     "repository": "raphamorim/rio",
-    "tag_name": "v0.2.5",
-    "created_at": "2025-01-30T16:16:56Z",
+    "tag_name": "v0.2.6",
+    "created_at": "2025-02-08T00:57:08Z",
     "assets": [
-      "LICENSE",
       "macos-unsigned.zip",
       "Rio-installer-aarch64.msi",
       "Rio-installer-x86_64.msi",
       "Rio-portable-aarch64.exe",
       "Rio-portable-x86_64.exe",
-      "Rio-v0.2.5.dmg",
-      "rioterm_0.2.5-1_amd64_wayland.deb",
-      "rioterm_0.2.5-1_amd64_x11.deb"
+      "Rio-v0.2.6.dmg",
+      "rioterm_0.2.6-1_amd64_wayland.deb",
+      "rioterm_0.2.6-1_amd64_x11.deb",
+      "rioterm_0.2.6-1_arm64_wayland.deb",
+      "rioterm_0.2.6-1_arm64_x11.deb"
     ]
   },
   {
@@ -4202,8 +4204,8 @@
   {
     "category": "other",
     "repository": "simulot/immich-go",
-    "tag_name": "0.22.1",
-    "created_at": "2024-10-15T19:49:03Z",
+    "tag_name": "v0.23",
+    "created_at": "2025-02-08T18:41:07Z",
     "assets": [
       "immich-go_Darwin_arm64.tar.gz",
       "immich-go_Darwin_x86_64.tar.gz",
@@ -4940,10 +4942,10 @@
   {
     "category": "other",
     "repository": "pacstall/pacstall",
-    "tag_name": "6.1.0",
-    "created_at": "2025-01-14T20:06:20Z",
+    "tag_name": "6.1.1",
+    "created_at": "2025-02-09T19:14:59Z",
     "assets": [
-      "pacstall_6.1.0-pacstall1_all.deb"
+      "pacstall_6.1.1-pacstall1_all.deb"
     ]
   },
   {
@@ -5160,12 +5162,11 @@
   {
     "category": "android",
     "repository": "DD3Boh/OuterTune",
-    "tag_name": "v0.7.2",
-    "created_at": "2025-02-02T21:06:23Z",
+    "tag_name": "v0.7.3",
+    "created_at": "2025-02-09T20:35:07Z",
     "assets": [
-      "OuterTune-0.7.2-arm64-release.apk",
-      "OuterTune-0.7.2-universal-release-po-token.apk",
-      "OuterTune-0.7.2-universal-release.apk"
+      "OuterTune-0.7.3_rev1-arm64-release.apk",
+      "OuterTune-0.7.3_rev1-universal-release.apk"
     ]
   },
   {
@@ -5189,8 +5190,8 @@
   {
     "category": "android",
     "repository": "fast4x/RiMusic",
-    "tag_name": "v0.6.69",
-    "created_at": "2025-01-31T21:13:33Z",
+    "tag_name": "v0.6.70",
+    "created_at": "2025-02-07T23:07:08Z",
     "assets": [
       "app-foss-release.apk"
     ]
@@ -5243,11 +5244,16 @@
   {
     "category": "android",
     "repository": "sakethpathike/Linkora",
-    "tag_name": "release-v0.10.0",
-    "created_at": "2024-10-21T16:28:38Z",
+    "tag_name": "release-v0.11.0",
+    "created_at": "2025-02-09T12:41:09Z",
     "assets": [
-      "app-fdroid-release.apk",
-      "app-github-release.apk"
+      "composeApp-preview.apk",
+      "composeApp-release.apk",
+      "Linkora-1.0.0.exe",
+      "Linkora-1.0.0.msi",
+      "Linkora-linux-x64-1.0.0.jar",
+      "Linkora.AppImage",
+      "linkora_1.0.0-1_amd64.deb"
     ]
   },
   {

@@ -15,7 +15,8 @@ alias saud = sudo apt update
 alias saug = sudo apt upgrade
 alias saif = sudo apt install --fix-broken
 alias salu = sudo apt list --upgradable
-alias sdca = sudo dpkg --configure -a
+alias sdc = sudo dpkg --configure -a
+alias sdi = sudo dpkg --install
 
 alias snap = sudo nala autopurge
 alias snar = sudo nala autoremove
