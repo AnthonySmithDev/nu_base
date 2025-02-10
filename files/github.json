@@ -4092,6 +4092,22 @@
   },
   {
     "category": "other",
+    "repository": "ytmdesktop/ytmdesktop",
+    "tag_name": "v2.0.7",
+    "created_at": "2025-02-05T21:42:15Z",
+    "assets": [
+      "RELEASES",
+      "youtube-music-desktop-app-2.0.7-1.arm64.rpm",
+      "youtube-music-desktop-app-2.0.7-1.x86_64.rpm",
+      "youtube-music-desktop-app_2.0.7_amd64.deb",
+      "youtube-music-desktop-app_2.0.7_arm64.deb",
+      "YouTube.Music.Desktop.App-2.0.7.Setup.exe",
+      "YouTube.Music.Desktop.App-darwin-x64-2.0.7.zip",
+      "youtube_music_desktop_app-2.0.7-full.nupkg"
+    ]
+  },
+  {
+    "category": "other",
     "repository": "digitalocean/doctl",
     "tag_name": "v1.121.0",
     "created_at": "2025-02-05T21:09:13Z",
@@ -4191,8 +4207,8 @@
   {
     "category": "other",
     "repository": "immich-app/immich",
-    "tag_name": "v1.125.7",
-    "created_at": "2025-01-29T17:41:38Z",
+    "tag_name": "v1.126.1",
+    "created_at": "2025-02-10T17:54:02Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",

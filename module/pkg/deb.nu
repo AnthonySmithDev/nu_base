@@ -297,3 +297,13 @@ export def youtube-music [ --force(-f) ] {
     install $path
   }
 }
+
+export def ytmdesktop [ --force(-f) ] {
+  let version = ghub version 'ytmdesktop/ytmdesktop'
+  let path = filepath ytmdesktop $version
+
+  if (path-not-exists $path $force) {
+    http download https://github.com/ytmdesktop/ytmdesktop/releases/download/v($version)/youtube-music-desktop-app_($version)_amd64.deb -o $path
+    install $path
+  }
+}
