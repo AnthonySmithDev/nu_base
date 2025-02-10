@@ -66,7 +66,19 @@ export def ollama [ --force(-f) ] {
 }
 
 export def zellij [ --force(-f) ] {
-  if not (exists-external ollama) or $force {
+  if not (exists-external zellij) or $force {
     curl -L https://zellij.dev/launch | bash
+  }
+}
+
+export def uv [ --force(-f) ] {
+  if not (exists-external uv) or $force {
+    curl -LsSf https://astral.sh/uv/install.sh | sh
+  }
+}
+
+export def ruff [ --force(-f) ] {
+  if not (exists-external ruff) or $force {
+    curl -LsSf https://astral.sh/ruff/install.sh | sh
   }
 }
