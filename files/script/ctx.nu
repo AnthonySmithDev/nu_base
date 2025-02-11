@@ -6,15 +6,15 @@ def main [] {
   print -n $in
 }
 
-def "main show" [] {
+def "main show" [lang: string = "txt"] {
   let path = ($env.PWD | path join ctx.txt)
   if ($path | path exists) {
-    open $path
+    bat --language $lang --paging never --style header $path
   }
 }
 
-def "main s" [] {
-  main show
+def "main s" [lang: string] {
+  main show $lang
 }
 
 def "main remove" [] {

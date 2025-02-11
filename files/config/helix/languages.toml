@@ -1,65 +1,120 @@
 
-# [language-server.ruff]
-# command = "ruff-lsp"
-# config = { settings = { run = "onSave" } }
+##############################
+## Configuration for lsp-ai ##
+##############################
 
-# [[language]]
-# name = "python"
-# scope = "source.python"
-# language-servers = ["pylsp", "ruff"]
+[language-server.lsp-ai]
+command = "lsp-ai"
+args = ["--use-seperate-log-file"]
 
-# [language-server.nu-lsp]
-# command = "nu"
-# args = [ "--lsp" ]
+[language-server.lsp-ai.config.memory]
+file_store = { }
 
-# [[language]]
-# name = "nu"
-# scope = "source.nu"
-# injection-regex = "nu"
-# # file-types = ["nu"]
-# shebangs = ["nu"]
-# comment-token = "#"
-# indent = { tab-width = 2, unit = "  " }
-# # language-servers = [ "nu-lsp" ]
+[language-server.lsp-ai.config.models.model1]
+type = "open_ai"
+chat_endpoint = "https://api.groq.com/openai/v1/chat/completions"
+model = "llama3-70b-8192"
+auth_token_env_var_name = "GROQ_API_KEY"
 
-# [[grammar]]
-# name = "nu"
-# source = { git = "https://github.com/nushell/tree-sitter-nu", rev = "main" }
+[language-server.lsp-ai.config.models.model2]
+type = "open_ai"
+chat_endpoint = "https://api.deepseek.com/chat/completions"
+model = "deepseek-coder"
+auth_token_env_var_name = "DEEPSEEK_API_KEY"
 
-# [[language]]
-# name = "gemini"
-# scope = "source.gmi"
-# file-types = ["gmi"]
+[language-server.lsp-ai.config.models.model3]
+type = "ollama"
+generate_endpoint = "http://r2v2:11434/api/generate"
+chat_endpoint = "http://r2v2:11434/api/chat"
+model = "codellama"
 
-# [[grammar]]
-# name = "gemini"
-# source = { git = "https://git.sr.ht/~nbsp/tree-sitter-gemini", rev = "3cc5e4bdf572d5df4277fc2e54d6299bd59a54b3" }
+[language-server.lsp-ai.config.models.model4]
+type = "ollama"
+generate_endpoint = "http://r2v2:11434/api/generate"
+chat_endpoint = "http://r2v2:11434/api/chat"
+model = "codegemma"
 
-# [language-server.tabby]
-# command = "npx"
-# args = ["tabby-agent", "--lsp", "--stdio"]
+[language-server.lsp-ai.config.models.model5]
+type = "ollama"
+generate_endpoint = "http://r2v2:11434/api/generate"
+chat_endpoint = "http://r2v2:11434/api/chat"
+model = "codestral"
 
-# [[languages]]
-# name = "go"
-# language-servers = ["tabby"]
+[[language-server.lsp-ai.config.chat]]
+trigger = "!C"
+action_display_name = "Chat"
+model = "model1"
 
-# [[language]]
-# name = "kdl"
-# scope = "source.kdl"
-# # file-types = ["kdl"]
+[language-server.lsp-ai.config.chat.parameters]
+max_context = 4096
+max_tokens = 1024
+system = "You are a code assistant chatbot. The user will ask you for assistance coding and you will do you best to answer succinctly and accurately"
 
-# [[grammar]]
-# name = "kdl"
-# source = { git = "https://github.com/amaanq/tree-sitter-kdl", rev = "master" }
+[language-server.lsp-ai.config.completion]
+model = "model1"
 
-# [[language]]
-# name = "env"
-# scope = "source.env"
-# file-types = [{ glob = ".env" }, { glob = ".env.*" }, { glob = ".envrc" }, { glob = ".envrc.*" }, { glob = "*.env" }]
+[language-server.lsp-ai.config.completion.parameters]
+max_tokens = 64
+max_context = 1024
 
-# [language-server.hx-lsp]
-# command = "hx-lsp"
+## Configure the messages per your needs
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "system"
+content = "Instructions:\n- You are an AI programming assistant.\n- Given a piece of code with the cursor location marked by \"<CURSOR>\", replace \"<CURSOR>\" with the correct code or comment.\n- First, think step-by-step.\n- Describe your plan for what to build in pseudocode, written out in great detail.\n- Then output the code replacing the \"<CURSOR>\"\n- Ensure that your completion fits within the language context of the provided code snippet (e.g., Python, JavaScript, Rust).\n\nRules:\n- Only respond with code or comments.\n- Only replace \"<CURSOR>\"; do not include any previously written code.\n- Never include \"<CURSOR>\" in your response\n- If the cursor is within a comment, complete the comment meaningfully.\n- Handle ambiguous cases by providing the most contextually appropriate completion.\n- Be consistent with your responses."
 
-# [[language]]
-# name = "go"
-# language-servers = [ "gopls", "golangci-lint-lsp", "hx-lsp" ]
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "user"
+content = "def greet(name):\n    print(f\"Hello, {<CURSOR>}\")"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "assistant"
+content = "name"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "user"
+content = "function sum(a, b) {\n    return a + <CURSOR>;\n}"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "assistant"
+content = "b"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "user"
+content = "fn multiply(a: i32, b: i32) -> i32 {\n    a * <CURSOR>\n}"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "assistant"
+content = "b"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "user"
+content = "# <CURSOR>\ndef add(a, b):\n    return a + b"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "assistant"
+content = "Adds two numbers"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "user"
+content = "# This function checks if a number is even\n<CURSOR>"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "assistant"
+content = "def is_even(n):\n    return n % 2 == 0"
+
+[[language-server.lsp-ai.config.completion.parameters.messages]]
+role = "user"
+content = "{CODE}"
+
+
+#################################
+## Configuration for languages ##
+#################################
+
+[[language]]
+name = "go"
+language-servers = [ "gopls", "golangci-lint-langserver", "lsp-ai" ]
+
+[[language]]
+name = "markdown"
+language-servers = ["lsp-ai"]

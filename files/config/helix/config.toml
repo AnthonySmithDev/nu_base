@@ -19,7 +19,7 @@ normal = "block"
 hidden = false
 
 [editor.auto-save]
-focus-lost = true
+focus-lost = false
 
 [editor.soft-wrap]
 enable = true
