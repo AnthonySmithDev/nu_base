@@ -23,7 +23,7 @@ def decompress [path: path] {
   let dir = mktemp --directory --tmpdir-path $env.DOWNLOAD_PATH_DIR
   mkdir $dir
 
-  if $path =~ ".tar" or $path =~ ".tgz" {
+  if $path =~ ".tar" or $path =~ ".tgz" or $path =~ ".tar.gz" {
     if (exists-external gum) {
       ^gum spin --spinner dot --title 'Extract tar...' -- tar -xvf $path -C $dir
     } else {
@@ -31,12 +31,17 @@ def decompress [path: path] {
     }
   } else if $path =~ ".zip" {
     if (exists-external gum) {
-      ^gum spin --spinner dot --title 'Extract tar...' -- unzip $path -d $dir
+      ^gum spin --spinner dot --title 'Extract zip...' -- unzip $path -d $dir
     } else {
       unzip $path -d $dir
     }
+  } else if $path =~ ".gz" {
+    let basename = ($path | path basename | str replace '.gz' '')
+    let filepath = ($dir | path join $basename)
+    gunzip -c $path | save --force $filepath
+    return $filepath
   } else {
-      error make {msg: "Unsupported file format"}
+    error make {msg: "Unsupported file format"}
   }
 
   let content = (ls $dir | get name)
@@ -210,6 +215,23 @@ export def fzf [ --force(-f) ] {
 
   bind file fzf $path
   bind root fzf $path
+}
+
+export def lsp-ai [ --force(-f) ] {
+  let repository = 'SilasMarvin/lsp-ai'
+  let tag_name = ghub tag_name $repository
+  let path = filepath lsp-ai $tag_name
+
+  if (path-not-exists $path $force) {
+    let asset = ghub asset $repository $tag_name
+    let download_url = ghub download_url $repository $tag_name $asset
+    let download_path = download $download_url
+    let decompress_path = decompress $download_path
+    move -f $decompress_path -p $path
+    chmod +x $path
+  }
+
+  bind file lsp-ai $path
 }
 
 export def gum [ --force(-f) ] {
