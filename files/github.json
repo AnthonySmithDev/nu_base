@@ -572,14 +572,15 @@
   {
     "category": "core",
     "repository": "Wilfred/difftastic",
-    "tag_name": "0.62.0",
-    "created_at": "2024-12-20T17:16:19Z",
+    "tag_name": "0.63.0",
+    "created_at": "2025-02-11T01:41:06Z",
     "assets": [
       "difft-aarch64-apple-darwin.tar.gz",
       "difft-aarch64-unknown-linux-gnu.tar.gz",
       "difft-x86_64-apple-darwin.tar.gz",
       "difft-x86_64-pc-windows-msvc.zip",
-      "difft-x86_64-unknown-linux-gnu.tar.gz"
+      "difft-x86_64-unknown-linux-gnu.tar.gz",
+      "difft-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-gnu.tar.gz"
@@ -801,18 +802,18 @@
   {
     "category": "core",
     "repository": "xo/usql",
-    "tag_name": "v0.19.16",
-    "created_at": "2025-01-13T20:34:51Z",
+    "tag_name": "v0.19.17",
+    "created_at": "2025-02-11T00:24:58Z",
     "assets": [
-      "usql-0.19.16-darwin-amd64.tar.bz2",
-      "usql-0.19.16-darwin-arm64.tar.bz2",
-      "usql-0.19.16-darwin-universal.tar.bz2",
-      "usql-0.19.16-linux-amd64.tar.bz2",
-      "usql-0.19.16-linux-arm.tar.bz2",
-      "usql-0.19.16-linux-arm64.tar.bz2",
-      "usql-0.19.16-windows-amd64.zip",
-      "usql_static-0.19.16-linux-amd64.tar.bz2",
-      "usql_static-0.19.16-linux-arm64.tar.bz2"
+      "usql-0.19.17-darwin-amd64.tar.bz2",
+      "usql-0.19.17-darwin-arm64.tar.bz2",
+      "usql-0.19.17-darwin-universal.tar.bz2",
+      "usql-0.19.17-linux-amd64.tar.bz2",
+      "usql-0.19.17-linux-arm.tar.bz2",
+      "usql-0.19.17-linux-arm64.tar.bz2",
+      "usql-0.19.17-windows-amd64.zip",
+      "usql_static-0.19.17-linux-amd64.tar.bz2",
+      "usql_static-0.19.17-linux-arm64.tar.bz2"
     ],
     "linux_x64": {
       "ends": "linux-amd64.tar.bz2"
@@ -2805,8 +2806,8 @@
   {
     "category": "other",
     "repository": "sxyazi/yazi",
-    "tag_name": "v25.2.7",
-    "created_at": "2025-02-07T08:42:49Z",
+    "tag_name": "v25.2.11",
+    "created_at": "2025-02-11T11:07:47Z",
     "assets": [
       "yazi-aarch64-apple-darwin.zip",
       "yazi-aarch64-pc-windows-msvc.zip",
@@ -3327,8 +3328,8 @@
   {
     "category": "other",
     "repository": "astral-sh/uv",
-    "tag_name": "0.5.29",
-    "created_at": "2025-02-06T00:59:29Z",
+    "tag_name": "0.5.30",
+    "created_at": "2025-02-10T21:49:16Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -3728,20 +3729,20 @@
   {
     "category": "other",
     "repository": "siyuan-note/siyuan",
-    "tag_name": "v3.1.20",
-    "created_at": "2025-01-16T02:00:42Z",
+    "tag_name": "v3.1.21",
+    "created_at": "2025-02-11T02:28:06Z",
     "assets": [
-      "siyuan-3.1.20-linux-arm64.AppImage",
-      "siyuan-3.1.20-linux-arm64.deb",
-      "siyuan-3.1.20-linux-arm64.tar.gz",
-      "siyuan-3.1.20-linux.AppImage",
-      "siyuan-3.1.20-linux.deb",
-      "siyuan-3.1.20-linux.tar.gz",
-      "siyuan-3.1.20-mac-arm64.dmg",
-      "siyuan-3.1.20-mac.dmg",
-      "siyuan-3.1.20-win-arm64.exe",
-      "siyuan-3.1.20-win.exe",
-      "siyuan-3.1.20.apk"
+      "siyuan-3.1.21-linux-arm64.AppImage",
+      "siyuan-3.1.21-linux-arm64.deb",
+      "siyuan-3.1.21-linux-arm64.tar.gz",
+      "siyuan-3.1.21-linux.AppImage",
+      "siyuan-3.1.21-linux.deb",
+      "siyuan-3.1.21-linux.tar.gz",
+      "siyuan-3.1.21-mac-arm64.dmg",
+      "siyuan-3.1.21-mac.dmg",
+      "siyuan-3.1.21-win-arm64.exe",
+      "siyuan-3.1.21-win.exe",
+      "siyuan-3.1.21.apk"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -4157,19 +4158,20 @@
   {
     "category": "other",
     "repository": "raphamorim/rio",
-    "tag_name": "v0.2.6",
-    "created_at": "2025-02-08T00:57:08Z",
+    "tag_name": "v0.2.7",
+    "created_at": "2025-02-11T02:21:21Z",
     "assets": [
+      "LICENSE",
       "macos-unsigned.zip",
       "Rio-installer-aarch64.msi",
       "Rio-installer-x86_64.msi",
       "Rio-portable-aarch64.exe",
       "Rio-portable-x86_64.exe",
-      "Rio-v0.2.6.dmg",
-      "rioterm_0.2.6-1_amd64_wayland.deb",
-      "rioterm_0.2.6-1_amd64_x11.deb",
-      "rioterm_0.2.6-1_arm64_wayland.deb",
-      "rioterm_0.2.6-1_arm64_x11.deb"
+      "Rio-v0.2.7.dmg",
+      "rioterm_0.2.7-1_amd64_wayland.deb",
+      "rioterm_0.2.7-1_amd64_x11.deb",
+      "rioterm_0.2.7-1_arm64_wayland.deb",
+      "rioterm_0.2.7-1_arm64_x11.deb"
     ]
   },
   {
@@ -4376,8 +4378,8 @@
   {
     "category": "other",
     "repository": "pnpm/pnpm",
-    "tag_name": "v10.2.1",
-    "created_at": "2025-02-06T19:00:44Z",
+    "tag_name": "v10.3.0",
+    "created_at": "2025-02-10T23:34:56Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",

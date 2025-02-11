@@ -475,7 +475,7 @@ Very important: Do not respond with any of the examples. Your message must be ba
 Here's the diff:"
 
   let diff = git diff --cached --diff-algorithm=minimal
-  git commit -e -m ($diff | mods $prompt)
+  git commit -e -m ($diff | mods --no-cache $prompt)
 }
 
 def --wrapped rllama [...rest] {

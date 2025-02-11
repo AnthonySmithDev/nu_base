@@ -3,6 +3,7 @@ source broot.nu
 
 # use gum.nu
 use mods.nu
+use ctx.nu
 
 # use zellij.nu
 use pueue.nu

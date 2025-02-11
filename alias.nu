@@ -83,14 +83,17 @@ alias mos = mods --show-last
 alias mor = mods --show-last --raw
 alias moc = mods --continue-last
 
-def mol [] { mods --list --raw }
-def moe [] { mos | hx }
+def mose [] { mos | hx }
+def mosr [] { mor | hx }
+
 def mop [...rest] { wl-paste | mo ...$rest }
 def moP [...rest] { wl-paste | moc ...$rest }
 
-def moi [] { mol | parse "{id}\t{desc}" | rename value description }
+def mol [] { mods --list --raw }
+def moi [] { mol | parse "{value}\t{description}\t{time}" }
 def moS [id: string@moi] { mods --show $id }
 def moR [id: string@moi] { mods --show $id --raw }
+def moE [id: string@moi] { mods --show $id --raw | hx }
 def moC [id: string@moi, ...rest] { mods --continue $id ...$rest }
 
 alias xcp = xclip -i -selection clipboard

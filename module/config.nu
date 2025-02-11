@@ -196,6 +196,13 @@ export def cosmic [] {
   chmod 777 $dst
 }
 
+export def ctx [] {
+  let src = ($env.SCRIPT_DIR_SRC | path join ctx.nu)
+  let dst = ($env.LOCAL_BIN | path join ctx)
+  ln -sf $src $dst
+  chmod +x $dst
+}
+
 export def git [] {
   ^git config --global user.name 'Anthony Smith'
   ^git config --global user.email 'anthonyasdeveloper@gmail.com'
