@@ -1,7 +1,7 @@
 
 [[language]]
 name = "bash"
-file-types = ["sh", { glob = "bat/**" }, { glob = "regolith3/**" }]
+file-types = ["sh", { glob = "bat/**" }, { glob = "regolith3/**" }, { glob = "ghostty/**" }]
 
 [[language]]
 name = "common-lisp"

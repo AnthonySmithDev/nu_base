@@ -30,6 +30,22 @@ def shortcut [dirname: string, basename: string] {
   symlink_file $dirname $dirname $basename $basename
 }
 
+export def "iTerm2-Color-Schemes" [] {
+  let dir = mktemp --directory --tmpdir-path $env.DOWNLOAD_PATH_DIR
+  mkdir $dir
+
+  let path = ($env.DOWNLOAD_PATH_FILE | path join "iTerm2-Color-Schemes.tar")
+  if not ($path | path exists) {
+    http download https://github.com/mbadolato/iTerm2-Color-Schemes/tarball/master -o $path
+  }
+  let source = ($env.USR_LOCAL_SOURCE | path join iTerm2-Color-Schemes)
+  if not ($source | path exists) {
+    tar -xvf $path -C $dir
+    mv (ls $dir | get name | first) $source
+  }
+  return $source
+}
+
 export def rio [ --theme ] {
   shortcut rio config.toml
   if $theme {
@@ -59,6 +75,19 @@ def 'alacritty theme' [] {
   let src = ($source | path join themes)
   let dst = ($env.HOME | path join .config/alacritty/themes)
   rm -rf $dst
+  ln -sf $src $dst
+}
+
+export def ghostty [ --theme ] {
+  shortcut ghostty config
+  if $theme {
+    ghostty theme
+  }
+}
+
+def 'ghostty theme' [] {
+  let src = (iTerm2-Color-Schemes | path join ghostty)
+  let dst = ($env.HOME | path join .config ghostty themes)
   ln -sf $src $dst
 }
 
