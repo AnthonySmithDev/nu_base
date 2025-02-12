@@ -148,6 +148,7 @@ export def "main media play" [] {
 }
 
 export def "main terminal" [] {
+  # ghostty
   alacritty
   # flatpak run com.raggesilver.BlackBox
 }

@@ -41,3 +41,21 @@
 # # which is explained in the docs for that config option.
 # # Just for example:
 # resize-overlay-duration = 4s 200ms
+
+theme = ayu
+command = nu
+confirm-close-surface = false
+
+font-family = FiraCode Nerd Font
+font-feature = +feat
+font-size = 10.5
+
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = clipboard
+
+background-opacity = 0.9
+background-blur = 0
+
+bold-is-bright = false
+window-decoration = none

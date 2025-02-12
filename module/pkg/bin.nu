@@ -568,7 +568,7 @@ export def websocat [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file websocat $path
@@ -762,7 +762,7 @@ export def dasel [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file dasel $path
@@ -779,7 +779,7 @@ export def pueue [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
   bind file pueue $path
 
@@ -790,7 +790,7 @@ export def pueue [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
   bind file pueued $path
 }
@@ -986,7 +986,7 @@ export def ttyd [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file ttyd $path
@@ -1002,7 +1002,7 @@ export def tty-share [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file tty-share $path
@@ -1083,7 +1083,7 @@ export def kanata [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file kanata $path
@@ -1230,7 +1230,7 @@ export def ffsend [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file ffsend $path
@@ -1246,7 +1246,7 @@ export def walk [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file walk $path
@@ -1310,7 +1310,7 @@ export def fx [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file fx $path
@@ -1390,7 +1390,7 @@ export def genact [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file genact $path
@@ -1534,7 +1534,7 @@ export def tgpt [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file tgpt $path
@@ -1631,7 +1631,7 @@ export def bombardier [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file bombardier $path
@@ -1712,7 +1712,7 @@ export def miniserve [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file miniserve $path
@@ -1728,7 +1728,7 @@ export def simple-http-server [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file simple-http-server $path
@@ -1939,7 +1939,7 @@ export def kubectl [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = download https://dl.k8s.io/release/($version)/bin/linux/amd64/kubectl
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file kubectl $path
@@ -1972,7 +1972,7 @@ export def kubetui [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file kubetui $path
@@ -2150,7 +2150,7 @@ export def local-ai [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file local-ai $path
@@ -2166,7 +2166,7 @@ export def lan-mouse [ --desktop(-d), --service(-s), --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file lan-mouse $path
@@ -2326,7 +2326,7 @@ export def monolith [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file monolith $path
@@ -2342,7 +2342,7 @@ export def dijo [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file dijo $path
@@ -2374,7 +2374,7 @@ export def stash [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file stash $path
@@ -2489,7 +2489,7 @@ export def fclones [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     let decompress_path = decompress $download_path
-    move -d $decompress_path -f x86_64-unknown-linux-musl/release/fclones -p $path
+    move -d $decompress_path -f release/fclones -p $path
     rm -rf target
   }
 
@@ -2506,7 +2506,7 @@ export def nano-work-server [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file nano-work-server $path
@@ -2524,7 +2524,7 @@ export def mkcert [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file mkcert $path
@@ -2536,7 +2536,7 @@ export def devtunnel [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = download https://aka.ms/TunnelsCliDownload/linux-x64
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file devtunnel $path
@@ -2552,7 +2552,7 @@ export def cloudflared [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file cloudflared $path
@@ -2564,7 +2564,7 @@ export def pinggy [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = download https://s3.ap-south-1.amazonaws.com/public.pinggy.binaries/v0.1.0-beta.1/linux/amd64/pinggy
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file pinggy $path
@@ -2712,7 +2712,7 @@ export def pnpm [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file pnpm $path
@@ -3082,7 +3082,7 @@ export def marksman [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file marksman $path
@@ -3162,7 +3162,7 @@ export def viu [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file viu $path
@@ -3194,7 +3194,7 @@ export def picocrypt [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file picocrypt $path
@@ -3285,7 +3285,7 @@ export def totp [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file totp $path
@@ -3333,7 +3333,7 @@ export def devspace [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file devspace $path
@@ -3445,7 +3445,7 @@ export def oha [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file oha $path
@@ -3461,7 +3461,7 @@ export def adguardian [ --force(-f) ] {
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     add-execute $download_path
-    move -f $file -p $path
+    move -f $download_path -p $path
   }
 
   bind file adguardian $path
@@ -3596,8 +3596,16 @@ def move [
   --file(-f): string = '',
   --path(-p): string,
 ] {
-  if ($path | path exists) { rm -rf $path }
-  mv -f ($dir | path join $file) $path
+  if ($path | path exists) {
+    rm -rf $path
+  }
+  let src = ($dir | path join $file)
+  if ($src | path exists) {
+    mv --force $src $path
+  } else {
+    print $src
+    error make -u {msg: $"Source not exists"}
+  }
   if ($dir | path exists) { rm -rf $dir }
 }
 
@@ -3608,7 +3616,6 @@ export def core [ --force(-f) ] {
   starship
   zoxide
   zellij
-
 
   rg
   fd
