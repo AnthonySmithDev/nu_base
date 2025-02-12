@@ -99,7 +99,7 @@ export def --env helix [ --force(-f) ] {
 export def --env nushell [ --force(-f) ] {
   let repository = 'nushell/nushell'
   let tag_name = ghub tag_name $repository
-  let path = filepath nushell $tag_name
+  let path = dirpath nushell $tag_name
 
   if (path-not-exists $path $force) {
     let asset = ghub asset $repository $tag_name
@@ -2753,6 +2753,20 @@ export def --env golang [ --latest(-l), --force(-f) ] {
 
   bind dir $path $env.GOROOT
   env-path $env.GOBIN
+}
+
+export def --env zig [ --force(-f) ] {
+  let version = ghub version "ziglang/zig"
+  let path = dirpath zig $version
+
+  if (path-not-exists $path $force) {
+    let download_path = download $'https://ziglang.org/download/($version)/zig-linux-x86_64-($version).tar.xz'
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
+  }
+
+  bind dir $path $env.ZIG_PATH
+  env-path $env.ZIG_PATH
 }
 
 export def --env vlang [ --force(-f) ] {

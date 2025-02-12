@@ -10,7 +10,7 @@ export def alacritty [] {
 
   let name = "alacritty"
   let src = ($source | path join target release $name)
-  let dst = ($env.USR_LOCAL_SHARE | path join alacritty_source)
+  let dst = ($env.USR_LOCAL_SHARE_BUILD | path join $name)
 
   rm -f $dst
   cp -f $src $dst
@@ -33,6 +33,27 @@ export def alacritty [] {
   # sudo update-alternatives --config x-terminal-emulator
 }
 
+export def ghostty [] {
+  sudo apt install libgtk-4-dev libadwaita-1-dev git
+
+  let source = ($env.USR_LOCAL_SOURCE | path join ghostty)
+  git-down https://github.com/ghostty-org/ghostty $source
+
+  with-wd $source {||
+    zig build -Doptimize=ReleaseFast
+  }
+
+  let name = "ghostty"
+  let src = ($source | path join zig-out bin $name)
+  let dst = ($env.USR_LOCAL_SHARE_BUILD | path join $name)
+
+  rm -f $dst
+  cp -f $src $dst
+
+  ln -sf $dst ($env.USR_LOCAL_BIN | path join $name)
+  sudo ln -sf $dst ($env.SYS_LOCAL_BIN | path join $name)
+}
+
 export def nushell [ --plugin ] {
   let source = ($env.USR_LOCAL_SOURCE | path join nushell)
   git-down https://github.com/nushell/nushell.git $source
@@ -42,7 +63,7 @@ export def nushell [ --plugin ] {
 
   let name = 'nu'
   let src = ($source | path join target release $name)
-  let dst = ($env.USR_LOCAL_SHARE | path join nu_source)
+  let dst = ($env.USR_LOCAL_SHARE_BUILD | path join $name)
 
   rm -f $dst
   cp -f $src $dst
@@ -70,7 +91,7 @@ export def rio [] {
 
   let name = 'rio'
   let src = ($source | path join target release $name)
-  let dst = ($env.USR_LOCAL_SHARE | path join rio_source)
+  let dst = ($env.USR_LOCAL_SHARE_BUILD | path join $name)
 
   rm -f $dst
   cp -f $src $dst
@@ -88,7 +109,7 @@ export def zellij [] {
 
   let name = 'zellij'
   let src = ($source | path join target release $name)
-  let dst = ($env.USR_LOCAL_SHARE | path join zellij_source)
+  let dst = ($env.USR_LOCAL_SHARE_BUILD | path join $name)
 
   rm -f $dst
   cp -f $src $dst
@@ -103,7 +124,7 @@ export def audiosource [] {
 
   let name = 'audiosource'
   let src = ($source | path join $name)
-  let dst = ($env.USR_LOCAL_SHARE | path join audiosource_source)
+  let dst = ($env.USR_LOCAL_SHARE_BUILD | path join audiosource_source)
 
   rm -f $dst
   cp -f $src $dst

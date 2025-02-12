@@ -104,7 +104,7 @@ EXTRACTED_FOLDER=$(ls -d "$TEMP_DIR"/* | head -n 1)
 EXTRACTED_FOLDER=$(basename "$EXTRACTED_FOLDER")
 
 # Mover la carpeta descomprimida al directorio final
-SHARED_DIR="$HOME/.usr/local/share"
+SHARED_DIR="$HOME/.usr/local/share/lib"
 mkdir -p "$SHARED_DIR"
 
 INSTALL_DIR="$SHARED_DIR/nushell_$VERSION"

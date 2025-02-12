@@ -40,6 +40,7 @@ $env.USR_LOCAL_FONT = ($env.USR_LOCAL_DOWN | path join font)
 
 $env.USR_LOCAL_SHARE_BIN = ($env.USR_LOCAL_SHARE | path join bin)
 $env.USR_LOCAL_SHARE_LIB = ($env.USR_LOCAL_SHARE | path join lib)
+$env.USR_LOCAL_SHARE_BUILD = ($env.USR_LOCAL_SHARE | path join build)
 
 $env.NUSHELL_BIN = ($env.USR_LOCAL_LIB | path join nushell)
 env-path $env.NUSHELL_BIN
@@ -109,6 +110,9 @@ env-path $env.LUA_LSP_BIN
 $env.GOROOT = ($env.USR_LOCAL_LIB | path join go)
 $env.GOROOTBIN = ($env.GOROOT | path join bin)
 env-path $env.GOROOTBIN
+
+$env.ZIG_PATH = ($env.USR_LOCAL_LIB | path join zig)
+env-path $env.ZIG_PATH
 
 $env.VLANG_PATH = ($env.USR_LOCAL_LIB | path join v)
 env-path $env.VLANG_PATH
