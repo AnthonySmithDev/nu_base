@@ -307,3 +307,14 @@ export def ytmdesktop [ --force(-f) ] {
     install $path
   }
 }
+
+export def ghostty-ubuntu [ --force(-f) ] {
+  let tag_name = ghub tag_name 'mkasberg/ghostty-ubuntu'
+  let version = ($tag_name | parse "{version}-ppa1" | first | get version)
+  let path = filepath ghostty-ubuntu $version
+
+  if (path-not-exists $path $force) {
+    http download $'https://github.com/mkasberg/ghostty-ubuntu/releases/download/($version)-ppa1/ghostty_($version).ppa1_amd64_24.10.deb' -o $path
+    install $path
+  }
+}
