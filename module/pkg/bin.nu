@@ -23,7 +23,7 @@ def decompress [path: path] {
   let dir = mktemp --directory --tmpdir-path $env.DOWNLOAD_PATH_DIR
   mkdir $dir
 
-  if $path =~ ".tar" or $path =~ ".tgz" or $path =~ ".tar.gz" {
+  if $path =~ ".tar" or $path =~ ".tbz" or $path =~ ".tgz" or $path =~ ".tar.gz" {
     if (exists-external gum) {
       ^gum spin --spinner dot --title 'Extract tar...' -- tar -xvf $path -C $dir
     } else {
@@ -841,6 +841,22 @@ export def bottom [ --force(-f) ] {
   }
 
   bind file btm $path
+}
+
+export def btop [ --force(-f) ] {
+  let repository = 'aristocratos/btop'
+  let tag_name = ghub tag_name $repository
+  let path = filepath btop $tag_name
+
+  if (path-not-exists $path $force) {
+    let asset = ghub asset $repository $tag_name
+    let download_url = ghub download_url $repository $tag_name $asset
+    let download_path = download $download_url
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -f bin/btop -p $path
+  }
+
+  bind file btop $path
 }
 
 export def ttyper [ --force(-f) ] {

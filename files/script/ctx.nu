@@ -6,6 +6,16 @@ def main [] {
   print -n $in
 }
 
+def "main replace" [] {
+  let path = ($env.PWD | path join ctx.txt)
+  $"\n($in)\n" | save --force $path
+  print -n $in
+}
+
+def "main r" [] {
+  main replace
+}
+
 def "main show" [lang: string = "txt"] {
   let path = ($env.PWD | path join ctx.txt)
   if ($path | path exists) {
@@ -17,15 +27,15 @@ def "main s" [lang: string] {
   main show $lang
 }
 
-def "main remove" [] {
+def "main delete" [] {
   let path = ($env.PWD | path join ctx.txt)
   if ($path | path exists) {
     rm $path
   }
 }
 
-def "main r" [] {
-  main remove
+def "main d" [] {
+  main delete
 }
 
 def "main editor" [...rest] {

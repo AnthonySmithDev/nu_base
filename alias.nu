@@ -1,6 +1,7 @@
 
 alias la = ls -la
 alias tk = taskell
+alias btop = btop -lc
 alias top = btm --basic
 alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 
@@ -83,12 +84,10 @@ alias mos = mods --show-last
 alias mor = mods --show-last --raw
 alias moc = mods --continue-last
 
-def mose [] { mos | hx }
-def mosr [] { mor | hx }
-
 def mop [...rest] { wl-paste | mo ...$rest }
 def moP [...rest] { wl-paste | moc ...$rest }
 
+def moe [] { mos | hx }
 def mol [] { mods --list --raw }
 def moi [] { mol | parse "{value}\t{description}\t{time}" }
 def moS [id: string@moi] { mods --show $id }

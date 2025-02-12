@@ -353,26 +353,26 @@
   {
     "category": "core",
     "repository": "junegunn/fzf",
-    "tag_name": "v0.59.0",
-    "created_at": "2025-02-02T14:40:05Z",
+    "tag_name": "v0.60.0",
+    "created_at": "2025-02-12T15:54:51Z",
     "assets": [
-      "fzf-0.59.0-darwin_amd64.tar.gz",
-      "fzf-0.59.0-darwin_arm64.tar.gz",
-      "fzf-0.59.0-freebsd_amd64.tar.gz",
-      "fzf-0.59.0-linux_amd64.tar.gz",
-      "fzf-0.59.0-linux_arm64.tar.gz",
-      "fzf-0.59.0-linux_armv5.tar.gz",
-      "fzf-0.59.0-linux_armv6.tar.gz",
-      "fzf-0.59.0-linux_armv7.tar.gz",
-      "fzf-0.59.0-linux_loong64.tar.gz",
-      "fzf-0.59.0-linux_ppc64le.tar.gz",
-      "fzf-0.59.0-linux_s390x.tar.gz",
-      "fzf-0.59.0-openbsd_amd64.tar.gz",
-      "fzf-0.59.0-windows_amd64.zip",
-      "fzf-0.59.0-windows_arm64.zip",
-      "fzf-0.59.0-windows_armv5.zip",
-      "fzf-0.59.0-windows_armv6.zip",
-      "fzf-0.59.0-windows_armv7.zip"
+      "fzf-0.60.0-darwin_amd64.tar.gz",
+      "fzf-0.60.0-darwin_arm64.tar.gz",
+      "fzf-0.60.0-freebsd_amd64.tar.gz",
+      "fzf-0.60.0-linux_amd64.tar.gz",
+      "fzf-0.60.0-linux_arm64.tar.gz",
+      "fzf-0.60.0-linux_armv5.tar.gz",
+      "fzf-0.60.0-linux_armv6.tar.gz",
+      "fzf-0.60.0-linux_armv7.tar.gz",
+      "fzf-0.60.0-linux_loong64.tar.gz",
+      "fzf-0.60.0-linux_ppc64le.tar.gz",
+      "fzf-0.60.0-linux_s390x.tar.gz",
+      "fzf-0.60.0-openbsd_amd64.tar.gz",
+      "fzf-0.60.0-windows_amd64.zip",
+      "fzf-0.60.0-windows_arm64.zip",
+      "fzf-0.60.0-windows_armv5.zip",
+      "fzf-0.60.0-windows_armv6.zip",
+      "fzf-0.60.0-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -740,6 +740,26 @@
   },
   {
     "category": "core",
+    "repository": "aristocratos/btop",
+    "tag_name": "v1.4.0",
+    "created_at": "2024-09-22T10:48:38Z",
+    "assets": [
+      "btop-aarch64-linux-musl.tbz",
+      "btop-arm-linux-musleabi.tbz",
+      "btop-armv5l-linux-musleabi.tbz",
+      "btop-armv7l-linux-musleabihf.tbz",
+      "btop-i486-linux-musl.tbz",
+      "btop-i686-linux-musl.tbz",
+      "btop-mips64-linux-musl.tbz",
+      "btop-powerpc64-linux-musl.tbz",
+      "btop-x86_64-linux-musl.tbz"
+    ],
+    "linux_x64": {
+      "ends": "x86_64-linux-musl.tbz"
+    }
+  },
+  {
+    "category": "core",
     "repository": "max-niederman/ttyper",
     "tag_name": "v1.6.0",
     "created_at": "2024-08-12T22:27:29Z",
@@ -811,10 +831,10 @@
   {
     "category": "core",
     "repository": "Canop/broot",
-    "tag_name": "v1.44.6",
-    "created_at": "2025-01-12T07:44:54Z",
+    "tag_name": "v1.44.7",
+    "created_at": "2025-02-12T16:03:14Z",
     "assets": [
-      "broot_1.44.6.zip"
+      "broot_1.44.7.zip"
     ],
     "linux_x64": {
       "ends": ".zip"
@@ -2788,12 +2808,12 @@
   {
     "category": "other",
     "repository": "ventoy/Ventoy",
-    "tag_name": "v1.1.01",
-    "created_at": "2025-02-10T12:14:46Z",
+    "tag_name": "v1.1.02",
+    "created_at": "2025-02-12T15:01:35Z",
     "assets": [
-      "ventoy-1.1.01-linux.tar.gz",
-      "ventoy-1.1.01-livecd.iso",
-      "ventoy-1.1.01-windows.zip"
+      "ventoy-1.1.02-linux.tar.gz",
+      "ventoy-1.1.02-livecd.iso",
+      "ventoy-1.1.02-windows.zip"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -3690,31 +3710,31 @@
   {
     "category": "other",
     "repository": "lightningnetwork/lnd",
-    "tag_name": "v0.18.4-beta",
-    "created_at": "2024-12-17T20:18:07Z",
+    "tag_name": "v0.18.5-beta",
+    "created_at": "2025-02-11T20:54:22Z",
     "assets": [
-      "lnd-darwin-amd64-v0.18.4-beta.tar.gz",
-      "lnd-darwin-arm64-v0.18.4-beta.tar.gz",
-      "lnd-freebsd-386-v0.18.4-beta.tar.gz",
-      "lnd-freebsd-amd64-v0.18.4-beta.tar.gz",
-      "lnd-freebsd-arm-v0.18.4-beta.tar.gz",
-      "lnd-linux-386-v0.18.4-beta.tar.gz",
-      "lnd-linux-amd64-v0.18.4-beta.tar.gz",
-      "lnd-linux-arm64-v0.18.4-beta.tar.gz",
-      "lnd-linux-armv6-v0.18.4-beta.tar.gz",
-      "lnd-linux-armv7-v0.18.4-beta.tar.gz",
-      "lnd-linux-mips-v0.18.4-beta.tar.gz",
-      "lnd-linux-mips64-v0.18.4-beta.tar.gz",
-      "lnd-linux-mipsle-v0.18.4-beta.tar.gz",
-      "lnd-linux-ppc64-v0.18.4-beta.tar.gz",
-      "lnd-linux-ppc64le-v0.18.4-beta.tar.gz",
-      "lnd-linux-s390x-v0.18.4-beta.tar.gz",
-      "lnd-netbsd-amd64-v0.18.4-beta.tar.gz",
-      "lnd-openbsd-amd64-v0.18.4-beta.tar.gz",
-      "lnd-source-v0.18.4-beta.tar.gz",
-      "lnd-windows-386-v0.18.4-beta.zip",
-      "lnd-windows-amd64-v0.18.4-beta.zip",
-      "lnd-windows-arm-v0.18.4-beta.zip",
+      "lnd-darwin-amd64-v0.18.5-beta.tar.gz",
+      "lnd-darwin-arm64-v0.18.5-beta.tar.gz",
+      "lnd-freebsd-386-v0.18.5-beta.tar.gz",
+      "lnd-freebsd-amd64-v0.18.5-beta.tar.gz",
+      "lnd-freebsd-arm-v0.18.5-beta.tar.gz",
+      "lnd-linux-386-v0.18.5-beta.tar.gz",
+      "lnd-linux-amd64-v0.18.5-beta.tar.gz",
+      "lnd-linux-arm64-v0.18.5-beta.tar.gz",
+      "lnd-linux-armv6-v0.18.5-beta.tar.gz",
+      "lnd-linux-armv7-v0.18.5-beta.tar.gz",
+      "lnd-linux-mips-v0.18.5-beta.tar.gz",
+      "lnd-linux-mips64-v0.18.5-beta.tar.gz",
+      "lnd-linux-mipsle-v0.18.5-beta.tar.gz",
+      "lnd-linux-ppc64-v0.18.5-beta.tar.gz",
+      "lnd-linux-ppc64le-v0.18.5-beta.tar.gz",
+      "lnd-linux-s390x-v0.18.5-beta.tar.gz",
+      "lnd-netbsd-amd64-v0.18.5-beta.tar.gz",
+      "lnd-openbsd-amd64-v0.18.5-beta.tar.gz",
+      "lnd-source-v0.18.5-beta.tar.gz",
+      "lnd-windows-386-v0.18.5-beta.zip",
+      "lnd-windows-amd64-v0.18.5-beta.zip",
+      "lnd-windows-arm-v0.18.5-beta.zip",
       "vendor.tar.gz"
     ],
     "linux_x64": {
@@ -4275,8 +4295,8 @@
   {
     "category": "other",
     "repository": "Picocrypt/CLI",
-    "tag_name": "1.45",
-    "created_at": "2024-12-16T03:05:48Z",
+    "tag_name": "1.46",
+    "created_at": "2025-02-12T00:14:47Z",
     "assets": [
       "picocrypt-linux-amd64",
       "picocrypt-linux-arm64",
