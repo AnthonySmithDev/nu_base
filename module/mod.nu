@@ -4,6 +4,7 @@
 # use https.nu
 # use extract.nu
 use ghub.nu
+use rn.nu
 
 use dock.nu
 use config.nu

@@ -214,78 +214,6 @@ def showe [] {
   hx $env.SHOW_PATH
 }
 
-def imods [] {
-  mods --quiet Hola
-
-  loop {
-    mut input = ""
-    mut file = ""
-    try {
-      print ""
-      $input = (gum write)
-      if ($input | str contains ".file") {
-        $file = (select-file)
-      }
-      mut args = [
-        --quiet
-        --continue-last
-        $input
-      ]
-      if ($file | is-not-empty) {
-        $args = ($args | append (open $file))
-      }
-      mods ...$args
-    } catch {
-      break
-    }
-  }
-}
-
-def rn [glob: string] {
-  let src_paths = (ls $glob | get name)
-  if ($src_paths | length) == 0 {
-    return
-  }
-
-  let indexs = ($src_paths | enumerate | get index)
-  let tempfile = mktemp --tmpdir --suffix .txt
-  $src_paths | save --force $tempfile
-
-  hx $tempfile
-  let dst_paths = (open $tempfile | lines)
-
-  for index in $indexs {
-    let src = ($src_paths | get $index)
-    let dst = ($dst_paths | get $index)
-    if $src == $dst { continue }
-    mv -i $src $dst
-  }
-}
-
-def 'rn dir' [] {
-  let preview = 'eza --tree --color=always --icons=always {}'
-  let dirname = (fd --type directory --max-depth 1 | fzf --layout reverse --border --preview $preview | str trim)
-
-  let src_paths = (ls -s $dirname | get name)
-  if ($src_paths | length) == 0 {
-    return
-  }
-
-  let indexs = ($src_paths | enumerate | get index)
-  let tempfile = mktemp --tmpdir --suffix .txt
-  $src_paths | save --force $tempfile
-
-  hx $tempfile
-  let dst_paths = (open $tempfile | lines)
-
-  for $index in $indexs {
-    let src = ($src_paths | get $index)
-    let dst = ($dst_paths | get $index)
-    if $src == $dst { continue }
-    mv -i ($dirname | path join $src) ($dirname | path join $dst)
-  }
-}
-
 def "create camare" [] {
   # https://adityatelange.in/blog/android-phone-webcam-linux/
   sudo apt install v4l2loopback-dkms v4l2loopback-utils
@@ -476,8 +404,4 @@ Here's the diff:"
 
   let diff = git diff --cached --diff-algorithm=minimal
   git commit -e -m ($diff | mods --no-cache $prompt)
-}
-
-def --wrapped rllama [...rest] {
-  OLLAMA_HOST="r2v2:11434" ^ollama ...$rest
 }

@@ -941,13 +941,13 @@
   {
     "category": "extra",
     "repository": "altsem/gitu",
-    "tag_name": "v0.28.0",
-    "created_at": "2025-02-04T17:50:06Z",
+    "tag_name": "v0.28.1",
+    "created_at": "2025-02-13T18:37:56Z",
     "assets": [
-      "gitu-v0.28.0-aarch64-apple-darwin.tar.gz",
-      "gitu-v0.28.0-x86_64-apple-darwin.tar.gz",
-      "gitu-v0.28.0-x86_64-pc-windows-msvc.zip",
-      "gitu-v0.28.0-x86_64-unknown-linux-gnu.tar.gz"
+      "gitu-v0.28.1-aarch64-apple-darwin.tar.gz",
+      "gitu-v0.28.1-x86_64-apple-darwin.tar.gz",
+      "gitu-v0.28.1-x86_64-pc-windows-msvc.zip",
+      "gitu-v0.28.1-x86_64-unknown-linux-gnu.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-gnu.tar.gz"
@@ -2238,10 +2238,10 @@
   {
     "category": "other",
     "repository": "ollama/ollama",
-    "tag_name": "v0.5.7",
-    "created_at": "2025-01-16T09:14:04Z",
+    "tag_name": "v0.5.10",
+    "created_at": "2025-02-14T02:43:33Z",
     "assets": [
-      "ollama-darwin",
+      "ollama-darwin.tgz",
       "Ollama-darwin.zip",
       "ollama-linux-amd64-rocm.tgz",
       "ollama-linux-amd64.tgz",
@@ -2596,8 +2596,8 @@
   {
     "category": "other",
     "repository": "microsoft/vscode",
-    "tag_name": "1.97.1",
-    "created_at": "2025-02-10T13:07:56Z",
+    "tag_name": "1.97.2",
+    "created_at": "2025-02-12T14:18:30Z",
     "assets": []
   },
   {
@@ -3786,20 +3786,20 @@
   {
     "category": "other",
     "repository": "siyuan-note/siyuan",
-    "tag_name": "v3.1.21",
-    "created_at": "2025-02-11T02:28:06Z",
+    "tag_name": "v3.1.22",
+    "created_at": "2025-02-14T02:03:20Z",
     "assets": [
-      "siyuan-3.1.21-linux-arm64.AppImage",
-      "siyuan-3.1.21-linux-arm64.deb",
-      "siyuan-3.1.21-linux-arm64.tar.gz",
-      "siyuan-3.1.21-linux.AppImage",
-      "siyuan-3.1.21-linux.deb",
-      "siyuan-3.1.21-linux.tar.gz",
-      "siyuan-3.1.21-mac-arm64.dmg",
-      "siyuan-3.1.21-mac.dmg",
-      "siyuan-3.1.21-win-arm64.exe",
-      "siyuan-3.1.21-win.exe",
-      "siyuan-3.1.21.apk"
+      "siyuan-3.1.22-linux-arm64.AppImage",
+      "siyuan-3.1.22-linux-arm64.deb",
+      "siyuan-3.1.22-linux-arm64.tar.gz",
+      "siyuan-3.1.22-linux.AppImage",
+      "siyuan-3.1.22-linux.deb",
+      "siyuan-3.1.22-linux.tar.gz",
+      "siyuan-3.1.22-mac-arm64.dmg",
+      "siyuan-3.1.22-mac.dmg",
+      "siyuan-3.1.22-win-arm64.exe",
+      "siyuan-3.1.22-win.exe",
+      "siyuan-3.1.22.apk"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -3983,18 +3983,18 @@
   {
     "category": "other",
     "repository": "telegramdesktop/tdesktop",
-    "tag_name": "v5.11.0",
-    "created_at": "2025-02-13T06:37:16Z",
+    "tag_name": "v5.11.1",
+    "created_at": "2025-02-13T17:24:40Z",
     "assets": [
-      "tdesktop-5.11.0-full.tar.gz",
-      "tportable-arm64.5.11.0.zip",
-      "tportable-x64.5.11.0.zip",
-      "tportable.5.11.0.zip",
-      "tsetup-arm64.5.11.0.exe",
-      "tsetup-x64.5.11.0.exe",
-      "tsetup.5.11.0.dmg",
-      "tsetup.5.11.0.exe",
-      "tsetup.5.11.0.tar.xz"
+      "tdesktop-5.11.1-full.tar.gz",
+      "tportable-arm64.5.11.1.zip",
+      "tportable-x64.5.11.1.zip",
+      "tportable.5.11.1.zip",
+      "tsetup-arm64.5.11.1.exe",
+      "tsetup-x64.5.11.1.exe",
+      "tsetup.5.11.1.dmg",
+      "tsetup.5.11.1.exe",
+      "tsetup.5.11.1.tar.xz"
     ],
     "linux_x64": {
       "ends": "tdesktop-5.10.6-full.tar.gz"
