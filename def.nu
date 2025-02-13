@@ -242,7 +242,7 @@ def imods [] {
 }
 
 def rn [glob: string] {
-  let src_paths = (fd $glob | lines)
+  let src_paths = (ls $glob | get name)
   if ($src_paths | length) == 0 {
     return
   }

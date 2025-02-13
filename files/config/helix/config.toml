@@ -37,3 +37,10 @@ a = "code_action"
 [keys.normal]
 C-r = ":reload"
 C-q = ":quit"
+
+[keys.normal.";"]
+"c" = ":pipe-to ctx"
+"r" = ":pipe-to ctx replace"
+"s" = ":sh ctx show"
+"d" = ":sh ctx delete"
+"e" = ":open ctx.txt"
