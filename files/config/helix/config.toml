@@ -39,8 +39,6 @@ C-r = ":reload"
 C-q = ":quit"
 
 [keys.normal.";"]
-"c" = ":pipe-to ctx"
-"r" = ":pipe-to ctx replace"
+"a" = ":pipe-to ctx"
 "s" = ":sh ctx show"
 "d" = ":sh ctx delete"
-"e" = ":open ctx.txt"
