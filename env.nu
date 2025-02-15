@@ -166,6 +166,9 @@ env-path $env.BITCOIN_BIN
 $env.BTCD_PATH = ($env.USR_LOCAL_LIB | path join btcd)
 env-path $env.BTCD_PATH
 
+$env.AST_GREP_BIN = ($env.USR_LOCAL_LIB | path join ast-grep)
+env-path $env.AST_GREP_BIN
+
 $env.LIGHTNING_PATH = ($env.USR_LOCAL_LIB | path join lightning)
 env-path $env.LIGHTNING_PATH
 

@@ -1447,17 +1447,18 @@ export def eza [ --force(-f) ] {
 export def ast-grep [ --force(-f) ] {
   let repository = 'ast-grep/ast-grep'
   let tag_name = ghub tag_name $repository
-  let path = filepath sg $tag_name
+  let path = dirpath ast-grep $tag_name
 
   if (path-not-exists $path $force) {
     let asset = ghub asset $repository $tag_name
     let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $download_url
     let decompress_path = decompress $download_path
-    move -d $decompress_path -f sg -p $path
+    move -d $decompress_path -p $path
   }
 
-  bind file sg $path
+  bind dir $path $env.AST_GREP_BIN
+  env-path $env.AST_GREP_BIN
 }
 
 export def d2 [ --force(-f) ] {
