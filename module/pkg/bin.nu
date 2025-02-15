@@ -65,9 +65,7 @@ export def xh [ --force(-f) ] {
   let path = filepath xh $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name 
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f xh -p $path
   }
@@ -82,9 +80,7 @@ export def --env helix [ --force(-f) ] {
   let path = dirpath helix $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -102,9 +98,7 @@ export def --env nushell [ --force(-f) ] {
   let path = dirpath nushell $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -121,9 +115,7 @@ export def starship [ --force(-f) ] {
   let path = filepath starship $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f starship -p $path
   }
@@ -138,9 +130,7 @@ export def zoxide [ --force(-f) ] {
   let path = filepath zoxide $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f zoxide -p $path
   }
@@ -155,9 +145,7 @@ export def zellij [--force(-f)] {
   let path = filepath zellij $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f zellij -p $path
   }
@@ -172,9 +160,7 @@ export def rg [ --force(-f) ] {
   let path = filepath rg $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f rg -p $path
   }
@@ -189,9 +175,7 @@ export def fd [ --force(-f) ] {
   let path = filepath fd $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f fd -p $path
   }
@@ -206,9 +190,7 @@ export def fzf [ --force(-f) ] {
   let path = filepath fzf $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f fzf -p $path
   }
@@ -223,9 +205,7 @@ export def lsp-ai [ --force(-f) ] {
   let path = filepath lsp-ai $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -f $decompress_path -p $path
     chmod +x $path
@@ -240,9 +220,7 @@ export def gum [ --force(-f) ] {
   let path = filepath gum $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f gum -p $path
   }
@@ -256,9 +234,7 @@ export def mods [ --force(-f) ] {
   let path = filepath mods $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f mods -p $path
   }
@@ -272,9 +248,7 @@ export def glow [ --force(-f) ] {
   let path = filepath glow $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f glow -p $path
   }
@@ -288,9 +262,7 @@ export def soft [ --force(-f) ] {
   let path = filepath soft $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f soft -p $path
   }
@@ -304,9 +276,7 @@ export def vhs [ --force(-f) ] {
   let path = filepath vhs $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f vhs -p $path
   }
@@ -320,9 +290,7 @@ export def freeze [ --force(-f) ] {
   let path = filepath freeze $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f freeze -p $path
   }
@@ -336,9 +304,7 @@ export def melt [ --force(-f) ] {
   let path = filepath melt $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f melt -p $path
   }
@@ -352,9 +318,7 @@ export def skate [ --force(-f) ] {
   let path = filepath skate $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f skate -p $path
   }
@@ -368,9 +332,7 @@ export def --env nvim [ --force(-f) ] {
   let path = dirpath nvim $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f nvim-linux64 -p $path
   }
@@ -385,9 +347,7 @@ export def broot [ --force(-f) ] {
   let path = filepath broot $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f x86_64-linux/broot -p $path
   }
@@ -401,9 +361,7 @@ export def mirrord [ --force(-f) ] {
   let path = filepath mirrord $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f mirrord -p $path
   }
@@ -417,9 +375,7 @@ export def gitu [ --force(-f) ] {
   let path = filepath gitu $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f gitu -p $path
   }
@@ -433,9 +389,7 @@ export def fm [ --force(-f) ] {
   let path = filepath fm $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f fm -p $path
   }
@@ -449,9 +403,7 @@ export def superfile [ --force(-f) ] {
   let path = filepath spf $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f spf -p $path
   }
@@ -465,9 +417,7 @@ export def zk [ --force(-f) ] {
   let path = filepath zk $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f zk -p $path
   }
@@ -481,9 +431,7 @@ export def hostctl [ --force(-f) ] {
   let path = filepath hostctl $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f hostctl -p $path
   }
@@ -497,9 +445,7 @@ export def bat [ --force(-f) ] {
   let path = filepath bat $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bat -p $path
   }
@@ -513,9 +459,7 @@ export def gdu [ --force(-f) ] {
   let path = filepath gdu $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f gdu_linux_amd64_static -p $path
   }
@@ -530,9 +474,7 @@ export def task [ --force(-f) ] {
   let path = filepath task $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f task -p $path
   }
@@ -547,9 +489,7 @@ export def mouseless [ --force(-f) ] {
   let path = filepath mouseless $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f mouseless -p $path
   }
@@ -564,9 +504,7 @@ export def websocat [ --force(-f) ] {
   let path = filepath websocat $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -580,9 +518,7 @@ export def --env amber [ --force(-f) ] {
   let path = dirpath amber $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -597,9 +533,7 @@ export def obsidian-cli [ --force(-f) ] {
   let path = filepath obsidian-cli $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f obsidian-cli -p $path
   }
@@ -613,9 +547,7 @@ export def lazygit [ --force(-f) ] {
   let path = filepath lazygit $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f lazygit -p $path
   }
@@ -629,9 +561,7 @@ export def lazydocker [ --force(-f) ] {
   let path = filepath lazydocker $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f lazydocker -p $path
   }
@@ -645,9 +575,7 @@ export def oxker [ --force(-f) ] {
   let path = filepath oxker $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f oxker -p $path
   }
@@ -661,9 +589,7 @@ export def lazycli [ --force(-f) ] {
   let path = filepath lazycli $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f lazycli -p $path
   }
@@ -677,9 +603,7 @@ export def horcrux [ --force(-f) ] {
   let path = filepath horcrux $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f horcrux -p $path
   }
@@ -693,9 +617,7 @@ export def tweety [ --force(-f) ] {
   let path = filepath tweety $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f tweety -p $path
   }
@@ -709,9 +631,7 @@ export def podman-tui [ --force(-f) ] {
   let path = filepath podman-tui $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f podman-tui -p $path
   }
@@ -726,9 +646,7 @@ export def jless [ --force(-f) ] {
   let path = filepath jless $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f jless -p $path
   }
@@ -742,9 +660,7 @@ export def silicon [ --force(-f) ] {
   let path = filepath silicon $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f silicon -p $path
   }
@@ -758,9 +674,7 @@ export def dasel [ --force(-f) ] {
   let path = filepath dasel $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -774,10 +688,7 @@ export def pueue [ --force(-f) ] {
 
   let path = filepath pueue $tag_name
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name pueue-
-    print $asset
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -785,10 +696,7 @@ export def pueue [ --force(-f) ] {
 
   let path = filepath pueued $tag_name
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name pueued-
-    print $asset
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -801,9 +709,7 @@ export def delta [ --force(-f) ] {
   let path = filepath delta $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f delta -p $path
   }
@@ -817,9 +723,7 @@ export def difftastic [ --force(-f) ] {
   let path = filepath difft $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f difft -p $path
   }
@@ -833,9 +737,7 @@ export def bottom [ --force(-f) ] {
   let path = filepath btm $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f btm -p $path
   }
@@ -849,9 +751,7 @@ export def btop [ --force(-f) ] {
   let path = filepath btop $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bin/btop -p $path
   }
@@ -865,9 +765,7 @@ export def ttyper [ --force(-f) ] {
   let path = filepath ttyper $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f ttyper -p $path
   }
@@ -881,9 +779,7 @@ export def qrcp [ --force(-f) ] {
   let path = filepath qrcp $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f qrcp -p $path
   }
@@ -897,9 +793,7 @@ export def qrsync [ --force(-f) ] {
   let path = filepath qrsync $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f qrsync -p $path
   }
@@ -913,9 +807,7 @@ export def binsider [ --force(-f) ] {
   let path = filepath binsider $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f binsider -p $path
   }
@@ -929,9 +821,7 @@ export def usql [ --force(-f) ] {
   let path = filepath usql $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name usql_static
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f usql_static -p $path
   }
@@ -950,8 +840,6 @@ export def atlas [ --eula, --force(-f) ] {
     } else {
       'atlas-community-linux-amd64-latest'
     }
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
     let download_path = download $'https://release.ariga.io/atlas/($filename)'
     add-execute $download_path
     move -f $download_path -p $path
@@ -966,9 +854,7 @@ export def gotty [ --force(-f) ] {
   let path = filepath atlas $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f gotty -p $path
   }
@@ -982,9 +868,7 @@ export def ttyd [ --force(-f) ] {
   let path = filepath ttyd $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -998,9 +882,7 @@ export def tty-share [ --force(-f) ] {
   let path = filepath tty-share $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1014,9 +896,7 @@ export def upterm [ --force(-f) ] {
   let path = filepath upterm $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f upterm -p $path
   }
@@ -1030,9 +910,7 @@ export def --env sftpgo [ --force(-f) ] {
   let path = dirpath sftpgo $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -1047,9 +925,7 @@ export def telegram [ --force(-f) ] {
   let path = filepath telegram $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f Telegram -p $path
   }
@@ -1063,9 +939,7 @@ export def tdl [ --force(-f) ] {
   let path = filepath tdl $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f tdl -p $path
   }
@@ -1079,9 +953,7 @@ export def kanata [ --force(-f) ] {
   let path = filepath kanata $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1096,9 +968,7 @@ export def --env mongosh [ --force(-f) ] {
   let path = dirpath mongosh $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -1113,9 +983,7 @@ export def shell2http [ --force(-f) ] {
   let path = filepath shell2http $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f shell2http -p $path
   }
@@ -1129,9 +997,7 @@ export def mprocs [ --force(-f) ] {
   let path = filepath mprocs $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f mprocs -p $path
   }
@@ -1145,9 +1011,7 @@ export def dua [ --force(-f) ] {
   let path = filepath dua $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f dua -p $path
   }
@@ -1161,9 +1025,7 @@ export def grex [ --force(-f) ] {
   let path = filepath grex $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f grex -p $path
   }
@@ -1177,9 +1039,7 @@ export def navi [ --force(-f) ] {
   let path = filepath navi $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f navi -p $path
   }
@@ -1193,9 +1053,7 @@ export def bore [ --force(-f) ] {
   let path = filepath bore $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bore -p $path
   }
@@ -1209,9 +1067,7 @@ export def rclone [ --force(-f) ] {
   let path = filepath rclone $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f rclone -p $path
   }
@@ -1226,9 +1082,7 @@ export def ffsend [ --force(-f) ] {
   let path = filepath ffsend $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1242,9 +1096,7 @@ export def walk [ --force(-f) ] {
   let path = filepath walk $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1258,9 +1110,7 @@ export def tere [ --force(-f) ] {
   let path = filepath tere $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f tere -p $path
   }
@@ -1274,9 +1124,7 @@ export def sd [ --force(-f) ] {
   let path = filepath sd $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f sd -p $path
   }
@@ -1290,9 +1138,7 @@ export def sad [ --force(-f) ] {
   let path = filepath sad $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f sad -p $path
   }
@@ -1306,9 +1152,7 @@ export def fx [ --force(-f) ] {
   let path = filepath fx $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1322,9 +1166,7 @@ export def jqp [ --force(-f) ] {
   let path = filepath jqp $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f jqp -p $path
   }
@@ -1338,9 +1180,7 @@ export def lux [ --force(-f) ] {
   let path = filepath lux $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f lux -p $path
   }
@@ -1354,9 +1194,7 @@ export def qrterminal [ --force(-f) ] {
   let path = filepath qrterminal $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f qrterminal -p $path
   }
@@ -1370,9 +1208,7 @@ export def qrrs [ --force(-f) ] {
   let path = filepath qrrs $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f qrrs -p $path
   }
@@ -1386,9 +1222,7 @@ export def genact [ --force(-f) ] {
   let path = filepath genact $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1402,9 +1236,7 @@ export def ouch [ --force(-f) ] {
   let path = filepath ouch $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f ouch -p $path
   }
@@ -1418,9 +1250,7 @@ export def lsd [ --force(-f) ] {
   let path = filepath lsd $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f lsd -p $path
   }
@@ -1434,9 +1264,7 @@ export def eza [ --force(-f) ] {
   let path = filepath eza $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f eza -p $path
   }
@@ -1450,9 +1278,7 @@ export def ast-grep [ --force(-f) ] {
   let path = dirpath ast-grep $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -1467,9 +1293,7 @@ export def d2 [ --force(-f) ] {
   let path = filepath d2 $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bin/d2 -p $path
   }
@@ -1483,9 +1307,7 @@ export def mdcat [ --force(-f) ] {
   let path = filepath mdcat $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f mdcat -p $path
   }
@@ -1499,9 +1321,7 @@ export def chatgpt [ --force(-f) ] {
   let path = filepath chatgpt $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f chatgpt -p $path
   }
@@ -1515,9 +1335,7 @@ export def aichat [ --force(-f) ] {
   let path = filepath aichat $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f aichat -p $path
   }
@@ -1531,9 +1349,7 @@ export def tgpt [ --force(-f) ] {
   let path = filepath tgpt $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1547,9 +1363,7 @@ export def slices [ --force(-f) ] {
   let path = filepath slices $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f slides -p $path
   }
@@ -1563,9 +1377,7 @@ export def nap [ --force(-f) ] {
   let path = filepath nap $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f nap -p $path
   }
@@ -1579,9 +1391,7 @@ export def invoice [ --force(-f) ] {
   let path = filepath invoice $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f invoice -p $path
   }
@@ -1595,9 +1405,7 @@ export def coreutils [ --force(-f) ] {
   let path = filepath coreutils $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f coreutils -p $path
   }
@@ -1612,9 +1420,7 @@ export def carapace [ --force(-f) ] {
   let path = filepath carapace $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f carapace -p $path
   }
@@ -1628,9 +1434,7 @@ export def bombardier [ --force(-f) ] {
   let path = filepath bombardier $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1644,9 +1448,7 @@ export def ruff [ --force(-f) ] {
   let path = filepath ruff $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f ruff -p $path
   }
@@ -1660,9 +1462,7 @@ export def --env uv [ --force(-f) ] {
   let path = dirpath uv $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -1677,9 +1477,7 @@ export def micro [ --force(-f) ] {
   let path = filepath micro $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f micro -p $path
   }
@@ -1693,9 +1491,7 @@ export def dufs [ --force(-f) ] {
   let path = filepath dufs $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f dufs -p $path
   }
@@ -1709,9 +1505,7 @@ export def miniserve [ --force(-f) ] {
   let path = filepath miniserve $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1725,9 +1519,7 @@ export def simple-http-server [ --force(-f) ] {
   let path = filepath simple-http-server $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1741,9 +1533,7 @@ export def ftpserver [ --force(-f) ] {
   let path = filepath ftpserver $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f ftpserver -p $path
   }
@@ -1757,9 +1547,7 @@ export def onefetch [ --force(-f) ] {
   let path = filepath onefetch $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f onefetch -p $path
   }
@@ -1773,9 +1561,7 @@ export def gping [ --force(-f) ] {
   let path = filepath gping $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f gping -p $path
   }
@@ -1789,9 +1575,7 @@ export def duf [ --force(-f) ] {
   let path = filepath duf $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f duf -p $path
   }
@@ -1805,9 +1589,7 @@ export def github [ --force(-f) ] {
   let path = filepath gh $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f gh -p $path
   }
@@ -1842,9 +1624,7 @@ export def dive [ --force(-f) ] {
   let path = filepath dive $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f dive -p $path
   }
@@ -1858,9 +1638,7 @@ export def hyperfine [ --force(-f) ] {
   let path = filepath hyperfine $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f hyperfine -p $path
   }
@@ -1874,9 +1652,7 @@ export def taskell [ --force(-f) ] {
   let path = filepath taskell $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f taskell -p $path
   }
@@ -1890,9 +1666,7 @@ export def tasklite [ --force(-f) ] {
   let path = filepath tasklite $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     add-execute $file
     move -f $file -p $path
@@ -1907,9 +1681,7 @@ export def doctl [ --force(-f) ] {
   let path = filepath doctl $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f doctl -p $path
   }
@@ -1923,9 +1695,7 @@ export def hcloud [ --force(-f) ] {
   let path = filepath hcloud $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f hcloud -p $path
   }
@@ -1953,9 +1723,7 @@ export def kubecolor [ --force(-f) ] {
   let path = filepath kubecolor $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f kubecolor -p $path
   }
@@ -1969,9 +1737,7 @@ export def kubetui [ --force(-f) ] {
   let path = filepath kubetui $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -1985,9 +1751,7 @@ export def kube-prompt [ --force(-f) ] {
   let path = filepath kube-prompt $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f kube-prompt -p $path
   }
@@ -2001,9 +1765,7 @@ export def k9s [ --force(-f) ] {
   let path = filepath k9s $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f k9s -p $path
   }
@@ -2017,9 +1779,7 @@ export def kdash [ --force(-f) ] {
   let path = filepath kdash $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f kdash -p $path
   }
@@ -2033,9 +1793,7 @@ export def bettercap [ --force(-f) ] {
   let path = filepath bettercap $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bettercap -p $path
   }
@@ -2050,9 +1808,7 @@ export def viddy [ --force(-f) ] {
   let path = filepath viddy $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f viddy -p $path
   }
@@ -2066,9 +1822,7 @@ export def hwatch [ --force(-f) ] {
   let path = filepath hwatch $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bin/hwatch -p $path
   }
@@ -2082,9 +1836,7 @@ export def yazi [ --force(-f) ] {
   let path = filepath yazi $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f yazi -p $path
   }
@@ -2098,9 +1850,7 @@ export def kmon [ --force(-f) ] {
   let path = filepath kmon $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f kmon -p $path
   }
@@ -2114,9 +1864,7 @@ export def --env ollama [ --force(-f) ] {
   let path = dirpath ollama $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2131,9 +1879,7 @@ export def plandex [ --force(-f) ] {
   let path = filepath plandex $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f plandex -p $path
   }
@@ -2147,9 +1893,7 @@ export def local-ai [ --force(-f) ] {
   let path = filepath local-ai $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2163,9 +1907,7 @@ export def lan-mouse [ --desktop(-d), --service(-s), --force(-f) ] {
   let path = filepath lan-mouse $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2192,9 +1934,7 @@ export def lapce [ --force(-f) ] {
   let path = filepath lapce $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f lapce -p $path
   }
@@ -2208,9 +1948,7 @@ export def --env vscodium [ --force(-f) ] {
   let path = dirpath vscodium $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2225,9 +1963,7 @@ export def --env code-server [ --force(-f) ] {
   let path = dirpath code-server $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2242,9 +1978,7 @@ export def termshark [ --force(-f) ] {
   let path = filepath termshark $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f termshark -p $path
   }
@@ -2258,9 +1992,7 @@ export def termscp [ --force(-f) ] {
   let path = filepath termscp $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f termscp -p $path
   }
@@ -2274,9 +2006,7 @@ export def kbt [ --force(-f) ] {
   let path = filepath kbt $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f kbt -p $path
   }
@@ -2290,9 +2020,7 @@ export def trippy [ --force(-f) ] {
   let path = filepath trippy $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f trip -p $path
   }
@@ -2307,9 +2035,7 @@ export def gitui [ --force(-f) ] {
   let path = filepath gitui $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f gitui -p $path
   }
@@ -2323,9 +2049,7 @@ export def monolith [ --force(-f) ] {
   let path = filepath monolith $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2339,9 +2063,7 @@ export def dijo [ --force(-f) ] {
   let path = filepath dijo $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2355,9 +2077,7 @@ export def ventoy [ --force(-f) ] {
   let path = filepath ventoy $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2371,9 +2091,7 @@ export def stash [ --force(-f) ] {
   let path = filepath stash $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2387,9 +2105,7 @@ export def AdGuardHome [ --force(-f) ] {
   let path = filepath AdGuardHome $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f AdGuardHome -p $path
   }
@@ -2404,9 +2120,7 @@ export def zen [ --force(-f) ] {
   let path = filepath zen $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f Zen -p $path
   }
@@ -2421,9 +2135,7 @@ export def superhtml [ --force(-f) ] {
   let path = filepath superhtml $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f superhtml -p $path
   }
@@ -2454,9 +2166,7 @@ export def proxyfor [ --force(-f) ] {
   let path = filepath proxyfor $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f proxyfor -p $path
   }
@@ -2470,9 +2180,7 @@ export def hetty [ --force(-f) ] {
   let path = filepath hetty $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f hetty -p $path
   }
@@ -2486,9 +2194,7 @@ export def fclones [ --force(-f) ] {
   let path = filepath fclones $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f release/fclones -p $path
     rm -rf target
@@ -2503,9 +2209,7 @@ export def nano-work-server [ --force(-f) ] {
   let path = filepath nano-work-server $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2521,9 +2225,7 @@ export def mkcert [ --force(-f) ] {
   let path = filepath mkcert $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2549,9 +2251,7 @@ export def cloudflared [ --force(-f) ] {
   let path = filepath cloudflared $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2590,9 +2290,7 @@ export def librespeed [ --force(-f) ] {
   let path = filepath librespeed $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f librespeed-cli -p $path
   }
@@ -2606,9 +2304,7 @@ export def devbox [ --force(-f) ] {
   let path = filepath devbox $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f devbox -p $path
   }
@@ -2655,9 +2351,7 @@ export def bun [ --force(-f) ] {
   let path = filepath bun $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bun -p $path
   }
@@ -2671,9 +2365,7 @@ export def --env fvm [ --force(-f) ] {
   let path = dirpath fvm $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2688,9 +2380,7 @@ export def --env volta [ --node, --force(-f) ] {
   let path = dirpath volta-cli $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2709,9 +2399,7 @@ export def pnpm [ --force(-f) ] {
   let path = filepath pnpm $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -2845,9 +2533,7 @@ export def --env kotlin [ --force(-f) ] {
   let path = dirpath kotlin $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2862,9 +2548,7 @@ export def --env kotlin-native [ --force(-f) ] {
   let path = dirpath kotlin-native $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2879,9 +2563,7 @@ export def --env kotlin-language-server [ --force(-f) ] {
   let path = dirpath kotlin-language-server $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2896,9 +2578,7 @@ export def --env lua-language-server [ --force(-f) ] {
   let path = dirpath lua-language-server $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2997,9 +2677,7 @@ export def --env btcd [ --force(-f) ] {
   let path = dirpath btcd $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -3014,9 +2692,7 @@ export def --env bitcoin [ --force(-f) ] {
   let path = dirpath bitcoin $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -3031,9 +2707,7 @@ export def --env lightning-network [ --force(-f) ] {
   let path = dirpath lightning $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -3062,9 +2736,7 @@ export def clangd [ --force(-f) ] {
   let path = filepath clangd $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bin/clangd -p $path
   }
@@ -3079,9 +2751,7 @@ export def marksman [ --force(-f) ] {
   let path = filepath marksman $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -3095,9 +2765,7 @@ export def v-analyzer [ --force(-f) ] {
   let path = filepath v-analyzer $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f v-analyzer -p $path
   }
@@ -3111,9 +2779,7 @@ export def zls [ --force(-f) ] {
   let path = filepath zls $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f zls -p $path
   }
@@ -3127,9 +2793,7 @@ export def presenterm [ --force(-f) ] {
   let path = filepath presenterm $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f presenterm -p $path
   }
@@ -3143,9 +2807,7 @@ export def contour [ --force(-f) ] {
   let path = filepath contour $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f contour -p $path
   }
@@ -3159,9 +2821,7 @@ export def viu [ --force(-f) ] {
   let path = filepath viu $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -3175,9 +2835,7 @@ export def immich-go [ --force(-f) ] {
   let path = filepath immich-go $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f immich-go -p $path
   }
@@ -3191,9 +2849,7 @@ export def picocrypt [ --force(-f) ] {
   let path = filepath picocrypt $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -3234,9 +2890,7 @@ export def clipboard [ --force(-f) ] {
   let path = filepath cb $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f bin/cb -p $path
   }
@@ -3250,9 +2904,7 @@ export def vi-mongo [ --force(-f) ] {
   let path = filepath vi-mongo $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f vi-mongo -p $path
   }
@@ -3266,9 +2918,7 @@ export def cloak [ --force(-f) ] {
   let path = filepath cloak $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f cloak -p $path
   }
@@ -3282,9 +2932,7 @@ export def totp [ --force(-f) ] {
   let path = filepath totp $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -3298,9 +2946,7 @@ export def totp-cli [ --force(-f) ] {
   let path = filepath totp-cli $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f totp-cli -p $path
   }
@@ -3314,9 +2960,7 @@ export def jnv [ --force(-f) ] {
   let path = filepath jnv $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f jnv -p $path
   }
@@ -3330,9 +2974,7 @@ export def devspace [ --force(-f) ] {
   let path = filepath devspace $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -3346,9 +2988,7 @@ export def atto [ --force(-f) ] {
   let path = filepath atto $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f atto -p $path
   }
@@ -3362,9 +3002,7 @@ export def wsget [ --force(-f) ] {
   let path = filepath wsget $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f wsget -p $path
   }
@@ -3378,9 +3016,7 @@ export def koji [ --force(-f) ] {
   let path = filepath koji $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f koji -p $path
   }
@@ -3394,9 +3030,7 @@ export def smartcat [ --force(-f) ] {
   let path = filepath sc $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f sc -p $path
   }
@@ -3410,9 +3044,7 @@ export def jwt [ --force(-f) ] {
   let path = filepath jwt $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f jwt -p $path
   }
@@ -3426,9 +3058,7 @@ export def procs [ --force(-f) ] {
   let path = filepath procs $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f procs -p $path
   }
@@ -3442,9 +3072,7 @@ export def oha [ --force(-f) ] {
   let path = filepath oha $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -3458,9 +3086,7 @@ export def adguardian [ --force(-f) ] {
   let path = filepath adguardian $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -3474,9 +3100,7 @@ export def --env gix [ --force(-f) ] {
   let path = filepath gix $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -3491,9 +3115,7 @@ export def kubewall [ --force(-f) ] {
   let path = filepath kubewall $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f kubewall -p $path
   }
@@ -3507,9 +3129,7 @@ export def f2 [ --force(-f) ] {
   let path = filepath f2 $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f f2 -p $path
   }
@@ -3523,9 +3143,7 @@ export def doggo [ --force(-f) ] {
   let path = filepath doggo $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -f doggo -p $path
   }
@@ -3539,9 +3157,7 @@ export def --env scrcpy [ --force(-f) ] {
   let path = dirpath scrcpy $tag_name
 
   if (path-not-exists $path $force) {
-    let asset = ghub asset $repository $tag_name
-    let download_url = ghub download_url $repository $tag_name $asset
-    let download_path = download $download_url
+    let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }

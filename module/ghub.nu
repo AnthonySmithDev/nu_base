@@ -55,7 +55,7 @@ def to-created-at [] {
   into datetime --offset -5 | date humanize
 }
 
-export def download_url [repository: string, tag_name: string, asset: string] {
+export def download_url [repository: string@names, tag_name: string, asset: string] {
   $'https://github.com/($repository)/releases/download/($tag_name)/($asset)'
 }
 
@@ -77,8 +77,7 @@ export def tag_name [name: string@names] {
   return $r.tag_name
 }
 
-export def asset [name: string@names, tag_name: string, first?: string] {
-  let r = view $name
+export def assetx [r: record, first?: string] {
   mut assets = $r.assets
   if $first != null {
     $assets = ($assets | filter { |e| str starts-with $first })
@@ -101,6 +100,23 @@ export def asset [name: string@names, tag_name: string, first?: string] {
     return (gum filter ...$assets)
   }
   return ($assets | first)
+  
+}
+
+export def asset [name: string@names, first?: string] {
+  let r = view $name
+  assetx $r $first
+}
+
+export def "asset download" [repository: string@names, first?: string] {
+  let r = view $repository
+  let asset = assetx $r $first
+  let download_url = download_url $repository $r.tag_name $asset
+  let output = ($env.DOWNLOAD_PATH_FILE | path join $asset)
+  if not ($output | path exists) {
+    http download $download_url --output $output
+  }
+  return $output
 }
 
 export def index-get [] {
