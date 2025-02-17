@@ -113,7 +113,12 @@ export def "asset download" [name: string@names, first?: string] {
   let r = repo view $name
   let asset = assetx $r $first
   let download_url = download_url $name $r.tag_name $asset
-  let output = ($env.DOWNLOAD_PATH_FILE | path join $asset)
+
+  let basename = ($name | path basename)
+  let dirname = ($env.TMP_PATH_FILE | path join $basename)
+  mkdir $dirname
+
+  let output = ($dirname | path join $asset)
   if not ($output | path exists) {
     http download $download_url --output $output
   }

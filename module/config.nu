@@ -31,10 +31,10 @@ def shortcut [dirname: string, basename: string] {
 }
 
 export def "iTerm2-Color-Schemes" [] {
-  let dir = mktemp --directory --tmpdir-path $env.DOWNLOAD_PATH_DIR
+  let dir = mktemp --directory --tmpdir-path $env.TMP_PATH_DIR
   mkdir $dir
 
-  let path = ($env.DOWNLOAD_PATH_FILE | path join "iTerm2-Color-Schemes.tar")
+  let path = ($env.TMP_PATH_FILE | path join "iTerm2-Color-Schemes.tar")
   if not ($path | path exists) {
     http download https://github.com/mbadolato/iTerm2-Color-Schemes/tarball/master -o $path
   }

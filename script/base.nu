@@ -80,8 +80,8 @@ def setup_dir [] {
 
   mkdir $env.CONFIG_SYSTEMD_USER_DST
 
-  mkdir $env.DOWNLOAD_PATH_DIR
-  mkdir $env.DOWNLOAD_PATH_FILE
+  mkdir $env.TMP_PATH_DIR
+  mkdir $env.TMP_PATH_FILE
 }
 
 def setup_nu [] {

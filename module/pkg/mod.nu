@@ -1,7 +1,7 @@
 
 export-env {
-  $env.DOWNLOAD_PATH_DIR = ($env.HOME | path join tmp dir)
-  $env.DOWNLOAD_PATH_FILE = ($env.HOME | path join tmp file)
+  $env.TMP_PATH_DIR = ($env.HOME | path join tmp dir)
+  $env.TMP_PATH_FILE = ($env.HOME | path join tmp file)
   $env.DOWNLOAD_FORCE = false
   $env.PKG_BIN_SYS = "linux_x64"
 }

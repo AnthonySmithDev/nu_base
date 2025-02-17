@@ -5,9 +5,9 @@ def path-not-exists [path: string, force: bool] {
 
 def download [ url: string, filename?: string, --force(-f) ] {
   let path = if ($filename | is-not-empty) {
-   $env.DOWNLOAD_PATH_FILE | path join $filename
+   $env.TMP_PATH_FILE | path join $filename
   } else {
-    $env.DOWNLOAD_PATH_FILE | path join ($url | url filename)
+    $env.TMP_PATH_FILE | path join ($url | url filename)
   }
   if (path-not-exists $path $force) {
     http download $url --output $path
@@ -20,7 +20,7 @@ def decompress [path: path] {
     error make {msg: $"Path not exists: ($path)"}
   }
 
-  let dir = mktemp --directory --tmpdir-path $env.DOWNLOAD_PATH_DIR
+  let dir = mktemp --directory --tmpdir-path $env.TMP_PATH_DIR
   mkdir $dir
 
   if $path =~ ".tar" or $path =~ ".tbz" or $path =~ ".tgz" or $path =~ ".tar.gz" {
@@ -1618,8 +1618,8 @@ export def gitlab [ --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let download_path = download https://gitlab.com/gitlab-org/cli/-/releases/v($version)/downloads/glab_($version)_linux_amd64.tar.gz
-    let dir = decompress $download_path
-    move -d $dir -f bin/glab -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -f bin/glab -p $path
   }
 
   bind file glab $path
@@ -2165,8 +2165,7 @@ export def --env mitmproxy [ --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let version = ($tag_name | ghub to-version)
-    let download_url = $'https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz'
-    let download_path = download $download_url
+    let download_path = download $'https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz'
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -2292,8 +2291,8 @@ export def speedtest [ --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let download_path = download $'https://install.speedtest.net/app/cli/ookla-speedtest-($version)-linux-x86_64.tgz'
-    let dir = decompress $download_path
-    move -d $dir -f speedtest -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -f speedtest -p $path
   }
 
   bind file speedtest $path
@@ -2333,8 +2332,8 @@ export def remote-mouse [ --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let download_path = download 'https://www.remotemouse.net/downloads/linux/RemoteMouse_x86_64.zip'
-    let dir = decompress $download_path
-    move -d $dir -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.REMOTE_MOUSE_PATH
@@ -2347,8 +2346,8 @@ export def --env docker [ --group(-g), --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let download_path = download $'https://download.docker.com/linux/static/stable/x86_64/docker-($version).tgz'
-    let dir = decompress $download_path
-    move -d $dir -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   if not (exists-group docker) {
@@ -2441,8 +2440,8 @@ export def --env node [ --latest(-l), --force(-f) ] {
   let path = dirpath node $version
   if (path-not-exists $path $force) {
     let download_path = download $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz'
-    let dir = decompress $download_path
-    move -d $dir -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.NODE_PATH
@@ -2494,9 +2493,9 @@ export def --env vlang [ --force(-f) ] {
   let path = dirpath vlang $version
 
   if (path-not-exists $path $force) {
-    let file = $'https://github.com/vlang/v/releases/($version)/download/v_linux.zip'
-    let dir = decompress $file
-    move -d $dir -p $path
+    let download_path = download $'https://github.com/vlang/v/releases/($version)/download/v_linux.zip'
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.VLANG_PATH
@@ -2534,8 +2533,8 @@ export def --env jdtls [ --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let download_path = download https://www.eclipse.org/downloads/download.php?download_path=/jdtls/snapshots/jdt-language-server-latest.tar.gz jdt-language-server-latest.tar.gz
-    let dir = decompress $download_path
-    move -d $dir -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.JDTLS_PATH
@@ -2612,8 +2611,8 @@ export def --env dart [ --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let download_path = download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip'
-    let dir = decompress $download_path
-    move -d $dir -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.DART_PATH
@@ -2640,8 +2639,8 @@ export def --env flutter [ --latest(-l), --force(-f) ] {
   let path = dirpath flutter $version
   if (path-not-exists $path $force) {
     let download_path = download $'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz'
-    let dir = decompress $download_path
-    move -d $dir -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.FLUTTER_PATH
@@ -2654,8 +2653,8 @@ export def --env android-studio [ --desktop(-d), --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let download_path = download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz'
-    let dir = decompress $download_path
-    move -d $dir -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.ANDORID_STUDIO_PATH
@@ -2670,9 +2669,9 @@ export def --env android-studio [ --desktop(-d), --force(-f) ] {
 export def --env android-cmdline-tools [ --force(-f) ] {
   if (path-not-exists $env.ANDROID_CMDLINE_TOOLS $force) {
     let download_path = download https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
-    let dir = decompress $download_path
+    let decompress_path = decompress $download_path
     mkdir ($env.ANDROID_CMDLINE_TOOLS | path dirname)
-    move -d $dir -p $env.ANDROID_CMDLINE_TOOLS
+    move -d $decompress_path -p $env.ANDROID_CMDLINE_TOOLS
   }
   env-path $env.ANDROID_CMDLINE_TOOLS_BIN
 }
@@ -2680,8 +2679,8 @@ export def --env android-cmdline-tools [ --force(-f) ] {
 export def --env android-platform-tools [ --force(-f) ] {
   if (path-not-exists $env.ANDROID_PLATFORM_TOOLS $force) {
     let download_path = download https://dl.google.com/android/repository/platform-tools-latest-linux.zip
-    let dir = decompress $download_path
-    move -d $dir -p $env.ANDROID_PLATFORM_TOOLS
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $env.ANDROID_PLATFORM_TOOLS
   }
   env-path $env.ANDROID_PLATFORM_TOOLS
 }
@@ -2737,8 +2736,8 @@ export def --env scilab [ --force(-f) ] {
 
   if (path-not-exists $path $force) {
     let download_path = download $'https://www.scilab.org/download/($version)/scilab-($version).bin.x86_64-linux-gnu.tar.xz'
-    let dir = decompress $download_path
-    move -d $dir -p $path
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.SCILAB_PATH
