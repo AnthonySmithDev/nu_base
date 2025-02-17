@@ -4,14 +4,6 @@ export-env {
   $env.GITHUB_REPOSITORY_INDEX = ($env.HOME | path join .github-index)
 }
 
-export def list [] {
-  open $env.GITHUB_REPOSITORY
-}
-
-export def repos [] {
-  open $env.GITHUB_REPOSITORY | reject assets
-}
-
 export def names [] {
   {
     options: {
@@ -20,42 +12,40 @@ export def names [] {
       positional: false,
       sort: false,
     },
-    completions: (list | get name)
+    completions: (open $env.GITHUB_REPOSITORY | get name)
   }
+}
+
+export def rate_limit [] {
+  let rate = (http get https://api.github.com/rate_limit | get rate)
+  let reset = ($rate | get reset | $in * 1_000_000_000 | into datetime --offset -5)
+  return ($rate | upsert reset $reset)
 }
 
 export def releases [name: string@names] {
-  let releases = (http get --full --allow-errors https://api.github.com/repos/($name)/releases)
-  if ($releases | get status) == 403 {
+  let response = (http get --full --allow-errors https://api.github.com/repos/($name)/releases)
+  if ($response | get status) == 403 {
     error make -u { msg: "API rate limit exceeded" }
   }
-  if ($releases | get status) != 200 {
-    error make -u { msg: $"($name): ($releases | get body.message)" }
+  if ($response | get status) != 200 {
+    error make -u { msg: $"($name): ($response | get body.message)" }
   }
-  $releases | get body
+  $response | get body
 }
 
 export def releases-latest [name: string@names] {
-  let release = (http get --full --allow-errors https://api.github.com/repos/($name)/releases/latest)
-  if ($release | get status) == 403 {
+  let response = (http get --full --allow-errors https://api.github.com/repos/($name)/releases/latest)
+  if ($response | get status) == 403 {
     error make -u { msg: "API rate limit exceeded" }
   }
-  if ($release | get status) != 200 {
-    error make -u { msg: $"($name): ($release | get body.message)" }
+  if ($response | get status) != 200 {
+    error make -u { msg: $"($name): ($response | get body.message)" }
   }
-  $release | get body
+  $response | get body
 }
 
-export def find_repo [name: string@names] {
-  return (list | where name =~ $name)
-}
-
-export def view [name: string@names] {
-  let repos = (list | where name == $name)
-  if ($repos | is-empty) {
-    error make -u { msg: $"Repository does not exist: ($name)" }
-  }
-  return ($repos | first)
+export def list [] {
+  open $env.GITHUB_REPOSITORY | select category name tag_name created_at
 }
 
 export def to-version [] {
@@ -77,13 +67,13 @@ def print-repository [r: record] {
 }
 
 export def version [name: string@names] {
-  let r = view $name
+  let r = repo view $name
   print-repository $r
   return ($r.tag_name | to-version)
 }
 
 export def tag_name [name: string@names] {
-  let r = view $name
+  let r = repo view $name
   print-repository $r
   return $r.tag_name
 }
@@ -115,12 +105,12 @@ export def assetx [r: record, first?: string] {
 }
 
 export def asset [name: string@names, first?: string] {
-  let r = view $name
+  let r = repo view $name
   assetx $r $first
 }
 
 export def "asset download" [name: string@names, first?: string] {
-  let r = view $name
+  let r = repo view $name
   let asset = assetx $r $first
   let download_url = download_url $name $r.tag_name $asset
   let output = ($env.DOWNLOAD_PATH_FILE | path join $asset)
@@ -141,10 +131,37 @@ export def index-set [index: int] {
   $index | save --force $env.GITHUB_REPOSITORY_INDEX
 }
 
-export def rate_limit [] {
-  let rate = (http get https://api.github.com/rate_limit | get rate)
-  let reset = ($rate | get reset | $in * 1_000_000_000 | into datetime --offset -5)
-  return ($rate | upsert reset $reset)
+def link [name: string@names, tag: string] {
+  let text = ($"https://github.com/($name)/releases/tag/($tag)" | ansi link --text $name)
+  return (light $text)
+}
+
+def light [str: string] {
+  return $'(ansi default)($str)(ansi reset)'
+}
+
+def white [str: string] {
+  return $'(ansi white_bold)($str)(ansi reset)'
+}
+
+def italic [str: string] {
+  return $'(ansi white_italic)($str)(ansi reset)'
+}
+
+def red [str: string] {
+  return $'(ansi red_bold)($str)(ansi reset)'
+}
+
+def green [str: string] {
+  return $'(ansi green_bold)($str)(ansi reset)'
+}
+
+def purple [str: string] {
+  return $'(ansi purple_bold)($str)(ansi reset)'
+}
+
+def cyan [str: string] {
+  return $'(ansi cyan_bold)($str)(ansi reset)'
 }
 
 const exclusion_words = [.sum .sha1 .sha256 .sha512 .sig .sbom .json .txt .yml .yaml .blockmap]
@@ -162,14 +179,14 @@ def exclusion [] {
   }
 }
 
-export def update [] {
+export def "repos update" [] {
   let rate_limit = rate_limit
   if $rate_limit.remaining == 0 {
     return ($rate_limit | select reset remaining)
   }
 
   let last_index = index-get
-  mut repos = list
+  mut repos = open $env.GITHUB_REPOSITORY
   let length = ($repos | length)
   for $it in ($repos | enumerate | skip $last_index | first $rate_limit.remaining) {
     let old = $it.item
@@ -220,47 +237,14 @@ export def update [] {
   print $"($length) -> ($last_index)..($last_index + $rate_limit.remaining)"
 }
 
-def link [name: string@names, tag: string] {
-  let text = ($"https://github.com/($name)/releases/tag/($tag)" | ansi link --text $name)
-  return (light $text)
-}
-
-def light [str: string] {
-  return $'(ansi default)($str)(ansi reset)'
-}
-
-def white [str: string] {
-  return $'(ansi white_bold)($str)(ansi reset)'
-}
-
-def italic [str: string] {
-  return $'(ansi white_italic)($str)(ansi reset)'
-}
-
-def red [str: string] {
-  return $'(ansi red_bold)($str)(ansi reset)'
-}
-
-def green [str: string] {
-  return $'(ansi green_bold)($str)(ansi reset)'
-}
-
-def purple [str: string] {
-  return $'(ansi purple_bold)($str)(ansi reset)'
-}
-
-def cyan [str: string] {
-  return $'(ansi cyan_bold)($str)(ansi reset)'
-}
-
-export def upgrade [] {
+export def "repos upgrade" [] {
   let rate_limit = rate_limit
   if $rate_limit.remaining == 0 {
     return ($rate_limit | select reset remaining)
   }
 
   let last_index = index-get
-  mut repos = list
+  mut repos = open $env.GITHUB_REPOSITORY
   let length = ($repos | length)
   for $it in ($repos | enumerate | skip $last_index | first $rate_limit.remaining) {
     let old = $it.item
@@ -283,14 +267,21 @@ export def upgrade [] {
 
     $repos = ($repos | upsert $it.index $repo)
     $repos | save --force $env.GITHUB_REPOSITORY
-    # return
   }
 
   print $"($length) -> ($last_index)..($last_index + $rate_limit.remaining)"
 }
 
-export def update-by-name [...names: string@names] {
-  mut repos = list
+export def "repo view" [name: string@names] {
+  let filter = (open $env.GITHUB_REPOSITORY | where name == $name)
+  if ($filter | is-empty) {
+    error make -u { msg: $"Repository does not exist: ($name)" }
+  }
+  return ($filter | first)
+}
+
+export def "repo update" [...names: string@names] {
+  mut repos = open $env.GITHUB_REPOSITORY
 
   for $it in ($repos | enumerate) {
     if ($it.item.name not-in $names) {
