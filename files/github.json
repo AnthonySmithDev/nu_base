@@ -3421,6 +3421,42 @@
   },
   {
     "category": "other",
+    "name": "cargo-bins/cargo-binstall",
+    "tag_name": "v1.11.0",
+    "created_at": "2025-02-15T09:20:04Z",
+    "assets": [
+      "cargo-binstall-aarch64-apple-darwin.full.zip",
+      "cargo-binstall-aarch64-apple-darwin.zip",
+      "cargo-binstall-aarch64-pc-windows-msvc.full.zip",
+      "cargo-binstall-aarch64-pc-windows-msvc.zip",
+      "cargo-binstall-aarch64-unknown-linux-gnu.full.tgz",
+      "cargo-binstall-aarch64-unknown-linux-gnu.tgz",
+      "cargo-binstall-aarch64-unknown-linux-musl.full.tgz",
+      "cargo-binstall-aarch64-unknown-linux-musl.tgz",
+      "cargo-binstall-armv7-unknown-linux-gnueabihf.full.tgz",
+      "cargo-binstall-armv7-unknown-linux-gnueabihf.tgz",
+      "cargo-binstall-armv7-unknown-linux-musleabihf.full.tgz",
+      "cargo-binstall-armv7-unknown-linux-musleabihf.tgz",
+      "cargo-binstall-universal-apple-darwin.full.zip",
+      "cargo-binstall-universal-apple-darwin.zip",
+      "cargo-binstall-x86_64-apple-darwin.full.zip",
+      "cargo-binstall-x86_64-apple-darwin.zip",
+      "cargo-binstall-x86_64-pc-windows-msvc.full.zip",
+      "cargo-binstall-x86_64-pc-windows-msvc.zip",
+      "cargo-binstall-x86_64-unknown-linux-gnu.full.tgz",
+      "cargo-binstall-x86_64-unknown-linux-gnu.tgz",
+      "cargo-binstall-x86_64-unknown-linux-musl.full.tgz",
+      "cargo-binstall-x86_64-unknown-linux-musl.tgz",
+      "cargo-binstall-x86_64h-apple-darwin.full.zip",
+      "cargo-binstall-x86_64h-apple-darwin.zip",
+      "minisign.pub"
+    ],
+    "linux_x64": {
+      "ends": "x86_64-unknown-linux-musl.full.tgz"
+    }
+  },
+  {
+    "category": "other",
     "name": "zyedidia/micro",
     "tag_name": "v2.0.14",
     "created_at": "2024-08-27T17:58:59Z",
@@ -5250,11 +5286,11 @@
   {
     "category": "android",
     "name": "DD3Boh/OuterTune",
-    "tag_name": "v0.7.3",
-    "created_at": "2025-02-09T20:35:07Z",
+    "tag_name": "v0.7.4",
+    "created_at": "2025-02-17T17:21:58Z",
     "assets": [
-      "OuterTune-0.7.3_rev1-arm64-release.apk",
-      "OuterTune-0.7.3_rev1-universal-release.apk"
+      "OuterTune-0.7.4-arm64-release.apk",
+      "OuterTune-0.7.4-universal-release.apk"
     ]
   },
   {
@@ -5278,8 +5314,8 @@
   {
     "category": "android",
     "name": "fast4x/RiMusic",
-    "tag_name": "v0.6.70",
-    "created_at": "2025-02-07T23:07:08Z",
+    "tag_name": "v0.6.71",
+    "created_at": "2025-02-14T21:33:32Z",
     "assets": [
       "app-foss-release.apk"
     ]

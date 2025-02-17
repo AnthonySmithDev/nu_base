@@ -1471,6 +1471,21 @@ export def --env uv [ --force(-f) ] {
   env-path $env.UV_BIN
 }
 
+export def --env cargo-binstall [ --force(-f) ] {
+  let repository = 'cargo-bins/cargo-binstall'
+  let tag_name = ghub tag_name $repository
+  let path = dirpath cargo-binstall $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
+  }
+
+  bind dir $path $env.CARGO_BINSTALL_BIN
+  env-path $env.CARGO_BINSTALL_BIN
+}
+
 export def micro [ --force(-f) ] {
   let repository = 'zyedidia/micro'
   let tag_name = ghub tag_name $repository
