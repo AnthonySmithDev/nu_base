@@ -275,14 +275,14 @@
   {
     "category": "core",
     "repository": "alacritty/alacritty",
-    "tag_name": "v0.15.0",
-    "created_at": "2025-01-13T20:33:34Z",
+    "tag_name": "v0.15.1",
+    "created_at": "2025-02-16T20:43:11Z",
     "assets": [
       "alacritty-bindings.5.gz",
       "alacritty-msg.1.gz",
-      "Alacritty-v0.15.0-installer.msi",
-      "Alacritty-v0.15.0-portable.exe",
-      "Alacritty-v0.15.0.dmg",
+      "Alacritty-v0.15.1-installer.msi",
+      "Alacritty-v0.15.1-portable.exe",
+      "Alacritty-v0.15.1.dmg",
       "alacritty.1.gz",
       "alacritty.5.gz",
       "alacritty.bash",
@@ -543,23 +543,26 @@
   {
     "category": "core",
     "repository": "Nukesor/pueue",
-    "tag_name": "v3.4.1",
-    "created_at": "2024-06-04T13:49:52Z",
+    "tag_name": "v4.0.0-rc.3",
+    "created_at": "2025-02-17T10:11:57Z",
+    "prerelease": true,
     "assets": [
-      "pueue-darwin-aarch64",
-      "pueue-linux-aarch64",
-      "pueue-linux-arm",
-      "pueue-linux-armv7",
-      "pueue-linux-x86_64",
-      "pueue-macos-x86_64",
-      "pueue-windows-x86_64.exe",
-      "pueued-darwin-aarch64",
-      "pueued-linux-aarch64",
-      "pueued-linux-arm",
-      "pueued-linux-armv7",
-      "pueued-linux-x86_64",
-      "pueued-macos-x86_64",
-      "pueued-windows-x86_64.exe",
+      "pueue-aarch64-apple-darwin",
+      "pueue-aarch64-unknown-linux-musl",
+      "pueue-arm-unknown-linux-musleabihf",
+      "pueue-armv7-unknown-linux-musleabihf",
+      "pueue-x86_64-apple-darwin",
+      "pueue-x86_64-pc-windows-msvc.exe",
+      "pueue-x86_64-unknown-freebsd",
+      "pueue-x86_64-unknown-linux-musl",
+      "pueued-aarch64-apple-darwin",
+      "pueued-aarch64-unknown-linux-musl",
+      "pueued-arm-unknown-linux-musleabihf",
+      "pueued-armv7-unknown-linux-musleabihf",
+      "pueued-x86_64-apple-darwin",
+      "pueued-x86_64-pc-windows-msvc.exe",
+      "pueued-x86_64-unknown-freebsd",
+      "pueued-x86_64-unknown-linux-musl",
       "systemd.pueued.service"
     ],
     "linux_x64": {
@@ -918,8 +921,8 @@
   {
     "category": "extra",
     "repository": "metalbear-co/mirrord",
-    "tag_name": "3.132.1",
-    "created_at": "2025-02-06T21:41:23Z",
+    "tag_name": "3.133.0",
+    "created_at": "2025-02-17T12:05:36Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -1056,10 +1059,10 @@
   {
     "category": "extra",
     "repository": "sezanzeb/input-remapper",
-    "tag_name": "2.1.0",
-    "created_at": "2025-02-08T13:13:52Z",
+    "tag_name": "2.1.1",
+    "created_at": "2025-02-16T10:10:50Z",
     "assets": [
-      "input-remapper-2.1.0.deb"
+      "input-remapper-2.1.1.deb"
     ]
   },
   {
@@ -1210,8 +1213,8 @@
   {
     "category": "extra",
     "repository": "mitmproxy/mitmproxy",
-    "tag_name": "v11.1.2",
-    "created_at": "2025-02-06T00:41:22Z",
+    "tag_name": "v11.1.3",
+    "created_at": "2025-02-17T12:03:20Z",
     "assets": []
   },
   {
@@ -1292,8 +1295,8 @@
   {
     "category": "extra",
     "repository": "derailed/k9s",
-    "tag_name": "v0.32.7",
-    "created_at": "2024-11-16T20:21:49Z",
+    "tag_name": "v0.40.3",
+    "created_at": "2025-02-17T04:01:35Z",
     "assets": [
       "k9s_Darwin_amd64.tar.gz",
       "k9s_Darwin_arm64.tar.gz",
@@ -2278,14 +2281,13 @@
   {
     "category": "other",
     "repository": "mudler/LocalAI",
-    "tag_name": "v2.25.0",
-    "created_at": "2025-01-10T21:45:11Z",
+    "tag_name": "v2.26.0",
+    "created_at": "2025-02-15T17:17:15Z",
     "assets": [
       "local-ai-Darwin-arm64",
       "local-ai-Darwin-x86_64",
       "local-ai-Linux-arm64",
-      "local-ai-Linux-x86_64",
-      "stablediffusion"
+      "local-ai-Linux-x86_64"
     ],
     "linux_x64": {
       "ends": "Linux-x86_64"

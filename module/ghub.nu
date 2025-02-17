@@ -24,6 +24,17 @@ export def names [] {
   }
 }
 
+export def releases [repository: string@names] {
+  let releases = (http get --full --allow-errors https://api.github.com/repos/($repository)/releases)
+  if ($releases | get status) == 403 {
+    error make -u { msg: "API rate limit exceeded" }
+  }
+  if ($releases | get status) != 200 {
+    error make -u { msg: $"($repository): ($releases | get body.message)" }
+  }
+  $releases | get body
+}
+
 export def latest [repository: string@names] {
   let release = (http get --full --allow-errors https://api.github.com/repos/($repository)/releases/latest)
   if ($release | get status) == 403 {
@@ -164,7 +175,12 @@ export def update [] {
     let old = $it.item
     let old_version = ($old.tag_name | to-version)
 
-    let new = latest $old.repository
+    let new = if $old.prerelease? == true {
+       releases $old.repository | where prerelease == true | first
+    } else {
+      latest $old.repository
+    }
+
     let new_version = ($new.tag_name | to-version)
     let new_created_at = ($new.created_at | to-created-at)
 
@@ -281,7 +297,11 @@ export def update-by-name [...names: string@names] {
       continue
     }
     let old = $it.item
-    let new = latest $it.item.repository
+    let new = if $old.prerelease? == true {
+       releases $old.repository | where prerelease == true | first
+    } else {
+      latest $old.repository
+    }
 
     print $"(link $it.item.repository $new.tag_name)"
 
