@@ -82,3 +82,9 @@ export def ruff [ --force(-f) ] {
     curl -LsSf https://astral.sh/ruff/install.sh | sh
   }
 }
+
+export def sshx [ --force(-f) ] {
+  if not (exists-external sshx) or $force {
+    curl -sSf https://sshx.io/get | sh
+  }
+}

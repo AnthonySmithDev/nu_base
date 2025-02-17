@@ -70,6 +70,9 @@ env-path $env.SCRCPY_BIN
 $env.MITMPROXY_BIN = ($env.USR_LOCAL_LIB | path join mitmproxy)
 env-path $env.MITMPROXY_BIN
 
+$env.SSHX_BIN = ($env.USR_LOCAL_LIB | path join sshx)
+env-path $env.SSHX_BIN
+
 $env.AMBER_BIN = ($env.USR_LOCAL_LIB | path join amber)
 env-path $env.AMBER_BIN
 
