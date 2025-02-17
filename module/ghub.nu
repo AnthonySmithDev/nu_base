@@ -20,40 +20,40 @@ export def names [] {
       positional: false,
       sort: false,
     },
-    completions: (list | get repository)
+    completions: (list | get name)
   }
 }
 
-export def releases [repository: string@names] {
-  let releases = (http get --full --allow-errors https://api.github.com/repos/($repository)/releases)
+export def releases [name: string@names] {
+  let releases = (http get --full --allow-errors https://api.github.com/repos/($name)/releases)
   if ($releases | get status) == 403 {
     error make -u { msg: "API rate limit exceeded" }
   }
   if ($releases | get status) != 200 {
-    error make -u { msg: $"($repository): ($releases | get body.message)" }
+    error make -u { msg: $"($name): ($releases | get body.message)" }
   }
   $releases | get body
 }
 
-export def latest [repository: string@names] {
-  let release = (http get --full --allow-errors https://api.github.com/repos/($repository)/releases/latest)
+export def releases-latest [name: string@names] {
+  let release = (http get --full --allow-errors https://api.github.com/repos/($name)/releases/latest)
   if ($release | get status) == 403 {
     error make -u { msg: "API rate limit exceeded" }
   }
   if ($release | get status) != 200 {
-    error make -u { msg: $"($repository): ($release | get body.message)" }
+    error make -u { msg: $"($name): ($release | get body.message)" }
   }
   $release | get body
 }
 
-export def find_repo [repository: string@names] {
-  return (list | where repository =~ $repository)
+export def find_repo [name: string@names] {
+  return (list | where name =~ $name)
 }
 
-export def view [repository: string@names] {
-  let repos = (list | where repository == $repository)
+export def view [name: string@names] {
+  let repos = (list | where name == $name)
   if ($repos | is-empty) {
-    error make -u { msg: $"Repository does not exist: ($repository)" }
+    error make -u { msg: $"Repository does not exist: ($name)" }
   }
   return ($repos | first)
 }
@@ -66,14 +66,14 @@ def to-created-at [] {
   into datetime --offset -5 | date humanize
 }
 
-export def download_url [repository: string@names, tag_name: string, asset: string] {
-  $'https://github.com/($repository)/releases/download/($tag_name)/($asset)'
+export def download_url [name: string@names, tag_name: string, asset: string] {
+  $'https://github.com/($name)/releases/download/($tag_name)/($asset)'
 }
 
 def print-repository [r: record] {
   let version = ($r.tag_name | to-version)
   let created_at = ($r.created_at | to-created-at)
-  print $"(link $r.repository $r.tag_name) (white $version) (italic $created_at)"
+  print $"(link $r.name $r.tag_name) (white $version) (italic $created_at)"
 }
 
 export def version [name: string@names] {
@@ -119,10 +119,10 @@ export def asset [name: string@names, first?: string] {
   assetx $r $first
 }
 
-export def "asset download" [repository: string@names, first?: string] {
-  let r = view $repository
+export def "asset download" [name: string@names, first?: string] {
+  let r = view $name
   let asset = assetx $r $first
-  let download_url = download_url $repository $r.tag_name $asset
+  let download_url = download_url $name $r.tag_name $asset
   let output = ($env.DOWNLOAD_PATH_FILE | path join $asset)
   if not ($output | path exists) {
     http download $download_url --output $output
@@ -176,9 +176,9 @@ export def update [] {
     let old_version = ($old.tag_name | to-version)
 
     let new = if $old.prerelease? == true {
-       releases $old.repository | where prerelease == true | first
+      releases $old.name | where prerelease == true | first
     } else {
-      latest $old.repository
+      releases-latest $old.name
     }
 
     let new_version = ($new.tag_name | to-version)
@@ -191,17 +191,17 @@ export def update [] {
     }
 
     if $old.tag_name == $new.tag_name {
-      print $"(link $old.repository $old.tag_name) (white $old_version) (italic $new_created_at)"
+      print $"(link $old.name $old.tag_name) (white $old_version) (italic $new_created_at)"
       continue
     }
     if ($old.assets | is-not-empty) {
       if ($new.assets | length) < 1 {
-        print $"(link $old.repository $new.tag_name) (purple $old_version) (cyan $new_version) (italic $new_created_at)"
+        print $"(link $old.name $new.tag_name) (purple $old_version) (cyan $new_version) (italic $new_created_at)"
         continue
       }
     }
 
-    print $"(link $old.repository $new.tag_name) (red $old_version) (green $new_version) (italic $new_created_at)"
+    print $"(link $old.name $new.tag_name) (red $old_version) (green $new_version) (italic $new_created_at)"
 
     mut repo = ($old
       | upsert tag_name $new.tag_name
@@ -220,8 +220,8 @@ export def update [] {
   print $"($length) -> ($last_index)..($last_index + $rate_limit.remaining)"
 }
 
-def link [repository: string@names, tag: string] {
-  let text = ($"https://github.com/($repository)/releases/tag/($tag)" | ansi link --text $repository)
+def link [name: string@names, tag: string] {
+  let text = ($"https://github.com/($name)/releases/tag/($tag)" | ansi link --text $name)
   return (light $text)
 }
 
@@ -265,7 +265,7 @@ export def upgrade [] {
   for $it in ($repos | enumerate | skip $last_index | first $rate_limit.remaining) {
     let old = $it.item
 
-    let new = latest $old.repository
+    let new = releases-latest $old.name
 
     if ($it.index + 1) == $length {
       index-set 0
@@ -273,7 +273,7 @@ export def upgrade [] {
       index-set ($it.index + 1 )
     }
 
-    print $"(link $old.repository $new.tag_name)"
+    print $"(link $old.name $new.tag_name)"
 
     mut repo = ($old
       | upsert tag_name $new.tag_name
@@ -293,17 +293,17 @@ export def update-by-name [...names: string@names] {
   mut repos = list
 
   for $it in ($repos | enumerate) {
-    if ($it.item.repository not-in $names) {
+    if ($it.item.name not-in $names) {
       continue
     }
     let old = $it.item
     let new = if $old.prerelease? == true {
-       releases $old.repository | where prerelease == true | first
+      releases $old.name | where prerelease == true | first
     } else {
-      latest $old.repository
+      releases-latest $old.name
     }
 
-    print $"(link $it.item.repository $new.tag_name)"
+    print $"(link $it.item.name $new.tag_name)"
 
     mut repo = ($old
       | upsert tag_name $new.tag_name

@@ -1,7 +1,7 @@
 [
   {
     "category": "core",
-    "repository": "ducaale/xh",
+    "name": "ducaale/xh",
     "tag_name": "v0.23.1",
     "created_at": "2025-01-02T11:37:48Z",
     "assets": [
@@ -19,7 +19,7 @@
   },
   {
     "category": "core",
-    "repository": "go-task/task",
+    "name": "go-task/task",
     "tag_name": "v3.41.0",
     "created_at": "2025-01-18T14:15:57Z",
     "assets": [
@@ -55,7 +55,7 @@
   },
   {
     "category": "core",
-    "repository": "charmbracelet/gum",
+    "name": "charmbracelet/gum",
     "tag_name": "v0.15.2",
     "created_at": "2025-01-28T16:53:46Z",
     "assets": [
@@ -106,7 +106,7 @@
   },
   {
     "category": "core",
-    "repository": "charmbracelet/mods",
+    "name": "charmbracelet/mods",
     "tag_name": "v1.7.0",
     "created_at": "2025-01-16T13:48:37Z",
     "assets": [
@@ -140,7 +140,7 @@
   },
   {
     "category": "core",
-    "repository": "helix-editor/helix",
+    "name": "helix-editor/helix",
     "tag_name": "25.01.1",
     "created_at": "2025-01-19T20:51:26Z",
     "assets": [
@@ -160,7 +160,7 @@
   },
   {
     "category": "core",
-    "repository": "SilasMarvin/lsp-ai",
+    "name": "SilasMarvin/lsp-ai",
     "tag_name": "v0.7.1",
     "created_at": "2024-09-24T14:36:52Z",
     "assets": [
@@ -183,7 +183,7 @@
   },
   {
     "category": "core",
-    "repository": "nushell/nushell",
+    "name": "nushell/nushell",
     "tag_name": "0.102.0",
     "created_at": "2025-02-04T15:49:35Z",
     "assets": [
@@ -209,7 +209,7 @@
   },
   {
     "category": "core",
-    "repository": "starship/starship",
+    "name": "starship/starship",
     "tag_name": "v1.22.1",
     "created_at": "2025-01-11T17:04:57Z",
     "assets": [
@@ -234,7 +234,7 @@
   },
   {
     "category": "core",
-    "repository": "ajeetdsouza/zoxide",
+    "name": "ajeetdsouza/zoxide",
     "tag_name": "v0.9.7",
     "created_at": "2025-02-09T21:49:05Z",
     "assets": [
@@ -259,7 +259,7 @@
   },
   {
     "category": "core",
-    "repository": "zellij-org/zellij",
+    "name": "zellij-org/zellij",
     "tag_name": "v0.41.2",
     "created_at": "2024-11-19T12:16:01Z",
     "assets": [
@@ -274,7 +274,7 @@
   },
   {
     "category": "core",
-    "repository": "alacritty/alacritty",
+    "name": "alacritty/alacritty",
     "tag_name": "v0.15.1",
     "created_at": "2025-02-16T20:43:11Z",
     "assets": [
@@ -295,7 +295,7 @@
   },
   {
     "category": "core",
-    "repository": "BurntSushi/ripgrep",
+    "name": "BurntSushi/ripgrep",
     "tag_name": "14.1.1",
     "created_at": "2024-09-09T02:15:00Z",
     "assets": [
@@ -320,7 +320,7 @@
   },
   {
     "category": "core",
-    "repository": "sharkdp/fd",
+    "name": "sharkdp/fd",
     "tag_name": "v10.2.0",
     "created_at": "2024-08-22T19:27:40Z",
     "assets": [
@@ -352,7 +352,7 @@
   },
   {
     "category": "core",
-    "repository": "junegunn/fzf",
+    "name": "junegunn/fzf",
     "tag_name": "v0.60.0",
     "created_at": "2025-02-12T15:54:51Z",
     "assets": [
@@ -380,7 +380,7 @@
   },
   {
     "category": "core",
-    "repository": "sharkdp/bat",
+    "name": "sharkdp/bat",
     "tag_name": "v0.25.0",
     "created_at": "2025-01-07T19:07:05Z",
     "assets": [
@@ -412,7 +412,7 @@
   },
   {
     "category": "core",
-    "repository": "jesseduffield/lazygit",
+    "name": "jesseduffield/lazygit",
     "tag_name": "v0.46.0",
     "created_at": "2025-02-15T04:37:50Z",
     "assets": [
@@ -437,7 +437,7 @@
   },
   {
     "category": "core",
-    "repository": "jesseduffield/lazydocker",
+    "name": "jesseduffield/lazydocker",
     "tag_name": "v0.24.1",
     "created_at": "2024-11-23T06:24:22Z",
     "assets": [
@@ -460,7 +460,7 @@
   },
   {
     "category": "core",
-    "repository": "PaulJuliusMartinez/jless",
+    "name": "PaulJuliusMartinez/jless",
     "tag_name": "v0.9.0",
     "created_at": "2023-07-17T02:12:03Z",
     "assets": [
@@ -474,7 +474,7 @@
   },
   {
     "category": "core",
-    "repository": "smallhadroncollider/taskell",
+    "name": "smallhadroncollider/taskell",
     "tag_name": "1.11.4",
     "created_at": "2021-08-26T12:32:23Z",
     "assets": [
@@ -488,7 +488,7 @@
   },
   {
     "category": "core",
-    "repository": "ad-si/TaskLite",
+    "name": "ad-si/TaskLite",
     "tag_name": "v0.4.0.0",
     "created_at": "2024-09-23T04:48:38Z",
     "assets": [
@@ -501,7 +501,7 @@
   },
   {
     "category": "core",
-    "repository": "dundee/gdu",
+    "name": "dundee/gdu",
     "tag_name": "v5.30.1",
     "created_at": "2024-12-30T21:17:38Z",
     "assets": [
@@ -542,7 +542,7 @@
   },
   {
     "category": "core",
-    "repository": "Nukesor/pueue",
+    "name": "Nukesor/pueue",
     "tag_name": "v4.0.0-rc.3",
     "created_at": "2025-02-17T10:11:57Z",
     "prerelease": true,
@@ -571,7 +571,7 @@
   },
   {
     "category": "core",
-    "repository": "dandavison/delta",
+    "name": "dandavison/delta",
     "tag_name": "0.18.2",
     "created_at": "2024-09-11T12:29:53Z",
     "assets": [
@@ -595,7 +595,7 @@
   },
   {
     "category": "core",
-    "repository": "Wilfred/difftastic",
+    "name": "Wilfred/difftastic",
     "tag_name": "0.63.0",
     "created_at": "2025-02-11T01:41:06Z",
     "assets": [
@@ -612,7 +612,7 @@
   },
   {
     "category": "core",
-    "repository": "sigoden/dufs",
+    "name": "sigoden/dufs",
     "tag_name": "v0.43.0",
     "created_at": "2024-11-05T09:08:43Z",
     "assets": [
@@ -633,7 +633,7 @@
   },
   {
     "category": "core",
-    "repository": "claudiodangelis/qrcp",
+    "name": "claudiodangelis/qrcp",
     "tag_name": "v0.11.4",
     "created_at": "2024-12-27T16:32:44Z",
     "assets": [
@@ -660,7 +660,7 @@
   },
   {
     "category": "core",
-    "repository": "crisidev/qrsync",
+    "name": "crisidev/qrsync",
     "tag_name": "v0.3.0",
     "created_at": "2023-08-06T12:39:05Z",
     "assets": [
@@ -675,7 +675,7 @@
   },
   {
     "category": "core",
-    "repository": "orhun/binsider",
+    "name": "orhun/binsider",
     "tag_name": "v0.2.1",
     "created_at": "2024-10-10T22:16:42Z",
     "assets": [
@@ -701,7 +701,7 @@
   },
   {
     "category": "core",
-    "repository": "ClementTsang/bottom",
+    "name": "ClementTsang/bottom",
     "tag_name": "0.10.2",
     "created_at": "2024-08-06T00:28:17Z",
     "assets": [
@@ -743,7 +743,7 @@
   },
   {
     "category": "core",
-    "repository": "aristocratos/btop",
+    "name": "aristocratos/btop",
     "tag_name": "v1.4.0",
     "created_at": "2024-09-22T10:48:38Z",
     "assets": [
@@ -763,7 +763,7 @@
   },
   {
     "category": "core",
-    "repository": "max-niederman/ttyper",
+    "name": "max-niederman/ttyper",
     "tag_name": "v1.6.0",
     "created_at": "2024-08-12T22:27:29Z",
     "assets": [
@@ -785,14 +785,14 @@
   },
   {
     "category": "core",
-    "repository": "Aloxaf/silicon",
+    "name": "Aloxaf/silicon",
     "tag_name": "v0.5.3",
     "created_at": "2024-09-26T01:02:16Z",
     "assets": []
   },
   {
     "category": "core",
-    "repository": "TomWright/dasel",
+    "name": "TomWright/dasel",
     "tag_name": "v2.8.1",
     "created_at": "2024-06-30T18:36:47Z",
     "assets": [
@@ -819,7 +819,7 @@
   },
   {
     "category": "core",
-    "repository": "dalance/amber",
+    "name": "dalance/amber",
     "tag_name": "v0.6.0",
     "created_at": "2023-12-27T07:47:31Z",
     "assets": [
@@ -833,7 +833,7 @@
   },
   {
     "category": "core",
-    "repository": "Canop/broot",
+    "name": "Canop/broot",
     "tag_name": "v1.44.7",
     "created_at": "2025-02-12T16:03:14Z",
     "assets": [
@@ -845,7 +845,7 @@
   },
   {
     "category": "core",
-    "repository": "xo/usql",
+    "name": "xo/usql",
     "tag_name": "v0.19.17",
     "created_at": "2025-02-11T00:24:58Z",
     "assets": [
@@ -865,14 +865,14 @@
   },
   {
     "category": "core",
-    "repository": "ariga/atlas",
+    "name": "ariga/atlas",
     "tag_name": "v0.31.0",
     "created_at": "2025-02-05T08:44:07Z",
     "assets": []
   },
   {
     "category": "core",
-    "repository": "jbensmann/mouseless",
+    "name": "jbensmann/mouseless",
     "tag_name": "v0.2.0",
     "created_at": "2024-10-19T10:13:04Z",
     "assets": [
@@ -884,7 +884,7 @@
   },
   {
     "category": "extra",
-    "repository": "lapce/lapce",
+    "name": "lapce/lapce",
     "tag_name": "v0.4.2",
     "created_at": "2024-08-24T18:44:43Z",
     "assets": [
@@ -920,7 +920,7 @@
   },
   {
     "category": "extra",
-    "repository": "metalbear-co/mirrord",
+    "name": "metalbear-co/mirrord",
     "tag_name": "3.133.0",
     "created_at": "2025-02-17T12:05:36Z",
     "assets": [
@@ -943,7 +943,7 @@
   },
   {
     "category": "extra",
-    "repository": "altsem/gitu",
+    "name": "altsem/gitu",
     "tag_name": "v0.28.1",
     "created_at": "2025-02-13T18:37:56Z",
     "assets": [
@@ -958,7 +958,7 @@
   },
   {
     "category": "extra",
-    "repository": "mistakenelf/fm",
+    "name": "mistakenelf/fm",
     "tag_name": "v1.1.0",
     "created_at": "2024-04-14T17:21:21Z",
     "assets": [
@@ -1001,7 +1001,7 @@
   },
   {
     "category": "extra",
-    "repository": "yorukot/superfile",
+    "name": "yorukot/superfile",
     "tag_name": "v1.1.7.1",
     "created_at": "2025-01-06T07:45:29Z",
     "assets": [
@@ -1019,7 +1019,7 @@
   },
   {
     "category": "extra",
-    "repository": "zk-org/zk",
+    "name": "zk-org/zk",
     "tag_name": "v0.14.2",
     "created_at": "2025-02-07T20:59:10Z",
     "assets": [
@@ -1039,7 +1039,7 @@
   },
   {
     "category": "extra",
-    "repository": "guumaster/hostctl",
+    "name": "guumaster/hostctl",
     "tag_name": "v1.1.4",
     "created_at": "2023-05-02T12:19:36Z",
     "assets": [
@@ -1058,7 +1058,7 @@
   },
   {
     "category": "extra",
-    "repository": "sezanzeb/input-remapper",
+    "name": "sezanzeb/input-remapper",
     "tag_name": "2.1.1",
     "created_at": "2025-02-16T10:10:50Z",
     "assets": [
@@ -1067,7 +1067,7 @@
   },
   {
     "category": "extra",
-    "repository": "neovim/neovim",
+    "name": "neovim/neovim",
     "tag_name": "v0.10.4",
     "created_at": "2025-01-29T10:20:29Z",
     "assets": [
@@ -1088,7 +1088,7 @@
   },
   {
     "category": "extra",
-    "repository": "ekzhang/bore",
+    "name": "ekzhang/bore",
     "tag_name": "v0.5.2",
     "created_at": "2024-12-05T18:42:39Z",
     "assets": [
@@ -1110,7 +1110,7 @@
   },
   {
     "category": "extra",
-    "repository": "vi/websocat",
+    "name": "vi/websocat",
     "tag_name": "v1.14.0",
     "created_at": "2024-11-12T14:49:41Z",
     "assets": [
@@ -1134,7 +1134,7 @@
   },
   {
     "category": "extra",
-    "repository": "AdguardTeam/AdGuardHome",
+    "name": "AdguardTeam/AdGuardHome",
     "tag_name": "v0.107.56",
     "created_at": "2025-01-23T13:52:00Z",
     "assets": [
@@ -1171,7 +1171,7 @@
   },
   {
     "category": "extra",
-    "repository": "anfragment/zen",
+    "name": "anfragment/zen",
     "tag_name": "v0.8.0",
     "created_at": "2025-02-03T16:37:51Z",
     "assets": [
@@ -1194,7 +1194,7 @@
   },
   {
     "category": "extra",
-    "repository": "kristoff-it/superhtml",
+    "name": "kristoff-it/superhtml",
     "tag_name": "v0.5.3",
     "created_at": "2024-10-31T16:29:54Z",
     "assets": [
@@ -1212,14 +1212,14 @@
   },
   {
     "category": "extra",
-    "repository": "mitmproxy/mitmproxy",
+    "name": "mitmproxy/mitmproxy",
     "tag_name": "v11.1.3",
     "created_at": "2025-02-17T12:03:20Z",
     "assets": []
   },
   {
     "category": "extra",
-    "repository": "dstotijn/hetty",
+    "name": "dstotijn/hetty",
     "tag_name": "v0.7.0",
     "created_at": "2022-03-29T12:08:35Z",
     "assets": [
@@ -1236,7 +1236,7 @@
   },
   {
     "category": "extra",
-    "repository": "pkolaczk/fclones",
+    "name": "pkolaczk/fclones",
     "tag_name": "v0.34.0",
     "created_at": "2023-10-29T16:51:18Z",
     "assets": [
@@ -1253,7 +1253,7 @@
   },
   {
     "category": "extra",
-    "repository": "Jelmerro/Vieb",
+    "name": "Jelmerro/Vieb",
     "tag_name": "12.2.0",
     "created_at": "2025-01-20T20:29:36Z",
     "assets": [
@@ -1279,7 +1279,7 @@
   },
   {
     "category": "core",
-    "repository": "mrjackwills/oxker",
+    "name": "mrjackwills/oxker",
     "tag_name": "v0.9.0",
     "created_at": "2024-12-05T20:46:30Z",
     "assets": [
@@ -1294,7 +1294,7 @@
   },
   {
     "category": "extra",
-    "repository": "derailed/k9s",
+    "name": "derailed/k9s",
     "tag_name": "v0.40.3",
     "created_at": "2025-02-17T04:01:35Z",
     "assets": [
@@ -1332,7 +1332,7 @@
   },
   {
     "category": "extra",
-    "repository": "kdash-rs/kdash",
+    "name": "kdash-rs/kdash",
     "tag_name": "v0.6.1",
     "created_at": "2024-08-28T16:03:40Z",
     "assets": [
@@ -1355,7 +1355,7 @@
   },
   {
     "category": "extra",
-    "repository": "kubecolor/kubecolor",
+    "name": "kubecolor/kubecolor",
     "tag_name": "v0.5.0",
     "created_at": "2025-01-06T16:19:15Z",
     "assets": [
@@ -1373,7 +1373,7 @@
   },
   {
     "category": "extra",
-    "repository": "sarub0b0/kubetui",
+    "name": "sarub0b0/kubetui",
     "tag_name": "v1.6.0",
     "created_at": "2025-01-06T16:44:44Z",
     "assets": [
@@ -1389,14 +1389,14 @@
   },
   {
     "category": "extra",
-    "repository": "bettercap/bettercap",
+    "name": "bettercap/bettercap",
     "tag_name": "v2.41.0",
     "created_at": "2025-01-31T11:27:12Z",
     "assets": []
   },
   {
     "category": "extra",
-    "repository": "iawia002/lux",
+    "name": "iawia002/lux",
     "tag_name": "v0.24.1",
     "created_at": "2024-05-06T01:31:30Z",
     "assets": [
@@ -1426,7 +1426,7 @@
   },
   {
     "category": "extra",
-    "repository": "mdp/qrterminal",
+    "name": "mdp/qrterminal",
     "tag_name": "v3.2.0",
     "created_at": "2023-11-06T18:51:25Z",
     "assets": [
@@ -1445,7 +1445,7 @@
   },
   {
     "category": "extra",
-    "repository": "Lenivaya/qrrs",
+    "name": "Lenivaya/qrrs",
     "tag_name": "v0.1.10",
     "created_at": "2024-08-15T20:34:32Z",
     "assets": [
@@ -1466,7 +1466,7 @@
   },
   {
     "category": "extra",
-    "repository": "codesenberg/bombardier",
+    "name": "codesenberg/bombardier",
     "tag_name": "v1.2.6",
     "created_at": "2023-04-29T19:49:13Z",
     "assets": [
@@ -1496,7 +1496,7 @@
   },
   {
     "category": "extra",
-    "repository": "svenstaro/genact",
+    "name": "svenstaro/genact",
     "tag_name": "v1.4.2",
     "created_at": "2024-02-17T22:13:46Z",
     "assets": [
@@ -1517,7 +1517,7 @@
   },
   {
     "category": "extra",
-    "repository": "rclone/rclone",
+    "name": "rclone/rclone",
     "tag_name": "v1.69.1",
     "created_at": "2025-02-14T15:17:26Z",
     "assets": [
@@ -1577,7 +1577,7 @@
   },
   {
     "category": "extra",
-    "repository": "charmbracelet/glow",
+    "name": "charmbracelet/glow",
     "tag_name": "v2.0.0",
     "created_at": "2024-08-23T19:04:44Z",
     "assets": [
@@ -1621,7 +1621,7 @@
   },
   {
     "category": "extra",
-    "repository": "charmbracelet/vhs",
+    "name": "charmbracelet/vhs",
     "tag_name": "v0.9.0",
     "created_at": "2025-01-15T18:17:50Z",
     "assets": [
@@ -1653,7 +1653,7 @@
   },
   {
     "category": "extra",
-    "repository": "charmbracelet/freeze",
+    "name": "charmbracelet/freeze",
     "tag_name": "v0.1.6",
     "created_at": "2024-04-03T05:03:35Z",
     "assets": [
@@ -1697,7 +1697,7 @@
   },
   {
     "category": "extra",
-    "repository": "charmbracelet/melt",
+    "name": "charmbracelet/melt",
     "tag_name": "v0.6.2",
     "created_at": "2024-08-15T18:37:26Z",
     "assets": [
@@ -1748,7 +1748,7 @@
   },
   {
     "category": "extra",
-    "repository": "charmbracelet/skate",
+    "name": "charmbracelet/skate",
     "tag_name": "v1.0.0",
     "created_at": "2024-08-23T19:45:14Z",
     "assets": [
@@ -1792,7 +1792,7 @@
   },
   {
     "category": "extra",
-    "repository": "charmbracelet/soft-serve",
+    "name": "charmbracelet/soft-serve",
     "tag_name": "v0.8.2",
     "created_at": "2025-01-07T11:32:40Z",
     "assets": [
@@ -1827,7 +1827,7 @@
   },
   {
     "category": "extra",
-    "repository": "maaslalani/slides",
+    "name": "maaslalani/slides",
     "tag_name": "v0.9.0",
     "created_at": "2022-09-13T14:29:08Z",
     "assets": [
@@ -1843,7 +1843,7 @@
   },
   {
     "category": "extra",
-    "repository": "maaslalani/nap",
+    "name": "maaslalani/nap",
     "tag_name": "v0.1.1",
     "created_at": "2022-11-21T15:22:57Z",
     "assets": [
@@ -1859,7 +1859,7 @@
   },
   {
     "category": "extra",
-    "repository": "maaslalani/invoice",
+    "name": "maaslalani/invoice",
     "tag_name": "v0.1.0",
     "created_at": "2023-06-29T02:52:33Z",
     "assets": [
@@ -1878,7 +1878,7 @@
   },
   {
     "category": "extra",
-    "repository": "chmln/sd",
+    "name": "chmln/sd",
     "tag_name": "v1.0.0",
     "created_at": "2023-11-08T02:19:46Z",
     "assets": [
@@ -1898,7 +1898,7 @@
   },
   {
     "category": "extra",
-    "repository": "ms-jpq/sad",
+    "name": "ms-jpq/sad",
     "tag_name": "v0.4.32",
     "created_at": "2025-02-03T19:19:06Z",
     "assets": [
@@ -1922,7 +1922,7 @@
   },
   {
     "category": "extra",
-    "repository": "yudai/gotty",
+    "name": "yudai/gotty",
     "tag_name": "v1.0.1",
     "created_at": "2017-08-08T08:32:38Z",
     "assets": [
@@ -1947,7 +1947,7 @@
   },
   {
     "category": "extra",
-    "repository": "tsl0922/ttyd",
+    "name": "tsl0922/ttyd",
     "tag_name": "1.7.7",
     "created_at": "2024-03-30T03:04:51Z",
     "assets": [
@@ -1970,7 +1970,7 @@
   },
   {
     "category": "extra",
-    "repository": "elisescu/tty-share",
+    "name": "elisescu/tty-share",
     "tag_name": "v2.4.1",
     "created_at": "2025-01-12T12:29:30Z",
     "assets": [
@@ -1985,7 +1985,7 @@
   },
   {
     "category": "extra",
-    "repository": "owenthereal/upterm",
+    "name": "owenthereal/upterm",
     "tag_name": "v0.14.3",
     "created_at": "2024-05-21T07:24:17Z",
     "assets": [
@@ -2010,7 +2010,7 @@
   },
   {
     "category": "extra",
-    "repository": "jtroo/kanata",
+    "name": "jtroo/kanata",
     "tag_name": "v1.8.0",
     "created_at": "2025-02-09T06:43:10Z",
     "assets": [
@@ -2040,7 +2040,7 @@
   },
   {
     "category": "extra",
-    "repository": "msoap/shell2http",
+    "name": "msoap/shell2http",
     "tag_name": "v1.17.0",
     "created_at": "2024-03-23T20:47:03Z",
     "assets": [
@@ -2068,7 +2068,7 @@
   },
   {
     "category": "extra",
-    "repository": "lsd-rs/lsd",
+    "name": "lsd-rs/lsd",
     "tag_name": "v1.1.5",
     "created_at": "2024-08-20T16:25:29Z",
     "assets": [
@@ -2103,7 +2103,7 @@
   },
   {
     "category": "extra",
-    "repository": "eza-community/eza",
+    "name": "eza-community/eza",
     "tag_name": "v0.20.21",
     "created_at": "2025-02-13T13:50:04Z",
     "assets": [
@@ -2130,7 +2130,7 @@
   },
   {
     "category": "extra",
-    "repository": "orf/gping",
+    "name": "orf/gping",
     "tag_name": "gping-v1.19.0",
     "created_at": "2024-12-18T13:14:46Z",
     "assets": [
@@ -2152,7 +2152,7 @@
   },
   {
     "category": "extra",
-    "repository": "ast-grep/ast-grep",
+    "name": "ast-grep/ast-grep",
     "tag_name": "0.35.0",
     "created_at": "2025-02-15T05:57:32Z",
     "assets": [
@@ -2170,7 +2170,7 @@
   },
   {
     "category": "extra",
-    "repository": "terrastruct/d2",
+    "name": "terrastruct/d2",
     "tag_name": "v0.6.9",
     "created_at": "2025-02-05T04:43:04Z",
     "assets": [
@@ -2188,7 +2188,7 @@
   },
   {
     "category": "core",
-    "repository": "jesseduffield/lazycli",
+    "name": "jesseduffield/lazycli",
     "tag_name": "v0.1.15",
     "created_at": "2021-06-02T07:37:39Z",
     "assets": [
@@ -2202,7 +2202,7 @@
   },
   {
     "category": "core",
-    "repository": "jesseduffield/horcrux",
+    "name": "jesseduffield/horcrux",
     "tag_name": "v0.2",
     "created_at": "2020-01-03T06:05:51Z",
     "assets": [
@@ -2224,7 +2224,7 @@
   },
   {
     "category": "core",
-    "repository": "pomdtr/tweety",
+    "name": "pomdtr/tweety",
     "tag_name": "v0.9.0",
     "created_at": "2024-01-27T19:31:49Z",
     "assets": [
@@ -2240,7 +2240,7 @@
   },
   {
     "category": "other",
-    "repository": "ollama/ollama",
+    "name": "ollama/ollama",
     "tag_name": "v0.5.11",
     "created_at": "2025-02-14T06:38:23Z",
     "assets": [
@@ -2261,7 +2261,7 @@
   },
   {
     "category": "other",
-    "repository": "plandex-ai/plandex",
+    "name": "plandex-ai/plandex",
     "tag_name": "cli/v1.1.1",
     "created_at": "2024-06-21T17:17:11Z",
     "assets": [
@@ -2280,7 +2280,7 @@
   },
   {
     "category": "other",
-    "repository": "mudler/LocalAI",
+    "name": "mudler/LocalAI",
     "tag_name": "v2.26.0",
     "created_at": "2025-02-15T17:17:15Z",
     "assets": [
@@ -2295,7 +2295,7 @@
   },
   {
     "category": "other",
-    "repository": "feschber/lan-mouse",
+    "name": "feschber/lan-mouse",
     "tag_name": "v0.10.0",
     "created_at": "2024-11-07T11:49:59Z",
     "assets": [
@@ -2310,7 +2310,7 @@
   },
   {
     "category": "other",
-    "repository": "leoafarias/fvm",
+    "name": "leoafarias/fvm",
     "tag_name": "3.2.1",
     "created_at": "2024-08-26T12:55:55Z",
     "assets": [
@@ -2336,7 +2336,7 @@
   },
   {
     "category": "other",
-    "repository": "JetBrains/kotlin",
+    "name": "JetBrains/kotlin",
     "tag_name": "v2.1.10",
     "created_at": "2025-01-16T15:50:42Z",
     "assets": [
@@ -2352,7 +2352,7 @@
   },
   {
     "category": "other",
-    "repository": "LuaLS/lua-language-server",
+    "name": "LuaLS/lua-language-server",
     "tag_name": "3.13.6",
     "created_at": "2025-02-06T07:15:13Z",
     "assets": [
@@ -2371,7 +2371,7 @@
   },
   {
     "category": "other",
-    "repository": "artempyanykh/marksman",
+    "name": "artempyanykh/marksman",
     "tag_name": "2024-12-18",
     "created_at": "2024-12-14T17:23:30Z",
     "assets": [
@@ -2386,7 +2386,7 @@
   },
   {
     "category": "other",
-    "repository": "vlang/v-analyzer",
+    "name": "vlang/v-analyzer",
     "tag_name": "0.0.5",
     "created_at": "2024-11-13T10:34:12Z",
     "assets": [
@@ -2411,7 +2411,7 @@
   },
   {
     "category": "other",
-    "repository": "ziglang/zig",
+    "name": "ziglang/zig",
     "tag_name": "0.13.0",
     "created_at": "2024-06-06T19:05:11Z",
     "assets": [
@@ -2421,7 +2421,7 @@
   },
   {
     "category": "other",
-    "repository": "zigtools/zls",
+    "name": "zigtools/zls",
     "tag_name": "0.13.0",
     "created_at": "2024-06-09T00:05:07Z",
     "assets": [
@@ -2440,7 +2440,7 @@
   },
   {
     "category": "other",
-    "repository": "fwcd/kotlin-language-server",
+    "name": "fwcd/kotlin-language-server",
     "tag_name": "1.3.13",
     "created_at": "2025-01-18T22:39:54Z",
     "assets": [
@@ -2452,7 +2452,7 @@
   },
   {
     "category": "other",
-    "repository": "ryanoasis/nerd-fonts",
+    "name": "ryanoasis/nerd-fonts",
     "tag_name": "v3.3.0",
     "created_at": "2024-11-18T03:03:07Z",
     "assets": [
@@ -2597,14 +2597,14 @@
   },
   {
     "category": "other",
-    "repository": "microsoft/vscode",
+    "name": "microsoft/vscode",
     "tag_name": "1.97.2",
     "created_at": "2025-02-12T14:18:30Z",
     "assets": []
   },
   {
     "category": "other",
-    "repository": "VSCodium/vscodium",
+    "name": "VSCodium/vscodium",
     "tag_name": "1.97.2.25045",
     "created_at": "2025-02-14T18:15:26Z",
     "assets": [
@@ -2669,7 +2669,7 @@
   },
   {
     "category": "other",
-    "repository": "coder/code-server",
+    "name": "coder/code-server",
     "tag_name": "v4.96.4",
     "created_at": "2025-01-17T22:46:30Z",
     "assets": [
@@ -2691,7 +2691,7 @@
   },
   {
     "category": "other",
-    "repository": "gcla/termshark",
+    "name": "gcla/termshark",
     "tag_name": "v2.4.0",
     "created_at": "2022-07-11T22:11:49Z",
     "assets": [
@@ -2711,7 +2711,7 @@
   },
   {
     "category": "other",
-    "repository": "veeso/termscp",
+    "name": "veeso/termscp",
     "tag_name": "v0.16.1",
     "created_at": "2024-11-12T11:34:26Z",
     "assets": [
@@ -2730,7 +2730,7 @@
   },
   {
     "category": "other",
-    "repository": "bloznelis/kbt",
+    "name": "bloznelis/kbt",
     "tag_name": "2.1.0",
     "created_at": "2024-01-06T10:52:07Z",
     "assets": [
@@ -2745,7 +2745,7 @@
   },
   {
     "category": "other",
-    "repository": "fujiapple852/trippy",
+    "name": "fujiapple852/trippy",
     "tag_name": "0.12.2",
     "created_at": "2025-01-03T12:57:28Z",
     "assets": [
@@ -2773,7 +2773,7 @@
   },
   {
     "category": "other",
-    "repository": "extrawurst/gitui",
+    "name": "extrawurst/gitui",
     "tag_name": "v0.27.0",
     "created_at": "2025-01-14T20:03:20Z",
     "assets": [
@@ -2792,7 +2792,7 @@
   },
   {
     "category": "other",
-    "repository": "Y2Z/monolith",
+    "name": "Y2Z/monolith",
     "tag_name": "v2.8.3",
     "created_at": "2024-09-05T23:00:24Z",
     "assets": [
@@ -2805,7 +2805,7 @@
   },
   {
     "category": "other",
-    "repository": "nerdypepper/dijo",
+    "name": "nerdypepper/dijo",
     "tag_name": "v0.2.7",
     "created_at": "2021-03-06T10:11:04Z",
     "assets": [
@@ -2819,7 +2819,7 @@
   },
   {
     "category": "other",
-    "repository": "ventoy/Ventoy",
+    "name": "ventoy/Ventoy",
     "tag_name": "v1.1.02",
     "created_at": "2025-02-12T15:01:35Z",
     "assets": [
@@ -2833,7 +2833,7 @@
   },
   {
     "category": "other",
-    "repository": "sachaos/viddy",
+    "name": "sachaos/viddy",
     "tag_name": "v1.3.0",
     "created_at": "2024-11-28T23:49:47Z",
     "assets": [
@@ -2850,7 +2850,7 @@
   },
   {
     "category": "other",
-    "repository": "blacknon/hwatch",
+    "name": "blacknon/hwatch",
     "tag_name": "0.3.18",
     "created_at": "2024-11-15T03:13:37Z",
     "assets": [
@@ -2868,7 +2868,7 @@
   },
   {
     "category": "other",
-    "repository": "sxyazi/yazi",
+    "name": "sxyazi/yazi",
     "tag_name": "v25.2.11",
     "created_at": "2025-02-11T11:07:47Z",
     "assets": [
@@ -2895,7 +2895,7 @@
   },
   {
     "category": "other",
-    "repository": "orhun/kmon",
+    "name": "orhun/kmon",
     "tag_name": "v1.7.1",
     "created_at": "2024-12-15T17:12:00Z",
     "assets": [
@@ -2908,7 +2908,7 @@
   },
   {
     "category": "other",
-    "repository": "clangd/clangd",
+    "name": "clangd/clangd",
     "tag_name": "19.1.2",
     "created_at": "2024-09-13T04:53:36Z",
     "assets": [
@@ -2925,7 +2925,7 @@
   },
   {
     "category": "other",
-    "repository": "pvolok/mprocs",
+    "name": "pvolok/mprocs",
     "tag_name": "v0.7.2",
     "created_at": "2025-01-20T22:19:05Z",
     "assets": [
@@ -2941,7 +2941,7 @@
   },
   {
     "category": "other",
-    "repository": "Byron/dua-cli",
+    "name": "Byron/dua-cli",
     "tag_name": "v2.30.0",
     "created_at": "2025-01-27T08:53:49Z",
     "assets": [
@@ -2958,7 +2958,7 @@
   },
   {
     "category": "other",
-    "repository": "pemistahl/grex",
+    "name": "pemistahl/grex",
     "tag_name": "v1.4.5",
     "created_at": "2024-03-06T10:47:28Z",
     "assets": [
@@ -2975,7 +2975,7 @@
   },
   {
     "category": "other",
-    "repository": "denisidoro/navi",
+    "name": "denisidoro/navi",
     "tag_name": "v2.24.0",
     "created_at": "2025-01-29T23:18:21Z",
     "assets": [
@@ -2992,7 +2992,7 @@
   },
   {
     "category": "other",
-    "repository": "timvisee/ffsend",
+    "name": "timvisee/ffsend",
     "tag_name": "v0.2.77",
     "created_at": "2025-02-04T20:00:45Z",
     "assets": [
@@ -3005,7 +3005,7 @@
   },
   {
     "category": "other",
-    "repository": "muesli/duf",
+    "name": "muesli/duf",
     "tag_name": "v0.8.1",
     "created_at": "2022-02-08T06:29:06Z",
     "assets": [
@@ -3057,7 +3057,7 @@
   },
   {
     "category": "other",
-    "repository": "swsnr/mdcat",
+    "name": "swsnr/mdcat",
     "tag_name": "mdcat-2.7.1",
     "created_at": "2024-12-14T16:03:55Z",
     "assets": [
@@ -3070,7 +3070,7 @@
   },
   {
     "category": "other",
-    "repository": "j178/chatgpt",
+    "name": "j178/chatgpt",
     "tag_name": "v1.3.5",
     "created_at": "2024-06-09T13:48:55Z",
     "assets": [
@@ -3087,7 +3087,7 @@
   },
   {
     "category": "other",
-    "repository": "sigoden/aichat",
+    "name": "sigoden/aichat",
     "tag_name": "v0.27.0",
     "created_at": "2025-01-28T01:27:48Z",
     "assets": [
@@ -3108,7 +3108,7 @@
   },
   {
     "category": "other",
-    "repository": "aandrew-me/tgpt",
+    "name": "aandrew-me/tgpt",
     "tag_name": "v2.9.1",
     "created_at": "2025-02-04T12:13:26Z",
     "assets": [
@@ -3137,7 +3137,7 @@
   },
   {
     "category": "other",
-    "repository": "cloudflare/cloudflared",
+    "name": "cloudflare/cloudflared",
     "tag_name": "2025.2.0",
     "created_at": "2025-02-03T18:39:00Z",
     "assets": [
@@ -3174,7 +3174,7 @@
   },
   {
     "category": "other",
-    "repository": "stashapp/stash",
+    "name": "stashapp/stash",
     "tag_name": "v0.27.2",
     "created_at": "2024-10-15T21:08:37Z",
     "assets": [
@@ -3195,14 +3195,14 @@
   },
   {
     "category": "other",
-    "repository": "uutils/coreutils",
+    "name": "uutils/coreutils",
     "tag_name": "0.0.29",
     "created_at": "2025-01-18T14:41:15Z",
     "assets": []
   },
   {
     "category": "other",
-    "repository": "carapace-sh/carapace-bin",
+    "name": "carapace-sh/carapace-bin",
     "tag_name": "v1.2.1",
     "created_at": "2025-01-25T20:16:20Z",
     "assets": [
@@ -3238,7 +3238,7 @@
   },
   {
     "category": "other",
-    "repository": "antonmedv/walk",
+    "name": "antonmedv/walk",
     "tag_name": "v1.12.0",
     "created_at": "2025-02-09T21:33:16Z",
     "assets": [
@@ -3255,7 +3255,7 @@
   },
   {
     "category": "other",
-    "repository": "mgunyho/tere",
+    "name": "mgunyho/tere",
     "tag_name": "v1.6.0",
     "created_at": "2024-09-15T20:13:23Z",
     "assets": [
@@ -3270,7 +3270,7 @@
   },
   {
     "category": "other",
-    "repository": "antonmedv/fx",
+    "name": "antonmedv/fx",
     "tag_name": "35.0.0",
     "created_at": "2024-06-27T09:58:41Z",
     "assets": [
@@ -3287,7 +3287,7 @@
   },
   {
     "category": "other",
-    "repository": "noahgorstein/jqp",
+    "name": "noahgorstein/jqp",
     "tag_name": "v0.7.0",
     "created_at": "2024-06-09T22:07:07Z",
     "assets": [
@@ -3306,7 +3306,7 @@
   },
   {
     "category": "other",
-    "repository": "ouch-org/ouch",
+    "name": "ouch-org/ouch",
     "tag_name": "0.5.1",
     "created_at": "2023-12-05T22:24:48Z",
     "assets": [
@@ -3327,7 +3327,7 @@
   },
   {
     "category": "other",
-    "repository": "cli/cli",
+    "name": "cli/cli",
     "tag_name": "v2.67.0",
     "created_at": "2025-02-11T14:31:07Z",
     "assets": [
@@ -3359,7 +3359,7 @@
   },
   {
     "category": "other",
-    "repository": "astral-sh/ruff",
+    "name": "astral-sh/ruff",
     "tag_name": "0.9.6",
     "created_at": "2025-02-10T12:44:04Z",
     "assets": [
@@ -3390,7 +3390,7 @@
   },
   {
     "category": "other",
-    "repository": "astral-sh/uv",
+    "name": "astral-sh/uv",
     "tag_name": "0.6.0",
     "created_at": "2025-02-14T17:55:54Z",
     "assets": [
@@ -3421,7 +3421,7 @@
   },
   {
     "category": "other",
-    "repository": "zyedidia/micro",
+    "name": "zyedidia/micro",
     "tag_name": "v2.0.14",
     "created_at": "2024-08-27T17:58:59Z",
     "assets": [
@@ -3488,7 +3488,7 @@
   },
   {
     "category": "other",
-    "repository": "svenstaro/miniserve",
+    "name": "svenstaro/miniserve",
     "tag_name": "v0.29.0",
     "created_at": "2025-02-06T06:37:42Z",
     "assets": [
@@ -3512,7 +3512,7 @@
   },
   {
     "category": "other",
-    "repository": "TheWaWaR/simple-http-server",
+    "name": "TheWaWaR/simple-http-server",
     "tag_name": "v0.6.10",
     "created_at": "2024-10-27T02:58:47Z",
     "assets": [
@@ -3529,7 +3529,7 @@
   },
   {
     "category": "other",
-    "repository": "fclairamb/ftpserver",
+    "name": "fclairamb/ftpserver",
     "tag_name": "v0.14.0",
     "created_at": "2024-05-28T22:30:29Z",
     "assets": [
@@ -3550,7 +3550,7 @@
   },
   {
     "category": "other",
-    "repository": "o2sh/onefetch",
+    "name": "o2sh/onefetch",
     "tag_name": "2.23.1",
     "created_at": "2025-01-01T17:03:34Z",
     "assets": [
@@ -3566,7 +3566,7 @@
   },
   {
     "category": "other",
-    "repository": "wagoodman/dive",
+    "name": "wagoodman/dive",
     "tag_name": "v0.12.0",
     "created_at": "2024-02-02T15:27:41Z",
     "assets": [
@@ -3587,7 +3587,7 @@
   },
   {
     "category": "other",
-    "repository": "sharkdp/hyperfine",
+    "name": "sharkdp/hyperfine",
     "tag_name": "v1.19.0",
     "created_at": "2024-11-11T21:41:35Z",
     "assets": [
@@ -3616,7 +3616,7 @@
   },
   {
     "category": "other",
-    "repository": "balena-io/etcher",
+    "name": "balena-io/etcher",
     "tag_name": "v1.19.25",
     "created_at": "2024-10-10T10:03:37Z",
     "assets": [
@@ -3638,7 +3638,7 @@
   },
   {
     "category": "other",
-    "repository": "btcsuite/btcd",
+    "name": "btcsuite/btcd",
     "tag_name": "v0.24.2",
     "created_at": "2024-06-25T20:38:19Z",
     "assets": [
@@ -3681,14 +3681,14 @@
   },
   {
     "category": "other",
-    "repository": "bitcoin/bitcoin",
+    "name": "bitcoin/bitcoin",
     "tag_name": "v28.1",
     "created_at": "2025-01-07T18:33:40Z",
     "assets": []
   },
   {
     "category": "other",
-    "repository": "oven-sh/bun",
+    "name": "oven-sh/bun",
     "tag_name": "bun-v1.2.2",
     "created_at": "2025-02-01T00:13:03Z",
     "assets": [
@@ -3721,7 +3721,7 @@
   },
   {
     "category": "other",
-    "repository": "lightningnetwork/lnd",
+    "name": "lightningnetwork/lnd",
     "tag_name": "v0.18.5-beta",
     "created_at": "2025-02-11T20:54:22Z",
     "assets": [
@@ -3755,7 +3755,7 @@
   },
   {
     "category": "other",
-    "repository": "Yakitrak/obsidian-cli",
+    "name": "Yakitrak/obsidian-cli",
     "tag_name": "v0.1.8",
     "created_at": "2024-12-27T19:18:17Z",
     "assets": [
@@ -3771,7 +3771,7 @@
   },
   {
     "category": "other",
-    "repository": "obsidianmd/obsidian-releases",
+    "name": "obsidianmd/obsidian-releases",
     "tag_name": "v1.8.4",
     "created_at": "2025-01-31T14:47:01Z",
     "assets": [
@@ -3791,7 +3791,7 @@
   },
   {
     "category": "other",
-    "repository": "siyuan-note/siyuan",
+    "name": "siyuan-note/siyuan",
     "tag_name": "v3.1.22",
     "created_at": "2025-02-14T02:03:20Z",
     "assets": [
@@ -3813,7 +3813,7 @@
   },
   {
     "category": "other",
-    "repository": "logseq/logseq",
+    "name": "logseq/logseq",
     "tag_name": "0.10.9",
     "created_at": "2024-04-23T04:24:30Z",
     "assets": [
@@ -3837,7 +3837,7 @@
   },
   {
     "category": "other",
-    "repository": "toeverything/AFFiNE",
+    "name": "toeverything/AFFiNE",
     "tag_name": "v0.19.6",
     "created_at": "2025-01-14T09:29:15Z",
     "assets": [
@@ -3861,7 +3861,7 @@
   },
   {
     "category": "other",
-    "repository": "AppFlowy-IO/AppFlowy",
+    "name": "AppFlowy-IO/AppFlowy",
     "tag_name": "0.8.3",
     "created_at": "2025-02-05T08:42:18Z",
     "assets": [
@@ -3883,7 +3883,7 @@
   },
   {
     "category": "other",
-    "repository": "mattermost/focalboard",
+    "name": "mattermost/focalboard",
     "tag_name": "v8.0.0",
     "created_at": "2024-06-10T16:59:45Z",
     "assets": [
@@ -3903,7 +3903,7 @@
   },
   {
     "category": "other",
-    "repository": "nanocurrency/nano-work-server",
+    "name": "nanocurrency/nano-work-server",
     "tag_name": "V0.3.0",
     "created_at": "2020-08-31T15:26:11Z",
     "assets": [
@@ -3916,7 +3916,7 @@
   },
   {
     "category": "other",
-    "repository": "FiloSottile/mkcert",
+    "name": "FiloSottile/mkcert",
     "tag_name": "v1.4.4",
     "created_at": "2022-04-26T17:37:25Z",
     "assets": [
@@ -3934,7 +3934,7 @@
   },
   {
     "category": "other",
-    "repository": "localsend/localsend",
+    "name": "localsend/localsend",
     "tag_name": "v1.16.1",
     "created_at": "2024-11-04T23:25:53Z",
     "assets": [
@@ -3957,7 +3957,7 @@
   },
   {
     "category": "other",
-    "repository": "drakkan/sftpgo",
+    "name": "drakkan/sftpgo",
     "tag_name": "v2.6.5",
     "created_at": "2025-02-07T17:40:00Z",
     "assets": [
@@ -3988,7 +3988,7 @@
   },
   {
     "category": "other",
-    "repository": "telegramdesktop/tdesktop",
+    "name": "telegramdesktop/tdesktop",
     "tag_name": "v5.11.1",
     "created_at": "2025-02-13T17:24:40Z",
     "assets": [
@@ -4008,7 +4008,7 @@
   },
   {
     "category": "other",
-    "repository": "iyear/tdl",
+    "name": "iyear/tdl",
     "tag_name": "v0.18.5",
     "created_at": "2025-01-25T11:11:37Z",
     "assets": [
@@ -4035,7 +4035,7 @@
   },
   {
     "category": "other",
-    "repository": "librespeed/speedtest-cli",
+    "name": "librespeed/speedtest-cli",
     "tag_name": "v1.0.11",
     "created_at": "2024-09-10T15:22:34Z",
     "assets": [
@@ -4071,7 +4071,7 @@
   },
   {
     "category": "other",
-    "repository": "mfontanini/presenterm",
+    "name": "mfontanini/presenterm",
     "tag_name": "v0.10.1",
     "created_at": "2025-02-15T00:30:51Z",
     "assets": [
@@ -4094,7 +4094,7 @@
   },
   {
     "category": "other",
-    "repository": "contour-terminal/contour",
+    "name": "contour-terminal/contour",
     "tag_name": "v0.6.1.7494",
     "created_at": "2024-12-31T16:15:38Z",
     "assets": [
@@ -4109,7 +4109,7 @@
   },
   {
     "category": "other",
-    "repository": "manuelernestog/weektodo",
+    "name": "manuelernestog/weektodo",
     "tag_name": "v2.2.0",
     "created_at": "2024-02-12T21:59:42Z",
     "assets": [
@@ -4125,7 +4125,7 @@
   },
   {
     "category": "other",
-    "repository": "th-ch/youtube-music",
+    "name": "th-ch/youtube-music",
     "tag_name": "v3.7.2",
     "created_at": "2025-01-18T05:27:58Z",
     "assets": [
@@ -4156,7 +4156,7 @@
   },
   {
     "category": "other",
-    "repository": "ytmdesktop/ytmdesktop",
+    "name": "ytmdesktop/ytmdesktop",
     "tag_name": "v2.0.7",
     "created_at": "2025-02-05T21:42:15Z",
     "assets": [
@@ -4172,7 +4172,7 @@
   },
   {
     "category": "other",
-    "repository": "mkasberg/ghostty-ubuntu",
+    "name": "mkasberg/ghostty-ubuntu",
     "tag_name": "1.1.2-0-ppa1",
     "created_at": "2025-02-15T14:22:15Z",
     "assets": [
@@ -4186,7 +4186,7 @@
   },
   {
     "category": "other",
-    "repository": "digitalocean/doctl",
+    "name": "digitalocean/doctl",
     "tag_name": "v1.121.0",
     "created_at": "2025-02-05T21:09:13Z",
     "assets": [
@@ -4206,7 +4206,7 @@
   },
   {
     "category": "other",
-    "repository": "hetznercloud/cli",
+    "name": "hetznercloud/cli",
     "tag_name": "v1.50.0",
     "created_at": "2025-01-16T15:35:14Z",
     "assets": [
@@ -4234,7 +4234,7 @@
   },
   {
     "category": "other",
-    "repository": "raphamorim/rio",
+    "name": "raphamorim/rio",
     "tag_name": "v0.2.7",
     "created_at": "2025-02-11T02:21:21Z",
     "assets": [
@@ -4253,7 +4253,7 @@
   },
   {
     "category": "other",
-    "repository": "atanunq/viu",
+    "name": "atanunq/viu",
     "tag_name": "v1.5.1",
     "created_at": "2024-10-20T21:54:58Z",
     "assets": [
@@ -4270,7 +4270,7 @@
   },
   {
     "category": "other",
-    "repository": "containers/podman-tui",
+    "name": "containers/podman-tui",
     "tag_name": "v1.3.1",
     "created_at": "2025-01-26T10:01:05Z",
     "assets": [
@@ -4285,7 +4285,7 @@
   },
   {
     "category": "other",
-    "repository": "immich-app/immich",
+    "name": "immich-app/immich",
     "tag_name": "v1.126.1",
     "created_at": "2025-02-10T17:54:02Z",
     "assets": [
@@ -4298,7 +4298,7 @@
   },
   {
     "category": "other",
-    "repository": "simulot/immich-go",
+    "name": "simulot/immich-go",
     "tag_name": "v0.24",
     "created_at": "2025-02-14T20:46:11Z",
     "assets": [
@@ -4320,7 +4320,7 @@
   },
   {
     "category": "other",
-    "repository": "Picocrypt/CLI",
+    "name": "Picocrypt/CLI",
     "tag_name": "1.46",
     "created_at": "2025-02-12T00:14:47Z",
     "assets": [
@@ -4337,7 +4337,7 @@
   },
   {
     "category": "other",
-    "repository": "brave/brave-browser",
+    "name": "brave/brave-browser",
     "tag_name": "v1.75.178",
     "created_at": "2025-02-13T09:35:55Z",
     "assets": [
@@ -4386,7 +4386,7 @@
   },
   {
     "category": "other",
-    "repository": "0PandaDEV/Qopy",
+    "name": "0PandaDEV/Qopy",
     "tag_name": "v0.3.3",
     "created_at": "2024-12-25T14:17:25Z",
     "assets": [
@@ -4401,7 +4401,7 @@
   },
   {
     "category": "other",
-    "repository": "SUPERCILEX/clipboard-history",
+    "name": "SUPERCILEX/clipboard-history",
     "tag_name": "0.9.2",
     "created_at": "2025-01-13T02:32:29Z",
     "assets": [
@@ -4433,7 +4433,7 @@
   },
   {
     "category": "other",
-    "repository": "volta-cli/volta",
+    "name": "volta-cli/volta",
     "tag_name": "v2.0.2",
     "created_at": "2024-12-05T06:37:36Z",
     "assets": [
@@ -4452,7 +4452,7 @@
   },
   {
     "category": "other",
-    "repository": "pnpm/pnpm",
+    "name": "pnpm/pnpm",
     "tag_name": "v10.4.0",
     "created_at": "2025-02-14T00:18:40Z",
     "assets": [
@@ -4471,7 +4471,7 @@
   },
   {
     "category": "other",
-    "repository": "mongodb-js/mongosh",
+    "name": "mongodb-js/mongosh",
     "tag_name": "v2.3.9",
     "created_at": "2025-02-04T16:50:27Z",
     "assets": [
@@ -4508,7 +4508,7 @@
   },
   {
     "category": "other",
-    "repository": "kopecmaciej/vi-mongo",
+    "name": "kopecmaciej/vi-mongo",
     "tag_name": "v0.1.22",
     "created_at": "2025-01-27T17:52:39Z",
     "assets": [
@@ -4525,14 +4525,14 @@
   },
   {
     "category": "other",
-    "repository": "evansmurithi/cloak",
+    "name": "evansmurithi/cloak",
     "tag_name": "v0.3.0",
     "created_at": "2022-01-30T14:55:37Z",
     "assets": []
   },
   {
     "category": "other",
-    "repository": "Zebradil/rustotpony",
+    "name": "Zebradil/rustotpony",
     "tag_name": "0.5.5",
     "created_at": "2024-12-23T10:56:19Z",
     "assets": [
@@ -4546,7 +4546,7 @@
   },
   {
     "category": "other",
-    "repository": "yitsushi/totp-cli",
+    "name": "yitsushi/totp-cli",
     "tag_name": "v1.8.8",
     "created_at": "2024-12-15T00:30:03Z",
     "assets": [
@@ -4566,7 +4566,7 @@
   },
   {
     "category": "other",
-    "repository": "c-bata/kube-prompt",
+    "name": "c-bata/kube-prompt",
     "tag_name": "v1.0.11",
     "created_at": "2021-02-10T03:33:37Z",
     "assets": [
@@ -4583,7 +4583,7 @@
   },
   {
     "category": "other",
-    "repository": "ynqa/jnv",
+    "name": "ynqa/jnv",
     "tag_name": "v0.5.0",
     "created_at": "2025-01-06T14:23:22Z",
     "assets": [
@@ -4601,7 +4601,7 @@
   },
   {
     "category": "other",
-    "repository": "devspace-sh/devspace",
+    "name": "devspace-sh/devspace",
     "tag_name": "v6.3.14",
     "created_at": "2024-10-09T21:33:09Z",
     "assets": [
@@ -4622,7 +4622,7 @@
   },
   {
     "category": "other",
-    "repository": "lukehaas/RunJS",
+    "name": "lukehaas/RunJS",
     "tag_name": "v3.0.3",
     "created_at": "2024-09-30T14:51:38Z",
     "assets": [
@@ -4644,7 +4644,7 @@
   },
   {
     "category": "other",
-    "repository": "codesoap/atto",
+    "name": "codesoap/atto",
     "tag_name": "v1.6.0",
     "created_at": "2024-03-17T14:37:24Z",
     "assets": [
@@ -4667,7 +4667,7 @@
   },
   {
     "category": "other",
-    "repository": "Slackadays/Clipboard",
+    "name": "Slackadays/Clipboard",
     "tag_name": "0.10.0",
     "created_at": "2024-11-16T23:23:50Z",
     "assets": [
@@ -4692,7 +4692,7 @@
   },
   {
     "category": "other",
-    "repository": "hoppscotch/releases",
+    "name": "hoppscotch/releases",
     "tag_name": "v25.1.1-0",
     "created_at": "2025-01-31T11:59:22Z",
     "assets": [
@@ -4712,7 +4712,7 @@
   },
   {
     "category": "other",
-    "repository": "sigoden/proxyfor",
+    "name": "sigoden/proxyfor",
     "tag_name": "v0.5.0",
     "created_at": "2024-12-24T00:25:15Z",
     "assets": [
@@ -4732,7 +4732,7 @@
   },
   {
     "category": "other",
-    "repository": "ksysoev/wsget",
+    "name": "ksysoev/wsget",
     "tag_name": "v0.7.0",
     "created_at": "2024-12-21T02:26:21Z",
     "assets": [
@@ -4757,7 +4757,7 @@
   },
   {
     "category": "other",
-    "repository": "cococonscious/koji",
+    "name": "cococonscious/koji",
     "tag_name": "v3.2.0",
     "created_at": "2025-01-21T16:04:33Z",
     "assets": [
@@ -4776,7 +4776,7 @@
   },
   {
     "category": "other",
-    "repository": "efugier/smartcat",
+    "name": "efugier/smartcat",
     "tag_name": "2.2.0",
     "created_at": "2024-11-06T15:14:52Z",
     "assets": [
@@ -4792,7 +4792,7 @@
   },
   {
     "category": "other",
-    "repository": "mike-engel/jwt-cli",
+    "name": "mike-engel/jwt-cli",
     "tag_name": "6.2.0",
     "created_at": "2024-11-27T14:25:56Z",
     "assets": [
@@ -4807,7 +4807,7 @@
   },
   {
     "category": "other",
-    "repository": "dalance/procs",
+    "name": "dalance/procs",
     "tag_name": "v0.14.9",
     "created_at": "2025-01-17T05:19:15Z",
     "assets": [
@@ -4824,7 +4824,7 @@
   },
   {
     "category": "other",
-    "repository": "hatoo/oha",
+    "name": "hatoo/oha",
     "tag_name": "v1.8.0",
     "created_at": "2025-02-15T06:39:58Z",
     "assets": [
@@ -4842,7 +4842,7 @@
   },
   {
     "category": "other",
-    "repository": "Lissy93/AdGuardian-Term",
+    "name": "Lissy93/AdGuardian-Term",
     "tag_name": "1.6.0",
     "created_at": "2023-06-10T10:00:16Z",
     "assets": [
@@ -4858,7 +4858,7 @@
   },
   {
     "category": "other",
-    "repository": "GitoxideLabs/gitoxide",
+    "name": "GitoxideLabs/gitoxide",
     "tag_name": "v0.41.0",
     "created_at": "2025-01-18T15:56:30Z",
     "assets": [
@@ -4908,7 +4908,7 @@
   },
   {
     "category": "other",
-    "repository": "kubewall/kubewall",
+    "name": "kubewall/kubewall",
     "tag_name": "v0.0.10",
     "created_at": "2024-12-15T15:16:20Z",
     "assets": [
@@ -4938,7 +4938,7 @@
   },
   {
     "category": "other",
-    "repository": "ayoisaiah/f2",
+    "name": "ayoisaiah/f2",
     "tag_name": "v2.0.3",
     "created_at": "2024-11-23T06:17:40Z",
     "assets": [
@@ -4968,7 +4968,7 @@
   },
   {
     "category": "other",
-    "repository": "mr-karan/doggo",
+    "name": "mr-karan/doggo",
     "tag_name": "v1.0.5",
     "created_at": "2024-09-30T09:30:03Z",
     "assets": [
@@ -5000,7 +5000,7 @@
   },
   {
     "category": "other",
-    "repository": "Genymobile/scrcpy",
+    "name": "Genymobile/scrcpy",
     "tag_name": "v3.1",
     "created_at": "2024-12-09T21:42:39Z",
     "assets": [
@@ -5017,7 +5017,7 @@
   },
   {
     "category": "other",
-    "repository": "jetify-com/devbox",
+    "name": "jetify-com/devbox",
     "tag_name": "0.14.0",
     "created_at": "2025-02-14T06:11:43Z",
     "assets": [
@@ -5034,7 +5034,7 @@
   },
   {
     "category": "other",
-    "repository": "pacstall/pacstall",
+    "name": "pacstall/pacstall",
     "tag_name": "6.1.1",
     "created_at": "2025-02-09T19:14:59Z",
     "assets": [
@@ -5043,7 +5043,7 @@
   },
   {
     "category": "android",
-    "repository": "saber-notes/saber",
+    "name": "saber-notes/saber",
     "tag_name": "v0.25.3",
     "created_at": "2024-12-14T03:17:45Z",
     "assets": [
@@ -5061,7 +5061,7 @@
   },
   {
     "category": "android",
-    "repository": "Kin69/EasyNotes",
+    "name": "Kin69/EasyNotes",
     "tag_name": "1.4",
     "created_at": "2024-12-14T14:53:55Z",
     "assets": [
@@ -5070,7 +5070,7 @@
   },
   {
     "category": "android",
-    "repository": "maelchiotti/LocalMaterialNotes",
+    "name": "maelchiotti/LocalMaterialNotes",
     "tag_name": "v1.12.1",
     "created_at": "2025-01-31T22:18:44Z",
     "assets": [
@@ -5082,7 +5082,7 @@
   },
   {
     "category": "android",
-    "repository": "PhilKes/NotallyX",
+    "name": "PhilKes/NotallyX",
     "tag_name": "v7.0.0",
     "created_at": "2025-01-27T16:50:33Z",
     "assets": [
@@ -5091,7 +5091,7 @@
   },
   {
     "category": "android",
-    "repository": "AdAway/AdAway",
+    "name": "AdAway/AdAway",
     "tag_name": "v6.1.4",
     "created_at": "2024-10-27T14:07:54Z",
     "assets": [
@@ -5100,7 +5100,7 @@
   },
   {
     "category": "android",
-    "repository": "t895/DNSNet",
+    "name": "t895/DNSNet",
     "tag_name": "1.0.16",
     "created_at": "2025-02-03T23:24:05Z",
     "assets": [
@@ -5111,7 +5111,7 @@
   },
   {
     "category": "android",
-    "repository": "iSoron/uhabits",
+    "name": "iSoron/uhabits",
     "tag_name": "v2.2.0",
     "created_at": "2024-01-31T01:15:22Z",
     "assets": [
@@ -5121,7 +5121,7 @@
   },
   {
     "category": "android",
-    "repository": "xpavle00/Habo",
+    "name": "xpavle00/Habo",
     "tag_name": "v2.1.1",
     "created_at": "2024-01-18T16:21:33Z",
     "assets": [
@@ -5132,7 +5132,7 @@
   },
   {
     "category": "android",
-    "repository": "FriesI23/mhabit",
+    "name": "FriesI23/mhabit",
     "tag_name": "v1.15.4+62",
     "created_at": "2025-01-28T10:31:30Z",
     "assets": [
@@ -5147,7 +5147,7 @@
   },
   {
     "category": "android",
-    "repository": "ofalvai/HabitBuilder",
+    "name": "ofalvai/HabitBuilder",
     "tag_name": "1.1.4",
     "created_at": "2024-11-11T08:52:37Z",
     "assets": [
@@ -5157,7 +5157,7 @@
   },
   {
     "category": "android",
-    "repository": "DanielRendox/RoutineTracker",
+    "name": "DanielRendox/RoutineTracker",
     "tag_name": "v0.1.0",
     "created_at": "2024-02-07T11:04:14Z",
     "assets": [
@@ -5166,7 +5166,7 @@
   },
   {
     "category": "android",
-    "repository": "willbsp/habits",
+    "name": "willbsp/habits",
     "tag_name": "v1.2.2",
     "created_at": "2024-08-24T12:39:35Z",
     "assets": [
@@ -5175,7 +5175,7 @@
   },
   {
     "category": "android",
-    "repository": "zhanghai/MaterialFiles",
+    "name": "zhanghai/MaterialFiles",
     "tag_name": "v1.7.4",
     "created_at": "2024-06-30T05:07:51Z",
     "assets": [
@@ -5186,7 +5186,7 @@
   },
   {
     "category": "android",
-    "repository": "stratumauth/app",
+    "name": "stratumauth/app",
     "tag_name": "v1.2.0",
     "created_at": "2025-02-11T19:20:46Z",
     "assets": [
@@ -5199,7 +5199,7 @@
   },
   {
     "category": "android",
-    "repository": "Kunzisoft/KeePassDX",
+    "name": "Kunzisoft/KeePassDX",
     "tag_name": "4.1.1",
     "created_at": "2024-11-24T14:46:03Z",
     "assets": [
@@ -5209,7 +5209,7 @@
   },
   {
     "category": "android",
-    "repository": "darkmoonight/ToDark",
+    "name": "darkmoonight/ToDark",
     "tag_name": "v1.5.5",
     "created_at": "2025-01-08T09:13:46Z",
     "assets": [
@@ -5221,7 +5221,7 @@
   },
   {
     "category": "android",
-    "repository": "Droid-ify/client",
+    "name": "Droid-ify/client",
     "tag_name": "v0.6.4",
     "created_at": "2024-12-25T19:04:55Z",
     "assets": [
@@ -5230,7 +5230,7 @@
   },
   {
     "category": "android",
-    "repository": "z-huang/InnerTune",
+    "name": "z-huang/InnerTune",
     "tag_name": "v0.5.10",
     "created_at": "2024-09-01T14:15:33Z",
     "assets": [
@@ -5243,7 +5243,7 @@
   },
   {
     "category": "android",
-    "repository": "Arturo254/OpenTune",
+    "name": "Arturo254/OpenTune",
     "tag_name": "1.9.4",
     "created_at": "2025-01-19T21:25:03Z",
     "assets": [
@@ -5252,7 +5252,7 @@
   },
   {
     "category": "android",
-    "repository": "DD3Boh/OuterTune",
+    "name": "DD3Boh/OuterTune",
     "tag_name": "v0.7.3",
     "created_at": "2025-02-09T20:35:07Z",
     "assets": [
@@ -5262,7 +5262,7 @@
   },
   {
     "category": "android",
-    "repository": "mostafaalagamy/Metrolist",
+    "name": "mostafaalagamy/Metrolist",
     "tag_name": "v11.0.0",
     "created_at": "2025-02-05T14:36:11Z",
     "assets": [
@@ -5271,7 +5271,7 @@
   },
   {
     "category": "android",
-    "repository": "maxrave-dev/SimpMusic",
+    "name": "maxrave-dev/SimpMusic",
     "tag_name": "v0.2.10",
     "created_at": "2025-02-01T15:39:30Z",
     "assets": [
@@ -5280,7 +5280,7 @@
   },
   {
     "category": "android",
-    "repository": "fast4x/RiMusic",
+    "name": "fast4x/RiMusic",
     "tag_name": "v0.6.70",
     "created_at": "2025-02-07T23:07:08Z",
     "assets": [
@@ -5289,7 +5289,7 @@
   },
   {
     "category": "android",
-    "repository": "Ivy-Apps/ivy-wallet",
+    "name": "Ivy-Apps/ivy-wallet",
     "tag_name": "v2024.11.05-205",
     "created_at": "2024-11-05T15:58:29Z",
     "assets": [
@@ -5298,7 +5298,7 @@
   },
   {
     "category": "android",
-    "repository": "appditto/natrium_wallet_flutter",
+    "name": "appditto/natrium_wallet_flutter",
     "tag_name": "v2.5.2",
     "created_at": "2024-10-08T14:19:55Z",
     "assets": [
@@ -5307,7 +5307,7 @@
   },
   {
     "category": "android",
-    "repository": "ahmmedrejowan/PdfReaderPro",
+    "name": "ahmmedrejowan/PdfReaderPro",
     "tag_name": "1.0.0",
     "created_at": "2024-05-14T19:18:52Z",
     "assets": [
@@ -5316,7 +5316,7 @@
   },
   {
     "category": "android",
-    "repository": "ElishaAz/AndroidVolumeBoost",
+    "name": "ElishaAz/AndroidVolumeBoost",
     "tag_name": "v1.0.0",
     "created_at": "2022-04-20T12:36:41Z",
     "assets": [
@@ -5325,7 +5325,7 @@
   },
   {
     "category": "android",
-    "repository": "LinkSheet/LinkSheet",
+    "name": "LinkSheet/LinkSheet",
     "tag_name": "0.0.33",
     "created_at": "2023-07-30T14:18:16Z",
     "assets": [
@@ -5334,7 +5334,7 @@
   },
   {
     "category": "android",
-    "repository": "sakethpathike/Linkora",
+    "name": "sakethpathike/Linkora",
     "tag_name": "release-v0.11.0",
     "created_at": "2025-02-09T12:41:09Z",
     "assets": [
@@ -5349,7 +5349,7 @@
   },
   {
     "category": "android",
-    "repository": "pilot51/voicenotify",
+    "name": "pilot51/voicenotify",
     "tag_name": "v1.4.2",
     "created_at": "2025-01-03T16:07:52Z",
     "assets": [
@@ -5359,7 +5359,7 @@
   },
   {
     "category": "android",
-    "repository": "x-falcon/Virtual-Hosts",
+    "name": "x-falcon/Virtual-Hosts",
     "tag_name": "2.1.0",
     "created_at": "2019-03-06T11:16:30Z",
     "assets": [
