@@ -185,6 +185,8 @@ apis:
         max-input-chars: 650000
       "deepseek-r1:70b":
         aliases: ["deepseek-r1"]
+      "mixtral:latest":
+        aliases: ["mixtral:latest"]
   perplexity:
     base-url: https://api.perplexity.ai
     api-key:

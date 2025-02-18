@@ -88,3 +88,9 @@ export def sshx [ --force(-f) ] {
     curl -sSf https://sshx.io/get | sh
   }
 }
+
+export def aider [ --force(-f) ] {
+  if not (exists-external aider) or $force {
+    curl -LsSf https://aider.chat/install.sh | sh
+  }
+}

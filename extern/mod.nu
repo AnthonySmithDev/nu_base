@@ -6,6 +6,7 @@ use mods.nu
 use ctx.nu
 
 # use zellij.nu
+use aider.nu
 use pueue.nu
 # use tailscale.nu
 use ollama.nu

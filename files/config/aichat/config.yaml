@@ -1,0 +1,11 @@
+# see https://github.com/sigoden/aichat/blob/main/config.example.yaml
+
+model: r2:codellama
+clients:
+- type: openai-compatible
+  name: r2
+  api_base: http://r2v2:11434/v1
+  models:
+  - name: codellama:latest
+  - name: codestral:latest
+  - name: mixtral:latest

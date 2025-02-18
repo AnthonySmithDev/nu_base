@@ -138,6 +138,10 @@ export def mods [] {
   shortcut mods 'mods.yml'
 }
 
+export def aichat [] {
+  shortcut aichat 'config.yaml'
+}
+
 export def dooit [] {
   shortcut dooit 'config.py'
 }
