@@ -694,7 +694,7 @@ export def pueue [ --force(-f) ] {
 
   let path = filepath pueue $tag_name
   if (path-not-exists $path $force) {
-    let download_path = ghub asset download $repository
+    let download_path = ghub asset download $repository pueue-
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -702,7 +702,7 @@ export def pueue [ --force(-f) ] {
 
   let path = filepath pueued $tag_name
   if (path-not-exists $path $force) {
-    let download_path = ghub asset download $repository
+    let download_path = ghub asset download $repository pueued-
     add-execute $download_path
     move -f $download_path -p $path
   }

@@ -353,26 +353,26 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.60.0",
-    "created_at": "2025-02-12T15:54:51Z",
+    "tag_name": "v0.60.1",
+    "created_at": "2025-02-20T12:43:29Z",
     "assets": [
-      "fzf-0.60.0-darwin_amd64.tar.gz",
-      "fzf-0.60.0-darwin_arm64.tar.gz",
-      "fzf-0.60.0-freebsd_amd64.tar.gz",
-      "fzf-0.60.0-linux_amd64.tar.gz",
-      "fzf-0.60.0-linux_arm64.tar.gz",
-      "fzf-0.60.0-linux_armv5.tar.gz",
-      "fzf-0.60.0-linux_armv6.tar.gz",
-      "fzf-0.60.0-linux_armv7.tar.gz",
-      "fzf-0.60.0-linux_loong64.tar.gz",
-      "fzf-0.60.0-linux_ppc64le.tar.gz",
-      "fzf-0.60.0-linux_s390x.tar.gz",
-      "fzf-0.60.0-openbsd_amd64.tar.gz",
-      "fzf-0.60.0-windows_amd64.zip",
-      "fzf-0.60.0-windows_arm64.zip",
-      "fzf-0.60.0-windows_armv5.zip",
-      "fzf-0.60.0-windows_armv6.zip",
-      "fzf-0.60.0-windows_armv7.zip"
+      "fzf-0.60.1-darwin_amd64.tar.gz",
+      "fzf-0.60.1-darwin_arm64.tar.gz",
+      "fzf-0.60.1-freebsd_amd64.tar.gz",
+      "fzf-0.60.1-linux_amd64.tar.gz",
+      "fzf-0.60.1-linux_arm64.tar.gz",
+      "fzf-0.60.1-linux_armv5.tar.gz",
+      "fzf-0.60.1-linux_armv6.tar.gz",
+      "fzf-0.60.1-linux_armv7.tar.gz",
+      "fzf-0.60.1-linux_loong64.tar.gz",
+      "fzf-0.60.1-linux_ppc64le.tar.gz",
+      "fzf-0.60.1-linux_s390x.tar.gz",
+      "fzf-0.60.1-openbsd_amd64.tar.gz",
+      "fzf-0.60.1-windows_amd64.zip",
+      "fzf-0.60.1-windows_arm64.zip",
+      "fzf-0.60.1-windows_armv5.zip",
+      "fzf-0.60.1-windows_armv6.zip",
+      "fzf-0.60.1-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -921,8 +921,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.133.0",
-    "created_at": "2025-02-17T12:05:36Z",
+    "tag_name": "3.133.1",
+    "created_at": "2025-02-19T14:16:09Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -944,13 +944,13 @@
   {
     "category": "extra",
     "name": "altsem/gitu",
-    "tag_name": "v0.28.1",
-    "created_at": "2025-02-13T18:37:56Z",
+    "tag_name": "v0.28.2",
+    "created_at": "2025-02-19T18:25:37Z",
     "assets": [
-      "gitu-v0.28.1-aarch64-apple-darwin.tar.gz",
-      "gitu-v0.28.1-x86_64-apple-darwin.tar.gz",
-      "gitu-v0.28.1-x86_64-pc-windows-msvc.zip",
-      "gitu-v0.28.1-x86_64-unknown-linux-gnu.tar.gz"
+      "gitu-v0.28.2-aarch64-apple-darwin.tar.gz",
+      "gitu-v0.28.2-x86_64-apple-darwin.tar.gz",
+      "gitu-v0.28.2-x86_64-pc-windows-msvc.zip",
+      "gitu-v0.28.2-x86_64-unknown-linux-gnu.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-gnu.tar.gz"
@@ -1135,8 +1135,8 @@
   {
     "category": "extra",
     "name": "AdguardTeam/AdGuardHome",
-    "tag_name": "v0.107.56",
-    "created_at": "2025-01-23T13:52:00Z",
+    "tag_name": "v0.107.57",
+    "created_at": "2025-02-20T14:46:04Z",
     "assets": [
       "AdGuardHome_darwin_amd64.zip",
       "AdGuardHome_darwin_arm64.zip",
@@ -2111,10 +2111,10 @@
   {
     "category": "extra",
     "name": "eza-community/eza",
-    "tag_name": "v0.20.21",
-    "created_at": "2025-02-13T13:50:04Z",
+    "tag_name": "v0.20.22",
+    "created_at": "2025-02-20T05:53:19Z",
     "assets": [
-      "completions-0.20.21.tar.gz",
+      "completions-0.20.22.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.zip",
       "eza_aarch64-unknown-linux-gnu.tar.gz",
@@ -2129,7 +2129,7 @@
       "eza_x86_64-unknown-linux-gnu.zip",
       "eza_x86_64-unknown-linux-musl.tar.gz",
       "eza_x86_64-unknown-linux-musl.zip",
-      "man-0.20.21.tar.gz"
+      "man-0.20.22.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -2828,12 +2828,12 @@
   {
     "category": "other",
     "name": "ventoy/Ventoy",
-    "tag_name": "v1.1.02",
-    "created_at": "2025-02-12T15:01:35Z",
+    "tag_name": "v1.1.03",
+    "created_at": "2025-02-21T10:14:18Z",
     "assets": [
-      "ventoy-1.1.02-linux.tar.gz",
-      "ventoy-1.1.02-livecd.iso",
-      "ventoy-1.1.02-windows.zip"
+      "ventoy-1.1.03-linux.tar.gz",
+      "ventoy-1.1.03-livecd.iso",
+      "ventoy-1.1.03-windows.zip"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -3247,8 +3247,8 @@
   {
     "category": "other",
     "name": "antonmedv/walk",
-    "tag_name": "v1.12.0",
-    "created_at": "2025-02-09T21:33:16Z",
+    "tag_name": "v1.13.0",
+    "created_at": "2025-02-19T13:00:20Z",
     "assets": [
       "walk_darwin_amd64",
       "walk_darwin_arm64",
@@ -3368,8 +3368,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.9.6",
-    "created_at": "2025-02-10T12:44:04Z",
+    "tag_name": "0.9.7",
+    "created_at": "2025-02-20T13:12:11Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -3399,8 +3399,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.6.1",
-    "created_at": "2025-02-17T17:57:47Z",
+    "tag_name": "0.6.2",
+    "created_at": "2025-02-19T19:11:11Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -3979,21 +3979,21 @@
   {
     "category": "other",
     "name": "localsend/localsend",
-    "tag_name": "v1.16.1",
-    "created_at": "2024-11-04T23:25:53Z",
+    "tag_name": "v1.17.0",
+    "created_at": "2025-02-19T15:22:33Z",
     "assets": [
-      "LocalSend-1.16.1-android-arm32v7.apk",
-      "LocalSend-1.16.1-android-arm64v8.apk",
-      "LocalSend-1.16.1-android-google-play.apk",
-      "LocalSend-1.16.1-android-x64.apk",
-      "LocalSend-1.16.1-linux-arm-64.deb",
-      "LocalSend-1.16.1-linux-arm-64.tar.gz",
-      "LocalSend-1.16.1-linux-x86-64.AppImage",
-      "LocalSend-1.16.1-linux-x86-64.deb",
-      "LocalSend-1.16.1-linux-x86-64.tar.gz",
-      "LocalSend-1.16.1-windows-x86-64.exe",
-      "LocalSend-1.16.1-windows-x86-64.zip",
-      "LocalSend-1.16.1.dmg"
+      "LocalSend-1.17.0-android-arm32v7.apk",
+      "LocalSend-1.17.0-android-arm64v8.apk",
+      "LocalSend-1.17.0-android-google-play.apk",
+      "LocalSend-1.17.0-android-x64.apk",
+      "LocalSend-1.17.0-linux-arm-64.deb",
+      "LocalSend-1.17.0-linux-arm-64.tar.gz",
+      "LocalSend-1.17.0-linux-x86-64.AppImage",
+      "LocalSend-1.17.0-linux-x86-64.deb",
+      "LocalSend-1.17.0-linux-x86-64.tar.gz",
+      "LocalSend-1.17.0-windows-x86-64.exe",
+      "LocalSend-1.17.0-windows-x86-64.zip",
+      "LocalSend-1.17.0.dmg"
     ],
     "linux_x64": {
       "ends": "linux-x86-64.tar.gz"
@@ -4362,8 +4362,8 @@
   {
     "category": "other",
     "name": "Picocrypt/CLI",
-    "tag_name": "1.46",
-    "created_at": "2025-02-12T00:14:47Z",
+    "tag_name": "1.47",
+    "created_at": "2025-02-20T01:42:07Z",
     "assets": [
       "picocrypt-linux-amd64",
       "picocrypt-linux-arm64",
@@ -4379,33 +4379,33 @@
   {
     "category": "other",
     "name": "brave/brave-browser",
-    "tag_name": "v1.75.178",
-    "created_at": "2025-02-13T09:35:55Z",
+    "tag_name": "v1.75.180",
+    "created_at": "2025-02-19T06:52:20Z",
     "assets": [
-      "brave-browser-1.75.178-1.aarch64.rpm",
-      "brave-browser-1.75.178-1.x86_64.rpm",
-      "brave-browser-1.75.178-linux-amd64.zip",
-      "brave-browser-1.75.178-linux-arm64.zip",
+      "brave-browser-1.75.180-1.aarch64.rpm",
+      "brave-browser-1.75.180-1.x86_64.rpm",
+      "brave-browser-1.75.180-linux-amd64.zip",
+      "brave-browser-1.75.180-linux-arm64.zip",
       "Brave-Browser-arm64.dmg",
       "Brave-Browser-arm64.pkg",
       "Brave-Browser-universal.dmg",
       "Brave-Browser-universal.pkg",
       "Brave-Browser-x64.dmg",
       "Brave-Browser-x64.pkg",
-      "brave-browser_1.75.178_amd64.deb",
-      "brave-browser_1.75.178_arm64.deb",
-      "brave-v1.75.178-darwin-arm64-symbols.zip",
-      "brave-v1.75.178-darwin-arm64.zip",
-      "brave-v1.75.178-darwin-x64-symbols.zip",
-      "brave-v1.75.178-darwin-x64.zip",
-      "brave-v1.75.178-linux-arm64-symbols.zip",
-      "brave-v1.75.178-linux-x64-symbols.zip",
-      "brave-v1.75.178-win32-arm64-symbols.zip",
-      "brave-v1.75.178-win32-arm64.zip",
-      "brave-v1.75.178-win32-ia32-symbols.zip",
-      "brave-v1.75.178-win32-ia32.zip",
-      "brave-v1.75.178-win32-x64-symbols.zip",
-      "brave-v1.75.178-win32-x64.zip",
+      "brave-browser_1.75.180_amd64.deb",
+      "brave-browser_1.75.180_arm64.deb",
+      "brave-v1.75.180-darwin-arm64-symbols.zip",
+      "brave-v1.75.180-darwin-arm64.zip",
+      "brave-v1.75.180-darwin-x64-symbols.zip",
+      "brave-v1.75.180-darwin-x64.zip",
+      "brave-v1.75.180-linux-arm64-symbols.zip",
+      "brave-v1.75.180-linux-x64-symbols.zip",
+      "brave-v1.75.180-win32-arm64-symbols.zip",
+      "brave-v1.75.180-win32-arm64.zip",
+      "brave-v1.75.180-win32-ia32-symbols.zip",
+      "brave-v1.75.180-win32-ia32.zip",
+      "brave-v1.75.180-win32-x64-symbols.zip",
+      "brave-v1.75.180-win32-x64.zip",
       "Bravearm64Universal.apk",
       "BraveBrowserSetup.exe",
       "BraveBrowserStandaloneSetup.exe",
@@ -4513,35 +4513,35 @@
   {
     "category": "other",
     "name": "mongodb-js/mongosh",
-    "tag_name": "v2.3.9",
-    "created_at": "2025-02-04T16:50:27Z",
+    "tag_name": "v2.4.0",
+    "created_at": "2025-02-20T14:17:35Z",
     "assets": [
-      "mongodb-mongosh-2.3.9.aarch64.rpm",
-      "mongodb-mongosh-2.3.9.ppc64le.rpm",
-      "mongodb-mongosh-2.3.9.s390x.rpm",
-      "mongodb-mongosh-2.3.9.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl11-2.3.9.aarch64.rpm",
-      "mongodb-mongosh-shared-openssl11-2.3.9.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl11_2.3.9_amd64.deb",
-      "mongodb-mongosh-shared-openssl11_2.3.9_arm64.deb",
-      "mongodb-mongosh-shared-openssl3-2.3.9.aarch64.rpm",
-      "mongodb-mongosh-shared-openssl3-2.3.9.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl3_2.3.9_amd64.deb",
-      "mongodb-mongosh-shared-openssl3_2.3.9_arm64.deb",
-      "mongodb-mongosh_2.3.9_amd64.deb",
-      "mongodb-mongosh_2.3.9_arm64.deb",
-      "mongosh-2.3.9-darwin-arm64.zip",
-      "mongosh-2.3.9-darwin-x64.zip",
-      "mongosh-2.3.9-linux-arm64-openssl11.tgz",
-      "mongosh-2.3.9-linux-arm64-openssl3.tgz",
-      "mongosh-2.3.9-linux-arm64.tgz",
-      "mongosh-2.3.9-linux-ppc64le.tgz",
-      "mongosh-2.3.9-linux-s390x.tgz",
-      "mongosh-2.3.9-linux-x64-openssl11.tgz",
-      "mongosh-2.3.9-linux-x64-openssl3.tgz",
-      "mongosh-2.3.9-linux-x64.tgz",
-      "mongosh-2.3.9-win32-x64.zip",
-      "mongosh-2.3.9-x64.msi"
+      "mongodb-mongosh-2.4.0.aarch64.rpm",
+      "mongodb-mongosh-2.4.0.ppc64le.rpm",
+      "mongodb-mongosh-2.4.0.s390x.rpm",
+      "mongodb-mongosh-2.4.0.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl11-2.4.0.aarch64.rpm",
+      "mongodb-mongosh-shared-openssl11-2.4.0.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl11_2.4.0_amd64.deb",
+      "mongodb-mongosh-shared-openssl11_2.4.0_arm64.deb",
+      "mongodb-mongosh-shared-openssl3-2.4.0.aarch64.rpm",
+      "mongodb-mongosh-shared-openssl3-2.4.0.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl3_2.4.0_amd64.deb",
+      "mongodb-mongosh-shared-openssl3_2.4.0_arm64.deb",
+      "mongodb-mongosh_2.4.0_amd64.deb",
+      "mongodb-mongosh_2.4.0_arm64.deb",
+      "mongosh-2.4.0-darwin-arm64.zip",
+      "mongosh-2.4.0-darwin-x64.zip",
+      "mongosh-2.4.0-linux-arm64-openssl11.tgz",
+      "mongosh-2.4.0-linux-arm64-openssl3.tgz",
+      "mongosh-2.4.0-linux-arm64.tgz",
+      "mongosh-2.4.0-linux-ppc64le.tgz",
+      "mongosh-2.4.0-linux-s390x.tgz",
+      "mongosh-2.4.0-linux-x64-openssl11.tgz",
+      "mongosh-2.4.0-linux-x64-openssl3.tgz",
+      "mongosh-2.4.0-linux-x64.tgz",
+      "mongosh-2.4.0-win32-x64.zip",
+      "mongosh-2.4.0-x64.msi"
     ],
     "linux_x64": {
       "ends": "linux-x64-openssl3.tgz"
@@ -5124,10 +5124,10 @@
   {
     "category": "android",
     "name": "PhilKes/NotallyX",
-    "tag_name": "v7.0.0",
-    "created_at": "2025-01-27T16:50:33Z",
+    "tag_name": "v7.1.0",
+    "created_at": "2025-02-20T16:40:32Z",
     "assets": [
-      "NotallyX-7.0.0.apk"
+      "NotallyX-7.1.0.apk"
     ]
   },
   {
@@ -5142,8 +5142,8 @@
   {
     "category": "android",
     "name": "t895/DNSNet",
-    "tag_name": "1.0.17",
-    "created_at": "2025-02-17T07:28:06Z",
+    "tag_name": "1.0.18",
+    "created_at": "2025-02-21T05:33:09Z",
     "assets": [
       "app-release.aab",
       "app-release.apk",
@@ -5313,10 +5313,14 @@
   {
     "category": "android",
     "name": "maxrave-dev/SimpMusic",
-    "tag_name": "v0.2.10",
-    "created_at": "2025-02-01T15:39:30Z",
+    "tag_name": "v0.2.11",
+    "created_at": "2025-02-20T15:34:48Z",
     "assets": [
-      "SimpMusic_v0.2.10.apk"
+      "SimpMusic_v0.2.11-arm64-v8a-release.apk",
+      "SimpMusic_v0.2.11-armeabi-v7a-release.apk",
+      "SimpMusic_v0.2.11-universal-release.apk",
+      "SimpMusic_v0.2.11-x86-release.apk",
+      "SimpMusic_v0.2.11-x86_64-release.apk"
     ]
   },
   {
@@ -5376,16 +5380,15 @@
   {
     "category": "android",
     "name": "sakethpathike/Linkora",
-    "tag_name": "release-v0.11.0",
-    "created_at": "2025-02-09T12:41:09Z",
+    "tag_name": "release-v0.11.1",
+    "created_at": "2025-02-20T18:22:14Z",
     "assets": [
-      "composeApp-preview.apk",
       "composeApp-release.apk",
-      "Linkora-1.0.0.exe",
-      "Linkora-1.0.0.msi",
-      "Linkora-linux-x64-1.0.0.jar",
+      "Linkora-1.0.1.exe",
+      "Linkora-1.0.1.msi",
+      "Linkora-linux-x64-1.0.1.jar",
       "Linkora.AppImage",
-      "linkora_1.0.0-1_amd64.deb"
+      "linkora_1.0.1-1_amd64.deb"
     ]
   },
   {

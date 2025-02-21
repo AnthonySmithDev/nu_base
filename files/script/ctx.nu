@@ -55,3 +55,26 @@ def "main mods" [...rest] {
     open ...$hashed_files | to text | mods ...$rest
   }
 }
+
+let watch_ask_prompt = r#'
+Find the "AI" comments below (marked with ?) in the code files I've shared with you.
+They contain my questions that I need you to answer and other instructions for you.
+'#
+
+def "main watch" [] {
+  watch . --glob=**/*.go --quiet {|op, path|
+    let prompt = (open $path | rg "AI?" | lines)
+    if ($prompt | is-not-empty) {
+      print $path
+      open $path | aichat $watch_ask_prompt
+    }
+  }
+}
+
+# let watch_code_prompt = r#'
+# I've written your instructions in comments in the code and marked them with "ai"
+# You can see the "AI" comments shown below (marked with █).
+# Find them in the code files I've shared with you, and follow their instructions.
+
+# After completing those instructions, also be sure to remove all the "AI" comments from the code too.
+# '#
