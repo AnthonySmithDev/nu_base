@@ -413,23 +413,23 @@
   {
     "category": "core",
     "name": "jesseduffield/lazygit",
-    "tag_name": "v0.46.0",
-    "created_at": "2025-02-15T04:37:50Z",
+    "tag_name": "v0.47.1",
+    "created_at": "2025-02-22T09:10:41Z",
     "assets": [
-      "lazygit_0.46.0_Darwin_arm64.tar.gz",
-      "lazygit_0.46.0_Darwin_x86_64.tar.gz",
-      "lazygit_0.46.0_freebsd_32-bit.tar.gz",
-      "lazygit_0.46.0_freebsd_arm64.tar.gz",
-      "lazygit_0.46.0_freebsd_armv6.tar.gz",
-      "lazygit_0.46.0_freebsd_x86_64.tar.gz",
-      "lazygit_0.46.0_Linux_32-bit.tar.gz",
-      "lazygit_0.46.0_Linux_arm64.tar.gz",
-      "lazygit_0.46.0_Linux_armv6.tar.gz",
-      "lazygit_0.46.0_Linux_x86_64.tar.gz",
-      "lazygit_0.46.0_Windows_32-bit.zip",
-      "lazygit_0.46.0_Windows_arm64.zip",
-      "lazygit_0.46.0_Windows_armv6.zip",
-      "lazygit_0.46.0_Windows_x86_64.zip"
+      "lazygit_0.47.1_Darwin_arm64.tar.gz",
+      "lazygit_0.47.1_Darwin_x86_64.tar.gz",
+      "lazygit_0.47.1_freebsd_32-bit.tar.gz",
+      "lazygit_0.47.1_freebsd_arm64.tar.gz",
+      "lazygit_0.47.1_freebsd_armv6.tar.gz",
+      "lazygit_0.47.1_freebsd_x86_64.tar.gz",
+      "lazygit_0.47.1_Linux_32-bit.tar.gz",
+      "lazygit_0.47.1_Linux_arm64.tar.gz",
+      "lazygit_0.47.1_Linux_armv6.tar.gz",
+      "lazygit_0.47.1_Linux_x86_64.tar.gz",
+      "lazygit_0.47.1_Windows_32-bit.zip",
+      "lazygit_0.47.1_Windows_arm64.zip",
+      "lazygit_0.47.1_Windows_armv6.zip",
+      "lazygit_0.47.1_Windows_x86_64.zip"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -630,6 +630,20 @@
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
     }
+  },
+  {
+    "category": "core",
+    "name": "mifi/ezshare",
+    "tag_name": "v1.11.5",
+    "created_at": "2024-11-15T03:16:58Z",
+    "assets": [
+      "ezshare-linux.zip",
+      "ezshare-macos.zip",
+      "ezshare-win.zip"
+    ],
+    "linux_x64": {
+      "ends": "linux.zip"
+    },
   },
   {
     "category": "core",
@@ -2828,12 +2842,12 @@
   {
     "category": "other",
     "name": "ventoy/Ventoy",
-    "tag_name": "v1.1.03",
-    "created_at": "2025-02-21T10:14:18Z",
+    "tag_name": "v1.1.04",
+    "created_at": "2025-02-22T03:27:31Z",
     "assets": [
-      "ventoy-1.1.03-linux.tar.gz",
-      "ventoy-1.1.03-livecd.iso",
-      "ventoy-1.1.03-windows.zip"
+      "ventoy-1.1.04-linux.tar.gz",
+      "ventoy-1.1.04-livecd.iso",
+      "ventoy-1.1.04-windows.zip"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -3733,8 +3747,8 @@
   {
     "category": "other",
     "name": "oven-sh/bun",
-    "tag_name": "bun-v1.2.2",
-    "created_at": "2025-02-01T00:13:03Z",
+    "tag_name": "bun-v1.2.3",
+    "created_at": "2025-02-22T06:55:03Z",
     "assets": [
       "bun-darwin-aarch64-profile.zip",
       "bun-darwin-aarch64.zip",
@@ -5326,8 +5340,8 @@
   {
     "category": "android",
     "name": "fast4x/RiMusic",
-    "tag_name": "v0.6.71",
-    "created_at": "2025-02-14T21:33:32Z",
+    "tag_name": "v0.6.72",
+    "created_at": "2025-02-21T16:13:56Z",
     "assets": [
       "app-foss-release.apk"
     ]

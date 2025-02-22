@@ -37,6 +37,14 @@ a = "code_action"
 [keys.normal]
 C-r = ":reload"
 C-q = ":quit"
+C-l = [
+    ":write-all",
+    ":new",
+    ":insert-output lazygit",
+    ":buffer-close!",
+    ":redraw",
+    ":reload-all"
+]
 
 [keys.normal.";"]
 "a" = ":pipe-to ctx"

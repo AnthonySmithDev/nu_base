@@ -36,6 +36,7 @@ export def packages [] {
     [ dev opencommit opencommit ]
     [ dev gitmoji-cli gitmoji-cli ]
     [ dev localtunnel localtunnel ]
+    [ dev ezshare ezshare ]
 
     [ extra pake pake-cli ]
     [ extra tldr tldr ]

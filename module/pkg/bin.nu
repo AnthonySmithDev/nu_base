@@ -779,6 +779,20 @@ export def ttyper [ --force(-f) ] {
   bind file ttyper $path
 }
 
+export def ezshare [ --force(-f) ] {
+  let repository = 'mifi/ezshare'
+  let tag_name = ghub tag_name $repository
+  let path = filepath ezshare $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -f ezshare -p $path
+  }
+
+  bind file ezshare $path
+}
+
 export def qrcp [ --force(-f) ] {
   let repository = 'claudiodangelis/qrcp'
   let tag_name = ghub tag_name $repository

@@ -405,3 +405,17 @@ Here's the diff:"
   let diff = git diff --cached --diff-algorithm=minimal
   git commit -e -m ($diff | mods --no-cache $prompt)
 }
+
+def transfer [path: path] {
+  if not ($path | path exists) {
+    return
+  }
+  let filename = if ($path | path type) == "file" { $path } else {
+    let basename = ($path | path basename) + ".zip"
+    let dirname = ($env.TMP_PATH_DIR | path join $basename)
+    ^zip -q -r $dirname $path
+    $dirname
+  }
+  let url = (open $filename | curl --silent --show-error --progress-bar --upload-file - $"https://transfer.sh/($filename)")
+  echo $url
+}
