@@ -216,6 +216,10 @@ $env.PIPX_HOME = ($env.HOME | path join .pipx)
 $env.PIPX_BIN_DIR = ($env.PIPX_HOME | path join bin)
 env-path $env.PIPX_BIN_DIR
 
+$env.DOTNET_ROOT = ($env.HOME | path join .dotnet)
+$env.DOTNET_CLI_TELEMETRY_OPTOUT = false
+env-path $env.DOTNET_ROOT
+
 $env.ANDROID_HOME = ($env.HOME | path join Android Sdk)
 $env.ANDROID_SDK_ROOT = ($env.HOME | path join Android Sdk)
 

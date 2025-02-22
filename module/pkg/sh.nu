@@ -94,3 +94,12 @@ export def aider [ --force(-f) ] {
     curl -LsSf https://aider.chat/install.sh | sh
   }
 }
+
+export def dotnet [ --force(-f) ] {
+  # sudo apt install zlib1g
+  if not (exists-external dotnet) or $force {
+    wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
+    chmod +x ./dotnet-install.sh
+    bash dotnet-install.sh --version latest
+  }
+}
