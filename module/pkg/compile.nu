@@ -24,10 +24,10 @@ export def alacritty [] {
 
   sudo mkdir -p /usr/local/share/man/man1
   sudo mkdir -p /usr/local/share/man/man5
-  open ($source | path join extra/man/alacritty.1.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz | null
-  open ($source | path join extra/man/alacritty-msg.1.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz | null
-  open ($source | path join extra/man/alacritty.5.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz | null
-  open ($source | path join extra/man/alacritty-bindings.5.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz | null
+  open ($source | path join extra/man/alacritty.1.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty.1.gz | ignore
+  open ($source | path join extra/man/alacritty-msg.1.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz | ignore
+  open ($source | path join extra/man/alacritty.5.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty.5.gz | ignore
+  open ($source | path join extra/man/alacritty-bindings.5.scd) | scdoc | gzip -c | sudo tee /usr/local/share/man/man5/alacritty-bindings.5.gz | ignore
 
   # sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator $dst 100
   # sudo update-alternatives --config x-terminal-emulator
@@ -171,7 +171,7 @@ export def evremap [ --uinput(-u) ] {
       sudo groupadd uinput
     }
     sudo gpasswd -a $env.USER input
-    'KERNEL=="uinput", GROUP="input"' | sudo tee /etc/udev/rules.d/input.rules | null
+    'KERNEL=="uinput", GROUP="input"' | sudo tee /etc/udev/rules.d/input.rules | ignore
   }
 }
 

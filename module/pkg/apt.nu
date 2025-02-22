@@ -294,11 +294,12 @@ export def java [] {
 
 export def dart [] {
   sudo rm '/usr/share/keyrings/dart.gpg'
-  wget -qO- "https://dl-ssl.google.com/linux/linux_signing_key.pub" |
-  sudo gpg --dearmor -o '/usr/share/keyrings/dart.gpg' | null
 
-  echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main' |
-  sudo tee '/etc/apt/sources.list.d/dart_stable.list' | null
+  wget -qO- "https://dl-ssl.google.com/linux/linux_signing_key.pub"
+  | sudo gpg --dearmor -o '/usr/share/keyrings/dart.gpg' | ignore
+
+  echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main'
+  | sudo tee '/etc/apt/sources.list.d/dart_stable.list' | ignore
 
   sudo apt update
   sudo apt install -y dart
@@ -322,8 +323,8 @@ export def brave [ --force(-f) ] {
 
   sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
 
-  "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main" |
-  sudo tee /etc/apt/sources.list.d/brave-browser-release.list | null
+  echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"
+  | sudo tee /etc/apt/sources.list.d/brave-browser-release.list | ignore
 
   sudo apt update
   sudo apt install -y brave-browser
@@ -341,15 +342,18 @@ export def docker [] {
 
   try {
     sudo install -m 0755 -d /etc/apt/keyrings
-    curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg' |
-    sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg | null
+
+    curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg'
+    | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg | ignore
+
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
   }
 
   let arch = (dpkg --print-architecture)
   let codename = (bash -c '. /etc/os-release && echo "$VERSION_CODENAME"')
-  echo $'deb [arch=($arch) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu ($codename) stable' |
-  sudo tee /etc/apt/sources.list.d/docker.list | null
+
+  echo $'deb [arch=($arch) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu ($codename) stable'
+  | sudo tee /etc/apt/sources.list.d/docker.list | ignore
 
   sudo apt update
 
@@ -378,9 +382,8 @@ export def regolith [ --force(-f), --beta(-b) ] {
     }
   }
 
-  wget -qO - "https://regolith-desktop.org/regolith.key"
-  | gpg --dearmor | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg
-  | null
+  wget -qO - "https://regolith-desktop.org/regolith.key" | gpg --dearmor
+  | sudo tee /usr/share/keyrings/regolith-archive-keyring.gpg | ignore
 
   if $beta {
     echo "deb [arch=amd64 signed-by=/usr/share/keyrings/regolith-archive-keyring.gpg] https://regolith-desktop.org/testing-ubuntu-noble-amd64 noble main"
@@ -435,10 +438,11 @@ export def remmina [] {
 }
 
 export def vagrant [] {
-  wget -O- https://apt.releases.hashicorp.com/gpg |
-  sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg | null
-  $"deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" |
-  sudo tee /etc/apt/sources.list.d/hashicorp.list
+  wget -O- https://apt.releases.hashicorp.com/gpg
+  | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg | ignore
+
+  echo $"deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+  | sudo tee /etc/apt/sources.list.d/hashicorp.list
 
   sudo apt update
   sudo apt install vagrant
@@ -507,4 +511,15 @@ export def nautilus [] {
 
 export def sixel [] {
   sudo apt install -y libsixel-dev libsixel1 libsixel-bin
+}
+
+export def unityhub [] {
+  wget -qO - https://hub.unity3d.com/linux/keys/public | gpg --dearmor
+  | sudo tee /usr/share/keyrings/Unity_Technologies_ApS.gpg | ignore
+
+  echo "deb [signed-by=/usr/share/keyrings/Unity_Technologies_ApS.gpg] https://hub.unity3d.com/linux/repos/deb stable main" 
+  | sudo tee '/etc/apt/sources.list.d/unityhub.list' | ignore
+
+  sudo apt update
+  sudo apt install -y unityhub
 }
