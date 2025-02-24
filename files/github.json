@@ -353,26 +353,26 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.60.1",
-    "created_at": "2025-02-20T12:43:29Z",
+    "tag_name": "v0.60.2",
+    "created_at": "2025-02-23T11:12:22Z",
     "assets": [
-      "fzf-0.60.1-darwin_amd64.tar.gz",
-      "fzf-0.60.1-darwin_arm64.tar.gz",
-      "fzf-0.60.1-freebsd_amd64.tar.gz",
-      "fzf-0.60.1-linux_amd64.tar.gz",
-      "fzf-0.60.1-linux_arm64.tar.gz",
-      "fzf-0.60.1-linux_armv5.tar.gz",
-      "fzf-0.60.1-linux_armv6.tar.gz",
-      "fzf-0.60.1-linux_armv7.tar.gz",
-      "fzf-0.60.1-linux_loong64.tar.gz",
-      "fzf-0.60.1-linux_ppc64le.tar.gz",
-      "fzf-0.60.1-linux_s390x.tar.gz",
-      "fzf-0.60.1-openbsd_amd64.tar.gz",
-      "fzf-0.60.1-windows_amd64.zip",
-      "fzf-0.60.1-windows_arm64.zip",
-      "fzf-0.60.1-windows_armv5.zip",
-      "fzf-0.60.1-windows_armv6.zip",
-      "fzf-0.60.1-windows_armv7.zip"
+      "fzf-0.60.2-darwin_amd64.tar.gz",
+      "fzf-0.60.2-darwin_arm64.tar.gz",
+      "fzf-0.60.2-freebsd_amd64.tar.gz",
+      "fzf-0.60.2-linux_amd64.tar.gz",
+      "fzf-0.60.2-linux_arm64.tar.gz",
+      "fzf-0.60.2-linux_armv5.tar.gz",
+      "fzf-0.60.2-linux_armv6.tar.gz",
+      "fzf-0.60.2-linux_armv7.tar.gz",
+      "fzf-0.60.2-linux_loong64.tar.gz",
+      "fzf-0.60.2-linux_ppc64le.tar.gz",
+      "fzf-0.60.2-linux_s390x.tar.gz",
+      "fzf-0.60.2-openbsd_amd64.tar.gz",
+      "fzf-0.60.2-windows_amd64.zip",
+      "fzf-0.60.2-windows_arm64.zip",
+      "fzf-0.60.2-windows_armv5.zip",
+      "fzf-0.60.2-windows_armv6.zip",
+      "fzf-0.60.2-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -643,7 +643,7 @@
     ],
     "linux_x64": {
       "ends": "linux.zip"
-    },
+    }
   },
   {
     "category": "core",
@@ -935,8 +935,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.133.1",
-    "created_at": "2025-02-19T14:16:09Z",
+    "tag_name": "3.134.0",
+    "created_at": "2025-02-24T14:11:24Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -1294,8 +1294,8 @@
   {
     "category": "core",
     "name": "mrjackwills/oxker",
-    "tag_name": "v0.9.0",
-    "created_at": "2024-12-05T20:46:30Z",
+    "tag_name": "v0.10.0",
+    "created_at": "2025-02-23T15:10:05Z",
     "assets": [
       "oxker_linux_aarch64.tar.gz",
       "oxker_linux_armv6.tar.gz",
@@ -1481,8 +1481,8 @@
   {
     "category": "extra",
     "name": "codesenberg/bombardier",
-    "tag_name": "v1.2.6",
-    "created_at": "2023-04-29T19:49:13Z",
+    "tag_name": "v2.0.1",
+    "created_at": "2025-02-23T17:36:39Z",
     "assets": [
       "bombardier-darwin-amd64",
       "bombardier-darwin-arm64",
@@ -2842,12 +2842,12 @@
   {
     "category": "other",
     "name": "ventoy/Ventoy",
-    "tag_name": "v1.1.04",
-    "created_at": "2025-02-22T03:27:31Z",
+    "tag_name": "v1.1.05",
+    "created_at": "2025-02-24T11:29:46Z",
     "assets": [
-      "ventoy-1.1.04-linux.tar.gz",
-      "ventoy-1.1.04-livecd.iso",
-      "ventoy-1.1.04-windows.zip"
+      "ventoy-1.1.05-linux.tar.gz",
+      "ventoy-1.1.05-livecd.iso",
+      "ventoy-1.1.05-windows.zip"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -3444,8 +3444,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.11.0",
-    "created_at": "2025-02-15T09:20:04Z",
+    "tag_name": "v1.11.1",
+    "created_at": "2025-02-23T01:37:27Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -3896,21 +3896,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.19.6",
-    "created_at": "2025-01-14T09:29:15Z",
+    "tag_name": "v0.20.0",
+    "created_at": "2025-02-24T01:36:16Z",
     "assets": [
-      "affine-0.19.6-stable-linux-x64.appimage",
-      "affine-0.19.6-stable-linux-x64.deb",
-      "affine-0.19.6-stable-linux-x64.flatpak",
-      "affine-0.19.6-stable-linux-x64.zip",
-      "affine-0.19.6-stable-macos-arm64.dmg",
-      "affine-0.19.6-stable-macos-arm64.zip",
-      "affine-0.19.6-stable-macos-x64.dmg",
-      "affine-0.19.6-stable-macos-x64.zip",
-      "affine-0.19.6-stable-windows-arm64.exe",
-      "affine-0.19.6-stable-windows-arm64.nsis.exe",
-      "affine-0.19.6-stable-windows-x64.exe",
-      "affine-0.19.6-stable-windows-x64.nsis.exe",
+      "affine-0.20.0-stable-linux-x64.appimage",
+      "affine-0.20.0-stable-linux-x64.deb",
+      "affine-0.20.0-stable-linux-x64.flatpak",
+      "affine-0.20.0-stable-linux-x64.zip",
+      "affine-0.20.0-stable-macos-arm64.dmg",
+      "affine-0.20.0-stable-macos-arm64.zip",
+      "affine-0.20.0-stable-macos-x64.dmg",
+      "affine-0.20.0-stable-macos-x64.zip",
+      "affine-0.20.0-stable-windows-arm64.exe",
+      "affine-0.20.0-stable-windows-arm64.nsis.exe",
+      "affine-0.20.0-stable-windows-x64.exe",
+      "affine-0.20.0-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
@@ -4357,8 +4357,8 @@
   {
     "category": "other",
     "name": "simulot/immich-go",
-    "tag_name": "v0.24.1",
-    "created_at": "2025-02-16T20:20:44Z",
+    "tag_name": "v0.24.2",
+    "created_at": "2025-02-23T15:19:38Z",
     "assets": [
       "immich-go_Darwin_arm64.tar.gz",
       "immich-go_Darwin_x86_64.tar.gz",
@@ -5099,16 +5099,16 @@
   {
     "category": "android",
     "name": "saber-notes/saber",
-    "tag_name": "v0.25.3",
-    "created_at": "2024-12-14T03:17:45Z",
+    "tag_name": "v0.25.4",
+    "created_at": "2025-02-22T23:08:40Z",
     "assets": [
-      "Saber-0.25.3-x86_64.AppImage",
-      "Saber-0.25.3-x86_64.AppImage.zsync",
-      "SaberInstaller_v0.25.3.exe",
-      "Saber_FOSS_v0.25.3.apk",
-      "Saber_v0.25.2_Linux_arm64.tar.gz",
-      "Saber_v0.25.3.apk",
-      "Saber_v0.25.3_Linux_x86_64.tar.gz"
+      "Saber-0.25.4-x86_64.AppImage",
+      "Saber-0.25.4-x86_64.AppImage.zsync",
+      "SaberInstaller_v0.25.4.exe",
+      "Saber_FOSS_v0.25.4.apk",
+      "Saber_v0.25.4.apk",
+      "Saber_v0.25.4_Linux_arm64.tar.gz",
+      "Saber_v0.25.4_Linux_x86_64.tar.gz"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -5340,8 +5340,8 @@
   {
     "category": "android",
     "name": "fast4x/RiMusic",
-    "tag_name": "v0.6.72",
-    "created_at": "2025-02-21T16:13:56Z",
+    "tag_name": "v0.6.72.1",
+    "created_at": "2025-02-22T22:11:14Z",
     "assets": [
       "app-foss-release.apk"
     ]

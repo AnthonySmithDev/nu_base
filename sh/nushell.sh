@@ -85,7 +85,7 @@ fi
 
 # Directorio temporal para la descompresión
 HOME_TMP_DIR="$HOME/tmp/dir"
-mkdir "$HOME_TMP_DIR"
+mkdir -p "$HOME_TMP_DIR"
 
 TEMP_DIR=$(mktemp -d "$HOME_TMP_DIR/nushell_XXXXXX")
 

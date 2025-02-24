@@ -419,3 +419,13 @@ def transfer [path: path] {
   let url = (open $filename | curl --silent --show-error --progress-bar --upload-file - $"https://transfer.sh/($filename)")
   echo $url
 }
+
+def nf [name: string] {
+  let dir = (fd -t d | fzf)
+  hx ($dir | path join $name)
+}
+
+def nd [name: string] {
+  let dir = (fd -t d | fzf)
+  mkdir ($dir | path join $name)
+}

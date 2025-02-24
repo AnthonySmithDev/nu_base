@@ -72,9 +72,11 @@ alias zac = zat c
 alias zad = zat d
 
 alias dcu = docker compose up
+alias dcU = docker compose up --detach
 alias dcd = docker compose down
-alias dcv = docker compose down --volume
+alias dcD = docker compose down --volumes
 alias dcl = docker compose logs
+alias dcL = docker compose logs --follow
 
 alias lzg = lazygit
 alias lzd = lazydocker
