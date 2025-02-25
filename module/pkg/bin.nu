@@ -2584,9 +2584,9 @@ export def --env java [ version: string@java-version = '21', --force(-f) ] {
   let url = (java-list | get $version)
 
   if (path-not-exists $path $force) {
-    http download $url
-    extract tar $'openjdk-($version)_linux-x64_bin.tar.gz'
-    move -d $'jdk-($version)' -p $path
+    let download_path = download $url
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
   }
 
   bind dir $path $env.JAVA_PATH

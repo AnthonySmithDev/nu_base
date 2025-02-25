@@ -42,7 +42,7 @@ use pkg/
 # export module shalom.nu
 # export module board.nu
 # export module nvim.nu
-# export module avd.nu
+use avd.nu
 # export module lsp.nu
 # export module helix.nu
 # export module flutter.nu

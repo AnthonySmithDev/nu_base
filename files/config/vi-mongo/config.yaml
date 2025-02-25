@@ -8,16 +8,16 @@ editor:
     env: EDITOR
 showConnectionPage: false
 showWelcomePage: false
-currentConnection: payzum kube dev
+currentConnection: nanopay jean
 connections:
     - url: ""
       host: 0.0.0.0
       port: 27018
-      database: ""
-      username: payzum_root_user
-      password: payzum_root_pass
-      name: payzum dev
-      timeout: 5
+      database: "nanopay"
+      username: nanopay_root_user
+      password: nanopay_root_pass
+      name: nanopay dev
+      timeout: 3
       options: {}
     - url: ""
       host: 0.0.0.0
@@ -26,8 +26,19 @@ connections:
       username: payzum_admin
       password: wiweh7FOG3WJWGT0PSOX8GDSdambSvm2k6tLicj00pZlw6wS3N
       name: payzum kube dev
-      timeout: 5
+      timeout: 3
       options: {}
+    - url: ""
+      host: 192.168.0.21
+      port: 27018
+      database: ""
+      username: nanopay_root_user
+      password: nanopay_root_pass
+      name: nanopay jean
+      timeout: 3
+      options:
+        authorizedDatabases: true
+        authorizedCollections: true
 styles:
     betterSymbols: true
     currentStyle: dark-blue.yaml
