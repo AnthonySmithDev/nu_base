@@ -1,18 +1,18 @@
 
 export def list-device [] {
-  job avd-list-device 1wk {
+  job run avd-list-device 1wk {
     ^avdmanager list device -c
   } | lines
 }
 
 export def system-images-list [] {
-  job avd-system-images-list 1wk {
+  job run avd-system-images-list 1wk {
     ^sdkmanager --list --verbose | grep "system-images;" | grep ";x86_64"
   } | lines | uniq
 }
 
 export def system-images-installed [] {
-  job avd-system-images-installed 1min {
+  job run avd-system-images-installed 1min {
     ^sdkmanager --list_installed --verbose | grep "system-images;" | grep ";x86_64"
   } | lines | uniq
 }
@@ -27,7 +27,7 @@ export def create [
 }
 
 export def list [] {
-  job avd-list-device 1min {
+  job run avd-list-avd 1min {
     ^avdmanager list avd -c
   } | lines
 }

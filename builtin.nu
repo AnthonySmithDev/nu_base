@@ -100,23 +100,3 @@ def tempeditor [] {
   hx $temp
   return (open $temp | str trim)
 }
-
-def job [name: string, duration: duration, closure: closure] {
-  let dir = ($env.HOME | path join job)
-  mkdir $dir
-
-  let filename = ($dir | path join $name)
-
-  let should_execute_closure = if ($filename | path exists) {
-    let modified = (ls $filename | first | get modified)
-    ($modified + $duration) <= (date now)
-  } else { true }
-
-  if $should_execute_closure {
-    let output = do $closure
-    $output | save --force $filename
-    return $output
-  }
-
-  return (open $filename)
-}
