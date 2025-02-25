@@ -7,8 +7,13 @@ export def run [name: string, duration: duration, closure: closure] {
   let filename = ($env.JOB_DIR | path join $name)
 
   let should_execute_closure = if ($filename | path exists) {
-    let modified = (ls $filename | first | get modified)
-    ($modified + $duration) <= (date now)
+    let output = (open $filename | str trim)
+    if ($output | is-empty) {
+      true
+    } else {
+      let modified = (ls $filename | first | get modified)
+      ($modified + $duration) <= (date now)
+    }
   } else { true }
 
   if $should_execute_closure {
@@ -18,6 +23,10 @@ export def run [name: string, duration: duration, closure: closure] {
   }
 
   return (open $filename)
+}
+
+export def delete [name: string] {
+  rm -rf ($env.JOB_DIR | path join $name)
 }
 
 export def clean [] {
