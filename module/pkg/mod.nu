@@ -21,4 +21,4 @@ export module flathub.nu
 export module compile.nu
 
 export module font.nu
-export module apk.nu
+export module apk
