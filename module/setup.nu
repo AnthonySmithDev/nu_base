@@ -1,5 +1,11 @@
 
-export def androidsdk [] {
+export def android [] {
+  pkg bin java
+  pkg bin android-cmdline-tools
+  pkg bin android-platform-tools
+}
+
+export def android-sdk [] {
   let packages = [
     "platform-tools"
     "platforms;android-35"
@@ -7,19 +13,32 @@ export def androidsdk [] {
     "sources;android-35"
     "emulator"
   ]
-  ^sdkmanager --install ...($packages | reverse)
+  ^sdkmanager --install ...($packages | reverse) err> /dev/null
 }
 
-export def android [] {
-  pkg bin java
-  pkg bin android-studio
-  pkg bin android-cmdline-tools
+export def android-system-image [] {
+  let system_images = [
+    "system-images;android-35;google_apis_playstore;x86_64"
+  ]
+  ^sdkmanager --install ...($system_images) err> /dev/null
+}
 
-  androidsdk
+export def avd [] {
+  android
+  android-sdk
+  android-system-image
+}
+
+export def android-studio [] {
+  pkg bin android-studio
+
+  android
+  android-sdk
+  android-system-image
 }
 
 export def flutter [] {
-  android
+  android-studio
   pkg bin flutter --latest
 
   ^flutter --disable-analytics
@@ -27,12 +46,12 @@ export def flutter [] {
 }
 
 export def quasar [] {
-  android
+  android-studio
   pkg js install quasar
 }
 
 export def kotlin [] {
-  android
+  android-studio
   pkg bin kotlin
   pkg bin kotlin-native
 }

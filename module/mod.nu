@@ -25,10 +25,11 @@ use browser.nu
 use srv.nu
 use tscale.nu
 
+use pkg/
+
 # use run.nu
 # use setup.nu
-
-use pkg/
+use avd.nu
 
 # use image
 # use gpt.nu
@@ -43,7 +44,6 @@ use pkg/
 # export module shalom.nu
 # export module board.nu
 # export module nvim.nu
-use avd.nu
 # export module lsp.nu
 # export module helix.nu
 # export module flutter.nu
