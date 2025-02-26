@@ -8,7 +8,7 @@ def path-not-exists [path: string, force: bool] {
 }
 
 export def NewPipe [ --force(-f) ] {
-  let version = '0.27.2'
+  let version = ghub version 'TeamNewPipe/NewPipe'
   let path = filepath NewPipe $version
 
   if (path-not-exists $path $force) {
@@ -19,7 +19,7 @@ export def NewPipe [ --force(-f) ] {
 }
 
 export def LibreTube [ --force(-f) ] {
-  let version = '0.25.2'
+  let version = ghub version 'libre-tube/LibreTube'
   let path = filepath LibreTube $version
 
   if (path-not-exists $path $force) {

@@ -57,18 +57,19 @@ export def editor [name: string@list-virtual] {
 
 export def run [
   name: string@list-virtual,
-  # --cores: int = 4
-  # --memory: int = 8
+  --cores: int = 4
+  --memory: int = 8
   ] {
   let args = [
-    # -cores $cores
-    # -memory ($memory * 1024)
+    -cores $cores
+    -memory ($memory * 1024)
     -ranchu
     -accel on
     -engine qemu2
     -no-window
     -no-metrics
     -no-boot-anim
+    -verbose
   ]
   ^emulator -avd $name ...$args
 }

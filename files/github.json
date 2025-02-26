@@ -1592,42 +1592,42 @@
   {
     "category": "extra",
     "name": "charmbracelet/glow",
-    "tag_name": "v2.0.0",
-    "created_at": "2024-08-23T19:04:44Z",
+    "tag_name": "v2.1.0",
+    "created_at": "2025-02-26T20:24:04Z",
     "assets": [
-      "glow-2.0.0-1.aarch64.rpm",
-      "glow-2.0.0-1.armv7hl.rpm",
-      "glow-2.0.0-1.i386.rpm",
-      "glow-2.0.0-1.x86_64.rpm",
-      "glow-2.0.0.tar.gz",
-      "glow_2.0.0_aarch64.apk",
-      "glow_2.0.0_amd64.deb",
-      "glow_2.0.0_arm64.deb",
-      "glow_2.0.0_armhf.deb",
-      "glow_2.0.0_armv7.apk",
-      "glow_2.0.0_Darwin_arm64.tar.gz",
-      "glow_2.0.0_Darwin_x86_64.tar.gz",
-      "glow_2.0.0_Freebsd_arm.tar.gz",
-      "glow_2.0.0_Freebsd_arm64.tar.gz",
-      "glow_2.0.0_Freebsd_i386.tar.gz",
-      "glow_2.0.0_Freebsd_x86_64.tar.gz",
-      "glow_2.0.0_i386.deb",
-      "glow_2.0.0_Linux_arm.tar.gz",
-      "glow_2.0.0_Linux_arm64.tar.gz",
-      "glow_2.0.0_Linux_i386.tar.gz",
-      "glow_2.0.0_Linux_x86_64.tar.gz",
-      "glow_2.0.0_Netbsd_arm.tar.gz",
-      "glow_2.0.0_Netbsd_arm64.tar.gz",
-      "glow_2.0.0_Netbsd_i386.tar.gz",
-      "glow_2.0.0_Netbsd_x86_64.tar.gz",
-      "glow_2.0.0_Openbsd_arm.tar.gz",
-      "glow_2.0.0_Openbsd_arm64.tar.gz",
-      "glow_2.0.0_Openbsd_i386.tar.gz",
-      "glow_2.0.0_Openbsd_x86_64.tar.gz",
-      "glow_2.0.0_Windows_i386.zip",
-      "glow_2.0.0_Windows_x86_64.zip",
-      "glow_2.0.0_x86.apk",
-      "glow_2.0.0_x86_64.apk"
+      "glow-2.1.0-1.aarch64.rpm",
+      "glow-2.1.0-1.armv7hl.rpm",
+      "glow-2.1.0-1.i386.rpm",
+      "glow-2.1.0-1.x86_64.rpm",
+      "glow-2.1.0.tar.gz",
+      "glow_2.1.0_aarch64.apk",
+      "glow_2.1.0_amd64.deb",
+      "glow_2.1.0_arm64.deb",
+      "glow_2.1.0_armhf.deb",
+      "glow_2.1.0_armv7.apk",
+      "glow_2.1.0_Darwin_arm64.tar.gz",
+      "glow_2.1.0_Darwin_x86_64.tar.gz",
+      "glow_2.1.0_Freebsd_arm.tar.gz",
+      "glow_2.1.0_Freebsd_arm64.tar.gz",
+      "glow_2.1.0_Freebsd_i386.tar.gz",
+      "glow_2.1.0_Freebsd_x86_64.tar.gz",
+      "glow_2.1.0_i386.deb",
+      "glow_2.1.0_Linux_arm.tar.gz",
+      "glow_2.1.0_Linux_arm64.tar.gz",
+      "glow_2.1.0_Linux_i386.tar.gz",
+      "glow_2.1.0_Linux_x86_64.tar.gz",
+      "glow_2.1.0_Netbsd_arm.tar.gz",
+      "glow_2.1.0_Netbsd_arm64.tar.gz",
+      "glow_2.1.0_Netbsd_i386.tar.gz",
+      "glow_2.1.0_Netbsd_x86_64.tar.gz",
+      "glow_2.1.0_Openbsd_arm.tar.gz",
+      "glow_2.1.0_Openbsd_arm64.tar.gz",
+      "glow_2.1.0_Openbsd_i386.tar.gz",
+      "glow_2.1.0_Openbsd_x86_64.tar.gz",
+      "glow_2.1.0_Windows_i386.zip",
+      "glow_2.1.0_Windows_x86_64.zip",
+      "glow_2.1.0_x86.apk",
+      "glow_2.1.0_x86_64.apk"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -5121,7 +5121,10 @@
     "created_at": "2024-12-14T14:53:55Z",
     "assets": [
       "EasyNotes.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5142,7 +5145,10 @@
     "created_at": "2025-02-20T16:40:32Z",
     "assets": [
       "NotallyX-7.1.0.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5151,7 +5157,10 @@
     "created_at": "2024-10-27T14:07:54Z",
     "assets": [
       "AdAway-6.1.4-20241027.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5162,7 +5171,10 @@
       "app-release.aab",
       "app-release.apk",
       "app-release.apks"
-    ]
+    ],
+    "android": {
+      "ends": "release.apk"
+    }
   },
   {
     "category": "android",
@@ -5172,7 +5184,10 @@
     "assets": [
       "loop-2.2.0-debug.apk",
       "loop-2.2.0-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": "release.apk"
+    }
   },
   {
     "category": "android",
@@ -5198,7 +5213,10 @@
       "app-x86_64-release.apk",
       "mhabit.dmg",
       "mhabit_x64.msix"
-    ]
+    ],
+    "android": {
+      "ends": "release.apk"
+    }
   },
   {
     "category": "android",
@@ -5208,7 +5226,10 @@
     "assets": [
       "app-release.aab",
       "app-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5217,7 +5238,10 @@
     "created_at": "2024-02-07T11:04:14Z",
     "assets": [
       "routinetracker-v0.1.0.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5226,7 +5250,10 @@
     "created_at": "2024-08-24T12:39:35Z",
     "assets": [
       "habits-github-1.2.2.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5237,7 +5264,10 @@
       "app-release-fdroid.apk",
       "app-release-universal.apk",
       "app-release.aab"
-    ]
+    ],
+    "android": {
+      "ends": "fdroid.apk"
+    }
   },
   {
     "category": "android",
@@ -5250,7 +5280,10 @@
       "com.stratumauth.app.apk",
       "com.stratumauth.app.fdroid.apk",
       "com.stratumauth.app.wearos.apk"
-    ]
+    ],
+    "android": {
+      "ends": "fdroid.apk"
+    }
   },
   {
     "category": "android",
@@ -5260,7 +5293,10 @@
     "assets": [
       "KeePassDX-4.1.1-free.apk",
       "KeePassDX-4.1.1-libre.apk"
-    ]
+    ],
+    "android": {
+      "ends": "libre.apk"
+    }
   },
   {
     "category": "android",
@@ -5272,7 +5308,10 @@
       "todark-armeabi-v7a-release.apk",
       "todark-release.apk",
       "todark-x86_64-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": "release.apk"
+    }
   },
   {
     "category": "android",
@@ -5281,7 +5320,10 @@
     "created_at": "2024-12-25T19:04:55Z",
     "assets": [
       "app-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5294,7 +5336,38 @@
       "InnerTune_v0.5.10_full_armeabi-v7a.apk",
       "InnerTune_v0.5.10_full_x86.apk",
       "InnerTune_v0.5.10_full_x86_64.apk"
-    ]
+    ],
+    "android": {
+      "ends": "foss.apk"
+    }
+  },
+  {
+    "category": "android",
+    "name": "TeamNewPipe/NewPipe",
+    "tag_name": "v0.27.6",
+    "created_at": "2025-02-05T10:30:37Z",
+    "assets": [
+      "NewPipe_v0.27.6.apk"
+    ],
+    "android": {
+      "ends": ".apk"
+    }
+  },
+  {
+    "category": "android",
+    "name": "libre-tube/LibreTube",
+    "tag_name": "v0.27.0",
+    "created_at": "2025-01-24T19:13:52Z",
+    "assets": [
+      "app-arm64-v8a-release.apk",
+      "app-armeabi-v7a-release.apk",
+      "app-universal-release.apk",
+      "app-x86-release.apk",
+      "app-x86_64-release.apk"
+    ],
+    "android": {
+      "ends": "universal-release.apk"
+    }
   },
   {
     "category": "android",
@@ -5303,7 +5376,10 @@
     "created_at": "2025-01-19T21:25:03Z",
     "assets": [
       "app-foss-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5313,7 +5389,10 @@
     "assets": [
       "OuterTune-0.7.4-arm64-release.apk",
       "OuterTune-0.7.4-universal-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": "universal-release.apk"
+    }
   },
   {
     "category": "android",
@@ -5322,7 +5401,10 @@
     "created_at": "2025-02-05T14:36:11Z",
     "assets": [
       "Metrolist.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5335,7 +5417,10 @@
       "SimpMusic_v0.2.11-universal-release.apk",
       "SimpMusic_v0.2.11-x86-release.apk",
       "SimpMusic_v0.2.11-x86_64-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": "universal-release.apk"
+    }
   },
   {
     "category": "android",
@@ -5344,7 +5429,10 @@
     "created_at": "2025-02-22T22:11:14Z",
     "assets": [
       "app-foss-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5353,7 +5441,10 @@
     "created_at": "2024-11-05T15:58:29Z",
     "assets": [
       "Ivy-Wallet-v2024.11.05-205.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5371,7 +5462,10 @@
     "created_at": "2024-05-14T19:18:52Z",
     "assets": [
       "PdfReaderPro.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5380,7 +5474,10 @@
     "created_at": "2022-04-20T12:36:41Z",
     "assets": [
       "AndroidVolumeBoost.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5389,7 +5486,10 @@
     "created_at": "2023-07-30T14:18:16Z",
     "assets": [
       "LinkSheet-0.0.33.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5403,7 +5503,10 @@
       "Linkora-linux-x64-1.0.2.jar",
       "Linkora.AppImage",
       "linkora_1.0.2-1_amd64.deb"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5413,7 +5516,10 @@
     "assets": [
       "VoiceNotify_v1.4.2-debug.apk",
       "VoiceNotify_v1.4.2.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   },
   {
     "category": "android",
@@ -5422,6 +5528,9 @@
     "created_at": "2019-03-06T11:16:30Z",
     "assets": [
       "app-Github-release.apk"
-    ]
+    ],
+    "android": {
+      "ends": ".apk"
+    }
   }
 ]
