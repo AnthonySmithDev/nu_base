@@ -104,6 +104,14 @@ export def assetx [r: record, first?: string] {
   
 }
 
+export def "asset apk download_url" [name: string@names, first?: string] {
+  $env.PKG_BIN_SYS = "android"
+
+  let r = repo view $name
+  let asset = assetx $r $first
+  download_url $name $r.tag_name $asset
+}
+
 export def asset [name: string@names, first?: string] {
   let r = repo view $name
   assetx $r $first

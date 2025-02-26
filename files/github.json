@@ -3937,6 +3937,9 @@
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
+    },
+    "android": {
+      "ends": "android.apk"
     }
   },
   {

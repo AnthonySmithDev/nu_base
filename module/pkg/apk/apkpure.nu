@@ -4,12 +4,12 @@ def download_url [package: string, version: string] {
 }
 
 def download_apk [name: string, version: string, url: string, force: bool] {
-  print $"Download: ($name) - ($version)"
   let dirname = ($env.TMP_PATH_FILE | path join apk)
   mkdir $dirname
 
   let path = ($dirname | path join $"($name)_($version).apk")
   if $force or not ($path | path exists) {
+    print $"Download: ($name) - ($version)"
     http download $url --output $path
   }
   return $path
@@ -75,6 +75,12 @@ export def tiktok [ --force(-f) ] {
   install $download_path
 }
 
+export def disneyplus [ --force(-f) ] {
+  let download_url = download_url com.disney.disneyplus latest
+  let download_path = download_apk disneyplus latest $download_url $force
+  install $download_path
+}
+
 export def netflix [ --force(-f) ] {
   let download_url = download_url com.netflix.mediaclient latest
   let download_path = download_apk netflix latest $download_url $force
@@ -90,11 +96,5 @@ export def prime [ --force(-f) ] {
 export def max [ --force(-f) ] {
   let download_url = download_url com.wbd.stream latest
   let download_path = download_apk max latest $download_url $force
-  install $download_path
-}
-
-export def disneyplus [ --force(-f) ] {
-  let download_url = download_url com.disney.disneyplus latest
-  let download_path = download_apk disneyplus latest $download_url $force
   install $download_path
 }
