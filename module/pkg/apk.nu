@@ -551,6 +551,18 @@ export def VirtualHosts [ --force(-f) ] {
   install $path
 }
 
+export def devcheck [ --force(-f) ] {
+  let version = "latest"
+  let path = filepath devcheck $version
+
+  if (path-not-exists $path $force) {
+    # https://d.apkpure.net/b/APK/flar2.devcheck?versionCode=536&nc=arm64-v8a&sv=16
+    http download https://d.apkpure.net/b/APK/flar2.devcheck?version=latest -o $path
+  }
+
+  install $path
+}
+
 export def RootlessJamesDSP [ --force(-f) ] {
   let version = '50'
   let path = filepath RootlessJamesDSP $version

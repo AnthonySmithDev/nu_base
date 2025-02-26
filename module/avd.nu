@@ -47,7 +47,12 @@ export def delete [name: string@list-virtual] {
 
 export def editor [name: string@list-virtual] {
   let dir = ($env.HOME | path join $".android/avd/($name).avd")
-  hx ($dir | path join hardware-qemu.ini) ($dir | path join config.ini)
+  let files = [
+    ($dir | path join config.ini)
+    ($dir | path join hardware-qemu.ini)
+    ($dir | path join snapshots/default_boot/hardware.ini)
+  ]
+  hx ...$files
 }
 
 export def run [
@@ -73,7 +78,11 @@ export def server [] {
   ^adb -a nodaemon server start
 }
 
-export def --env scrcpy [] {
+export def --env env [] {
   $env.ADB_SERVER_SOCKET = $"tcp:($env.AVD_SERVER_SOCKET):5037"
+}
+
+export def --env scrcpy [] {
+  env
   ^scrcpy --tunnel-host $env.AVD_SERVER_SOCKET
 }
