@@ -2581,10 +2581,10 @@ def java-version [] {
 
 export def --env java [ version: string@java-version = '21', --force(-f) ] {
   let path = dirpath java $version
-  let url = (java-list | get $version)
+  let download_url = (java-list | get $version)
 
   if (path-not-exists $path $force) {
-    let download_path = download $url
+    let download_path = download $download_url -d java
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }

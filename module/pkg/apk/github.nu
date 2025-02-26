@@ -1,12 +1,12 @@
 
 def download_apk [repository: string, version: string, url: string, force: bool] {
-  let dirname = ($env.TMP_PATH_FILE | path join apk)
+  let name = ($repository | path basename)
+  let dirname = ($env.TMP_PATH_FILE | path join apk $name)
   mkdir $dirname
 
-  let name = ($repository | path basename)
   let path = ($dirname | path join $'($name)_($version).apk')
   if $force or not ($path | path exists) {
-    print $"Download: ($name) - ($version)"
+    print $'Download: ($name) - ($version)'
     http download $url --output $path
   }
   return $path

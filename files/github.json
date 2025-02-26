@@ -2125,10 +2125,10 @@
   {
     "category": "extra",
     "name": "eza-community/eza",
-    "tag_name": "v0.20.22",
-    "created_at": "2025-02-20T05:53:19Z",
+    "tag_name": "v0.20.23",
+    "created_at": "2025-02-27T09:37:00Z",
     "assets": [
-      "completions-0.20.22.tar.gz",
+      "completions-0.20.23.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.zip",
       "eza_aarch64-unknown-linux-gnu.tar.gz",
@@ -2143,7 +2143,7 @@
       "eza_x86_64-unknown-linux-gnu.zip",
       "eza_x86_64-unknown-linux-musl.tar.gz",
       "eza_x86_64-unknown-linux-musl.zip",
-      "man-0.20.22.tar.gz"
+      "man-0.20.23.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -2283,17 +2283,17 @@
   {
     "category": "other",
     "name": "plandex-ai/plandex",
-    "tag_name": "cli/v1.1.1",
-    "created_at": "2024-06-21T17:17:11Z",
+    "tag_name": "cli/v2.0.0-rc.2",
+    "created_at": "2025-02-27T09:02:33Z",
     "assets": [
-      "plandex_1.1.1_darwin_amd64.tar.gz",
-      "plandex_1.1.1_darwin_arm64.tar.gz",
-      "plandex_1.1.1_freebsd_amd64.tar.gz",
-      "plandex_1.1.1_freebsd_arm64.tar.gz",
-      "plandex_1.1.1_linux_amd64.tar.gz",
-      "plandex_1.1.1_linux_arm64.tar.gz",
-      "plandex_1.1.1_windows_amd64.tar.gz",
-      "plandex_1.1.1_windows_arm64.tar.gz"
+      "plandex_2.0.0-rc.2_darwin_amd64.tar.gz",
+      "plandex_2.0.0-rc.2_darwin_arm64.tar.gz",
+      "plandex_2.0.0-rc.2_freebsd_amd64.tar.gz",
+      "plandex_2.0.0-rc.2_freebsd_arm64.tar.gz",
+      "plandex_2.0.0-rc.2_linux_amd64.tar.gz",
+      "plandex_2.0.0-rc.2_linux_arm64.tar.gz",
+      "plandex_2.0.0-rc.2_windows_amd64.tar.gz",
+      "plandex_2.0.0-rc.2_windows_arm64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -2408,8 +2408,8 @@
   {
     "category": "other",
     "name": "vlang/v-analyzer",
-    "tag_name": "0.0.5",
-    "created_at": "2024-11-13T10:34:12Z",
+    "tag_name": "0.0.6",
+    "created_at": "2025-02-27T12:25:29Z",
     "assets": [
       "v-analyzer-darwin-arm64-debug.zip",
       "v-analyzer-darwin-arm64-dev.zip",
@@ -2423,8 +2423,7 @@
       "v-analyzer-windows-x86_64-debug.zip",
       "v-analyzer-windows-x86_64-dev.zip",
       "v-analyzer-windows-x86_64.zip",
-      "vscode-v-analyzer-0.0.5.vsix",
-      "vscode-v-analyzer-0.0.5.zip"
+      "vscode-v-analyzer-0.0.6.vsix"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.zip"
@@ -3160,8 +3159,8 @@
   {
     "category": "other",
     "name": "cloudflare/cloudflared",
-    "tag_name": "2025.2.0",
-    "created_at": "2025-02-03T18:39:00Z",
+    "tag_name": "2025.2.1",
+    "created_at": "2025-02-26T16:44:32Z",
     "assets": [
       "cloudflared-amd64.pkg",
       "cloudflared-arm64.pkg",
@@ -3382,8 +3381,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.9.7",
-    "created_at": "2025-02-20T13:12:11Z",
+    "tag_name": "0.9.8",
+    "created_at": "2025-02-27T13:56:11Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -3896,21 +3895,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.20.2",
-    "created_at": "2025-02-25T05:57:01Z",
+    "tag_name": "v0.20.3",
+    "created_at": "2025-02-27T09:27:43Z",
     "assets": [
-      "affine-0.20.2-stable-linux-x64.appimage",
-      "affine-0.20.2-stable-linux-x64.deb",
-      "affine-0.20.2-stable-linux-x64.flatpak",
-      "affine-0.20.2-stable-linux-x64.zip",
-      "affine-0.20.2-stable-macos-arm64.dmg",
-      "affine-0.20.2-stable-macos-arm64.zip",
-      "affine-0.20.2-stable-macos-x64.dmg",
-      "affine-0.20.2-stable-macos-x64.zip",
-      "affine-0.20.2-stable-windows-arm64.exe",
-      "affine-0.20.2-stable-windows-arm64.nsis.exe",
-      "affine-0.20.2-stable-windows-x64.exe",
-      "affine-0.20.2-stable-windows-x64.nsis.exe",
+      "affine-0.20.3-stable-linux-x64.appimage",
+      "affine-0.20.3-stable-linux-x64.deb",
+      "affine-0.20.3-stable-linux-x64.flatpak",
+      "affine-0.20.3-stable-linux-x64.zip",
+      "affine-0.20.3-stable-macos-arm64.dmg",
+      "affine-0.20.3-stable-macos-arm64.zip",
+      "affine-0.20.3-stable-macos-x64.dmg",
+      "affine-0.20.3-stable-macos-x64.zip",
+      "affine-0.20.3-stable-windows-arm64.exe",
+      "affine-0.20.3-stable-windows-arm64.nsis.exe",
+      "affine-0.20.3-stable-windows-x64.exe",
+      "affine-0.20.3-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
