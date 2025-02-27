@@ -169,7 +169,7 @@ export def rio [ --force(-f) ] {
 
   let repository = 'raphamorim/rio'
   let version = ghub version $repository
-  let download_url = $'https://github.com/raphamorim/rio/releases/download/v($version)/rioterm_($version)-1_amd64_wayland.deb'
+  let download_url = $'https://github.com/raphamorim/rio/releases/download/v($version)/rioterm_($version)_amd64_wayland.deb'
   let download_path = download_deb $repository $version $download_url $force
   install $download_path
 }

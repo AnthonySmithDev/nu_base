@@ -5076,6 +5076,26 @@
   },
   {
     "category": "other",
+    "name": "EFForg/apkeep",
+    "tag_name": "0.17.0",
+    "created_at": "2024-10-11T11:55:24Z",
+    "assets": [
+      "apkeep-aarch64-linux-android",
+      "apkeep-aarch64-unknown-linux-gnu",
+      "apkeep-armv7-linux-androideabi",
+      "apkeep-armv7-unknown-linux-gnueabihf",
+      "apkeep-i686-linux-android",
+      "apkeep-i686-unknown-linux-gnu",
+      "apkeep-x86_64-linux-android",
+      "apkeep-x86_64-pc-windows-msvc.exe",
+      "apkeep-x86_64-unknown-linux-gnu"
+    ],
+    "linux_x64": {
+      "ends": "x86_64-unknown-linux-gnu"
+    },
+  },
+  {
+    "category": "other",
     "name": "jetify-com/devbox",
     "tag_name": "0.14.0",
     "created_at": "2025-02-14T06:11:43Z",

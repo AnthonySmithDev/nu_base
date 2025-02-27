@@ -3245,6 +3245,20 @@ export def --env scrcpy [ --force(-f) ] {
   env-path $env.SCRCPY_BIN
 }
 
+export def apkeep [ --force(-f) ] {
+  let repository = 'EFForg/apkeep'
+  let tag_name = ghub tag_name $repository
+  let path = filepath apkeep $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository
+    add-execute $download_path
+    move -f $download_path -p $path
+  }
+
+  bind file apkeep $path
+}
+
 export def firefox-de [ --force(-f) ] {
   http download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2
