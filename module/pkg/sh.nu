@@ -1,105 +1,104 @@
 
-export def --env rust [ --latest(-l), --force(-f) ] {
-  if (which rustup | is-empty) or $force {
-    if (exists-external curl) {
-      curl --proto '=https' --tlsv1.2 -sSf 'https://sh.rustup.rs' | sh -s -- -q -y
-    }
-    if (exists-external wget) {
-      wget -O- --https-only --secure-protocol=auto --quiet --show-progress https://sh.rustup.rs | sh -s -- -q -y
-    }
+def download [url: string] {
+  # wget -O- --https-only --secure-protocol=auto --quiet --show-progress $url
+  # curl --proto '=https' --tlsv1.2 -sSf $url
+  http get $url
+}
+
+export def --env rust [ --force(-f) ] {
+  if not (exists-external rustup) or $force {
+    download 'https://sh.rustup.rs' | sh -s -- -q -y
   }
   env-path $env.CARGOBIN
 }
 
 export def bun [ --force(-f) ] {
   if not (exists-external bun) or $force {
-    curl -fsSL https://bun.sh/install | bash
+    download https://bun.sh/install | bash
   }
 }
 
 export def deno [ --force(-f) ] {
   if not (exists-external deno) or $force {
-    curl -fsSL https://deno.land/install.sh | sh
+    download https://deno.land/install.sh | sh
   }
 }
 
-export def haskell [ --latest(-l), --force(-f) ] {
+export def haskell [ --force(-f) ] {
   if not (exists-external ghcup) or $force {
-    curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+    download https://get-ghcup.haskell.org | sh
   }
 }
 
 export def nix [ --force(-f) ] {
   if not (exists-external nix) or $force {
-    curl -L 'https://nixos.org/nix/install' | bash -s -- --daemon
+    download 'https://nixos.org/nix/install' | bash -s -- --daemon
   }
 }
 
 export def tailscale [ --force(-f) ] {
   if not (exists-external tailscale) or $force {
-    curl -fsSL 'https://tailscale.com/install.sh' | sh
+    download 'https://tailscale.com/install.sh' | sh
   }
 }
 
 export def zed [ --force(-f) ] {
   if not (exists-external zed) or $force {
-    curl https://zed.dev/install.sh | sh
+    download https://zed.dev/install.sh | sh
   }
 }
 
 export def devbox [ --force(-f) ] {
   if not (exists-external devbox) or $force {
-    curl -fsSL https://get.jetify.com/devbox | bash
+    download https://get.jetify.com/devbox | bash
   }
 }
 
 export def fnm [ --force(-f) ] {
   if not (exists-external fnm) or $force {
-    curl -fsSL https://fnm.vercel.app/install | bash
+    download https://fnm.vercel.app/install | bash
   }
 }
 
 export def ollama [ --force(-f) ] {
   if not (exists-external ollama) or $force {
-    curl -fsSL https://ollama.com/install.sh | sh
+    download https://ollama.com/install.sh | sh
   }
 }
 
 export def zellij [ --force(-f) ] {
   if not (exists-external zellij) or $force {
-    curl -L https://zellij.dev/launch | bash
+    download https://zellij.dev/launch | bash
   }
 }
 
 export def uv [ --force(-f) ] {
   if not (exists-external uv) or $force {
-    curl -LsSf https://astral.sh/uv/install.sh | sh
+    download https://astral.sh/uv/install.sh | sh
   }
 }
 
 export def ruff [ --force(-f) ] {
   if not (exists-external ruff) or $force {
-    curl -LsSf https://astral.sh/ruff/install.sh | sh
+    download https://astral.sh/ruff/install.sh | sh
   }
 }
 
 export def sshx [ --force(-f) ] {
   if not (exists-external sshx) or $force {
-    curl -sSf https://sshx.io/get | sh
+    download https://sshx.io/get | sh
   }
 }
 
 export def aider [ --force(-f) ] {
   if not (exists-external aider) or $force {
-    curl -LsSf https://aider.chat/install.sh | sh
+    download https://aider.chat/install.sh | sh
   }
 }
 
 export def dotnet [ --force(-f) ] {
   # sudo apt install zlib1g
   if not (exists-external dotnet) or $force {
-    wget https://dot.net/v1/dotnet-install.sh -O dotnet-install.sh
-    chmod +x ./dotnet-install.sh
-    bash dotnet-install.sh --version latest
+    download https://dot.net/v1/dotnet-install.sh | bash -s -- --version latest
   }
 }

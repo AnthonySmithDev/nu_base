@@ -25,7 +25,7 @@ def main [] {
   pkg bin node --latest
   pkg bin golang --latest
 
-  pkg sh rust --latest
+  pkg sh rust
 
   sudo echo "Sudo OK"
 
