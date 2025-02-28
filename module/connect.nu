@@ -19,10 +19,10 @@ def get-hostname-by-alias [alias: string] {
 }
 
 def get-usernames-from-context [context: string] {
-  get-usernames-by-alias ($context | split words | last)
+  get-usernames-by-alias ($context | str trim | split words | skip 2 | first)
 }
 
-def get-username-by-alias [alias: string@get-server-aliases, username?: string] {
+def get-username-by-alias [alias: string@get-server-aliases, username: string = ""] {
   if ($username | is-empty) {
     return (get-usernames-by-alias $alias | first)
   }
@@ -30,8 +30,9 @@ def get-username-by-alias [alias: string@get-server-aliases, username?: string] 
 }
 
 def get-host-info [alias: string@get-server-aliases, username?: string@get-usernames-from-context] {
+  let username = get-username-by-alias $alias $username
   return {
-    username: (get-username-by-alias $alias $username)
+    username: $username
     password: (get-password-by-alias $alias $username)
     hostname: (get-hostname-by-alias $alias)
   }

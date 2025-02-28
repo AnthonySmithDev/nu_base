@@ -935,8 +935,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.134.0",
-    "created_at": "2025-02-24T14:11:24Z",
+    "tag_name": "3.134.1",
+    "created_at": "2025-02-28T10:13:35Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -3381,8 +3381,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.9.8",
-    "created_at": "2025-02-27T13:56:11Z",
+    "tag_name": "0.9.9",
+    "created_at": "2025-02-28T09:17:38Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -3443,8 +3443,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.11.1",
-    "created_at": "2025-02-23T01:37:27Z",
+    "tag_name": "v1.11.2",
+    "created_at": "2025-02-28T13:01:26Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -3674,20 +3674,19 @@
   {
     "category": "other",
     "name": "balena-io/etcher",
-    "tag_name": "v1.19.25",
-    "created_at": "2024-10-10T10:03:37Z",
+    "tag_name": "v2.1.0",
+    "created_at": "2025-02-27T16:16:59Z",
     "assets": [
-      "balena-etcher-1.19.25-1.x86_64.rpm",
-      "balena-etcher_1.19.25_amd64.deb",
-      "balenaEtcher-1.19.25-arm64.dmg",
-      "balenaEtcher-1.19.25-x64.AppImage",
-      "balenaEtcher-1.19.25-x64.dmg",
-      "balenaEtcher-1.19.25.Setup.exe",
-      "balenaEtcher-darwin-arm64-1.19.25.zip",
-      "balenaEtcher-darwin-x64-1.19.25.zip",
-      "balenaEtcher-linux-x64-1.19.25.zip",
-      "balenaEtcher-win32-x64-1.19.25.zip",
-      "npm-sbom.xml"
+      "balena-etcher-2.1.0-1.x86_64.rpm",
+      "balena-etcher_2.1.0_amd64.deb",
+      "balenaEtcher-2.1.0-arm64.dmg",
+      "balenaEtcher-2.1.0-x64.AppImage",
+      "balenaEtcher-2.1.0-x64.dmg",
+      "balenaEtcher-2.1.0.Setup.exe",
+      "balenaEtcher-darwin-arm64-2.1.0.zip",
+      "balenaEtcher-darwin-x64-2.1.0.zip",
+      "balenaEtcher-linux-x64-2.1.0.zip",
+      "balenaEtcher-win32-x64-2.1.0.zip"
     ],
     "linux_x64": {
       "starts": "balenaEtcher-linux-x64"
@@ -4186,32 +4185,32 @@
   {
     "category": "other",
     "name": "th-ch/youtube-music",
-    "tag_name": "v3.7.4",
-    "created_at": "2025-02-17T15:37:57Z",
+    "tag_name": "v3.7.5",
+    "created_at": "2025-02-28T15:13:14Z",
     "assets": [
-      "YouTube-Music-3.7.4-arm64.AppImage",
-      "YouTube-Music-3.7.4-arm64.dmg",
-      "youtube-music-3.7.4-arm64.freebsd",
-      "youtube-music-3.7.4-arm64.nsis.7z",
-      "youtube-music-3.7.4-arm64.tar.gz",
-      "YouTube-Music-3.7.4-armv7l.AppImage",
-      "youtube-music-3.7.4-armv7l.freebsd",
-      "youtube-music-3.7.4-armv7l.tar.gz",
-      "youtube-music-3.7.4-ia32.nsis.7z",
-      "youtube-music-3.7.4-x64.nsis.7z",
-      "YouTube-Music-3.7.4-x86_64.flatpak",
-      "youtube-music-3.7.4.aarch64.rpm",
-      "YouTube-Music-3.7.4.AppImage",
-      "YouTube-Music-3.7.4.dmg",
-      "YouTube-Music-3.7.4.exe",
-      "youtube-music-3.7.4.freebsd",
-      "youtube-music-3.7.4.tar.gz",
-      "youtube-music-3.7.4.x86_64.rpm",
-      "YouTube-Music-Web-Setup-3.7.4.exe",
-      "youtube-music_3.7.4_amd64.deb",
-      "youtube-music_3.7.4_amd64.snap",
-      "youtube-music_3.7.4_arm64.deb",
-      "youtube-music_3.7.4_armv7l.deb"
+      "YouTube-Music-3.7.5-arm64.AppImage",
+      "YouTube-Music-3.7.5-arm64.dmg",
+      "youtube-music-3.7.5-arm64.freebsd",
+      "youtube-music-3.7.5-arm64.nsis.7z",
+      "youtube-music-3.7.5-arm64.tar.gz",
+      "YouTube-Music-3.7.5-armv7l.AppImage",
+      "youtube-music-3.7.5-armv7l.freebsd",
+      "youtube-music-3.7.5-armv7l.tar.gz",
+      "youtube-music-3.7.5-ia32.nsis.7z",
+      "youtube-music-3.7.5-x64.nsis.7z",
+      "YouTube-Music-3.7.5-x86_64.flatpak",
+      "youtube-music-3.7.5.aarch64.rpm",
+      "YouTube-Music-3.7.5.AppImage",
+      "YouTube-Music-3.7.5.dmg",
+      "YouTube-Music-3.7.5.exe",
+      "youtube-music-3.7.5.freebsd",
+      "youtube-music-3.7.5.tar.gz",
+      "youtube-music-3.7.5.x86_64.rpm",
+      "YouTube-Music-Web-Setup-3.7.5.exe",
+      "youtube-music_3.7.5_amd64.deb",
+      "youtube-music_3.7.5_amd64.snap",
+      "youtube-music_3.7.5_arm64.deb",
+      "youtube-music_3.7.5_armv7l.deb"
     ]
   },
   {
@@ -4348,8 +4347,8 @@
   {
     "category": "other",
     "name": "immich-app/immich",
-    "tag_name": "v1.127.0",
-    "created_at": "2025-02-26T15:18:50Z",
+    "tag_name": "v1.128.0",
+    "created_at": "2025-02-28T18:54:08Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -5092,7 +5091,7 @@
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-gnu"
-    },
+    }
   },
   {
     "category": "other",
@@ -5340,8 +5339,8 @@
   {
     "category": "android",
     "name": "Droid-ify/client",
-    "tag_name": "v0.6.4",
-    "created_at": "2024-12-25T19:04:55Z",
+    "tag_name": "v0.6.5",
+    "created_at": "2025-02-28T13:56:04Z",
     "assets": [
       "app-release.apk"
     ],
@@ -5449,10 +5448,10 @@
   {
     "category": "android",
     "name": "fast4x/RiMusic",
-    "tag_name": "v0.6.72.1",
-    "created_at": "2025-02-22T22:11:14Z",
+    "tag_name": "v0.6.73",
+    "created_at": "2025-02-28T22:02:29Z",
     "assets": [
-      "app-foss-release.apk"
+      "rimusic-full-release.apk"
     ],
     "android": {
       "ends": ".apk"
