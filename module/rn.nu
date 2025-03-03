@@ -2,15 +2,17 @@
 export def main [
   source_path: string = ".",
   basename?: string,
+  --search(-s): string,
   --file(-f),
-  --dir(-d)
+  --dir(-d),
 ] {
   if not ($source_path | path exists) {
     print "La ruta especificada no existe."
     return
   }
 
-  if (not $file and not $dir) and ($source_path != ".") {
+  let path_type = if $file { "file" } else if $dir { "dir" } else { "" }
+  if ($source_path != ".") and ($search == "") and ($path_type == "") {
     let destination_path = if ($basename | is-empty) {
       gum input --header "Rename" --value ($source_path | path basename)
     } else {
@@ -20,14 +22,20 @@ export def main [
     return
   }
 
-  let list = ls $source_path
-
   mut paths_to_rename = []
-  if $file or $dir {
-    let path_type = if $file { "file" } else { "dir" }
-    $paths_to_rename = ($list | where type == $path_type | get name)
-  } else if $source_path == "." {
-    $paths_to_rename = ($list | get name)
+  if ($search != "") {
+    $paths_to_rename = if ($file or $dir) {
+      fd --type $path_type $search --full-path $source_path | lines
+    } else {
+      fd $search --full-path $source_path | lines
+    }
+  } else {
+    let list = ls $source_path
+    $paths_to_rename = if ($file or $dir) {
+      $list | where type == $path_type | get name
+    } else if $source_path == "." {
+      $list | get name
+    }
   }
 
   if ($paths_to_rename | is-empty) {
