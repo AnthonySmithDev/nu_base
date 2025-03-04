@@ -353,26 +353,26 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.60.2",
-    "created_at": "2025-02-23T11:12:22Z",
+    "tag_name": "v0.60.3",
+    "created_at": "2025-03-03T08:15:02Z",
     "assets": [
-      "fzf-0.60.2-darwin_amd64.tar.gz",
-      "fzf-0.60.2-darwin_arm64.tar.gz",
-      "fzf-0.60.2-freebsd_amd64.tar.gz",
-      "fzf-0.60.2-linux_amd64.tar.gz",
-      "fzf-0.60.2-linux_arm64.tar.gz",
-      "fzf-0.60.2-linux_armv5.tar.gz",
-      "fzf-0.60.2-linux_armv6.tar.gz",
-      "fzf-0.60.2-linux_armv7.tar.gz",
-      "fzf-0.60.2-linux_loong64.tar.gz",
-      "fzf-0.60.2-linux_ppc64le.tar.gz",
-      "fzf-0.60.2-linux_s390x.tar.gz",
-      "fzf-0.60.2-openbsd_amd64.tar.gz",
-      "fzf-0.60.2-windows_amd64.zip",
-      "fzf-0.60.2-windows_arm64.zip",
-      "fzf-0.60.2-windows_armv5.zip",
-      "fzf-0.60.2-windows_armv6.zip",
-      "fzf-0.60.2-windows_armv7.zip"
+      "fzf-0.60.3-darwin_amd64.tar.gz",
+      "fzf-0.60.3-darwin_arm64.tar.gz",
+      "fzf-0.60.3-freebsd_amd64.tar.gz",
+      "fzf-0.60.3-linux_amd64.tar.gz",
+      "fzf-0.60.3-linux_arm64.tar.gz",
+      "fzf-0.60.3-linux_armv5.tar.gz",
+      "fzf-0.60.3-linux_armv6.tar.gz",
+      "fzf-0.60.3-linux_armv7.tar.gz",
+      "fzf-0.60.3-linux_loong64.tar.gz",
+      "fzf-0.60.3-linux_ppc64le.tar.gz",
+      "fzf-0.60.3-linux_s390x.tar.gz",
+      "fzf-0.60.3-openbsd_amd64.tar.gz",
+      "fzf-0.60.3-windows_amd64.zip",
+      "fzf-0.60.3-windows_arm64.zip",
+      "fzf-0.60.3-windows_armv5.zip",
+      "fzf-0.60.3-windows_armv6.zip",
+      "fzf-0.60.3-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -413,23 +413,23 @@
   {
     "category": "core",
     "name": "jesseduffield/lazygit",
-    "tag_name": "v0.47.2",
-    "created_at": "2025-02-25T11:19:56Z",
+    "tag_name": "v0.48.0",
+    "created_at": "2025-02-28T09:47:59Z",
     "assets": [
-      "lazygit_0.47.2_Darwin_arm64.tar.gz",
-      "lazygit_0.47.2_Darwin_x86_64.tar.gz",
-      "lazygit_0.47.2_freebsd_32-bit.tar.gz",
-      "lazygit_0.47.2_freebsd_arm64.tar.gz",
-      "lazygit_0.47.2_freebsd_armv6.tar.gz",
-      "lazygit_0.47.2_freebsd_x86_64.tar.gz",
-      "lazygit_0.47.2_Linux_32-bit.tar.gz",
-      "lazygit_0.47.2_Linux_arm64.tar.gz",
-      "lazygit_0.47.2_Linux_armv6.tar.gz",
-      "lazygit_0.47.2_Linux_x86_64.tar.gz",
-      "lazygit_0.47.2_Windows_32-bit.zip",
-      "lazygit_0.47.2_Windows_arm64.zip",
-      "lazygit_0.47.2_Windows_armv6.zip",
-      "lazygit_0.47.2_Windows_x86_64.zip"
+      "lazygit_0.48.0_Darwin_arm64.tar.gz",
+      "lazygit_0.48.0_Darwin_x86_64.tar.gz",
+      "lazygit_0.48.0_freebsd_32-bit.tar.gz",
+      "lazygit_0.48.0_freebsd_arm64.tar.gz",
+      "lazygit_0.48.0_freebsd_armv6.tar.gz",
+      "lazygit_0.48.0_freebsd_x86_64.tar.gz",
+      "lazygit_0.48.0_Linux_32-bit.tar.gz",
+      "lazygit_0.48.0_Linux_arm64.tar.gz",
+      "lazygit_0.48.0_Linux_armv6.tar.gz",
+      "lazygit_0.48.0_Linux_x86_64.tar.gz",
+      "lazygit_0.48.0_Windows_32-bit.zip",
+      "lazygit_0.48.0_Windows_arm64.zip",
+      "lazygit_0.48.0_Windows_armv6.zip",
+      "lazygit_0.48.0_Windows_x86_64.zip"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -860,18 +860,18 @@
   {
     "category": "core",
     "name": "xo/usql",
-    "tag_name": "v0.19.17",
-    "created_at": "2025-02-11T00:24:58Z",
+    "tag_name": "v0.19.18",
+    "created_at": "2025-03-03T23:22:13Z",
     "assets": [
-      "usql-0.19.17-darwin-amd64.tar.bz2",
-      "usql-0.19.17-darwin-arm64.tar.bz2",
-      "usql-0.19.17-darwin-universal.tar.bz2",
-      "usql-0.19.17-linux-amd64.tar.bz2",
-      "usql-0.19.17-linux-arm.tar.bz2",
-      "usql-0.19.17-linux-arm64.tar.bz2",
-      "usql-0.19.17-windows-amd64.zip",
-      "usql_static-0.19.17-linux-amd64.tar.bz2",
-      "usql_static-0.19.17-linux-arm64.tar.bz2"
+      "usql-0.19.18-darwin-amd64.tar.bz2",
+      "usql-0.19.18-darwin-arm64.tar.bz2",
+      "usql-0.19.18-darwin-universal.tar.bz2",
+      "usql-0.19.18-linux-amd64.tar.bz2",
+      "usql-0.19.18-linux-arm.tar.bz2",
+      "usql-0.19.18-linux-arm64.tar.bz2",
+      "usql-0.19.18-windows-amd64.zip",
+      "usql_static-0.19.18-linux-amd64.tar.bz2",
+      "usql_static-0.19.18-linux-arm64.tar.bz2"
     ],
     "linux_x64": {
       "ends": "linux-amd64.tar.bz2"
@@ -1251,15 +1251,15 @@
   {
     "category": "extra",
     "name": "pkolaczk/fclones",
-    "tag_name": "v0.34.0",
-    "created_at": "2023-10-29T16:51:18Z",
+    "tag_name": "v0.35.0",
+    "created_at": "2025-03-03T09:49:45Z",
     "assets": [
-      "fclones-0.34.0-2.x86_64.rpm",
-      "fclones-0.34.0-linux-glibc-x86_64.tar.gz",
-      "fclones-0.34.0-linux-musl-i686.tar.gz",
-      "fclones-0.34.0-linux-musl-x86_64.tar.gz",
-      "fclones-0.34.0-windows-x86_64.zip",
-      "fclones_0.34.0-1_amd64.deb"
+      "fclones-0.35.0-2.x86_64.rpm",
+      "fclones-0.35.0-linux-glibc-x86_64.tar.gz",
+      "fclones-0.35.0-linux-musl-i686.tar.gz",
+      "fclones-0.35.0-linux-musl-x86_64.tar.gz",
+      "fclones-0.35.0-windows-x86_64.zip",
+      "fclones_0.35.0-1_amd64.deb"
     ],
     "linux_x64": {
       "ends": "linux-musl-x86_64.tar.gz"
@@ -2890,8 +2890,8 @@
   {
     "category": "other",
     "name": "sxyazi/yazi",
-    "tag_name": "v25.2.26",
-    "created_at": "2025-02-26T14:21:27Z",
+    "tag_name": "v25.3.2",
+    "created_at": "2025-03-02T13:33:13Z",
     "assets": [
       "yazi-aarch64-apple-darwin.zip",
       "yazi-aarch64-pc-windows-msvc.zip",
@@ -3412,8 +3412,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.6.3",
-    "created_at": "2025-02-24T22:25:01Z",
+    "tag_name": "0.6.4",
+    "created_at": "2025-03-03T23:17:56Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -3848,20 +3848,20 @@
   {
     "category": "other",
     "name": "siyuan-note/siyuan",
-    "tag_name": "v3.1.23",
-    "created_at": "2025-02-25T00:17:50Z",
+    "tag_name": "v3.1.24",
+    "created_at": "2025-03-04T03:47:01Z",
     "assets": [
-      "siyuan-3.1.23-linux-arm64.AppImage",
-      "siyuan-3.1.23-linux-arm64.deb",
-      "siyuan-3.1.23-linux-arm64.tar.gz",
-      "siyuan-3.1.23-linux.AppImage",
-      "siyuan-3.1.23-linux.deb",
-      "siyuan-3.1.23-linux.tar.gz",
-      "siyuan-3.1.23-mac-arm64.dmg",
-      "siyuan-3.1.23-mac.dmg",
-      "siyuan-3.1.23-win-arm64.exe",
-      "siyuan-3.1.23-win.exe",
-      "siyuan-3.1.23.apk"
+      "siyuan-3.1.24-linux-arm64.AppImage",
+      "siyuan-3.1.24-linux-arm64.deb",
+      "siyuan-3.1.24-linux-arm64.tar.gz",
+      "siyuan-3.1.24-linux.AppImage",
+      "siyuan-3.1.24-linux.deb",
+      "siyuan-3.1.24-linux.tar.gz",
+      "siyuan-3.1.24-mac-arm64.dmg",
+      "siyuan-3.1.24-mac.dmg",
+      "siyuan-3.1.24-win-arm64.exe",
+      "siyuan-3.1.24-win.exe",
+      "siyuan-3.1.24.apk"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -3894,21 +3894,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.20.3",
-    "created_at": "2025-02-27T09:27:43Z",
+    "tag_name": "v0.20.4",
+    "created_at": "2025-03-03T10:10:05Z",
     "assets": [
-      "affine-0.20.3-stable-linux-x64.appimage",
-      "affine-0.20.3-stable-linux-x64.deb",
-      "affine-0.20.3-stable-linux-x64.flatpak",
-      "affine-0.20.3-stable-linux-x64.zip",
-      "affine-0.20.3-stable-macos-arm64.dmg",
-      "affine-0.20.3-stable-macos-arm64.zip",
-      "affine-0.20.3-stable-macos-x64.dmg",
-      "affine-0.20.3-stable-macos-x64.zip",
-      "affine-0.20.3-stable-windows-arm64.exe",
-      "affine-0.20.3-stable-windows-arm64.nsis.exe",
-      "affine-0.20.3-stable-windows-x64.exe",
-      "affine-0.20.3-stable-windows-x64.nsis.exe",
+      "affine-0.20.4-stable-linux-x64.appimage",
+      "affine-0.20.4-stable-linux-x64.deb",
+      "affine-0.20.4-stable-linux-x64.flatpak",
+      "affine-0.20.4-stable-linux-x64.zip",
+      "affine-0.20.4-stable-macos-arm64.dmg",
+      "affine-0.20.4-stable-macos-arm64.zip",
+      "affine-0.20.4-stable-macos-x64.dmg",
+      "affine-0.20.4-stable-macos-x64.zip",
+      "affine-0.20.4-stable-windows-arm64.exe",
+      "affine-0.20.4-stable-windows-arm64.nsis.exe",
+      "affine-0.20.4-stable-windows-x64.exe",
+      "affine-0.20.4-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
@@ -3918,20 +3918,23 @@
   {
     "category": "other",
     "name": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.8.4",
-    "created_at": "2025-02-18T08:48:33Z",
+    "tag_name": "0.8.5",
+    "created_at": "2025-03-04T12:20:26Z",
     "assets": [
-      "AppFlowy-0.8.4-android.apk",
-      "AppFlowy-0.8.4-linux-x86_64.AppImage",
-      "AppFlowy-0.8.4-linux-x86_64.deb",
-      "AppFlowy-0.8.4-linux-x86_64.rpm",
-      "AppFlowy-0.8.4-linux-x86_64.tar.gz",
-      "AppFlowy-0.8.4-macos-universal.dmg",
-      "AppFlowy-0.8.4-macos-universal.zip",
-      "AppFlowy-0.8.4-macos-x86_64.dmg",
-      "AppFlowy-0.8.4-macos-x86_64.zip",
-      "AppFlowy-0.8.4-windows-x86_64.exe",
-      "AppFlowy-0.8.4-windows-x86_64.zip"
+      "AppFlowy-0.8.5-android.apk",
+      "AppFlowy-0.8.5-linux-x86_64.AppImage",
+      "AppFlowy-0.8.5-linux-x86_64.deb",
+      "AppFlowy-0.8.5-linux-x86_64.rpm",
+      "AppFlowy-0.8.5-linux-x86_64.tar.gz",
+      "AppFlowy-0.8.5-linux-x86_64.zip",
+      "AppFlowy-0.8.5-macos-arm64.dmg",
+      "AppFlowy-0.8.5-macos-arm64.zip",
+      "AppFlowy-0.8.5-macos-universal.dmg",
+      "AppFlowy-0.8.5-macos-universal.zip",
+      "AppFlowy-0.8.5-macos-x86_64.dmg",
+      "AppFlowy-0.8.5-macos-x86_64.zip",
+      "AppFlowy-0.8.5-windows-x86_64.exe",
+      "AppFlowy-0.8.5-windows-x86_64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
@@ -4332,8 +4335,8 @@
   {
     "category": "other",
     "name": "containers/podman-tui",
-    "tag_name": "v1.3.1",
-    "created_at": "2025-01-26T10:01:05Z",
+    "tag_name": "v1.4.0",
+    "created_at": "2025-03-01T03:11:15Z",
     "assets": [
       "podman-tui-release-darwin_amd64.zip",
       "podman-tui-release-linux_amd64.zip",
@@ -4751,17 +4754,15 @@
   {
     "category": "other",
     "name": "hoppscotch/releases",
-    "tag_name": "v25.1.1-0",
-    "created_at": "2025-01-31T11:59:22Z",
+    "tag_name": "v25.2.0-0",
+    "created_at": "2025-03-04T07:26:18Z",
     "assets": [
-      "Hoppscotch_linux_update_x64.tar.gz",
       "Hoppscotch_linux_x64.AppImage",
       "Hoppscotch_linux_x64.deb",
       "Hoppscotch_mac_aarch64.dmg",
-      "Hoppscotch_mac_update_aarch64.tar.gz",
-      "Hoppscotch_mac_update_x64.tar.gz",
-      "Hoppscotch_mac_x64.dmg",
-      "Hoppscotch_win_update_x64.msi.zip",
+      "Hoppscotch_mac_aarch64.tar.gz",
+      "Hoppscotch_mac_x86_64.dmg",
+      "Hoppscotch_mac_x86_64.tar.gz",
       "Hoppscotch_win_x64.msi"
     ],
     "linux_x64": {
@@ -5188,8 +5189,8 @@
   {
     "category": "android",
     "name": "t895/DNSNet",
-    "tag_name": "1.0.18",
-    "created_at": "2025-02-21T05:33:09Z",
+    "tag_name": "1.1.1",
+    "created_at": "2025-03-04T06:25:36Z",
     "assets": [
       "app-release.aab",
       "app-release.apk",
@@ -5295,8 +5296,8 @@
   {
     "category": "android",
     "name": "stratumauth/app",
-    "tag_name": "v1.2.0",
-    "created_at": "2025-02-11T19:20:46Z",
+    "tag_name": "v1.2.1",
+    "created_at": "2025-03-03T12:14:41Z",
     "assets": [
       "com.stratumauth.app-arm64-v8a.fdroid.apk",
       "com.stratumauth.app-armeabi-v7a.fdroid.apk",

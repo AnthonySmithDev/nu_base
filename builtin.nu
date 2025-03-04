@@ -88,15 +88,3 @@ def "http download" [url: string, --output(-o): string] {
     error make -u { msg: $"URL not found: ($url)" }
   }
 }
-
-def tempeditor [] {
-  let input = $in
-
-  let temp = mktemp --tmpdir
-  if ($input | is-not-empty) {
-    $input | str trim | save --force $temp
-  }
-
-  hx $temp
-  return (open $temp | str trim)
-}

@@ -429,3 +429,107 @@ def nd [name: string] {
   let dir = (fd -t d | fzf)
   mkdir ($dir | path join $name)
 }
+
+def paths [
+  --path(-p): string = ".",
+  --search(-s): string
+  --type(-t): string
+  ] {
+  mut paths = []
+  if ($search != null) {
+    $paths = if ($type != null) {
+      fd --type $type $search --full-path $path | lines
+    } else { fd $search --full-path $path | lines }
+  } else {
+    let list = ls $path
+    $paths = if ($type != null) {
+      $list | where type == $type | get name
+    } else { $list | get name }
+  }
+  return $paths
+}
+
+def tempeditor [data: any, --suffix(-s): string = ""] {
+  if ($data | str trim | is-empty) {
+    return
+  }
+  let temp = mktemp --tmpdir --suffix $suffix
+  $data | str trim | save --force $temp
+  hx $temp
+  return (open $temp | str trim)
+}
+
+def rn [
+  path: string = ".",
+  basename?: string,
+  --search(-s): string,
+  --file(-f),
+  --dir(-d),
+] {
+  if not ($path | path exists) {
+    print "La ruta especificada no existe."
+    return
+  }
+
+  let type = if $file { "file" } else if $dir { "dir" } else { null }
+  if ($path != ".") and ($search == null) and ($type == null) {
+    let destination_path = if ($basename | is-empty) {
+      gum input --header "Rename" --value ($path | path basename)
+    } else {
+      ($path | path dirname | path join $basename)
+    }
+    mv $path $destination_path
+    return
+  }
+
+  let list_paths = paths -p $path -s $search -t $type
+  if ($list_paths | is-empty) {
+    print "No hay elementos para renombrar."
+    return
+  }
+
+  let renamed_paths = (tempeditor $list_paths --suffix .txt | lines)
+  if ($renamed_paths | length) != ($list_paths | length) {
+    print "No hay el mismo numero de elementos para renombrar."
+    return
+  }
+
+  for index in ($list_paths | enumerate | get index) {
+    let source = ($list_paths | get $index)
+    let destination = ($renamed_paths | get $index)
+    if $source != $destination {
+      mv -i $source $destination
+    }
+  }
+}
+
+def xrm [
+  path: string = ".",
+  --search(-s): string,
+  --file(-f),
+  --dir(-d),
+] {
+  if not ($path | path exists) {
+    print "La ruta especificada no existe."
+    return
+  }
+
+  let type = if $file { "file" } else if $dir { "dir" } else { null }
+  let list_paths = paths -p $path -s $search -t $type
+  if ($list_paths | is-empty) {
+    print "No hay elementos para eliminar."
+    return
+  }
+
+  let selected_paths = (tempeditor $list_paths --suffix .txt | lines)
+  if ($selected_paths | length) == ($list_paths | length) {
+    print "Hay el mismo numero de elementos no se eliminara nada."
+    return
+  }
+
+  let deleted_paths = ($list_paths | where { |it| $it not-in $selected_paths })
+  for path in $deleted_paths {
+    rm -rf $path
+  }
+  return $deleted_paths
+}
