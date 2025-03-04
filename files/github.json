@@ -1481,8 +1481,8 @@
   {
     "category": "extra",
     "name": "codesenberg/bombardier",
-    "tag_name": "v2.0.1",
-    "created_at": "2025-02-23T17:36:39Z",
+    "tag_name": "v2.0.2",
+    "created_at": "2025-03-04T17:40:20Z",
     "assets": [
       "bombardier-darwin-amd64",
       "bombardier-darwin-arm64",
@@ -2283,17 +2283,17 @@
   {
     "category": "other",
     "name": "plandex-ai/plandex",
-    "tag_name": "cli/v2.0.0-rc.2",
-    "created_at": "2025-02-27T09:02:33Z",
+    "tag_name": "cli/v2.0.0-rc.5",
+    "created_at": "2025-03-04T19:58:51Z",
     "assets": [
-      "plandex_2.0.0-rc.2_darwin_amd64.tar.gz",
-      "plandex_2.0.0-rc.2_darwin_arm64.tar.gz",
-      "plandex_2.0.0-rc.2_freebsd_amd64.tar.gz",
-      "plandex_2.0.0-rc.2_freebsd_arm64.tar.gz",
-      "plandex_2.0.0-rc.2_linux_amd64.tar.gz",
-      "plandex_2.0.0-rc.2_linux_arm64.tar.gz",
-      "plandex_2.0.0-rc.2_windows_amd64.tar.gz",
-      "plandex_2.0.0-rc.2_windows_arm64.tar.gz"
+      "plandex_2.0.0-rc.5_darwin_amd64.tar.gz",
+      "plandex_2.0.0-rc.5_darwin_arm64.tar.gz",
+      "plandex_2.0.0-rc.5_freebsd_amd64.tar.gz",
+      "plandex_2.0.0-rc.5_freebsd_arm64.tar.gz",
+      "plandex_2.0.0-rc.5_linux_amd64.tar.gz",
+      "plandex_2.0.0-rc.5_linux_arm64.tar.gz",
+      "plandex_2.0.0-rc.5_windows_amd64.tar.gz",
+      "plandex_2.0.0-rc.5_windows_arm64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -5189,8 +5189,8 @@
   {
     "category": "android",
     "name": "t895/DNSNet",
-    "tag_name": "1.1.1",
-    "created_at": "2025-03-04T06:25:36Z",
+    "tag_name": "1.1.2",
+    "created_at": "2025-03-04T18:24:51Z",
     "assets": [
       "app-release.aab",
       "app-release.apk",

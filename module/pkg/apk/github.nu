@@ -404,6 +404,14 @@ export def blokada5 [ --force(-f) ] {
   install $download_path
 }
 
+export def aurora [ --force(-f) ] {
+  let repository = 'aurora'
+  let version = '65'
+  let download_url = 'https://f-droid.org/repo/com.aurora.store_65.apk'
+  let download_path = download_apk $repository $version $download_url $force
+  install $download_path
+}
+
 export def RootlessJamesDSP [ --force(-f) ] {
   let repository = 'RootlessJamesDSP'
   let version = '50'
