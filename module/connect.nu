@@ -86,3 +86,7 @@ export def setup [alias: string@get-server-aliases, username?: string@get-userna
   copy-files-to-host $host
   exec-cmd-to-host $host "bash ~/.local/nu_base/sh/base.sh"
 }
+
+export def jump [] {
+  ssh -J freyrecorp@192.168.0.11 freyrecorp@192.168.0.200
+}
