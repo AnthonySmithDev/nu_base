@@ -3230,6 +3230,20 @@ export def doggo [ --force(-f) ] {
   bind file doggo $path
 }
 
+export def lnav [ --force(-f) ] {
+  let repository = 'tstack/lnav'
+  let tag_name = ghub tag_name $repository
+  let path = filepath lnav $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -f lnav -p $path
+  }
+
+  bind file lnav $path
+}
+
 export def --env scrcpy [ --force(-f) ] {
   let repository = 'Genymobile/scrcpy'
   let tag_name = ghub tag_name $repository

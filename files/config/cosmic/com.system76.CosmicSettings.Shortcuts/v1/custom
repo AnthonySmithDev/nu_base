@@ -2,51 +2,6 @@
     (
         modifiers: [
             Super,
-            Shift,
-        ],
-        key: "m",
-    ): Minimize,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "n",
-    ): NextWorkspace,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "p",
-    ): PreviousWorkspace,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "n",
-    ): MoveToNextWorkspace,
-    (
-        modifiers: [
-            Super,
-            Shift,
-        ],
-        key: "p",
-    ): MoveToPreviousWorkspace,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "d",
-    ): ToggleSticky,
-    (
-        modifiers: [
-            Super,
-        ],
-        key: "t",
-    ): Spawn("nu/cosmic terminal"),
-    (
-        modifiers: [
-            Super,
         ],
         key: "f",
     ): Spawn("nu/cosmic files"),
@@ -55,8 +10,8 @@
             Super,
             Alt,
         ],
-        key: "a",
-    ): Spawn("nu/cosmic scrcpy audio"),
+        key: "i",
+    ): Spawn("nu/cosmic dtap"),
     (
         modifiers: [
             Super,
@@ -67,31 +22,22 @@
     (
         modifiers: [
             Super,
-            Alt,
         ],
-        key: "h",
-    ): Spawn("nu/cosmic swipe left"),
+        key: "d",
+    ): ToggleSticky,
     (
         modifiers: [
             Super,
             Alt,
         ],
-        key: "j",
-    ): Spawn("nu/cosmic swipe down"),
+        key: "o",
+    ): Spawn("nu/cosmic audio"),
     (
         modifiers: [
             Super,
-            Alt,
         ],
-        key: "k",
-    ): Spawn("nu/cosmic swipe up"),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "l",
-    ): Spawn("nu/cosmic swipe right"),
+        key: "t",
+    ): Spawn("nu/cosmic terminal"),
     (
         modifiers: [
             Super,
@@ -99,6 +45,41 @@
         ],
         key: "s",
     ): Spawn("nu/cosmic power"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "g",
+    ): Spawn("nu/cosmic media play"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "u",
+    ): Spawn("nu/cosmic tap"),
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "y",
+    ): Spawn("nu/cosmic unlike"),
+    (
+        modifiers: [
+            Super,
+            Shift,
+        ],
+        key: "m",
+    ): Minimize,
+    (
+        modifiers: [
+            Super,
+            Alt,
+        ],
+        key: "a",
+    ): Spawn("nu/cosmic scrcpy audio"),
     (
         modifiers: [
             Super,
@@ -118,48 +99,6 @@
             Super,
             Alt,
         ],
-        key: "g",
-    ): Spawn("nu/cosmic media play"),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "y",
-    ): Spawn("nu/cosmic unlike"),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "u",
-    ): Spawn("nu/cosmic tap"),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "i",
-    ): Spawn("nu/cosmic dtap"),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "o",
-    ): Spawn("nu/cosmic audio"),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
         key: "p",
     ): Spawn("nu/cosmic download"),
-    (
-        modifiers: [
-            Super,
-            Alt,
-        ],
-        key: "q",
-    ): Spawn("nu/cosmic back"),
 }

@@ -88,5 +88,5 @@ export def setup [alias: string@get-server-aliases, username?: string@get-userna
 }
 
 export def jump [] {
-  ssh -J freyrecorp@192.168.0.11 freyrecorp@192.168.0.200
+  ssh -J freyrecorp@192.168.0.11 freyrecorp@192.168.0.200 -t (get-shell-command)
 }
