@@ -131,15 +131,21 @@ def pastes [input: string, --save(-s): string] {
   }
 }
 
-def git_commit [...rest: string] {
+def git-commit [...rest: string] {
   git commit -m ($rest | str join ' ')
 }
 
-def git_history [file: string] {
+def git-history [file: string] {
   let logs = (git log --pretty=format:"%h" -- $file | lines)
   for $commit in $logs {
     git show $"($commit):($file)" | bat -l go
   }
+}
+
+def --env git-show-filter [filter: string] {
+  $env.GIT_EXTERNAL_DIFF = "difft --skip-unchanged --display inline"
+  let commit_hash = git log -1 --pretty=format:"%H"
+  git show --ext-diff  $commit_hash -- $"*($filter)*"
 }
 
 def "android debug start" [] {

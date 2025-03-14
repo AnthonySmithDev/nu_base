@@ -6,14 +6,14 @@ log:
 editor:
     command: hx
     env: EDITOR
-showConnectionPage: false
+showConnectionPage: true
 showWelcomePage: false
-currentConnection: nanopay jean
+currentConnection: nanopay kube dev
 connections:
     - url: ""
       host: 0.0.0.0
       port: 27018
-      database: "nanopay"
+      database: ""
       username: nanopay_root_user
       password: nanopay_root_pass
       name: nanopay dev
@@ -25,7 +25,7 @@ connections:
       database: ""
       username: payzum_admin
       password: wiweh7FOG3WJWGT0PSOX8GDSdambSvm2k6tLicj00pZlw6wS3N
-      name: payzum kube dev
+      name: nanopay kube dev
       timeout: 3
       options: {}
     - url: ""
@@ -36,9 +36,7 @@ connections:
       password: nanopay_root_pass
       name: nanopay jean
       timeout: 3
-      options:
-        authorizedDatabases: true
-        authorizedCollections: true
+      options: {}
 styles:
     betterSymbols: true
     currentStyle: dark-blue.yaml

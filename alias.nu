@@ -105,7 +105,9 @@ alias wps = wl-paste
 
 alias gu = gitu
 alias gme = gitmoji -c
-alias gcm = git_commit
+alias gcm = git-commit
+alias ghi = git-history
+alias gsf = git-show-filter
 
 alias gra = git remote add
 alias grr = git remote rename
