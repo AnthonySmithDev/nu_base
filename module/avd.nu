@@ -4,7 +4,7 @@ export-env {
 }
 
 export def list-device [] {
-  job run avd-list-device 1wk {
+  clock run avd-list-device 1wk {
     ^avdmanager list device -c
   } | lines
 }
@@ -14,19 +14,19 @@ def to-system-images [] {
 }
 
 export def list-system-images [] {
-  job run avd-list-system-images 1wk {
+  clock run avd-list-system-images 1wk {
     ^sdkmanager --list --verbose err> /dev/null
   } | to-system-images
 }
 
 export def system-images [] {
-  job run avd-system-images 1min {
+  clock run avd-system-images 1min {
     ^sdkmanager --list_installed --verbose err> /dev/null
   } | to-system-images
 }
 
 export def list-virtual [] {
-  job run avd-list-avd 1min {
+  clock run avd-list-avd 1min {
     ^avdmanager list avd -c
   } | lines
 }
@@ -42,7 +42,7 @@ export def create [
 
 export def delete [name: string@list-virtual] {
   ^avdmanager delete avd -n $name
-  job delete avd-list-avd
+  clock delete avd-list-avd
 }
 
 export def editor [name: string@list-virtual] {

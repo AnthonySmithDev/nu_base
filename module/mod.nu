@@ -8,7 +8,7 @@ use ghub.nu
 use dock.nu
 use config.nu
 use fm.nu
-use job.nu
+use clock.nu
 
 # use download.nu
 # use photos.nu
