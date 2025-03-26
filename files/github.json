@@ -184,23 +184,23 @@
   {
     "category": "core",
     "name": "nushell/nushell",
-    "tag_name": "0.102.0",
-    "created_at": "2025-02-04T15:49:35Z",
+    "tag_name": "0.103.0",
+    "created_at": "2025-03-19T00:17:48Z",
     "assets": [
-      "nu-0.102.0-aarch64-apple-darwin.tar.gz",
-      "nu-0.102.0-aarch64-pc-windows-msvc.msi",
-      "nu-0.102.0-aarch64-pc-windows-msvc.zip",
-      "nu-0.102.0-aarch64-unknown-linux-gnu.tar.gz",
-      "nu-0.102.0-aarch64-unknown-linux-musl.tar.gz",
-      "nu-0.102.0-armv7-unknown-linux-gnueabihf.tar.gz",
-      "nu-0.102.0-armv7-unknown-linux-musleabihf.tar.gz",
-      "nu-0.102.0-loongarch64-unknown-linux-gnu.tar.gz",
-      "nu-0.102.0-riscv64gc-unknown-linux-gnu.tar.gz",
-      "nu-0.102.0-x86_64-apple-darwin.tar.gz",
-      "nu-0.102.0-x86_64-pc-windows-msvc.msi",
-      "nu-0.102.0-x86_64-pc-windows-msvc.zip",
-      "nu-0.102.0-x86_64-unknown-linux-gnu.tar.gz",
-      "nu-0.102.0-x86_64-unknown-linux-musl.tar.gz",
+      "nu-0.103.0-aarch64-apple-darwin.tar.gz",
+      "nu-0.103.0-aarch64-pc-windows-msvc.msi",
+      "nu-0.103.0-aarch64-pc-windows-msvc.zip",
+      "nu-0.103.0-aarch64-unknown-linux-gnu.tar.gz",
+      "nu-0.103.0-aarch64-unknown-linux-musl.tar.gz",
+      "nu-0.103.0-armv7-unknown-linux-gnueabihf.tar.gz",
+      "nu-0.103.0-armv7-unknown-linux-musleabihf.tar.gz",
+      "nu-0.103.0-loongarch64-unknown-linux-gnu.tar.gz",
+      "nu-0.103.0-riscv64gc-unknown-linux-gnu.tar.gz",
+      "nu-0.103.0-x86_64-apple-darwin.tar.gz",
+      "nu-0.103.0-x86_64-pc-windows-msvc.msi",
+      "nu-0.103.0-x86_64-pc-windows-msvc.zip",
+      "nu-0.103.0-x86_64-unknown-linux-gnu.tar.gz",
+      "nu-0.103.0-x86_64-unknown-linux-musl.tar.gz",
       "SHA256SUMS"
     ],
     "linux_x64": {
@@ -260,8 +260,8 @@
   {
     "category": "core",
     "name": "zellij-org/zellij",
-    "tag_name": "v0.41.2",
-    "created_at": "2024-11-19T12:16:01Z",
+    "tag_name": "v0.42.1",
+    "created_at": "2025-03-21T08:47:21Z",
     "assets": [
       "zellij-aarch64-apple-darwin.tar.gz",
       "zellij-aarch64-unknown-linux-musl.tar.gz",
@@ -648,25 +648,31 @@
   {
     "category": "core",
     "name": "claudiodangelis/qrcp",
-    "tag_name": "v0.11.4",
-    "created_at": "2024-12-27T16:32:44Z",
+    "tag_name": "v0.11.6",
+    "created_at": "2025-03-16T11:47:45Z",
     "assets": [
-      "qrcp_0.11.4_darwin_amd64.tar.gz",
-      "qrcp_0.11.4_linux_386.deb",
-      "qrcp_0.11.4_linux_386.rpm",
-      "qrcp_0.11.4_linux_386.tar.gz",
-      "qrcp_0.11.4_linux_amd64.deb",
-      "qrcp_0.11.4_linux_amd64.rpm",
-      "qrcp_0.11.4_linux_amd64.tar.gz",
-      "qrcp_0.11.4_linux_arm64.deb",
-      "qrcp_0.11.4_linux_arm64.rpm",
-      "qrcp_0.11.4_linux_arm64.tar.gz",
-      "qrcp_0.11.4_linux_armv7.deb",
-      "qrcp_0.11.4_linux_armv7.rpm",
-      "qrcp_0.11.4_linux_armv7.tar.gz",
-      "qrcp_0.11.4_windows_386.tar.gz",
-      "qrcp_0.11.4_windows_amd64.tar.gz",
-      "qrcp_0.11.4_windows_armv7.tar.gz"
+      "qrcp_0.11.6_darwin_amd64.tar.gz",
+      "qrcp_0.11.6_darwin_arm64.tar.gz",
+      "qrcp_0.11.6_linux_386.deb",
+      "qrcp_0.11.6_linux_386.rpm",
+      "qrcp_0.11.6_linux_386.tar.gz",
+      "qrcp_0.11.6_linux_amd64.deb",
+      "qrcp_0.11.6_linux_amd64.rpm",
+      "qrcp_0.11.6_linux_amd64.tar.gz",
+      "qrcp_0.11.6_linux_arm64.deb",
+      "qrcp_0.11.6_linux_arm64.rpm",
+      "qrcp_0.11.6_linux_arm64.tar.gz",
+      "qrcp_0.11.6_linux_armv7.deb",
+      "qrcp_0.11.6_linux_armv7.rpm",
+      "qrcp_0.11.6_linux_armv7.tar.gz",
+      "qrcp_0.11.6_windows_386.tar.gz",
+      "qrcp_0.11.6_windows_386.zip",
+      "qrcp_0.11.6_windows_amd64.tar.gz",
+      "qrcp_0.11.6_windows_amd64.zip",
+      "qrcp_0.11.6_windows_arm64.tar.gz",
+      "qrcp_0.11.6_windows_arm64.zip",
+      "qrcp_0.11.6_windows_armv7.tar.gz",
+      "qrcp_0.11.6_windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -848,10 +854,10 @@
   {
     "category": "core",
     "name": "Canop/broot",
-    "tag_name": "v1.44.7",
-    "created_at": "2025-02-12T16:03:14Z",
+    "tag_name": "v1.45.1",
+    "created_at": "2025-03-25T14:30:16Z",
     "assets": [
-      "broot_1.44.7.zip"
+      "broot_1.45.1.zip"
     ],
     "linux_x64": {
       "ends": ".zip"
@@ -915,8 +921,8 @@
   {
     "category": "other",
     "name": "Unrud/remote-touchpad",
-    "tag_name": "v1.4.8",
-    "created_at": "2024-09-01T15:15:32Z",
+    "tag_name": "v1.5.0",
+    "created_at": "2025-03-18T21:02:15Z",
     "assets": [
       "remote-touchpad_windows_amd64.exe"
     ]
@@ -960,8 +966,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.134.2",
-    "created_at": "2025-03-06T20:14:33Z",
+    "tag_name": "3.136.0",
+    "created_at": "2025-03-21T09:02:39Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -1059,18 +1065,18 @@
   {
     "category": "extra",
     "name": "zk-org/zk",
-    "tag_name": "v0.14.2",
-    "created_at": "2025-02-07T20:59:10Z",
+    "tag_name": "v0.15.0",
+    "created_at": "2025-03-18T08:09:18Z",
     "assets": [
-      "zk-v0.14.2-alpine-amd64.tar.gz",
-      "zk-v0.14.2-alpine-arm64.tar.gz",
-      "zk-v0.14.2-alpine-i386.tar.gz",
-      "zk-v0.14.2-linux-amd64.tar.gz",
-      "zk-v0.14.2-linux-arm64.tar.gz",
-      "zk-v0.14.2-linux-i386.tar.gz",
-      "zk-v0.14.2-macos-x86_64.tar.gz",
-      "zk-v0.14.2-macos_arm64.tar.gz",
-      "zk-v0.14.2-windows_x64_86.tar.gz"
+      "zk-v0.15.0-alpine-amd64.tar.gz",
+      "zk-v0.15.0-alpine-arm64.tar.gz",
+      "zk-v0.15.0-alpine-i386.tar.gz",
+      "zk-v0.15.0-linux-amd64.tar.gz",
+      "zk-v0.15.0-linux-arm64.tar.gz",
+      "zk-v0.15.0-linux-i386.tar.gz",
+      "zk-v0.15.0-macos-x86_64.tar.gz",
+      "zk-v0.15.0-macos_arm64.tar.gz",
+      "zk-v0.15.0-windows_x64_86.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux-amd64.tar.gz"
@@ -1107,8 +1113,8 @@
   {
     "category": "extra",
     "name": "neovim/neovim",
-    "tag_name": "v0.10.4",
-    "created_at": "2025-01-29T10:20:29Z",
+    "tag_name": "v0.11.0",
+    "created_at": "2025-03-26T13:48:34Z",
     "assets": [
       "nvim-linux-arm64.appimage",
       "nvim-linux-arm64.appimage.zsync",
@@ -1174,8 +1180,8 @@
   {
     "category": "extra",
     "name": "AdguardTeam/AdGuardHome",
-    "tag_name": "v0.107.57",
-    "created_at": "2025-02-20T14:46:04Z",
+    "tag_name": "v0.107.59",
+    "created_at": "2025-03-21T10:40:05Z",
     "assets": [
       "AdGuardHome_darwin_amd64.zip",
       "AdGuardHome_darwin_arm64.zip",
@@ -1211,8 +1217,8 @@
   {
     "category": "extra",
     "name": "anfragment/zen",
-    "tag_name": "v0.8.0",
-    "created_at": "2025-02-03T16:37:51Z",
+    "tag_name": "v0.9.0",
+    "created_at": "2025-03-26T17:33:10Z",
     "assets": [
       "Zen-amd64-installer.exe",
       "Zen-amd64.dmg",
@@ -1222,6 +1228,8 @@
       "Zen_darwin_arm64.tar.gz",
       "Zen_linux_amd64.tar.gz",
       "Zen_linux_amd64_noselfupdate.tar.gz",
+      "Zen_linux_arm64.tar.gz",
+      "Zen_linux_arm64_noselfupdate.tar.gz",
       "Zen_windows_amd64.zip",
       "Zen_windows_amd64_noselfupdate.zip",
       "Zen_windows_arm64.zip",
@@ -1334,8 +1342,8 @@
   {
     "category": "extra",
     "name": "derailed/k9s",
-    "tag_name": "v0.40.8",
-    "created_at": "2025-03-12T00:18:17Z",
+    "tag_name": "v0.40.10",
+    "created_at": "2025-03-16T16:01:31Z",
     "assets": [
       "k9s_Darwin_amd64.tar.gz",
       "k9s_Darwin_arm64.tar.gz",
@@ -1455,8 +1463,8 @@
   {
     "category": "extra",
     "name": "mdp/qrterminal",
-    "tag_name": "v3.2.0",
-    "created_at": "2023-11-06T18:51:25Z",
+    "tag_name": "v3.2.1",
+    "created_at": "2025-03-19T17:51:09Z",
     "assets": [
       "qrterminal_Darwin_arm64.tar.gz",
       "qrterminal_Darwin_x86_64.tar.gz",
@@ -1682,42 +1690,42 @@
   {
     "category": "extra",
     "name": "charmbracelet/freeze",
-    "tag_name": "v0.1.6",
-    "created_at": "2024-04-03T05:03:35Z",
+    "tag_name": "v0.2.0",
+    "created_at": "2025-03-24T18:10:33Z",
     "assets": [
-      "freeze-0.1.6-1.aarch64.rpm",
-      "freeze-0.1.6-1.armv7hl.rpm",
-      "freeze-0.1.6-1.i386.rpm",
-      "freeze-0.1.6-1.x86_64.rpm",
-      "freeze-0.1.6.tar.gz",
-      "freeze_0.1.6_aarch64.apk",
-      "freeze_0.1.6_amd64.deb",
-      "freeze_0.1.6_arm64.deb",
-      "freeze_0.1.6_armhf.deb",
-      "freeze_0.1.6_armv7.apk",
-      "freeze_0.1.6_Darwin_arm64.tar.gz",
-      "freeze_0.1.6_Darwin_x86_64.tar.gz",
-      "freeze_0.1.6_Freebsd_arm.tar.gz",
-      "freeze_0.1.6_Freebsd_arm64.tar.gz",
-      "freeze_0.1.6_Freebsd_i386.tar.gz",
-      "freeze_0.1.6_Freebsd_x86_64.tar.gz",
-      "freeze_0.1.6_i386.deb",
-      "freeze_0.1.6_Linux_arm.tar.gz",
-      "freeze_0.1.6_Linux_arm64.tar.gz",
-      "freeze_0.1.6_Linux_i386.tar.gz",
-      "freeze_0.1.6_Linux_x86_64.tar.gz",
-      "freeze_0.1.6_Netbsd_arm.tar.gz",
-      "freeze_0.1.6_Netbsd_arm64.tar.gz",
-      "freeze_0.1.6_Netbsd_i386.tar.gz",
-      "freeze_0.1.6_Netbsd_x86_64.tar.gz",
-      "freeze_0.1.6_Openbsd_arm.tar.gz",
-      "freeze_0.1.6_Openbsd_arm64.tar.gz",
-      "freeze_0.1.6_Openbsd_i386.tar.gz",
-      "freeze_0.1.6_Openbsd_x86_64.tar.gz",
-      "freeze_0.1.6_Windows_i386.zip",
-      "freeze_0.1.6_Windows_x86_64.zip",
-      "freeze_0.1.6_x86.apk",
-      "freeze_0.1.6_x86_64.apk"
+      "freeze-0.2.0-1.aarch64.rpm",
+      "freeze-0.2.0-1.armv7hl.rpm",
+      "freeze-0.2.0-1.i386.rpm",
+      "freeze-0.2.0-1.x86_64.rpm",
+      "freeze-0.2.0.tar.gz",
+      "freeze_0.2.0_aarch64.apk",
+      "freeze_0.2.0_amd64.deb",
+      "freeze_0.2.0_arm64.deb",
+      "freeze_0.2.0_armhf.deb",
+      "freeze_0.2.0_armv7.apk",
+      "freeze_0.2.0_Darwin_arm64.tar.gz",
+      "freeze_0.2.0_Darwin_x86_64.tar.gz",
+      "freeze_0.2.0_Freebsd_arm.tar.gz",
+      "freeze_0.2.0_Freebsd_arm64.tar.gz",
+      "freeze_0.2.0_Freebsd_i386.tar.gz",
+      "freeze_0.2.0_Freebsd_x86_64.tar.gz",
+      "freeze_0.2.0_i386.deb",
+      "freeze_0.2.0_Linux_arm.tar.gz",
+      "freeze_0.2.0_Linux_arm64.tar.gz",
+      "freeze_0.2.0_Linux_i386.tar.gz",
+      "freeze_0.2.0_Linux_x86_64.tar.gz",
+      "freeze_0.2.0_Netbsd_arm.tar.gz",
+      "freeze_0.2.0_Netbsd_arm64.tar.gz",
+      "freeze_0.2.0_Netbsd_i386.tar.gz",
+      "freeze_0.2.0_Netbsd_x86_64.tar.gz",
+      "freeze_0.2.0_Openbsd_arm.tar.gz",
+      "freeze_0.2.0_Openbsd_arm64.tar.gz",
+      "freeze_0.2.0_Openbsd_i386.tar.gz",
+      "freeze_0.2.0_Openbsd_x86_64.tar.gz",
+      "freeze_0.2.0_Windows_i386.zip",
+      "freeze_0.2.0_Windows_x86_64.zip",
+      "freeze_0.2.0_x86.apk",
+      "freeze_0.2.0_x86_64.apk"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -1821,33 +1829,33 @@
   {
     "category": "extra",
     "name": "charmbracelet/soft-serve",
-    "tag_name": "v0.8.2",
-    "created_at": "2025-01-07T11:32:40Z",
+    "tag_name": "v0.8.5",
+    "created_at": "2025-03-25T20:42:20Z",
     "assets": [
-      "soft-serve-0.8.2-1.aarch64.rpm",
-      "soft-serve-0.8.2-1.armv7hl.rpm",
-      "soft-serve-0.8.2-1.i386.rpm",
-      "soft-serve-0.8.2-1.x86_64.rpm",
-      "soft-serve-0.8.2.tar.gz",
-      "soft-serve_0.8.2_aarch64.apk",
-      "soft-serve_0.8.2_amd64.deb",
-      "soft-serve_0.8.2_arm64.deb",
-      "soft-serve_0.8.2_armhf.deb",
-      "soft-serve_0.8.2_armv7.apk",
-      "soft-serve_0.8.2_Darwin_arm64.tar.gz",
-      "soft-serve_0.8.2_Darwin_x86_64.tar.gz",
-      "soft-serve_0.8.2_Freebsd_arm.tar.gz",
-      "soft-serve_0.8.2_Freebsd_arm64.tar.gz",
-      "soft-serve_0.8.2_Freebsd_i386.tar.gz",
-      "soft-serve_0.8.2_Freebsd_x86_64.tar.gz",
-      "soft-serve_0.8.2_i386.deb",
-      "soft-serve_0.8.2_Linux_arm.tar.gz",
-      "soft-serve_0.8.2_Linux_arm64.tar.gz",
-      "soft-serve_0.8.2_Linux_i386.tar.gz",
-      "soft-serve_0.8.2_Linux_x86_64.tar.gz",
-      "soft-serve_0.8.2_Windows_x86_64.zip",
-      "soft-serve_0.8.2_x86.apk",
-      "soft-serve_0.8.2_x86_64.apk"
+      "soft-serve-0.8.5-1.aarch64.rpm",
+      "soft-serve-0.8.5-1.armv7hl.rpm",
+      "soft-serve-0.8.5-1.i386.rpm",
+      "soft-serve-0.8.5-1.x86_64.rpm",
+      "soft-serve-0.8.5.tar.gz",
+      "soft-serve_0.8.5_aarch64.apk",
+      "soft-serve_0.8.5_amd64.deb",
+      "soft-serve_0.8.5_arm64.deb",
+      "soft-serve_0.8.5_armhf.deb",
+      "soft-serve_0.8.5_armv7.apk",
+      "soft-serve_0.8.5_Darwin_arm64.tar.gz",
+      "soft-serve_0.8.5_Darwin_x86_64.tar.gz",
+      "soft-serve_0.8.5_Freebsd_arm.tar.gz",
+      "soft-serve_0.8.5_Freebsd_arm64.tar.gz",
+      "soft-serve_0.8.5_Freebsd_i386.tar.gz",
+      "soft-serve_0.8.5_Freebsd_x86_64.tar.gz",
+      "soft-serve_0.8.5_i386.deb",
+      "soft-serve_0.8.5_Linux_arm.tar.gz",
+      "soft-serve_0.8.5_Linux_arm64.tar.gz",
+      "soft-serve_0.8.5_Linux_i386.tar.gz",
+      "soft-serve_0.8.5_Linux_x86_64.tar.gz",
+      "soft-serve_0.8.5_Windows_x86_64.zip",
+      "soft-serve_0.8.5_x86.apk",
+      "soft-serve_0.8.5_x86_64.apk"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -2188,8 +2196,8 @@
   {
     "category": "extra",
     "name": "ast-grep/ast-grep",
-    "tag_name": "0.36.1",
-    "created_at": "2025-03-11T05:01:27Z",
+    "tag_name": "0.36.2",
+    "created_at": "2025-03-19T19:50:26Z",
     "assets": [
       "app-aarch64-apple-darwin.zip",
       "app-aarch64-pc-windows-msvc.zip",
@@ -2276,8 +2284,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.6.0",
-    "created_at": "2025-03-11T22:07:50Z",
+    "tag_name": "v0.6.2",
+    "created_at": "2025-03-17T22:41:37Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -2298,17 +2306,17 @@
   {
     "category": "other",
     "name": "plandex-ai/plandex",
-    "tag_name": "cli/v2.0.0-rc.6",
-    "created_at": "2025-03-09T09:21:18Z",
+    "tag_name": "cli/v2.0.3",
+    "created_at": "2025-03-26T16:57:11Z",
     "assets": [
-      "plandex_2.0.0-rc.6_darwin_amd64.tar.gz",
-      "plandex_2.0.0-rc.6_darwin_arm64.tar.gz",
-      "plandex_2.0.0-rc.6_freebsd_amd64.tar.gz",
-      "plandex_2.0.0-rc.6_freebsd_arm64.tar.gz",
-      "plandex_2.0.0-rc.6_linux_amd64.tar.gz",
-      "plandex_2.0.0-rc.6_linux_arm64.tar.gz",
-      "plandex_2.0.0-rc.6_windows_amd64.tar.gz",
-      "plandex_2.0.0-rc.6_windows_arm64.tar.gz"
+      "plandex_2.0.3_darwin_amd64.tar.gz",
+      "plandex_2.0.3_darwin_arm64.tar.gz",
+      "plandex_2.0.3_freebsd_amd64.tar.gz",
+      "plandex_2.0.3_freebsd_arm64.tar.gz",
+      "plandex_2.0.3_linux_amd64.tar.gz",
+      "plandex_2.0.3_linux_arm64.tar.gz",
+      "plandex_2.0.3_windows_amd64.tar.gz",
+      "plandex_2.0.3_windows_arm64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -2358,14 +2366,14 @@
   {
     "category": "other",
     "name": "JetBrains/kotlin",
-    "tag_name": "v2.1.10",
-    "created_at": "2025-01-16T15:50:42Z",
+    "tag_name": "v2.1.20",
+    "created_at": "2025-03-13T17:15:38Z",
     "assets": [
-      "kotlin-compiler-2.1.10.zip",
-      "kotlin-native-prebuilt-linux-x86_64-2.1.10.tar.gz",
-      "kotlin-native-prebuilt-macos-aarch64-2.1.10.tar.gz",
-      "kotlin-native-prebuilt-macos-x86_64-2.1.10.tar.gz",
-      "kotlin-native-prebuilt-windows-x86_64-2.1.10.zip"
+      "kotlin-compiler-2.1.20.zip",
+      "kotlin-native-prebuilt-linux-x86_64-2.1.20.tar.gz",
+      "kotlin-native-prebuilt-macos-aarch64-2.1.20.tar.gz",
+      "kotlin-native-prebuilt-macos-x86_64-2.1.20.tar.gz",
+      "kotlin-native-prebuilt-windows-x86_64-2.1.20.zip"
     ],
     "linux_x64": {
       "ends": "kotlin-native-prebuilt-linux-x86_64"
@@ -2643,15 +2651,63 @@
   {
     "category": "other",
     "name": "VSCodium/vscodium",
-    "tag_name": "1.98.2.25072",
-    "created_at": "2025-03-13T18:14:03Z",
+    "tag_name": "1.98.2.25078",
+    "created_at": "2025-03-18T21:59:18Z",
     "assets": [
-      "VSCodium-1.98.2.25072-src.tar.gz",
-      "VSCodium-1.98.2.25072-src.zip",
-      "VSCodium-darwin-arm64-1.98.2.25072.zip",
-      "vscodium-reh-darwin-arm64-1.98.2.25072.tar.gz",
-      "vscodium-reh-web-darwin-arm64-1.98.2.25072.tar.gz",
-      "VSCodium.arm64.1.98.2.25072.dmg"
+      "codium-1.98.2.25078-el9.aarch64.rpm",
+      "codium-1.98.2.25078-el9.armv7hl.rpm",
+      "codium-1.98.2.25078-el9.x86_64.rpm",
+      "codium_1.98.2.25078_amd64.deb",
+      "codium_1.98.2.25078_amd64.snap",
+      "codium_1.98.2.25078_arm64.deb",
+      "codium_1.98.2.25078_arm64.snap",
+      "codium_1.98.2.25078_armhf.deb",
+      "VSCodium-1.98.2.25078-src.tar.gz",
+      "VSCodium-1.98.2.25078-src.zip",
+      "VSCodium-1.98.2.25078.glibc2.29-x86_64.AppImage",
+      "VSCodium-1.98.2.25078.glibc2.29-x86_64.AppImage.zsync",
+      "VSCodium-darwin-arm64-1.98.2.25078.zip",
+      "VSCodium-darwin-x64-1.98.2.25078.zip",
+      "VSCodium-linux-arm64-1.98.2.25078.tar.gz",
+      "VSCodium-linux-armhf-1.98.2.25078.tar.gz",
+      "VSCodium-linux-loong64-1.98.2.25078.tar.gz",
+      "VSCodium-linux-ppc64le-1.98.2.25078.tar.gz",
+      "VSCodium-linux-riscv64-1.98.2.25078.tar.gz",
+      "VSCodium-linux-x64-1.98.2.25078.tar.gz",
+      "vscodium-reh-alpine-arm64-1.98.2.25078.tar.gz",
+      "vscodium-reh-alpine-x64-1.98.2.25078.tar.gz",
+      "vscodium-reh-darwin-arm64-1.98.2.25078.tar.gz",
+      "vscodium-reh-darwin-x64-1.98.2.25078.tar.gz",
+      "vscodium-reh-linux-arm64-1.98.2.25078.tar.gz",
+      "vscodium-reh-linux-armhf-1.98.2.25078.tar.gz",
+      "vscodium-reh-linux-loong64-1.98.2.25078.tar.gz",
+      "vscodium-reh-linux-ppc64le-1.98.2.25078.tar.gz",
+      "vscodium-reh-linux-riscv64-1.98.2.25078.tar.gz",
+      "vscodium-reh-linux-s390x-1.98.2.25078.tar.gz",
+      "vscodium-reh-linux-x64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-alpine-arm64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-alpine-x64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-darwin-arm64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-darwin-x64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-linux-arm64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-linux-armhf-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-linux-loong64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-linux-ppc64le-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-linux-riscv64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-linux-s390x-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-linux-x64-1.98.2.25078.tar.gz",
+      "vscodium-reh-web-win32-x64-1.98.2.25078.tar.gz",
+      "vscodium-reh-win32-x64-1.98.2.25078.tar.gz",
+      "VSCodium-win32-arm64-1.98.2.25078.zip",
+      "VSCodium-win32-x64-1.98.2.25078.zip",
+      "VSCodium-x64-1.98.2.25078.msi",
+      "VSCodium-x64-updates-disabled-1.98.2.25078.msi",
+      "VSCodium.arm64.1.98.2.25078.dmg",
+      "VSCodium.x64.1.98.2.25078.dmg",
+      "VSCodiumSetup-arm64-1.98.2.25078.exe",
+      "VSCodiumSetup-x64-1.98.2.25078.exe",
+      "VSCodiumUserSetup-arm64-1.98.2.25078.exe",
+      "VSCodiumUserSetup-x64-1.98.2.25078.exe"
     ],
     "linux_x64": {
       "ends": "VSCodium-linux-x64"
@@ -2660,20 +2716,20 @@
   {
     "category": "other",
     "name": "coder/code-server",
-    "tag_name": "v4.98.0",
-    "created_at": "2025-03-07T21:25:35Z",
+    "tag_name": "v4.98.2",
+    "created_at": "2025-03-14T18:58:50Z",
     "assets": [
-      "code-server-4.98.0-amd64.rpm",
-      "code-server-4.98.0-arm64.rpm",
-      "code-server-4.98.0-armhfp.rpm",
-      "code-server-4.98.0-linux-amd64.tar.gz",
-      "code-server-4.98.0-linux-arm64.tar.gz",
-      "code-server-4.98.0-linux-armv7l.tar.gz",
-      "code-server-4.98.0-macos-amd64.tar.gz",
-      "code-server-4.98.0-macos-arm64.tar.gz",
-      "code-server_4.98.0_amd64.deb",
-      "code-server_4.98.0_arm64.deb",
-      "code-server_4.98.0_armhf.deb",
+      "code-server-4.98.2-amd64.rpm",
+      "code-server-4.98.2-arm64.rpm",
+      "code-server-4.98.2-armhfp.rpm",
+      "code-server-4.98.2-linux-amd64.tar.gz",
+      "code-server-4.98.2-linux-arm64.tar.gz",
+      "code-server-4.98.2-linux-armv7l.tar.gz",
+      "code-server-4.98.2-macos-amd64.tar.gz",
+      "code-server-4.98.2-macos-arm64.tar.gz",
+      "code-server_4.98.2_amd64.deb",
+      "code-server_4.98.2_arm64.deb",
+      "code-server_4.98.2_armhf.deb",
       "package.tar.gz"
     ],
     "linux_x64": {
@@ -2703,17 +2759,18 @@
   {
     "category": "other",
     "name": "veeso/termscp",
-    "tag_name": "v0.16.1",
-    "created_at": "2024-11-12T11:34:26Z",
+    "tag_name": "v0.17.0",
+    "created_at": "2025-03-23T17:13:05Z",
     "assets": [
-      "termscp-v0.16.1-aarch4-apple-darwin.tar.gz",
-      "termscp-v0.16.1-arm64-apple-darwin.tar.gz",
-      "termscp-v0.16.1-x86_64-apple-darwin.tar.gz",
-      "termscp-v0.16.1-x86_64-pc-windows-msvc.zip",
-      "termscp-v0.16.1-x86_64-unknown-linux-gnu.tar.gz",
-      "termscp.0.16.1.nupkg",
-      "termscp_0.16.1_amd64.deb",
-      "termscp_0.16.1_arm64.deb"
+      "termscp-v0.17.0-aarch64-apple-darwin.tar.gz",
+      "termscp-v0.17.0-aarch64-unknown-linux-gnu.tar.gz",
+      "termscp-v0.17.0-arm64-apple-darwin.tar.gz",
+      "termscp-v0.17.0-x86_64-apple-darwin.tar.gz",
+      "termscp-v0.17.0-x86_64-pc-windows-msvc.zip",
+      "termscp-v0.17.0-x86_64-unknown-linux-gnu.tar.gz",
+      "termscp.0.17.0.nupkg",
+      "termscp_0.17.0-1_arm64.deb",
+      "termscp_0.17.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-gnu.tar.gz"
@@ -2784,9 +2841,11 @@
   {
     "category": "other",
     "name": "Y2Z/monolith",
-    "tag_name": "v2.9.0",
-    "created_at": "2025-03-10T23:44:24Z",
+    "tag_name": "v2.10.0",
+    "created_at": "2025-03-24T22:55:13Z",
     "assets": [
+      "monolith-gnu-linux-aarch64",
+      "monolith-gnu-linux-armhf",
       "monolith-gnu-linux-x86_64",
       "monolith.exe"
     ],
@@ -2842,16 +2901,17 @@
   {
     "category": "other",
     "name": "blacknon/hwatch",
-    "tag_name": "0.3.18",
-    "created_at": "2024-11-15T03:13:37Z",
+    "tag_name": "0.3.19",
+    "created_at": "2025-03-19T00:27:55Z",
     "assets": [
-      "hwatch-0.3.18.aarch64-apple-darwin.tar.gz",
-      "hwatch-0.3.18.x86_64-apple-darwin.tar.gz",
-      "hwatch-0.3.18.x86_64-pc-windows-gnu.zip",
-      "hwatch-0.3.18.x86_64-unknown-linux-gnu.tar.gz",
-      "hwatch-0.3.18.x86_64-unknown-linux-musl.deb",
-      "hwatch-0.3.18.x86_64-unknown-linux-musl.rpm",
-      "hwatch-0.3.18.x86_64-unknown-linux-musl.tar.gz"
+      "hwatch-0.3.19.aarch64-apple-darwin.tar.gz",
+      "hwatch-0.3.19.aarch64-unknown-linux-musl.tar.gz",
+      "hwatch-0.3.19.x86_64-apple-darwin.tar.gz",
+      "hwatch-0.3.19.x86_64-pc-windows-gnu.zip",
+      "hwatch-0.3.19.x86_64-unknown-linux-gnu.tar.gz",
+      "hwatch-0.3.19.x86_64-unknown-linux-musl.deb",
+      "hwatch-0.3.19.x86_64-unknown-linux-musl.rpm",
+      "hwatch-0.3.19.x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -3100,8 +3160,8 @@
   {
     "category": "other",
     "name": "aandrew-me/tgpt",
-    "tag_name": "v2.9.1",
-    "created_at": "2025-02-04T12:13:26Z",
+    "tag_name": "v2.9.2",
+    "created_at": "2025-03-21T10:13:44Z",
     "assets": [
       "tgpt-amd64.exe",
       "tgpt-arm.exe",
@@ -3166,8 +3226,8 @@
   {
     "category": "other",
     "name": "stashapp/stash",
-    "tag_name": "v0.27.2",
-    "created_at": "2024-10-15T21:08:37Z",
+    "tag_name": "v0.28.1",
+    "created_at": "2025-03-19T22:13:19Z",
     "assets": [
       "CHECKSUMS_SHA1",
       "stash-freebsd",
@@ -3341,30 +3401,30 @@
   {
     "category": "other",
     "name": "cli/cli",
-    "tag_name": "v2.68.1",
-    "created_at": "2025-03-06T11:01:40Z",
+    "tag_name": "v2.69.0",
+    "created_at": "2025-03-19T12:24:42Z",
     "assets": [
-      "gh_2.68.1_linux_386.deb",
-      "gh_2.68.1_linux_386.rpm",
-      "gh_2.68.1_linux_386.tar.gz",
-      "gh_2.68.1_linux_amd64.deb",
-      "gh_2.68.1_linux_amd64.rpm",
-      "gh_2.68.1_linux_amd64.tar.gz",
-      "gh_2.68.1_linux_arm64.deb",
-      "gh_2.68.1_linux_arm64.rpm",
-      "gh_2.68.1_linux_arm64.tar.gz",
-      "gh_2.68.1_linux_armv6.deb",
-      "gh_2.68.1_linux_armv6.rpm",
-      "gh_2.68.1_linux_armv6.tar.gz",
-      "gh_2.68.1_macOS_amd64.zip",
-      "gh_2.68.1_macOS_arm64.zip",
-      "gh_2.68.1_macOS_universal.pkg",
-      "gh_2.68.1_windows_386.msi",
-      "gh_2.68.1_windows_386.zip",
-      "gh_2.68.1_windows_amd64.msi",
-      "gh_2.68.1_windows_amd64.zip",
-      "gh_2.68.1_windows_arm64.msi",
-      "gh_2.68.1_windows_arm64.zip"
+      "gh_2.69.0_linux_386.deb",
+      "gh_2.69.0_linux_386.rpm",
+      "gh_2.69.0_linux_386.tar.gz",
+      "gh_2.69.0_linux_amd64.deb",
+      "gh_2.69.0_linux_amd64.rpm",
+      "gh_2.69.0_linux_amd64.tar.gz",
+      "gh_2.69.0_linux_arm64.deb",
+      "gh_2.69.0_linux_arm64.rpm",
+      "gh_2.69.0_linux_arm64.tar.gz",
+      "gh_2.69.0_linux_armv6.deb",
+      "gh_2.69.0_linux_armv6.rpm",
+      "gh_2.69.0_linux_armv6.tar.gz",
+      "gh_2.69.0_macOS_amd64.zip",
+      "gh_2.69.0_macOS_arm64.zip",
+      "gh_2.69.0_macOS_universal.pkg",
+      "gh_2.69.0_windows_386.msi",
+      "gh_2.69.0_windows_386.zip",
+      "gh_2.69.0_windows_amd64.msi",
+      "gh_2.69.0_windows_amd64.zip",
+      "gh_2.69.0_windows_arm64.msi",
+      "gh_2.69.0_windows_arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3373,8 +3433,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.10.0",
-    "created_at": "2025-03-13T17:53:11Z",
+    "tag_name": "0.11.2",
+    "created_at": "2025-03-21T13:17:07Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -3404,8 +3464,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.6.6",
-    "created_at": "2025-03-12T00:02:48Z",
+    "tag_name": "0.6.10",
+    "created_at": "2025-03-26T00:43:41Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -3437,8 +3497,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.12.0",
-    "created_at": "2025-03-07T14:58:55Z",
+    "tag_name": "v1.12.2",
+    "created_at": "2025-03-20T14:03:34Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -3468,6 +3528,21 @@
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.full.tgz"
+    }
+  },
+  {
+    "category": "other",
+    "name": "fathyb/carbonyl",
+    "tag_name": "v0.0.3",
+    "created_at": "2023-02-18T00:17:20Z",
+    "assets": [
+      "carbonyl.linux-amd64.zip",
+      "carbonyl.linux-arm64.zip",
+      "carbonyl.macos-amd64.zip",
+      "carbonyl.macos-arm64.zip"
+    ],
+    "linux_x64": {
+      "ends": "linux-amd64.zip"
     }
   },
   {
@@ -3618,19 +3693,22 @@
   {
     "category": "other",
     "name": "wagoodman/dive",
-    "tag_name": "v0.12.0",
-    "created_at": "2024-02-02T15:27:41Z",
+    "tag_name": "v0.13.0",
+    "created_at": "2025-03-21T18:16:17Z",
     "assets": [
-      "dive_0.12.0_darwin_amd64.tar.gz",
-      "dive_0.12.0_darwin_arm64.tar.gz",
-      "dive_0.12.0_linux_amd64.deb",
-      "dive_0.12.0_linux_amd64.rpm",
-      "dive_0.12.0_linux_amd64.tar.gz",
-      "dive_0.12.0_linux_arm64.deb",
-      "dive_0.12.0_linux_arm64.rpm",
-      "dive_0.12.0_linux_arm64.tar.gz",
-      "dive_0.12.0_windows_amd64.zip",
-      "dive_0.12.0_windows_arm64.zip"
+      "dive_0.13.0_darwin_amd64.tar.gz",
+      "dive_0.13.0_darwin_arm64.tar.gz",
+      "dive_0.13.0_linux_amd64.deb",
+      "dive_0.13.0_linux_amd64.rpm",
+      "dive_0.13.0_linux_amd64.tar.gz",
+      "dive_0.13.0_linux_arm64.deb",
+      "dive_0.13.0_linux_arm64.rpm",
+      "dive_0.13.0_linux_arm64.tar.gz",
+      "dive_0.13.0_linux_ppc64le.deb",
+      "dive_0.13.0_linux_ppc64le.rpm",
+      "dive_0.13.0_linux_ppc64le.tar.gz",
+      "dive_0.13.0_windows_amd64.zip",
+      "dive_0.13.0_windows_arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3739,8 +3817,8 @@
   {
     "category": "other",
     "name": "oven-sh/bun",
-    "tag_name": "bun-v1.2.5",
-    "created_at": "2025-03-11T00:51:57Z",
+    "tag_name": "bun-v1.2.6",
+    "created_at": "2025-03-25T06:49:14Z",
     "assets": [
       "bun-darwin-aarch64-profile.zip",
       "bun-darwin-aarch64.zip",
@@ -3842,20 +3920,20 @@
   {
     "category": "other",
     "name": "siyuan-note/siyuan",
-    "tag_name": "v3.1.24",
-    "created_at": "2025-03-04T03:47:01Z",
+    "tag_name": "v3.1.26",
+    "created_at": "2025-03-25T03:05:14Z",
     "assets": [
-      "siyuan-3.1.24-linux-arm64.AppImage",
-      "siyuan-3.1.24-linux-arm64.deb",
-      "siyuan-3.1.24-linux-arm64.tar.gz",
-      "siyuan-3.1.24-linux.AppImage",
-      "siyuan-3.1.24-linux.deb",
-      "siyuan-3.1.24-linux.tar.gz",
-      "siyuan-3.1.24-mac-arm64.dmg",
-      "siyuan-3.1.24-mac.dmg",
-      "siyuan-3.1.24-win-arm64.exe",
-      "siyuan-3.1.24-win.exe",
-      "siyuan-3.1.24.apk"
+      "siyuan-3.1.26-linux-arm64.AppImage",
+      "siyuan-3.1.26-linux-arm64.deb",
+      "siyuan-3.1.26-linux-arm64.tar.gz",
+      "siyuan-3.1.26-linux.AppImage",
+      "siyuan-3.1.26-linux.deb",
+      "siyuan-3.1.26-linux.tar.gz",
+      "siyuan-3.1.26-mac-arm64.dmg",
+      "siyuan-3.1.26-mac.dmg",
+      "siyuan-3.1.26-win-arm64.exe",
+      "siyuan-3.1.26-win.exe",
+      "siyuan-3.1.26.apk"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -3912,22 +3990,25 @@
   {
     "category": "other",
     "name": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.8.6",
-    "created_at": "2025-03-07T04:32:27Z",
+    "tag_name": "0.8.7",
+    "created_at": "2025-03-19T06:17:17Z",
     "assets": [
-      "AppFlowy-0.8.6-android.apk",
-      "AppFlowy-0.8.6-linux-x86_64.AppImage",
-      "AppFlowy-0.8.6-linux-x86_64.deb",
-      "AppFlowy-0.8.6-linux-x86_64.rpm",
-      "AppFlowy-0.8.6-linux-x86_64.tar.gz",
-      "AppFlowy-0.8.6-macos-arm64.dmg",
-      "AppFlowy-0.8.6-macos-arm64.zip",
-      "AppFlowy-0.8.6-macos-universal.dmg",
-      "AppFlowy-0.8.6-macos-universal.zip",
-      "AppFlowy-0.8.6-macos-x86_64.dmg",
-      "AppFlowy-0.8.6-macos-x86_64.zip",
-      "AppFlowy-0.8.6-windows-x86_64.exe",
-      "AppFlowy-0.8.6-windows-x86_64.zip"
+      "appcast-macos-arm64.xml",
+      "appcast-macos-x86_64.xml",
+      "appcast-windows-x86_64.xml",
+      "AppFlowy-0.8.7-android.apk",
+      "AppFlowy-0.8.7-linux-x86_64.AppImage",
+      "AppFlowy-0.8.7-linux-x86_64.deb",
+      "AppFlowy-0.8.7-linux-x86_64.rpm",
+      "AppFlowy-0.8.7-linux-x86_64.tar.gz",
+      "AppFlowy-0.8.7-macos-arm64.dmg",
+      "AppFlowy-0.8.7-macos-arm64.zip",
+      "AppFlowy-0.8.7-macos-universal.dmg",
+      "AppFlowy-0.8.7-macos-universal.zip",
+      "AppFlowy-0.8.7-macos-x86_64.dmg",
+      "AppFlowy-0.8.7-macos-x86_64.zip",
+      "AppFlowy-0.8.7-windows-x86_64.exe",
+      "AppFlowy-0.8.7-windows-x86_64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
@@ -4044,18 +4125,18 @@
   {
     "category": "other",
     "name": "telegramdesktop/tdesktop",
-    "tag_name": "v5.12.3",
-    "created_at": "2025-03-10T09:32:36Z",
+    "tag_name": "v5.13.0",
+    "created_at": "2025-03-26T08:23:36Z",
     "assets": [
-      "tdesktop-5.12.3-full.tar.gz",
-      "tportable-arm64.5.12.3.zip",
-      "tportable-x64.5.12.3.zip",
-      "tportable.5.12.3.zip",
-      "tsetup-arm64.5.12.3.exe",
-      "tsetup-x64.5.12.3.exe",
-      "tsetup.5.12.3.dmg",
-      "tsetup.5.12.3.exe",
-      "tsetup.5.12.3.tar.xz"
+      "tdesktop-5.13.0-full.tar.gz",
+      "tportable-arm64.5.13.0.zip",
+      "tportable-x64.5.13.0.zip",
+      "tportable.5.13.0.zip",
+      "tsetup-arm64.5.13.0.exe",
+      "tsetup-x64.5.13.0.exe",
+      "tsetup.5.13.0.dmg",
+      "tsetup.5.13.0.exe",
+      "tsetup.5.13.0.tar.xz"
     ],
     "linux_x64": {
       "ends": "tdesktop-5.10.6-full.tar.gz"
@@ -4127,21 +4208,21 @@
   {
     "category": "other",
     "name": "mfontanini/presenterm",
-    "tag_name": "v0.11.0",
-    "created_at": "2025-03-08T21:19:04Z",
+    "tag_name": "v0.12.0",
+    "created_at": "2025-03-25T01:27:16Z",
     "assets": [
-      "presenterm-0.11.0-aarch64-apple-darwin.tar.gz",
-      "presenterm-0.11.0-aarch64-unknown-linux-gnu.tar.gz",
-      "presenterm-0.11.0-aarch64-unknown-linux-musl.tar.gz",
-      "presenterm-0.11.0-armv5te-unknown-linux-gnueabi.tar.gz",
-      "presenterm-0.11.0-armv7-unknown-linux-gnueabihf.tar.gz",
-      "presenterm-0.11.0-i686-pc-windows-msvc.zip",
-      "presenterm-0.11.0-i686-unknown-linux-gnu.tar.gz",
-      "presenterm-0.11.0-i686-unknown-linux-musl.tar.gz",
-      "presenterm-0.11.0-x86_64-apple-darwin.tar.gz",
-      "presenterm-0.11.0-x86_64-pc-windows-msvc.zip",
-      "presenterm-0.11.0-x86_64-unknown-linux-gnu.tar.gz",
-      "presenterm-0.11.0-x86_64-unknown-linux-musl.tar.gz"
+      "presenterm-0.12.0-aarch64-apple-darwin.tar.gz",
+      "presenterm-0.12.0-aarch64-unknown-linux-gnu.tar.gz",
+      "presenterm-0.12.0-aarch64-unknown-linux-musl.tar.gz",
+      "presenterm-0.12.0-armv5te-unknown-linux-gnueabi.tar.gz",
+      "presenterm-0.12.0-armv7-unknown-linux-gnueabihf.tar.gz",
+      "presenterm-0.12.0-i686-pc-windows-msvc.zip",
+      "presenterm-0.12.0-i686-unknown-linux-gnu.tar.gz",
+      "presenterm-0.12.0-i686-unknown-linux-musl.tar.gz",
+      "presenterm-0.12.0-x86_64-apple-darwin.tar.gz",
+      "presenterm-0.12.0-x86_64-pc-windows-msvc.zip",
+      "presenterm-0.12.0-x86_64-unknown-linux-gnu.tar.gz",
+      "presenterm-0.12.0-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -4181,79 +4262,81 @@
   {
     "category": "other",
     "name": "th-ch/youtube-music",
-    "tag_name": "v3.7.5",
-    "created_at": "2025-02-28T15:13:14Z",
+    "tag_name": "v3.8.0",
+    "created_at": "2025-03-26T11:51:20Z",
     "assets": [
-      "YouTube-Music-3.7.5-arm64.AppImage",
-      "YouTube-Music-3.7.5-arm64.dmg",
-      "youtube-music-3.7.5-arm64.freebsd",
-      "youtube-music-3.7.5-arm64.nsis.7z",
-      "youtube-music-3.7.5-arm64.tar.gz",
-      "YouTube-Music-3.7.5-armv7l.AppImage",
-      "youtube-music-3.7.5-armv7l.freebsd",
-      "youtube-music-3.7.5-armv7l.tar.gz",
-      "youtube-music-3.7.5-ia32.nsis.7z",
-      "youtube-music-3.7.5-x64.nsis.7z",
-      "YouTube-Music-3.7.5-x86_64.flatpak",
-      "youtube-music-3.7.5.aarch64.rpm",
-      "YouTube-Music-3.7.5.AppImage",
-      "YouTube-Music-3.7.5.dmg",
-      "YouTube-Music-3.7.5.exe",
-      "youtube-music-3.7.5.freebsd",
-      "youtube-music-3.7.5.tar.gz",
-      "youtube-music-3.7.5.x86_64.rpm",
-      "YouTube-Music-Web-Setup-3.7.5.exe",
-      "youtube-music_3.7.5_amd64.deb",
-      "youtube-music_3.7.5_amd64.snap",
-      "youtube-music_3.7.5_arm64.deb",
-      "youtube-music_3.7.5_armv7l.deb"
+      "YouTube-Music-3.8.0-arm64.AppImage",
+      "YouTube-Music-3.8.0-arm64.dmg",
+      "youtube-music-3.8.0-arm64.freebsd",
+      "youtube-music-3.8.0-arm64.nsis.7z",
+      "youtube-music-3.8.0-arm64.tar.gz",
+      "YouTube-Music-3.8.0-armv7l.AppImage",
+      "youtube-music-3.8.0-armv7l.freebsd",
+      "youtube-music-3.8.0-armv7l.tar.gz",
+      "youtube-music-3.8.0-ia32.nsis.7z",
+      "youtube-music-3.8.0-x64.nsis.7z",
+      "YouTube-Music-3.8.0-x86_64.flatpak",
+      "youtube-music-3.8.0.aarch64.rpm",
+      "YouTube-Music-3.8.0.AppImage",
+      "YouTube-Music-3.8.0.dmg",
+      "YouTube-Music-3.8.0.exe",
+      "youtube-music-3.8.0.freebsd",
+      "youtube-music-3.8.0.tar.gz",
+      "youtube-music-3.8.0.x86_64.rpm",
+      "YouTube-Music-Web-Setup-3.8.0.exe",
+      "youtube-music_3.8.0_amd64.deb",
+      "youtube-music_3.8.0_amd64.snap",
+      "youtube-music_3.8.0_arm64.deb",
+      "youtube-music_3.8.0_armv7l.deb"
     ]
   },
   {
     "category": "other",
     "name": "ytmdesktop/ytmdesktop",
-    "tag_name": "v2.0.7",
-    "created_at": "2025-02-05T21:42:15Z",
+    "tag_name": "v2.0.8",
+    "created_at": "2025-03-19T22:04:52Z",
     "assets": [
       "RELEASES",
-      "youtube-music-desktop-app-2.0.7-1.arm64.rpm",
-      "youtube-music-desktop-app-2.0.7-1.x86_64.rpm",
-      "youtube-music-desktop-app_2.0.7_amd64.deb",
-      "youtube-music-desktop-app_2.0.7_arm64.deb",
-      "YouTube.Music.Desktop.App-2.0.7.Setup.exe",
-      "YouTube.Music.Desktop.App-darwin-x64-2.0.7.zip",
-      "youtube_music_desktop_app-2.0.7-full.nupkg"
+      "youtube-music-desktop-app-2.0.8-1.arm64.rpm",
+      "youtube-music-desktop-app-2.0.8-1.x86_64.rpm",
+      "youtube-music-desktop-app_2.0.8_amd64.deb",
+      "youtube-music-desktop-app_2.0.8_arm64.deb",
+      "YouTube.Music.Desktop.App-2.0.8.Setup.exe",
+      "YouTube.Music.Desktop.App-darwin-x64-2.0.8.zip",
+      "youtube_music_desktop_app-2.0.8-full.nupkg"
     ]
   },
   {
     "category": "other",
     "name": "mkasberg/ghostty-ubuntu",
-    "tag_name": "1.1.2-0-ppa1",
-    "created_at": "2025-02-15T14:22:15Z",
+    "tag_name": "1.1.3-0-ppa1",
+    "created_at": "2025-03-25T01:55:47Z",
     "assets": [
-      "ghostty_1.1.2-0.ppa1_amd64_24.04.deb",
-      "ghostty_1.1.2-0.ppa1_amd64_24.10.deb",
-      "ghostty_1.1.2-0.ppa1_amd64_bookworm.deb",
-      "ghostty_1.1.2-0.ppa1_arm64_24.04.deb",
-      "ghostty_1.1.2-0.ppa1_arm64_24.10.deb",
-      "ghostty_1.1.2-0.ppa1_arm64_bookworm.deb"
+      "ghostty_1.1.3-0.ppa1_amd64_22.04.deb",
+      "ghostty_1.1.3-0.ppa1_amd64_24.04.deb",
+      "ghostty_1.1.3-0.ppa1_amd64_24.10.deb",
+      "ghostty_1.1.3-0.ppa1_amd64_bookworm.deb",
+      "ghostty_1.1.3-0.ppa1_arm64_22.04.deb",
+      "ghostty_1.1.3-0.ppa1_arm64_24.04.deb",
+      "ghostty_1.1.3-0.ppa1_arm64_24.10.deb",
+      "ghostty_1.1.3-0.ppa1_arm64_bookworm.deb"
     ]
   },
   {
     "category": "other",
     "name": "digitalocean/doctl",
-    "tag_name": "v1.123.0",
-    "created_at": "2025-02-26T19:48:09Z",
+    "tag_name": "v1.124.0",
+    "created_at": "2025-03-25T17:41:56Z",
     "assets": [
-      "doctl-1.123.0-darwin-amd64.tar.gz",
-      "doctl-1.123.0-darwin-arm64.tar.gz",
-      "doctl-1.123.0-linux-386.tar.gz",
-      "doctl-1.123.0-linux-amd64.tar.gz",
-      "doctl-1.123.0-linux-arm64.tar.gz",
-      "doctl-1.123.0-source.tar.gz",
-      "doctl-1.123.0-windows-386.zip",
-      "doctl-1.123.0-windows-amd64.zip",
-      "doctl-1.123.0-windows-arm64.zip"
+      "doctl-1.124.0-darwin-amd64.tar.gz",
+      "doctl-1.124.0-darwin-arm64.tar.gz",
+      "doctl-1.124.0-linux-386.tar.gz",
+      "doctl-1.124.0-linux-amd64.tar.gz",
+      "doctl-1.124.0-linux-arm64.tar.gz",
+      "doctl-1.124.0-source.tar.gz",
+      "doctl-1.124.0-windows-386.zip",
+      "doctl-1.124.0-windows-amd64.zip",
+      "doctl-1.124.0-windows-arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux-amd64.tar.gz"
@@ -4343,8 +4426,8 @@
   {
     "category": "other",
     "name": "immich-app/immich",
-    "tag_name": "v1.129.0",
-    "created_at": "2025-03-05T19:47:50Z",
+    "tag_name": "v1.130.2",
+    "created_at": "2025-03-26T15:34:54Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -4356,8 +4439,8 @@
   {
     "category": "other",
     "name": "simulot/immich-go",
-    "tag_name": "v0.24.2",
-    "created_at": "2025-02-23T15:19:38Z",
+    "tag_name": "v0.25.0",
+    "created_at": "2025-03-22T15:56:48Z",
     "assets": [
       "immich-go_Darwin_arm64.tar.gz",
       "immich-go_Darwin_x86_64.tar.gz",
@@ -4392,35 +4475,33 @@
   {
     "category": "other",
     "name": "brave/brave-browser",
-    "tag_name": "v1.76.74",
-    "created_at": "2025-03-11T01:59:23Z",
+    "tag_name": "v1.76.82",
+    "created_at": "2025-03-26T03:39:21Z",
     "assets": [
-      "brave-browser-1.76.74-1.aarch64.rpm",
-      "brave-browser-1.76.74-1.x86_64.rpm",
-      "brave-browser-1.76.74-linux-amd64.zip",
-      "brave-browser-1.76.74-linux-arm64.zip",
+      "brave-browser-1.76.82-1.aarch64.rpm",
+      "brave-browser-1.76.82-1.x86_64.rpm",
+      "brave-browser-1.76.82-linux-amd64.zip",
+      "brave-browser-1.76.82-linux-arm64.zip",
       "Brave-Browser-arm64.dmg",
       "Brave-Browser-arm64.pkg",
       "Brave-Browser-universal.dmg",
       "Brave-Browser-universal.pkg",
       "Brave-Browser-x64.dmg",
       "Brave-Browser-x64.pkg",
-      "brave-browser_1.76.74_amd64.deb",
-      "brave-browser_1.76.74_arm64.deb",
-      "brave-core-ios-1.76.74.app.dSYM.zip",
-      "brave-core-ios-1.76.74.ipa",
-      "brave-v1.76.74-darwin-arm64-symbols.zip",
-      "brave-v1.76.74-darwin-arm64.zip",
-      "brave-v1.76.74-darwin-x64-symbols.zip",
-      "brave-v1.76.74-darwin-x64.zip",
-      "brave-v1.76.74-linux-arm64-symbols.zip",
-      "brave-v1.76.74-linux-x64-symbols.zip",
-      "brave-v1.76.74-win32-arm64-symbols.zip",
-      "brave-v1.76.74-win32-arm64.zip",
-      "brave-v1.76.74-win32-ia32-symbols.zip",
-      "brave-v1.76.74-win32-ia32.zip",
-      "brave-v1.76.74-win32-x64-symbols.zip",
-      "brave-v1.76.74-win32-x64.zip",
+      "brave-browser_1.76.82_amd64.deb",
+      "brave-browser_1.76.82_arm64.deb",
+      "brave-v1.76.82-darwin-arm64-symbols.zip",
+      "brave-v1.76.82-darwin-arm64.zip",
+      "brave-v1.76.82-darwin-x64-symbols.zip",
+      "brave-v1.76.82-darwin-x64.zip",
+      "brave-v1.76.82-linux-arm64-symbols.zip",
+      "brave-v1.76.82-linux-x64-symbols.zip",
+      "brave-v1.76.82-win32-arm64-symbols.zip",
+      "brave-v1.76.82-win32-arm64.zip",
+      "brave-v1.76.82-win32-ia32-symbols.zip",
+      "brave-v1.76.82-win32-ia32.zip",
+      "brave-v1.76.82-win32-x64-symbols.zip",
+      "brave-v1.76.82-win32-x64.zip",
       "Bravearm64Universal.apk",
       "BraveBrowserSetup.exe",
       "BraveBrowserStandaloneSetup.exe",
@@ -4509,8 +4590,8 @@
   {
     "category": "other",
     "name": "pnpm/pnpm",
-    "tag_name": "v10.6.3",
-    "created_at": "2025-03-13T14:05:03Z",
+    "tag_name": "v10.7.0",
+    "created_at": "2025-03-26T10:57:02Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",
@@ -4749,8 +4830,8 @@
   {
     "category": "other",
     "name": "hoppscotch/releases",
-    "tag_name": "v25.2.2-0",
-    "created_at": "2025-03-07T08:35:45Z",
+    "tag_name": "v25.2.3-0",
+    "created_at": "2025-03-12T11:52:29Z",
     "assets": [
       "Hoppscotch_linux_x64.AppImage",
       "Hoppscotch_linux_x64.deb",
@@ -4787,18 +4868,18 @@
   {
     "category": "other",
     "name": "ksysoev/wsget",
-    "tag_name": "v0.7.0",
-    "created_at": "2024-12-21T02:26:21Z",
+    "tag_name": "v0.7.1",
+    "created_at": "2025-03-19T14:25:32Z",
     "assets": [
-      "wsget_0.7.0_linux_386.apk",
-      "wsget_0.7.0_linux_386.deb",
-      "wsget_0.7.0_linux_386.rpm",
-      "wsget_0.7.0_linux_amd64.apk",
-      "wsget_0.7.0_linux_amd64.deb",
-      "wsget_0.7.0_linux_amd64.rpm",
-      "wsget_0.7.0_linux_arm64.apk",
-      "wsget_0.7.0_linux_arm64.deb",
-      "wsget_0.7.0_linux_arm64.rpm",
+      "wsget_0.7.1_linux_386.apk",
+      "wsget_0.7.1_linux_386.deb",
+      "wsget_0.7.1_linux_386.rpm",
+      "wsget_0.7.1_linux_amd64.apk",
+      "wsget_0.7.1_linux_amd64.deb",
+      "wsget_0.7.1_linux_amd64.rpm",
+      "wsget_0.7.1_linux_arm64.apk",
+      "wsget_0.7.1_linux_arm64.deb",
+      "wsget_0.7.1_linux_arm64.rpm",
       "wsget_Darwin_arm64.tar.gz",
       "wsget_Darwin_x86_64.tar.gz",
       "wsget_Linux_arm64.tar.gz",
@@ -5177,10 +5258,10 @@
   {
     "category": "android",
     "name": "PhilKes/NotallyX",
-    "tag_name": "v7.2.0",
-    "created_at": "2025-03-08T17:54:53Z",
+    "tag_name": "v7.2.1",
+    "created_at": "2025-03-18T19:51:26Z",
     "assets": [
-      "NotallyX-7.2.0.apk"
+      "NotallyX-7.2.1.apk"
     ],
     "android": {
       "ends": ".apk"
@@ -5201,8 +5282,8 @@
   {
     "category": "android",
     "name": "t895/DNSNet",
-    "tag_name": "1.1.8",
-    "created_at": "2025-03-12T02:35:59Z",
+    "tag_name": "1.1.13",
+    "created_at": "2025-03-26T04:56:37Z",
     "assets": [
       "app-release.aab",
       "app-release.apk",
@@ -5239,8 +5320,8 @@
   {
     "category": "android",
     "name": "FriesI23/mhabit",
-    "tag_name": "v1.15.4+62",
-    "created_at": "2025-01-28T10:31:30Z",
+    "tag_name": "v1.15.8+66",
+    "created_at": "2025-03-15T12:25:28Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -5408,10 +5489,10 @@
   {
     "category": "android",
     "name": "Arturo254/OpenTune",
-    "tag_name": "1.9.4",
-    "created_at": "2025-01-19T21:25:03Z",
+    "tag_name": "1.9.5",
+    "created_at": "2025-03-16T03:45:27Z",
     "assets": [
-      "app-foss-release.apk"
+      "app-release.apk"
     ],
     "android": {
       "ends": ".apk"
@@ -5420,11 +5501,11 @@
   {
     "category": "android",
     "name": "DD3Boh/OuterTune",
-    "tag_name": "v0.7.6",
-    "created_at": "2025-03-09T23:24:32Z",
+    "tag_name": "v0.7.7",
+    "created_at": "2025-03-21T18:21:49Z",
     "assets": [
-      "OuterTune-0.7.6-arm64-release.apk",
-      "OuterTune-0.7.6-universal-release.apk"
+      "OuterTune-0.7.7-arm64-release.apk",
+      "OuterTune-0.7.7-universal-release.apk"
     ],
     "android": {
       "ends": "universal-release.apk"
@@ -5433,8 +5514,8 @@
   {
     "category": "android",
     "name": "mostafaalagamy/Metrolist",
-    "tag_name": "v11.0.0",
-    "created_at": "2025-02-05T14:36:11Z",
+    "tag_name": "v11.1.0",
+    "created_at": "2025-03-25T19:12:42Z",
     "assets": [
       "Metrolist.apk"
     ],
@@ -5461,8 +5542,8 @@
   {
     "category": "android",
     "name": "fast4x/RiMusic",
-    "tag_name": "v0.6.74",
-    "created_at": "2025-03-07T22:56:38Z",
+    "tag_name": "v0.6.76",
+    "created_at": "2025-03-21T21:37:23Z",
     "assets": [
       "rimusic-full-release.apk"
     ],
@@ -5547,11 +5628,11 @@
   {
     "category": "android",
     "name": "pilot51/voicenotify",
-    "tag_name": "v1.4.2",
-    "created_at": "2025-01-03T16:07:52Z",
+    "tag_name": "v1.4.4",
+    "created_at": "2025-03-22T23:02:44Z",
     "assets": [
-      "VoiceNotify_v1.4.2-debug.apk",
-      "VoiceNotify_v1.4.2.apk"
+      "VoiceNotify_v1.4.4-debug.apk",
+      "VoiceNotify_v1.4.4.apk"
     ],
     "android": {
       "ends": ".apk"

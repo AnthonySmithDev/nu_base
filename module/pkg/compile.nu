@@ -3,7 +3,7 @@ export def alacritty [] {
   deps alacritty
 
   let source = ($env.USR_LOCAL_SOURCE | path join alacritty)
-  git-down https://github.com/alacritty/alacritty.git $source v0.15
+  git-down https://github.com/alacritty/alacritty.git $source --tag v0.15
 
   let manifest = ($source | path join Cargo.toml)
   cargo build --manifest-path $manifest --release --no-default-features --features=wayland # --features=x11
@@ -37,7 +37,7 @@ export def ghostty [] {
   sudo apt install libgtk-4-dev libadwaita-1-dev git
 
   let source = ($env.USR_LOCAL_SOURCE | path join ghostty)
-  git-down https://github.com/ghostty-org/ghostty $source
+  git-down https://github.com/ghostty-org/ghostty $source --tag v1.1.3
 
   with-wd $source {||
     zig build -Doptimize=ReleaseFast

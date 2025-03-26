@@ -39,14 +39,17 @@ export def --env with-wd [path: string, closure: closure] {
   cd $pwd
 }
 
-export def git-down [repository: string, path: string, tag?: string] {
-  if ($path | path exists) {
-    git -C $path pull
+export def git-down [ repo: string, dir: string, --tag(-t): string --branch(-b): string ] {
+  if ($dir | path exists) {
+    git -C $dir pull
   } else {
-    git clone $repository $path
+    git clone $repo $dir
   }
   if ($tag | is-not-empty) {
-    git -C $path switch $tag
+    git -C $dir checkout $tag
+  }
+  if ($branch | is-not-empty) {
+    git -C $dir switch $branch
   }
 }
 

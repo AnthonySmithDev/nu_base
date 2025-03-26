@@ -38,6 +38,7 @@ export def packages [] {
     [ category name url];
 		[ dev gopls golang.org/x/tools/gopls@latest ]
 		[ dev dlv github.com/go-delve/delve/cmd/dlv@latest ]
+		[ dev staticcheck honnef.co/go/tools/cmd/staticcheck@latest ]
 		[ dev golangci-lint github.com/golangci/golangci-lint/cmd/golangci-lint@latest ]
 		[ dev golangci-lint-langserver github.com/nametake/golangci-lint-langserver@latest ]
 

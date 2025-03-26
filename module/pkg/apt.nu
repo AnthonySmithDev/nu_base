@@ -62,6 +62,7 @@ export def basic [] {
     ssh
     sshpass
     openssh-server
+    libssl-dev
 
     libxss1
     libqt5concurrent5

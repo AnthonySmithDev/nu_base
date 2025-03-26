@@ -85,6 +85,9 @@ env-path $env.UV_BIN
 $env.CARGO_BINSTALL_BIN = ($env.USR_LOCAL_LIB | path join cargo-binstall)
 env-path $env.CARGO_BINSTALL_BIN
 
+$env.CARBONYL_BIN = ($env.USR_LOCAL_LIB | path join carbonyl)
+env-path $env.CARBONYL_BIN
+
 $env.MONGOSH_PATH = ($env.USR_LOCAL_LIB | path join mongosh)
 $env.MONGOSH_BIN = ($env.MONGOSH_PATH | path join bin)
 env-path $env.MONGOSH_BIN

@@ -1551,6 +1551,21 @@ export def --env cargo-binstall [ --force(-f) ] {
   env-path $env.CARGO_BINSTALL_BIN
 }
 
+export def --env carbonyl [ --force(-f) ] {
+  let repository = 'fathyb/carbonyl'
+  let tag_name = ghub tag_name $repository
+  let path = dirpath carbonyl $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -p $path
+  }
+
+  bind dir $path $env.CARGO_BINSTALL_BIN
+  env-path $env.CARGO_BINSTALL_BIN
+}
+
 export def micro [ --force(-f) ] {
   let repository = 'zyedidia/micro'
   let tag_name = ghub tag_name $repository
@@ -1671,14 +1686,14 @@ export def github [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download $repository
     let decompress_path = decompress $download_path
-    move -d $decompress_path -f gh -p $path
+    move -d $decompress_path -f bin/gh -p $path
   }
 
   bind file gh $path
 }
 
 export def gitlab [ --force(-f) ] {
-  let version = '1.52.0'
+  let version = '1.55.0'
   let path = filepath glab $version
 
   if (path-not-exists $path $force) {
@@ -3357,7 +3372,11 @@ export def core [ --force(-f) ] {
   kubecolor
 
   uv
+  ruff
   pnpm
+
+  github
+  gitlab
 
   gum
   mods
@@ -3379,6 +3398,7 @@ export def core [ --force(-f) ] {
   rclone
   qrrs
   taskell
+  zk
   viddy
   wsget
 }
