@@ -47,11 +47,6 @@ def --env scd [] {
   }
 }
 
-def --wrapped bg [...rest] {
-  let cmd = $"($rest | str join ' ') > /dev/null 2>&1 &"
-  bash -c $cmd
-}
-
 def build [] {
   nu ($env.NU_BASE_PATH | path join docker build.nu)
 }

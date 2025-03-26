@@ -15,7 +15,7 @@ def choose [] {
 
 export def main [url: string] {
   let browser = choose
-  bg $browser $url
+  job spawn { run-external $browser $url }
 }
 
 const extensions = [
@@ -30,13 +30,8 @@ const extensions = [
 
 export def extension [] {
   let browser = choose
-  if (ps | where name =~ $browser | is-empty) {
-    bg $browser
-  }
-  for $extension in $extensions {
-    do -i {
-      ^$browser $extension
-    }
+  for $url in $extensions {
+    job spawn { run-external $browser $url }
   }
 }
 
@@ -56,7 +51,8 @@ export def vieb [
   if ($url | is-not-empty) {
     $args = ($args | append $url)
   }
-  bg vieb ...$args
+  let args = $args
+  job spawn {|| ^vieb ...$args }
 }
 
 export def brave [
@@ -92,7 +88,8 @@ export def brave [
   if ($url | is-not-empty) {
     $args = ($args | append $url)
   }
-  bg brave-browser ...$args
+  let args = $args
+  job spawn {|| ^brave-browser ...$args }
 }
 
 export def chrome [
@@ -120,5 +117,6 @@ export def chrome [
   if ($url | is-not-empty) {
     $args = ($args | append $url)
   }
-  bg google-chrome ...$args
+  let args = $args
+  job spawn {|| ^google-chrome ...$args }
 }

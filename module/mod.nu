@@ -17,7 +17,6 @@ use clock.nu
 # use file.nu
 # use text.nu
 # use sql.nu
-# use bg.nu
 
 use connect.nu
 use browser.nu
