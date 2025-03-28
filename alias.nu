@@ -89,21 +89,36 @@ alias dcL = docker compose logs --follow
 alias lzg = lazygit
 alias lzd = lazydocker
 
+def completions [t] {
+  {
+    options: {
+      case_sensitive: false,
+      completion_algorithm: prefix,
+      positional: false,
+      sort: false,
+    },
+    completions: $t
+  }
+}
+
 alias mo = mods
+
 alias mos = mods --show-last
 alias mor = mods --show-last --raw
+alias moe = tempeditor --suffix .md (mor)
 alias moc = mods --continue-last
 
 def mop [...rest] { wl-paste | mo ...$rest }
-def moP [...rest] { wl-paste | moc ...$rest }
+def mocp [...rest] { wl-paste | moc ...$rest }
 
-def moe [] { mos | hx }
-def mol [] { mods --list --raw }
-def moi [] { mol | parse "{value}\t{description}\t{time}" }
-def moS [id: string@moi] { mods --show $id }
-def moR [id: string@moi] { mods --show $id --raw }
-def moE [id: string@moi] { mods --show $id --raw | hx }
-def moC [id: string@moi, ...rest] { mods --continue $id ...$rest }
+def molr [] { mods --list --raw }
+def molc [] { completions (molr | parse "{value}\t{description}\t{time}") }
+
+def moS [id: string@molc] { mods --show $id }
+def moR [id: string@molc] { mods --show $id --raw }
+def moE [id: string@molc] { tempeditor --suffix .md (moR $id) }
+def moC [id: string@molc, ...rest] { mods --continue $id ...$rest }
+def moP [id: string@molc, ...rest] { wl-paste | mods --continue $id ...$rest }
 
 alias xcp = xclip -i -selection clipboard
 alias xps = xclip -o -selection clipboard

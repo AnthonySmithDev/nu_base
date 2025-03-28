@@ -187,6 +187,8 @@ apis:
         aliases: ["deepseek-r1"]
       "mixtral:latest":
         aliases: ["mixtral:latest"]
+      "gemma3:27b":
+        aliases: ["gemma3:27b"]
   perplexity:
     base-url: https://api.perplexity.ai
     api-key:

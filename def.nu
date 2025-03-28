@@ -450,14 +450,18 @@ def paths [
   return $paths
 }
 
-def tempeditor [data: any, --suffix(-s): string = ""] {
+def tempeditor [data: any, --suffix(-s): string = "", --output(-o)] {
   if ($data | str trim | is-empty) {
     return
   }
+
   let temp = mktemp --tmpdir --suffix $suffix
   $data | str trim | save --force $temp
   hx $temp
-  return (open $temp | str trim)
+
+  if $output {
+    return (open $temp | str trim)
+  }
 }
 
 def rn [
@@ -489,7 +493,7 @@ def rn [
     return
   }
 
-  let renamed_paths = (tempeditor $list_paths --suffix .txt | lines)
+  let renamed_paths = (tempeditor $list_paths --suffix .txt --output | lines)
   if ($renamed_paths | length) != ($list_paths | length) {
     print "No hay el mismo numero de elementos para renombrar."
     return
@@ -522,7 +526,7 @@ def xrm [
     return
   }
 
-  let selected_paths = (tempeditor $list_paths --suffix .txt | lines)
+  let selected_paths = (tempeditor $list_paths --suffix .txt --output | lines)
   if ($selected_paths | length) == ($list_paths | length) {
     print "Hay el mismo numero de elementos no se eliminara nada."
     return
