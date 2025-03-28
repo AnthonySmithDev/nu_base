@@ -46,7 +46,7 @@ C-l = [
     ":reload-all"
 ]
 
-[keys.normal.";"]
+[keys.select.","]
 "a" = ":pipe-to ctx"
 "s" = ":sh ctx show"
 "d" = ":sh ctx delete"

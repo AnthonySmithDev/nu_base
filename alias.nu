@@ -2,11 +2,19 @@
 alias la = ls -la
 alias tk = taskell
 alias btop = btop -lc
-alias top = btm --basic
-alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
-
 alias fdd = fd --type dir
 alias fdf = fd --type file
+
+alias top = btm --basic
+alias cpu = btm --expanded --default_widget_type cpu
+alias mem = btm --expanded --default_widget_type mem
+alias net = btm --expanded --default_widget_type net
+alias proc = btm --expanded --default_widget_type proc
+alias temp = btm --expanded --default_widget_type temp
+alias disk = btm --expanded --default_widget_type disk
+alias batt = btm --expanded --default_widget_type batt
+
+alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 
 alias sas = apt search
 alias sai = sudo apt install -y
@@ -182,4 +190,4 @@ alias asr = audiosource run
 
 alias snips = ssh snips.sh
 
-alias rcopy = rclone copy -P -M
+alias rcopy = rclone copy --checkers=1 --transfers=1 -P -M

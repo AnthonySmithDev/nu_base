@@ -439,10 +439,10 @@ def paths [
   mut paths = []
   if ($search != null) {
     $paths = if ($type != null) {
-      fd --type $type $search --full-path $path | lines
-    } else { fd $search --full-path $path | lines }
+      fd  --hidden --type $type $search --full-path $path | lines
+    } else { fd  --hidden  $search --full-path $path | lines }
   } else {
-    let list = ls $path
+    let list = ls -la $path
     $paths = if ($type != null) {
       $list | where type == $type | get name
     } else { $list | get name }
