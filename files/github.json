@@ -353,26 +353,26 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.60.3",
-    "created_at": "2025-03-03T08:15:02Z",
+    "tag_name": "v0.61.0",
+    "created_at": "2025-03-30T10:54:10Z",
     "assets": [
-      "fzf-0.60.3-darwin_amd64.tar.gz",
-      "fzf-0.60.3-darwin_arm64.tar.gz",
-      "fzf-0.60.3-freebsd_amd64.tar.gz",
-      "fzf-0.60.3-linux_amd64.tar.gz",
-      "fzf-0.60.3-linux_arm64.tar.gz",
-      "fzf-0.60.3-linux_armv5.tar.gz",
-      "fzf-0.60.3-linux_armv6.tar.gz",
-      "fzf-0.60.3-linux_armv7.tar.gz",
-      "fzf-0.60.3-linux_loong64.tar.gz",
-      "fzf-0.60.3-linux_ppc64le.tar.gz",
-      "fzf-0.60.3-linux_s390x.tar.gz",
-      "fzf-0.60.3-openbsd_amd64.tar.gz",
-      "fzf-0.60.3-windows_amd64.zip",
-      "fzf-0.60.3-windows_arm64.zip",
-      "fzf-0.60.3-windows_armv5.zip",
-      "fzf-0.60.3-windows_armv6.zip",
-      "fzf-0.60.3-windows_armv7.zip"
+      "fzf-0.61.0-darwin_amd64.tar.gz",
+      "fzf-0.61.0-darwin_arm64.tar.gz",
+      "fzf-0.61.0-freebsd_amd64.tar.gz",
+      "fzf-0.61.0-linux_amd64.tar.gz",
+      "fzf-0.61.0-linux_arm64.tar.gz",
+      "fzf-0.61.0-linux_armv5.tar.gz",
+      "fzf-0.61.0-linux_armv6.tar.gz",
+      "fzf-0.61.0-linux_armv7.tar.gz",
+      "fzf-0.61.0-linux_loong64.tar.gz",
+      "fzf-0.61.0-linux_ppc64le.tar.gz",
+      "fzf-0.61.0-linux_s390x.tar.gz",
+      "fzf-0.61.0-openbsd_amd64.tar.gz",
+      "fzf-0.61.0-windows_amd64.zip",
+      "fzf-0.61.0-windows_arm64.zip",
+      "fzf-0.61.0-windows_armv5.zip",
+      "fzf-0.61.0-windows_armv6.zip",
+      "fzf-0.61.0-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -1047,15 +1047,15 @@
   {
     "category": "extra",
     "name": "yorukot/superfile",
-    "tag_name": "v1.2.0.0",
-    "created_at": "2025-03-05T14:29:28Z",
+    "tag_name": "v1.2.1",
+    "created_at": "2025-03-29T02:29:06Z",
     "assets": [
-      "superfile-darwin-v1.2.0.0-amd64.tar.gz",
-      "superfile-darwin-v1.2.0.0-arm64.tar.gz",
-      "superfile-linux-v1.2.0.0-amd64.tar.gz",
-      "superfile-linux-v1.2.0.0-arm64.tar.gz",
-      "superfile-windows-v1.2.0.0-amd64.zip",
-      "superfile-windows-v1.2.0.0-arm64.zip"
+      "superfile-darwin-v1.2.1-amd64.tar.gz",
+      "superfile-darwin-v1.2.1-arm64.tar.gz",
+      "superfile-linux-v1.2.1-amd64.tar.gz",
+      "superfile-linux-v1.2.1-arm64.tar.gz",
+      "superfile-windows-v1.2.1-amd64.zip",
+      "superfile-windows-v1.2.1-arm64.zip"
     ],
     "linux_x64": {
       "starts": "superfile-linux",
@@ -1410,8 +1410,8 @@
   {
     "category": "extra",
     "name": "sarub0b0/kubetui",
-    "tag_name": "v1.6.2",
-    "created_at": "2025-03-11T14:16:03Z",
+    "tag_name": "v1.7.0",
+    "created_at": "2025-03-29T06:12:26Z",
     "assets": [
       "kubetui-aarch64-apple-darwin",
       "kubetui-x86_64-apple-darwin",
@@ -2054,8 +2054,8 @@
   {
     "category": "extra",
     "name": "jtroo/kanata",
-    "tag_name": "v1.8.0",
-    "created_at": "2025-02-09T06:43:10Z",
+    "tag_name": "v1.8.1",
+    "created_at": "2025-03-30T23:28:03Z",
     "assets": [
       "kanata",
       "kanata.exe",
@@ -2284,8 +2284,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.6.2",
-    "created_at": "2025-03-17T22:41:37Z",
+    "tag_name": "v0.6.3",
+    "created_at": "2025-03-26T20:39:01Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -2325,8 +2325,8 @@
   {
     "category": "other",
     "name": "mudler/LocalAI",
-    "tag_name": "v2.26.0",
-    "created_at": "2025-02-15T17:17:15Z",
+    "tag_name": "v2.27.0",
+    "created_at": "2025-03-30T21:59:30Z",
     "assets": [
       "local-ai-Darwin-arm64",
       "local-ai-Darwin-x86_64",
@@ -2841,8 +2841,8 @@
   {
     "category": "other",
     "name": "Y2Z/monolith",
-    "tag_name": "v2.10.0",
-    "created_at": "2025-03-24T22:55:13Z",
+    "tag_name": "v2.10.1",
+    "created_at": "2025-03-30T02:36:37Z",
     "assets": [
       "monolith-gnu-linux-aarch64",
       "monolith-gnu-linux-armhf",
@@ -3276,34 +3276,34 @@
   {
     "category": "other",
     "name": "carapace-sh/carapace-bin",
-    "tag_name": "v1.2.1",
-    "created_at": "2025-01-25T20:16:20Z",
+    "tag_name": "v1.3.0",
+    "created_at": "2025-03-31T20:47:52Z",
     "assets": [
-      "carapace-bin_1.2.1_android_386.termux.deb",
-      "carapace-bin_1.2.1_android_amd64.termux.deb",
-      "carapace-bin_1.2.1_android_arm64.termux.deb",
-      "carapace-bin_1.2.1_android_armv6.termux.deb",
-      "carapace-bin_1.2.1_darwin_amd64.tar.gz",
-      "carapace-bin_1.2.1_darwin_arm64.tar.gz",
-      "carapace-bin_1.2.1_linux_386.apk",
-      "carapace-bin_1.2.1_linux_386.deb",
-      "carapace-bin_1.2.1_linux_386.rpm",
-      "carapace-bin_1.2.1_linux_386.tar.gz",
-      "carapace-bin_1.2.1_linux_amd64.apk",
-      "carapace-bin_1.2.1_linux_amd64.deb",
-      "carapace-bin_1.2.1_linux_amd64.rpm",
-      "carapace-bin_1.2.1_linux_amd64.tar.gz",
-      "carapace-bin_1.2.1_linux_arm64.apk",
-      "carapace-bin_1.2.1_linux_arm64.deb",
-      "carapace-bin_1.2.1_linux_arm64.rpm",
-      "carapace-bin_1.2.1_linux_arm64.tar.gz",
-      "carapace-bin_1.2.1_termux_386.tar.gz",
-      "carapace-bin_1.2.1_termux_amd64.tar.gz",
-      "carapace-bin_1.2.1_termux_arm64.tar.gz",
-      "carapace-bin_1.2.1_termux_armv6.tar.gz",
-      "carapace-bin_1.2.1_windows_386.zip",
-      "carapace-bin_1.2.1_windows_amd64.zip",
-      "carapace-bin_1.2.1_windows_arm64.zip"
+      "carapace-bin_1.3.0_android_386.termux.deb",
+      "carapace-bin_1.3.0_android_amd64.termux.deb",
+      "carapace-bin_1.3.0_android_arm64.termux.deb",
+      "carapace-bin_1.3.0_android_armv6.termux.deb",
+      "carapace-bin_1.3.0_darwin_amd64.tar.gz",
+      "carapace-bin_1.3.0_darwin_arm64.tar.gz",
+      "carapace-bin_1.3.0_linux_386.apk",
+      "carapace-bin_1.3.0_linux_386.deb",
+      "carapace-bin_1.3.0_linux_386.rpm",
+      "carapace-bin_1.3.0_linux_386.tar.gz",
+      "carapace-bin_1.3.0_linux_amd64.apk",
+      "carapace-bin_1.3.0_linux_amd64.deb",
+      "carapace-bin_1.3.0_linux_amd64.rpm",
+      "carapace-bin_1.3.0_linux_amd64.tar.gz",
+      "carapace-bin_1.3.0_linux_arm64.apk",
+      "carapace-bin_1.3.0_linux_arm64.deb",
+      "carapace-bin_1.3.0_linux_arm64.rpm",
+      "carapace-bin_1.3.0_linux_arm64.tar.gz",
+      "carapace-bin_1.3.0_termux_386.tar.gz",
+      "carapace-bin_1.3.0_termux_amd64.tar.gz",
+      "carapace-bin_1.3.0_termux_arm64.tar.gz",
+      "carapace-bin_1.3.0_termux_armv6.tar.gz",
+      "carapace-bin_1.3.0_windows_386.zip",
+      "carapace-bin_1.3.0_windows_amd64.zip",
+      "carapace-bin_1.3.0_windows_arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3464,8 +3464,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.6.10",
-    "created_at": "2025-03-26T00:43:41Z",
+    "tag_name": "0.6.11",
+    "created_at": "2025-03-30T19:37:13Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -3639,8 +3639,8 @@
   {
     "category": "other",
     "name": "TheWaWaR/simple-http-server",
-    "tag_name": "v0.6.10",
-    "created_at": "2024-10-27T02:58:47Z",
+    "tag_name": "v0.6.12",
+    "created_at": "2025-03-30T06:58:06Z",
     "assets": [
       "aarch64-apple-darwin-simple-http-server",
       "aarch64-unknown-linux-musl-simple-http-server",
@@ -3693,22 +3693,22 @@
   {
     "category": "other",
     "name": "wagoodman/dive",
-    "tag_name": "v0.13.0",
-    "created_at": "2025-03-21T18:16:17Z",
+    "tag_name": "v0.13.1",
+    "created_at": "2025-03-29T14:39:11Z",
     "assets": [
-      "dive_0.13.0_darwin_amd64.tar.gz",
-      "dive_0.13.0_darwin_arm64.tar.gz",
-      "dive_0.13.0_linux_amd64.deb",
-      "dive_0.13.0_linux_amd64.rpm",
-      "dive_0.13.0_linux_amd64.tar.gz",
-      "dive_0.13.0_linux_arm64.deb",
-      "dive_0.13.0_linux_arm64.rpm",
-      "dive_0.13.0_linux_arm64.tar.gz",
-      "dive_0.13.0_linux_ppc64le.deb",
-      "dive_0.13.0_linux_ppc64le.rpm",
-      "dive_0.13.0_linux_ppc64le.tar.gz",
-      "dive_0.13.0_windows_amd64.zip",
-      "dive_0.13.0_windows_arm64.zip"
+      "dive_0.13.1_darwin_amd64.tar.gz",
+      "dive_0.13.1_darwin_arm64.tar.gz",
+      "dive_0.13.1_linux_amd64.deb",
+      "dive_0.13.1_linux_amd64.rpm",
+      "dive_0.13.1_linux_amd64.tar.gz",
+      "dive_0.13.1_linux_arm64.deb",
+      "dive_0.13.1_linux_arm64.rpm",
+      "dive_0.13.1_linux_arm64.tar.gz",
+      "dive_0.13.1_linux_ppc64le.deb",
+      "dive_0.13.1_linux_ppc64le.rpm",
+      "dive_0.13.1_linux_ppc64le.tar.gz",
+      "dive_0.13.1_windows_amd64.zip",
+      "dive_0.13.1_windows_arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3817,8 +3817,8 @@
   {
     "category": "other",
     "name": "oven-sh/bun",
-    "tag_name": "bun-v1.2.7",
-    "created_at": "2025-03-27T06:57:10Z",
+    "tag_name": "bun-v1.2.8",
+    "created_at": "2025-03-31T12:50:34Z",
     "assets": [
       "bun-darwin-aarch64-profile.zip",
       "bun-darwin-aarch64.zip",
@@ -4426,8 +4426,8 @@
   {
     "category": "other",
     "name": "immich-app/immich",
-    "tag_name": "v1.130.3",
-    "created_at": "2025-03-27T15:54:30Z",
+    "tag_name": "v1.131.1",
+    "created_at": "2025-03-31T20:36:48Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -4539,8 +4539,8 @@
   {
     "category": "other",
     "name": "SUPERCILEX/clipboard-history",
-    "tag_name": "0.9.4",
-    "created_at": "2025-03-13T01:30:46Z",
+    "tag_name": "0.9.5",
+    "created_at": "2025-03-29T18:44:24Z",
     "assets": [
       "aarch64-unknown-linux-gnu-ringboard",
       "aarch64-unknown-linux-gnu-ringboard-egui",
@@ -5153,15 +5153,16 @@
   {
     "category": "other",
     "name": "Genymobile/scrcpy",
-    "tag_name": "v3.1",
-    "created_at": "2024-12-09T21:42:39Z",
+    "tag_name": "v3.2",
+    "created_at": "2025-03-29T15:15:31Z",
     "assets": [
-      "scrcpy-linux-x86_64-v3.1.tar.gz",
-      "scrcpy-macos-aarch64-v3.1.tar.gz",
-      "scrcpy-macos-x86_64-v3.1.tar.gz",
-      "scrcpy-server-v3.1",
-      "scrcpy-win32-v3.1.zip",
-      "scrcpy-win64-v3.1.zip"
+      "scrcpy-linux-x86_64-v3.2.tar.gz",
+      "scrcpy-macos-aarch64-v3.2.tar.gz",
+      "scrcpy-macos-x86_64-v3.2.tar.gz",
+      "scrcpy-release-v3.2.zip",
+      "scrcpy-server-v3.2",
+      "scrcpy-win32-v3.2.zip",
+      "scrcpy-win64-v3.2.zip"
     ],
     "linux_x64": {
       "starts": "scrcpy-linux-x86_64"
@@ -5389,8 +5390,8 @@
   {
     "category": "android",
     "name": "stratumauth/app",
-    "tag_name": "v1.2.2",
-    "created_at": "2025-03-07T18:57:51Z",
+    "tag_name": "v1.2.3",
+    "created_at": "2025-03-31T17:06:21Z",
     "assets": [
       "com.stratumauth.app-arm64-v8a.fdroid.apk",
       "com.stratumauth.app-armeabi-v7a.fdroid.apk",
@@ -5514,8 +5515,8 @@
   {
     "category": "android",
     "name": "mostafaalagamy/Metrolist",
-    "tag_name": "v11.2.0",
-    "created_at": "2025-03-26T23:29:45Z",
+    "tag_name": "v11.3.0",
+    "created_at": "2025-03-30T04:14:04Z",
     "assets": [
       "Metrolist.apk"
     ],
@@ -5611,15 +5612,15 @@
   {
     "category": "android",
     "name": "sakethpathike/Linkora",
-    "tag_name": "release-v0.11.2",
-    "created_at": "2025-02-25T13:57:20Z",
+    "tag_name": "release-v0.12.0",
+    "created_at": "2025-03-28T18:11:19Z",
     "assets": [
       "composeApp-release.apk",
-      "Linkora-1.0.2.exe",
-      "Linkora-1.0.2.msi",
-      "Linkora-linux-x64-1.0.2.jar",
+      "Linkora-1.0.3.exe",
+      "Linkora-1.0.3.msi",
+      "Linkora-linux-x64-1.0.3.jar",
       "Linkora.AppImage",
-      "linkora_1.0.2-1_amd64.deb"
+      "linkora_1.0.3-1_amd64.deb"
     ],
     "android": {
       "ends": ".apk"

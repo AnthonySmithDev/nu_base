@@ -205,4 +205,17 @@ alias asr = audiosource run
 
 alias snips = ssh snips.sh
 
-alias rcopy = rclone copy --checkers=1 --transfers=1 -P -M
+alias rcopy = rclone copy --ignore-existing --checkers=0 --transfers=1 -P -M
+
+alias unzipd = ^unzip -d
+alias unrarx = ^unrar x
+
+alias untar = ^tar -xvf
+alias untargz = ^tar -xzvf
+alias untarbz2 = ^tar -xjvf
+alias untarxz = ^tar -xJvf
+
+alias zipdir = ^zip -r
+alias targz = ^tar -czvf
+alias tarbz2 = ^tar -cjvf
+alias tarxz = ^tar -cJvf

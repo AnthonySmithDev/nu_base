@@ -297,7 +297,7 @@ export def dart [] {
   sudo rm '/usr/share/keyrings/dart.gpg'
 
   wget -qO- "https://dl-ssl.google.com/linux/linux_signing_key.pub"
-  | sudo gpg --dearmor -o '/usr/share/keyrings/dart.gpg' | ignore
+  | sudo gpg --yes --dearmor -o '/usr/share/keyrings/dart.gpg' | ignore
 
   echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main'
   | sudo tee '/etc/apt/sources.list.d/dart_stable.list' | ignore
@@ -345,7 +345,7 @@ export def docker [] {
     sudo install -m 0755 -d /etc/apt/keyrings
 
     curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg'
-    | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg | ignore
+    | sudo gpg --yes --dearmor -o /etc/apt/keyrings/docker.gpg | ignore
 
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
   }
@@ -440,7 +440,7 @@ export def remmina [] {
 
 export def vagrant [] {
   wget -O- https://apt.releases.hashicorp.com/gpg
-  | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg | ignore
+  | sudo gpg --yes --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg | ignore
 
   echo $"deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
   | sudo tee /etc/apt/sources.list.d/hashicorp.list
@@ -523,4 +523,15 @@ export def unityhub [] {
 
   sudo apt update
   sudo apt install -y unityhub
+}
+
+export def windsurf [] {
+  curl -fsSL "https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/windsurf.gpg"
+  | sudo gpg --yes --dearmor -o /usr/share/keyrings/windsurf-stable-archive-keyring.gpg
+
+  echo "deb [signed-by=/usr/share/keyrings/windsurf-stable-archive-keyring.gpg arch=amd64] https://windsurf-stable.codeiumdata.com/wVxQEIWkwPUEAGf3/apt stable main"
+  | sudo tee /etc/apt/sources.list.d/windsurf.list | ignore
+
+  sudo apt update
+  sudo apt upgrade -y windsurf
 }

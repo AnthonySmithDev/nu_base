@@ -41,6 +41,7 @@ $env.USR_LOCAL_FONT = ($env.USR_LOCAL_DOWN | path join font)
 $env.USR_LOCAL_SHARE_BIN = ($env.USR_LOCAL_SHARE | path join bin)
 $env.USR_LOCAL_SHARE_LIB = ($env.USR_LOCAL_SHARE | path join lib)
 $env.USR_LOCAL_SHARE_BUILD = ($env.USR_LOCAL_SHARE | path join build)
+$env.USR_LOCAL_SHARE_APP_IMAGE = ($env.USR_LOCAL_SHARE | path join appimage)
 
 $env.NUSHELL_BIN = ($env.USR_LOCAL_LIB | path join nushell)
 env-path $env.NUSHELL_BIN

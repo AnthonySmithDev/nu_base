@@ -72,6 +72,7 @@ def setup_dir [] {
   mkdir $env.USR_LOCAL_SHARE_BIN
   mkdir $env.USR_LOCAL_SHARE_LIB
   mkdir $env.USR_LOCAL_SHARE_BUILD
+  mkdir $env.USR_LOCAL_SHARE_APP_IMAGE
 
   mkdir $env.LOCAL_BIN
   mkdir $env.LOCAL_SHARE

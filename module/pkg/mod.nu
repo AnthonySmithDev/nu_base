@@ -19,6 +19,7 @@ export module py.nu
 export module snap.nu
 export module flathub.nu
 export module compile.nu
+export module appimage.nu
 
 export module font.nu
 export module apk
