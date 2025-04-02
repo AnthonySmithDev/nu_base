@@ -83,7 +83,7 @@ export def --env env [] {
   $env.ADB_SERVER_SOCKET = $"tcp:($env.AVD_SERVER_SOCKET):5037"
 }
 
-export def --env scrcpy [] {
+export def --env --wrapped scrcpy [--max-size: int = 1480, ...rest] {
   env
-  ^scrcpy --tunnel-host $env.AVD_SERVER_SOCKET
+  ^scrcpy --tunnel-host $env.AVD_SERVER_SOCKET --max-size $max_size ...$rest
 }

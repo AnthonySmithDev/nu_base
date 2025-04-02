@@ -1690,42 +1690,42 @@
   {
     "category": "extra",
     "name": "charmbracelet/freeze",
-    "tag_name": "v0.2.0",
-    "created_at": "2025-03-24T18:10:33Z",
+    "tag_name": "v0.2.2",
+    "created_at": "2025-04-01T23:36:04Z",
     "assets": [
-      "freeze-0.2.0-1.aarch64.rpm",
-      "freeze-0.2.0-1.armv7hl.rpm",
-      "freeze-0.2.0-1.i386.rpm",
-      "freeze-0.2.0-1.x86_64.rpm",
-      "freeze-0.2.0.tar.gz",
-      "freeze_0.2.0_aarch64.apk",
-      "freeze_0.2.0_amd64.deb",
-      "freeze_0.2.0_arm64.deb",
-      "freeze_0.2.0_armhf.deb",
-      "freeze_0.2.0_armv7.apk",
-      "freeze_0.2.0_Darwin_arm64.tar.gz",
-      "freeze_0.2.0_Darwin_x86_64.tar.gz",
-      "freeze_0.2.0_Freebsd_arm.tar.gz",
-      "freeze_0.2.0_Freebsd_arm64.tar.gz",
-      "freeze_0.2.0_Freebsd_i386.tar.gz",
-      "freeze_0.2.0_Freebsd_x86_64.tar.gz",
-      "freeze_0.2.0_i386.deb",
-      "freeze_0.2.0_Linux_arm.tar.gz",
-      "freeze_0.2.0_Linux_arm64.tar.gz",
-      "freeze_0.2.0_Linux_i386.tar.gz",
-      "freeze_0.2.0_Linux_x86_64.tar.gz",
-      "freeze_0.2.0_Netbsd_arm.tar.gz",
-      "freeze_0.2.0_Netbsd_arm64.tar.gz",
-      "freeze_0.2.0_Netbsd_i386.tar.gz",
-      "freeze_0.2.0_Netbsd_x86_64.tar.gz",
-      "freeze_0.2.0_Openbsd_arm.tar.gz",
-      "freeze_0.2.0_Openbsd_arm64.tar.gz",
-      "freeze_0.2.0_Openbsd_i386.tar.gz",
-      "freeze_0.2.0_Openbsd_x86_64.tar.gz",
-      "freeze_0.2.0_Windows_i386.zip",
-      "freeze_0.2.0_Windows_x86_64.zip",
-      "freeze_0.2.0_x86.apk",
-      "freeze_0.2.0_x86_64.apk"
+      "freeze-0.2.2-1.aarch64.rpm",
+      "freeze-0.2.2-1.armv7hl.rpm",
+      "freeze-0.2.2-1.i386.rpm",
+      "freeze-0.2.2-1.x86_64.rpm",
+      "freeze-0.2.2.tar.gz",
+      "freeze_0.2.2_aarch64.apk",
+      "freeze_0.2.2_amd64.deb",
+      "freeze_0.2.2_arm64.deb",
+      "freeze_0.2.2_armhf.deb",
+      "freeze_0.2.2_armv7.apk",
+      "freeze_0.2.2_Darwin_arm64.tar.gz",
+      "freeze_0.2.2_Darwin_x86_64.tar.gz",
+      "freeze_0.2.2_Freebsd_arm.tar.gz",
+      "freeze_0.2.2_Freebsd_arm64.tar.gz",
+      "freeze_0.2.2_Freebsd_i386.tar.gz",
+      "freeze_0.2.2_Freebsd_x86_64.tar.gz",
+      "freeze_0.2.2_i386.deb",
+      "freeze_0.2.2_Linux_arm.tar.gz",
+      "freeze_0.2.2_Linux_arm64.tar.gz",
+      "freeze_0.2.2_Linux_i386.tar.gz",
+      "freeze_0.2.2_Linux_x86_64.tar.gz",
+      "freeze_0.2.2_Netbsd_arm.tar.gz",
+      "freeze_0.2.2_Netbsd_arm64.tar.gz",
+      "freeze_0.2.2_Netbsd_i386.tar.gz",
+      "freeze_0.2.2_Netbsd_x86_64.tar.gz",
+      "freeze_0.2.2_Openbsd_arm.tar.gz",
+      "freeze_0.2.2_Openbsd_arm64.tar.gz",
+      "freeze_0.2.2_Openbsd_i386.tar.gz",
+      "freeze_0.2.2_Openbsd_x86_64.tar.gz",
+      "freeze_0.2.2_Windows_i386.zip",
+      "freeze_0.2.2_Windows_x86_64.zip",
+      "freeze_0.2.2_x86.apk",
+      "freeze_0.2.2_x86_64.apk"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -2147,10 +2147,10 @@
   {
     "category": "extra",
     "name": "eza-community/eza",
-    "tag_name": "v0.20.24",
-    "created_at": "2025-03-13T07:42:15Z",
+    "tag_name": "v0.21.0",
+    "created_at": "2025-04-02T13:10:13Z",
     "assets": [
-      "completions-0.20.24.tar.gz",
+      "completions-0.21.0.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.zip",
       "eza_aarch64-unknown-linux-gnu.tar.gz",
@@ -2165,7 +2165,7 @@
       "eza_x86_64-unknown-linux-gnu.zip",
       "eza_x86_64-unknown-linux-musl.tar.gz",
       "eza_x86_64-unknown-linux-musl.zip",
-      "man-0.20.24.tar.gz"
+      "man-0.21.0.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -2284,8 +2284,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.6.3",
-    "created_at": "2025-03-26T20:39:01Z",
+    "tag_name": "v0.6.2",
+    "created_at": "2025-03-17T22:41:37Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -2306,17 +2306,15 @@
   {
     "category": "other",
     "name": "plandex-ai/plandex",
-    "tag_name": "cli/v2.0.3",
-    "created_at": "2025-03-26T16:57:11Z",
+    "tag_name": "cli/v2.0.4",
+    "created_at": "2025-04-01T01:34:37Z",
     "assets": [
-      "plandex_2.0.3_darwin_amd64.tar.gz",
-      "plandex_2.0.3_darwin_arm64.tar.gz",
-      "plandex_2.0.3_freebsd_amd64.tar.gz",
-      "plandex_2.0.3_freebsd_arm64.tar.gz",
-      "plandex_2.0.3_linux_amd64.tar.gz",
-      "plandex_2.0.3_linux_arm64.tar.gz",
-      "plandex_2.0.3_windows_amd64.tar.gz",
-      "plandex_2.0.3_windows_arm64.tar.gz"
+      "plandex_2.0.4_darwin_amd64.tar.gz",
+      "plandex_2.0.4_darwin_arm64.tar.gz",
+      "plandex_2.0.4_freebsd_amd64.tar.gz",
+      "plandex_2.0.4_freebsd_arm64.tar.gz",
+      "plandex_2.0.4_linux_amd64.tar.gz",
+      "plandex_2.0.4_linux_arm64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3189,8 +3187,8 @@
   {
     "category": "other",
     "name": "cloudflare/cloudflared",
-    "tag_name": "2025.2.1",
-    "created_at": "2025-02-26T16:44:32Z",
+    "tag_name": "2025.4.0",
+    "created_at": "2025-04-01T19:23:54Z",
     "assets": [
       "cloudflared-amd64.pkg",
       "cloudflared-arm64.pkg",
@@ -4426,8 +4424,8 @@
   {
     "category": "other",
     "name": "immich-app/immich",
-    "tag_name": "v1.131.1",
-    "created_at": "2025-03-31T20:36:48Z",
+    "tag_name": "v1.131.2",
+    "created_at": "2025-04-01T11:41:56Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -4590,8 +4588,8 @@
   {
     "category": "other",
     "name": "pnpm/pnpm",
-    "tag_name": "v10.7.0",
-    "created_at": "2025-03-26T10:57:02Z",
+    "tag_name": "v10.7.1",
+    "created_at": "2025-04-01T11:55:51Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",
@@ -4721,10 +4719,13 @@
   {
     "category": "other",
     "name": "ynqa/jnv",
-    "tag_name": "v0.5.0",
-    "created_at": "2025-01-06T14:23:22Z",
+    "tag_name": "v0.6.0",
+    "created_at": "2025-04-01T13:26:40Z",
     "assets": [
       "jnv-aarch64-apple-darwin.tar.xz",
+      "jnv-aarch64-unknown-linux-gnu.tar.xz",
+      "jnv-armv7-unknown-linux-gnueabihf.tar.xz",
+      "jnv-installer.sh",
       "jnv-x86_64-apple-darwin.tar.xz",
       "jnv-x86_64-pc-windows-msvc.zip",
       "jnv-x86_64-unknown-linux-gnu.tar.xz",
@@ -5283,8 +5284,8 @@
   {
     "category": "android",
     "name": "t895/DNSNet",
-    "tag_name": "1.1.14",
-    "created_at": "2025-03-27T02:57:02Z",
+    "tag_name": "1.1.15",
+    "created_at": "2025-04-01T04:09:03Z",
     "assets": [
       "app-release.aab",
       "app-release.apk",

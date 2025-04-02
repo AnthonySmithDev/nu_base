@@ -316,15 +316,15 @@ def 'rfzf' [query: string = ''] {
   fzf ...$args
 }
 
-def lsi [] {
+def list-images [pixelation: string = ""] {
   let images = (fd -e png -e jpg -e jpeg -d 1 | lines)
   if ($images | is-empty) {
     return
   }
-  let isBig = (term size | get columns) > 110
-  let isMany = ($images | length) > 6
-  let grid = if ($isBig and $isMany) { 6 } else { 3 }
-  timg --title --pixelation sixel --grid $grid ...$images
+  let is_big = (term size | get columns) > 110
+  let is_many = ($images | length) > 6
+  let grid = if ($is_big and $is_many) { 6 } else { 3 }
+  timg --title --pixelation $pixelation --grid $grid ...$images
 }
 
 def 'rsftp' [] {

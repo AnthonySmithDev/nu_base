@@ -128,8 +128,8 @@ args = []
 [window]
 # width = 600
 # height = 400
-mode = "maximized"
-opacity = 0.95
+# mode = "windowed"
+opacity = 0.9
 blur = true
 decorations = "disabled"
 

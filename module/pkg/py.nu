@@ -54,5 +54,6 @@ export def packages [] {
     [ other elia git+https://github.com/darrenburns/elia ]
     [ other termtyper git+https://github.com/kraanzu/termtyper ]
     [ other vimiv git+https://github.com/karlch/vimiv ]
+    [ other vimg textual-imageview ]
   ]
 }
