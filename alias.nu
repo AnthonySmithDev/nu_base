@@ -220,8 +220,8 @@ alias targz = ^tar -czvf
 alias tarbz2 = ^tar -cjvf
 alias tarxz = ^tar -cJvf
 
-alias lih = list-images half
-alias liq = list-images quarter
-alias lik = list-images kitty
-alias lii = list-images iterm2
-alias lis = list-images sixel
+alias lih = list-images -p half
+alias liq = list-images -p quarter
+alias lik = list-images -p kitty
+alias lii = list-images -p iterm2
+alias lis = list-images -p sixel

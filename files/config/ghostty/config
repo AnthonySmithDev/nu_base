@@ -59,3 +59,15 @@ background-blur = 0
 
 bold-is-bright = false
 window-decoration = none
+
+keybind = ctrl+alt+j=goto_split:down
+keybind = ctrl+alt+k=goto_split:up
+
+keybind = ctrl+alt+h=goto_split:left
+keybind = ctrl+alt+l=goto_split:right
+
+keybind = ctrl+shift+j=jump_to_prompt:1
+keybind = ctrl+shift+k=jump_to_prompt:-1
+
+keybind = ctrl+shift+h=previous_tab
+keybind = ctrl+shift+l=next_tab

@@ -316,15 +316,29 @@ def 'rfzf' [query: string = ''] {
   fzf ...$args
 }
 
-def list-images [pixelation: string = ""] {
-  let images = (fd -e png -e jpg -e jpeg -d 1 | lines)
+def list-images [
+  ...images: string
+  --pixelation(-p): string = "sixel"
+  --max-depth(-d): int = 1
+] {
+  let images = if ($images | is-empty) {
+    fd -e png -e jpg -e jpeg -d $max_depth | lines
+  } else {
+    $images
+  }
+
   if ($images | is-empty) {
     return
   }
-  let is_big = (term size | get columns) > 110
-  let is_many = ($images | length) > 6
-  let grid = if ($is_big and $is_many) { 6 } else { 3 }
-  timg --title --pixelation $pixelation --grid $grid ...$images
+
+  let terminal_width = (term size | get columns)
+  let is_wide_terminal = $terminal_width > 110
+  let image_count = ($images | length)
+  
+  let max_images_per_row = if $image_count <= 2 { $image_count } else { 2 }
+  let grid_columns = if $is_wide_terminal { $max_images_per_row * 2 } else { $max_images_per_row }
+
+  timg --title --pixelation $pixelation --grid $grid_columns ...$images
 }
 
 def 'rsftp' [] {
