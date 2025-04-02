@@ -165,7 +165,12 @@ export def decompress [filepath: path, --dirpath(-d): string] {
   return $dir
 }
 
-export def "asset download" [name: string@names, first?: string, --path(-p): string, --extract(-e)] {
+export def "asset download" [
+  name: string@names,
+  first?: string,
+  --path(-p): string,
+  --extract(-e),
+] {
   let r = repo view $name
   let asset = assetx $r $first
   let download_url = download_url $name $r.tag_name $asset
@@ -183,7 +188,7 @@ export def "asset download" [name: string@names, first?: string, --path(-p): str
     http download $download_url --output $output
   }
   if $extract {
-    return (decompress $output --dirpath ($path | path join $basename))
+    return (decompress $output --dirpath ($path | path join $basename $r.tag_name))
   }
   return $output
 }
@@ -374,3 +379,4 @@ export def "repo update" [...names: string@names] {
     $repos | save --force $env.GITHUB_REPOSITORY
   }
 }
+

@@ -1,24 +1,48 @@
 
-def path-not-exists [path: string, force: bool] {
-  (not ($path | path exists) or $force)
+def filepath [name: string, version: string] {
+  $env.USR_LOCAL_SHARE_BIN | path join $"($name)_($version)"
 }
 
-def download [ url: string, --dirname(-d): string, --filename(-n): string, --force(-f) ] {
-  let dir = if ($dirname | is-not-empty) {
-    $env.TMP_PATH_FILE | path join $dirname
+def dirpath [name: string, version: string] {
+  $env.USR_LOCAL_SHARE_LIB | path join $"($name)_($version)"
+}
+
+def 'bind dir' [src: string, dst: string] {
+  rm -rf $dst
+  ln -sf $src $dst
+}
+
+def 'bind file' [cmd: string, src: string] {
+  let dst = ($env.USR_LOCAL_BIN | path join $cmd)
+  rm -rf $dst
+  ln -sf $src $dst
+}
+
+def 'bind root' [cmd: string, src: string] {
+  let dst = ($env.SYS_LOCAL_BIN | path join $cmd)
+  sudo rm -rf $dst
+  sudo ln -sf $src $dst
+}
+
+def move [
+  --dir(-d): string = ''
+  --file(-f): string = '',
+  --path(-p): string,
+] {
+  if ($path | path exists) {
+    rm -rf $path
+  }
+  let src = ($dir | path join $file)
+  if ($src | path exists) {
+    mv --force $src $path
   } else {
-    $env.TMP_PATH_FILE
+    error make -u {msg: $"Source not exists \n ($src)"}
   }
-  mkdir $dir
-  let path = if ($filename | is-not-empty) {
-    $dir | path join $filename
-  } else {
-    $dir | path join ($url | url filename)
-  }
-  if (path-not-exists $path $force) {
-    http download $url --output $path
-  }
-  return $path
+  if ($dir | path exists) { rm -rf $dir }
+}
+
+def path-not-exists [path: string, force: bool] {
+  (not ($path | path exists) or $force)
 }
 
 def decompress [path: path] {
@@ -2889,65 +2913,6 @@ export def apkeep [ --force(-f) ] {
   bind file apkeep $path
 }
 
-export def firefox-de [ --force(-f) ] {
-  http download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
-  extract tar firefox-129.0b6.tar.bz2
-
-  sudo mv firefox /opt
-  sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
-  sudo wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/install-firefox-linux/firefox.desktop -P /usr/local/share/applications
-}
-
-def choose [versions: list] {
-  if not (^which gum | is-empty) {
-    (^gum choose ...$versions)
-  } else {
-    ($versions | input list)
-  }
-}
-
-def filepath [name: string, version: string] {
-  $env.USR_LOCAL_SHARE_BIN | path join $"($name)_($version)"
-}
-
-def dirpath [name: string, version: string] {
-  $env.USR_LOCAL_SHARE_LIB | path join $"($name)_($version)"
-}
-
-def 'bind dir' [src: string, dst: string] {
-  rm -rf $dst
-  ln -sf $src $dst
-}
-
-def 'bind file' [cmd: string, src: string] {
-  let dst = ($env.USR_LOCAL_BIN | path join $cmd)
-  rm -rf $dst
-  ln -sf $src $dst
-}
-
-def 'bind root' [cmd: string, src: string] {
-  let dst = ($env.SYS_LOCAL_BIN | path join $cmd)
-  sudo rm -rf $dst
-  sudo ln -sf $src $dst
-}
-
-def move [
-  --dir(-d): string = ''
-  --file(-f): string = '',
-  --path(-p): string,
-] {
-  if ($path | path exists) {
-    rm -rf $path
-  }
-  let src = ($dir | path join $file)
-  if ($src | path exists) {
-    mv --force $src $path
-  } else {
-    error make -u {msg: $"Source not exists \n ($src)"}
-  }
-  if ($dir | path exists) { rm -rf $dir }
-}
-
 export def core [ --force(-f) ] {
   xh
   helix
@@ -2975,8 +2940,8 @@ export def core [ --force(-f) ] {
   ruff
   pnpm
 
-  github
-  gitlab
+  github-cli
+  gitlab-cli
 
   gum
   mods
