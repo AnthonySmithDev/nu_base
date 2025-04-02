@@ -3342,8 +3342,7 @@ def move [
   if ($src | path exists) {
     mv --force $src $path
   } else {
-    print $src
-    error make -u {msg: $"Source not exists"}
+    error make -u {msg: $"Source not exists \n ($src)"}
   }
   if ($dir | path exists) { rm -rf $dir }
 }

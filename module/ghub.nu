@@ -117,18 +117,73 @@ export def asset [name: string@names, first?: string] {
   assetx $r $first
 }
 
-export def "asset download" [name: string@names, first?: string] {
+export def decompress [filepath: path, --dirpath(-d): string] {
+  if not ($filepath | path exists) {
+    error make {msg: $"Path not exists: ($filepath)"}
+  }
+
+  let dir = if $dirpath == null {
+    mktemp --directory --tmpdir-path $env.TMP_PATH_DIR
+  } else {
+    $dirpath
+  }
+  mkdir $dir
+
+  if $filepath =~ ".tar" or $filepath =~ ".tbz" or $filepath =~ ".tgz" or $filepath =~ ".tar.gz" {
+    if (exists-external gum) {
+      ^gum spin --spinner dot --title 'Extract tar...' -- tar -xvf $filepath -C $dir
+    } else {
+      tar -xvf $filepath -C $dir
+    }
+  } else if $filepath =~ ".zip" {
+    if (exists-external gum) {
+      ^gum spin --spinner dot --title 'Extract zip...' -- unzip $filepath -d $dir
+    } else {
+      unzip $filepath -d $dir
+    }
+  } else if $filepath =~ ".gz" {
+    let basename = ($filepath | path basename | str replace '.gz' '')
+    let filepath = ($dir | path join $basename)
+    gunzip -c $filepath | save --force $filepath
+    return $filepath
+  } else {
+    error make {msg: "Unsupported file format"}
+  }
+
+  let content = (ls $dir | get name)
+  let first_item = ($content | first)
+
+  if ($content | length) == 1 and ($first_item | path type) == "dir" {
+    let nested_content = (ls $first_item | get name)
+    let second_item = ($nested_content | first)
+
+    if ($nested_content | length) == 1 and ($second_item | path type) == "dir" {
+      return $second_item
+    }
+    return $first_item
+  }
+  return $dir
+}
+
+export def "asset download" [name: string@names, first?: string, --path(-p): string, --extract(-e)] {
   let r = repo view $name
   let asset = assetx $r $first
   let download_url = download_url $name $r.tag_name $asset
 
   let basename = ($name | path basename)
-  let dirname = ($env.TMP_PATH_FILE | path join $basename)
+  let dirname = if $path == null {
+    ($env.TMP_PATH_FILE | path join $basename $r.tag_name) 
+  } else {
+    $path
+  }
   mkdir $dirname
 
   let output = ($dirname | path join $asset)
   if not ($output | path exists) {
     http download $download_url --output $output
+  }
+  if $extract {
+    return (decompress $output --dirpath ($path | path join $basename))
   }
   return $output
 }
