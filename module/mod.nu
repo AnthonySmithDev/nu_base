@@ -11,7 +11,7 @@ use fm.nu
 use clock.nu
 
 # use download.nu
-# use photos.nu
+use photos.nu
 
 # use dir.nu
 # use file.nu

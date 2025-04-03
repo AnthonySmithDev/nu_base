@@ -85,6 +85,7 @@ alias dcd = docker compose down
 alias dcD = docker compose down --volumes
 alias dcl = docker compose logs
 alias dcL = docker compose logs --follow
+alias dcp = docker compose pull
 
 alias lzg = lazygit
 alias lzd = lazydocker

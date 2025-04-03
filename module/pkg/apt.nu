@@ -510,6 +510,10 @@ export def nautilus [] {
   sudo apt install -y nautilus
 }
 
+export def gparted [] {
+  sudo apt install -y gparted
+}
+
 export def sixel [] {
   sudo apt install -y libsixel-dev libsixel1 libsixel-bin
 }
