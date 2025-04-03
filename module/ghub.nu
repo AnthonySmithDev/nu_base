@@ -269,7 +269,7 @@ export def "repos update" [] {
   let last_index = index-get
   mut repos = open $env.GITHUB_REPOSITORY
   let length = ($repos | length)
-  for $it in ($repos | enumerate | skip $last_index | first ($rate_limit.remaining - 1)) {
+  for $it in ($repos | enumerate | skip $last_index | first $rate_limit.remaining) {
     let old = $it.item
     let old_version = ($old.tag_name | to-version)
 

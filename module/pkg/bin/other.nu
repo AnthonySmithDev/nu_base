@@ -479,6 +479,27 @@ export def --env scilab [ --force(-f) ] {
   env-path $env.SCILAB_BIN
 }
 
+export def gitlab-cli [ --force(-f) ] {
+  let version = '1.55.0'
+  let path = filepath glab $version
+
+  if (path-not-exists $path $force) {
+    let download_path = download https://gitlab.com/gitlab-org/cli/-/releases/v($version)/downloads/glab_($version)_linux_amd64.tar.gz -d gitlab
+    let decompress_path = decompress $download_path
+    move -d $decompress_path -f bin/glab -p $path
+  }
+
+  bind file glab $path
+}
+
+export def gitlab-runner [ --force(-f) ] {
+  sudo curl -L --output /usr/local/bin/gitlab-runner 'https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64'
+  sudo chmod 777 /usr/local/bin/gitlab-runner
+  sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+  sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
+  sudo gitlab-runner start
+}
+
 export def firefox-de [ --force(-f) ] {
   http download https://download-installer.cdn.mozilla.net/pub/devedition/releases/129.0b6/linux-x86_64/es-ES/firefox-129.0b6.tar.bz2
   extract tar firefox-129.0b6.tar.bz2

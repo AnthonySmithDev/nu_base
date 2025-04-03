@@ -226,3 +226,6 @@ alias liq = list-images -p quarter
 alias lik = list-images -p kitty
 alias lii = list-images -p iterm2
 alias lis = list-images -p sixel
+
+alias gru = ghub repos update
+alias grU = ghub repo update
