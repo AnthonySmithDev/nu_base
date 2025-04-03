@@ -26,19 +26,17 @@ def 'bind root' [cmd: string, src: string] {
 
 def move [
   --dir(-d): string = ''
-  --files(-f): string = '',
+  --file(-f): string = '',
   --path(-p): string,
 ] {
   if ($path | path exists) {
     rm -rf $path
   }
-  for $file in ($files | split row ,) {
-    let src = ($dir | path join $file)
-    if ($src | path exists) {
-      mv --force $src $path
-    } else {
-      error make -u {msg: $"Source not exists \n ($src)"}
-    }
+  let src = ($dir | path join $file)
+  if ($src | path exists) {
+    mv --force $src $path
+  } else {
+    error make -u {msg: $"Source not exists \n ($src)"}
   }
   if ($dir | path exists) { rm -rf $dir }
 }

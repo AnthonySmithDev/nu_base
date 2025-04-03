@@ -271,3 +271,13 @@ export def vi-mongo [] {
   print $'User Config: vi-mongo'
   shortcut vi-mongo config.yaml
 }
+
+export def yazi [] {
+  print $'User Config: yazi'
+
+  shortcut yazi init.lua
+  shortcut yazi theme.toml
+
+  ya pack -a yazi-rs/plugins:full-border
+  ya pack -a kmlupreti/ayu-dark
+}
