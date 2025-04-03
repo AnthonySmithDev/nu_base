@@ -78,10 +78,10 @@ export def tag_name [name: string@names] {
   return $r.tag_name
 }
 
-export def assetx [r: record, first?: string] {
+export def assetx [r: record, start?: string] {
   mut assets = $r.assets
-  if $first != null {
-    $assets = ($assets | filter { |e| str starts-with $first })
+  if $start != null {
+    $assets = ($assets | filter { |e| str starts-with $start })
   }
   let system = $env.PKG_BIN_SYS?
   if ($system != null) {
@@ -104,17 +104,17 @@ export def assetx [r: record, first?: string] {
   
 }
 
-export def "asset apk download_url" [name: string@names, first?: string] {
+export def "asset apk download_url" [name: string@names, start?: string] {
   $env.PKG_BIN_SYS = "android"
 
   let r = repo view $name
-  let asset = assetx $r $first
+  let asset = assetx $r $start
   download_url $name $r.tag_name $asset
 }
 
-export def asset [name: string@names, first?: string] {
+export def asset [name: string@names, start?: string] {
   let r = repo view $name
-  assetx $r $first
+  assetx $r $start
 }
 
 export def decompress [filepath: path, --dirpath(-d): string] {
@@ -122,10 +122,8 @@ export def decompress [filepath: path, --dirpath(-d): string] {
     error make {msg: $"Path not exists: ($filepath)"}
   }
 
-  let dir = if $dirpath == null {
+  let dir = if $dirpath != null { $dirpath } else {
     mktemp --directory --tmpdir-path $env.TMP_PATH_DIR
-  } else {
-    $dirpath
   }
   mkdir $dir
 
@@ -165,32 +163,38 @@ export def decompress [filepath: path, --dirpath(-d): string] {
   return $dir
 }
 
+export def download [url: string] {
+  
+}
+
 export def "asset download" [
-  name: string@names,
-  first?: string,
-  --path(-p): string,
-  --extract(-e),
+  name: string@names
+  --start(-s): string
+  --end(-e): string
+  --path(-p): string
+  --extract(-x)
 ] {
-  let r = repo view $name
-  let asset = assetx $r $first
-  let download_url = download_url $name $r.tag_name $asset
+  let repo = repo view $name
+  let asset = assetx $repo $start
+  let download_url = download_url $name $repo.tag_name $asset
 
   let basename = ($name | path basename)
-  let dirname = if $path == null {
-    ($env.TMP_PATH_FILE | path join $basename $r.tag_name) 
-  } else {
-    $path
-  }
-  mkdir $dirname
+  let dirpath = $path | default $env.TMP_PATH_FILE
+  let dirname = ($dirpath | path join $basename $repo.tag_name) 
+  let download_dir = ($dirname | path join "download")
+  mkdir $download_dir
 
-  let output = ($dirname | path join $asset)
-  if not ($output | path exists) {
-    http download $download_url --output $output
+  let filepath = ($download_dir | path join $asset)
+  if not ($filepath | path exists) {
+    http download $download_url --output $filepath
   }
+
   if $extract {
-    return (decompress $output --dirpath ($path | path join $basename $r.tag_name))
+    let extract_dir = ($dirname | path join "extract")
+    return (decompress $filepath --dirpath $extract_dir)
   }
-  return $output
+
+  return $filepath
 }
 
 export def index-get [] {
