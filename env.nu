@@ -105,6 +105,9 @@ env-path $env.OLLAMA_BIN
 $env.GITOXIDE_BIN = ($env.USR_LOCAL_LIB | path join gitoxide)
 env-path $env.GITOXIDE_BIN
 
+$env.YAZI_BIN = ($env.USR_LOCAL_LIB | path join yazi)
+env-path $env.YAZI_BIN
+
 $env.DENO_PATH = ($env.HOME | path join .deno)
 $env.DENO_BIN = ($env.DENO_PATH | path join bin)
 env-path $env.DENO_BIN

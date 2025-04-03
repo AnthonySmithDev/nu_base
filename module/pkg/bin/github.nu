@@ -26,17 +26,19 @@ def 'bind root' [cmd: string, src: string] {
 
 def move [
   --dir(-d): string = ''
-  --file(-f): string = '',
+  --files(-f): string = '',
   --path(-p): string,
 ] {
   if ($path | path exists) {
     rm -rf $path
   }
-  let src = ($dir | path join $file)
-  if ($src | path exists) {
-    mv --force $src $path
-  } else {
-    error make -u {msg: $"Source not exists \n ($src)"}
+  for $file in ($files | split row ,) {
+    let src = ($dir | path join $file)
+    if ($src | path exists) {
+      mv --force $src $path
+    } else {
+      error make -u {msg: $"Source not exists \n ($src)"}
+    }
   }
   if ($dir | path exists) { rm -rf $dir }
 }
@@ -1698,17 +1700,18 @@ export def hwatch [ --force(-f) ] {
   bind file hwatch $path
 }
 
-export def yazi [ --force(-f) ] {
+export def --env yazi [ --force(-f) ] {
   let repository = 'sxyazi/yazi'
   let tag_name = ghub tag_name $repository
-  let path = filepath yazi $tag_name
+  let path = dirpath yazi $tag_name
 
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository
-    move -d $download_path -f yazi -p $path
+    move -d $download_path -p $path
   }
 
-  bind file yazi $path
+  bind dir $path $env.YAZI_BIN
+  env-path $env.YAZI_BIN
 }
 
 export def kmon [ --force(-f) ] {
@@ -2705,4 +2708,17 @@ export def apkeep [ --force(-f) ] {
   }
 
   bind file apkeep $path
+}
+
+export def lf [ --force(-f) ] {
+  let repository = 'gokcehan/lf'
+  let tag_name = ghub tag_name $repository
+  let path = filepath lf $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download -x $repository
+    move -d $download_path -f lf -p $path
+  }
+
+  bind file lf $path
 }

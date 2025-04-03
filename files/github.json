@@ -2284,8 +2284,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.6.2",
-    "created_at": "2025-03-17T22:41:37Z",
+    "tag_name": "v0.6.4",
+    "created_at": "2025-04-02T20:22:56Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -2940,6 +2940,46 @@
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.zip"
+    }
+  },
+  {
+    "category": "other",
+    "name": "gokcehan/lf",
+    "tag_name": "r34",
+    "created_at": "2025-02-09T11:50:06Z",
+    "assets": [
+      "lf-android-arm64.tar.gz",
+      "lf-darwin-amd64.tar.gz",
+      "lf-darwin-arm64.tar.gz",
+      "lf-dragonfly-amd64.tar.gz",
+      "lf-freebsd-386.tar.gz",
+      "lf-freebsd-amd64.tar.gz",
+      "lf-freebsd-arm.tar.gz",
+      "lf-illumos-amd64.tar.gz",
+      "lf-linux-386.tar.gz",
+      "lf-linux-amd64.tar.gz",
+      "lf-linux-arm.tar.gz",
+      "lf-linux-arm64.tar.gz",
+      "lf-linux-mips.tar.gz",
+      "lf-linux-mips64.tar.gz",
+      "lf-linux-mips64le.tar.gz",
+      "lf-linux-mipsle.tar.gz",
+      "lf-linux-ppc64.tar.gz",
+      "lf-linux-ppc64le.tar.gz",
+      "lf-linux-s390x.tar.gz",
+      "lf-netbsd-386.tar.gz",
+      "lf-netbsd-amd64.tar.gz",
+      "lf-netbsd-arm.tar.gz",
+      "lf-openbsd-386.tar.gz",
+      "lf-openbsd-amd64.tar.gz",
+      "lf-openbsd-arm.tar.gz",
+      "lf-openbsd-arm64.tar.gz",
+      "lf-solaris-amd64.tar.gz",
+      "lf-windows-386.zip",
+      "lf-windows-amd64.zip"
+    ],
+    "linux_x64": {
+      "starts": "lf-linux-amd64"
     }
   },
   {

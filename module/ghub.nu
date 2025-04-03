@@ -274,9 +274,17 @@ export def "repos update" [] {
     let old_version = ($old.tag_name | to-version)
 
     let new = if $old.prerelease? == true {
-      releases $old.name | where prerelease == true | first
+      try {
+        releases $old.name | where prerelease == true | first
+      } catch {
+        break
+      }
     } else {
-      releases-latest $old.name
+      try {
+        releases-latest $old.name
+      } catch {
+        break
+      }
     }
 
     let new_version = ($new.tag_name | to-version)
