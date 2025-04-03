@@ -257,6 +257,10 @@ def exclusion [] {
 }
 
 export def "repos update" [] {
+  let changelog_dir = ($env.TMP_PATH_FILE | path join changelog)
+  rm -rf $changelog_dir
+  mkdir $changelog_dir
+
   let rate_limit = rate_limit
   if $rate_limit.remaining == 0 {
     return ($rate_limit | select reset remaining)
@@ -265,7 +269,7 @@ export def "repos update" [] {
   let last_index = index-get
   mut repos = open $env.GITHUB_REPOSITORY
   let length = ($repos | length)
-  for $it in ($repos | enumerate | skip $last_index | first $rate_limit.remaining) {
+  for $it in ($repos | enumerate | skip $last_index | first ($rate_limit.remaining - 1)) {
     let old = $it.item
     let old_version = ($old.tag_name | to-version)
 
@@ -309,6 +313,14 @@ export def "repos update" [] {
 
     $repos = ($repos | upsert $it.index $repo)
     $repos | save --force $env.GITHUB_REPOSITORY
+
+    let changelog_file = ($changelog_dir | path join $"($old.name | path basename).md")
+    $new.body | save --force $changelog_file
+  }
+  if (ls $changelog_dir | is-not-empty) {
+    if (confirm see changelog...?) {
+      glow $changelog_dir
+    }
   }
 
   print $"($length) -> ($last_index)..($last_index + $rate_limit.remaining)"
