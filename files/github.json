@@ -1,24 +1,6 @@
 [
   {
     "category": "core",
-    "name": "ducaale/xh",
-    "tag_name": "v0.24.0",
-    "created_at": "2025-02-18T08:15:49Z",
-    "assets": [
-      "xh-v0.24.0-aarch64-apple-darwin.tar.gz",
-      "xh-v0.24.0-aarch64-unknown-linux-musl.tar.gz",
-      "xh-v0.24.0-arm-unknown-linux-gnueabihf.tar.gz",
-      "xh-v0.24.0-x86_64-apple-darwin.tar.gz",
-      "xh-v0.24.0-x86_64-pc-windows-msvc.zip",
-      "xh-v0.24.0-x86_64-unknown-linux-musl.tar.gz",
-      "xh_0.24.0_amd64.deb"
-    ],
-    "linux_x64": {
-      "ends": "x86_64-unknown-linux-musl.tar.gz"
-    }
-  },
-  {
-    "category": "core",
     "name": "go-task/task",
     "tag_name": "v3.42.1",
     "created_at": "2025-03-10T20:18:58Z",
@@ -160,29 +142,6 @@
   },
   {
     "category": "core",
-    "name": "SilasMarvin/lsp-ai",
-    "tag_name": "v0.7.1",
-    "created_at": "2024-09-24T14:36:52Z",
-    "assets": [
-      "lsp-ai-aarch64-apple-darwin.gz",
-      "lsp-ai-aarch64-pc-windows-msvc.gz",
-      "lsp-ai-aarch64-pc-windows-msvc.zip",
-      "lsp-ai-aarch64-unknown-linux-gnu.gz",
-      "lsp-ai-arm-unknown-linux-gnueabihf.gz",
-      "lsp-ai-i686-pc-windows-msvc.gz",
-      "lsp-ai-i686-pc-windows-msvc.zip",
-      "lsp-ai-x86_64-apple-darwin.gz",
-      "lsp-ai-x86_64-pc-windows-msvc.gz",
-      "lsp-ai-x86_64-pc-windows-msvc.zip",
-      "lsp-ai-x86_64-unknown-linux-gnu.gz",
-      "lsp-ai-x86_64-unknown-linux-musl.gz"
-    ],
-    "linux_x64": {
-      "ends": "x86_64-unknown-linux-gnu.gz"
-    }
-  },
-  {
-    "category": "core",
     "name": "nushell/nushell",
     "tag_name": "0.103.0",
     "created_at": "2025-03-19T00:17:48Z",
@@ -270,6 +229,33 @@
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
+    }
+  },
+  {
+    "category": "core",
+    "name": "sxyazi/yazi",
+    "tag_name": "v25.3.2",
+    "created_at": "2025-03-02T13:33:13Z",
+    "assets": [
+      "yazi-aarch64-apple-darwin.zip",
+      "yazi-aarch64-pc-windows-msvc.zip",
+      "yazi-aarch64-unknown-linux-gnu.zip",
+      "yazi-aarch64-unknown-linux-musl.zip",
+      "yazi-amd64.snap",
+      "yazi-arm64.snap",
+      "yazi-i686-unknown-linux-gnu.zip",
+      "yazi-powerpc64-unknown-linux-gnu.zip",
+      "yazi-powerpc64le-unknown-linux-gnu.zip",
+      "yazi-riscv64gc-unknown-linux-gnu.zip",
+      "yazi-s390x-unknown-linux-gnu.zip",
+      "yazi-sparc64-unknown-linux-gnu.zip",
+      "yazi-x86_64-apple-darwin.zip",
+      "yazi-x86_64-pc-windows-msvc.zip",
+      "yazi-x86_64-unknown-linux-gnu.zip",
+      "yazi-x86_64-unknown-linux-musl.zip"
+    ],
+    "linux_x64": {
+      "ends": "x86_64-unknown-linux-musl.zip"
     }
   },
   {
@@ -809,6 +795,47 @@
     "tag_name": "v0.5.3",
     "created_at": "2024-09-26T01:02:16Z",
     "assets": []
+  },
+  {
+    "category": "core",
+    "name": "ducaale/xh",
+    "tag_name": "v0.24.0",
+    "created_at": "2025-02-18T08:15:49Z",
+    "assets": [
+      "xh-v0.24.0-aarch64-apple-darwin.tar.gz",
+      "xh-v0.24.0-aarch64-unknown-linux-musl.tar.gz",
+      "xh-v0.24.0-arm-unknown-linux-gnueabihf.tar.gz",
+      "xh-v0.24.0-x86_64-apple-darwin.tar.gz",
+      "xh-v0.24.0-x86_64-pc-windows-msvc.zip",
+      "xh-v0.24.0-x86_64-unknown-linux-musl.tar.gz",
+      "xh_0.24.0_amd64.deb"
+    ],
+    "linux_x64": {
+      "ends": "x86_64-unknown-linux-musl.tar.gz"
+    }
+  },
+  {
+    "category": "core",
+    "name": "SilasMarvin/lsp-ai",
+    "tag_name": "v0.7.1",
+    "created_at": "2024-09-24T14:36:52Z",
+    "assets": [
+      "lsp-ai-aarch64-apple-darwin.gz",
+      "lsp-ai-aarch64-pc-windows-msvc.gz",
+      "lsp-ai-aarch64-pc-windows-msvc.zip",
+      "lsp-ai-aarch64-unknown-linux-gnu.gz",
+      "lsp-ai-arm-unknown-linux-gnueabihf.gz",
+      "lsp-ai-i686-pc-windows-msvc.gz",
+      "lsp-ai-i686-pc-windows-msvc.zip",
+      "lsp-ai-x86_64-apple-darwin.gz",
+      "lsp-ai-x86_64-pc-windows-msvc.gz",
+      "lsp-ai-x86_64-pc-windows-msvc.zip",
+      "lsp-ai-x86_64-unknown-linux-gnu.gz",
+      "lsp-ai-x86_64-unknown-linux-musl.gz"
+    ],
+    "linux_x64": {
+      "ends": "x86_64-unknown-linux-gnu.gz"
+    }
   },
   {
     "category": "core",
@@ -2642,8 +2669,8 @@
   {
     "category": "other",
     "name": "microsoft/vscode",
-    "tag_name": "1.98.2",
-    "created_at": "2025-03-12T13:24:52Z",
+    "tag_name": "1.99.0",
+    "created_at": "2025-04-02T21:04:16Z",
     "assets": []
   },
   {
@@ -2917,33 +2944,6 @@
   },
   {
     "category": "other",
-    "name": "sxyazi/yazi",
-    "tag_name": "v25.3.2",
-    "created_at": "2025-03-02T13:33:13Z",
-    "assets": [
-      "yazi-aarch64-apple-darwin.zip",
-      "yazi-aarch64-pc-windows-msvc.zip",
-      "yazi-aarch64-unknown-linux-gnu.zip",
-      "yazi-aarch64-unknown-linux-musl.zip",
-      "yazi-amd64.snap",
-      "yazi-arm64.snap",
-      "yazi-i686-unknown-linux-gnu.zip",
-      "yazi-powerpc64-unknown-linux-gnu.zip",
-      "yazi-powerpc64le-unknown-linux-gnu.zip",
-      "yazi-riscv64gc-unknown-linux-gnu.zip",
-      "yazi-s390x-unknown-linux-gnu.zip",
-      "yazi-sparc64-unknown-linux-gnu.zip",
-      "yazi-x86_64-apple-darwin.zip",
-      "yazi-x86_64-pc-windows-msvc.zip",
-      "yazi-x86_64-unknown-linux-gnu.zip",
-      "yazi-x86_64-unknown-linux-musl.zip"
-    ],
-    "linux_x64": {
-      "ends": "x86_64-unknown-linux-musl.zip"
-    }
-  },
-  {
-    "category": "other",
     "name": "gokcehan/lf",
     "tag_name": "r34",
     "created_at": "2025-02-09T11:50:06Z",
@@ -3198,8 +3198,8 @@
   {
     "category": "other",
     "name": "aandrew-me/tgpt",
-    "tag_name": "v2.9.3",
-    "created_at": "2025-04-02T15:57:05Z",
+    "tag_name": "v2.9.4",
+    "created_at": "2025-04-04T18:51:17Z",
     "assets": [
       "tgpt-amd64.exe",
       "tgpt-arm.exe",
@@ -3471,8 +3471,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.11.3",
-    "created_at": "2025-04-03T13:05:40Z",
+    "tag_name": "0.11.4",
+    "created_at": "2025-04-04T18:09:10Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -5032,48 +5032,48 @@
   {
     "category": "other",
     "name": "GitoxideLabs/gitoxide",
-    "tag_name": "v0.41.0",
-    "created_at": "2025-01-18T15:56:30Z",
+    "tag_name": "v0.42.0",
+    "created_at": "2025-04-04T02:26:00Z",
     "assets": [
-      "gitoxide-lean-v0.41.0-aarch64-apple-darwin.tar.gz",
-      "gitoxide-lean-v0.41.0-aarch64-pc-windows-msvc.zip",
-      "gitoxide-lean-v0.41.0-i686-pc-windows-msvc.zip",
-      "gitoxide-lean-v0.41.0-universal-apple-darwin.tar.gz",
-      "gitoxide-lean-v0.41.0-x86_64-apple-darwin.tar.gz",
-      "gitoxide-lean-v0.41.0-x86_64-pc-windows-gnu.zip",
-      "gitoxide-lean-v0.41.0-x86_64-pc-windows-msvc.zip",
-      "gitoxide-max-pure-v0.41.0-aarch64-apple-darwin.tar.gz",
-      "gitoxide-max-pure-v0.41.0-aarch64-pc-windows-msvc.zip",
-      "gitoxide-max-pure-v0.41.0-aarch64-unknown-linux-gnu.tar.gz",
-      "gitoxide-max-pure-v0.41.0-aarch64-unknown-linux-musl.tar.gz",
-      "gitoxide-max-pure-v0.41.0-arm-unknown-linux-gnueabihf.tar.gz",
-      "gitoxide-max-pure-v0.41.0-arm-unknown-linux-musleabihf.tar.gz",
-      "gitoxide-max-pure-v0.41.0-i686-pc-windows-msvc.zip",
-      "gitoxide-max-pure-v0.41.0-i686-unknown-linux-gnu.tar.gz",
-      "gitoxide-max-pure-v0.41.0-i686-unknown-linux-musl.tar.gz",
-      "gitoxide-max-pure-v0.41.0-powerpc64le-unknown-linux-gnu.tar.gz",
-      "gitoxide-max-pure-v0.41.0-riscv64gc-unknown-linux-gnu.tar.gz",
-      "gitoxide-max-pure-v0.41.0-s390x-unknown-linux-gnu.tar.gz",
-      "gitoxide-max-pure-v0.41.0-universal-apple-darwin.tar.gz",
-      "gitoxide-max-pure-v0.41.0-x86_64-apple-darwin.tar.gz",
-      "gitoxide-max-pure-v0.41.0-x86_64-pc-windows-gnu.zip",
-      "gitoxide-max-pure-v0.41.0-x86_64-pc-windows-msvc.zip",
-      "gitoxide-max-pure-v0.41.0-x86_64-unknown-linux-gnu.tar.gz",
-      "gitoxide-max-pure-v0.41.0-x86_64-unknown-linux-musl.tar.gz",
-      "gitoxide-max-v0.41.0-aarch64-apple-darwin.tar.gz",
-      "gitoxide-max-v0.41.0-aarch64-pc-windows-msvc.zip",
-      "gitoxide-max-v0.41.0-i686-pc-windows-msvc.zip",
-      "gitoxide-max-v0.41.0-universal-apple-darwin.tar.gz",
-      "gitoxide-max-v0.41.0-x86_64-apple-darwin.tar.gz",
-      "gitoxide-max-v0.41.0-x86_64-pc-windows-gnu.zip",
-      "gitoxide-max-v0.41.0-x86_64-pc-windows-msvc.zip",
-      "gitoxide-small-v0.41.0-aarch64-apple-darwin.tar.gz",
-      "gitoxide-small-v0.41.0-aarch64-pc-windows-msvc.zip",
-      "gitoxide-small-v0.41.0-i686-pc-windows-msvc.zip",
-      "gitoxide-small-v0.41.0-universal-apple-darwin.tar.gz",
-      "gitoxide-small-v0.41.0-x86_64-apple-darwin.tar.gz",
-      "gitoxide-small-v0.41.0-x86_64-pc-windows-gnu.zip",
-      "gitoxide-small-v0.41.0-x86_64-pc-windows-msvc.zip"
+      "gitoxide-lean-v0.42.0-aarch64-apple-darwin.tar.gz",
+      "gitoxide-lean-v0.42.0-aarch64-pc-windows-msvc.zip",
+      "gitoxide-lean-v0.42.0-i686-pc-windows-msvc.zip",
+      "gitoxide-lean-v0.42.0-universal-apple-darwin.tar.gz",
+      "gitoxide-lean-v0.42.0-x86_64-apple-darwin.tar.gz",
+      "gitoxide-lean-v0.42.0-x86_64-pc-windows-gnu.zip",
+      "gitoxide-lean-v0.42.0-x86_64-pc-windows-msvc.zip",
+      "gitoxide-max-pure-v0.42.0-aarch64-apple-darwin.tar.gz",
+      "gitoxide-max-pure-v0.42.0-aarch64-pc-windows-msvc.zip",
+      "gitoxide-max-pure-v0.42.0-aarch64-unknown-linux-gnu.tar.gz",
+      "gitoxide-max-pure-v0.42.0-aarch64-unknown-linux-musl.tar.gz",
+      "gitoxide-max-pure-v0.42.0-arm-unknown-linux-gnueabihf.tar.gz",
+      "gitoxide-max-pure-v0.42.0-arm-unknown-linux-musleabihf.tar.gz",
+      "gitoxide-max-pure-v0.42.0-i686-pc-windows-msvc.zip",
+      "gitoxide-max-pure-v0.42.0-i686-unknown-linux-gnu.tar.gz",
+      "gitoxide-max-pure-v0.42.0-i686-unknown-linux-musl.tar.gz",
+      "gitoxide-max-pure-v0.42.0-powerpc64le-unknown-linux-gnu.tar.gz",
+      "gitoxide-max-pure-v0.42.0-riscv64gc-unknown-linux-gnu.tar.gz",
+      "gitoxide-max-pure-v0.42.0-s390x-unknown-linux-gnu.tar.gz",
+      "gitoxide-max-pure-v0.42.0-universal-apple-darwin.tar.gz",
+      "gitoxide-max-pure-v0.42.0-x86_64-apple-darwin.tar.gz",
+      "gitoxide-max-pure-v0.42.0-x86_64-pc-windows-gnu.zip",
+      "gitoxide-max-pure-v0.42.0-x86_64-pc-windows-msvc.zip",
+      "gitoxide-max-pure-v0.42.0-x86_64-unknown-linux-gnu.tar.gz",
+      "gitoxide-max-pure-v0.42.0-x86_64-unknown-linux-musl.tar.gz",
+      "gitoxide-max-v0.42.0-aarch64-apple-darwin.tar.gz",
+      "gitoxide-max-v0.42.0-aarch64-pc-windows-msvc.zip",
+      "gitoxide-max-v0.42.0-i686-pc-windows-msvc.zip",
+      "gitoxide-max-v0.42.0-universal-apple-darwin.tar.gz",
+      "gitoxide-max-v0.42.0-x86_64-apple-darwin.tar.gz",
+      "gitoxide-max-v0.42.0-x86_64-pc-windows-gnu.zip",
+      "gitoxide-max-v0.42.0-x86_64-pc-windows-msvc.zip",
+      "gitoxide-small-v0.42.0-aarch64-apple-darwin.tar.gz",
+      "gitoxide-small-v0.42.0-aarch64-pc-windows-msvc.zip",
+      "gitoxide-small-v0.42.0-i686-pc-windows-msvc.zip",
+      "gitoxide-small-v0.42.0-universal-apple-darwin.tar.gz",
+      "gitoxide-small-v0.42.0-x86_64-apple-darwin.tar.gz",
+      "gitoxide-small-v0.42.0-x86_64-pc-windows-gnu.zip",
+      "gitoxide-small-v0.42.0-x86_64-pc-windows-msvc.zip"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"

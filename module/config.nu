@@ -276,9 +276,11 @@ export def yazi [] {
   print $'User Config: yazi'
 
   shortcut yazi init.lua
-  shortcut yazi theme.toml
   shortcut yazi yazi.toml
+  shortcut yazi theme.toml
+  shortcut yazi keymap.toml
 
-  ya pack -a yazi-rs/plugins:full-border
-  ya pack -a kmlupreti/ayu-dark
+  try { ya pack -a yazi-rs/plugins:full-border }
+  try { ya pack -a grappas/wl-clipboard }
+  try { ya pack -a kmlupreti/ayu-dark }
 }

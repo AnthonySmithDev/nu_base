@@ -59,29 +59,27 @@ export def brave [
   url?: string
   --ext(-e)
   --proxy(-p)
+  --proxy-host: string = "localhost"
+  --proxy-port: int = 8080
   --dir(-d): string
   --rm(-r)
-  --copy(-c)
 ] {
-  let config = ($env.HOME | path join .config/BraveSoftware)
-  let default = ($config | path join Brave-Browser)
+  let config = ($env.HOME | path join .config BraveSoftware)
 
-  mut args = []
+  mut args = [
+    --enable-features=UseOzonePlatform
+    --ozone-platform=wayland
+  ]
   if $ext {
     $args = ($args | append $extensions)
   }
   if $proxy {
-    $args = ($args | append $'--proxy-server=($env.proxy_host):($env.proxy_port)')
+    $env.all_proxy = $"($proxy_host):($proxy_port)"
   }
   if ($dir | is-not-empty) {
     let user_data = ($config | path join Brave-Browser-($dir | str capitalize))
     if $rm {
       return (rm -rf $user_data)
-    }
-    if $copy {
-      if not ($user_data | path exists) {
-        cp -r $default $user_data
-      }
     }
     $args = ($args | append $'--user-data-dir=($user_data)')
   }
