@@ -277,6 +277,7 @@ export def yazi [] {
 
   shortcut yazi init.lua
   shortcut yazi theme.toml
+  shortcut yazi yazi.toml
 
   ya pack -a yazi-rs/plugins:full-border
   ya pack -a kmlupreti/ayu-dark
