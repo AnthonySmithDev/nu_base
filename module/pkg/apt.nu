@@ -47,6 +47,19 @@ export def basic [] {
 
     build-essential
 
+    ssh
+    sshfs
+    sshpass
+    openssh-server
+    libssl-dev
+
+    exfatprogs
+    exfat-fuse
+
+    scdoc
+    qrencode
+    wl-clipboard
+
     mpv
     pqiv
     p7zip-full
@@ -55,19 +68,10 @@ export def basic [] {
     aria2
     tree
 
-    scdoc
-    wl-clipboard
-    qrencode
-
-    ssh
-    sshpass
-    openssh-server
-    libssl-dev
+    adb
 
     libxss1
     libqt5concurrent5
-
-    adb
   ]
 
   sudo apt install -y ...$packages
