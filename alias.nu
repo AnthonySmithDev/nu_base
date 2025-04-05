@@ -6,6 +6,8 @@ alias fdd = fd --type dir
 alias fdf = fd --type file
 
 alias top = btm --basic
+alias stop = sudo btm --basic
+
 alias cpu = btm --expanded --default_widget_type cpu
 alias mem = btm --expanded --default_widget_type mem
 alias net = btm --expanded --default_widget_type net

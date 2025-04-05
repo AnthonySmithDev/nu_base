@@ -59,16 +59,18 @@ export def basic [] {
     scdoc
     qrencode
     wl-clipboard
+    p7zip-full
 
     mpv
     pqiv
-    p7zip-full
-
-    axel
-    aria2
-    tree
 
     adb
+    axel
+    aria2
+
+    tree
+    htop
+    chafa
 
     libxss1
     libqt5concurrent5

@@ -685,6 +685,7 @@ export def bottom [ --force(-f) ] {
   }
 
   bind file btm $path
+  bind root btm $path
 }
 
 export def btop [ --force(-f) ] {
