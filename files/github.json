@@ -339,26 +339,26 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.61.0",
-    "created_at": "2025-03-30T10:54:10Z",
+    "tag_name": "v0.61.1",
+    "created_at": "2025-04-06T04:13:20Z",
     "assets": [
-      "fzf-0.61.0-darwin_amd64.tar.gz",
-      "fzf-0.61.0-darwin_arm64.tar.gz",
-      "fzf-0.61.0-freebsd_amd64.tar.gz",
-      "fzf-0.61.0-linux_amd64.tar.gz",
-      "fzf-0.61.0-linux_arm64.tar.gz",
-      "fzf-0.61.0-linux_armv5.tar.gz",
-      "fzf-0.61.0-linux_armv6.tar.gz",
-      "fzf-0.61.0-linux_armv7.tar.gz",
-      "fzf-0.61.0-linux_loong64.tar.gz",
-      "fzf-0.61.0-linux_ppc64le.tar.gz",
-      "fzf-0.61.0-linux_s390x.tar.gz",
-      "fzf-0.61.0-openbsd_amd64.tar.gz",
-      "fzf-0.61.0-windows_amd64.zip",
-      "fzf-0.61.0-windows_arm64.zip",
-      "fzf-0.61.0-windows_armv5.zip",
-      "fzf-0.61.0-windows_armv6.zip",
-      "fzf-0.61.0-windows_armv7.zip"
+      "fzf-0.61.1-darwin_amd64.tar.gz",
+      "fzf-0.61.1-darwin_arm64.tar.gz",
+      "fzf-0.61.1-freebsd_amd64.tar.gz",
+      "fzf-0.61.1-linux_amd64.tar.gz",
+      "fzf-0.61.1-linux_arm64.tar.gz",
+      "fzf-0.61.1-linux_armv5.tar.gz",
+      "fzf-0.61.1-linux_armv6.tar.gz",
+      "fzf-0.61.1-linux_armv7.tar.gz",
+      "fzf-0.61.1-linux_loong64.tar.gz",
+      "fzf-0.61.1-linux_ppc64le.tar.gz",
+      "fzf-0.61.1-linux_s390x.tar.gz",
+      "fzf-0.61.1-openbsd_amd64.tar.gz",
+      "fzf-0.61.1-windows_amd64.zip",
+      "fzf-0.61.1-windows_arm64.zip",
+      "fzf-0.61.1-windows_armv5.zip",
+      "fzf-0.61.1-windows_armv6.zip",
+      "fzf-0.61.1-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -893,18 +893,18 @@
   {
     "category": "core",
     "name": "xo/usql",
-    "tag_name": "v0.19.19",
-    "created_at": "2025-03-05T02:22:19Z",
+    "tag_name": "v0.19.21",
+    "created_at": "2025-04-06T20:55:09Z",
     "assets": [
-      "usql-0.19.19-darwin-amd64.tar.bz2",
-      "usql-0.19.19-darwin-arm64.tar.bz2",
-      "usql-0.19.19-darwin-universal.tar.bz2",
-      "usql-0.19.19-linux-amd64.tar.bz2",
-      "usql-0.19.19-linux-arm.tar.bz2",
-      "usql-0.19.19-linux-arm64.tar.bz2",
-      "usql-0.19.19-windows-amd64.zip",
-      "usql_static-0.19.19-linux-amd64.tar.bz2",
-      "usql_static-0.19.19-linux-arm64.tar.bz2"
+      "usql-0.19.21-darwin-amd64.tar.bz2",
+      "usql-0.19.21-darwin-arm64.tar.bz2",
+      "usql-0.19.21-darwin-universal.tar.bz2",
+      "usql-0.19.21-linux-amd64.tar.bz2",
+      "usql-0.19.21-linux-arm.tar.bz2",
+      "usql-0.19.21-linux-arm64.tar.bz2",
+      "usql-0.19.21-windows-amd64.zip",
+      "usql_static-0.19.21-linux-amd64.tar.bz2",
+      "usql_static-0.19.21-linux-arm64.tar.bz2"
     ],
     "linux_x64": {
       "starts": "usql_static",
@@ -2311,8 +2311,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.6.4",
-    "created_at": "2025-04-02T20:22:56Z",
+    "tag_name": "v0.6.5",
+    "created_at": "2025-04-05T00:04:24Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -2407,17 +2407,17 @@
   {
     "category": "other",
     "name": "LuaLS/lua-language-server",
-    "tag_name": "3.13.9",
-    "created_at": "2025-03-13T03:34:24Z",
+    "tag_name": "3.14.0",
+    "created_at": "2025-04-07T14:49:48Z",
     "assets": [
-      "lua-language-server-3.13.9-darwin-arm64.tar.gz",
-      "lua-language-server-3.13.9-darwin-x64.tar.gz",
-      "lua-language-server-3.13.9-linux-arm64.tar.gz",
-      "lua-language-server-3.13.9-linux-x64-musl.tar.gz",
-      "lua-language-server-3.13.9-linux-x64.tar.gz",
-      "lua-language-server-3.13.9-submodules.zip",
-      "lua-language-server-3.13.9-win32-ia32.zip",
-      "lua-language-server-3.13.9-win32-x64.zip"
+      "lua-language-server-3.14.0-darwin-arm64.tar.gz",
+      "lua-language-server-3.14.0-darwin-x64.tar.gz",
+      "lua-language-server-3.14.0-linux-arm64.tar.gz",
+      "lua-language-server-3.14.0-linux-x64-musl.tar.gz",
+      "lua-language-server-3.14.0-linux-x64.tar.gz",
+      "lua-language-server-3.14.0-submodules.zip",
+      "lua-language-server-3.14.0-win32-ia32.zip",
+      "lua-language-server-3.14.0-win32-x64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x64-musl.tar.gz"
@@ -2739,20 +2739,20 @@
   {
     "category": "other",
     "name": "coder/code-server",
-    "tag_name": "v4.98.2",
-    "created_at": "2025-03-14T18:58:50Z",
+    "tag_name": "v4.99.0",
+    "created_at": "2025-04-04T18:22:23Z",
     "assets": [
-      "code-server-4.98.2-amd64.rpm",
-      "code-server-4.98.2-arm64.rpm",
-      "code-server-4.98.2-armhfp.rpm",
-      "code-server-4.98.2-linux-amd64.tar.gz",
-      "code-server-4.98.2-linux-arm64.tar.gz",
-      "code-server-4.98.2-linux-armv7l.tar.gz",
-      "code-server-4.98.2-macos-amd64.tar.gz",
-      "code-server-4.98.2-macos-arm64.tar.gz",
-      "code-server_4.98.2_amd64.deb",
-      "code-server_4.98.2_arm64.deb",
-      "code-server_4.98.2_armhf.deb",
+      "code-server-4.99.0-amd64.rpm",
+      "code-server-4.99.0-arm64.rpm",
+      "code-server-4.99.0-armhfp.rpm",
+      "code-server-4.99.0-linux-amd64.tar.gz",
+      "code-server-4.99.0-linux-arm64.tar.gz",
+      "code-server-4.99.0-linux-armv7l.tar.gz",
+      "code-server-4.99.0-macos-amd64.tar.gz",
+      "code-server-4.99.0-macos-arm64.tar.gz",
+      "code-server_4.99.0_amd64.deb",
+      "code-server_4.99.0_arm64.deb",
+      "code-server_4.99.0_armhf.deb",
       "package.tar.gz"
     ],
     "linux_x64": {
@@ -3500,8 +3500,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.6.12",
-    "created_at": "2025-04-02T20:22:28Z",
+    "tag_name": "0.6.13",
+    "created_at": "2025-04-07T19:10:58Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -3533,8 +3533,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.12.2",
-    "created_at": "2025-03-20T14:03:34Z",
+    "tag_name": "v1.12.3",
+    "created_at": "2025-04-06T04:47:09Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -4002,21 +4002,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.20.5",
-    "created_at": "2025-03-10T10:18:07Z",
+    "tag_name": "v0.21.0",
+    "created_at": "2025-04-07T08:10:51Z",
     "assets": [
-      "affine-0.20.5-stable-linux-x64.appimage",
-      "affine-0.20.5-stable-linux-x64.deb",
-      "affine-0.20.5-stable-linux-x64.flatpak",
-      "affine-0.20.5-stable-linux-x64.zip",
-      "affine-0.20.5-stable-macos-arm64.dmg",
-      "affine-0.20.5-stable-macos-arm64.zip",
-      "affine-0.20.5-stable-macos-x64.dmg",
-      "affine-0.20.5-stable-macos-x64.zip",
-      "affine-0.20.5-stable-windows-arm64.exe",
-      "affine-0.20.5-stable-windows-arm64.nsis.exe",
-      "affine-0.20.5-stable-windows-x64.exe",
-      "affine-0.20.5-stable-windows-x64.nsis.exe",
+      "affine-0.21.0-stable-linux-x64.appimage",
+      "affine-0.21.0-stable-linux-x64.deb",
+      "affine-0.21.0-stable-linux-x64.flatpak",
+      "affine-0.21.0-stable-linux-x64.zip",
+      "affine-0.21.0-stable-macos-arm64.dmg",
+      "affine-0.21.0-stable-macos-arm64.zip",
+      "affine-0.21.0-stable-macos-x64.dmg",
+      "affine-0.21.0-stable-macos-x64.zip",
+      "affine-0.21.0-stable-windows-arm64.exe",
+      "affine-0.21.0-stable-windows-arm64.nsis.exe",
+      "affine-0.21.0-stable-windows-x64.exe",
+      "affine-0.21.0-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
@@ -4442,8 +4442,8 @@
   {
     "category": "other",
     "name": "containers/podman-tui",
-    "tag_name": "v1.4.0",
-    "created_at": "2025-03-01T03:11:15Z",
+    "tag_name": "v1.5.0",
+    "created_at": "2025-04-06T05:03:08Z",
     "assets": [
       "podman-tui-release-darwin_amd64.zip",
       "podman-tui-release-linux_amd64.zip",
@@ -4928,6 +4928,18 @@
   },
   {
     "category": "other",
+    "name": "stefins/wdcrypt",
+    "tag_name": "v2.3.4",
+    "created_at": "2025-02-26T18:34:29Z",
+    "assets": [
+      "wdcrypt-linux-amd64"
+    ],
+    "linux_x64": {
+      "ends": "linux-amd64"
+    }
+  },
+  {
+    "category": "other",
     "name": "cococonscious/koji",
     "tag_name": "v3.2.0",
     "created_at": "2025-01-21T16:04:33Z",
@@ -5295,10 +5307,10 @@
   {
     "category": "android",
     "name": "PhilKes/NotallyX",
-    "tag_name": "v7.2.1",
-    "created_at": "2025-03-18T19:51:26Z",
+    "tag_name": "v7.3.0",
+    "created_at": "2025-04-07T16:23:11Z",
     "assets": [
-      "NotallyX-7.2.1.apk"
+      "NotallyX-7.3.0.apk"
     ],
     "android": {
       "ends": ".apk"

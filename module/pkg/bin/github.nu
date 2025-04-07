@@ -2721,3 +2721,31 @@ export def lf [ --force(-f) ] {
 
   bind file lf $path
 }
+
+export def wdcrypt [ --force(-f) ] {
+  let repository = 'stefins/wdcrypt'
+  let tag_name = ghub tag_name $repository
+  let path = filepath wdcrypt $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository
+    add-execute $download_path
+    move -f $download_path -p $path
+  }
+
+  bind file wdcrypt $path
+}
+
+export def upscayl-cli [ --force(-f) ] {
+  let repository = 'upscayl/upscayl-ncnn'
+  let tag_name = '20240601-103425'
+  let path = filepath wdcrypt $tag_name
+
+  if (path-not-exists $path $force) {
+    http download $'https://github.com/upscayl/upscayl-ncnn/releases/download/($tag_name)/upscayl-bin-($tag_name)-linux.zip'
+    unzip $'upscayl-bin-($tag_name)-linux.zip'
+    move -d $'upscayl-bin-($tag_name)-linux' -f upscayl-bin -p $path
+  }
+
+  bind file upscayl-cli $path
+}

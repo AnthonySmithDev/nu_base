@@ -19,7 +19,7 @@ check_internet_connection() {
 }
 
 # Versión de Nushell a descargar
-VERSION="0.102.0"
+VERSION="0.103.0"
 BASE_URL="https://github.com/nushell/nushell/releases/download/$VERSION"
 
 # Determinar la arquitectura y el sistema operativo

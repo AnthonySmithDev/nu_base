@@ -8,13 +8,13 @@ alias fdf = fd --type file
 alias top = btm --basic
 alias stop = sudo btm --basic
 
-alias cpu = btm --expanded --default_widget_type cpu
-alias mem = btm --expanded --default_widget_type mem
-alias net = btm --expanded --default_widget_type net
-alias proc = btm --expanded --default_widget_type proc
-alias temp = btm --expanded --default_widget_type temp
-alias disk = btm --expanded --default_widget_type disk
-alias batt = btm --expanded --default_widget_type batt
+alias cpu = btm --rate 500ms --expanded --default_widget_type cpu
+alias mem = btm --rate 500ms --expanded --default_widget_type mem
+alias net = btm --rate 500ms --expanded --default_widget_type net
+alias proc = btm --rate 500ms --expanded --default_widget_type proc
+alias temp = btm --rate 500ms --expanded --default_widget_type temp
+alias disk = btm --rate 500ms --expanded --default_widget_type disk
+alias batt = btm --rate 500ms --expanded --default_widget_type batt
 
 alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"
 

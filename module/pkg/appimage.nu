@@ -35,4 +35,15 @@ export def cursor [ --force(-f) ] {
   install $name $filepath
 }
 
+export def AndroidMic [ --force(-f) ] {
+  let name = 'AndroidMic'
+  let version = '2.1.4'
+  let download_url = $'https://github.com/teamclouday/AndroidMic/releases/download/($version)/android-mic_($version)_x86_64.AppImage'
+  let filepath = filepath $name $version
 
+  let download_path = download $name $version $download_url $force
+  chmod +x $download_path
+  mv $download_path $filepath
+
+  install $name $filepath
+}
