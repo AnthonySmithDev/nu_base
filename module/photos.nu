@@ -117,7 +117,18 @@ export def machine_learning [] {
     docker volume create model-cache
   }
   if not (dock container exists immich_machine_learning) {
-    docker run -d --name immich_machine_learning -v model-cache:/cache --restart always -p 3003:3003 ghcr.io/immich-app/immich-machine-learning:release
+    let version = ($env.IMMICH_VERSION? | default "release")
+    let args = [
+      --name immich_machine_learning
+      --volume model-cache:/cache
+      --publish 3003:3003
+      --restart always
+      --gpus all
+      --env MACHINE_LEARNING_DEVICE_IDS="1,2"
+      --env MACHINE_LEARNING_WORKERS=5
+      $"ghcr.io/immich-app/immich-machine-learning:($version)-cuda"
+    ]
+    docker run -d ...$args
   }
 }
 
