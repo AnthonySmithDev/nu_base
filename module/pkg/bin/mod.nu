@@ -3,12 +3,12 @@ export use github.nu *
 export use other.nu *
 
 export def core [ --force(-f) ] {
-  xh
   helix
   nushell
   starship
   zoxide
   zellij
+  yazi
 
   rg
   fd

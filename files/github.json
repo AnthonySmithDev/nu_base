@@ -234,8 +234,8 @@
   {
     "category": "core",
     "name": "sxyazi/yazi",
-    "tag_name": "v25.3.2",
-    "created_at": "2025-03-02T13:33:13Z",
+    "tag_name": "v25.4.8",
+    "created_at": "2025-04-08T11:47:09Z",
     "assets": [
       "yazi-aarch64-apple-darwin.zip",
       "yazi-aarch64-pc-windows-msvc.zip",
@@ -3956,20 +3956,20 @@
   {
     "category": "other",
     "name": "siyuan-note/siyuan",
-    "tag_name": "v3.1.26",
-    "created_at": "2025-03-25T03:05:14Z",
+    "tag_name": "v3.1.27",
+    "created_at": "2025-04-08T02:58:10Z",
     "assets": [
-      "siyuan-3.1.26-linux-arm64.AppImage",
-      "siyuan-3.1.26-linux-arm64.deb",
-      "siyuan-3.1.26-linux-arm64.tar.gz",
-      "siyuan-3.1.26-linux.AppImage",
-      "siyuan-3.1.26-linux.deb",
-      "siyuan-3.1.26-linux.tar.gz",
-      "siyuan-3.1.26-mac-arm64.dmg",
-      "siyuan-3.1.26-mac.dmg",
-      "siyuan-3.1.26-win-arm64.exe",
-      "siyuan-3.1.26-win.exe",
-      "siyuan-3.1.26.apk"
+      "siyuan-3.1.27-linux-arm64.AppImage",
+      "siyuan-3.1.27-linux-arm64.deb",
+      "siyuan-3.1.27-linux-arm64.tar.gz",
+      "siyuan-3.1.27-linux.AppImage",
+      "siyuan-3.1.27-linux.deb",
+      "siyuan-3.1.27-linux.tar.gz",
+      "siyuan-3.1.27-mac-arm64.dmg",
+      "siyuan-3.1.27-mac.dmg",
+      "siyuan-3.1.27-win-arm64.exe",
+      "siyuan-3.1.27-win.exe",
+      "siyuan-3.1.27.apk"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -4623,8 +4623,8 @@
   {
     "category": "other",
     "name": "pnpm/pnpm",
-    "tag_name": "v10.7.1",
-    "created_at": "2025-04-01T11:55:51Z",
+    "tag_name": "v10.8.0",
+    "created_at": "2025-04-07T16:21:24Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",
@@ -5255,6 +5255,34 @@
   },
   {
     "category": "other",
+    "name": "upscayl/upscayl-ncnn",
+    "tag_name": "20240601-103425",
+    "created_at": "2024-06-01T10:33:06Z",
+    "assets": [
+      "upscayl-bin-20240601-103425-linux.zip",
+      "upscayl-bin-20240601-103425-macos.zip",
+      "upscayl-bin-20240601-103425-windows.zip"
+    ],
+    "linux_x64": {
+      "ends": "linux.zip"
+    }
+  },
+  {
+    "category": "other",
+    "name": "linebender/resvg",
+    "tag_name": "0.45.0",
+    "created_at": "2025-02-26T16:19:28Z",
+    "assets": [
+      "resvg-0.45.0.tar.xz",
+      "resvg-linux-x86_64.tar.gz",
+      "usvg-linux-x86_64.tar.gz"
+    ],
+    "linux_x64": {
+      "ends": "linux-x86_64.tar.gz"
+    }
+  },
+  {
+    "category": "other",
     "name": "pacstall/pacstall",
     "tag_name": "6.2.1",
     "created_at": "2025-03-13T16:41:27Z",
@@ -5307,10 +5335,10 @@
   {
     "category": "android",
     "name": "PhilKes/NotallyX",
-    "tag_name": "v7.3.0",
-    "created_at": "2025-04-07T16:23:11Z",
+    "tag_name": "v7.3.1",
+    "created_at": "2025-04-08T15:29:24Z",
     "assets": [
-      "NotallyX-7.3.0.apk"
+      "NotallyX-7.3.1.apk"
     ],
     "android": {
       "ends": ".apk"

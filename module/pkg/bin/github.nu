@@ -2736,16 +2736,28 @@ export def wdcrypt [ --force(-f) ] {
   bind file wdcrypt $path
 }
 
-export def upscayl-cli [ --force(-f) ] {
+export def upscayl-bin [ --force(-f) ] {
   let repository = 'upscayl/upscayl-ncnn'
-  let tag_name = '20240601-103425'
-  let path = filepath wdcrypt $tag_name
+  let tag_name = ghub tag_name $repository
+  let path = filepath upscayl-bin $tag_name
 
   if (path-not-exists $path $force) {
-    http download $'https://github.com/upscayl/upscayl-ncnn/releases/download/($tag_name)/upscayl-bin-($tag_name)-linux.zip'
-    unzip $'upscayl-bin-($tag_name)-linux.zip'
-    move -d $'upscayl-bin-($tag_name)-linux' -f upscayl-bin -p $path
+    let download_path = ghub asset download -x $repository
+    move -d $download_path -f upscayl-bin -p $path
   }
 
-  bind file upscayl-cli $path
+  bind file upscayl-bin $path
+}
+
+export def resvg [ --force(-f) ] {
+  let repository = 'linebender/resvg'
+  let tag_name = ghub tag_name $repository
+  let path = filepath resvg $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download -x $repository
+    move -d $download_path -f resvg -p $path
+  }
+
+  bind file resvg $path
 }

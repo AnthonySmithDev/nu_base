@@ -508,3 +508,13 @@ export def firefox-de [ --force(-f) ] {
   sudo ln -s /opt/firefox/firefox /usr/local/bin/firefox
   sudo wget https://raw.githubusercontent.com/mozilla/sumo-kb/main/install-firefox-linux/firefox.desktop -P /usr/local/share/applications
 }
+
+export def magick [ --force(-f) ] {
+  let path = filepath magick lastest
+  if (path-not-exists $path $force) {
+    let download_path = download https://imagemagick.org/archive/binaries/magick -d magick
+    add-execute $download_path
+    move -f $download_path -p $path
+  }
+  bind file magick $path
+}

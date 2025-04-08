@@ -58,8 +58,18 @@ export def basic [] {
 
     scdoc
     qrencode
+
+    xsel
+    xclip
     wl-clipboard
+
     p7zip-full
+    7zip-standalone
+
+    chafa
+    imagemagick
+    poppler-utils
+    exiftool
 
     mpv
     pqiv
@@ -70,7 +80,6 @@ export def basic [] {
 
     tree
     htop
-    chafa
 
     libxss1
     libqt5concurrent5
