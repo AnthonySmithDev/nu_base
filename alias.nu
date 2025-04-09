@@ -20,7 +20,8 @@ alias fuzzy = fzf --preview "bat --color=always --style=numbers --line-range=:50
 
 alias sas = apt search
 alias sai = sudo apt install -y
-alias sar = sudo apt remove -y
+alias sar = sudo apt reinstall -y
+alias saR = sudo apt remove -y
 alias saa = sudo apt autoremove
 alias saud = sudo apt update
 alias saug = sudo apt upgrade
@@ -231,3 +232,5 @@ alias lis = list-images -p sixel
 
 alias gru = ghub repos update
 alias grU = ghub repo update
+
+alias nvchad = neovim run NvChad

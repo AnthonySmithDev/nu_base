@@ -41,7 +41,7 @@ use avd.nu
 # export module proxy.nu
 # export module shalom.nu
 # export module board.nu
-# export module nvim.nu
+use neovim.nu
 # export module lsp.nu
 # export module helix.nu
 # export module flutter.nu

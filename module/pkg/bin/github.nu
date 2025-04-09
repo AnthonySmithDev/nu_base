@@ -294,14 +294,14 @@ export def skate [ --force(-f) ] {
   bind file skate $path
 }
 
-export def --env nvim [ --force(-f) ] {
+export def --env neovim [ --force(-f) ] {
   let repository = 'neovim/neovim'
   let tag_name = ghub tag_name $repository
-  let path = dirpath nvim $tag_name
+  let path = dirpath neovim $tag_name
 
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository
-    move -d $download_path -f nvim-linux64 -p $path
+    move -d $download_path -p $path
   }
 
   bind dir $path $env.NVIM_PATH

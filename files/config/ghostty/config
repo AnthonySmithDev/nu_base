@@ -54,7 +54,7 @@ clipboard-read = allow
 clipboard-write = allow
 copy-on-select = clipboard
 
-background-opacity = 0.9
+background-opacity = 0.85
 background-blur = 0
 
 bold-is-bright = false

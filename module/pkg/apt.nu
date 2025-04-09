@@ -59,8 +59,8 @@ export def basic [] {
     scdoc
     qrencode
 
-    xsel
-    xclip
+    # xsel
+    # xclip
     wl-clipboard
 
     p7zip-full
