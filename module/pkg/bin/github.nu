@@ -2761,3 +2761,30 @@ export def resvg [ --force(-f) ] {
 
   bind file resvg $path
 }
+
+export def yt-dlp [ --force(-f) ] {
+  let repository = 'yt-dlp/yt-dlp'
+  let tag_name = ghub tag_name $repository
+  let path = filepath yt-dlp $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository
+    add-execute $download_path
+    move -f $download_path -p $path
+  }
+
+  bind file yt-dlp $path
+}
+
+export def go2tv [ --force(-f) ] {
+  let repository = 'alexballas/go2tv'
+  let tag_name = ghub tag_name $repository
+  let path = filepath go2tv $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download -x $repository
+    move -d $download_path -f go2tv -p $path
+  }
+
+  bind file go2tv $path
+}
