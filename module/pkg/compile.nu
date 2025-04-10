@@ -456,3 +456,21 @@ export def virtualpen [] {
     sudo ln -sf $path ($env.SYS_LOCAL_BIN | path join $name)
   }
 }
+
+export def miraclecast [] {
+  sudo apt install -y gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly gstreamer1.0-libav gstreamer1.0-tools gir1.2-gst-plugins-base-1.0 gir1.2-gstreamer-1.0
+  sudo apt install -y ubuntu-restricted-extras gstreamer1.0 libglib2.0-dev libreadline-dev libudev-dev libsystemd-dev libusb-dev build-essential
+
+  sudo apt install -y cmake libglib2.0-dev libudev-dev libsystemd-dev libreadline-dev check libtool
+
+  let path = ($env.USR_LOCAL_SOURCE | path join miraclecast)
+  git-down https://github.com/albfan/miraclecast.git $path
+
+  with-wd $path {||
+    mkdir build
+    cd build
+    cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+    make
+    sudo make install
+  }
+}

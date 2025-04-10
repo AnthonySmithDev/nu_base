@@ -552,3 +552,7 @@ def xrm [
   }
   return $deleted_paths
 }
+
+def asr [] {
+  job spawn {|| audiosource run}
+}

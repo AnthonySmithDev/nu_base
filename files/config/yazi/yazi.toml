@@ -7,3 +7,13 @@ max_width       = 400
 max_height      = 600
 image_filter    = "nearest"
 image_quality   = 60
+
+[opener]
+cast = [
+	{ run = 'go2tv -v "$@"', orphan = true, for = "unix" },
+]
+
+[open]
+rules = [
+	{ mime = "{audio,video}/*", use = [ "play", "reveal", "cast" ] },
+]

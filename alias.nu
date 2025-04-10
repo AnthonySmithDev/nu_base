@@ -205,10 +205,9 @@ alias sum = srv user mouseless
 
 alias irc = input-remapper-control --command autoload
 
-alias asr = audiosource run
-
 alias snips = ssh snips.sh
 
+alias rcopy1 = rclone copy --transfers=1 -P -M
 alias rcopy = rclone copy --ignore-existing --checkers=0 --transfers=1 -P -M
 
 alias unzipd = ^unzip -d
@@ -234,3 +233,5 @@ alias gru = ghub repos update
 alias grU = ghub repo update
 
 alias nvchad = neovim run NvChad
+
+alias d = yt-dlp -N 100

@@ -53,7 +53,8 @@ export def packages [] {
     [ other gpt-command-line gpt-command-line ]
     [ other elia git+https://github.com/darrenburns/elia ]
     [ other termtyper git+https://github.com/kraanzu/termtyper ]
-    [ other vimiv git+https://github.com/karlch/vimiv ]
+    [ other vimiv git+https://github.com/karlch/vimiv-qt ]
+    [ other pyqt6 PyQt6 ]
     [ other vimg textual-imageview ]
   ]
 }
