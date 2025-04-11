@@ -59,7 +59,7 @@ export def shell [
   --type(-t): string@get-host-type,
 ] {
   let server = get-server $alias $username $type
-  sshpass -p $server.password ssh -t -X $"($server.username)@($server.hostname)" (get-shell-command)
+  sshpass -p $server.password ssh -t -Y $"($server.username)@($server.hostname)" (get-shell-command)
 }
 
 export def cmd [
@@ -68,7 +68,7 @@ export def cmd [
   --type(-t): string@get-host-type,
 ] {
   let host = get-server $alias $username $type
-  commandline edit $"sshpass -p ($host.password) ssh -t -X ($host.username)@($host.hostname)"
+  commandline edit $"sshpass -p ($host.password) ssh -t -Y ($host.username)@($host.hostname)"
 }
 
 export def jump [

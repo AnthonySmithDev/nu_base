@@ -283,4 +283,5 @@ export def yazi [] {
   try { ya pack -a yazi-rs/plugins:full-border }
   try { ya pack -a grappas/wl-clipboard }
   try { ya pack -a kmlupreti/ayu-dark }
+  try { ya pack -a yazi-rs/plugins:mount }
 }
