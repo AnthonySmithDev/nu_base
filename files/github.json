@@ -399,23 +399,23 @@
   {
     "category": "core",
     "name": "jesseduffield/lazygit",
-    "tag_name": "v0.48.0",
-    "created_at": "2025-02-28T09:47:59Z",
+    "tag_name": "v0.49.0",
+    "created_at": "2025-04-14T08:27:49Z",
     "assets": [
-      "lazygit_0.48.0_Darwin_arm64.tar.gz",
-      "lazygit_0.48.0_Darwin_x86_64.tar.gz",
-      "lazygit_0.48.0_freebsd_32-bit.tar.gz",
-      "lazygit_0.48.0_freebsd_arm64.tar.gz",
-      "lazygit_0.48.0_freebsd_armv6.tar.gz",
-      "lazygit_0.48.0_freebsd_x86_64.tar.gz",
-      "lazygit_0.48.0_Linux_32-bit.tar.gz",
-      "lazygit_0.48.0_Linux_arm64.tar.gz",
-      "lazygit_0.48.0_Linux_armv6.tar.gz",
-      "lazygit_0.48.0_Linux_x86_64.tar.gz",
-      "lazygit_0.48.0_Windows_32-bit.zip",
-      "lazygit_0.48.0_Windows_arm64.zip",
-      "lazygit_0.48.0_Windows_armv6.zip",
-      "lazygit_0.48.0_Windows_x86_64.zip"
+      "lazygit_0.49.0_Darwin_arm64.tar.gz",
+      "lazygit_0.49.0_Darwin_x86_64.tar.gz",
+      "lazygit_0.49.0_freebsd_32-bit.tar.gz",
+      "lazygit_0.49.0_freebsd_arm64.tar.gz",
+      "lazygit_0.49.0_freebsd_armv6.tar.gz",
+      "lazygit_0.49.0_freebsd_x86_64.tar.gz",
+      "lazygit_0.49.0_Linux_32-bit.tar.gz",
+      "lazygit_0.49.0_Linux_arm64.tar.gz",
+      "lazygit_0.49.0_Linux_armv6.tar.gz",
+      "lazygit_0.49.0_Linux_x86_64.tar.gz",
+      "lazygit_0.49.0_Windows_32-bit.zip",
+      "lazygit_0.49.0_Windows_arm64.zip",
+      "lazygit_0.49.0_Windows_armv6.zip",
+      "lazygit_0.49.0_Windows_x86_64.zip"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -1207,8 +1207,8 @@
   {
     "category": "extra",
     "name": "AdguardTeam/AdGuardHome",
-    "tag_name": "v0.107.59",
-    "created_at": "2025-03-21T10:40:05Z",
+    "tag_name": "v0.107.60",
+    "created_at": "2025-04-14T11:06:56Z",
     "assets": [
       "AdGuardHome_darwin_amd64.zip",
       "AdGuardHome_darwin_arm64.zip",
@@ -1369,8 +1369,8 @@
   {
     "category": "extra",
     "name": "derailed/k9s",
-    "tag_name": "v0.50.2",
-    "created_at": "2025-04-10T15:31:58Z",
+    "tag_name": "v0.50.3",
+    "created_at": "2025-04-14T00:28:01Z",
     "assets": [
       "k9s_Darwin_amd64.tar.gz",
       "k9s_Darwin_arm64.tar.gz",
@@ -2223,8 +2223,8 @@
   {
     "category": "extra",
     "name": "ast-grep/ast-grep",
-    "tag_name": "0.36.2",
-    "created_at": "2025-03-19T19:50:26Z",
+    "tag_name": "0.36.3",
+    "created_at": "2025-04-13T19:16:48Z",
     "assets": [
       "app-aarch64-apple-darwin.zip",
       "app-aarch64-pc-windows-msvc.zip",
@@ -2710,20 +2710,20 @@
   {
     "category": "other",
     "name": "coder/code-server",
-    "tag_name": "v4.99.1",
-    "created_at": "2025-04-08T18:51:30Z",
+    "tag_name": "v4.99.2",
+    "created_at": "2025-04-10T19:13:29Z",
     "assets": [
-      "code-server-4.99.1-amd64.rpm",
-      "code-server-4.99.1-arm64.rpm",
-      "code-server-4.99.1-armhfp.rpm",
-      "code-server-4.99.1-linux-amd64.tar.gz",
-      "code-server-4.99.1-linux-arm64.tar.gz",
-      "code-server-4.99.1-linux-armv7l.tar.gz",
-      "code-server-4.99.1-macos-amd64.tar.gz",
-      "code-server-4.99.1-macos-arm64.tar.gz",
-      "code-server_4.99.1_amd64.deb",
-      "code-server_4.99.1_arm64.deb",
-      "code-server_4.99.1_armhf.deb",
+      "code-server-4.99.2-amd64.rpm",
+      "code-server-4.99.2-arm64.rpm",
+      "code-server-4.99.2-armhfp.rpm",
+      "code-server-4.99.2-linux-amd64.tar.gz",
+      "code-server-4.99.2-linux-arm64.tar.gz",
+      "code-server-4.99.2-linux-armv7l.tar.gz",
+      "code-server-4.99.2-macos-amd64.tar.gz",
+      "code-server-4.99.2-macos-arm64.tar.gz",
+      "code-server_4.99.2_amd64.deb",
+      "code-server_4.99.2_arm64.deb",
+      "code-server_4.99.2_armhf.deb",
       "package.tar.gz"
     ],
     "linux_x64": {
@@ -3684,14 +3684,14 @@
   {
     "category": "other",
     "name": "o2sh/onefetch",
-    "tag_name": "2.23.1",
-    "created_at": "2025-01-01T17:03:34Z",
+    "tag_name": "2.24.0",
+    "created_at": "2025-04-12T16:22:34Z",
     "assets": [
       "onefetch-linux.tar.gz",
       "onefetch-mac.tar.gz",
       "onefetch-setup.exe",
       "onefetch-win.tar.gz",
-      "onefetch_2.23.1_amd64.deb"
+      "onefetch_2.24.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -4441,8 +4441,8 @@
   {
     "category": "other",
     "name": "simulot/immich-go",
-    "tag_name": "v0.25.2",
-    "created_at": "2025-04-05T07:51:09Z",
+    "tag_name": "v0.25.3",
+    "created_at": "2025-04-12T06:49:21Z",
     "assets": [
       "immich-go_Darwin_arm64.tar.gz",
       "immich-go_Darwin_x86_64.tar.gz",
@@ -4460,8 +4460,8 @@
   {
     "category": "other",
     "name": "Picocrypt/CLI",
-    "tag_name": "1.47",
-    "created_at": "2025-02-20T01:42:07Z",
+    "tag_name": "1.48",
+    "created_at": "2025-04-13T00:31:22Z",
     "assets": [
       "picocrypt-linux-amd64",
       "picocrypt-linux-arm64",
@@ -4594,8 +4594,8 @@
   {
     "category": "other",
     "name": "pnpm/pnpm",
-    "tag_name": "v10.8.0",
-    "created_at": "2025-04-07T16:21:24Z",
+    "tag_name": "v10.8.1",
+    "created_at": "2025-04-14T10:52:50Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",
@@ -5210,15 +5210,15 @@
   {
     "category": "other",
     "name": "jetify-com/devbox",
-    "tag_name": "0.14.0",
-    "created_at": "2025-02-14T06:11:43Z",
+    "tag_name": "0.14.1",
+    "created_at": "2025-04-11T20:51:39Z",
     "assets": [
-      "devbox_0.14.0_darwin_amd64.tar.gz",
-      "devbox_0.14.0_darwin_arm64.tar.gz",
-      "devbox_0.14.0_linux_386.tar.gz",
-      "devbox_0.14.0_linux_amd64.tar.gz",
-      "devbox_0.14.0_linux_arm64.tar.gz",
-      "devbox_0.14.0_linux_armv7l.tar.gz"
+      "devbox_0.14.1_darwin_amd64.tar.gz",
+      "devbox_0.14.1_darwin_arm64.tar.gz",
+      "devbox_0.14.1_linux_386.tar.gz",
+      "devbox_0.14.1_linux_amd64.tar.gz",
+      "devbox_0.14.1_linux_arm64.tar.gz",
+      "devbox_0.14.1_linux_armv7l.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -5412,8 +5412,8 @@
   {
     "category": "android",
     "name": "FriesI23/mhabit",
-    "tag_name": "v1.15.8+66",
-    "created_at": "2025-03-15T12:25:28Z",
+    "tag_name": "v1.16.3+70",
+    "created_at": "2025-04-12T11:36:01Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -5481,8 +5481,8 @@
   {
     "category": "android",
     "name": "stratumauth/app",
-    "tag_name": "v1.2.3",
-    "created_at": "2025-03-31T17:06:21Z",
+    "tag_name": "v1.2.4",
+    "created_at": "2025-04-12T09:27:25Z",
     "assets": [
       "com.stratumauth.app-arm64-v8a.fdroid.apk",
       "com.stratumauth.app-armeabi-v7a.fdroid.apk",

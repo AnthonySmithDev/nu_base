@@ -59,7 +59,8 @@ export def shell [
   --type(-t): string@get-host-type,
 ] {
   let server = get-server $alias $username $type
-  sshpass -p $server.password ssh -t -Y $"($server.username)@($server.hostname)" (get-shell-command)
+  # sshpass -p $server.password
+  ssh -t -Y $"($server.username)@($server.hostname)" (get-shell-command)
 }
 
 export def cmd [
@@ -68,7 +69,8 @@ export def cmd [
   --type(-t): string@get-host-type,
 ] {
   let host = get-server $alias $username $type
-  commandline edit $"sshpass -p ($host.password) ssh -t -Y ($host.username)@($host.hostname)"
+  # commandline edit $"sshpass -p ($host.password) ssh -t -Y ($host.username)@($host.hostname)"
+  commandline edit $"ssh -t -Y ($host.username)@($host.hostname)"
 }
 
 export def jump [
@@ -98,7 +100,8 @@ export def "file send" [
     $"($server.username)@($server.hostname):($dest_path)"
   }
   
-  sshpass -p $server.password scp -r $source_path $destination
+  # sshpass -p $server.password
+  scp -r $source_path $destination
 }
 
 export def "file get" [
@@ -115,11 +118,13 @@ export def "file get" [
     $dest_path
   }
   
-  sshpass -p $server.password scp -r $"($server.username)@($server.hostname):($source_path)" $destination
+  # sshpass -p $server.password
+  scp -r $"($server.username)@($server.hostname):($source_path)" $destination
 }
 
 def copy-key-to-host [host: record] {
-  sshpass -p $host.password ssh-copy-id -f $"($host.username)@($host.hostname)"
+  # sshpass -p $host.password
+  ssh-copy-id -f $"($host.username)@($host.hostname)"
 }
 
 def copy-files-to-host [host: record] {
@@ -151,4 +156,26 @@ export def setup [
   copy-key-to-host $host
   copy-files-to-host $host
   exec-cmd-to-host $host "bash ~/.local/nu_base/sh/base.sh"
+}
+
+export def mount [
+  alias: string@get-server-aliases,
+  username?: string@get-usernames-from-context,
+  --wd: string,
+  --remove(-r),
+] {
+  let directory = ($env.HOME | path join media $alias)
+
+  if $remove {
+    return (fusermount -u $directory)
+  }
+
+  mkdir $directory
+  let host = (get-server $alias $username)
+  
+  # Usar el wd proporcionado o obtenerlo via SSH
+  let remote_path = $wd | default (ssh -t $"($host.username)@($host.hostname)" "pwd" | str trim)
+
+  sshfs $"($host.username)@($host.hostname):($remote_path)" $directory
+  return $directory
 }

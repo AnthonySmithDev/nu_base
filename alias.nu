@@ -235,3 +235,4 @@ alias grU = ghub repo update
 alias nvchad = neovim run NvChad
 
 alias d = yt-dlp -N 100
+alias ydb = yt-dlp -N 100 --paths temp:"/tmp/yt-dlp" --batch-file
