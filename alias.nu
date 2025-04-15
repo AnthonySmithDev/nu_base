@@ -23,10 +23,10 @@ alias sai = sudo apt install -y
 alias sar = sudo apt reinstall -y
 alias saR = sudo apt remove -y
 alias saa = sudo apt autoremove
-alias saud = sudo apt update
-alias saug = sudo apt upgrade
-alias saif = sudo apt install --fix-broken
-alias salu = sudo apt list --upgradable
+alias sau = sudo apt update -y
+alias saU = sudo apt upgrade -y
+alias saf = sudo apt install --fix-broken
+alias sal = sudo apt list --upgradable
 alias sdc = sudo dpkg --configure -a
 alias sdi = sudo dpkg --install
 

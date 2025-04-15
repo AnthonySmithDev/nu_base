@@ -41,6 +41,18 @@ export def sources [] {
   deb http://archive.ubuntu.com/ubuntu jammy main
 }
 
+export def nala [] {
+  sudo apt install -y nala
+}
+
+export def install [...packages: string] {
+  if (exists-external nala) {
+    sudo nala install -y ...packages
+  } else {
+    sudo apt install -y ...packages
+  }
+}
+
 export def basic [] {
   let packages = [
     nala
@@ -83,9 +95,18 @@ export def basic [] {
 
     libxss1
     libqt5concurrent5
+
+    qemu-kvm
+    qemu-utils
+    qemu-system
+
+    libvirt-daemon-system
+    libvirt-clients
+    bridge-utils
+    virt-manager
   ]
 
-  sudo apt install -y ...$packages
+  install ...$packages
 }
 
 export def dependency [] {
@@ -240,7 +261,7 @@ export def dependency [] {
     gnome-screenshot
   ] | uniq)
 
-  sudo apt install -y ...$packages
+  install ...$packages
 
   # sudo systemctl enable ssh
   # sudo systemctl start ssh
@@ -249,33 +270,33 @@ export def dependency [] {
 export def helix [] {
   sudo add-apt-repository -y ppa:maveonair/helix-editor
   sudo apt update
-  sudo apt install -y helix
+  install helix
 }
 
 export def alacritty [] {
   sudo add-apt-repository -y ppa:aslatter/ppa
   sudo apt update
-  sudo apt install -y alacritty
+  install alacritty
 }
 
 export def chafa [] {
-  sudo apt install -y chafa
+  install chafa
 }
 
 export def keepassxc [] {
   sudo add-apt-repository -y ppa:phoerious/keepassxc
   sudo apt update
-  sudo apt install -y keepassxc
+  install keepassxc
 }
 
 export def snap [] {
   sudo apt update
-  sudo apt install -y snapd
+  install snapd
 }
 
 export def speedtest [] {
   curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash
-  sudo apt install -y speedtest
+  install speedtest
 }
 
 export def flathub [] {
@@ -283,29 +304,29 @@ export def flathub [] {
     return
   }
 
-  sudo apt install -y flatpak
-  sudo apt install -y gnome-software-plugin-flatpak
+  install flatpak
+  install gnome-software-plugin-flatpak
   flatpak remote-add --if-not-exists flathub 'https://flathub.org/repo/flathub.flatpakrepo'
 }
 
 export def cpp [] {
-  sudo apt install -y g++ gdb clangd clang-format clang-tidy cppcheck
+  install g++ gdb clangd clang-format clang-tidy cppcheck
 
   # sudo add-apt-repository PPA:codeblocks-devs/release
   # sudo apt update
-  # sudo apt install -y codeblocks codeblocks-contrib
+  # install codeblocks codeblocks-contrib
 }
 
 export def python [] {
-  sudo apt install -y python3-full python3 python3-pip python3-venv pipx
+  install python3-full python3 python3-pip python3-venv pipx
 }
 
 export def java [] {
-  # sudo apt install -y openjdk-8-jdk
-  # sudo apt install -y openjdk-11-jdk
-  # sudo apt install -y openjdk-17-jdk
-  # sudo apt install -y openjdk-21-jdk
-  sudo apt install -y default-jdk
+  # install openjdk-8-jdk
+  # install openjdk-11-jdk
+  # install openjdk-17-jdk
+  # install openjdk-21-jdk
+  install default-jdk
 }
 
 export def dart [] {
@@ -318,13 +339,13 @@ export def dart [] {
   | sudo tee '/etc/apt/sources.list.d/dart_stable.list' | ignore
 
   sudo apt update
-  sudo apt install -y dart
+  install dart
 }
 
 export def libwebkit2gtk [] {
   "deb http://archive.ubuntu.com/ubuntu jammy main"
   sudo apt update
-  sudo apt install -y ibwebkit2gtk-4.0-dev
+  install ibwebkit2gtk-4.0-dev
 }
 
 def exists [ app: string ] {
@@ -343,7 +364,7 @@ export def brave [ --force(-f) ] {
   | sudo tee /etc/apt/sources.list.d/brave-browser-release.list | ignore
 
   sudo apt update
-  sudo apt install -y brave-browser
+  install brave-browser
 }
 
 export def docker [] {
@@ -381,7 +402,7 @@ export def docker [] {
     docker-compose-plugin
   ]
 
-  sudo apt install -y ...$packages
+  install ...$packages
 
   # sudo groupadd docker
   sudo usermod -aG docker $env.USER
@@ -444,13 +465,13 @@ export def regolith [ --force(-f), --beta(-b) ] {
 
   sudo apt update -y
   sudo apt upgrade -y
-  sudo apt install -y ...$packages
+  install ...$packages
 }
 
 export def remmina [] {
   sudo apt-add-repository ppa:remmina-ppa-team/remmina-next
   sudo apt update
-  sudo apt install -y remmina remmina-plugin-rdp remmina-plugin-secret
+  install remmina remmina-plugin-rdp remmina-plugin-secret
 }
 
 export def vagrant [] {
@@ -476,9 +497,9 @@ export def waydroid [] {
     bash INSTALL.sh
   }
 
-  sudo apt install -y curl ca-certificates
+  install curl ca-certificates
   curl https://repo.waydro.id | sudo bash
-  sudo apt install -y waydroid
+  install waydroid
 
   sudo waydroid init -s GAPPS
   sudo systemctl enable --now waydroid-container
@@ -499,38 +520,38 @@ export def waydroid [] {
 }
 
 export def obs [] {
-  sudo apt install -y ffmpeg
+  install ffmpeg
   sudo add-apt-repository -y ppa:obsproject/obs-studio
   sudo apt update -y
-  sudo apt install -y obs-studio
+  install obs-studio
 }
 
 export def podman [] {
   sudo apt update
-  sudo apt install -y podman
+  install podman
 }
 
 export def sftpgo [] {
   sudo add-apt-repository -y ppa:sftpgo/sftpgo
   sudo apt update
-  sudo apt install -y sftpgo
+  install sftpgo
   systemctl status sftpgo
 }
 
 export def timg [] {
-  sudo apt install -y timg
+  install timg
 }
 
 export def nautilus [] {
-  sudo apt install -y nautilus
+  install nautilus
 }
 
 export def gparted [] {
-  sudo apt install -y gparted
+  install gparted
 }
 
 export def sixel [] {
-  sudo apt install -y libsixel-dev libsixel1 libsixel-bin
+  install libsixel-dev libsixel1 libsixel-bin
 }
 
 export def unityhub [] {
@@ -541,7 +562,7 @@ export def unityhub [] {
   | sudo tee '/etc/apt/sources.list.d/unityhub.list' | ignore
 
   sudo apt update
-  sudo apt install -y unityhub
+  install unityhub
 }
 
 export def windsurf [] {

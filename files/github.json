@@ -993,8 +993,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.137.0",
-    "created_at": "2025-03-27T18:45:29Z",
+    "tag_name": "3.138.0",
+    "created_at": "2025-04-15T10:47:27Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -1161,20 +1161,18 @@
   {
     "category": "extra",
     "name": "ekzhang/bore",
-    "tag_name": "v0.5.2",
-    "created_at": "2024-12-05T18:42:39Z",
+    "tag_name": "v0.5.3",
+    "created_at": "2025-04-14T21:48:02Z",
     "assets": [
-      "bore-v0.5.2-aarch64-apple-darwin.tar.gz",
-      "bore-v0.5.2-aarch64-unknown-linux-musl.tar.gz",
-      "bore-v0.5.2-arm-unknown-linux-gnueabi.tar.gz",
-      "bore-v0.5.2-arm-unknown-linux-musleabi.tar.gz",
-      "bore-v0.5.2-armv7-unknown-linux-gnueabihf.tar.gz",
-      "bore-v0.5.2-armv7-unknown-linux-musleabihf.tar.gz",
-      "bore-v0.5.2-i686-pc-windows-msvc.zip",
-      "bore-v0.5.2-i686-unknown-linux-musl.tar.gz",
-      "bore-v0.5.2-x86_64-apple-darwin.tar.gz",
-      "bore-v0.5.2-x86_64-pc-windows-msvc.zip",
-      "bore-v0.5.2-x86_64-unknown-linux-musl.tar.gz"
+      "bore-v0.5.3-aarch64-unknown-linux-musl.tar.gz",
+      "bore-v0.5.3-arm-unknown-linux-gnueabi.tar.gz",
+      "bore-v0.5.3-arm-unknown-linux-musleabi.tar.gz",
+      "bore-v0.5.3-armv7-unknown-linux-gnueabihf.tar.gz",
+      "bore-v0.5.3-armv7-unknown-linux-musleabihf.tar.gz",
+      "bore-v0.5.3-i686-pc-windows-msvc.zip",
+      "bore-v0.5.3-i686-unknown-linux-musl.tar.gz",
+      "bore-v0.5.3-x86_64-pc-windows-msvc.zip",
+      "bore-v0.5.3-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -2223,8 +2221,8 @@
   {
     "category": "extra",
     "name": "ast-grep/ast-grep",
-    "tag_name": "0.36.3",
-    "created_at": "2025-04-13T19:16:48Z",
+    "tag_name": "0.37.0",
+    "created_at": "2025-04-15T02:56:49Z",
     "assets": [
       "app-aarch64-apple-darwin.zip",
       "app-aarch64-pc-windows-msvc.zip",
@@ -3408,30 +3406,30 @@
   {
     "category": "other",
     "name": "cli/cli",
-    "tag_name": "v2.69.0",
-    "created_at": "2025-03-19T12:24:42Z",
+    "tag_name": "v2.70.0",
+    "created_at": "2025-04-11T14:16:39Z",
     "assets": [
-      "gh_2.69.0_linux_386.deb",
-      "gh_2.69.0_linux_386.rpm",
-      "gh_2.69.0_linux_386.tar.gz",
-      "gh_2.69.0_linux_amd64.deb",
-      "gh_2.69.0_linux_amd64.rpm",
-      "gh_2.69.0_linux_amd64.tar.gz",
-      "gh_2.69.0_linux_arm64.deb",
-      "gh_2.69.0_linux_arm64.rpm",
-      "gh_2.69.0_linux_arm64.tar.gz",
-      "gh_2.69.0_linux_armv6.deb",
-      "gh_2.69.0_linux_armv6.rpm",
-      "gh_2.69.0_linux_armv6.tar.gz",
-      "gh_2.69.0_macOS_amd64.zip",
-      "gh_2.69.0_macOS_arm64.zip",
-      "gh_2.69.0_macOS_universal.pkg",
-      "gh_2.69.0_windows_386.msi",
-      "gh_2.69.0_windows_386.zip",
-      "gh_2.69.0_windows_amd64.msi",
-      "gh_2.69.0_windows_amd64.zip",
-      "gh_2.69.0_windows_arm64.msi",
-      "gh_2.69.0_windows_arm64.zip"
+      "gh_2.70.0_linux_386.deb",
+      "gh_2.70.0_linux_386.rpm",
+      "gh_2.70.0_linux_386.tar.gz",
+      "gh_2.70.0_linux_amd64.deb",
+      "gh_2.70.0_linux_amd64.rpm",
+      "gh_2.70.0_linux_amd64.tar.gz",
+      "gh_2.70.0_linux_arm64.deb",
+      "gh_2.70.0_linux_arm64.rpm",
+      "gh_2.70.0_linux_arm64.tar.gz",
+      "gh_2.70.0_linux_armv6.deb",
+      "gh_2.70.0_linux_armv6.rpm",
+      "gh_2.70.0_linux_armv6.tar.gz",
+      "gh_2.70.0_macOS_amd64.zip",
+      "gh_2.70.0_macOS_arm64.zip",
+      "gh_2.70.0_macOS_universal.pkg",
+      "gh_2.70.0_windows_386.msi",
+      "gh_2.70.0_windows_386.zip",
+      "gh_2.70.0_windows_amd64.msi",
+      "gh_2.70.0_windows_amd64.zip",
+      "gh_2.70.0_windows_arm64.msi",
+      "gh_2.70.0_windows_arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3817,8 +3815,8 @@
   {
     "category": "other",
     "name": "bitcoin/bitcoin",
-    "tag_name": "v28.1",
-    "created_at": "2025-01-07T18:33:40Z",
+    "tag_name": "v29.0",
+    "created_at": "2025-04-11T18:15:32Z",
     "assets": []
   },
   {
@@ -4837,8 +4835,8 @@
   {
     "category": "other",
     "name": "hoppscotch/releases",
-    "tag_name": "v25.3.1-0",
-    "created_at": "2025-03-28T14:56:05Z",
+    "tag_name": "v25.3.2-0",
+    "created_at": "2025-04-10T09:14:40Z",
     "assets": [
       "Hoppscotch_linux_x64.AppImage",
       "Hoppscotch_linux_x64.deb",
