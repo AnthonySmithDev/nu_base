@@ -271,12 +271,16 @@ export def hargo [] {
   }
 }
 
-export def nchat [] {
+export def nchat [--deps(-d)] {
   let path = ($env.USR_LOCAL_SOURCE | path join nchat)
   git-down https://github.com/d99kris/nchat $path
 
   with-wd $path {||
-    bash make.sh deps
+    if $deps {
+      # bash make.sh deps
+      sudo apt update
+      sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev
+    }
     bash make.sh build
     bash make.sh install
   }
