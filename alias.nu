@@ -236,3 +236,6 @@ alias nvchad = neovim run NvChad
 
 alias d = yt-dlp -N 100
 alias ydb = yt-dlp -N 100 --paths temp:"/tmp/yt-dlp" --batch-file
+
+alias mpvc = mpv --audio-channels=stereo --sub-visibility=no --video-crop=250:0
+alias mpvz = mpv --audio-channels=stereo --sub-visibility=no --video-zoom=0.4

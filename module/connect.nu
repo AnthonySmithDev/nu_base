@@ -159,23 +159,52 @@ export def setup [
 }
 
 export def mount [
-  alias: string@get-server-aliases,
-  username?: string@get-usernames-from-context,
-  --wd: string,
-  --remove(-r),
+    alias: string@get-server-aliases,
+    username?: string@get-usernames-from-context,
+    --wd: string
 ] {
-  let directory = ($env.HOME | path join media $alias)
+    let mount_dir = ($env.HOME | path join "media" $alias)
+    let host = (get-server $alias $username)
+    let remote_path = if ($wd | is-not-empty) { $wd } else {
+      "/home" | path join $host.username
+    }
+    let mount_point = ($mount_dir | path join ($remote_path | path basename))
+    mkdir $mount_point
 
-  if $remove {
-    return (fusermount -u $directory)
-  }
+    try {
+        sshfs -o ro $"($host.username)@($host.hostname):($remote_path)" $mount_point
+        return {
+            status: "success",
+            mount_point: $mount_point,
+            remote_path: $remote_path,
+            host: ($host | reject password)
+        }
+    } catch {
+        return {
+            status: "error",
+            message: $"Failed to mount ($alias)",
+            host: ($host | reject password)
+            error: $in
+        }
+    }
+}
 
-  mkdir $directory
-  let host = (get-server $alias $username)
-  
-  # Usar el wd proporcionado o obtenerlo via SSH
-  let remote_path = $wd | default (ssh -t $"($host.username)@($host.hostname)" "pwd" | str trim)
+export def umount [
+    alias: string@get-server-aliases,
+    username?: string@get-usernames-from-context,
+    --wd: string
+] {
+    let mount_dir = ($env.HOME | path join "media" $alias)
+    let host = (get-server $alias $username)
+    let remote_path = if ($wd | is-not-empty) { $wd } else {
+      "/home" | path join $host.username
+    }
+    let mount_point = ($mount_dir | path join ($remote_path | path basename))
 
-  sshfs $"($host.username)@($host.hostname):($remote_path)" $directory
-  return $directory
+    try {
+        fusermount -u $mount_point
+        return {status: "success", message: $"Unmounted ($mount_point)"}
+    } catch {
+        return {status: "error", message: $"Failed to unmount ($mount_point)"}
+    }
 }

@@ -279,7 +279,7 @@ def __zellij_sessions [] {
 }
 
 def 'zellij drop' [ ...session: string@__zellij_sessions, --all(-a) ] {
-  let select_sessions = if $session != null {
+  let select_sessions = if ($session | is-not-empty) {
     __zellij_sessions | where value in $session
   } else if $all {
     __zellij_sessions
@@ -325,12 +325,12 @@ def 'rfzf' [query: string = ''] {
 def list-images [
   ...images: string
   --pixelation(-p): string = "sixel"
-  --max-depth(-d): int = 1
+  --max-depth(-m): int = 1
+  --columns(-c): int
+  --dir(-d): path
 ] {
-  let images = if ($images | is-empty) {
-    fd -e png -e jpg -e jpeg -d $max_depth | lines
-  } else {
-    $images
+  let images = if ($images | is-not-empty) { $images } else {
+    fd -e png -e jpg -e jpeg -d $max_depth . ($dir | default .) | lines
   }
 
   if ($images | is-empty) {
@@ -341,14 +341,12 @@ def list-images [
   let is_wide_terminal = $terminal_width > 110
   let image_count = ($images | length)
   
-  let max_images_per_row = if $image_count <= 2 { $image_count } else { 2 }
-  let grid_columns = if $is_wide_terminal { $max_images_per_row * 2 } else { $max_images_per_row }
+  let grid_columns = if $columns != null { $columns } else {
+    let max_images_per_row = if $image_count <= 2 { $image_count } else { 2 }
+    if $is_wide_terminal { $max_images_per_row * 2 } else { $max_images_per_row }
+  }
 
   timg --title --pixelation $pixelation --grid $grid_columns ...$images
-}
-
-def 'rsftp' [] {
-  rclone copy --sftp-host '192.168.0.20' --sftp-user 'anthony' --sftp-port 8022 --sftp-pass 'Smithg'
 }
 
 def --wrapped dockerctl [...rest] {
