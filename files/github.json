@@ -993,8 +993,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.139.0",
-    "created_at": "2025-04-16T15:54:28Z",
+    "tag_name": "3.139.1",
+    "created_at": "2025-04-17T15:36:23Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -1352,8 +1352,8 @@
   {
     "category": "core",
     "name": "mrjackwills/oxker",
-    "tag_name": "v0.10.0",
-    "created_at": "2025-02-23T15:10:05Z",
+    "tag_name": "v0.10.1",
+    "created_at": "2025-04-18T13:12:36Z",
     "assets": [
       "oxker_linux_aarch64.tar.gz",
       "oxker_linux_armv6.tar.gz",
@@ -2172,10 +2172,10 @@
   {
     "category": "extra",
     "name": "eza-community/eza",
-    "tag_name": "v0.21.0",
-    "created_at": "2025-04-02T13:10:13Z",
+    "tag_name": "v0.21.1",
+    "created_at": "2025-04-19T06:17:06Z",
     "assets": [
-      "completions-0.21.0.tar.gz",
+      "completions-0.21.1.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.zip",
       "eza_aarch64-unknown-linux-gnu.tar.gz",
@@ -2190,7 +2190,7 @@
       "eza_x86_64-unknown-linux-gnu.zip",
       "eza_x86_64-unknown-linux-musl.tar.gz",
       "eza_x86_64-unknown-linux-musl.zip",
-      "man-0.21.0.tar.gz"
+      "man-0.21.1.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -2687,20 +2687,20 @@
   {
     "category": "other",
     "name": "coder/code-server",
-    "tag_name": "v4.99.2",
-    "created_at": "2025-04-10T19:13:29Z",
+    "tag_name": "v4.99.3",
+    "created_at": "2025-04-16T22:18:00Z",
     "assets": [
-      "code-server-4.99.2-amd64.rpm",
-      "code-server-4.99.2-arm64.rpm",
-      "code-server-4.99.2-armhfp.rpm",
-      "code-server-4.99.2-linux-amd64.tar.gz",
-      "code-server-4.99.2-linux-arm64.tar.gz",
-      "code-server-4.99.2-linux-armv7l.tar.gz",
-      "code-server-4.99.2-macos-amd64.tar.gz",
-      "code-server-4.99.2-macos-arm64.tar.gz",
-      "code-server_4.99.2_amd64.deb",
-      "code-server_4.99.2_arm64.deb",
-      "code-server_4.99.2_armhf.deb",
+      "code-server-4.99.3-amd64.rpm",
+      "code-server-4.99.3-arm64.rpm",
+      "code-server-4.99.3-armhfp.rpm",
+      "code-server-4.99.3-linux-amd64.tar.gz",
+      "code-server-4.99.3-linux-arm64.tar.gz",
+      "code-server-4.99.3-linux-armv7l.tar.gz",
+      "code-server-4.99.3-macos-amd64.tar.gz",
+      "code-server-4.99.3-macos-arm64.tar.gz",
+      "code-server_4.99.3_amd64.deb",
+      "code-server_4.99.3_arm64.deb",
+      "code-server_4.99.3_armhf.deb",
       "package.tar.gz"
     ],
     "linux_x64": {
@@ -3144,8 +3144,8 @@
   {
     "category": "other",
     "name": "aandrew-me/tgpt",
-    "tag_name": "v2.9.4",
-    "created_at": "2025-04-04T18:51:17Z",
+    "tag_name": "v2.9.5",
+    "created_at": "2025-04-18T08:11:33Z",
     "assets": [
       "tgpt-amd64.exe",
       "tgpt-arm.exe",
@@ -3364,8 +3364,8 @@
   {
     "category": "other",
     "name": "ouch-org/ouch",
-    "tag_name": "0.5.1",
-    "created_at": "2023-12-05T22:24:48Z",
+    "tag_name": "0.6.0",
+    "created_at": "2025-04-18T20:56:57Z",
     "assets": [
       "ouch-aarch64-pc-windows-msvc.zip",
       "ouch-aarch64-unknown-linux-gnu.tar.gz",
@@ -3417,8 +3417,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.11.5",
-    "created_at": "2025-04-10T16:57:44Z",
+    "tag_name": "0.11.6",
+    "created_at": "2025-04-17T13:20:29Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -3801,8 +3801,8 @@
   {
     "category": "other",
     "name": "oven-sh/bun",
-    "tag_name": "bun-v1.2.9",
-    "created_at": "2025-04-09T04:32:19Z",
+    "tag_name": "bun-v1.2.10",
+    "created_at": "2025-04-16T05:09:54Z",
     "assets": [
       "bun-darwin-aarch64-profile.zip",
       "bun-darwin-aarch64.zip",
@@ -3904,20 +3904,20 @@
   {
     "category": "other",
     "name": "siyuan-note/siyuan",
-    "tag_name": "v3.1.27",
-    "created_at": "2025-04-08T02:58:10Z",
+    "tag_name": "v3.1.28",
+    "created_at": "2025-04-18T09:28:39Z",
     "assets": [
-      "siyuan-3.1.27-linux-arm64.AppImage",
-      "siyuan-3.1.27-linux-arm64.deb",
-      "siyuan-3.1.27-linux-arm64.tar.gz",
-      "siyuan-3.1.27-linux.AppImage",
-      "siyuan-3.1.27-linux.deb",
-      "siyuan-3.1.27-linux.tar.gz",
-      "siyuan-3.1.27-mac-arm64.dmg",
-      "siyuan-3.1.27-mac.dmg",
-      "siyuan-3.1.27-win-arm64.exe",
-      "siyuan-3.1.27-win.exe",
-      "siyuan-3.1.27.apk"
+      "siyuan-3.1.28-linux-arm64.AppImage",
+      "siyuan-3.1.28-linux-arm64.deb",
+      "siyuan-3.1.28-linux-arm64.tar.gz",
+      "siyuan-3.1.28-linux.AppImage",
+      "siyuan-3.1.28-linux.deb",
+      "siyuan-3.1.28-linux.tar.gz",
+      "siyuan-3.1.28-mac-arm64.dmg",
+      "siyuan-3.1.28-mac.dmg",
+      "siyuan-3.1.28-win-arm64.exe",
+      "siyuan-3.1.28-win.exe",
+      "siyuan-3.1.28.apk"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -3950,21 +3950,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.21.2",
-    "created_at": "2025-04-10T11:28:46Z",
+    "tag_name": "v0.21.3",
+    "created_at": "2025-04-18T08:31:13Z",
     "assets": [
-      "affine-0.21.2-stable-linux-x64.appimage",
-      "affine-0.21.2-stable-linux-x64.deb",
-      "affine-0.21.2-stable-linux-x64.flatpak",
-      "affine-0.21.2-stable-linux-x64.zip",
-      "affine-0.21.2-stable-macos-arm64.dmg",
-      "affine-0.21.2-stable-macos-arm64.zip",
-      "affine-0.21.2-stable-macos-x64.dmg",
-      "affine-0.21.2-stable-macos-x64.zip",
-      "affine-0.21.2-stable-windows-arm64.exe",
-      "affine-0.21.2-stable-windows-arm64.nsis.exe",
-      "affine-0.21.2-stable-windows-x64.exe",
-      "affine-0.21.2-stable-windows-x64.nsis.exe",
+      "affine-0.21.3-stable-linux-x64.appimage",
+      "affine-0.21.3-stable-linux-x64.deb",
+      "affine-0.21.3-stable-linux-x64.flatpak",
+      "affine-0.21.3-stable-linux-x64.zip",
+      "affine-0.21.3-stable-macos-arm64.dmg",
+      "affine-0.21.3-stable-macos-arm64.zip",
+      "affine-0.21.3-stable-macos-x64.dmg",
+      "affine-0.21.3-stable-macos-x64.zip",
+      "affine-0.21.3-stable-windows-arm64.exe",
+      "affine-0.21.3-stable-windows-arm64.nsis.exe",
+      "affine-0.21.3-stable-windows-x64.exe",
+      "affine-0.21.3-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
@@ -3974,20 +3974,26 @@
   {
     "category": "other",
     "name": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.8.8",
-    "created_at": "2025-04-02T08:09:52Z",
+    "tag_name": "0.8.9",
+    "created_at": "2025-04-17T03:01:30Z",
     "assets": [
-      "AppFlowy-0.8.8-android.apk",
-      "AppFlowy-0.8.8-linux-x86_64.AppImage",
-      "AppFlowy-0.8.8-linux-x86_64.deb",
-      "AppFlowy-0.8.8-linux-x86_64.rpm",
-      "AppFlowy-0.8.8-linux-x86_64.tar.gz",
-      "AppFlowy-0.8.8-macos-universal.dmg",
-      "AppFlowy-0.8.8-macos-universal.zip",
-      "AppFlowy-0.8.8-macos-x86_64.dmg",
-      "AppFlowy-0.8.8-macos-x86_64.zip",
-      "AppFlowy-0.8.8-windows-x86_64.exe",
-      "AppFlowy-0.8.8-windows-x86_64.zip"
+      "appcast-linux-x86_64.xml",
+      "appcast-macos-arm64.xml",
+      "appcast-macos-x86_64.xml",
+      "appcast-windows-x86_64.xml",
+      "AppFlowy-0.8.9-android.apk",
+      "AppFlowy-0.8.9-linux-x86_64.AppImage",
+      "AppFlowy-0.8.9-linux-x86_64.deb",
+      "AppFlowy-0.8.9-linux-x86_64.rpm",
+      "AppFlowy-0.8.9-linux-x86_64.tar.gz",
+      "AppFlowy-0.8.9-macos-arm64.dmg",
+      "AppFlowy-0.8.9-macos-arm64.zip",
+      "AppFlowy-0.8.9-macos-universal.dmg",
+      "AppFlowy-0.8.9-macos-universal.zip",
+      "AppFlowy-0.8.9-macos-x86_64.dmg",
+      "AppFlowy-0.8.9-macos-x86_64.zip",
+      "AppFlowy-0.8.9-windows-x86_64.exe",
+      "AppFlowy-0.8.9-windows-x86_64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
@@ -4288,17 +4294,19 @@
   {
     "category": "other",
     "name": "mkasberg/ghostty-ubuntu",
-    "tag_name": "1.1.3-0-ppa1",
-    "created_at": "2025-03-25T01:55:47Z",
+    "tag_name": "1.1.3-0-ppa2",
+    "created_at": "2025-04-18T13:30:45Z",
     "assets": [
-      "ghostty_1.1.3-0.ppa1_amd64_22.04.deb",
-      "ghostty_1.1.3-0.ppa1_amd64_24.04.deb",
-      "ghostty_1.1.3-0.ppa1_amd64_24.10.deb",
-      "ghostty_1.1.3-0.ppa1_amd64_bookworm.deb",
-      "ghostty_1.1.3-0.ppa1_arm64_22.04.deb",
-      "ghostty_1.1.3-0.ppa1_arm64_24.04.deb",
-      "ghostty_1.1.3-0.ppa1_arm64_24.10.deb",
-      "ghostty_1.1.3-0.ppa1_arm64_bookworm.deb"
+      "ghostty_1.1.3-0.ppa2_amd64_22.04.deb",
+      "ghostty_1.1.3-0.ppa2_amd64_24.04.deb",
+      "ghostty_1.1.3-0.ppa2_amd64_24.10.deb",
+      "ghostty_1.1.3-0.ppa2_amd64_25.04.deb",
+      "ghostty_1.1.3-0.ppa2_amd64_bookworm.deb",
+      "ghostty_1.1.3-0.ppa2_arm64_22.04.deb",
+      "ghostty_1.1.3-0.ppa2_arm64_24.04.deb",
+      "ghostty_1.1.3-0.ppa2_arm64_24.10.deb",
+      "ghostty_1.1.3-0.ppa2_arm64_25.04.deb",
+      "ghostty_1.1.3-0.ppa2_arm64_bookworm.deb"
     ]
   },
   {
@@ -5185,15 +5193,15 @@
   {
     "category": "other",
     "name": "jetify-com/devbox",
-    "tag_name": "0.14.1",
-    "created_at": "2025-04-11T20:51:39Z",
+    "tag_name": "0.14.2",
+    "created_at": "2025-04-17T19:36:59Z",
     "assets": [
-      "devbox_0.14.1_darwin_amd64.tar.gz",
-      "devbox_0.14.1_darwin_arm64.tar.gz",
-      "devbox_0.14.1_linux_386.tar.gz",
-      "devbox_0.14.1_linux_amd64.tar.gz",
-      "devbox_0.14.1_linux_arm64.tar.gz",
-      "devbox_0.14.1_linux_armv7l.tar.gz"
+      "devbox_0.14.2_darwin_amd64.tar.gz",
+      "devbox_0.14.2_darwin_arm64.tar.gz",
+      "devbox_0.14.2_linux_386.tar.gz",
+      "devbox_0.14.2_linux_amd64.tar.gz",
+      "devbox_0.14.2_linux_arm64.tar.gz",
+      "devbox_0.14.2_linux_armv7l.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -5216,12 +5224,17 @@
   {
     "category": "other",
     "name": "linebender/resvg",
-    "tag_name": "0.45.0",
-    "created_at": "2025-02-26T16:19:28Z",
+    "tag_name": "v0.45.1",
+    "created_at": "2025-04-17T07:50:19Z",
     "assets": [
-      "resvg-0.45.0.tar.xz",
+      "resvg-0.45.1.tar.xz",
+      "resvg-explorer-extension.exe",
       "resvg-linux-x86_64.tar.gz",
-      "usvg-linux-x86_64.tar.gz"
+      "resvg-macos-x86_64.zip",
+      "resvg-win64.zip",
+      "usvg-linux-x86_64.tar.gz",
+      "usvg-macos-x86_64.zip",
+      "usvg-win64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
@@ -5283,16 +5296,16 @@
   {
     "category": "android",
     "name": "saber-notes/saber",
-    "tag_name": "v0.25.4",
-    "created_at": "2025-02-22T23:08:40Z",
+    "tag_name": "v0.25.5",
+    "created_at": "2025-04-18T16:55:50Z",
     "assets": [
-      "Saber-0.25.4-x86_64.AppImage",
-      "Saber-0.25.4-x86_64.AppImage.zsync",
-      "SaberInstaller_v0.25.4.exe",
-      "Saber_FOSS_v0.25.4.apk",
-      "Saber_v0.25.4.apk",
-      "Saber_v0.25.4_Linux_arm64.tar.gz",
-      "Saber_v0.25.4_Linux_x86_64.tar.gz"
+      "Saber-0.25.5-x86_64.AppImage",
+      "Saber-0.25.5-x86_64.AppImage.zsync",
+      "SaberInstaller_v0.25.5.exe",
+      "Saber_FOSS_v0.25.5.apk",
+      "Saber_v0.25.5.apk",
+      "Saber_v0.25.5_Linux_arm64.tar.gz",
+      "Saber_v0.25.5_Linux_x86_64.tar.gz"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -5325,10 +5338,10 @@
   {
     "category": "android",
     "name": "PhilKes/NotallyX",
-    "tag_name": "v7.3.1",
-    "created_at": "2025-04-08T15:29:24Z",
+    "tag_name": "v7.4.0",
+    "created_at": "2025-04-18T14:15:08Z",
     "assets": [
-      "NotallyX-7.3.1.apk"
+      "NotallyX-7.4.0.apk"
     ],
     "android": {
       "ends": ".apk"
@@ -5581,8 +5594,8 @@
   {
     "category": "android",
     "name": "mostafaalagamy/Metrolist",
-    "tag_name": "v11.5.0",
-    "created_at": "2025-04-06T22:26:18Z",
+    "tag_name": "v11.6.0",
+    "created_at": "2025-04-16T21:05:36Z",
     "assets": [
       "app-arm64-release.apk",
       "app-armeabi-release.apk",
@@ -5597,14 +5610,14 @@
   {
     "category": "android",
     "name": "maxrave-dev/SimpMusic",
-    "tag_name": "v0.2.12",
-    "created_at": "2025-03-07T16:29:50Z",
+    "tag_name": "v0.2.13",
+    "created_at": "2025-04-17T15:53:34Z",
     "assets": [
-      "SimpMusic_v0.2.12-arm64-v8a-release.apk",
-      "SimpMusic_v0.2.12-armeabi-v7a-release.apk",
-      "SimpMusic_v0.2.12-universal-release.apk",
-      "SimpMusic_v0.2.12-x86-release.apk",
-      "SimpMusic_v0.2.12-x86_64-release.apk"
+      "SimpMusic_v0.2.13-arm64-v8a-release.apk",
+      "SimpMusic_v0.2.13-armeabi-v7a-release.apk",
+      "SimpMusic_v0.2.13-universal-release.apk",
+      "SimpMusic_v0.2.13-x86-release.apk",
+      "SimpMusic_v0.2.13-x86_64-release.apk"
     ],
     "android": {
       "ends": "universal-release.apk"

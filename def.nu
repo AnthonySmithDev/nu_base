@@ -325,12 +325,13 @@ def 'rfzf' [query: string = ''] {
 def list-images [
   ...images: string
   --pixelation(-p): string = "sixel"
+  --search(-s): string = "."
   --max-depth(-m): int = 1
   --columns(-c): int
-  --dir(-d): path
+  --dir(-d): path = "."
 ] {
   let images = if ($images | is-not-empty) { $images } else {
-    fd -e png -e jpg -e jpeg -d $max_depth . ($dir | default .) | lines
+    fd -e png -e jpg -e jpeg -d $max_depth $search $dir | lines
   }
 
   if ($images | is-empty) {
