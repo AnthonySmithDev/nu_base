@@ -1,6 +1,3 @@
-# source ../env.nu
-# source ../def.nu
-# source ../builtin.nu
 
 use config/
 use ghub/
@@ -14,8 +11,6 @@ export-env {
   $env.SYSTEMD_ROOT_DST = ("/etc" | path join systemd/system/)
   $env.PKG_BIN_SYS = "linux_x64"
   $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_base/data/config/)
-  $env.CONFIG_DIR_DST = ($env.HOME | path join .config/)
-  $env.CONFIG_DIR_ROOT = ('/root' | path join .config)
 }
 
 export def main [] {

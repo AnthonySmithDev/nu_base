@@ -203,7 +203,7 @@ def mpvc [video: path, --crop(-c): string = "200:0"] {
   mpv --audio-channels=stereo --sub-visibility=no --video-crop=($crop) $video
 }
 
-def mpvz [video: path, --zoom(-z): float = 0.2] {
+def mpvz [video: path, --zoom(-z): float = 0.25] {
   mpv --audio-channels=stereo --sub-visibility=no --video-zoom=($zoom) $video
 }
 

@@ -1,77 +1,96 @@
 
 export-env {
   $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_base/data/config/)
-  $env.CONFIG_DIR_DST = ($env.HOME | path join .config/)
 }
 
-def config-src [path: string] {
-  $env.CONFIG_DIR_SRC | path join $path
-}
-
-def config-dst [path: string] {
-  $env.CONFIG_DIR_DST | path join $path
-}
-
-def home-dst [path: string] {
-  $env.HOME | path join $path
-}
-
-def bind [
-  src_path: string,
-  dst_path?: string,
-  --dir
-  --home
+def bind-user [
+  src_name: string,
+  dst_name?: string,
+  --home,
+  --dir,
 ] {
-  let src = config-src $src_path
-  let dst = if $home {
-    home-dst ($dst_path | default $src_path)
-  } else {
-    config-dst ($dst_path | default $src_path)
+  let base_path = if $home { $env.HOME } else { ($env.HOME | path join ".config/") }
+  let dst_name = ($dst_name | default $src_name)
+  let dst_path = ($base_path | path join $dst_name)
+  let dst_dir = ($dst_path | path dirname)
+
+  if not ($dst_dir | path exists) {
+    mkdir $dst_dir
   }
 
-  let dirname = ($dst | path dirname)
-  if not ($dirname | path exists) {
-    mkdir $dirname
+  if $dir {
+    rm -rf $dst_path
   }
 
-  if $dir { rm -rf $dst }
+  let src_path = ($env.CONFIG_DIR_SRC | path join $src_name)
+  ln -sf $src_path $dst_path
 
-  print $"Config: ($dst)"
-  ln -sf $src $dst
+  print $"Config: ($dst_path)"
+}
+
+def bind-root [
+  src_name: string,
+  dst_name?: string,
+  --home,
+  --dir,
+] {
+  let base_path = if $home { "/root/" } else { "/root/.config/" }
+  let dst_name = ($dst_name | default $src_name)
+  let dst_path = ($base_path | path join $dst_name)
+  let dst_dir = ($dst_path | path dirname)
+
+  if not ($dst_dir | path exists) {
+    sudo mkdir -p $dst_dir
+  }
+
+  if $dir {
+    sudo rm -rf $dst_path
+  }
+
+  let src_path = ($env.CONFIG_DIR_SRC | path join $src_name)
+  sudo ln -sf $src_path $dst_path
+
+  print $"Config: ($dst_path)"
 }
 
 export def rain [] {
-  bind --home rain/config.yaml
+  bind-user --home rain/config.yaml
 }
 
 export def nushell [] {
-  touch -c ~/.source.nu
-  bind nushell/config.nu
+  touch -c ($env.HOME | path join .source.nu)
+  bind-user nushell/config.nu
+
+  sudo touch -c ("/root" | path join .source.nu)
+  bind-root nushell/config.nu
 }
 
 export def zellij [] {
-  bind zellij/config.kdl
-  bind --dir zellij/themes
+  bind-user zellij/config.kdl
+  bind-user --dir zellij/themes
+
+  bind-root zellij/config.kdl
+  bind-root --dir zellij/themes
 }
 
 export def mods [] {
-  bind mods/mods.yml
+  bind-user mods/mods.yml
 }
 
 export def vieb [] {
-  bind Vieb/viebrc
+  bind-user Vieb/viebrc
 }
 
 export def vi-mongo [] {
-  bind vi-mongo/config.yaml
+  bind-user vi-mongo/config.yaml
 }
 
 export def rclone [] {
-  bind rclone/rclone.conf
+  bind-user rclone/rclone.conf
 }
 
 export def alacritty [] {
-  bind alacritty/alacritty.toml
+  bind-user alacritty/alacritty.toml
 }
 
 def ghostty-completions [] {
@@ -79,27 +98,27 @@ def ghostty-completions [] {
 }
 
 export def ghostty [completion: string@ghostty-completions] {
-  bind $"ghostty/($completion)" ghostty/config
+  bind-user $"ghostty/($completion)" ghostty/config
 }
 
 export def wezterm [] {
-  bind wezterm/wezterm.lua
+  bind-user wezterm/wezterm.lua
 }
 
 export def rio [] {
-  bind rio/config.toml
+  bind-user rio/config.toml
 }
 
 export def foot [] {
-  bind foot/foot.init
+  bind-user foot/foot.init
 }
 
 export def bat [] {
-  bind bat/config
+  bind-user bat/config
 }
 
 export def dooit [] {
-  bind dooit/config.py
+  bind-user dooit/config.py
 }
 
 def mouseless-completions [] {
@@ -107,7 +126,7 @@ def mouseless-completions [] {
 }
 
 export def mouseless [completion: string@mouseless-completions] {
-  bind $"mouseless/($completion).yaml" mouseless/config.yaml
+  bind-user $"mouseless/($completion).yaml" mouseless/config.yaml
 }
 
 def lan-mouse-completions [] {
@@ -115,16 +134,19 @@ def lan-mouse-completions [] {
 }
 
 export def lan-mouse [completion: string@lan-mouse-completions] {
-  bind $"lan-mouse/($completion).toml" lan-mouse/config.toml
+  bind-user $"lan-mouse/($completion).toml" lan-mouse/config.toml
 }
 
 export def cosmic [] {
-  bind --dir cosmic/ cosmic/
+  bind-user --dir cosmic/ cosmic/
 }
 
 export def helix [] {
-  bind helix/config.toml
-  bind helix/languages.toml
+  bind-user helix/config.toml
+  bind-user helix/languages.toml
+
+  bind-root helix/config.toml
+  bind-root helix/languages.toml
 
   helix-theme
 }
@@ -141,10 +163,10 @@ def helix-theme [] {
 }
 
 export def yazi [] {
-  bind yazi/init.lua
-  bind yazi/yazi.toml
-  bind yazi/theme.toml
-  bind yazi/keymap.toml
+  bind-user yazi/init.lua
+  bind-user yazi/yazi.toml
+  bind-user yazi/theme.toml
+  bind-user yazi/keymap.toml
 
   yazi-plugins
 }
