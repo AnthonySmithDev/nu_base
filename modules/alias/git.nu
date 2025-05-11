@@ -1,4 +1,26 @@
 
+def git-commit [...rest: string] {
+  git commit -m ($rest | str join ' ')
+}
+
+def --wrapped git-clone-cd [repo: string, dir?: string, ...args: string] {
+  let repo_name = ($repo | split row "/" | last | str replace ".git" "")
+  git clone $repo ($dir | default $repo_name) ...$args
+}
+
+def git-history [file: string] {
+  let logs = (git log --pretty=format:"%h" -- $file | lines)
+  for $commit in $logs {
+    git show $"($commit):($file)" | bat -l go
+  }
+}
+
+def --env git-show-filter [filter: string] {
+  $env.GIT_EXTERNAL_DIFF = "difft --skip-unchanged --display inline"
+  let commit_hash = git log -1 --pretty=format:"%H"
+  git show --ext-diff  $commit_hash -- $"*($filter)*"
+}
+
 alias gu = gitu
 alias gme = gitmoji -c
 alias gcm = git-commit

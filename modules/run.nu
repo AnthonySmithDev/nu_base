@@ -12,7 +12,7 @@ export def mysql-server [] {
 }
 
 def compose-file [os: string] {
-  $env.HOME | path join nu/nu_files/docker/os/($os)/compose.yaml
+  $env.HOME | path join nu/nu_base/data/docker/os/($os)/compose.yaml
 }
 
 def linux-versions [] {

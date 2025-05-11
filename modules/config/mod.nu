@@ -161,8 +161,8 @@ def yazi-plugins [] {
 export def git [] {
   ^git config --global core.editor 'hx'
   ^git config --global init.defaultBranch 'main'
-  ^git config --global user.name $env.GIT_USER_NAME
-  ^git config --global user.email $env.GIT_USER_EMAIL
+  ^git config --global user.name 'Anthony Smith'
+  ^git config --global user.email 'anthonyasdeveloper@gmail.com'
 }
 
 export def qmk [] {

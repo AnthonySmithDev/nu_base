@@ -1,6 +1,6 @@
 
 export-env {
-  $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_files/config/)
+  $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_base/data/config/)
   $env.CONFIG_DIR_ROOT = ('/root' | path join .config)
 }
 

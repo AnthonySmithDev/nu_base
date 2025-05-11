@@ -1,8 +1,8 @@
 export-env {
-  $env.SYSTEMD_USER_SRC = ($env.HOME | path join nu/nu_files/systemd/user/)
+  $env.SYSTEMD_USER_SRC = ($env.HOME | path join nu/nu_base/data/systemd/user/)
   $env.SYSTEMD_USER_DST = ($env.HOME | path join .config/systemd/user/)
 
-  $env.SYSTEMD_ROOT_SRC = ($env.HOME | path join nu/nu_files/systemd/root/)
+  $env.SYSTEMD_ROOT_SRC = ($env.HOME | path join nu/nu_base/data/systemd/root/)
   $env.SYSTEMD_ROOT_DST = ("/etc" | path join systemd/system/)
 }
 

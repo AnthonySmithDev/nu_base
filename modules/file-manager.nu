@@ -66,9 +66,11 @@ export def "paste copy" [
 
   mut undo = []
   for $src in (storage-get-items copy $group) {
-    let dst = ($wd | path join ($src | path basename))
+    let dst = if ($src | str contains '*') { $wd } else {
+      $wd | path join ($src | path basename)
+    }
     $undo = ($undo | append $dst)
-    cp -v -r $src $dst
+    cp -v -r ($src | into glob) $dst
   }
   storage-set-items copy $group []
   storage-set-items undo_copy $group $undo
@@ -82,11 +84,13 @@ export def "paste cut" [
 
   mut undo = []
   for $src in (storage-get-items cut $group) {
-    let dst = ($wd | path join ($src | path basename))
+    let dst = if ($src | str contains '*') { $wd } else {
+      $wd | path join ($src | path basename)
+    }
     $undo = ($undo | append {src: $src, dst: $dst})
-    mv -v $src $dst
+    mv -v ($src | into glob) $dst
   }
-  storage-set-items cut $group {}
+  storage-set-items cut $group []
   storage-set-items undo_cut $group $undo
 }
 

@@ -1,9 +1,14 @@
+
+export-env {
+  $env.SSH_SERVERS = ($env.HOME | path join nu/nu_base/data/config/connect/connect.json)
+}
+
 def get-server-aliases [] {
-  $env.SSH_SERVERS | select alias desc | rename value description
+  open $env.SSH_SERVERS | select alias desc | rename value description
 }
 
 def get-server-by-alias [alias: string] {
-  $env.SSH_SERVERS | where alias == $alias | first
+  open $env.SSH_SERVERS | where alias == $alias | first
 }
 
 def get-usernames-by-alias [alias: string] {

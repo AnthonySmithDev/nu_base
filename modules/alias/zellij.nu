@@ -1,4 +1,31 @@
 
+def __zellij_sessions [] {
+  zellij list-sessions | lines | parse "{value} {desc}"
+  | update value {ansi strip}
+}
+
+def 'zellij drop' [ ...session: string@__zellij_sessions, --all(-a) ] {
+  let select_sessions = if ($session | is-not-empty) {
+    __zellij_sessions | where value in $session
+  } else if $all {
+    __zellij_sessions
+  } else { [] }
+
+  if ($select_sessions | length) == 0 {
+    return
+  }
+
+  let active_sessions = ($select_sessions | where desc !~ 'EXITED' | get value)
+  for $session in $active_sessions {
+    zellij kill-session $session
+  }
+
+  let exited_sessions = ($select_sessions | get value)
+  for $session in $exited_sessions {
+    zellij delete-session --force $session
+  }
+}
+
 alias zj = zellij
 alias zr = zellij run
 alias ze = zellij edit

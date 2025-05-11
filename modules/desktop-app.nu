@@ -4,11 +4,11 @@ def names [] {
 }
 
 def applications [name: string] {
-  $env.HOME | path join $"nu/nu_files/applications/($name).desktop"
+  $env.HOME | path join $"nu/nu_base/data/applications/($name).desktop"
 }
 
 def icons [name: string] {
-  $env.HOME | path join $"nu/nu_files/icons/($name).png"
+  $env.HOME | path join $"nu/nu_base/data/icons/($name).png"
 }
 
 export  def helix [] {

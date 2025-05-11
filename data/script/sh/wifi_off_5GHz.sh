@@ -1,0 +1,12 @@
+curl 'http://192.168.0.1/cgi?2&2&2' \
+  -H 'Accept: */*' \
+  -H 'Accept-Language: en-US,en' \
+  -H 'Connection: keep-alive' \
+  -H 'Content-Type: text/plain' \
+  -H 'Cookie: Authorization=Basic QW50aG9ueTpTbWl0aA==' \
+  -H 'Origin: http://192.168.0.1' \
+  -H 'Referer: http://192.168.0.1/mainFrame.htm' \
+  -H 'Sec-GPC: 1' \
+  -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36' \
+  --data-raw $'[LAN_WLAN#1,2,0,0,0,0#0,0,0,0,0,0]0,10\r\nSSID=TP-Link_2D6D_5G\r\nStandard=ac\r\nAutoChannelEnable=1\r\nChannel=153\r\nX_TP_Bandwidth=Auto\r\nEnable=0\r\nSSIDAdvertisementEnabled=1\r\nWMMEnable=1\r\nX_TP_FragmentThreshold=2346\r\nRegulatoryDomain=PE \r\n[LAN_WLAN_MULTISSID#1,2,0,0,0,0#0,0,0,0,0,0]1,1\r\nmultiSSIDEnable=0\r\n[LAN_WLAN_WDSBRIDGE#1,2,0,0,0,0#0,0,0,0,0,0]2,1\r\nBridgeEnable=0\r\n' \
+  --insecure

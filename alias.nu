@@ -19,6 +19,12 @@ alias temp = btm --rate 500ms --expanded --default_widget_type temp
 alias disk = btm --rate 500ms --expanded --default_widget_type disk
 alias batt = btm --rate 500ms --expanded --default_widget_type batt
 
+
+export def saup [] {
+  sudo apt update -y;
+  sudo apt upgrade -y
+}
+
 alias sas = apt search
 alias sai = sudo apt install -y
 alias sar = sudo apt reinstall -y

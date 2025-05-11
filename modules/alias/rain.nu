@@ -1,4 +1,17 @@
 
+def rain-watch [] {
+  mut last_clipboard = ""
+  loop {
+    let clipboard = (wl-paste | str trim)
+    if ($clipboard != $last_clipboard) and ($clipboard | str contains "magnet") {
+      print "Se detectó un enlace magnet."
+      rain client add --stop-after-download --torrent $clipboard
+      $last_clipboard = $clipboard
+    }
+    sleep 5sec
+  }
+}
+
 alias rse = rain server
 alias rsv = job spawn { rain server }
 alias rcc = rain client console

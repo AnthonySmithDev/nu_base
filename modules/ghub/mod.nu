@@ -1,6 +1,6 @@
 
 export-env {
-  $env.GITHUB_REPOSITORY = ($env.HOME | path join nu/nu_files/config/ghub/ghub.json)
+  $env.GITHUB_REPOSITORY = ($env.HOME | path join nu/nu_base/data/config/ghub/ghub.json)
   $env.GITHUB_REPOSITORY_INDEX = ($env.HOME | path join .github-index)
 
   $env.TMP_PATH_FILE = ($env.HOME | path join tmp/file)

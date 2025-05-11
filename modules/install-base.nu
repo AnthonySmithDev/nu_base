@@ -4,16 +4,15 @@
 #
 
 export-env {
-  $env.GITHUB_REPOSITORY = ($env.HOME | path join nu/nu_files/config/ghub/ghub.json)
+  $env.GITHUB_REPOSITORY = ($env.HOME | path join nu/nu_base/data/config/ghub/ghub.json)
   $env.TMP_PATH_FILE = ($env.HOME | path join tmp/file)
   $env.TMP_PATH_DIR = ($env.HOME | path join tmp/dir)
   $env.SYSTEMD_USER_DST = ($env.HOME | path join .config/systemd/user/)
   $env.SYSTEMD_ROOT_DST = ("/etc" | path join systemd/system/)
   $env.PKG_BIN_SYS = "linux_x64"
-  $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_files/config/)
+  $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_base/data/config/)
   $env.CONFIG_DIR_DST = ($env.HOME | path join .config/)
   $env.CONFIG_DIR_ROOT = ('/root' | path join .config)
-
 }
 
 
