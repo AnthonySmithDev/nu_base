@@ -1,0 +1,162 @@
+
+def line-endings [] {
+  [platform lf crlf]
+}
+
+def map-refresh [] {
+  [auto always files manual]
+}
+
+export extern main [
+  --help(-h)                                  # Show this help message and exit
+  --model: string                             # Specify the model to use for the main chat
+  --opus                                      # Use claude-3-opus-20240229 model for the main chat
+  --sonnet                                    # Use claude-3-5-sonnet-20241022 model for the main chat
+  --haiku                                     # Use claude-3-5-haiku-20241022 model for the main chat
+  --4(-4)                                     # Use gpt-4-0613 model for the main chat
+  --4o                                        # Use gpt-4o model for the main chat
+  --mini                                      # Use gpt-4o-mini model for the main chat
+  --4-turbo                                   # Use gpt-4-1106-preview model for the main chat
+  --35turbo                                   # Use gpt-3.5-turbo model for the main chat
+  --35-turbo                                  # Use gpt-3.5-turbo model for the main chat
+  --3(-3)                                     # Use gpt-3.5-turbo model for the main chat
+  --deepseek                                  # Use deepseek/deepseek-chat model for the main chat
+  --o1-mini                                   # Use o1-mini model for the main chat
+  --o1-preview                                # Use o1-preview model for the main chat
+  --openai-api-key: string                    # Specify the OpenAI API key
+  --anthropic-api-key: string                 # Specify the Anthropic API key
+  --openai-api-base: string                   # Specify the api base url
+  --openai-api-type: string                   # (deprecated, use --set-env OPENAI_API_TYPE=<value>)
+  --openai-api-version: string                # (deprecated, use --set-env OPENAI_API_VERSION=<value>)
+  --openai-api-deployment-id: string          # (deprecated, use --set-env OPENAI_API_DEPLOYMENT_ID=<value>)
+  --openai-organization-id: string            # (deprecated, use --set-env OPENAI_ORGANIZATION=<value>)
+  --set-env: string                           # Set an environment variable (to control API settings, can be used multiple times)
+  --api-key: string                           # Set an API key for a provider (eg: --api-key provider=<key> sets PROVIDER_API_KEY=<key>)
+  --list-models: string                       # List known models which match the (partial) MODEL name
+  --model-settings-file: string               # Specify a file with aider model settings for unknown models
+  --model-metadata-file: string               # Specify a file with context window and costs for unknown models
+  --alias: string                             # Add a model alias (can be used multiple times)
+  --reasoning-effort: string                  # Set the reasoning_effort API parameter (default: not set)
+  --verify-ssl                                # Verify the SSL cert when connecting to models (default: True)
+  --no-verify-ssl                             # Do not verify the SSL cert when connecting to models
+  --timeout: int                              # Timeout in seconds for API calls (default: None)
+  --edit-format: string                       # Specify what edit format the LLM should use (default depends on model)
+  --architect                                 # Use architect edit format for the main chat
+  --weak-model: string                        # Specify the model to use for commit messages and chat history summarization (default depends on --model)
+  --editor-model: string                      # Specify the model to use for editor tasks (default depends on --model)
+  --editor-edit-format: string                # Specify the edit format for the editor model (default: depends on editor model)
+  --show-model-warnings                       # Only work with models that have meta-data available (default: True)
+  --no-show-model-warnings                    # Do not show model warnings
+  --max-chat-history-tokens: int              # Soft limit on tokens for chat history, after which summarization begins. If unspecified, defaults to the model's max_chat_history_tokens.
+  --cache-prompts                             # Enable caching of prompts (default: False)
+  --no-cache-prompts                          # Disable caching of prompts
+  --cache-keepalive-pings: int                # Number of times to ping at 5min intervals to keep prompt cache warm (default: 0)
+  --map-tokens: int                           # Suggested number of tokens to use for repo map, use 0 to disable
+  --map-refresh: string@map-refresh           # Control how often the repo map is refreshed. Options: auto, always, files, manual (default: auto)
+  --map-multiplier-no-files: int              # Multiplier for map tokens when no files are specified (default: 2)
+  --input-history-file: string                # Specify the chat input history file
+  --chat-history-file: string                 # Specify the chat history file
+  --restore-chat-history                      # Restore the previous chat history messages (default: False)
+  --no-restore-chat-history                   # Do not restore the previous chat history messages
+  --llm-history-file: string                  # Log the conversation with the LLM to this file
+  --dark-mode                                 # Use colors suitable for a dark terminal background (default: False)
+  --light-mode                                # Use colors suitable for a light terminal background (default: False)
+  --pretty                                    # Enable pretty, colorized output (default: True)
+  --no-pretty                                 # Disable pretty, colorized output
+  --stream                                    # Enable streaming responses (default: True)
+  --no-stream                                 # Disable streaming responses
+  --user-input-color: string                  # Set the color for user input (default:                  #00cc00)
+  --tool-output-color: string                 # Set the color for tool output (default: None)
+  --tool-error-color: string                  # Set the color for tool error messages (default:              #FF2222)
+  --tool-warning-color: string                # Set the color for tool warning messages (default: #FFA500)
+  --assistant-output-color: string            # Set the color for assistant output (default:    #0088ff)
+  --completion-menu-color: string             # Set the color for the completion menu (default: terminal's default text color)
+  --completion-menu-bg-color: string          # Set the background color for the completion menu (default: terminal's default background color)
+  --completion-menu-current-color: string     # Set the color for the current item in the completion menu (default: terminal's default background color)
+  --completion-menu-current-bg-color: string  # Set the background color for the current item in the completion menu (default: terminal's default text color)
+  --code-theme: string                        # Set the markdown code theme (default: default, other options include monokai, solarized-dark, solarized-light, or a Pygments builtin style)
+  --show-diffs                                # Show diffs when committing changes (default: False)
+  --git                                       # Enable looking for a git repo (default: True)
+  --no-git                                    # Disable looking for a git repo
+  --gitignore                                 # Enable adding .aider* to .gitignore (default: True)
+  --no-gitignore                              # Disable adding .aider* to .gitignore
+  --aiderignore: string                       # Specify the aider ignore file (default: .aiderignore in git root)
+  --subtree-only                              # Only consider files in the current subtree of the git repository
+  --auto-commits                              # Enable auto commit of LLM changes (default: True)
+  --no-auto-commits                           # Disable auto commit of LLM changes
+  --dirty-commits                             # Enable commits when repo is found dirty (default: True)
+  --no-dirty-commits                          # Disable commits when repo is found dirty
+  --attribute-author                          # Attribute aider code changes in the git author name (default: True)
+  --no-attribute-author                       # Do not attribute aider code changes in the git author name
+  --attribute-committer                       # Attribute aider commits in the git committer name (default: True)
+  --no-attribute-committer                    # Do not attribute aider commits in the git committer name
+  --attribute-commit-message-author           # Prefix commit messages with 'aider: ' if aider authored the changes (default: False)
+  --no-attribute-commit-message-author        # Do not prefix commit messages with 'aider: ' if aider authored the changes
+  --attribute-commit-message-committer        # Prefix all commit messages with 'aider: ' (default: False)
+  --no-attribute-commit-message-committer     # Do not prefix all commit messages with 'aider: '
+  --commit                                    # Commit all pending changes with a suitable commit message, then exit
+  --commit-prompt: string                     # Specify a custom prompt for generating commit messages
+  --dry-run                                   # Perform a dry run without modifying files (default: False)
+  --no-dry-run                                # Do not perform a dry run
+  --skip-sanity-check-repo                    # Skip the sanity check for the git repository (default: False)
+  --watch-files                               # Enable watching files for ai coding comments (default: False)
+  --no-watch-files                            # Disable watching files for ai coding comments
+  --lint                                      # Lint and fix provided files, or dirty files if none provided
+  --lint-cmd: string                          # Specify lint commands to run for different languages, eg: "python: flake8 --select=..." (can be used multiple times)
+  --auto-lint                                 # Enable automatic linting after changes (default: True)
+  --no-auto-lint                              # Disable automatic linting after changes
+  --test-cmd: string                          # Specify command to run tests
+  --auto-test                                 # Enable automatic testing after changes (default: False)
+  --no-auto-test                              # Disable automatic testing after changes
+  --test                                      # Run tests, fix problems found and then exit
+  --analytics                                 # Enable analytics for current session (default: random)
+  --no-analytics                              # Disable analytics for current session
+  --analytics-log: string                     # Specify a file to log analytics events
+  --analytics-disable                         # Permanently disable analytics
+  --just-check-update                         # Check for updates and return status in the exit code
+  --check-update                              # Check for new aider versions on launch (default: True)
+  --no-check-update                           # Do not check for new aider versions on launch
+  --show-release-notes                        # Show release notes on first run of new version (default: None, ask user)
+  --no-show-release-notes                     # Do not show release notes on first run of new version
+  --install-main-branch                       # Install the latest version from the main branch
+  --upgrade                                   # Upgrade aider to the latest version from PyPI
+  --update                                    # Update aider to the latest version from PyPI
+  --version                                   # Show the version number and exit
+  --message(-m): string                       # Specify a single message to send the LLM, process reply then exit (disables chat mode)
+  --message-file(-f): string                  # Specify a file containing the message to send the LLM, process reply, then exit (disables chat mode)
+  --gui                                       # Run aider in your browser (default: False)
+  --no-gui                                    # Do not run aider in your browser
+  --browser                                   # Run aider in your browser (default: False)
+  --no-browser                                # Do not run aider in your browser
+  --copy-paste                                # Enable automatic copy/paste of chat between aider and web UI (default: False)
+  --no-copy-paste                             # Disable automatic copy/paste of chat between aider and web UI
+  --apply: string                             # Apply the changes from the given file instead of running the chat (debug)
+  --apply-clipboard-edits                     # Apply clipboard contents as edits using the main model's editor format
+  --exit                                      # Do all startup activities then exit before accepting user input (debug)
+  --show-repo-map                             # Print the repo map and exit (debug)
+  --show-prompts                              # Print the system prompts and exit (debug)
+  --voice-format: string                      # Audio format for voice recording (default: wav). webm and mp3 require ffmpeg
+  --voice-language: string                    # Specify the language for voice using ISO 639-1 code (default: auto)
+  --voice-input-device: string                # Specify the input device name for voice recording
+  --file: string                              # specify a file to edit (can be used multiple times)
+  --read: string                              # specify a read-only file (can be used multiple times)
+  --vim                                       # Use VI editing mode in the terminal (default: False)
+  --chat-language: string                     # Specify the language to use in the chat (default: None, uses system settings)
+  --yes-always                                # Always say yes to every confirmation
+  --verbose(-v)                               # Enable verbose output
+  --load: string                              # Load and execute /commands from a file on launch
+  --encoding: string                          # Specify the encoding for input and output (default: utf-8)
+  --line-endings: string@line-endings         # Line endings to use when writing files (default: platform)
+  --config(-c): string                        # Specify the config file (default: search for .aider.conf.yml in git root, cwd or home directory)
+  --env-file: string                          # Specify the .env file to load (default: .env in git root)
+  --suggest-shell-commands                    # Enable suggesting shell commands (default: True)
+  --no-suggest-shell-commands                 # Disable suggesting shell commands
+  --fancy-input                               # Enable fancy input with history and completion (default: True)
+  --no-fancy-input                            # Disable fancy input with history and completion
+  --multiline                                 # Enable multi-line input mode with Meta-Enter to submit (default: False)
+  --no-multiline                              # Disable multi-line input mode
+  --detect-urls                               # Enable detection and offering to add URLs to chat (default: True)
+  --no-detect-urls                            # Disable detection and offering to add URLs to chat
+  --editor: string                            # Specify which editor to use for the /editor command
+  ...args: string                             # Additional arguments (e.g., files to edit)
+]
