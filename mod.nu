@@ -1,6 +1,6 @@
 
 const NU_LIB_DIRS = [
-  '~/nu/nu_script/'
+  '~/nu/nu_base/modules'
 ]
 
 source env.nu

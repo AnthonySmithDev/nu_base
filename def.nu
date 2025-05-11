@@ -122,6 +122,11 @@ def git-commit [...rest: string] {
   git commit -m ($rest | str join ' ')
 }
 
+def --wrapped git-clone-cd [repo: string, dir?: string, ...args: string] {
+  let repo_name = ($repo | split row "/" | last | str replace ".git" "")
+  git clone $repo ($dir | default $repo_name) ...$args
+}
+
 def git-history [file: string] {
   let logs = (git log --pretty=format:"%h" -- $file | lines)
   for $commit in $logs {
@@ -617,4 +622,11 @@ def rain-watch [] {
 
 def to-repo [] {
   url parse | get path | path split | skip | first 2 | path join
+}
+
+def to-gif [video: path] {
+  mkdir ./tmp
+  ffmpeg -i $video -vf fps=10 ./tmp/frame_%04d.png
+  convert -delay 10 -loop 0 ./tmp/frame_*.png output.gif
+  rm -rf ./tmp
 }
