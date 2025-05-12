@@ -78,6 +78,7 @@ export def basic [] {
 
     build-essential
     python3-full
+    moreutils
 
     ssh
     sshfs

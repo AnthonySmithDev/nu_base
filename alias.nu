@@ -120,12 +120,12 @@ alias xps = xclip -o -selection clipboard
 alias wcp = wl-copy
 alias wps = wl-paste
 
+alias bba = brave-browser --dir=a
+alias bbb = brave-browser --dir=b
+alias bbx = brave-browser --dir=x
 
-alias vle = vieb --left
-alias vri = vieb --right
-
-alias bra = brave-browser --dir a
-alias brb = brave-browser --dir b
+alias vba = vieb-browser --dir=a
+alias vbb = vieb-browser --dir=b
 
 alias dn = dir new
 alias fn = file new

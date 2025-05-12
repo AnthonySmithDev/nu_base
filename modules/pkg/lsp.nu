@@ -61,8 +61,8 @@ export def bash [] {
   npm install -g bash-language-server
 }
 
-export def cpp [] {
-  download clangd
+export def --env cpp [] {
+  bin clangd
 }
 
 export def cmake [] {
@@ -73,12 +73,12 @@ export def css [] {
   npm install -g vscode-langservers-extracted
 }
 
-export def dart [] {
-  download dart
+export def --env dart [] {
+  bin dart
 }
 
-export def deno [] {
-  download deno
+export def --env deno [] {
+  bin deno
 }
 
 export def docker [] {
@@ -96,13 +96,13 @@ export def golang [] {
   go install github.com/nametake/golangci-lint-langserver@latest
 }
 
-export def html [] {
+export def --env html [] {
   npm install -g vscode-langservers-extracted
-  download superhtml
+  bin superhtml
 }
 
-export def java [] {
-  download jdtls
+export def --env java [] {
+  bin jdtls
 }
 
 export def javascript [] {
@@ -113,16 +113,16 @@ export def json [] {
   npm install -g vscode-langservers-extracted
 }
 
-export def kotlin [] {
-  download kotlin-language-server
+export def --env kotlin [] {
+  bin kotlin-language-server
 }
 
-export def lua [] {
-  download lua-language-server
+export def --env lua [] {
+  bin lua-language-server
 }
 
-export def markdown [] {
-  download marksman
+export def --env markdown [] {
+  bin marksman
 }
 
 export def php [] {
@@ -159,8 +159,8 @@ export def typescript [] {
   npm install -g typescript-language-server typescript
 }
 
-export def vlang [] {
-  download v-analyzer
+export def --env vlang [] {
+  bin v-analyzer
 }
 
 export def vue [] {
@@ -171,6 +171,6 @@ export def yaml [] {
   npm install -g yaml-language-server@next
 }
 
-export def zig [] {
-  download zls
+export def --env zig [] {
+  bin zls
 }

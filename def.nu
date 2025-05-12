@@ -8,16 +8,18 @@ export def tempeditor [
   --suffix(-s): string = "",
   --output(-o),
 ] {
-  if ($data | str trim | is-empty) {
+  let trimmed_data = ($data | str trim)
+  if ($trimmed_data | is-empty) {
     return
   }
 
-  let temp = mktemp --tmpdir --suffix $suffix
-  $data | str trim | save --force $temp
-  hx $temp
+  let temp_file = (mktemp --tmpdir --suffix $suffix)
+  $trimmed_data | save --force $temp_file
+
+  hx $temp_file
 
   if $output {
-    return (open $temp | str trim)
+    open $temp_file | str trim
   }
 }
 
@@ -31,16 +33,41 @@ export def --env y [...args] {
 	rm -fp $tmp
 }
 
-export def brave-browser [--dir(-d): string] {
-  let args = [
-    --enable-features=UseOzonePlatform
-    --ozone-platform=wayland
-  ]
-  let data_dir_name = if ($dir | is-not-empty) {
+export def --wrapped brave-browser [...rest: string, --dir(-d): string, --rm] {
+  let basename = if ($dir | is-not-empty) {
     $"Brave-Browser-($dir | str upcase)"
   } else {
     "Brave-Browser"
   }
-  let data_dir_path = ($env.HOME | path join .config BraveSoftware $data_dir_name)
-  job spawn {|| ^brave-browser ...$args --user-data-dir=($data_dir_path) }
+  let data_path = ($env.HOME | path join .config/BraveSoftware/ $basename)
+  if $rm {
+    rm -rf $data_path
+  }
+  let args = [
+    --enable-features=UseOzonePlatform
+    --ozone-platform=wayland
+    --user-data-dir=($data_path)
+  ]
+  job spawn {|| ^brave-browser ...$args ...$rest }
+}
+
+export def --wrapped vieb-browser [...rest: string, --dir(-d): string, --rm ] {
+  let basename = if ($dir | is-not-empty) {
+    $"Vieb-($dir | str upcase)"
+  } else {
+    "Vieb"
+  }
+  let data_path = ($env.HOME | path join .config/ $basename)
+  if $rm {
+    rm -rf $data_path
+  }
+  let args = [
+    '--config-file=~/.config/Vieb/viebrc'
+    $'--datafolder=($data_path)'
+  ]
+  job spawn {|| ^vieb ...$args ...$rest }
+}
+
+export def nault [] {
+  brave-browser --dir=nault --app=https://nault.cc/configure-wallet
 }

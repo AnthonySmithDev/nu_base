@@ -7,12 +7,6 @@ export def dns-for-families [] {
   sudo systemctl restart NetworkManager
 }
 
-export def nault [] {
-  let dir = ($env.HOME | path join .config/BraveSoftware/Brave-Browser-S)
-  job spawn { brave-browser --user-data-dir=($dir) --app=https://nault.cc/configure-wallet }
-}
-
-
 export def 'tiktok mv' [] {
   mkdir tiktok/videos/
   mkdir tiktok/images/
@@ -31,32 +25,11 @@ export def copy-backup-disk [] {
   sudo rclone copy -P -M /media/anthony/B2/Backup /media/anthony/B1/Backup
 }
 
-export def ytb [filename: string] {
-  let args = [
-    # --quiet
-    # --progress
-    --max-filesize 1G
-    --match-filter "duration < 1800"
-    --write-thumbnail
-    --restrict-filenames
-    --write-all-thumbnails
-    --concurrent-fragments 50
-    --batch-file $filename
-    --download-archive archive.txt
-    --output "%(uploader)s/%(title)s [%(id)s].%(ext)s"
-    # --output "%(uploader)s/%(upload_date>%Y)s/%(title)s [%(id)s].%(ext)s"
-  ]
-  yt-dlp ...$args
-}
-
 # use ~/nushell/nu_scripts/custom-completions/git/git-completions.nu *
 # use ~/nushell/nu_scripts/custom-completions/nix/nix-completions.nu *
 # use ~/nushell/nu_scripts/custom-completions/btm/btm-completions.nu *
 # use ~/nushell/nu_scripts/custom-completions/glow/glow-completions.nu *
 # use ~/nushell/nu_scripts/custom-completions/cargo/cargo-completions.nu *
-#
-# 
-
 
 export def 'chmod nu_base' [] {
   chmod '+x' sh/shell.sh
@@ -64,11 +37,6 @@ export def 'chmod nu_base' [] {
 
   fd --type file --exec chmod 666 {}
   fd --type dir --exec chmod 755 {}
-}
-
-export def trans [ ...text: string, --en(-e)] {
-  let lang = if $en { ':en' } else { ':es' }
-  docker run -it --rm soimort/translate-shell -b $lang ($text | str join ' ')
 }
 
 export def 'nu gitignore list' [] {
@@ -216,34 +184,6 @@ export def gic [lang: string] {
   rm $output
 }
 
-export def list-images [
-  ...images: string
-  --pixelation(-p): string = "sixel"
-  --search(-s): string = "."
-  --max-depth(-m): int = 1
-  --columns(-c): int
-  --dir(-d): path = "."
-] {
-  let images = if ($images | is-not-empty) { $images } else {
-    fd -e png -e jpg -e jpeg -d $max_depth $search $dir | lines
-  }
-
-  if ($images | is-empty) {
-    return
-  }
-
-  let terminal_width = (term size | get columns)
-  let is_wide_terminal = $terminal_width > 110
-  let image_count = ($images | length)
-  
-  let grid_columns = if $columns != null { $columns } else {
-    let max_images_per_row = if $image_count <= 2 { $image_count } else { 2 }
-    if $is_wide_terminal { $max_images_per_row * 2 } else { $max_images_per_row }
-  }
-
-  timg --title --pixelation $pixelation --grid $grid_columns ...$images
-}
-
 export def --wrapped dockerctl [...rest] {
   if (ps | where name =~ dockerd | is-empty) {
     sudo ($env.DOCKER_BIN | path join dockerd)
@@ -320,63 +260,12 @@ export def paths [
   return $paths
 }
 
-
 export def asr [] {
   job spawn {|| audiosource run}
 }
 
 export def sshkeygen [] {
   ssh-keygen -t ed25519
-}
-
-export def xpaint [--deps(-d)] {
-
-  if $deps {
-    pip3 install torch==2.1.2 torchvision==0.16.2 --index-url https://download.pytorch.org/whl/cu121
-    # pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
-
-
-    # sudo ubuntu-drivers autoinstall
-    # ubuntu-drivers devices
-    # 
-
-
-    pip3 install iopaint
-    pip3 install onnxruntime
-    pip3 install rembg
-    pip3 install gfpgan
-    pip3 install realesrgan
-    pip3 install realesrgan
-  }
-
-  # ^iopaint install-plugins-packages
-
-  let args = [
-    --model=Sanster/PowerPaint-V1-stable-diffusion-inpainting
-    --device=cuda
-
-    # --enable-interactive-seg
-    # --interactive-seg-model=sam2_1_base
-    # --interactive-seg-device=cuda
-
-    # --enable-gfpgan
-    # --gfpgan-device=cuda
-
-    # --enable-realesrgan
-    # --realesrgan-model=RealESRGAN_x4plus
-    # --realesrgan-device=cuda
-
-    # --enable-remove-bg
-    # --remove-bg-model=briaai/RMBG-1.4
-    # --remove-bg-device=cuda
-
-    # --enable-restoreformer
-    # --restoreformer-device=cuda
-
-    --host=0.0.0.0
-    # --port=8080
-  ]
-  CUDA_VISIBLE_DEVICES="0,1,2" ^iopaint start ...$args
 }
 
 export def to-gif [video: path] {

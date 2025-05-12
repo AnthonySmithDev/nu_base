@@ -6,8 +6,7 @@
 - refactorizar los alias para los comandos script
 - agregar las variabls por defecto en el modulo nano.nu
 - agregar metodos para ver archivos a mi script de ctx
-- ponder todos los keybindins en una carpeta para usar la ia y no tener colicion
-- agregar el glob en file-manager cut
+- crear mi browser-ext modules para instalar extension mas rapido
 
 ## Doing
 

@@ -20,7 +20,7 @@ export use ../ghub
 
 export use apt.nu
 export use deps.nu
-export module bin
+export use bin
 export module sh.nu
 export module deb.nu
 export module arch.nu

@@ -75,13 +75,10 @@ export def "paste copy" [
     } else {
       cp -v -r $src_path $dst_path
     }
-    let paths = (
-      ls $src_path
-      | get name
-      | path basename
-      | each {|basename| ($dst_path | path join $basename)}
-    )
-    $undo = ($undo | append $paths)
+    for $src_file in (ls $src_path | get name) {
+      let dst_file = ($dst_path | path join ($src_file | path basename))
+      $undo = ($undo | append $dst_file)
+    }
   }
   storage-set-items copy $group []
   storage-set-items undo_copy $group $undo
@@ -91,15 +88,23 @@ export def "paste cut" [
   dir?: path,
   --group(-g): string = "default",
 ] {
-  let wd = ($dir | default $env.PWD)
+  let dst_path = ($dir | default $env.PWD)
+  if ($dst_path | path type) != "dir" {
+    return
+  }
 
   mut undo = []
-  for $src in (storage-get-items cut $group) {
-    let dst = if ($src | str contains '*') { $wd } else {
-      $wd | path join ($src | path basename)
+  for $item in (storage-get-items cut $group) {
+    let src_path = ($item | into glob)
+    if (du $src_path | get physical | math sum) > 100mb {
+      mv -p -v $src_path $dst_path
+    } else {
+      mv -v $src_path $dst_path
     }
-    $undo = ($undo | append {src: $src, dst: $dst})
-    mv -v ($src | into glob) $dst
+    for $src_file in (ls $src_path | get name) {
+      let dst_file = ($dst_path | path join ($src_file | path basename))
+      $undo = ($undo | append {src: $src_file, dst: $dst_file})
+    }
   }
   storage-set-items cut $group []
   storage-set-items undo_cut $group $undo
@@ -129,7 +134,7 @@ export def "undo copy" [ --group(-g): string = "default" ] {
     print $"Errors occurred while undoing:" $errors
   }
 
-  storage-set-items undo_copy $group {}
+  storage-set-items undo_copy $group []
 }
 
 export def "undo cut" [ --group(-g): string = "default" ] {
@@ -161,7 +166,7 @@ export def "undo cut" [ --group(-g): string = "default" ] {
     print $"Errors occurred while undoing:" $errors
   }
 
-  storage-set-items undo_cut $group {}
+  storage-set-items undo_cut $group []
 }
 
 export def "undo ls" [ --group(-g): string = "default" ] {
