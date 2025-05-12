@@ -1,5 +1,6 @@
 
 export-env {
+  $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
   $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
 }
 

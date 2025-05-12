@@ -35,5 +35,6 @@ export module appimage.nu
 export module script.nu
 export module lsp.nu
 
+export module desktop.nu
 export module font.nu
 export module apk

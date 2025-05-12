@@ -72,7 +72,10 @@ def decompress [path: path] {
     error make {msg: $"Path not exists: ($path)"}
   }
 
-  let dir = mktemp --directory --tmpdir-path ($env.PKG_TEMP_PATH | path join bin decompress other)
+  let tmpdir_path  = ($env.PKG_TEMP_PATH | path join bin decompress other)
+  mkdir $tmpdir_path
+
+  let dir = mktemp --directory --tmpdir-path $tmpdir_path
   mkdir $dir
 
   if $path =~ ".tar" or $path =~ ".tbz" or $path =~ ".tgz" or $path =~ ".tar.gz" {

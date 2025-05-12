@@ -165,15 +165,6 @@ export def "android debug restart" [] {
   }
 }
 
-export def confirm [...prompt: string] {
-  try {
-    gum confirm ($prompt | str join ' ')
-  } catch {
-    return false
-  }
-  return true
-}
-
 export def select-file [] {
   let preview = 'bat --plain --number --color=always {}'
   return (fd --type file | fzf --layout reverse --border --preview $preview | str trim)
@@ -216,16 +207,6 @@ export def "create camare" [] {
   let n = (ls /dev/video* | length)
   v4l2-ctl --list-devices
   scrcpy --no-video --no-playback --video-source=camera --camera-id=0 --camera-size=1920x1080 --v4l2-sink=/dev/video0
-}
-
-export def --env y [...args] {
-	let tmp = (mktemp -t "yazi-cwd.XXXXXX")
-	yazi ...$args --cwd-file $tmp
-	let cwd = (open $tmp)
-	if $cwd != "" and $cwd != $env.PWD {
-		cd $cwd
-	}
-	rm -fp $tmp
 }
 
 export def gic [lang: string] {

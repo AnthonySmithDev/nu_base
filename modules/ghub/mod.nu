@@ -340,13 +340,22 @@ export def "repo update" [...names: string@names] {
   }
 
   if ($names | is-empty) and (ls $changelog_dir | is-not-empty) {
-    if (confirm see changelog...?) {
+    if (confirm "see changelog...?") {
       glow $changelog_dir
     }
   }
 
   if ($names | is-empty) {
     print $"($length) -> ($last_index)..($last_index + $rate_limit.remaining)"
+  }
+}
+
+def confirm [prompt: string] {
+  try {
+    gum confirm $prompt
+    return true
+  } catch {
+    return false
   }
 }
 

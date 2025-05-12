@@ -121,15 +121,11 @@ alias wcp = wl-copy
 alias wps = wl-paste
 
 
-alias vieb = browser vieb
-alias brave = browser brave
-alias chrome = browser chrome
-
 alias vle = vieb --left
 alias vri = vieb --right
 
-alias bra = brave --dir a
-alias brb = brave --dir b
+alias bra = brave-browser --dir a
+alias brb = brave-browser --dir b
 
 alias dn = dir new
 alias fn = file new

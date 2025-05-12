@@ -1,10 +1,6 @@
 
-def names [] {
-  [lan-mouse, android-studio]
-}
-
 def icons [name: string] {
-  $env.ICONS_PATH | path join $"($name).png"
+  $env.ICONS_PATH | path join $name
 }
 
 def applications [name: string] {
@@ -12,20 +8,25 @@ def applications [name: string] {
 }
 
 export  def helix [] {
-  ln -sf (icons helix) $env.LOCAL_SHARE_ICONS
+  ln -sf (icons helix.png) $env.LOCAL_SHARE_ICONS
   ln -sf (applications helix) $env.LOCAL_SHARE_APPLICATIONS
 }
 
 export  def yazi [] {
-  ln -sf (icons yazi) $env.LOCAL_SHARE_ICONS
+  ln -sf (icons yazi.png) $env.LOCAL_SHARE_ICONS
   ln -sf (applications yazi) $env.LOCAL_SHARE_APPLICATIONS
 }
 
 export  def zellij [] {
-  ln -sf (icons zellij) $env.LOCAL_SHARE_ICONS
+  ln -sf (icons zellij.png) $env.LOCAL_SHARE_ICONS
   ln -sf (applications zellij) $env.LOCAL_SHARE_APPLICATIONS
 }
 
-export def main [name: string@names] {
-  ln -sf (applications $name) $env.LOCAL_SHARE_APPLICATIONS
+export  def lan-mouse [] {
+  ln -sf (icons lan-mouse.svg) $env.LOCAL_SHARE_ICONS
+  ln -sf (applications lan-mouse) $env.LOCAL_SHARE_APPLICATIONS
+}
+
+export  def android-studio [] {
+  ln -sf (applications android-studio) $env.LOCAL_SHARE_APPLICATIONS
 }

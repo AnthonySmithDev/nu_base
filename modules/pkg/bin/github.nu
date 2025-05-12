@@ -1786,6 +1786,7 @@ export def lan-mouse [ --force(-f) ] {
   }
 
   bind-file lan-mouse $path
+  bind-root lan-mouse $path
 }
 
 export def lapce [ --force(-f) ] {

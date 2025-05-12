@@ -123,25 +123,25 @@ export def repository [] {
   }
 }
 
+def confirm [prompt: string] {
+  try {
+    gum confirm $prompt
+    return true
+  } catch {
+    return false
+  }
+}
+
 export def lint [dst: string] {
   loop {
     let lint = (golangci-lint run $dst | complete | get stdout)
     if ($lint | is-empty) {
       break
     }
-    if not (confirm verificar con el linter?) {
+    if not (confirm "verificar con el linter?") {
       break
     }
     print $lint
     mods --quiet (code-role) $"Del siguiente codigo: \n(open $dst)" $"soluciona los siguientes errores del codigo: ($lint)" | tee { save --force $dst }
   }
-}
-
-export def confirm [...prompt: string] {
-  try {
-    gum confirm ($prompt | str join ' ')
-  } catch {
-    return false
-  }
-  return true
 }
