@@ -1,6 +1,6 @@
 export alias fmc = file-manager copy
 export alias fmx = file-manager cut
-export alias fml = file-manager ls
+export alias fml = file-manager list
 export alias fmd = file-manager clear
 export alias fmpc = file-manager paste copy
 export alias fmpx = file-manager paste cut

@@ -1,10 +1,7 @@
 
 export-env {
-  $env.GITHUB_REPOSITORY = ($env.HOME | path join nu/nu_base/data/config/ghub/ghub.json)
-  $env.GITHUB_REPOSITORY_INDEX = ($env.HOME | path join .github-index)
-
-  $env.TMP_PATH_FILE = ($env.HOME | path join tmp/file)
-  $env.TMP_PATH_DIR = ($env.HOME | path join tmp/dir)
+  $env.GHUB_REPOSITORY_PATH = ($env.HOME | path join nu/nu_base/data/config/ghub/ghub.json)
+  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
 }
 
 export def names [] {
@@ -15,7 +12,7 @@ export def names [] {
       positional: false,
       sort: false,
     },
-    completions: (open $env.GITHUB_REPOSITORY | get name)
+    completions: (open $env.GHUB_REPOSITORY_PATH | get name)
   }
 }
 
@@ -48,7 +45,7 @@ export def releases-latest [name: string@names] {
 }
 
 export def list [] {
-  open $env.GITHUB_REPOSITORY | select category name tag_name created_at
+  open $env.GHUB_REPOSITORY_PATH | select category name tag_name created_at
 }
 
 export def to-version [] {
@@ -126,7 +123,7 @@ export def decompress [filepath: path, --dirpath(-d): string] {
   }
 
   let dir = if $dirpath != null { $dirpath } else {
-    mktemp --directory --tmpdir-path $env.TMP_PATH_DIR
+    mktemp --directory --tmpdir-path ($env.GHUB_TEMP_PATH | path join dir)
   }
 
   rm -rf $dir
@@ -185,7 +182,7 @@ export def "asset download" [
   let download_url = download_url $name $repo.tag_name $asset
 
   let basename = ($name | path basename)
-  let dirpath = $path | default $env.TMP_PATH_FILE
+  let dirpath = $path | default ($env.GHUB_TEMP_PATH | path join file)
   let dirname = ($dirpath | path join $basename $repo.tag_name) 
   let download_dir = ($dirname | path join "download")
   mkdir $download_dir
@@ -204,14 +201,15 @@ export def "asset download" [
 }
 
 export def index-get [] {
-  if ($env.GITHUB_REPOSITORY_INDEX | path exists) {
-    return (open $env.GITHUB_REPOSITORY_INDEX | into int)
+  let index_path = ($env.HOME | path join .github-index)
+  if ($index_path | path exists) {
+    return (open $index_path | into int)
   }
   return 0
 }
 
 export def index-set [index: int] {
-  $index | save --force $env.GITHUB_REPOSITORY_INDEX
+  $index | save --force ($env.HOME | path join .github-index)
 }
 
 def link [name: string@names, tag: string] {
@@ -263,7 +261,7 @@ def exclusion [] {
 }
 
 export def "repo update" [...names: string@names] {
-  let changelog_dir = ($env.TMP_PATH_FILE | path join changelog)
+  let changelog_dir = ($env.GHUB_TEMP_PATH | path join changelog)
   rm -rf $changelog_dir
   mkdir $changelog_dir
 
@@ -273,7 +271,7 @@ export def "repo update" [...names: string@names] {
   }
 
   let last_index = index-get
-  mut repos = open $env.GITHUB_REPOSITORY
+  mut repos = open $env.GHUB_REPOSITORY_PATH
   let length = ($repos | length)
   
   let repos_to_process = if ($names | is-empty) {
@@ -335,7 +333,7 @@ export def "repo update" [...names: string@names] {
     }
 
     $repos = ($repos | upsert $it.index $repo)
-    $repos | save --force $env.GITHUB_REPOSITORY
+    $repos | save --force $env.GHUB_REPOSITORY_PATH
 
     let changelog_file = ($changelog_dir | path join $"($old.name | path basename).md")
     $new.body | save --force $changelog_file
@@ -359,7 +357,7 @@ export def "repo upgrade" [] {
   }
 
   let last_index = index-get
-  mut repos = open $env.GITHUB_REPOSITORY
+  mut repos = open $env.GHUB_REPOSITORY_PATH
   let length = ($repos | length)
   for $it in ($repos | enumerate | skip $last_index | first $rate_limit.remaining) {
     let old = $it.item
@@ -381,14 +379,14 @@ export def "repo upgrade" [] {
     )
 
     $repos = ($repos | upsert $it.index $repo)
-    $repos | save --force $env.GITHUB_REPOSITORY
+    $repos | save --force $env.GHUB_REPOSITORY_PATH
   }
 
   print $"($length) -> ($last_index)..($last_index + $rate_limit.remaining)"
 }
 
 export def "repo view" [name: string@names] {
-  let filter = (open $env.GITHUB_REPOSITORY | where name == $name)
+  let filter = (open $env.GHUB_REPOSITORY_PATH | where name == $name)
   if ($filter | is-empty) {
     error make -u { msg: $"Repository does not exist: ($name)" }
   }

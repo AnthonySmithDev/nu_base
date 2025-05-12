@@ -1,6 +1,6 @@
 
 export-env {
-  $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_base/data/config/)
+  $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
 }
 
 def bind-user [
@@ -22,7 +22,7 @@ def bind-user [
     rm -rf $dst_path
   }
 
-  let src_path = ($env.CONFIG_DIR_SRC | path join $src_name)
+  let src_path = ($env.CONFIG_PATH | path join $src_name)
   ln -sf $src_path $dst_path
 
   print $"Config: ($dst_path)"
@@ -47,7 +47,7 @@ def bind-root [
     sudo rm -rf $dst_path
   }
 
-  let src_path = ($env.CONFIG_DIR_SRC | path join $src_name)
+  let src_path = ($env.CONFIG_PATH | path join $src_name)
   sudo ln -sf $src_path $dst_path
 
   print $"Config: ($dst_path)"

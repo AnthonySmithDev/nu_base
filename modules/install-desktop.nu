@@ -1,17 +1,19 @@
 
+export-env {
+  $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
+  $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
+  $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
+  
+  $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
+  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
+
+  $env.PKG_BIN_SYS = "linux_x64"
+  $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
+}
+
 use config/
 use ghub/
 use pkg/
-
-export-env {
-  $env.GITHUB_REPOSITORY = ($env.HOME | path join nu/nu_base/data/config/ghub/ghub.json)
-  $env.TMP_PATH_FILE = ($env.HOME | path join tmp/file)
-  $env.TMP_PATH_DIR = ($env.HOME | path join tmp/dir)
-  $env.SYSTEMD_USER_DST = ($env.HOME | path join .config/systemd/user/)
-  $env.SYSTEMD_ROOT_DST = ("/etc" | path join systemd/system/)
-  $env.PKG_BIN_SYS = "linux_x64"
-  $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_base/data/config/)
-}
 
 export def main [] {
   setup_zoxide
@@ -26,11 +28,9 @@ export def main [] {
 
     pkg deb vieb
     pkg apt wezterm
-    # pkg deb ghostty-ubuntu
 
     config vieb
     config wezterm
-    # config ghostty desktop
   }
 
   pkg bin rain
@@ -64,6 +64,10 @@ export def main [] {
   pkg bin scrcpy
 
   pkg sh tailscale
+
+  pkg desktop helix
+  pkg desktop yazi
+  pkg desktop zellij
 }
 
 export def --env dev [] {

@@ -3,12 +3,12 @@ def names [] {
   [lan-mouse, android-studio]
 }
 
-def applications [name: string] {
-  $env.HOME | path join $"nu/nu_base/data/applications/($name).desktop"
+def icons [name: string] {
+  $env.ICONS_PATH | path join $"($name).png"
 }
 
-def icons [name: string] {
-  $env.HOME | path join $"nu/nu_base/data/icons/($name).png"
+def applications [name: string] {
+  $env.APPLICATIONS_PATH | path join $"($name).desktop"
 }
 
 export  def helix [] {

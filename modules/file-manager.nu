@@ -40,7 +40,7 @@ export def cut [
   storage-set-items cut $group $value
 }
 
-export def ls [ --group(-g): string = "default" ] {
+export def list [ --group(-g): string = "default" ] {
   {
     copy: (storage-get-items copy $group)
     cut: (storage-get-items cut $group)
@@ -62,15 +62,26 @@ export def "paste copy" [
   dir?: path,
   --group(-g): string = "default",
 ] {
-  let wd = ($dir | default $env.PWD)
+  let dst_path = ($dir | default $env.PWD)
+  if ($dst_path | path type) != "dir" {
+    return
+  }
 
   mut undo = []
-  for $src in (storage-get-items copy $group) {
-    let dst = if ($src | str contains '*') { $wd } else {
-      $wd | path join ($src | path basename)
+  for $item in (storage-get-items copy $group) {
+    let src_path = ($item | into glob)
+    if (du $src_path | get physical | math sum) > 100mb {
+      cp -p -v -r $src_path $dst_path
+    } else {
+      cp -v -r $src_path $dst_path
     }
-    $undo = ($undo | append $dst)
-    cp -v -r ($src | into glob) $dst
+    let paths = (
+      ls $src_path
+      | get name
+      | path basename
+      | each {|basename| ($dst_path | path join $basename)}
+    )
+    $undo = ($undo | append $paths)
   }
   storage-set-items copy $group []
   storage-set-items undo_copy $group $undo

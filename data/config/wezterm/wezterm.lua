@@ -1,39 +1,11 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
-local colors = wezterm.color.get_builtin_schemes()['ayu']
 
-colors.tab_bar = {
-  background = "#1F2430",
-  active_tab = {
-    bg_color = "#0A0E14",
-    fg_color = "#E6B450",
-    intensity = "Bold",
-    underline = "None",
-    italic = false,
-    strikethrough = false,
-  },
-  inactive_tab = {
-    bg_color = "#1F2430",
-    fg_color = "#707A8C",
-  },
-  inactive_tab_hover = {
-    bg_color = "#1F2430",
-    fg_color = "#707A8C",
-    italic = true,
-  },
-  new_tab = {
-    bg_color = "#1F2430",
-    fg_color = "#707A8C",
-  },
-  new_tab_hover = {
-    bg_color = "#1F2430",
-    fg_color = "#E6B450",
-    italic = true,
-  }
-}
+config.default_prog = { 'nu', '-l' }
 
-config.colors = colors
 config.color_scheme = 'ayu'
+local colors = wezterm.color.get_builtin_schemes()[config.color_scheme]
+config.colors = colors
 
 config.window_decorations = "NONE"
 config.window_background_opacity = 0.9
@@ -50,8 +22,6 @@ config.font = wezterm.font_with_fallback({
   'JetBrains Mono',
   'Cascadia Code',
 })
-
-config.default_prog = { 'nu', '-l' }
 
 -- local modal = wezterm.plugin.require("https://github.com/MLFlexer/modal.wezterm")
 local modal = wezterm.plugin.require("https://github.com/AnthonySmithDev/modal.wezterm")

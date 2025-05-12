@@ -1,13 +1,19 @@
 
 export-env {
-  $env.TMP_PATH_FILE = ($env.HOME | path join tmp/file)
-  $env.TMP_PATH_DIR = ($env.HOME | path join tmp/dir)
+  $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
 
-  $env.SCRIPT_DIR_SRC = ($env.HOME | path join nu/nu_base/data/script/nu/)
-  $env.GITHUB_REPOSITORY = ($env.HOME | path join nu/nu_base/data/config/ghub/ghub.json)
+  $env.ICONS_PATH = ($env.DATA_PATH | path join icons)
+  $env.APPLICATIONS_PATH = ($env.DATA_PATH | path join applications)
 
-  $env.DOWNLOAD_FORCE = false
+  $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
+  $env.SCRIPT_PATH = ($env.DATA_PATH | path join script/nu)
+
+  $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
+  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
+
   $env.PKG_BIN_SYS = "linux_x64"
+  $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
+  $env.DOWNLOAD_FORCE = false
 }
 
 export use ../ghub

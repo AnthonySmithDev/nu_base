@@ -5,7 +5,7 @@ export def install [path: string] {
 
 def download_deb [repository: string, version: string, url: string, force: bool] {
   let name = ($repository | path basename)
-  let dirname = ($env.TMP_PATH_FILE | path join deb $name)
+  let dirname = ($env.PKG_TEMP_PATH | path join deb $name)
   mkdir $dirname
 
   let path = ($dirname | path join $'($name)_($version).deb')

@@ -1,10 +1,3 @@
-export-env {
-  $env.SYSTEMD_USER_SRC = ($env.HOME | path join nu/nu_base/data/systemd/user/)
-  $env.SYSTEMD_USER_DST = ($env.HOME | path join .config/systemd/user/)
-
-  $env.SYSTEMD_ROOT_SRC = ($env.HOME | path join nu/nu_base/data/systemd/root/)
-  $env.SYSTEMD_ROOT_DST = ("/etc" | path join systemd/system/)
-}
 
 def commands [] {
   [init remove status start stop restart enable disable]
@@ -15,13 +8,13 @@ def filename [name: string] {
 }
 
 def user-services [] {
-  ls -s $env.SYSTEMD_USER_SRC | get name | split column . name | get name
+  ls -s ($env.SYSTEMD_PATH | path join user) | get name | split column . name | get name
 }
 
 export def user [service: string@user-services, command: string@commands] {
   let unit = filename $service
-  let src = ($env.SYSTEMD_USER_SRC | path join $unit)
-  let dst = ($env.SYSTEMD_USER_DST | path join $unit)
+  let src = ($env.SYSTEMD_PATH | path join user $unit)
+  let dst = ($env.HOME | path join .config/systemd/user/ $unit)
 
   match $command {
     "init" => {
@@ -44,13 +37,13 @@ export def user [service: string@user-services, command: string@commands] {
 }
 
 def root-services [] {
-  ls -s $env.SYSTEMD_ROOT_SRC | get name | split column . name | get name
+  ls -s ($env.SYSTEMD_PATH | path join root) | get name | split column . name | get name
 }
 
 export def root [service: string@root-services, command: string@commands] {
   let unit = filename $service
-  let src = ($env.SYSTEMD_ROOT_SRC | path join $unit)
-  let dst = ($env.SYSTEMD_ROOT_DST | path join $unit)
+  let src = ($env.SYSTEMD_PATH | path join root $unit)
+  let dst = ("/etc" | path join systemd/system/ $unit)
 
   match $command {
     "init" => {

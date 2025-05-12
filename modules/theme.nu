@@ -1,6 +1,6 @@
 
 export-env {
-  $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_base/data/config/)
+  $env.CONFIG_PATH = ($env.HOME | path join nu/nu_base/data/config/)
 }
 
 def helix_themes [theme: string] {
@@ -8,7 +8,7 @@ def helix_themes [theme: string] {
 }
 
 export def helix [theme: string@helix_themes] {
-  let config = ($env.CONFIG_DIR_SRC | path join helix/config.toml)
+  let config = ($env.CONFIG_PATH | path join helix/config.toml)
   open -r $config | lines | update 0 $'theme = "($theme)"' | str join "\n" | save -f $config
   if (ps | where name =~ hx | is-not-empty) {
     pkill -USR1 hx
@@ -20,7 +20,7 @@ def nushell_themes [] {
 }
 
 export def nushell [theme: string@nushell_themes] {
-  let config = ($env.CONFIG_DIR_SRC | path join nushell/config.nu)
+  let config = ($env.CONFIG_PATH | path join nushell/config.nu)
   open -r $config | lines | update 867 $'$env.config.color_config = $($theme)' | str join "\n" | save -f $config
 }
 
@@ -61,7 +61,7 @@ def zellij_themes [theme: string] {
 }
 
 export def zellij [theme: string@zellij_themes] {
-  let config = ($env.CONFIG_DIR_SRC | path join zellij/config.kdl)
+  let config = ($env.CONFIG_PATH | path join zellij/config.kdl)
   open -r $config | lines | update 281 $'theme "($theme)"' | str join "\n" | save -f $config
 }
 
@@ -70,7 +70,7 @@ def alacritty_themes [] {
 }
 
 export def alacritty [theme: string@alacritty_themes] {
-  let config = ($env.CONFIG_DIR_SRC | path join alacritty/alacritty.toml)
+  let config = ($env.CONFIG_PATH | path join alacritty/alacritty.toml)
   open -r $config | lines | update 1 $'"~/.config/alacritty/themes/($theme).toml",' | str join "\n" | save -f $config
 }
 
@@ -87,7 +87,7 @@ def bat_themes [] {
 }
 
 export def bat [theme: string@bat_themes] {
-  let config = ($env.CONFIG_DIR_SRC | path join bat/config)
+  let config = ($env.CONFIG_PATH | path join bat/config)
   open -r $config | lines | update 6 $'--theme="($theme)"' | str join "\n" | save -f $config
 }
 

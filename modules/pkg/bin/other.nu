@@ -51,9 +51,9 @@ def path-not-exists [path: string, force: bool] {
 
 def download [ url: string, --dirname(-d): string, --filename(-n): string, --force(-f) ] {
   let dir = if ($dirname | is-not-empty) {
-    $env.TMP_PATH_FILE | path join $dirname
+    $env.PKG_TEMP_PATH | path join $dirname
   } else {
-    $env.TMP_PATH_FILE
+    $env.PKG_TEMP_PATH
   }
   mkdir $dir
   let path = if ($filename | is-not-empty) {
@@ -72,7 +72,7 @@ def decompress [path: path] {
     error make {msg: $"Path not exists: ($path)"}
   }
 
-  let dir = mktemp --directory --tmpdir-path $env.TMP_PATH_DIR
+  let dir = mktemp --directory --tmpdir-path ($env.PKG_TEMP_PATH | path join bin decompress other)
   mkdir $dir
 
   if $path =~ ".tar" or $path =~ ".tbz" or $path =~ ".tgz" or $path =~ ".tar.gz" {

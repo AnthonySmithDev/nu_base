@@ -1,12 +1,14 @@
 
 export-env {
-  $env.GITHUB_REPOSITORY = ($env.HOME | path join nu/nu_base/data/config/ghub/ghub.json)
-  $env.TMP_PATH_FILE = ($env.HOME | path join tmp/file)
-  $env.TMP_PATH_DIR = ($env.HOME | path join tmp/dir)
-  $env.SYSTEMD_USER_DST = ($env.HOME | path join .config/systemd/user/)
-  $env.SYSTEMD_ROOT_DST = ("/etc" | path join systemd/system/)
+  $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
+  $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
+  $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
+  
+  $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
+  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
+
   $env.PKG_BIN_SYS = "linux_x64"
-  $env.CONFIG_DIR_SRC = ($env.HOME | path join nu/nu_base/data/config/)
+  $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
 }
 
 use config/
@@ -97,8 +99,7 @@ export def setup_dir [] {
 
   mkdir $env.SYSTEMD_USER_DST
 
-  mkdir $env.TMP_PATH_DIR
-  mkdir $env.TMP_PATH_FILE
+  mkdir $env.PKG_TEMP_PATH
 }
 
 const dirs = [

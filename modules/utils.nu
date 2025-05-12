@@ -302,7 +302,7 @@ export def transfer [path: path] {
   }
   let filename = if ($path | path type) == "file" { $path } else {
     let basename = ($path | path basename) + ".zip"
-    let dirname = ($env.TMP_PATH_DIR | path join $basename)
+    let dirname = ($env.HOME | path join temp transfer $basename)
     ^zip -q -r $dirname $path
     $dirname
   }

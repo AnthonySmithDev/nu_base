@@ -1,7 +1,7 @@
 
 export def install [basename: string, --root(-r) ] {
   let stem = ($basename | path parse | get stem)
-  let src = ($env.SCRIPT_DIR_SRC | path join $basename)
+  let src = ($env.SCRIPT_PATH | path join $basename)
 
   let dst = ($env.LOCAL_BIN | path join $stem)
   ln -sf $src $dst
