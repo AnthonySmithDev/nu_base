@@ -1,7 +1,7 @@
 
-const NU_LIB_DIRS = [
-  '~/nu/nu_base/modules'
-]
+# const NU_LIB_DIRS = [
+#   '~/nu/nu_base/modules'
+# ]
 
 source autoload/mod.nu
 

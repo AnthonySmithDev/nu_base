@@ -99,12 +99,14 @@ export def basic [] {
     p7zip-full
     7zip-standalone
 
-    chafa
     imagemagick
     poppler-utils
     exiftool
 
     timg
+    chafa
+    libsixel-bin
+
     mpv
     pqiv
 

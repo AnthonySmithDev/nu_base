@@ -122,6 +122,10 @@ export def dooit [] {
   bind-user dooit/config.py
 }
 
+export def aichat [] {
+  bind-user aichat/config.yaml
+}
+
 def mouseless-completions [] {
   [desktop laptop]
 }

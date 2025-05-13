@@ -47,7 +47,8 @@ C-l = [
     ":reload-all"
 ]
 
-[keys.select.","]
-"a" = ":pipe-to ctx"
+[keys.normal.ret]
+ret = [":pipe-to ctx chunck add", ":sh echo Copied..."]
+"a" = ":pipe-to chunck add"
 "s" = ":sh ctx show"
 "d" = ":sh ctx delete"

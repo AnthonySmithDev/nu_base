@@ -1,11 +1,14 @@
 # see https://github.com/sigoden/aichat/blob/main/config.example.yaml
 
-model: deepseek
+model: deepseek:deepseek-chat
 clients:
-
 - type: openai-compatible
   name: deepseek
   api_base: https://api.deepseek.com
+  models:
+  - name: deepseek-chat
+  - name: deepseek-coder
+  - name: deepseek-reasoner
 
 - type: openai-compatible
   name: r2

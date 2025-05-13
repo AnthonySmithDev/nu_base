@@ -153,16 +153,16 @@ keybinds clear-defaults=true {
         bind "Alt j" { MoveFocus "down"; }
         bind "Alt k" { MoveFocus "up"; }
         bind "Alt l" { MoveFocusOrTab "right"; }
-        bind "Alt n" { NewPane; }
+        // bind "Alt n" { NewPane; }
         // bind "Alt o" { MoveTab "right"; }
 
         bind "Alt P" { TogglePanePinned; }
         bind "Alt F" { ToggleFocusFullscreen; }
         bind "Alt E" { TogglePaneEmbedOrFloating; }
 
-        bind "Alt N" { NewPane "right"; }
-        bind "Alt M" { NewPane "down"; }
-        bind "Alt B" { BreakPane; }
+        bind "Alt n" { NewPane "right"; }
+        bind "Alt m" { NewPane "down"; }
+        bind "Alt p" { BreakPane; }
 
         bind "Alt t" { NewTab; }
         bind "Alt x" { CloseFocus; }

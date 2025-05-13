@@ -138,36 +138,6 @@ export def select-file [] {
   return (fd --type file | fzf --layout reverse --border --preview $preview | str trim)
 }
 
-$env.SHOW_PATH = ($env.HOME | path join .show.txt)
-
-export def show [...filter: path] {
-  if ($filter | is-empty) { return }
-  $filter | save -f $env.SHOW_PATH
-  bat --paging never --style header ...$filter
-}
-
-export def showf [] {
-  let filter = (fd --type file | gum filter --no-limit | lines)
-  if ($filter | is-empty) { return }
-  show ...$filter
-}
-
-export def showd [dir: path] {
-  let filter = (fd --type file . $dir | lines)
-  if ($filter | is-empty) { return }
-  show ...$filter
-}
-
-export def showc [] {
-  let filter = (open $env.SHOW_PATH | lines)
-  if ($filter | is-empty) { return }
-  show ...$filter
-}
-
-export def showe [] {
-  hx $env.SHOW_PATH
-}
-
 export def "create camare" [] {
   # https://adityatelange.in/blog/android-phone-webcam-linux/
   sudo apt install v4l2loopback-dkms v4l2loopback-utils
@@ -268,9 +238,29 @@ export def sshkeygen [] {
   ssh-keygen -t ed25519
 }
 
-export def to-gif [video: path] {
-  mkdir ./tmp
-  ffmpeg -i $video -vf fps=10 ./tmp/frame_%04d.png
-  convert -delay 10 -loop 0 ./tmp/frame_*.png output.gif
-  rm -rf ./tmp
+export def watch_ask_prompt [] {
+  r#'
+  Find the "AI" comments below (marked with ?) in the code files I've shared with you.
+  They contain my questions that I need you to answer and other instructions for you.
+  responde en spanish
+  '#
 }
+
+export def "main watch" [] {
+  watch . --glob=**/*.go --quiet {|op, path|
+    let prompt = (open $path | rg "AI?" | lines)
+    if ($prompt | is-not-empty) {
+      print $path
+      open $path | aichat (watch_ask_prompt)
+    }
+  }
+}
+
+# let watch_code_prompt = r#'
+# I've written your instructions in comments in the code and marked them with "ai"
+# You can see the "AI" comments shown below (marked with █).
+# Find them in the code files I've shared with you, and follow their instructions.
+
+# After completing those instructions, also be sure to remove all the "AI" comments from the code too.
+# '#
+#
