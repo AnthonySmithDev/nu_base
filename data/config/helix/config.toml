@@ -48,7 +48,8 @@ C-l = [
 ]
 
 [keys.normal.ret]
-ret = [":pipe-to ctx chunck add", ":sh echo Copied..."]
-"a" = ":pipe-to chunck add"
-"s" = ":sh ctx show"
-"d" = ":sh ctx delete"
+ret = ":pipe-to ctx add chunck"
+"a" = ":pipe-to ctx add chunck"
+"C" = ":sh ctx clear chunck"
+"F" = ":sh ctx clear file"
+"D" = ":sh ctx clear dir"

@@ -28,10 +28,12 @@ def names [] {
   }
 }
 
-export def --wrapped run [name: string@names, ...rest] {
+export def install [name: string@names] {
   let config = ($env.NVIM_DIR | path join $name config)
   if not ($config | path exists) {
     git clone ($repositories | get $name) $config
+  } else {
+    git -C $config pull
   }
   rm -rf $env.NVIM_CONFIG
   ln -sf $config $env.NVIM_CONFIG
@@ -56,7 +58,10 @@ export def --wrapped run [name: string@names, ...rest] {
   }
   rm -rf $env.NVIM_CACHE
   ln -sf $cache $env.NVIM_CACHE
+}
 
+export def --wrapped run [name: string@names, ...rest] {
+  install $name
   nvim ...$rest
 }
 
