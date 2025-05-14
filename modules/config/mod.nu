@@ -126,6 +126,10 @@ export def aichat [] {
   bind-user aichat/config.yaml
 }
 
+export def mpv [] {
+  bind-user mpv/mpv.conf
+}
+
 def mouseless-completions [] {
   [desktop laptop]
 }

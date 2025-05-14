@@ -71,7 +71,7 @@ export def "paste copy" [
   for $item in (storage-get-items copy $group) {
     let src_path = ($item | into glob)
     if (du $src_path | get physical | math sum) > 100mb {
-      cp -p -v -r $src_path $dst_path
+      rclone copy --transfers=1 --size-only --progress $src_path $dst_path
     } else {
       cp -v -r $src_path $dst_path
     }
@@ -97,7 +97,7 @@ export def "paste cut" [
   for $item in (storage-get-items cut $group) {
     let src_path = ($item | into glob)
     if (du $src_path | get physical | math sum) > 100mb {
-      mv -p -v $src_path $dst_path
+      rclone move --transfers=1 --size-only --progress $src_path $dst_path
     } else {
       mv -v $src_path $dst_path
     }

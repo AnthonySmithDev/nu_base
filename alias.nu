@@ -19,9 +19,8 @@ alias temp = btm --rate 500ms --expanded --default_widget_type temp
 alias disk = btm --rate 500ms --expanded --default_widget_type disk
 alias batt = btm --rate 500ms --expanded --default_widget_type batt
 
-
 export def saup [] {
-  sudo apt update -y;
+  sudo apt update;
   sudo apt upgrade -y
 }
 
@@ -36,6 +35,11 @@ alias saf = sudo apt install --fix-broken
 alias sal = sudo apt list --upgradable
 alias sdc = sudo dpkg --configure -a
 alias sdi = sudo dpkg --install
+
+export def snup [] {
+  sudo nala update;
+  sudo nala upgrade -y
+}
 
 alias snap = sudo nala autopurge
 alias snar = sudo nala autoremove

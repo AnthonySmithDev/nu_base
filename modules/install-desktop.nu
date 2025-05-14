@@ -1,6 +1,8 @@
 
 export-env {
   $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
+  $env.MODULES_PATH = ($env.HOME | path join nu/nu_base/modules/)
+
   $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
   $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
   
@@ -18,7 +20,6 @@ use pkg/
 export def main [] {
   setup_zoxide
 
-  config git
   pkg font FiraCode
 
   if (exists-external apt) {
@@ -68,6 +69,9 @@ export def main [] {
   pkg desktop helix
   pkg desktop yazi
   pkg desktop zellij
+
+  config git
+  config mpv
 }
 
 export def --env dev [] {

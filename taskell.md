@@ -9,6 +9,7 @@
 - crear mi browser-ext modules para instalar extension mas rapido
 - hacer que aya barias configuracion de tscale en repositorio privado
 - crear configuracion encriptadas
+- mejorar mis nombres de tailscale
 
 ## Doing
 

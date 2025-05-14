@@ -1,12 +1,12 @@
 
 export-env {
   $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
+  $env.MODULES_PATH = ($env.HOME | path join nu/nu_base/modules/)
 
   $env.ICONS_PATH = ($env.DATA_PATH | path join icons)
   $env.APPLICATIONS_PATH = ($env.DATA_PATH | path join applications)
 
   $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
-  $env.SCRIPT_PATH = ($env.DATA_PATH | path join script/nu)
 
   $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
   $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
@@ -20,7 +20,7 @@ export use ../ghub
 
 export use apt.nu
 export use deps.nu
-export use bin
+export use bin/
 export module sh.nu
 export module deb.nu
 export module arch.nu
