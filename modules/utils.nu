@@ -264,3 +264,82 @@ export def "main watch" [] {
 # After completing those instructions, also be sure to remove all the "AI" comments from the code too.
 # '#
 #
+#
+
+def 'chmod nu_work' [] {
+  fd -t f -x chmod 655
+  fd -t d -x chmod 777
+}
+
+def copy_wsclient [] {
+  let src = ($env.NANOPAY_BACKEND | path join payzum-backend-ws/internal/wsclient)
+
+   let p2p = ($env.NANOPAY_BACKEND | path join payzum-backend-p2p/external)
+   cp -r $src $p2p
+   ambr --no-interactive 'payzum/backend/ws/internal' 'payzum/backend/p2p/external' $p2p
+
+   let main = ($env.NANOPAY_BACKEND | path join payzum-backend-main/external)
+   cp -r $src $main
+   ambr --no-interactive 'payzum/backend/ws/internal' 'payzum/backend/main/external' $main
+
+   let bot = ($env.NANOPAY_BACKEND | path join payzum-backend-bot/external)
+   cp -r $src $bot
+   ambr --no-interactive 'payzum/backend/ws/internal' 'payzum/backend/bot/external' $bot
+}
+
+def lncli-copy [] {
+  mkdir ~/.lnd/yoda
+  scp $"freyrecorp@(tailscale_get yoda):~/.lnd/tls.cert" ~/.lnd/yoda/tls.cert
+  scp $"freyrecorp@(tailscale_get yoda):~/.lnd/data/chain/bitcoin/testnet/admin.macaroon" ~/.lnd/yoda/admin.macaroon
+
+  mkdir ~/.lnd/hansolo
+  scp $"freyrecorp@(tailscale_get hansolo):~/.lnd/tls.cert" ~/.lnd/hansolo/tls.cert
+  scp $"freyrecorp@(tailscale_get hansolo):~/.lnd/data/chain/bitcoin/testnet/admin.macaroon" ~/.lnd/hansolo/admin.macaroon
+}
+
+def lncli [--yoda, --hansolo] {
+  if $yoda {
+    ^lncli --rpcserver $"(tailscale_get yoda):10009" --network testnet --tlscertpath ~/.lnd/yoda/tls.cert --macaroonpath ~/.lnd/yoda/admin.macaroon
+  }
+  if $hansolo {
+    ^lncli --rpcserver $"(tailscale_get hansolo):10009" --network testnet --tlscertpath ~/.lnd/hansolo/tls.cert --macaroonpath ~/.lnd/hansolo/admin.macaroon
+  }
+}
+
+def __logs_user [] {
+  [anthony jean]
+}
+
+def __logs_repo [] {
+  [main p2p]
+}
+
+def __logs_file [] {
+  [server database]
+}
+
+def logs [user: string@__logs_user, repo: string@__logs_repo, file: string@__logs_file] {
+  let host = if $user == "anthony" {
+    "locahost"
+  } else {
+    "100.97.221.20"
+  }
+  let port = if $repo == "main" {
+    "3000"
+  } else {
+    "3010"
+  }
+  http get $"http://($host):($port)/logs/($file).log"
+}
+
+def find_tag_vue [] {
+  (ambs -r '<q-icon\s+[^>]*@click="([^"]+)"[^>]*>' --no-color --column  | lines | where $it =~ "q-icon" | split column : path line)
+}
+
+# wscat -c ws://yoda:7078 -x '{ "action": "subscribe", "topic": "confirmation" }'
+
+def 'gofmtx' [] {
+  for $file in (glob **/*.go) {
+    goimports -w $file
+  }
+}
