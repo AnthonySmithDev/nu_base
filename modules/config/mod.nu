@@ -98,11 +98,19 @@ def ghostty-completions [] {
   [desktop laptop]
 }
 
-export def ghostty [completion: string@ghostty-completions] {
+export def ghostty [completion: string@ghostty-completions = "desktop"] {
   bind-user $"ghostty/($completion)" ghostty/config
 }
 
-export def wezterm [] {
+def wezterm-completions [] {
+  [desktop laptop]
+}
+
+export def wezterm [completion: string@wezterm-completions = "desktop"] {
+  bind-user $"wezterm/($completion).lua" wezterm/custom.lua
+
+  bind-user wezterm/base.lua
+  bind-user wezterm/plugin.lua
   bind-user wezterm/wezterm.lua
 }
 
@@ -139,7 +147,7 @@ export def mouseless [completion: string@mouseless-completions] {
 }
 
 def lan-mouse-completions [] {
-  [desktop laptop]
+  [desktop micro laptop vanesa]
 }
 
 export def lan-mouse [completion: string@lan-mouse-completions] {

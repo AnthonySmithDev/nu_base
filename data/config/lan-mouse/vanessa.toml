@@ -1,0 +1,10 @@
+release_bind = [ "KeyA", "KeyS", "KeyD", "KeyF" ]
+
+port = 4242
+frontend = "cli"
+
+[bottom]
+activate_on_startup = true
+hostname = "anthony-laptop"
+ips = ["192.168.1.102"]
+port = 4242

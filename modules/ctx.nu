@@ -4,8 +4,12 @@ def main [] {
   print "Context Manager"
 }
 
+def path-ctx [...paths: string] {
+  $env.PWD | path join ctx ...$paths
+}
+
 def path-chunck [] {
-  $env.PWD | path join ctx chunck
+  path-ctx chunck
 }
 
 def open-chunks [] {
@@ -16,17 +20,12 @@ def open-chunks [] {
   return []
 }
 
-def show-files [
-  ...files: path,
-  --style(-s): string = "plain",
-  --lang(-l): string = "txt",
-] {
-  bat --color=always --paging=never --language=($lang) --style=($style) ...$files
+def filter [preview: string, query: string] {
+  fzf --multi --style=full --layout=reverse --preview=($preview) --query=($query) | lines
 }
 
-def filter-files [lang: string = "txt"] {
-  let preview = $"bat --language=($lang) --color=always --style=numbers {}"
-  $in | fzf --multi --style full --layout reverse --preview $preview | lines
+def filter-chunck [lang: string] {
+  filter $"bat --language=($lang) --color=always --style=numbers {}" ""
 }
 
 export def "add chunck" [] {
@@ -35,11 +34,11 @@ export def "add chunck" [] {
     return
   }
 
-  let path = path-chunck
-  mkdir $path
-
   let trim = ($input | str trim)
   let hash = ($trim | hash md5)
+
+  let path = path-chunck
+  mkdir $path
 
   $trim | save --force ($path | path join $hash)
 }
@@ -49,12 +48,15 @@ export def "show chunck" [--lang(-l): string = "txt"] {
   if ($chunks | is-empty) {
     return
   }
-  show-files ...$chunks -l $lang
+  cat ...$chunks
 }
 
-export def "open chunck" [] {
+export def "pretty chunck" [--lang(-l): string = "txt"] {
   let chunks = open-chunks
-  cat ...$chunks
+  if ($chunks | is-empty) {
+    return
+  }
+  bat --color=always --paging=never --language=($lang) --style=full ...$chunks
 }
 
 export def "edit chunck" [] {
@@ -69,7 +71,7 @@ export def "remove chunck" [--lang(-l): string = "txt"] {
   if ($chunks | is-empty) {
     return
   }
-  let select = ($chunks | to text | filter-files $lang)
+  let select = ($chunks | to text | filter-chunck $lang)
   if ($select | is-empty) {
     return
   }
@@ -87,22 +89,28 @@ export def "clear chunck" [] {
 }
 
 def path-files [] {
-  $env.PWD | path join ctx files.txt
+  path-ctx files.txt
 }
 
 def open-files [] {
   let path = path-files
   if ($path | path exists) {
-    return (open $path | lines)
+    return (open $path | str trim | lines)
   }
   return []
 }
 
-export def "add file" [] {
-  let select = (fd --type file | filter-files | lines)
+def filter-files [query: string] {
+  filter "bat --color=always --style=numbers {}" $query
+}
+
+export def "add file" [--search(-s): string] {
+  let select = (fd --type file | filter-files $search | lines)
   if ($select | is-empty) {
     return
   }
+
+  mkdir (path-ctx)
   $select | save --append --force (path-files)
   print $select
 }
@@ -112,7 +120,15 @@ export def "show file" [] {
   if ($files | is-empty) {
     return
   }
-  show-files ...$files
+  cat ...$files
+}
+
+export def "pretty file" [] {
+  let files = open-files
+  if ($files | is-empty) {
+    return
+  }
+  bat --color=always --paging=never --style=full ...$files
 }
 
 export def "path file" [] {
@@ -127,19 +143,20 @@ export def "edit file" [] {
   hx (path-files)
 }
 
-export def "remove file" [] {
+export def "remove file" [--search(-s): string = ""] {
   let saved = open-files
   if ($saved | is-empty) {
     return
   }
 
-  let to_rm = ($saved | filter-files)
+  let to_rm = ($saved | to text | filter-files $search)
   if ($to_rm | is-empty) {
     return
   }
 
   let updated = ($saved | where {|f| $f not-in $to_rm})
   $updated | save --force (path-files)
+  print $to_rm
 }
 
 export def "clear file" [] {
@@ -161,12 +178,12 @@ def "main add chunck" [] {
   add chunck
 }
 
-def "main show chunck" [--lang(-l): string = "txt"] {
-  show chunck -l $lang
+def "main show chunck" [] {
+  show chunck
 }
 
-def "main open chunck" [] {
-  open chunck
+def "main pretty chunck" [--lang(-l): string = "txt"] {
+  pretty chunck -l $lang
 }
 
 def "main edit chunck" [] {
@@ -181,12 +198,16 @@ def "main clear chunck" [] {
   clear chunck
 }
 
-def "main add file" [] {
-  add file
+def "main add file" [--search(-s): string = ""] {
+  add file --search $search
 }
 
 def "main show file" [] {
   show file
+}
+
+def "main pretty file" [] {
+  pretty file
 }
 
 def "main path file" [] {
@@ -197,10 +218,41 @@ def "main edit file" [] {
   edit file
 }
 
-def "main remove file" [] {
-  remove file
+def "main remove file" [--search(-s): string = ""] {
+  remove file --search $search
 }
 
 def "main clear file" [] {
   clear file
+}
+
+def actions [] {
+  ["add", "show", "pretty", "open", "edit", "remove", "clear", "path"] 
+}
+
+def targets [] {
+  ["chunck", "file"] 
+}
+
+def xmain [
+    action: string@actions
+    target: string@targets
+    --lang(-l): string = "txt"
+] {
+  match [$action, $target] {
+    ["add" "chunck"] => { add chunck }
+    ["show" "chunck"] => { show chunck -l $lang }
+    ["open" "chunck"] => { open chunck }
+    ["edit" "chunck"] => { edit chunck }
+    ["remove" "chunck"] => { remove chunck -l $lang }
+    ["clear" "chunck"] => { clear chunck }
+    ["add" "file"] => { add file }
+    ["show" "file"] => { show file }
+    ["pretty" "file"] => { pretty file }
+    ["path" "file"] => { path file }
+    ["edit" "file"] => { edit file }
+    ["remove" "file"] => { remove file }
+    ["clear" "file"] => { clear file }
+    _ => { echo $"Unknown command: ($action) ($target)" }
+  }
 }

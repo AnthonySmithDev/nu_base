@@ -40,6 +40,7 @@ const list =	[
 	[mixxx org.mixxx.Mixxx]
 	[connections org.gnome.Connections]
 	[remmina org.remmina.Remmina]
+	[deskflow org.deskflow.deskflow]
 ]
 
 def names [] {

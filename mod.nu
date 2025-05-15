@@ -16,5 +16,6 @@ source alias.nu
 source alias/git.nu
 source alias/zellij.nu
 
+use ctx.nu
 use file-manager.nu
 source alias/file-manager.nu
