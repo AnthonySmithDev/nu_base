@@ -22,6 +22,11 @@ export  def zellij [] {
   ln -sf (applications zellij) $env.LOCAL_SHARE_APPLICATIONS
 }
 
+export  def kitty [] {
+  ln -sf (icons kitty.svg) $env.LOCAL_SHARE_ICONS
+  ln -sf (applications kitty) $env.LOCAL_SHARE_APPLICATIONS
+}
+
 export  def lan-mouse [] {
   ln -sf (icons lan-mouse.svg) $env.LOCAL_SHARE_ICONS
   ln -sf (applications lan-mouse) $env.LOCAL_SHARE_APPLICATIONS

@@ -20,7 +20,7 @@ def open-chunks [] {
   return []
 }
 
-def filter [preview: string, query: string] {
+def filter [preview: string, query: string = ""] {
   fzf --multi --style=full --layout=reverse --preview=($preview) --query=($query) | lines
 }
 
@@ -100,7 +100,7 @@ def open-files [] {
   return []
 }
 
-def filter-files [query: string] {
+def filter-files [query?: string] {
   filter "bat --color=always --style=numbers {}" $query
 }
 
@@ -143,7 +143,7 @@ export def "edit file" [] {
   hx (path-files)
 }
 
-export def "remove file" [--search(-s): string = ""] {
+export def "remove file" [--search(-s): string] {
   let saved = open-files
   if ($saved | is-empty) {
     return
@@ -173,6 +173,12 @@ export def "clear file" [] {
 #   if ($dirs | is-empty) { return }
 #   show-dirs ...$dirs
 # }
+
+export def show [] {
+  let files = open-files
+  let chunks = open-chunks
+  cat ...$files ...$chunks
+}
 
 def "main add chunck" [] {
   add chunck
@@ -224,6 +230,10 @@ def "main remove file" [--search(-s): string = ""] {
 
 def "main clear file" [] {
   clear file
+}
+
+def "main show" [] {
+  show
 }
 
 def actions [] {

@@ -53,6 +53,10 @@ $env.NVIM_PATH = ($env.USR_LOCAL_LIB | path join nvim)
 $env.NVIM_BIN = ($env.NVIM_PATH | path join bin)
 env-path $env.NVIM_BIN
 
+$env.KITTY_PATH = ($env.USR_LOCAL_LIB | path join kitty)
+$env.KITTY_BIN = ($env.KITTY_PATH | path join bin)
+env-path $env.KITTY_BIN
+
 $env.SFTPGO_PATH = ($env.USR_LOCAL_LIB | path join sftpgo)
 env-path $env.SFTPGO_PATH
 

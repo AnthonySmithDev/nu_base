@@ -71,9 +71,3 @@ export def --wrapped vieb-browser [...rest: string, --dir(-d): string, --rm ] {
 export def nault [] {
   brave-browser --dir=nault --app=https://nault.cc/configure-wallet
 }
-
-export def images-preview [] {
-  # let preview = "img2sixel -w $FZF_PREVIEW_COLUMNS -h $FZF_PREVIEW_LINES {}"
-  let preview = "chafa --size=$(echo $FZF_PREVIEW_COLUMNS)x$(echo $FZF_PREVIEW_LINES) {}"
-  fd -e jpg -e jpg -e png | fzf --style full --layout reverse --preview $preview --preview-window=right:70%
-}

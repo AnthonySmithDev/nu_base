@@ -263,6 +263,34 @@
   },
   {
     "category": "core",
+    "name": "kovidgoyal/kitty",
+    "tag_name": "v0.42.0",
+    "created_at": "2025-05-11T05:38:29Z",
+    "assets": [
+      "kitten-darwin-amd64",
+      "kitten-darwin-arm64",
+      "kitten-dragonfly-amd64",
+      "kitten-freebsd-amd64",
+      "kitten-freebsd-arm64",
+      "kitten-linux-386",
+      "kitten-linux-amd64",
+      "kitten-linux-arm",
+      "kitten-linux-arm64",
+      "kitten-netbsd-amd64",
+      "kitten-netbsd-arm64",
+      "kitten-openbsd-amd64",
+      "kitten-openbsd-arm64",
+      "kitty-0.42.0-arm64.txz",
+      "kitty-0.42.0-x86_64.txz",
+      "kitty-0.42.0.dmg",
+      "kitty-0.42.0.tar.xz"
+    ],
+    "linux_x64": {
+      "ends": "x86_64.txz"
+    }
+  },
+  {
+    "category": "core",
     "name": "sharkdp/fd",
     "tag_name": "v10.2.0",
     "created_at": "2024-08-22T19:27:40Z",
@@ -5795,8 +5823,8 @@
   {
     "category": "android",
     "name": "t895/DNSNet",
-    "tag_name": "1.2.3",
-    "created_at": "2025-05-09T04:48:44Z",
+    "tag_name": "1.2.4",
+    "created_at": "2025-05-13T02:30:52Z",
     "assets": [
       "app-release.aab",
       "app-release.apk",

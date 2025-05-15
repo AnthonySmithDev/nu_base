@@ -138,6 +138,11 @@ export def mpv [] {
   bind-user mpv/mpv.conf
 }
 
+export def kitty [] {
+  bind-user kitty/kitty.conf
+  bind-user --dir kitty/themes
+}
+
 def mouseless-completions [] {
   [desktop laptop]
 }

@@ -81,6 +81,22 @@ export def --env nushell [ --force(-f) ] {
   bind-root nu ($path | path join nu)
 }
 
+export def --env kitty [--force(-f)] {
+  let repository = 'kovidgoyal/kitty'
+  let tag_name = ghub tag_name $repository
+  let path = lib-path kitty $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download -x $repository --force=($force)
+    move -d $download_path -p $path
+  }
+
+  bind-dir $path $env.KITTY_PATH
+  env-path $env.KITTY_BIN
+
+  bind-root kitty ($path | path join bin/kitty)
+}
+
 export def starship [ --force(-f) ] {
   let repository = 'starship/starship'
   let tag_name = ghub tag_name $repository
@@ -417,6 +433,7 @@ export def bat [ --force(-f) ] {
   }
 
   bind-file bat $path
+  bind-root bat $path
 }
 
 export def gdu [ --force(-f) ] {

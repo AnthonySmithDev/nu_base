@@ -129,7 +129,8 @@ export def decompress [filepath: path, --dirpath(-d): string] {
   rm -rf $dir
   mkdir $dir
 
-  if $filepath =~ ".tar" or $filepath =~ ".tbz" or $filepath =~ ".tgz" or $filepath =~ ".tar.gz" {
+  let tar_exts = ['.tar', '.txz', '.tbz', '.tgz', '.tar.gz']
+  if ($tar_exts | any { |ext| $filepath | str ends-with $ext }) {
     if (exists-external gum) {
       ^gum spin --spinner dot --title 'Extract tar...' -- tar -xvf $filepath -C $dir
     } else {
