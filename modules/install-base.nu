@@ -102,6 +102,8 @@ export def setup_dir [] {
   mkdir $env.SYSTEMD_USER_DST
 
   mkdir $env.PKG_TEMP_PATH
+
+  mkdir $env.PNPM_HOME
 }
 
 const dirs = [

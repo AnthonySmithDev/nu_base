@@ -138,6 +138,10 @@ export def mpv [] {
   bind-user mpv/mpv.conf
 }
 
+export def opencommit [] {
+  bind-user --home opencommit/opencommit .opencommit
+}
+
 export def kitty [] {
   bind-user kitty/kitty.conf
   bind-user --dir kitty/themes

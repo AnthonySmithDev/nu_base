@@ -28,11 +28,14 @@ export def main [] {
     pkg apt flathub
 
     pkg deb vieb
-    pkg apt wezterm
-
     config vieb
+
+    pkg apt wezterm
     config wezterm
   }
+
+  pkg bin kitty
+  config kitty
 
   pkg bin rain
   pkg bin melt
@@ -69,6 +72,12 @@ export def main [] {
   pkg desktop helix
   pkg desktop yazi
   pkg desktop zellij
+
+  pkg script ctx
+  pkg script clipboard
+  pkg script term-editor
+  pkg script scrollback-pager
+  pkg script scrollback-editor
 
   config git
   config mpv
