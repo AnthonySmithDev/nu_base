@@ -20,6 +20,7 @@ export use service/database
 export use service/backend
 export use service/frontend
 export use service/kube.nu
+export use http/create.nu
 
 export use mode.nu
 

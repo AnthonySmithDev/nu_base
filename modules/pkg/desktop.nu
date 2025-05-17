@@ -7,31 +7,45 @@ def applications [name: string] {
   $env.APPLICATIONS_PATH | path join $"($name).desktop"
 }
 
+def share [...name: string] {
+  $env.LOCAL_SHARE_APPLICATIONS | path join ...$name
+}
+
 export  def helix [] {
   ln -sf (icons helix.png) $env.LOCAL_SHARE_ICONS
-  ln -sf (applications helix) $env.LOCAL_SHARE_APPLICATIONS
+  ln -sf (applications helix) (share)
 }
 
 export  def yazi [] {
   ln -sf (icons yazi.png) $env.LOCAL_SHARE_ICONS
-  ln -sf (applications yazi) $env.LOCAL_SHARE_APPLICATIONS
+  ln -sf (applications yazi) (share)
 }
 
 export  def zellij [] {
   ln -sf (icons zellij.png) $env.LOCAL_SHARE_ICONS
-  ln -sf (applications zellij) $env.LOCAL_SHARE_APPLICATIONS
+  ln -sf (applications zellij) (share)
 }
 
 export  def kitty [] {
   ln -sf (icons kitty.svg) $env.LOCAL_SHARE_ICONS
-  ln -sf (applications kitty) $env.LOCAL_SHARE_APPLICATIONS
+  ln -sf (applications kitty) (share)
 }
 
 export  def lan-mouse [] {
   ln -sf (icons lan-mouse.svg) $env.LOCAL_SHARE_ICONS
-  ln -sf (applications lan-mouse) $env.LOCAL_SHARE_APPLICATIONS
+  ln -sf (applications lan-mouse) (share)
+}
+
+export  def rain-add [] {
+  ln -sf (icons rain.png) $env.LOCAL_SHARE_ICONS
+  ln -sf (applications rain-add) (share rain.desktop)
+}
+
+export  def rain-download [] {
+  ln -sf (icons rain.png) $env.LOCAL_SHARE_ICONS
+  ln -sf (applications rain-download) (share rain.desktop)
 }
 
 export  def android-studio [] {
-  ln -sf (applications android-studio) $env.LOCAL_SHARE_APPLICATIONS
+  ln -sf (applications android-studio) (share)
 }

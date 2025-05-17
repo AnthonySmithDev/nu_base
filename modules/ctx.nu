@@ -175,9 +175,11 @@ export def "clear file" [] {
 # }
 
 export def show [] {
-  let files = open-files
-  let chunks = open-chunks
-  cat ...$files ...$chunks
+  let files = [...(open-chunks), ...(open-files)]
+  if ($files | is-empty) {
+    return
+  }
+  cat ...$files
 }
 
 def "main add chunck" [] {

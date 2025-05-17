@@ -66,6 +66,7 @@ def kube [host: string] {
 
 const hosts = {
   local: {
+    local: "0.0.0.0"
     anthony: "192.168.0.20"
     jean: "192.168.0.21"
   }
@@ -154,7 +155,7 @@ def read-mode [] {
   }
   return {
     type: local
-    name: anthony
+    name: local
   }
 }
 

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Rain Add Torrent (Magnet)
+Comment=Add magnetic links to Rain Server
+Exec=rain client add --torrent %u
+Icon=rain
+Terminal=false
+MimeType=x-scheme-handler/magnet;
+Categories=Network;FileTransfer;P2P;
+StartupNotify=true

@@ -2936,6 +2936,7 @@ export def rain [ --force(-f) ] {
   }
 
   bind-file rain $path
+  bind-root rain $path
 }
 
 export def tabiew [ --force(-f) ] {

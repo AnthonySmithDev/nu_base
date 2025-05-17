@@ -11,6 +11,7 @@ export use security.nu
 export use device.nu
 export use activity.nu
 export use wallet.nu
+export use bnb.nu
 
 export use support
 export use merchant

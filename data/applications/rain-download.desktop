@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Rain Download Torrent (Magnet)
+Comment=Download magnetic links with Rain Server
+Exec=kitty rain download --torrent %u
+Icon=rain
+Terminal=false
+MimeType=x-scheme-handler/magnet;
+Categories=Network;FileTransfer;P2P;
+StartupNotify=true
