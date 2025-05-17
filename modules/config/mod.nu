@@ -139,7 +139,11 @@ export def mpv [] {
 }
 
 export def opencommit [] {
-  bind-user --home opencommit/opencommit .opencommit
+  bind-user --home oco/opencommit .opencommit
+}
+
+export def git [] {
+  bind-user --home git/gitconfig .gitconfig
 }
 
 export def kitty [] {
@@ -204,13 +208,6 @@ def yazi-plugins [] {
   try { ya pack -a yazi-rs/plugins:toggle-pane }
   try { ya pack -a yazi-rs/plugins:full-border }
   try { ya pack -a yazi-rs/plugins:smart-filter }
-}
-
-export def git [] {
-  ^git config --global core.editor 'hx'
-  ^git config --global init.defaultBranch 'main'
-  ^git config --global user.name 'Anthony Smith'
-  ^git config --global user.email 'anthonyasdeveloper@gmail.com'
 }
 
 export def qmk [] {

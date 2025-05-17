@@ -12,3 +12,7 @@ const extensions = [
   [copy-all-urls, https://chromewebstore.google.com/detail/copy-all-urls/djdmadneanknadilpjiknlnanaolmbfk?hl]
 ]
 
+
+export def main [] {
+  ^brave-browser ...($extensions | get url)
+}

@@ -163,10 +163,6 @@ export def --wrapped dockerctl [...rest] {
   }
 }
 
-export def ventoy [] {
-  bash -c $"($env.VENTOY_PATH | path join VentoyGUI.x86_64)"
-}
-
 export def remote-mouse [] {
   bash -c $"($env.REMOTE_MOUSE_PATH | path join RemoteMouse)"
 }
@@ -209,25 +205,6 @@ export def nf [name: string] {
 export def nd [name: string] {
   let dir = (fd -t d | fzf)
   mkdir ($dir | path join $name)
-}
-
-export def paths [
-  --path(-p): string = ".",
-  --search(-s): string
-  --type(-t): string
-  ] {
-  mut paths = []
-  if ($search != null) {
-    $paths = if ($type != null) {
-      fd  --hidden --type $type $search --full-path $path | lines
-    } else { fd  --hidden  $search --full-path $path | lines }
-  } else {
-    let list = ls -la $path
-    $paths = if ($type != null) {
-      $list | where type == $type | get name
-    } else { $list | get name }
-  }
-  return $paths
 }
 
 export def asr [] {

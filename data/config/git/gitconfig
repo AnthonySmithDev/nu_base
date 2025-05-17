@@ -1,0 +1,7 @@
+[user]
+	email = anthonyasdeveloper@gmail.com
+	name = Anthony Smith
+[core]
+	editor = hx
+[init]
+	defaultBranch = main

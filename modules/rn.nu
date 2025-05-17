@@ -1,4 +1,23 @@
 
+def paths [
+  --path(-p): string = ".",
+  --search(-s): string
+  --type(-t): string
+  ] {
+  mut paths = []
+  if ($search != null) {
+    $paths = if ($type != null) {
+      fd  --hidden --type $type $search --full-path $path | lines
+    } else { fd  --hidden  $search --full-path $path | lines }
+  } else {
+    let list = ls -la $path
+    $paths = if ($type != null) {
+      $list | where type == $type | get name
+    } else { $list | get name }
+  }
+  return $paths
+}
+
 export def main [
   path: string = ".",
   basename?: string,

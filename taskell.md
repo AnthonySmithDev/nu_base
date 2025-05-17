@@ -9,7 +9,6 @@
 - hacer que aya barias configuracion de tscale en repositorio privado
 - crear configuracion encriptadas
 - mejorar mis nombres de tailscale
-- agregar el archivo de configuracion de opencommit
 
 ## Doing
 
