@@ -1,0 +1,2231 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "BNB Microservice API",
+    "version": "1.0.0",
+    "description": "API para gestionar wallets BNB y tokens BEP20"
+  },
+  "servers": [
+    {
+      "url": "/api/v1",
+      "description": "API v1"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Account",
+      "description": "Operaciones relacionadas con cuentas"
+    },
+    {
+      "name": "Payment",
+      "description": "Operaciones relacionadas con pagos"
+    },
+    {
+      "name": "Send",
+      "description": "Operaciones relacionadas con envío de fondos"
+    },
+    {
+      "name": "Consolidate",
+      "description": "Operaciones relacionadas con consolidación de fondos"
+    },
+    {
+      "name": "BscScan",
+      "description": "Operaciones relacionadas con BscScan"
+    },
+    {
+      "name": "UserConfig",
+      "description": "Operaciones relacionadas con configuración de usuario"
+    },
+    {
+      "name": "Logs",
+      "description": "Operaciones relacionadas con logs"
+    },
+    {
+      "name": "Graph",
+      "description": "Operaciones relacionadas con gráficos"
+    }
+  ],
+  "paths": {
+    "/account/create": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Crear una nueva cuenta",
+        "description": "Crea una nueva cuenta BNB para un usuario",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "accountType"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "accountType": {
+                    "type": "string",
+                    "enum": [
+                      "MAIN",
+                      "PAYMENT",
+                      "FUNDING"
+                    ],
+                    "description": "Tipo de cuenta"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Cuenta creada exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "accountType": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/account/balance": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Obtener balance de cuenta",
+        "description": "Obtiene el balance de la cuenta BNB de un usuario",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Balance obtenido exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "balance": {
+                      "type": "number"
+                    },
+                    "frozen_balance": {
+                      "type": "number"
+                    },
+                    "available_balance": {
+                      "type": "number"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "tokens": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "symbol": {
+                            "type": "string"
+                          },
+                          "balance": {
+                            "type": "number"
+                          },
+                          "address": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/account/transactions": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Obtener historial de transacciones",
+        "description": "Obtiene el historial de transacciones de un usuario con opciones de filtrado por tipo, estado y moneda",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "page",
+                  "size"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "page": {
+                    "type": "number",
+                    "description": "Número de página",
+                    "minimum": 1
+                  },
+                  "size": {
+                    "type": "number",
+                    "description": "Tamaño de página",
+                    "minimum": 1
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "deposit",
+                      "payment",
+                      "p2p_deposit",
+                      "withdrawal",
+                      "transfer",
+                      "swap"
+                    ],
+                    "description": "Tipo de transacción (opcional)"
+                  },
+                  "status": {
+                    "type": "string",
+                    "enum": [
+                      "pending",
+                      "processing",
+                      "confirmed",
+                      "failed",
+                      "excessed"
+                    ],
+                    "description": "Estado de la transacción (opcional)"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Moneda de la transacción (BNB o bep20_<token_symbol>) (opcional)",
+                    "example": "BNB o bep20_usdt"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Transacciones obtenidas exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string"
+                          },
+                          "user_id": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string",
+                            "enum": [
+                              "deposit",
+                              "payment",
+                              "p2p_deposit",
+                              "withdrawal",
+                              "transfer",
+                              "swap"
+                            ],
+                            "description": "Tipo de transacción"
+                          },
+                          "status": {
+                            "type": "string",
+                            "enum": [
+                              "pending",
+                              "processing",
+                              "confirmed",
+                              "failed",
+                              "excessed"
+                            ],
+                            "description": "Estado de la transacción"
+                          },
+                          "is_credited": {
+                            "type": "boolean"
+                          },
+                          "currency": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "number"
+                          },
+                          "fee": {
+                            "type": "object",
+                            "properties": {
+                              "amount": {
+                                "type": "number"
+                              },
+                              "currency": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "timestamp": {
+                            "type": "object",
+                            "properties": {
+                              "created_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              },
+                              "updated_at": {
+                                "type": "string",
+                                "format": "date-time"
+                              }
+                            }
+                          },
+                          "blockchain_data": {
+                            "type": "object",
+                            "properties": {
+                              "txid": {
+                                "type": "string"
+                              },
+                              "confirmations": {
+                                "type": "number"
+                              },
+                              "network_fee": {
+                                "type": "number"
+                              },
+                              "from_address": {
+                                "type": "string"
+                              },
+                              "to_address": {
+                                "type": "string"
+                              },
+                              "is_internal": {
+                                "type": "boolean"
+                              },
+                              "is_token": {
+                                "type": "boolean"
+                              },
+                              "token_address": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "metadata": {
+                            "type": "object",
+                            "properties": {
+                              "is_complete": {
+                                "type": "boolean"
+                              },
+                              "is_excess": {
+                                "type": "boolean"
+                              },
+                              "payment_uuid": {
+                                "type": "string"
+                              },
+                              "notes": {
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "size": {
+                      "type": "number"
+                    },
+                    "total": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/account/create-token-wallet": {
+      "post": {
+        "tags": [
+          "Account"
+        ],
+        "summary": "Crear wallet para token BEP20",
+        "description": "Crea una wallet para un token BEP20 específico",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "tokenSymbol"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "tokenSymbol": {
+                    "type": "string",
+                    "description": "Símbolo del token"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Wallet de token creada exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "tokenSymbol": {
+                      "type": "string"
+                    },
+                    "tokenAddress": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/payment/create": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Crear una dirección de pago",
+        "description": "Crea una dirección de pago para recibir fondos",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "currency",
+                  "currency_amount"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "currency": {
+                    "type": "string",
+                    "description": "Moneda (BNB o bep20_TOKEN)",
+                    "default": "BNB"
+                  },
+                  "currency_amount": {
+                    "type": "number",
+                    "description": "Monto en la moneda especificada"
+                  },
+                  "fiat_currency": {
+                    "type": "string",
+                    "description": "Moneda fiat (opcional)"
+                  },
+                  "fiat_amount": {
+                    "type": "number",
+                    "description": "Monto en moneda fiat (opcional)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Dirección de pago creada exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "walletId": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "currency_amount": {
+                      "type": "number"
+                    },
+                    "fiat_currency": {
+                      "type": "string"
+                    },
+                    "fiat_amount": {
+                      "type": "number"
+                    },
+                    "network": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/payment/account": {
+      "post": {
+        "tags": [
+          "Payment"
+        ],
+        "summary": "Obtener información de cuenta de pago",
+        "description": "Obtiene información sobre una cuenta de pago específica",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "walletId"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "walletId": {
+                    "type": "string",
+                    "description": "ID de la wallet"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Información de cuenta obtenida exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "address": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "confirmedBalance": {
+                      "type": "number"
+                    },
+                    "unconfirmedBalance": {
+                      "type": "number"
+                    },
+                    "isToken": {
+                      "type": "boolean"
+                    },
+                    "tokenSymbol": {
+                      "type": "string"
+                    },
+                    "tokenAddress": {
+                      "type": "string"
+                    },
+                    "tokenDecimals": {
+                      "type": "number"
+                    },
+                    "redirectEnabled": {
+                      "type": "boolean"
+                    },
+                    "redirectAddress": {
+                      "type": "string"
+                    },
+                    "swapEnabled": {
+                      "type": "boolean"
+                    },
+                    "isBalanceRedirected": {
+                      "type": "boolean"
+                    },
+                    "redirectedBalance": {
+                      "type": "number"
+                    },
+                    "currency_amount": {
+                      "type": "number"
+                    },
+                    "fiat_currency": {
+                      "type": "string"
+                    },
+                    "fiat_amount": {
+                      "type": "number"
+                    },
+                    "network": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/send/single": {
+      "post": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Enviar fondos a una dirección",
+        "description": "Envía BNB o tokens BEP20 a una dirección específica. Para tokens BEP20, el parámetro 'token' debe seguir el formato 'bep20_<token_symbol>' (ej: 'bep20_usdt'). Para BNB, simplemente use 'BNB'.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "address",
+                  "amount"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "Token a enviar: 'BNB' o formato 'bep20_<token_symbol>' (ej: 'bep20_usdt')",
+                    "default": "BNB",
+                    "example": "BNB o bep20_usdt"
+                  },
+                  "address": {
+                    "type": "string",
+                    "description": "Dirección de destino"
+                  },
+                  "amount": {
+                    "type": "string",
+                    "description": "Monto a enviar"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Fondos enviados exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "txid": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "string"
+                    },
+                    "fee": {
+                      "type": "string"
+                    },
+                    "total": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "409": {
+            "description": "Otra transacción en progreso"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/send/multi-contract": {
+      "post": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Crear trabajo de envío múltiple de BNB",
+        "description": "Crea un trabajo para enviar BNB a múltiples direcciones usando un contrato inteligente. Descuenta el balance del usuario, calcula comisiones y crea un trabajo que será procesado automáticamente.",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "destinations"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario que realiza el envío"
+                  },
+                  "destinations": {
+                    "type": "array",
+                    "description": "Lista de destinos para enviar BNB",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "address",
+                        "amount"
+                      ],
+                      "properties": {
+                        "address": {
+                          "type": "string",
+                          "description": "Dirección BNB de destino"
+                        },
+                        "amount": {
+                          "type": "number",
+                          "description": "Monto en BNB a enviar a esta dirección"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Trabajo de envío múltiple creado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "job_id": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "destinations": {
+                          "type": "number"
+                        },
+                        "total_amount": {
+                          "type": "number"
+                        },
+                        "estimated_fee": {
+                          "type": "number"
+                        },
+                        "company_fee": {
+                          "type": "number"
+                        },
+                        "company_fee_percent": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud (parámetros inválidos)"
+          },
+          "401": {
+            "description": "No autorizado (userId no proporcionado)"
+          },
+          "409": {
+            "description": "Conflicto (otra transacción en progreso)"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Obtener trabajos de envío múltiple de un usuario",
+        "description": "Obtiene todos los trabajos de envío múltiple de BNB de un usuario específico",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "pending",
+                "processing",
+                "completed",
+                "failed",
+                "partially_completed"
+              ]
+            },
+            "description": "Filtrar por estado del trabajo (opcional)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trabajos obtenidos exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "job_id": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "destinations": {
+                            "type": "number"
+                          },
+                          "total_amount": {
+                            "type": "number"
+                          },
+                          "fee": {
+                            "type": "number"
+                          },
+                          "company_fee": {
+                            "type": "number"
+                          },
+                          "company_fee_percent": {
+                            "type": "number"
+                          },
+                          "txids": {
+                            "type": "array",
+                            "items": {
+                              "type": "string"
+                            }
+                          },
+                          "error_message": {
+                            "type": "string"
+                          },
+                          "started_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "completed_at": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "401": {
+            "description": "No autorizado (userId no proporcionado)"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/send/multi-contract/job/{jobId}": {
+      "get": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Obtener estado de trabajo de envío múltiple",
+        "description": "Obtiene el estado detallado de un trabajo de envío múltiple de BNB",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del trabajo a consultar"
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del usuario (opcional para verificación)"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Estado del trabajo obtenido exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "job_id": {
+                          "type": "string"
+                        },
+                        "status": {
+                          "type": "string",
+                          "enum": [
+                            "pending",
+                            "processing",
+                            "completed",
+                            "failed",
+                            "partially_completed"
+                          ]
+                        },
+                        "destinations": {
+                          "type": "number",
+                          "description": "Número de destinos en el trabajo"
+                        },
+                        "total_amount": {
+                          "type": "number",
+                          "description": "Monto total en BNB"
+                        },
+                        "fee": {
+                          "type": "number",
+                          "description": "Comisión de red en BNB"
+                        },
+                        "company_fee": {
+                          "type": "number",
+                          "description": "Comisión de la compañía en BNB"
+                        },
+                        "company_fee_percent": {
+                          "type": "number",
+                          "description": "Porcentaje de comisión de la compañía"
+                        },
+                        "txids": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "IDs de las transacciones en la blockchain"
+                        },
+                        "error_message": {
+                          "type": "string",
+                          "description": "Mensaje de error si el trabajo falló"
+                        },
+                        "started_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Fecha de inicio del trabajo"
+                        },
+                        "completed_at": {
+                          "type": "string",
+                          "format": "date-time",
+                          "description": "Fecha de finalización del trabajo"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud (jobId no proporcionado)"
+          },
+          "404": {
+            "description": "Trabajo no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/send/multi-contract/job/{jobId}/logs": {
+      "get": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Obtener logs de trabajo de envío múltiple",
+        "description": "Obtiene los logs detallados de un trabajo de envío múltiple de BNB",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del trabajo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs del trabajo obtenidos exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "job_id": {
+                          "type": "string"
+                        },
+                        "logs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "level": {
+                                "type": "string",
+                                "enum": [
+                                  "info",
+                                  "warning",
+                                  "error"
+                                ],
+                                "description": "Nivel del log"
+                              },
+                              "message": {
+                                "type": "string",
+                                "description": "Mensaje del log"
+                              },
+                              "data": {
+                                "type": "object",
+                                "description": "Datos adicionales del log"
+                              },
+                              "timestamp": {
+                                "type": "string",
+                                "format": "date-time",
+                                "description": "Fecha y hora del log"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud (jobId no proporcionado)"
+          },
+          "404": {
+            "description": "Trabajo no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/send/token-multi-contract": {
+      "post": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Crear trabajo de envío múltiple de tokens BEP20",
+        "description": "Crea un trabajo para enviar tokens BEP20 a múltiples direcciones usando un contrato inteligente",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "token",
+                  "recipients"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario que realiza el envío"
+                  },
+                  "token": {
+                    "type": "string",
+                    "description": "Token a enviar en formato 'bep20_<token_symbol>' (ej: 'bep20_usdt')",
+                    "example": "bep20_usdt"
+                  },
+                  "recipients": {
+                    "type": "array",
+                    "description": "Lista de destinatarios",
+                    "items": {
+                      "type": "object",
+                      "required": [
+                        "address",
+                        "amount"
+                      ],
+                      "properties": {
+                        "address": {
+                          "type": "string",
+                          "description": "Dirección de destino"
+                        },
+                        "amount": {
+                          "type": "string",
+                          "description": "Monto a enviar (como string para mantener precisión)"
+                        }
+                      }
+                    }
+                  },
+                  "processImmediately": {
+                    "type": "boolean",
+                    "description": "Procesar el trabajo inmediatamente después de crearlo",
+                    "default": false
+                  },
+                  "metadata": {
+                    "type": "object",
+                    "description": "Metadatos adicionales para el trabajo"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Trabajo de envío múltiple de tokens creado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud (parámetros inválidos)"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/send/token-multi-contract/{jobId}/process": {
+      "post": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Procesar trabajo de envío múltiple de tokens BEP20",
+        "description": "Procesa un trabajo existente de envío múltiple de tokens BEP20",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del trabajo a procesar"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Trabajo procesado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobId": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "txid": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud (jobId no proporcionado)"
+          },
+          "404": {
+            "description": "Trabajo no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/send/token-multi-contract/{jobId}": {
+      "get": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Obtener estado de trabajo de envío múltiple de tokens BEP20",
+        "description": "Obtiene el estado de un trabajo de envío múltiple de tokens BEP20",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del trabajo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Estado del trabajo obtenido exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "job_id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "token_symbol": {
+                      "type": "string"
+                    },
+                    "token_address": {
+                      "type": "string"
+                    },
+                    "recipients": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "address": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "txid": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "completed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud (jobId no proporcionado)"
+          },
+          "404": {
+            "description": "Trabajo no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/send/token-multi-contract/{jobId}/logs": {
+      "get": {
+        "tags": [
+          "Send"
+        ],
+        "summary": "Obtener logs de trabajo de envío múltiple de tokens BEP20",
+        "description": "Obtiene los logs de un trabajo de envío múltiple de tokens BEP20",
+        "parameters": [
+          {
+            "name": "jobId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del trabajo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs del trabajo obtenidos exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "jobId": {
+                      "type": "string"
+                    },
+                    "logs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "level": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud (jobId no proporcionado)"
+          },
+          "404": {
+            "description": "Trabajo no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/consolidate": {
+      "post": {
+        "tags": [
+          "Consolidate"
+        ],
+        "summary": "Iniciar trabajo de consolidación",
+        "description": "Inicia un trabajo de consolidación de fondos",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "hot_percentage",
+                  "cold_percentage"
+                ],
+                "properties": {
+                  "hot_percentage": {
+                    "type": "number",
+                    "description": "Porcentaje para la wallet caliente",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "cold_percentage": {
+                    "type": "number",
+                    "description": "Porcentaje para la wallet fría",
+                    "minimum": 0,
+                    "maximum": 100
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Trabajo de consolidación iniciado exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "job_id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "accounts_info": {
+                      "type": "object",
+                      "properties": {
+                        "bnb_accounts": {
+                          "type": "number"
+                        },
+                        "token_accounts": {
+                          "type": "number"
+                        },
+                        "total_accounts": {
+                          "type": "number"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/consolidate/{job_id}": {
+      "get": {
+        "tags": [
+          "Consolidate"
+        ],
+        "summary": "Obtener información de trabajo de consolidación",
+        "description": "Obtiene información sobre un trabajo de consolidación específico",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del trabajo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Información del trabajo obtenida exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "job_id": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "hot_percentage": {
+                      "type": "number"
+                    },
+                    "cold_percentage": {
+                      "type": "number"
+                    },
+                    "account_count": {
+                      "type": "number"
+                    },
+                    "utxo_count": {
+                      "type": "number"
+                    },
+                    "total_amount": {
+                      "type": "number"
+                    },
+                    "hot_amount": {
+                      "type": "number"
+                    },
+                    "cold_amount": {
+                      "type": "number"
+                    },
+                    "fee": {
+                      "type": "number"
+                    },
+                    "txids": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "error_message": {
+                      "type": "string"
+                    },
+                    "started_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "completed_at": {
+                      "type": "string",
+                      "format": "date-time"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Trabajo no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/consolidate/{job_id}/logs": {
+      "get": {
+        "tags": [
+          "Consolidate"
+        ],
+        "summary": "Obtener logs de trabajo de consolidación",
+        "description": "Obtiene los logs de un trabajo de consolidación específico",
+        "parameters": [
+          {
+            "name": "job_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "description": "ID del trabajo"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs del trabajo obtenidos exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "job_id": {
+                      "type": "string"
+                    },
+                    "logs": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "level": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "data": {
+                            "type": "object"
+                          },
+                          "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Trabajo no encontrado"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/bscscan/check-internal-transactions": {
+      "post": {
+        "tags": [
+          "BscScan"
+        ],
+        "summary": "Verificar transacciones internas",
+        "description": "Verifica transacciones internas de BNB para una dirección específica",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "address"
+                ],
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "description": "Dirección BNB a verificar"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Transacciones verificadas exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "transactions": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "txid": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "number"
+                          },
+                          "from": {
+                            "type": "string"
+                          },
+                          "to": {
+                            "type": "string"
+                          },
+                          "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/user-config/get": {
+      "post": {
+        "tags": [
+          "UserConfig"
+        ],
+        "summary": "Obtener configuración de usuario",
+        "description": "Obtiene la configuración de un usuario específico",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Configuración obtenida exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "redirectEnabled": {
+                      "type": "boolean"
+                    },
+                    "swapEnabled": {
+                      "type": "boolean"
+                    },
+                    "ipnUrl": {
+                      "type": "string"
+                    },
+                    "redirectAddress": {
+                      "type": "string"
+                    },
+                    "fiatCurrency": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/user-config/save": {
+      "post": {
+        "tags": [
+          "UserConfig"
+        ],
+        "summary": "Guardar configuración de usuario",
+        "description": "Guarda la configuración de un usuario específico",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "redirectEnabled": {
+                    "type": "boolean",
+                    "description": "Habilitar redirección"
+                  },
+                  "swapEnabled": {
+                    "type": "boolean",
+                    "description": "Habilitar swap a USDT"
+                  },
+                  "ipnUrl": {
+                    "type": "string",
+                    "description": "URL de IPN"
+                  },
+                  "redirectAddress": {
+                    "type": "string",
+                    "description": "Dirección de redirección"
+                  },
+                  "fiatCurrency": {
+                    "type": "string",
+                    "description": "Moneda fiat"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Configuración guardada exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "redirectEnabled": {
+                      "type": "boolean"
+                    },
+                    "swapEnabled": {
+                      "type": "boolean"
+                    },
+                    "ipnUrl": {
+                      "type": "string"
+                    },
+                    "redirectAddress": {
+                      "type": "string"
+                    },
+                    "fiatCurrency": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Error en la solicitud"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/logs": {
+      "get": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "Obtener logs recientes",
+        "description": "Obtiene los logs más recientes del sistema",
+        "parameters": [
+          {
+            "name": "count",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100
+            },
+            "description": "Número de logs a obtener"
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "DEBUG",
+                "INFO",
+                "WARN",
+                "ERROR"
+              ]
+            },
+            "description": "Nivel de logs a filtrar"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs obtenidos exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "timestamp": {
+                            "type": "string",
+                            "format": "date-time"
+                          },
+                          "level": {
+                            "type": "string"
+                          },
+                          "message": {
+                            "type": "string"
+                          },
+                          "metadata": {
+                            "type": "object"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "Limpiar logs",
+        "description": "Limpia todos los logs almacenados en memoria",
+        "responses": {
+          "200": {
+            "description": "Logs limpiados exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/logs/export": {
+      "get": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "Exportar logs",
+        "description": "Exporta los logs a un archivo",
+        "responses": {
+          "200": {
+            "description": "Logs exportados exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "filePath": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/logs/viewer": {
+      "get": {
+        "tags": [
+          "Logs"
+        ],
+        "summary": "Visor de logs",
+        "description": "Interfaz web para visualizar logs en tiempo real",
+        "responses": {
+          "200": {
+            "description": "Visor de logs cargado exitosamente",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/graph/month": {
+      "post": {
+        "tags": [
+          "Graph"
+        ],
+        "summary": "Obtener gráfico mensual",
+        "description": "Obtiene datos para un gráfico mensual de transacciones",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "deposit",
+                      "withdrawal"
+                    ],
+                    "description": "Tipo de transacción (opcional)"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Datos del gráfico obtenidos exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "month": {
+                        "type": "number"
+                      },
+                      "total": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cuenta no encontrada"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    },
+    "/graph/type": {
+      "post": {
+        "tags": [
+          "Graph"
+        ],
+        "summary": "Obtener gráfico por tipo",
+        "description": "Obtiene datos para un gráfico por tipo de transacción",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "userId",
+                  "type"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string",
+                    "description": "ID del usuario"
+                  },
+                  "type": {
+                    "type": "string",
+                    "enum": [
+                      "deposit",
+                      "withdrawal"
+                    ],
+                    "description": "Tipo de transacción"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Datos del gráfico obtenidos exitosamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "currency": {
+                        "type": "string"
+                      },
+                      "total": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Cuenta no encontrada"
+          },
+          "500": {
+            "description": "Error interno del servidor"
+          }
+        }
+      }
+    }
+  }
+}

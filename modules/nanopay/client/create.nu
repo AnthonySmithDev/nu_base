@@ -1,6 +1,6 @@
 use rand
 
-export def --env user [name: record] {
+export def --env create_user [name: record] {
   print $"Creando User: ($name.first) ($name.middle) ($name.last)"
  
   let full = ([$name.first $name.middle $name.last] | str join '')
