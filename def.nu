@@ -71,4 +71,3 @@ export def --wrapped vieb-browser [...rest: string, --dir(-d): string, --rm ] {
 export def nault [] {
   brave-browser --dir=nault --app=https://nault.cc/configure-wallet
 }
-

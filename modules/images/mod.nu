@@ -36,8 +36,8 @@ export def gallery [
   timg --title --pixelation $pixelation --grid $grid_columns ...$images
 }
 
-export def finder [] {
+export def finder [--size(-s): int = 80] {
   # let preview = "img2sixel -w $FZF_PREVIEW_COLUMNS -h $FZF_PREVIEW_LINES {}"
   let preview = "chafa --size=$(echo $FZF_PREVIEW_COLUMNS)x$(echo $FZF_PREVIEW_LINES) {}"
-  fd -e jpg -e jpg -e png | fzf --style full --layout reverse --preview $preview --preview-window=right:70%
+  fd -e jpg -e jpg -e png | fzf --style full --layout reverse --preview $preview --preview-window=right:($size)%
 }

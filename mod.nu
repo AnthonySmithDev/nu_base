@@ -20,8 +20,8 @@ use ctx.nu
 use file-manager.nu
 source alias/file-manager.nu
 
-use modules/nanopay/mode.nu
-mode load
-use modules/faker
-use modules/nanopay/http/user
-use modules/nanopay
+# use modules/nanopay/mode.nu
+# mode load
+# use modules/faker
+# use modules/nanopay/http/user
+# use modules/nanopay

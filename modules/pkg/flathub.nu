@@ -41,6 +41,7 @@ const list =	[
 	[connections org.gnome.Connections]
 	[remmina org.remmina.Remmina]
 	[deskflow org.deskflow.deskflow]
+	[network-displays org.gnome.NetworkDisplays]
 ]
 
 def names [] {

@@ -68,3 +68,10 @@ export def packages [] {
 export def aider [] {
   uv tool install --force --python python3.12 aider-chat@latest
 }
+
+export def vimiv-qt [] {
+  uv tool install PyQt5
+  uv tool install PyQt6
+  uv tool install PySide6
+  uv tool install git+https://github.com/karlch/vimiv-qt
+}
