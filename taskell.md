@@ -9,6 +9,7 @@
 - hacer que aya barias configuracion de tscale en repositorio privado
 - crear configuracion encriptadas
 - mejorar mis nombres de tailscale
+- hacer que ctx tenga grupos y que file add haacete un path
 
 ## Doing
 

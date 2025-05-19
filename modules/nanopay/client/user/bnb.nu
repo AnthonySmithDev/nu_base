@@ -26,29 +26,52 @@ export def 'token create' [token: string] {
   https post (host token/wallet) $body | get data
 }
 
-# Send BNB
-export def 'send' [address: string, amount: string] {
+# Send BNB or token
+export def 'send' [
+  token: string,
+  amount: string,
+  address: string
+] {
   let body = {
+    token: $token
     amount: $amount
     address: $address
   }
   https post (host send) $body | get data
 }
 
-# Batch send BNB (requires CSV file)
-export def 'send batch' [file: string] {
-  let file_content = (open $file)
+# Batch send BNB or token (requires CSV file)
+export def 'send batch' [
+  token: string,
+  file: path
+] {
   let form = {
-    document: $file_content
+    token: $token
+    document: $file
   }
   https post (host send/batch) $form | get data
 }
 
-# Get transactions
-export def 'tx' [page: int = 1, size: int = 10] {
+# Get transactions with pagination and filters
+export def 'tx' [
+  --page: int = 1,
+  --size: int = 10,
+  --tx_type: string,
+  --status: string,
+  --start_date: string,
+  --end_date: string,
+  --token: string,
+  --address: string
+] {
   let query = {
     page: $page
     size: $size
+    txType: $tx_type
+    status: $status
+    startDate: $start_date
+    endDate: $end_date
+    token: $token
+    address: $address
   }
   https get (host tx) $query | get data
 }
@@ -59,11 +82,13 @@ export def 'graph type' [] {
 }
 
 # Get transaction graph by month
-export def 'graph month' [type: int, year: int] {
-  let year = ($year | default (date now | date format '%Y' | into int))
+export def 'graph month' [
+  tx_type: int,
+  --year: int,
+] {
   let query = {
-    txType: $type
-    year: $year
+    txType: $tx_type
+    year: ($year | default (date now | date format '%Y' | into int))
   }
   https get (host graph/month) $query | get data
 }
@@ -89,22 +114,22 @@ export def 'config get' [] {
 }
 
 # Save user config
-export def 'config save' [redirect: bool, swap: bool, ipn_url: string, redirect_address: string, fiat_currency: string] {
-  let body = {
-    redirectEnabled: $redirect
-    swapEnabled: $swap
-    ipnUrl: $ipn_url
-    redirectAddress: $redirect_address
-    fiatCurrency: $fiat_currency
-  }
-  https post (host config) $body | get data
+export def 'config save' [config: record] {
+  https post (host config) $config | get data
 }
 
 # Create payment
-export def 'payment create' [currency: string, amount: float] {
+export def 'payment create' [
+  currency: string,
+  currency_amount: float,
+  --fiat_currency: string,
+  --fiat_amount: float
+] {
   let body = {
     currency: $currency
-    amount: $amount
+    currencyAmount: $currency_amount
+    fiatCurrency: $fiat_currency
+    fiatAmount: $fiat_amount
   }
   https post (host payment) $body | get data
 }
@@ -115,7 +140,10 @@ export def 'payment account' [wallet_id: string] {
 }
 
 # Consolidate funds
-export def 'consolidate' [hot_percentage: float, cold_percentage: float] {
+export def 'consolidate' [
+  hot_percentage: float,
+  cold_percentage: float
+] {
   let body = {
     hotPercentage: $hot_percentage
     coldPercentage: $cold_percentage
@@ -139,7 +167,10 @@ export def 'internal txs' [address: string] {
 }
 
 # Create token multi-send
-export def 'token multisend create' [token: string, ...recipients: any] {
+export def 'token multisend create' [
+  token: string,
+  recipients: list<record>
+] {
   let body = {
     token: $token
     recipients: $recipients

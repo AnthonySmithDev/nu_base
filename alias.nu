@@ -210,3 +210,5 @@ def mpvz [video: path, --zoom(-z): float = 0.25] {
 alias fuzzy = fzf --reverse --style full --preview "bat --color=always --style=numbers --line-range=:500 {}"
 
 alias irc = input-remapper-control --command autoload
+
+alias fg = job unfreeze

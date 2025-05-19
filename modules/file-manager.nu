@@ -55,7 +55,7 @@ export def clear [
   action: string@action
   --group(-g): string = "default"
 ] {
-  storage-set-items $action $group {}
+  storage-set-items $action $group []
 }
 
 export def "paste copy" [

@@ -20,12 +20,12 @@ def open-chunks [] {
   return []
 }
 
-def filter [preview: string, query: string = ""] {
+def custom-filter [preview: string, query: string = ""] {
   fzf --multi --style=full --layout=reverse --preview=($preview) --query=($query) | lines
 }
 
 def filter-chunck [lang: string] {
-  filter $"bat --language=($lang) --color=always --style=numbers {}" ""
+  custom-filter $"bat --language=($lang) --color=always --style=numbers {}" ""
 }
 
 export def "add chunck" [] {
@@ -101,17 +101,21 @@ def open-files [] {
 }
 
 def filter-files [query?: string] {
-  filter "bat --color=always --style=numbers {}" $query
+  custom-filter "bat --color=always --style=numbers {}" $query
 }
 
-export def "add file" [--search(-s): string] {
-  let select = (fd --type file | filter-files $search | lines)
+export def "add file" [...paths: string, --search(-s): string] {
+  let select = if ($paths | is-not-empty) {
+    ($paths | filter {|el| ($el | path type) == file })
+  } else {
+    (fd --type file | filter-files $search | lines)
+  }
   if ($select | is-empty) {
     return
   }
 
   mkdir (path-ctx)
-  $select | save --append --force (path-files)
+  open-files | append $select | uniq | save --force (path-files)
   print $select
 }
 
