@@ -14,5 +14,9 @@ const extensions = [
 
 
 export def main [] {
-  ^brave-browser ...($extensions | get url)
+  if (exists-external brave-browser) {
+    ^brave-browser ...($extensions | get url)
+  } else if (exists-external brave) {
+    ^brave ...($extensions | get url)
+  }
 }

@@ -38,28 +38,30 @@ def sudo-path-exists [] {
   return true
 }
 
-export def backup [] {
+export def backup [destination?: path] {
   if not ($env.TAILSCALED_STATE | sudo-path-exists) {
       error make {msg: "Error: tailscaled.state file not found"}
   }
 
+  let tailscaled_backup = ($destination | default $env.TAILSCALED_BACKUP)
   sudo systemctl stop tailscaled
-  mkdir ($env.TAILSCALED_BACKUP | path dirname)
-  sudo cp $env.TAILSCALED_STATE $env.TAILSCALED_BACKUP
-  sudo chown $"($env.USER):($env.USER)" $env.TAILSCALED_BACKUP
-  sudo chmod 600 $env.TAILSCALED_BACKUP
+  mkdir ($tailscaled_backup | path dirname)
+  sudo cp $env.TAILSCALED_STATE $tailscaled_backup
+  sudo chown $"($env.USER):($env.USER)" $tailscaled_backup
+  sudo chmod 600 $tailscaled_backup
   sudo systemctl start tailscaled
 
   print (ansi green) "Backup completed. Tailscale restarted." (ansi reset)
 }
 
-export def restore [] {
-  if not ($env.TAILSCALED_BACKUP | path exists) {
+export def restore [source?: path] {
+  let tailscaled_backup = ($source | default $env.TAILSCALED_BACKUP)
+  if not ($tailscaled_backup | path exists) {
       error make {msg: "Error: tailscaled.backup file not found"}
   }
 
   sudo systemctl stop tailscaled
-  sudo cp $env.TAILSCALED_BACKUP $env.TAILSCALED_STATE
+  sudo cp $tailscaled_backup $env.TAILSCALED_STATE
   sudo chown root:root $env.TAILSCALED_STATE
   sudo chmod 600 $env.TAILSCALED_STATE
   sudo systemctl start tailscaled

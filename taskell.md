@@ -10,6 +10,9 @@
 - mejorar mis nombres de tailscale
 - hacer que ctx tenga grupos
 - agregar un comando para poder ver  y crear thumnails de videos
+- tengo problemas con los arlias por que no hay la constante nu_lib_modules
+- agregar al script de instalacion la constante nu_lib_modules
+- agregar nanopay backend coingecko para el pull en nanopay module
 
 ## Doing
 

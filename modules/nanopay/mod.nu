@@ -35,6 +35,7 @@ def verify [] {
   }
 
   if not ($env.HOME | path join .ssh/id_ed25519.pub | path exists) {
+    use keygen.nu
     keygen restore
   }
 }
