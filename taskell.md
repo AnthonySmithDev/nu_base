@@ -13,6 +13,11 @@
 
 ## Doing
 
+- agregar soporte para archi linux con pacman
+- hacer que pkg bin tenga acceso a builin.nu, el metodo http download
+- hacer un source a env.nu buildin.nu def.nu agregarloa a mi scritp de instalacion base y desktop
+- agregar en pacman a unzip para la instalacion de pkg bin
+- configurar todo con yay
 
 ## Done
 
