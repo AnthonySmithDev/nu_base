@@ -2992,3 +2992,17 @@ export def gfold [ --force(-f) ] {
 
   bind-file gfold $path
 }
+
+export def andcli [ --force(-f) ] {
+  let repository = "tjblackheart/andcli"
+  let tag_name = ghub tag_name $repository
+  let path = bin-path andcli $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository --force=($force)
+    move -f $download_path -p $path
+    add-execute $path
+  }
+
+  bind-file andcli $path
+}
