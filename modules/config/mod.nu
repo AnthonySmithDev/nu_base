@@ -102,6 +102,15 @@ export def ghostty [completion: string@ghostty-completions = "desktop"] {
   bind-user $"ghostty/($completion)" ghostty/config
 }
 
+def kitty-completions [] {
+  [desktop laptop]
+}
+
+export def kitty [completion: string@kitty-completions = "desktop"] {
+  bind-user $"kitty/($completion).conf" kitty/kitty.conf
+  bind-user --dir kitty/themes
+}
+
 def wezterm-completions [] {
   [desktop laptop]
 }
@@ -145,15 +154,6 @@ export def opencommit [] {
 
 export def git [] {
   bind-user --home git/gitconfig .gitconfig
-}
-
-def kitty-completions [] {
-  [desktop laptop]
-}
-
-export def kitty [completion: string@kitty-completions] {
-  bind-user $"kitty/($completion).conf" kitty/kitty.conf
-  bind-user --dir kitty/themes
 }
 
 def sway-completions [] {
