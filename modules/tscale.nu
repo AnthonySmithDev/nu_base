@@ -1,7 +1,8 @@
 
 export-env {
   $env.TAILSCALED_STATE = "/var/lib/tailscale/tailscaled.state"
-  $env.TAILSCALED_BACKUP = ($env.HOME | path join tailscale/tailscaled.backup)
+  $env.TAILSCALED_BACKUP_DIR = ($env.HOME | path join tailscale)
+  $env.TAILSCALED_BACKUP_NAME = "tailscaled.backup"
 }
 
 export def ls [] {
@@ -38,32 +39,36 @@ def sudo-path-exists [] {
   return true
 }
 
-export def backup [destination?: path] {
+export def backup [--dir: path] {
   if not ($env.TAILSCALED_STATE | sudo-path-exists) {
       error make {msg: "Error: tailscaled.state file not found"}
   }
 
-  let tailscaled_backup = ($destination | default $env.TAILSCALED_BACKUP)
+  let backup_dir = ($dir | default $env.TAILSCALED_BACKUP_DIR)
+  let backup_path = ($backup_dir | path join $env.TAILSCALED_BACKUP_NAME)
+  mkdir $backup_dir
+
   sudo systemctl stop tailscaled
-  mkdir ($tailscaled_backup | path dirname)
-  sudo cp $env.TAILSCALED_STATE $tailscaled_backup
-  sudo chown $"($env.USER):($env.USER)" $tailscaled_backup
-  sudo chmod 600 $tailscaled_backup
+  sudo cp $env.TAILSCALED_STATE $backup_path
+  sudo chown $"($env.USER):($env.USER)" $backup_path
+  sudo chmod 660 $backup_path
   sudo systemctl start tailscaled
 
   print (ansi green) "Backup completed. Tailscale restarted." (ansi reset)
 }
 
-export def restore [source?: path] {
-  let tailscaled_backup = ($source | default $env.TAILSCALED_BACKUP)
-  if not ($tailscaled_backup | path exists) {
-      error make {msg: "Error: tailscaled.backup file not found"}
+export def restore [--dir: path] {
+  let backup_dir = ($dir | default $env.TAILSCALED_BACKUP_DIR)
+  let backup_path = ($backup_dir | path join $env.TAILSCALED_BACKUP_NAME)
+
+  if not ($backup_path | path exists) {
+      error make {msg: $"Error: tailscaled.backup file not found in ($backup_dir)"}
   }
 
   sudo systemctl stop tailscaled
-  sudo cp $tailscaled_backup $env.TAILSCALED_STATE
+  sudo cp $backup_path $env.TAILSCALED_STATE
   sudo chown root:root $env.TAILSCALED_STATE
-  sudo chmod 600 $env.TAILSCALED_STATE
+  sudo chmod 660 $env.TAILSCALED_STATE
   sudo systemctl start tailscaled
 
   print (ansi green) "Restoration completed. Tailscale restarted." (ansi reset)

@@ -1,4 +1,8 @@
 use rand
+use user
+use admin
+use upload
+use p2p
 
 export def --env create_user [name: record] {
   print $"Creando User: ($name.first) ($name.middle) ($name.last)"
@@ -174,7 +178,7 @@ export def --env users [ --max: int = 1000 ] {
   }
 }
 
-export def --env default [] {
+export def --env default_users [] {
   new "Cleyson"
   new "Jose"
 

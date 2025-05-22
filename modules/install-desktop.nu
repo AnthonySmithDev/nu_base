@@ -76,14 +76,20 @@ export def main [] {
   pkg desktop yazi
   pkg desktop zellij
 
+  pkg desktop kitty
+  pkg desktop rain-add
+
   pkg script ctx
   pkg script clipboard
   pkg script term-editor
   pkg script scrollback-pager
   pkg script scrollback-editor
 
+  pkg js install opencommit
+
   config git
   config mpv
+  config opencommit
 }
 
 export def --env dev [] {

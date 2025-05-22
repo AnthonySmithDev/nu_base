@@ -22,3 +22,10 @@ yay -S vieb-bin --noconfirm
 
 # hx /usr/share/applications/brave-browser.desktop 
 # Exec=brave --enable-features=UseOzonePlatform --ozone-platform=wayland %U
+ 
+sudo pacman -Sy chafa
+yay -Sy timg
+
+sudo pacman -Syu vivaldi --noconfirm
+sudo pacman -Syu ffmpegthumbnailer --noconfirm
+

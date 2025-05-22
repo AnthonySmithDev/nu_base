@@ -99,8 +99,18 @@ def completions [t] {
   }
 }
 
-alias mo = mods
+def --wrapped mods [...rest] {
+  let input = $in
+  let columns = (term size | get columns) - 4
+  if $columns > 100 {
+    $env.MODS_WORD_WRAP = 100
+  } else {
+    $env.MODS_WORD_WRAP = $columns
+  }
+  $input | ^mods ...$rest
+}
 
+alias mo = mods
 alias mos = mods --show-last
 alias mor = mods --show-last --raw
 alias moe = tempeditor --suffix .md (mor)
