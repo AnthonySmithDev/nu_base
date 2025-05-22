@@ -114,3 +114,9 @@ export def dotnet [ --force(-f) ] {
     download https://dot.net/v1/dotnet-install.sh | bash -s -- --version latest
   }
 }
+
+export def brave [ --force(-f) ] {
+  if not (exists-external brave) or $force {
+    curl -fsS https://dl.brave.com/install.sh | sh
+  }
+}

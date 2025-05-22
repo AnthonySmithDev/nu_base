@@ -147,9 +147,23 @@ export def git [] {
   bind-user --home git/gitconfig .gitconfig
 }
 
-export def kitty [] {
-  bind-user kitty/kitty.conf
+def kitty-completions [] {
+  [desktop laptop]
+}
+
+export def kitty [completion: string@kitty-completions] {
+  bind-user $"kitty/($completion).conf" kitty/kitty.conf
   bind-user --dir kitty/themes
+}
+
+def sway-completions [] {
+  [desktop laptop]
+}
+
+export def sway [completion: string@sway-completions] {
+  bind-user sway/definitions.d/input.conf
+  bind-user sway/definitions.d/common.conf
+  bind-user $"sway/definitions.d/($completion).conf" sway/definitions.d/output.conf
 }
 
 def mouseless-completions [] {
