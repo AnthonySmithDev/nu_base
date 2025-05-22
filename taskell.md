@@ -13,6 +13,7 @@
 - tengo problemas con los arlias por que no hay la constante nu_lib_modules
 - agregar al script de instalacion la constante nu_lib_modules
 - agregar nanopay backend coingecko para el pull en nanopay module
+- instalar opencommit por defecto en la instalacion
 
 ## Doing
 

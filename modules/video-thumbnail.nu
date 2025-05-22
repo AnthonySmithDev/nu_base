@@ -1,22 +1,21 @@
 
 export def main [
-    video_path: path,  # Ruta al archivo de video
-    --output (-o): path = "thumbnail.jpg",  # Ruta de salida (por defecto: thumbnail.jpg)
-    --time (-t): string = "00:00:05",  # Tiempo del video para capturar (por defecto: 5 segundos)
-    --width (-w): int = 320,  # Ancho del thumbnail (por defecto: 320px)
-    --quality (-q): int = 5  # Calidad (1-31, donde 1 es mejor, por defecto: 5)
+    video_path: path,
+    --output (-o): path,
+    --time (-t): string = "00:00:10",
+    --width (-w): int = 320,
+    --quality (-q): int = 5,
 ] {
-    # Verificar que ffmpeg esté instalado
-    if not (which ffmpeg | is-empty) {
+    if (which ffmpeg | is-empty) {
         error make {msg: "ffmpeg no está instalado o no está en el PATH"}
     }
 
-    # Verificar que el archivo de video exista
     if not ($video_path | path exists) {
         error make {msg: $"El archivo ($video_path) no existe"}
     }
 
-    # Ejecutar ffmpeg para generar el thumbnail
+    let thumbnail = ($output | default (mktemp -t --suffix .png))
+
     let ffmpeg_args = [
         "-v", "quiet",
         "-ss", $time,
@@ -24,14 +23,12 @@ export def main [
         "-vframes", "1",
         "-q:v", $quality,
         "-vf", $"scale=($width):-2:flags=fast_bilinear",
-        "-y", $output
+        "-y", $thumbnail
     ]
-
-    let result = (^ffmpeg ...$ffmpeg_args | complete)
-
-    if $result.exit_code != 0 {
-        error make {msg: $"Error al generar el thumbnail: ($result.stderr)"}
-    } else {
-        $"Thumbnail generado correctamente en ($output)"
+    try {
+        ^ffmpeg ...$ffmpeg_args
+    } catch {|err|
+        error make -u { msg: $err.msg }
     }
+    kitten icat $thumbnail
 }

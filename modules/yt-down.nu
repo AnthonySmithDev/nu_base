@@ -9,16 +9,22 @@ def move [] {
   }
 }
 
-export def main [batch_file: string] {
+export def main [
+  batch_file: string,
+  --limit-rate: string = "1M",
+  --max-filesize: string = "1G"
+  --concurrent(-c): int = 10,
+] {
   let args = [
     # --quiet
     # --progress
-    --max-filesize 1G
+    --limit-rate $limit_rate
+    --max-filesize $max_filesize
+    --concurrent-fragments $concurrent
     --match-filter "duration < 1800"
     --write-thumbnail
     --restrict-filenames
-    --write-all-thumbnails
-    --concurrent-fragments 50
+    # --write-all-thumbnails
     --batch-file $batch_file
     --download-archive archive.txt
     --output "%(uploader)s %(title)s [%(id)s].%(ext)s"

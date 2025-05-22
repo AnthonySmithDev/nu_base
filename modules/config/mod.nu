@@ -140,6 +140,7 @@ export def mpv [] {
 
 export def opencommit [] {
   bind-user --home oco/opencommit .opencommit
+  bind-user --home oco/opencommit_migrations .opencommit_migrations
 }
 
 export def git [] {

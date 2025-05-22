@@ -42,3 +42,7 @@ export def scrollback-pager [] {
 export def scrollback-editor [] {
   install scrollback-editor.nu --root
 }
+
+export def video-thumbnail [] {
+  install video-thumbnail.nu --root
+}
