@@ -43,6 +43,6 @@ export def scrollback-editor [] {
   install scrollback-editor.nu --root
 }
 
-export def video-thumbnail [] {
-  install video-thumbnail.nu --root
+export def vicat [] {
+  install vicat.nu --dev --root
 }

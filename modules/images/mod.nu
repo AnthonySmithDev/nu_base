@@ -41,3 +41,8 @@ export def finder [--size(-s): int = 80] {
   let preview = "chafa --size=$(echo $FZF_PREVIEW_COLUMNS)x$(echo $FZF_PREVIEW_LINES) {}"
   fd -e jpg -e jpg -e png | fzf --style full --layout reverse --preview $preview --preview-window=right:($size)%
 }
+
+export def video [--size(-s): int = 80] {
+  let preview = "vicat -W $FZF_PREVIEW_COLUMNS -H $FZF_PREVIEW_LINES {}"
+  fd -e mp4 -e mkv | fzf --exact --style full --layout reverse --preview $preview --preview-window=right:($size)%
+}
