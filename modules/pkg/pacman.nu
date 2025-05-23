@@ -1,45 +1,49 @@
 
-sudo pacman -Syu --noconfirm
+export def update [] {
+  sudo pacman --noconfirm -Syu
+}
 
-sudo pacman -Sy unzip --noconfirm
-sudo pacman -Syu --needed --noconfirm brave-browser
+export def --wrapped install [...rest] {
+  sudo pacman --noconfirm -Syu ...$rest
+}
 
-sudo pacman -Sy docker --noconfirm
-sudo pacman -Sy docker-compose --noconfirm
+export def deps [] {
+  install base-devel pkg-config
+}
 
-sudo systemctl enable --now docker
-sudo systemctl status docker
-sudo usermod -aG docker $env.USER
+export def docker [] {
+  install docker docker-compose docker-buildx
+  sudo systemctl enable --now docker
+  sudo usermod -aG docker $env.USER
+}
 
-sudo pacman -Sy kitty
-sudo pacman -Sy alacritty
+export def ssh [] {
+  install openssh
+  sudo systemctl enable --now sshd
+}
 
-sudo pacman -Sy openssh --noconfirm
-sudo systemctl enable --now sshd
-sudo systemctl status docker
+export def gnome [] {
+  install nautilus gnome-disk-utility
+}
 
-yay -S vieb-bin --noconfirm
+export def qemu [] {
+  install qemu-full libvirt virt-manager
+  sudo systemctl enable --now libvirtd
+  sudo usermod -aG libvirt $env.USER
+}
 
-# hx /usr/share/applications/brave-browser.desktop 
-# Exec=brave --enable-features=UseOzonePlatform --ozone-platform=wayland %U
- 
-sudo pacman -Sy chafa
-yay -Sy timg
+export def browser [] {
+  install brave-browser vivaldi
+}
 
-sudo pacman -Syu vivaldi --noconfirm
-sudo pacman -Syu ffmpegthumbnailer --noconfirm
+export def terminal [] {
+  install kitty alacritty
+}
 
-sudo pacman -S nautilus
-sudo pacman -S gnome-disk-utility
-sudo pacman -Syu ffmpegthumbnailer tumbler
+export def tools [] {
+  install unzip chafa
+}
 
-
-sudo pacman -S qemu libvirt virt-manager ebtables dnsmasq
-
-sudo systemctl enable --now libvirtd
-sudo systemctl status libvirtd
-sudo usermod -aG libvirt $env.USER
-
-sudo pacman -S edk2-ovmf
-sudo pacman -S spice-vdagent
-sudo pacman -Syu qemu-full 
+export def discord [] {
+  install discord
+}

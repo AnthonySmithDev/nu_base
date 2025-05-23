@@ -19,42 +19,6 @@ alias temp = btm --rate 500ms --expanded --default_widget_type temp
 alias disk = btm --rate 500ms --expanded --default_widget_type disk
 alias batt = btm --rate 500ms --expanded --default_widget_type batt
 
-export def saup [] {
-  sudo apt update;
-  sudo apt upgrade -y
-}
-
-alias sas = apt search
-alias sai = sudo apt install -y
-alias sar = sudo apt reinstall -y
-alias saR = sudo apt remove -y
-alias saa = sudo apt autoremove
-alias sau = sudo apt update -y
-alias saU = sudo apt upgrade -y
-alias saf = sudo apt install --fix-broken
-alias sal = sudo apt list --upgradable
-alias sdc = sudo dpkg --configure -a
-alias sdi = sudo dpkg --install
-
-export def snup [] {
-  sudo nala update;
-  sudo nala upgrade -y
-}
-
-alias snap = sudo nala autopurge
-alias snar = sudo nala autoremove
-alias snf = sudo nala full-upgrade
-alias snF = sudo nala full-upgrade -y
-alias snh = sudo nala history
-alias sni = sudo nala install -y
-alias snl = sudo nala list
-alias snp = sudo nala purge
-alias snr = sudo nala remove
-alias sns = sudo nala search
-alias snS = sudo nala show
-alias snu = sudo nala update
-alias snU = sudo nala upgrade
-
 alias ssS = sudo systemctl status
 alias ssX = sudo systemctl stop
 alias ssT = sudo systemctl start
@@ -71,11 +35,6 @@ alias suD = systemctl --user disable
 alias suR = systemctl --user restart
 alias suZ = systemctl --user suspend
 
-alias pyi = uv tool install
-alias jsi = pnpm install --global
-alias rsi = cargo install --locked
-alias goi = go install
-
 alias dcu = docker compose up
 alias dcU = docker compose up --detach
 alias dcd = docker compose down
@@ -86,6 +45,11 @@ alias dcp = docker compose pull
 
 alias lzg = lazygit
 alias lzd = lazydocker
+
+alias pyi = uv tool install
+alias jsi = pnpm install --global
+alias rsi = cargo install --locked
+alias goi = go install
 
 def completions [t] {
   {
@@ -222,3 +186,4 @@ alias fuzzy = fzf --reverse --style full --preview "bat --color=always --style=n
 alias irc = input-remapper-control --command autoload
 
 alias fg = job unfreeze
+alias tree = eza --tree

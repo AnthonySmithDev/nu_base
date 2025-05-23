@@ -15,6 +15,7 @@ export def names [] {
     'nanopay-backend-p2p'
     'nanopay-backend-ws'
     'nanopay-backend-bot'
+    'nanopay-backend-coingecko'
   ]
 }
 

@@ -40,16 +40,16 @@ def verify [] {
   }
 }
 
-def create_image [] {
+export def create_image [ --force(-f) ] {
   let name = "local/air"
-  if (docker image ls | from ssv | where REPOSITORY =~ $name | is-empty) {
+  if (docker image ls | from ssv | where REPOSITORY =~ $name | is-empty) or $force {
     docker build -t local/air:latest ($env.NANOPAY_DOCKER | path join air)
   }
 }
 
-def create_network [] {
+export def create_network [ --force(-f) ] {
   let name = "nanopay-network"
-  if (docker network ls | from ssv | where NAME =~ $name | is-empty) {
+  if (docker network ls | from ssv | where NAME =~ $name | is-empty) or $force {
     docker network create $name
   }
 }
