@@ -161,9 +161,10 @@ def sway-completions [] {
 }
 
 export def sway [completion: string@sway-completions] {
+  bind-user sway/config
+  bind-user sway/definitions.d/theme.conf
   bind-user sway/definitions.d/input.conf
   bind-user sway/definitions.d/common.conf
-  bind-user sway/definitions.d/theme.conf
   bind-user $"sway/config.d/($completion).conf" sway/config.d/output.conf
 }
 

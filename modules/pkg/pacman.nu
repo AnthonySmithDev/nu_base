@@ -29,3 +29,17 @@ yay -Sy timg
 sudo pacman -Syu vivaldi --noconfirm
 sudo pacman -Syu ffmpegthumbnailer --noconfirm
 
+sudo pacman -S nautilus
+sudo pacman -S gnome-disk-utility
+sudo pacman -Syu ffmpegthumbnailer tumbler
+
+
+sudo pacman -S qemu libvirt virt-manager ebtables dnsmasq
+
+sudo systemctl enable --now libvirtd
+sudo systemctl status libvirtd
+sudo usermod -aG libvirt $env.USER
+
+sudo pacman -S edk2-ovmf
+sudo pacman -S spice-vdagent
+sudo pacman -Syu qemu-full 

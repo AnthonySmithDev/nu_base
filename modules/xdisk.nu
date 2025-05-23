@@ -1,9 +1,10 @@
 
 export def list [] {
-  let blockdevices = (lsblk -o NAME,LABEL,FSTYPE,SIZE,RM,RO,TYPE,MOUNTPOINTS --json | from json | get blockdevices)
+  let blockdevices = (lsblk -o NAME,LABEL,FSTYPE,SIZE,RM,RO,TYPE,MOUNTPOINTS,UUID --json | from json | get blockdevices)
   $blockdevices | get children | flatten
-  | where ($it.label? | default "" | str trim) != ""
+  # | where ($it.label? | default "" | str trim) != ""
   | into filesize size | where size > 8GB
+  | each {|e| $e | update label {default $e.uuid}}
   | select name label mountpoints
 }
 
@@ -21,6 +22,7 @@ export def mount [name: string@list-umount] {
   let directory = ("/media" | path join $env.USER $label)
   sudo mkdir -p $directory
   sudo mount $source $directory
+  return $directory
 }
 
 export def umount [name: string@list-mount] {
@@ -28,4 +30,5 @@ export def umount [name: string@list-mount] {
   let directory = ("/media" | path join $env.USER $label)
   sudo umount $directory
   sudo rm -rf $directory
+  return $directory
 }

@@ -39,7 +39,7 @@ def sudo-path-exists [] {
   return true
 }
 
-export def backup [--dir: path] {
+export def backup [--dir(-d): path] {
   if not ($env.TAILSCALED_STATE | sudo-path-exists) {
       error make {msg: "Error: tailscaled.state file not found"}
   }
@@ -57,7 +57,7 @@ export def backup [--dir: path] {
   print (ansi green) "Backup completed. Tailscale restarted." (ansi reset)
 }
 
-export def restore [--dir: path] {
+export def restore [--dir(-d): path] {
   let backup_dir = ($dir | default $env.TAILSCALED_BACKUP_DIR)
   let backup_path = ($backup_dir | path join $env.TAILSCALED_BACKUP_NAME)
 
