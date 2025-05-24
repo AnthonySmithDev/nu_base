@@ -71,3 +71,9 @@ export def --wrapped vieb-browser [...rest: string, --dir(-d): string, --rm ] {
 export def nault [] {
   brave-browser --dir=nault --app=https://nault.cc/configure-wallet
 }
+
+export def xdg-default [] {
+  xdg-settings set default-web-browser brave-browser.desktop
+  xdg-settings set default-url-scheme-handler http brave-browser.desktop
+  xdg-settings set default-url-scheme-handler https brave-browser.desktop
+}

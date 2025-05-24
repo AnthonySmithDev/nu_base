@@ -85,8 +85,12 @@ export def 'coll find' [ name: string@'coll show', filter: record = {}, --skip: 
   eval $"db.($name).find\( ($filter | to json) ).skip\(($skip)).limit\(($limit)).toArray\()"
 }
 
-export def 'coll drop' [ name: string@'coll show' ] {
-  eval $"db.($name).drop\()"
+export def 'coll drop' [ ...names: string@'coll show' ] {
+  mut lines = []
+  for $name in $names {
+    $lines = ($lines | append $"db.($name).drop\()" )
+  }
+  eval ($lines | to text)
 }
 
 export def 'coll deleteMany' [ name: string@'coll show', filter: record = {} ] {

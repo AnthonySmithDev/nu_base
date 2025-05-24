@@ -1,6 +1,19 @@
 
 def fuzzy [preview: string, size: int, bind?: string] {
-  fzf --style full --layout reverse --preview $preview --preview-window=right:($size)% --bind $bind
+  let stdin = $in
+  if ($stdin | is-empty) {
+    return
+  }
+  mut args = [
+    --style full
+    --layout reverse
+    --preview $preview
+    --preview-window right:($size)%
+  ]
+  if $bind != null {
+    $args = ($args | append [--bind $bind])
+  }
+  $stdin | fzf ...$args
 }
 
 export def videos [--size(-s): int = 80] {

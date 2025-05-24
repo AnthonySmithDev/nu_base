@@ -32,12 +32,12 @@ export def qemu [] {
   sudo usermod -aG libvirt $env.USER
 }
 
-export def browser [] {
-  install brave-browser vivaldi
+export def brave [] {
+  install brave-browser
 }
 
-export def terminal [] {
-  install kitty alacritty
+export def kitty [] {
+  install kitty
 }
 
 export def tools [] {
@@ -46,4 +46,8 @@ export def tools [] {
 
 export def discord [] {
   install discord
+}
+
+export def flatpak [] {
+  install flatpak
 }

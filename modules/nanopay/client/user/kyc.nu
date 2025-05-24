@@ -30,9 +30,9 @@ export def create_info [
   middle?: string
   last?: string
 ] {
-  let first = $first | default (faker name first)
-  let middle = $middle | default (faker name first)
-  let last = $last | default (faker name last)
+  let first = ($first | default -e (faker name first))
+  let middle = ($middle | default -e (faker name first))
+  let last = ($last | default -e (faker name last))
   let body = {
     country_id: 100,
     city: (faker country city),
@@ -46,7 +46,15 @@ export def create_info [
   https post (host personal info) $body | get data
 }
 
-export def verify [] {
-  # sql query -n "UPDATE know_your_customer SET status = 1"
+def sql-verify [] {
+  sql query -n "UPDATE know_your_customer SET status = 1"
+}
+
+def mongo-verify [] {
+  use mongo.nu
   mongo coll updateMany kyc {} { status: 1 }
+}
+
+export def verify [] {
+  mongo-verify
 }

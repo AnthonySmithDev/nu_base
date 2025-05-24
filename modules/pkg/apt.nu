@@ -324,14 +324,14 @@ export def speedtest [] {
   install speedtest
 }
 
-export def flathub [] {
+export def flatpak [] {
   if (exists-external flatpak) {
     return
   }
 
   install flatpak
   install gnome-software-plugin-flatpak
-  flatpak remote-add --if-not-exists flathub 'https://flathub.org/repo/flathub.flatpakrepo'
+  ^flatpak remote-add --if-not-exists flathub 'https://flathub.org/repo/flathub.flatpakrepo'
 }
 
 export def cpp [] {

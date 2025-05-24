@@ -22,6 +22,7 @@ export def core [ --force(-f) ] {
 
   eza
   gdu
+  ouch
   gitu
   jless
   bottom

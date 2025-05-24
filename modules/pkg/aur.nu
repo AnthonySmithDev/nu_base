@@ -1,6 +1,6 @@
 
 export def --wrapped install [...rest] {
-  yay --noconfirm -S ...$rest
+  yay --noconfirm -Syu ...$rest
 }
 
 export def vieb [] {

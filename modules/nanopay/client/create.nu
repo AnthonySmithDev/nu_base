@@ -144,7 +144,7 @@ export def --env new [
   }
   let fullname = $"($name.first) ($name.middle) ($name.last)"
   try {
-    user $name
+    create_user $name
     advertiser $name
     kyc $name.first $name.middle $name.last
     balance
@@ -190,7 +190,7 @@ export def --env default_users [] {
   new "Jeanmg" --orders
 }
 
-export def clean [] {
+def sql_truncate [] {
   let tables = [
     user_accounts,
     user_passwords,
@@ -220,8 +220,22 @@ export def clean [] {
     wallet_bitcoin_account
     wallet_bitcoin_transac
   ]
-  # sql truncate-table ...$tables | null
+  sql truncate-table ...$tables | null
+}
 
+def sql_empty [id: string] {
+  let query = $"DELETE FROM orden WHERE seller_id = '($id)' OR buyer_id = '($id)'"
+  print $query
+  sql query -n $query
+}
+
+def sql_order_notified [] {
+  let query = "UPDATE orden SET notified_at = DATE_ADD(created_at, INTERVAL 5 MINUTE) WHERE status = 3"
+  print $query
+  sql query -n $query
+}
+
+def mongo_drop [] {
   let collections = [
     user_account
     user_password
@@ -248,20 +262,13 @@ export def clean [] {
     bitcoin_wallet_account
     bitcoin_wallet_tx
   ]
-  for $collection in $collections {
-    mongo coll drop $collection
-  }
-  backend db insert
+  use .../mongo.nu 
+  use ../service/backend
+
+  mongo coll drop ...$collections
+  backend docker exec insert
 }
 
-export def empty [id: string] {
-  let query = $"DELETE FROM orden WHERE seller_id = '($id)' OR buyer_id = '($id)'"
-  print $query
-  sql query -n $query
-}
-
-export def order_notified [] {
-  let query = "UPDATE orden SET notified_at = DATE_ADD(created_at, INTERVAL 5 MINUTE) WHERE status = 3"
-  print $query
-  sql query -n $query
+export def clean [] {
+  mongo_drop 
 }

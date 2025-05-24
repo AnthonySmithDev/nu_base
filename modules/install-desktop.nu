@@ -3,8 +3,8 @@ export-env {
   $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
   $env.MODULES_PATH = ($env.HOME | path join nu/nu_base/modules/)
 
-  # $env.ICONS_PATH = ($env.DATA_PATH | path join icons)
-  # $env.APPLICATIONS_PATH = ($env.DATA_PATH | path join applications)
+  $env.ICONS_PATH = ($env.DATA_PATH | path join icons)
+  $env.APPLICATIONS_PATH = ($env.DATA_PATH | path join applications)
 
   $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
   $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
@@ -26,19 +26,22 @@ export def main [] {
   pkg font FiraCode
 
   if (exists-external apt) {
-    pkg apt brave
+    pkg apt flatpak
+
     pkg deb discord
-    pkg apt flathub
-
     pkg deb vieb
-    config vieb
-
-    pkg apt wezterm
-    config wezterm
   }
 
+  if (exists-external pacman) {
+    pkg pacman flatpak
+    pkg pacman discord
+
+    pkg aur vieb
+    pkg aur timg
+  }
+
+  pkg sh brave
   pkg bin kitty
-  config kitty
 
   pkg bin rain
   pkg bin melt
@@ -80,6 +83,7 @@ export def main [] {
   pkg desktop rain-add
 
   pkg script ctx
+  pkg script vicat
   pkg script clipboard
   pkg script term-editor
   pkg script scrollback-pager
@@ -89,6 +93,8 @@ export def main [] {
 
   config git
   config mpv
+  config vieb
+  config kitty
   config opencommit
 }
 

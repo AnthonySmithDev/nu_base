@@ -34,6 +34,16 @@ export def main [] {
     }
   }
 
+  if (exists-external pacman) {
+    pkg pacman update
+
+    pkg pacman ssh
+    pkg pacman tools
+    pkg pacman docker
+    pkg pacman gnome
+    pkg pacman qemu
+  }
+
   pkg bin gum
   pkg bin mods
   pkg bin glow
@@ -53,6 +63,7 @@ export def main [] {
 
   pkg bin eza
   pkg bin gdu
+  pkg bin ouch
   pkg bin gitu
   pkg bin jless
   pkg bin bottom
@@ -108,7 +119,6 @@ const dirs = [
   ~/.local/nu_base
   ~/nu/nu_base
   ~/nu/nu_work
-  ~/nu/nu_home
 ]
 
 export def setup_nu [] {
@@ -116,9 +126,8 @@ export def setup_nu [] {
   | each {path expand}
   | where {path exists}
   | each {|dir| $"source ($dir)/mod.nu"}
+  | prepend $"const NU_LIB_DIRS = [ ($env.HOME | path join nu/nu_base/modules) ]"
   | save --force ~/.source.nu
-
-  touch ~/.env.nu
 }
 
 export def setup_zoxide [] {
