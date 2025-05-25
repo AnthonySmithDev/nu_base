@@ -629,3 +629,12 @@ export def wezterm [] {
   update
   install wezterm
 }
+
+export def minidlna [--editor(-e)] {
+  install minidlna
+  sudo usermod -aG $env.USER minidlna
+  sudo systemctl restart minidlna
+  if $editor {
+    sudo hx /etc/minidlna.conf:26
+  }
+}
