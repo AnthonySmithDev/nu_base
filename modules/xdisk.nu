@@ -1,11 +1,16 @@
 
 export def list [] {
   let blockdevices = (lsblk -o NAME,LABEL,FSTYPE,SIZE,RM,RO,TYPE,MOUNTPOINTS,UUID --json | from json | get blockdevices)
-  $blockdevices | get children | flatten
-  # | where ($it.label? | default "" | str trim) != ""
+
+  let disk = ($blockdevices | where children? == null)
+  let children = ($blockdevices | where children? != null | get children | flatten | reject children?)
+
+  $disk | append $children
+  | where ($it.label? | default "" | str trim) != ""
   | into filesize size | where size > 8GB
   | each {|e| $e | update label {default $e.uuid}}
-  | select name label mountpoints
+  | where label != null
+  # | select name label mountpoints
 }
 
 def list-mount [] {

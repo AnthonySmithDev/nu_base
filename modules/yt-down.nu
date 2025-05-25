@@ -24,9 +24,11 @@ export def main [
     --match-filter "duration < 1800"
     --write-thumbnail
     --restrict-filenames
+    --paths "thumbnail:thumbnails"  
     # --write-all-thumbnails
+    # --download-sections "*10:" 
     --batch-file $batch_file
-    --download-archive archive.txt
+    --download-archive ../archive.txt
     --output "%(uploader)s %(title)s [%(id)s].%(ext)s"
     # --output "%(uploader)s/%(upload_date>%Y)s/%(title)s [%(id)s].%(ext)s"
   ]

@@ -129,8 +129,13 @@ alias ytf = yt-dlp -N 100
 alias ytd = yt-dlp -N 100 --paths temp:"/tmp/yt-dlp" --batch-file
 
 alias rcs = rclone copy --transfers=1 --size-only --progress
-alias rcm = rclone copy --transfers=1 --size-only --progress --metadata
+alias rcf = rclone copy --transfers=1 --size-only --progress --metadata
+
+alias rms = rclone move --transfers=1 --size-only --progress
+alias rmf = rclone move --transfers=1 --size-only --progress --metadata
+
 alias rcopy = rclone copy --size-only --progress --metadata
+alias rmove = rclone move --size-only --progress --metadata
 
 def mpvc [video: path, --crop(-c): string = "200:0"] {
   mpv --audio-channels=stereo --sub-visibility=no --video-crop=($crop) $video
