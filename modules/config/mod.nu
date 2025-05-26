@@ -145,6 +145,7 @@ export def aichat [] {
 
 export def mpv [] {
   bind-user mpv/mpv.conf
+  bind-user mpv/input.conf
 }
 
 export def opencommit [] {
