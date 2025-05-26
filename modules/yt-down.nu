@@ -12,7 +12,8 @@ def move [] {
 export def main [
   batch_file: string,
   --limit-rate: string = "1M",
-  --max-filesize: string = "1G"
+  --max-filesize: string = "500M"
+  --max-minute(-m): int = 18,
   --concurrent(-c): int = 10,
 ] {
   let args = [
@@ -21,16 +22,15 @@ export def main [
     --limit-rate $limit_rate
     --max-filesize $max_filesize
     --concurrent-fragments $concurrent
-    --match-filter "duration < 1800"
+    --match-filter $"duration < ($max_minute * 60)"
     --write-thumbnail
     --restrict-filenames
     --paths "thumbnail:thumbnails"  
     # --write-all-thumbnails
-    # --download-sections "*10:" 
+    --download-sections "*10:"
     --batch-file $batch_file
     --download-archive ../archive.txt
-    --output "%(uploader)s %(title)s [%(id)s].%(ext)s"
-    # --output "%(uploader)s/%(upload_date>%Y)s/%(title)s [%(id)s].%(ext)s"
+    --output "%(uploader)s _ %(upload_date>%Y)s _ %(title)s [%(id)s].%(ext)s"
   ]
   yt-dlp ...$args
 }

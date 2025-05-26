@@ -27,7 +27,7 @@ export def gnome [] {
 }
 
 export def qemu [] {
-  install qemu-full libvirt virt-manager
+  install qemu-full libvirt virt-manager virt-viewer
   sudo systemctl enable --now libvirtd
   sudo usermod -aG libvirt $env.USER
 }
@@ -42,6 +42,10 @@ export def kitty [] {
 
 export def tools [] {
   install unzip chafa
+}
+
+export def remmina [] {
+  install remmina tigervnc
 }
 
 export def discord [] {

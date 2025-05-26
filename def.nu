@@ -77,3 +77,21 @@ export def xdg-default [] {
   xdg-settings set default-url-scheme-handler http brave-browser.desktop
   xdg-settings set default-url-scheme-handler https brave-browser.desktop
 }
+
+export def up-cachy [] {
+  qemu-img create -f qcow2 cachyos.qcow2 20G
+  qemu-system-x86_64 -enable-kvm -m 8G -cpu host -smp cores=4 -cdrom ./cachyos-desktop-linux-250422.iso -boot d -hda cachyos.qcow2
+  qemu-system-x86_64 -enable-kvm -m 8G -cpu host -smp cores=4 -boot d -hda cachyos.qcow2 -vnc :0
+}
+
+export def up-arch [] {
+  let img = "archlinux.qcow2"
+
+  qemu-img create -f qcow2 $img 20G
+
+  let args = [ -enable-kvm -m 8G -cpu host -smp cores=4 -boot d -hda $img -netdev "user,id=net0" ]
+
+  qemu-system-x86_64 ...$args -cdrom ./archlinux-2025.05.01-x86_64.iso
+
+  qemu-system-x86_64 ...$args
+}

@@ -1,11 +1,11 @@
 
 def --wrapped mods [...rest] {
   let input = $in
-  let columns = (term size | get columns) - 4
-  if $columns > 100 {
+  let columns = (term size | get columns)
+  if $columns > 110 {
     $env.MODS_WORD_WRAP = 100
   } else {
-    $env.MODS_WORD_WRAP = $columns
+    $env.MODS_WORD_WRAP = $columns - 10
   }
   $input | ^mods ...$rest
 }

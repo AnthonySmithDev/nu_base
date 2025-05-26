@@ -70,12 +70,13 @@ export def "paste copy" [
   mut undo = []
   for $item in (storage-get-items copy $group) {
     let src_path = ($item | into glob)
+    let src_files = (ls $src_path | get name)
     if (du $src_path | get physical | math sum) > 100mb {
       rclone copy --transfers=1 --size-only --progress $src_path $dst_path
     } else {
       cp -v -r $src_path $dst_path
     }
-    for $src_file in (ls $src_path | get name) {
+    for $src_file in $src_files {
       let dst_file = ($dst_path | path join ($src_file | path basename))
       $undo = ($undo | append $dst_file)
     }
@@ -96,12 +97,13 @@ export def "paste cut" [
   mut undo = []
   for $item in (storage-get-items cut $group) {
     let src_path = ($item | into glob)
+    let src_files = (ls $src_path | get name)
     if (du $src_path | get physical | math sum) > 100mb {
       rclone move --transfers=1 --size-only --progress $src_path $dst_path
     } else {
       mv -v $src_path $dst_path
     }
-    for $src_file in (ls $src_path | get name) {
+    for $src_file in $src_files {
       let dst_file = ($dst_path | path join ($src_file | path basename))
       $undo = ($undo | append {src: $src_file, dst: $dst_file})
     }

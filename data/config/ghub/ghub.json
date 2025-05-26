@@ -160,23 +160,23 @@
   {
     "category": "core",
     "name": "ajeetdsouza/zoxide",
-    "tag_name": "v0.9.7",
-    "created_at": "2025-02-09T21:49:05Z",
+    "tag_name": "v0.9.8",
+    "created_at": "2025-05-26T21:43:06Z",
     "assets": [
-      "zoxide-0.9.7-aarch64-apple-darwin.tar.gz",
-      "zoxide-0.9.7-aarch64-linux-android.tar.gz",
-      "zoxide-0.9.7-aarch64-pc-windows-msvc.zip",
-      "zoxide-0.9.7-aarch64-unknown-linux-musl.tar.gz",
-      "zoxide-0.9.7-arm-unknown-linux-musleabihf.tar.gz",
-      "zoxide-0.9.7-armv7-unknown-linux-musleabihf.tar.gz",
-      "zoxide-0.9.7-i686-unknown-linux-musl.tar.gz",
-      "zoxide-0.9.7-x86_64-apple-darwin.tar.gz",
-      "zoxide-0.9.7-x86_64-pc-windows-msvc.zip",
-      "zoxide-0.9.7-x86_64-unknown-linux-musl.tar.gz",
-      "zoxide_0.9.7-1_amd64.deb",
-      "zoxide_0.9.7-1_arm64.deb",
-      "zoxide_0.9.7-1_armhf.deb",
-      "zoxide_0.9.7-1_i386.deb"
+      "zoxide-0.9.8-aarch64-apple-darwin.tar.gz",
+      "zoxide-0.9.8-aarch64-linux-android.tar.gz",
+      "zoxide-0.9.8-aarch64-pc-windows-msvc.zip",
+      "zoxide-0.9.8-aarch64-unknown-linux-musl.tar.gz",
+      "zoxide-0.9.8-arm-unknown-linux-musleabihf.tar.gz",
+      "zoxide-0.9.8-armv7-unknown-linux-musleabihf.tar.gz",
+      "zoxide-0.9.8-i686-unknown-linux-musl.tar.gz",
+      "zoxide-0.9.8-x86_64-apple-darwin.tar.gz",
+      "zoxide-0.9.8-x86_64-pc-windows-msvc.zip",
+      "zoxide-0.9.8-x86_64-unknown-linux-musl.tar.gz",
+      "zoxide_0.9.8-1_amd64.deb",
+      "zoxide_0.9.8-1_arm64.deb",
+      "zoxide_0.9.8-1_armhf.deb",
+      "zoxide_0.9.8-1_i386.deb"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -1233,15 +1233,15 @@
   {
     "category": "extra",
     "name": "yorukot/superfile",
-    "tag_name": "v1.3.0",
-    "created_at": "2025-05-22T09:45:05Z",
+    "tag_name": "v1.3.1",
+    "created_at": "2025-05-25T14:51:02Z",
     "assets": [
-      "superfile-darwin-v1.3.0-amd64.tar.gz",
-      "superfile-darwin-v1.3.0-arm64.tar.gz",
-      "superfile-linux-v1.3.0-amd64.tar.gz",
-      "superfile-linux-v1.3.0-arm64.tar.gz",
-      "superfile-windows-v1.3.0-amd64.zip",
-      "superfile-windows-v1.3.0-arm64.zip"
+      "superfile-darwin-v1.3.1-amd64.tar.gz",
+      "superfile-darwin-v1.3.1-arm64.tar.gz",
+      "superfile-linux-v1.3.1-amd64.tar.gz",
+      "superfile-linux-v1.3.1-arm64.tar.gz",
+      "superfile-windows-v1.3.1-amd64.zip",
+      "superfile-windows-v1.3.1-arm64.zip"
     ],
     "linux_x64": {
       "starts": "superfile-linux",
@@ -1401,8 +1401,8 @@
   {
     "category": "extra",
     "name": "anfragment/zen",
-    "tag_name": "v0.10.0",
-    "created_at": "2025-05-10T20:20:25Z",
+    "tag_name": "v0.11.1",
+    "created_at": "2025-05-26T10:36:37Z",
     "assets": [
       "Zen-amd64-installer.exe",
       "Zen-amd64.dmg",
@@ -1446,8 +1446,8 @@
   {
     "category": "extra",
     "name": "mitmproxy/mitmproxy",
-    "tag_name": "v12.1.0",
-    "created_at": "2025-05-24T13:24:26Z",
+    "tag_name": "v12.1.1",
+    "created_at": "2025-05-25T19:49:13Z",
     "assets": []
   },
   {
@@ -3464,30 +3464,29 @@
   {
     "category": "other",
     "name": "uutils/coreutils",
-    "tag_name": "0.0.30",
-    "created_at": "2025-03-08T11:27:51Z",
+    "tag_name": "0.1.0",
+    "created_at": "2025-05-24T21:03:22Z",
     "assets": [
-      "coreutils-0.0.30-aarch64-apple-darwin.tar.gz",
-      "coreutils-0.0.30-aarch64-pc-windows-msvc.zip",
-      "coreutils-0.0.30-aarch64-unknown-linux-gnu.tar.gz",
-      "coreutils-0.0.30-aarch64-unknown-linux-musl.tar.gz",
-      "coreutils-0.0.30-arm-unknown-linux-gnueabihf.tar.gz",
-      "coreutils-0.0.30-i686-pc-windows-msvc.zip",
-      "coreutils-0.0.30-i686-unknown-linux-gnu.tar.gz",
-      "coreutils-0.0.30-i686-unknown-linux-musl.tar.gz",
-      "coreutils-0.0.30-x86_64-apple-darwin.tar.gz",
-      "coreutils-0.0.30-x86_64-pc-windows-gnu.zip",
-      "coreutils-0.0.30-x86_64-pc-windows-msvc.zip",
-      "coreutils-0.0.30-x86_64-unknown-linux-gnu.tar.gz",
-      "coreutils-0.0.30-x86_64-unknown-linux-musl.tar.gz",
-      "coreutils-0.0.30-x86_64-unknown-redox.tar.gz",
-      "coreutils-musl_0.0.30_amd64.deb",
-      "coreutils-musl_0.0.30_arm64.deb",
-      "coreutils-musl_0.0.30_i686.deb",
-      "coreutils_0.0.30_amd64.deb",
-      "coreutils_0.0.30_arm64.deb",
-      "coreutils_0.0.30_armhf.deb",
-      "coreutils_0.0.30_i686.deb"
+      "coreutils-0.1.0-aarch64-apple-darwin.tar.gz",
+      "coreutils-0.1.0-aarch64-pc-windows-msvc.zip",
+      "coreutils-0.1.0-aarch64-unknown-linux-gnu.tar.gz",
+      "coreutils-0.1.0-aarch64-unknown-linux-musl.tar.gz",
+      "coreutils-0.1.0-arm-unknown-linux-gnueabihf.tar.gz",
+      "coreutils-0.1.0-i686-pc-windows-msvc.zip",
+      "coreutils-0.1.0-i686-unknown-linux-gnu.tar.gz",
+      "coreutils-0.1.0-i686-unknown-linux-musl.tar.gz",
+      "coreutils-0.1.0-x86_64-apple-darwin.tar.gz",
+      "coreutils-0.1.0-x86_64-pc-windows-msvc.zip",
+      "coreutils-0.1.0-x86_64-unknown-linux-gnu.tar.gz",
+      "coreutils-0.1.0-x86_64-unknown-linux-musl.tar.gz",
+      "coreutils-0.1.0-x86_64-unknown-redox.tar.gz",
+      "coreutils-musl_0.1.0_amd64.deb",
+      "coreutils-musl_0.1.0_arm64.deb",
+      "coreutils-musl_0.1.0_i686.deb",
+      "coreutils_0.1.0_amd64.deb",
+      "coreutils_0.1.0_arm64.deb",
+      "coreutils_0.1.0_armhf.deb",
+      "coreutils_0.1.0_i686.deb"
     ]
   },
   {
@@ -3561,8 +3560,8 @@
   {
     "category": "other",
     "name": "antonmedv/fx",
-    "tag_name": "36.0.2",
-    "created_at": "2025-05-16T08:16:52Z",
+    "tag_name": "36.0.3",
+    "created_at": "2025-05-25T15:12:38Z",
     "assets": [
       "fx_darwin_amd64",
       "fx_darwin_arm64",
@@ -4149,21 +4148,21 @@
   {
     "category": "other",
     "name": "logseq/logseq",
-    "tag_name": "0.10.11",
-    "created_at": "2025-05-19T19:28:21Z",
+    "tag_name": "0.10.12",
+    "created_at": "2025-05-25T10:15:50Z",
     "assets": [
-      "Logseq-android-0.10.11.apk",
-      "Logseq-darwin-arm64-0.10.11.dmg",
-      "Logseq-darwin-arm64-0.10.11.zip",
-      "Logseq-darwin-x64-0.10.11.dmg",
-      "Logseq-darwin-x64-0.10.11.zip",
-      "Logseq-linux-arm64-0.10.11.zip",
-      "Logseq-linux-x64-0.10.11.AppImage",
-      "Logseq-linux-x64-0.10.11.zip",
-      "Logseq-win-x64-0.10.11-full.nupkg",
-      "Logseq-win-x64-0.10.11.exe",
-      "Logseq-win-x64-0.10.11.msi",
-      "Logseq-win-x64-0.10.11.zip",
+      "Logseq-android-0.10.12.apk",
+      "Logseq-darwin-arm64-0.10.12.dmg",
+      "Logseq-darwin-arm64-0.10.12.zip",
+      "Logseq-darwin-x64-0.10.12.dmg",
+      "Logseq-darwin-x64-0.10.12.zip",
+      "Logseq-linux-arm64-0.10.12.zip",
+      "Logseq-linux-x64-0.10.12.AppImage",
+      "Logseq-linux-x64-0.10.12.zip",
+      "Logseq-win-x64-0.10.12-full.nupkg",
+      "Logseq-win-x64-0.10.12.exe",
+      "Logseq-win-x64-0.10.12.msi",
+      "Logseq-win-x64-0.10.12.zip",
       "RELEASES",
       "VERSION"
     ],
@@ -4626,8 +4625,8 @@
   {
     "category": "other",
     "name": "simulot/immich-go",
-    "tag_name": "v0.26.2",
-    "created_at": "2025-05-08T07:56:53Z",
+    "tag_name": "v0.26.3",
+    "created_at": "2025-05-24T18:32:16Z",
     "assets": [
       "immich-go_Darwin_arm64.tar.gz",
       "immich-go_Darwin_x86_64.tar.gz",
@@ -4726,8 +4725,8 @@
   {
     "category": "other",
     "name": "SUPERCILEX/clipboard-history",
-    "tag_name": "0.9.6",
-    "created_at": "2025-05-11T22:04:48Z",
+    "tag_name": "0.10.0",
+    "created_at": "2025-05-24T15:21:20Z",
     "assets": [
       "aarch64-unknown-linux-gnu-ringboard",
       "aarch64-unknown-linux-gnu-ringboard-egui",
@@ -4821,8 +4820,8 @@
   {
     "category": "other",
     "name": "kopecmaciej/vi-mongo",
-    "tag_name": "v0.1.27",
-    "created_at": "2025-05-07T13:31:22Z",
+    "tag_name": "v0.1.28",
+    "created_at": "2025-05-25T12:17:05Z",
     "assets": [
       "vi-mongo_Darwin_arm64.tar.gz",
       "vi-mongo_Darwin_x86_64.tar.gz",
@@ -4870,15 +4869,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.14.1",
-    "created_at": "2025-05-19T15:27:42Z",
+    "tag_name": "v0.15.1",
+    "created_at": "2025-05-26T22:46:07Z",
     "assets": [
-      "aider-desk-0.14.1-macos.zip",
-      "aider-desk-0.14.1-setup.exe",
-      "aider-desk-0.14.1.AppImage",
-      "aider-desk-0.14.1.dmg",
-      "aider-desk-0.14.1.x86_64.rpm",
-      "aider-desk_0.14.1_amd64.deb"
+      "aider-desk-0.15.1-macos.zip",
+      "aider-desk-0.15.1-setup.exe",
+      "aider-desk-0.15.1.AppImage",
+      "aider-desk-0.15.1.dmg",
+      "aider-desk-0.15.1.x86_64.rpm",
+      "aider-desk_0.15.1_amd64.deb"
     ]
   },
   {
@@ -5084,15 +5083,15 @@
   {
     "category": "other",
     "name": "yassinebridi/serpl",
-    "tag_name": "0.3.3",
-    "created_at": "2024-08-02T23:25:17Z",
+    "tag_name": "0.3.4",
+    "created_at": "2025-05-24T22:05:12Z",
     "assets": [
-      "serpl-0.3.3-linux-arm64.tar.gz",
-      "serpl-0.3.3-linux-i686.tar.gz",
-      "serpl-0.3.3-linux-x86_64.tar.gz",
-      "serpl-0.3.3-macos-arm64.tar.gz",
-      "serpl-0.3.3-macos-x86_64.tar.gz",
-      "serpl-0.3.3-windows-x86_64.tar.gz"
+      "serpl-0.3.4-linux-arm64.tar.gz",
+      "serpl-0.3.4-linux-i686.tar.gz",
+      "serpl-0.3.4-linux-x86_64.tar.gz",
+      "serpl-0.3.4-macos-arm64.tar.gz",
+      "serpl-0.3.4-macos-x86_64.tar.gz",
+      "serpl-0.3.4-windows-x86_64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
@@ -5774,10 +5773,10 @@
   {
     "category": "other",
     "name": "pacstall/pacstall",
-    "tag_name": "6.3.0",
-    "created_at": "2025-05-21T20:02:20Z",
+    "tag_name": "6.3.1",
+    "created_at": "2025-05-24T20:35:39Z",
     "assets": [
-      "pacstall_6.3.0-pacstall1_all.deb"
+      "pacstall_6.3.1-pacstall1_all.deb"
     ]
   },
   {
@@ -6057,8 +6056,8 @@
   {
     "category": "android",
     "name": "Arturo254/OpenTune",
-    "tag_name": "1.9.8",
-    "created_at": "2025-05-09T03:09:38Z",
+    "tag_name": "1.9.9",
+    "created_at": "2025-05-26T00:59:50Z",
     "assets": [
       "app-release.apk"
     ],
