@@ -78,20 +78,46 @@ export def xdg-default [] {
   xdg-settings set default-url-scheme-handler https brave-browser.desktop
 }
 
-export def up-cachy [] {
-  qemu-img create -f qcow2 cachyos.qcow2 20G
-  qemu-system-x86_64 -enable-kvm -m 8G -cpu host -smp cores=4 -cdrom ./cachyos-desktop-linux-250422.iso -boot d -hda cachyos.qcow2
-  qemu-system-x86_64 -enable-kvm -m 8G -cpu host -smp cores=4 -boot d -hda cachyos.qcow2 -vnc :0
+export def run-cachy [
+  --disk: path = "cachyos.qcow2",
+  --iso: path = "cachyos-desktop-linux-250422.iso",
+] {
+  if not ($disk | path exists) {
+    qemu-img create -f qcow2 $disk 20G
+  }
+
+  let args = [
+    -enable-kvm
+    -m 8G
+    -cpu host
+    -smp cores=4
+    -boot menu=on
+    -hda $disk
+    -nic "user,model=virtio-net-pci"
+    -cdrom $iso
+  ]
+
+  qemu-system-x86_64 ...$args
 }
 
-export def up-arch [] {
-  let img = "archlinux.qcow2"
+export def run-arch [
+  --disk: string = "archlinux.qcow2",
+  --iso: string = "archlinux-2025.05.01-x86_64.iso",
+] {
+  if not ($disk | path exists) {
+    qemu-img create -f qcow2 $disk 20G
+  }
 
-  qemu-img create -f qcow2 $img 20G
-
-  let args = [ -enable-kvm -m 8G -cpu host -smp cores=4 -boot d -hda $img -netdev "user,id=net0" ]
-
-  qemu-system-x86_64 ...$args -cdrom ./archlinux-2025.05.01-x86_64.iso
+  let args = [
+    -enable-kvm
+    -m 8G
+    -cpu host
+    -smp cores=4
+    -boot menu=on
+    -hda $disk
+    -nic "user,model=virtio-net-pci"
+    -cdrom $iso
+  ]
 
   qemu-system-x86_64 ...$args
 }

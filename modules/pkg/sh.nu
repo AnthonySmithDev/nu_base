@@ -115,8 +115,9 @@ export def dotnet [ --force(-f) ] {
   }
 }
 
-export def brave [ --force(-f) ] {
-  if not (exists-external brave) or $force {
-    curl -fsS https://dl.brave.com/install.sh | sh
+export def zen-browser [ --force(-f) ] {
+  if not (exists-external zen-browser) or $force {
+    # curl https://updates.zen-browser.app/appimage.sh | bash
+    curl -s https://updates.zen-browser.app/install.sh | bash
   }
 }

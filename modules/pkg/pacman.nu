@@ -8,7 +8,7 @@ export def --wrapped install [...rest] {
 }
 
 export def deps [] {
-  install base-devel pkg-config
+  install base-devel pkg-config python python-pip
 }
 
 export def docker [] {
