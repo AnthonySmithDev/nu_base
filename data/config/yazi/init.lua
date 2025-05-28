@@ -1,7 +1,7 @@
 
-require("full-border"):setup {
-	type = ui.Border.ROUNDED,
-}
+-- require("full-border"):setup {
+-- 	type = ui.Border.ROUNDED,
+-- }
 
 Status:children_add(function(self)
 	local h = self._current.hovered
@@ -11,7 +11,6 @@ Status:children_add(function(self)
 		return ""
 	end
 end, 3300, Status.LEFT)
-
 
 Status:children_add(function()
 	local h = cx.active.current.hovered
@@ -27,9 +26,9 @@ Status:children_add(function()
 	}
 end, 500, Status.RIGHT)
 
-Header:children_add(function()
-	if ya.target_family() ~= "unix" then
-		return ""
-	end
-	return ui.Span(ya.user_name() .. "@" .. ya.host_name() .. ":"):fg("blue")
-end, 500, Header.LEFT)
+-- Header:children_add(function()
+-- 	if ya.target_family() ~= "unix" then
+-- 		return ""
+-- 	end
+-- 	return ui.Span(ya.user_name() .. "@" .. ya.host_name() .. ":"):fg("blue")
+-- end, 500, Header.LEFT)

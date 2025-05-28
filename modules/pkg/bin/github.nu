@@ -3006,3 +3006,16 @@ export def andcli [ --force(-f) ] {
 
   bind-file andcli $path
 }
+
+export def hexyl [ --force(-f) ] {
+  let repository = "sharkdp/hexyl"
+  let tag_name = ghub tag_name $repository
+  let path = bin-path hexyl $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download -x $repository --force=($force)
+    move -d $download_path -f hexyl -p $path
+  }
+
+  bind-file hexyl $path
+}

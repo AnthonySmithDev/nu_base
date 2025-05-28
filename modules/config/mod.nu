@@ -221,12 +221,13 @@ export def yazi [] {
 }
 
 def yazi-plugins [] {
-  try { ya pack -a kmlupreti/ayu-dark }
-  try { ya pack -a grappas/wl-clipboard }
-  try { ya pack -a yazi-rs/plugins:mount }
-  try { ya pack -a yazi-rs/plugins:toggle-pane }
-  try { ya pack -a yazi-rs/plugins:full-border }
-  try { ya pack -a yazi-rs/plugins:smart-filter }
+  # try { ya pkg add grappas/wl-clipboard }
+  try { ya pkg add kmlupreti/ayu-dark }
+  try { ya pkg add yazi-rs/plugins:piper }
+  try { ya pkg add yazi-rs/plugins:mount }
+  try { ya pkg add yazi-rs/plugins:toggle-pane }
+  try { ya pkg add yazi-rs/plugins:full-border }
+  try { ya pkg add yazi-rs/plugins:smart-filter }
 }
 
 export def qmk [] {

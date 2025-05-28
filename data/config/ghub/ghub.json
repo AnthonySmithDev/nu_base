@@ -352,8 +352,8 @@
   {
     "category": "core",
     "name": "sxyazi/yazi",
-    "tag_name": "v25.4.8",
-    "created_at": "2025-04-08T11:47:09Z",
+    "tag_name": "v25.5.28",
+    "created_at": "2025-05-28T12:48:57Z",
     "assets": [
       "yazi-aarch64-apple-darwin.zip",
       "yazi-aarch64-pc-windows-msvc.zip",
@@ -362,10 +362,7 @@
       "yazi-amd64.snap",
       "yazi-arm64.snap",
       "yazi-i686-unknown-linux-gnu.zip",
-      "yazi-powerpc64-unknown-linux-gnu.zip",
-      "yazi-powerpc64le-unknown-linux-gnu.zip",
       "yazi-riscv64gc-unknown-linux-gnu.zip",
-      "yazi-s390x-unknown-linux-gnu.zip",
       "yazi-sparc64-unknown-linux-gnu.zip",
       "yazi-x86_64-apple-darwin.zip",
       "yazi-x86_64-pc-windows-msvc.zip",
@@ -2391,8 +2388,8 @@
   {
     "category": "extra",
     "name": "ast-grep/ast-grep",
-    "tag_name": "0.38.2",
-    "created_at": "2025-05-18T14:37:43Z",
+    "tag_name": "0.38.3",
+    "created_at": "2025-05-28T04:05:22Z",
     "assets": [
       "app-aarch64-apple-darwin.zip",
       "app-aarch64-pc-windows-msvc.zip",
@@ -2463,14 +2460,14 @@
   {
     "category": "core",
     "name": "pomdtr/tweety",
-    "tag_name": "v0.9.0",
-    "created_at": "2024-01-27T19:31:49Z",
+    "tag_name": "v1.0.1",
+    "created_at": "2025-05-28T13:13:00Z",
     "assets": [
-      "tweety-0.9.0-darwin_amd64.tar.gz",
-      "tweety-0.9.0-darwin_arm64.tar.gz",
-      "tweety-0.9.0-linux_386.tar.gz",
-      "tweety-0.9.0-linux_amd64.tar.gz",
-      "tweety-0.9.0-linux_arm64.tar.gz"
+      "tweety-1.0.1-darwin_amd64.tar.gz",
+      "tweety-1.0.1-darwin_arm64.tar.gz",
+      "tweety-1.0.1-linux_386.tar.gz",
+      "tweety-1.0.1-linux_amd64.tar.gz",
+      "tweety-1.0.1-linux_arm64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -4197,20 +4194,22 @@
   {
     "category": "other",
     "name": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.9.2",
-    "created_at": "2025-05-14T10:35:50Z",
+    "tag_name": "0.9.3",
+    "created_at": "2025-05-28T08:30:40Z",
     "assets": [
-      "AppFlowy-0.9.2-android.apk",
-      "AppFlowy-0.9.2-linux-x86_64.AppImage",
-      "AppFlowy-0.9.2-linux-x86_64.deb",
-      "AppFlowy-0.9.2-linux-x86_64.rpm",
-      "AppFlowy-0.9.2-linux-x86_64.tar.gz",
-      "AppFlowy-0.9.2-macos-arm64.dmg",
-      "AppFlowy-0.9.2-macos-arm64.zip",
-      "AppFlowy-0.9.2-macos-universal.dmg",
-      "AppFlowy-0.9.2-macos-universal.zip",
-      "AppFlowy-0.9.2-windows-x86_64.exe",
-      "AppFlowy-0.9.2-windows-x86_64.zip"
+      "AppFlowy-0.9.3-android.apk",
+      "AppFlowy-0.9.3-linux-x86_64.AppImage",
+      "AppFlowy-0.9.3-linux-x86_64.deb",
+      "AppFlowy-0.9.3-linux-x86_64.rpm",
+      "AppFlowy-0.9.3-linux-x86_64.tar.gz",
+      "AppFlowy-0.9.3-macos-arm64.dmg",
+      "AppFlowy-0.9.3-macos-arm64.zip",
+      "AppFlowy-0.9.3-macos-universal.dmg",
+      "AppFlowy-0.9.3-macos-universal.zip",
+      "AppFlowy-0.9.3-macos-x86_64.dmg",
+      "AppFlowy-0.9.3-macos-x86_64.zip",
+      "AppFlowy-0.9.3-windows-x86_64.exe",
+      "AppFlowy-0.9.3-windows-x86_64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
@@ -5169,6 +5168,36 @@
   },
   {
     "category": "other",
+    "name": "sharkdp/hexyl",
+    "tag_name": "v0.16.0",
+    "created_at": "2024-12-27T13:43:18Z",
+    "assets": [
+      "hexyl-musl_0.16.0_amd64.deb",
+      "hexyl-musl_0.16.0_armhf.deb",
+      "hexyl-musl_0.16.0_i686.deb",
+      "hexyl-v0.16.0-aarch64-apple-darwin.tar.gz",
+      "hexyl-v0.16.0-aarch64-unknown-linux-gnu.tar.gz",
+      "hexyl-v0.16.0-arm-unknown-linux-gnueabihf.tar.gz",
+      "hexyl-v0.16.0-arm-unknown-linux-musleabihf.tar.gz",
+      "hexyl-v0.16.0-i686-pc-windows-msvc.zip",
+      "hexyl-v0.16.0-i686-unknown-linux-gnu.tar.gz",
+      "hexyl-v0.16.0-i686-unknown-linux-musl.tar.gz",
+      "hexyl-v0.16.0-x86_64-apple-darwin.tar.gz",
+      "hexyl-v0.16.0-x86_64-pc-windows-gnu.zip",
+      "hexyl-v0.16.0-x86_64-pc-windows-msvc.zip",
+      "hexyl-v0.16.0-x86_64-unknown-linux-gnu.tar.gz",
+      "hexyl-v0.16.0-x86_64-unknown-linux-musl.tar.gz",
+      "hexyl_0.16.0_amd64.deb",
+      "hexyl_0.16.0_arm64.deb",
+      "hexyl_0.16.0_armhf.deb",
+      "hexyl_0.16.0_i686.deb"
+    ],
+    "linux_x64": {
+      "ends": "x86_64-unknown-linux-musl.tar.gz"
+    }
+  },
+  {
+    "category": "other",
     "name": "c-bata/kube-prompt",
     "tag_name": "v1.0.11",
     "created_at": "2021-02-10T03:33:37Z",
@@ -5299,8 +5328,8 @@
   {
     "category": "other",
     "name": "hoppscotch/releases",
-    "tag_name": "v25.4.2-0",
-    "created_at": "2025-05-07T13:11:56Z",
+    "tag_name": "v25.5.0-0",
+    "created_at": "2025-05-28T11:31:18Z",
     "assets": [
       "Hoppscotch_linux_x64.AppImage",
       "Hoppscotch_linux_x64.deb",
@@ -6081,8 +6110,8 @@
   {
     "category": "android",
     "name": "mostafaalagamy/Metrolist",
-    "tag_name": "v11.10.0",
-    "created_at": "2025-05-07T17:57:36Z",
+    "tag_name": "v12.0.0",
+    "created_at": "2025-05-28T06:20:34Z",
     "assets": [
       "app-arm64-release.apk",
       "app-armeabi-release.apk",

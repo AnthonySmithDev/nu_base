@@ -1,2 +1,28 @@
 [flavor]
 dark = "ayu-dark"
+
+[mgr]
+cwd = { fg = "#5c6773" }
+
+# tab
+tab_active = { fg = "#0a0e14", bg = "#c2a05c", bold = true }
+tab_inactive = { fg = "#5c6773", bg = "#0a0e14" }
+tab_width = 1
+
+# find
+find_keyword = { fg = "#1f6f88", bold = true, italic = true, underline = true }
+find_position = { fg = "#1f6f88", bold = true, italic = true }
+
+# marker
+marker_copied = { fg = "#0a0e14", bg = "#7e9350" }
+marker_cut = { fg = "#0a0e14", bg = "#a85361" }
+marker_marked = { fg = "#0a0e14", bg = "#1f6f88" }
+marker_selected = { fg = "#0a0e14", bg = "#c2a05c" }
+
+# count
+count_copied = { fg = "#0a0e14", bg = "#7e9350" }
+count_cut = { fg = "#5c6773", bg = "#a85361" }
+count_selected = { fg = "#0a0e14", bg = "#c2a05c" }
+
+# border
+border_symbol = " "
