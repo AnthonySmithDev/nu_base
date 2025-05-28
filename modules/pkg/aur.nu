@@ -11,6 +11,14 @@ export def zen-browser [] {
   install zen-browser-bin
 }
 
+export def brave-browser [] {
+  install brave-bin
+}
+
+export def chrome-browser [] {
+  install google-chrome
+}
+
 export def nchat [] {
   install nchat-git
 }

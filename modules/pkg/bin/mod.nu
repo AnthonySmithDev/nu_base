@@ -25,6 +25,7 @@ export def core [ --force(-f) ] {
   ouch
   gitu
   jless
+  hexyl
   bottom
   lazygit
   lazydocker

@@ -4340,7 +4340,8 @@
       "tsetup.5.14.3.tar.xz"
     ],
     "linux_x64": {
-      "ends": "tdesktop-5.10.6-full.tar.gz"
+      "starts": "tsetup",
+      "ends": "tar.xz"
     }
   },
   {
@@ -4596,8 +4597,8 @@
   {
     "category": "other",
     "name": "containers/podman-tui",
-    "tag_name": "v1.5.0",
-    "created_at": "2025-04-06T05:03:08Z",
+    "tag_name": "v1.6.0",
+    "created_at": "2025-05-28T07:36:53Z",
     "assets": [
       "podman-tui-release-darwin_amd64.zip",
       "podman-tui-release-linux_amd64.zip",
@@ -4724,8 +4725,8 @@
   {
     "category": "other",
     "name": "SUPERCILEX/clipboard-history",
-    "tag_name": "0.10.0",
-    "created_at": "2025-05-24T15:21:20Z",
+    "tag_name": "0.10.1",
+    "created_at": "2025-05-28T02:32:14Z",
     "assets": [
       "aarch64-unknown-linux-gnu-ringboard",
       "aarch64-unknown-linux-gnu-ringboard-egui",
@@ -5985,8 +5986,8 @@
   {
     "category": "android",
     "name": "stratumauth/app",
-    "tag_name": "v1.2.4",
-    "created_at": "2025-04-12T09:27:25Z",
+    "tag_name": "v1.2.5",
+    "created_at": "2025-05-28T17:33:10Z",
     "assets": [
       "com.stratumauth.app-arm64-v8a.fdroid.apk",
       "com.stratumauth.app-armeabi-v7a.fdroid.apk",

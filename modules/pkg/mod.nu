@@ -24,7 +24,6 @@ export use bin/
 export module sh.nu
 export module deb.nu
 export module aur.nu
-export module arch.nu
 export module pacman.nu
 export module go.nu
 export module cargo.nu

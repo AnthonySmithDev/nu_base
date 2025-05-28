@@ -1,4 +1,8 @@
 
+export def mirror [] {
+  sudo pacman-mirrors --geoip
+}
+
 export def update [] {
   sudo pacman --noconfirm -Syu
 }
@@ -8,7 +12,20 @@ export def --wrapped install [...rest] {
 }
 
 export def deps [] {
-  install base-devel pkg-config python python-pip
+  # zlib-ng
+  install base-devel pkg-config
+}
+
+export def python [] {
+  install python python-pip python-pipx python-uvloop
+}
+
+export def lang [] {
+  install go rust jdk-openjdk
+}
+
+export def core [] {
+  install helix zellij starship alacritty nushell zoxide bottom
 }
 
 export def docker [] {
@@ -41,7 +58,7 @@ export def kitty [] {
 }
 
 export def tools [] {
-  install unzip chafa
+  install unzip unarchiver chafa
 }
 
 export def remmina [] {
