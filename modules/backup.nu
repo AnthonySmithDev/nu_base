@@ -152,7 +152,7 @@ export def immich [
         let target_data = ($targets | get $target)
         let backup_path = (backup-path $target)
         let backup_file = ($backup_path | path join "immich.7z")
-        let source_path = ($env.HOME | path join "immich" $target)
+        let source_path = (backup-path $target "immich")
 
         mkdir $backup_path
         compress --sudo --password $target_data.password $backup_file $source_path $force
