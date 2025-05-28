@@ -107,7 +107,8 @@ def kitty-completions [] {
 }
 
 export def kitty [completion: string@kitty-completions = "desktop"] {
-  bind-user $"kitty/($completion).conf" kitty/kitty.conf
+  bind-user kitty/kitty.conf
+  bind-user $"kitty/($completion).conf" kitty/custom.conf
   bind-user --dir kitty/themes
 }
 

@@ -40,7 +40,7 @@ export def ssh [] {
 }
 
 export def gnome [] {
-  install nautilus gnome-disk-utility
+  install nautilus nautilus-open-any-terminal gnome-disk-utility
 }
 
 export def qemu [] {
