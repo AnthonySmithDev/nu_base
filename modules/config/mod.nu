@@ -171,6 +171,16 @@ export def sway [completion: string@sway-completions] {
   bind-user sway/config.d/modes.conf
 }
 
+def hyde-completions [] {
+  [desktop laptop]
+}
+
+# export def hyde [completion: string@sway-completions] {
+export def hyde [] {
+  bind-user hyde/monitors.conf hypr/monitors.conf
+  bind-user hyde/userprefs.conf hypr/userprefs.conf
+}
+
 def mouseless-completions [] {
   [desktop laptop]
 }

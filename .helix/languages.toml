@@ -1,7 +1,11 @@
 
 [[language]]
 name = "bash"
-file-types = ["sh", { glob = "bat/**" }, { glob = "regolith3/**" }, { glob = "ghostty/**" }, { glob = "sway/**" }]
+file-types = ["sh", { glob = "bat/**" }, { glob = "regolith3/**" }, { glob = "ghostty/**" }, { glob = "sway/**" }, { glob = "hyde/**" }]
+
+[[language]]
+name = "hyprlang"
+file-types = [{ glob = "hyde/**" }]
 
 [[language]]
 name = "common-lisp"
