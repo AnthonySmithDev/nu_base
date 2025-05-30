@@ -178,9 +178,12 @@ def hyde-completions [] {
 
 export def hyde [] {
   bind-user hyde/config.toml hyde/config.toml
-  bind-user hyde/kitty.conf kitty/kitty.conf
+  bind-user hyde/hypridle.conf hypr/hypridle.conf
   bind-user hyde/monitors.conf hypr/monitors.conf
   bind-user hyde/userprefs.conf hypr/userprefs.conf
+
+  bind-user hyde/kitty.conf kitty/kitty.conf
+  ^kill -SIGUSR1 kitty
 }
 
 def mouseless-completions [] {
@@ -247,6 +250,10 @@ export def qmk [] {
   ^qmk config user.bootloader=avrdude
   ^qmk config user.keyboard=lily58/r2g
   ^qmk config user.keymap=anthony_smith
+}
+
+export def wallpapers [] {
+  bind-user wallpapers
 }
 
 export def core [] {

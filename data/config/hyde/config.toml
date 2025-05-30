@@ -3,3 +3,8 @@
 # Updated config.toml file can be found at $HOME/.local/share/hyde/config.toml
 [waybar]
 scale = 40
+
+[wallpaper]
+custom_paths = [
+    "$XDG_PICTURES_DIR",
+]
