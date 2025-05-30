@@ -176,8 +176,9 @@ def hyde-completions [] {
   [desktop laptop]
 }
 
-# export def hyde [completion: string@sway-completions] {
 export def hyde [] {
+  bind-user hyde/config.toml hyde/config.toml
+  bind-user hyde/kitty.conf kitty/kitty.conf
   bind-user hyde/monitors.conf hypr/monitors.conf
   bind-user hyde/userprefs.conf hypr/userprefs.conf
 }

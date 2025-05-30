@@ -136,3 +136,10 @@ export def pastes [input: string, --save(-s): string] {
     curl -s -T $input https://api.pastes.dev/post
   }
 }
+
+export def hyde-install [] {
+  sudo pacman -S --needed git base-devel
+  git clone --depth 1 https://github.com/HyDE-Project/HyDE ~/HyDE
+  cd ~/HyDE/Scripts
+  bash ./install.sh
+}
