@@ -35,6 +35,8 @@ const targets = {
     }
 }
 
+# 7z x -psmithg "immich.7z"
+
 def process-user-backup [
     remote: string, 
     target: string, 
@@ -130,8 +132,8 @@ export def private [
 
     for $target_data in $targets_to_process {
         for $user in ($target_data.users | columns) {
-            let photos_source_dir = (backup-path private $user photos $selected_year)
-            let compressed_archive_path = (backup-path private $user photos $"($selected_year).7z")
+            let photos_source_dir = (backup-path private data $user photos $selected_year)
+            let compressed_archive_path = (backup-path private data $user photos $"($selected_year).7z")
 
             compress --password $target_data.password $compressed_archive_path $photos_source_dir $force
         }
@@ -153,6 +155,8 @@ export def immich [
         let backup_path = (backup-path $target)
         let backup_file = ($backup_path | path join "immich.7z")
         let source_path = (backup-path $target "immich")
+
+        print $backup_file $source_path
 
         mkdir $backup_path
         compress --sudo --password $target_data.password $backup_file $source_path $force
