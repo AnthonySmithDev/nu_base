@@ -29,18 +29,20 @@ export def main [] {
     pkg apt flatpak
 
     pkg deb discord
-    pkg deb vieb
+    pkg deb vieb-browser
   }
 
   if (exists-external pacman) {
     pkg pacman flatpak
     pkg pacman discord
 
-    pkg aur vieb
+    pkg aur vieb-browser
     pkg aur timg
   }
 
-  pkg sh brave
+  pkg sh brave-browser
+  pkg sh zen-browser
+
   pkg bin kitty
 
   pkg bin rain

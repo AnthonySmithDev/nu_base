@@ -16,7 +16,7 @@ def download_deb [repository: string, version: string, url: string, force: bool]
   return $path
 }
 
-export def vieb [ --force(-f) ] {
+export def vieb-browser [ --force(-f) ] {
   let repository = 'Jelmerro/Vieb'
   let version = ghub version $repository
   let download_url = $'https://github.com/Jelmerro/Vieb/releases/download/($version)/vieb_($version)_amd64.deb'
@@ -26,7 +26,7 @@ export def vieb [ --force(-f) ] {
   }
 }
 
-export def brave [ --force(-f) ] {
+export def brave-browser [ --force(-f) ] {
   let repository = 'brave/brave-browser'
   let version = ghub version $repository
   let download_url = $'https://github.com/brave/brave-browser/releases/download/v($version)/brave-browser_($version)_amd64.deb'
