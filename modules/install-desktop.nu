@@ -91,7 +91,7 @@ export def main [] {
   pkg script scrollback-pager
   pkg script scrollback-editor
 
-  pkg js install opencommit
+  # pkg js install opencommit
 
   config git
   config mpv
