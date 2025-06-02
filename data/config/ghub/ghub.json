@@ -2392,8 +2392,8 @@
   {
     "category": "extra",
     "name": "ast-grep/ast-grep",
-    "tag_name": "0.38.3",
-    "created_at": "2025-05-28T04:05:22Z",
+    "tag_name": "0.38.4",
+    "created_at": "2025-06-02T01:03:57Z",
     "assets": [
       "app-aarch64-apple-darwin.zip",
       "app-aarch64-pc-windows-msvc.zip",
@@ -2464,14 +2464,15 @@
   {
     "category": "core",
     "name": "pomdtr/tweety",
-    "tag_name": "v1.2.0",
-    "created_at": "2025-05-30T13:28:39Z",
+    "tag_name": "v2.0.2",
+    "created_at": "2025-06-02T21:07:26Z",
     "assets": [
-      "tweety-1.2.0-darwin_amd64.tar.gz",
-      "tweety-1.2.0-darwin_arm64.tar.gz",
-      "tweety-1.2.0-linux_386.tar.gz",
-      "tweety-1.2.0-linux_amd64.tar.gz",
-      "tweety-1.2.0-linux_arm64.tar.gz"
+      "chrome-extension.zip",
+      "tweety-2.0.2-darwin_amd64.tar.gz",
+      "tweety-2.0.2-darwin_arm64.tar.gz",
+      "tweety-2.0.2-linux_386.tar.gz",
+      "tweety-2.0.2-linux_amd64.tar.gz",
+      "tweety-2.0.2-linux_arm64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3681,8 +3682,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.7.8",
-    "created_at": "2025-05-23T23:13:28Z",
+    "tag_name": "0.7.9",
+    "created_at": "2025-05-30T19:30:37Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -3712,8 +3713,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.12.5",
-    "created_at": "2025-05-16T15:46:21Z",
+    "tag_name": "v1.12.6",
+    "created_at": "2025-05-31T06:15:47Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -4515,18 +4516,18 @@
   {
     "category": "other",
     "name": "digitalocean/doctl",
-    "tag_name": "v1.127.0",
-    "created_at": "2025-05-16T14:57:02Z",
+    "tag_name": "v1.128.0",
+    "created_at": "2025-06-02T16:10:26Z",
     "assets": [
-      "doctl-1.127.0-darwin-amd64.tar.gz",
-      "doctl-1.127.0-darwin-arm64.tar.gz",
-      "doctl-1.127.0-linux-386.tar.gz",
-      "doctl-1.127.0-linux-amd64.tar.gz",
-      "doctl-1.127.0-linux-arm64.tar.gz",
-      "doctl-1.127.0-source.tar.gz",
-      "doctl-1.127.0-windows-386.zip",
-      "doctl-1.127.0-windows-amd64.zip",
-      "doctl-1.127.0-windows-arm64.zip"
+      "doctl-1.128.0-darwin-amd64.tar.gz",
+      "doctl-1.128.0-darwin-arm64.tar.gz",
+      "doctl-1.128.0-linux-386.tar.gz",
+      "doctl-1.128.0-linux-amd64.tar.gz",
+      "doctl-1.128.0-linux-arm64.tar.gz",
+      "doctl-1.128.0-source.tar.gz",
+      "doctl-1.128.0-windows-386.zip",
+      "doctl-1.128.0-windows-amd64.zip",
+      "doctl-1.128.0-windows-arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux-amd64.tar.gz"
@@ -4770,8 +4771,8 @@
   {
     "category": "other",
     "name": "pnpm/pnpm",
-    "tag_name": "v10.11.0",
-    "created_at": "2025-05-13T14:01:26Z",
+    "tag_name": "v10.11.1",
+    "created_at": "2025-06-02T13:30:14Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",
@@ -4868,22 +4869,22 @@
   {
     "category": "other",
     "name": "Aider-AI/aider",
-    "tag_name": "v0.83.0",
-    "created_at": "2025-05-09T22:41:04Z",
+    "tag_name": "v0.84.0",
+    "created_at": "2025-05-30T23:27:24Z",
     "assets": []
   },
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.15.1",
-    "created_at": "2025-05-26T22:46:07Z",
+    "tag_name": "v0.16.0",
+    "created_at": "2025-06-02T05:24:24Z",
     "assets": [
-      "aider-desk-0.15.1-macos.zip",
-      "aider-desk-0.15.1-setup.exe",
-      "aider-desk-0.15.1.AppImage",
-      "aider-desk-0.15.1.dmg",
-      "aider-desk-0.15.1.x86_64.rpm",
-      "aider-desk_0.15.1_amd64.deb"
+      "aider-desk-0.16.0-macos.zip",
+      "aider-desk-0.16.0-setup.exe",
+      "aider-desk-0.16.0.AppImage",
+      "aider-desk-0.16.0.dmg",
+      "aider-desk-0.16.0.x86_64.rpm",
+      "aider-desk_0.16.0_amd64.deb"
     ]
   },
   {
@@ -4980,14 +4981,14 @@
   {
     "category": "other",
     "name": "replydev/cotp",
-    "tag_name": "v1.9.5",
-    "created_at": "2025-05-17T21:11:39Z",
+    "tag_name": "v1.9.6",
+    "created_at": "2025-06-02T17:35:23Z",
     "assets": [
-      "cotp-1.9.5-aarch64-linux.tar.xz",
-      "cotp-1.9.5-aarch64-macos.tar.xz",
-      "cotp-1.9.5-x86_64-linux.tar.xz",
-      "cotp-1.9.5-x86_64-macos.tar.xz",
-      "cotp-1.9.5-x86_64-win-msvc.zip"
+      "cotp-1.9.6-aarch64-linux.tar.xz",
+      "cotp-1.9.6-aarch64-macos.tar.xz",
+      "cotp-1.9.6-x86_64-linux.tar.xz",
+      "cotp-1.9.6-x86_64-macos.tar.xz",
+      "cotp-1.9.6-x86_64-win-msvc.zip"
     ],
     "linux_x64": {
       "ends": "x86_64-linux.tar.xz"
@@ -5016,8 +5017,8 @@
   {
     "category": "other",
     "name": "pythops/oryx",
-    "tag_name": "v0.5",
-    "created_at": "2025-03-10T20:15:46Z",
+    "tag_name": "v0.6",
+    "created_at": "2025-05-30T21:36:00Z",
     "assets": [
       "oryx-aarch64-unknown-linux-musl",
       "oryx-x86_64-unknown-linux-musl"
@@ -5818,16 +5819,16 @@
   {
     "category": "android",
     "name": "saber-notes/saber",
-    "tag_name": "v0.25.6",
-    "created_at": "2025-05-12T09:55:54Z",
+    "tag_name": "v0.25.8",
+    "created_at": "2025-05-31T23:54:03Z",
     "assets": [
-      "Saber-0.25.6-x86_64.AppImage",
-      "Saber-0.25.6-x86_64.AppImage.zsync",
-      "SaberInstaller_v0.25.6.exe",
-      "Saber_FOSS_v0.25.6.apk",
-      "Saber_v0.25.6.apk",
-      "Saber_v0.25.6_Linux_arm64.tar.gz",
-      "Saber_v0.25.6_Linux_x86_64.tar.gz"
+      "Saber-0.25.8-x86_64.AppImage",
+      "Saber-0.25.8-x86_64.AppImage.zsync",
+      "SaberInstaller_v0.25.8.exe",
+      "Saber_FOSS_v0.25.8.apk",
+      "Saber_v0.25.8.apk",
+      "Saber_v0.25.8_Linux_arm64.tar.gz",
+      "Saber_v0.25.8_Linux_x86_64.tar.gz"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -5884,8 +5885,8 @@
   {
     "category": "android",
     "name": "t895/DNSNet",
-    "tag_name": "1.2.6",
-    "created_at": "2025-05-19T19:29:34Z",
+    "tag_name": "1.3.0",
+    "created_at": "2025-06-02T03:25:44Z",
     "assets": [
       "app-release.aab",
       "app-release.apk",

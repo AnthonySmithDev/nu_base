@@ -84,6 +84,7 @@ export def vieb [] {
 
 export def vi-mongo [] {
   bind-user vi-mongo/config.yaml
+  bind-user vi-mongo/styles/ayu-dark.yaml
 }
 
 export def rclone [] {

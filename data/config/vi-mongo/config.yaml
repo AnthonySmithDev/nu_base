@@ -8,7 +8,7 @@ editor:
     env: EDITOR
 showConnectionPage: true
 showWelcomePage: false
-currentConnection: nanopay jean
+currentConnection: nanopay dev
 connections:
     - url: ""
       host: 0.0.0.0
@@ -39,4 +39,4 @@ connections:
       options: {}
 styles:
     betterSymbols: true
-    currentStyle: dark-blue.yaml
+    currentStyle: ayu-dark.yaml
