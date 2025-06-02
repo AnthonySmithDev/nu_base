@@ -58,7 +58,7 @@ export def kitty [] {
 }
 
 export def tools [] {
-  install unzip unarchiver chafa
+  install just unzip unarchiver chafa
 }
 
 export def remmina [] {

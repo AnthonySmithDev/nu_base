@@ -27,5 +27,4 @@ export def timg [] {
   install timg
 }
 
-# hx /usr/share/applications/brave-browser.desktop
-# Exec=brave --enable-features=UseOzonePlatform --ozone-platform=wayland %U
+# chaotic-aur/code-marketplace
