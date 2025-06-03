@@ -43,126 +43,124 @@ const KEYCODE = {
   VOLUME_PLAY_PAUSE: 'KEYCODE_VOLUME_PLAY_PAUSE'
 }
 
-export def "main" [] {}
-
-export def "main back" [] {
+export def "back" [] {
   adb shell input tap $BUTTON.BACK
 }
 
-export def "main profile" [] {
+export def "profile" [] {
   adb shell input tap $BUTTON.PROFILE
 }
 
-export def "main like" [] {
+export def "like" [] {
   adb shell input tap $BUTTON.LIKE
 }
 
-export def "main comment" [] {
+export def "comment" [] {
   adb shell input tap $BUTTON.COMMENT
 }
 
-export def "main bookmark" [] {
+export def "bookmark" [] {
   adb shell input tap $BUTTON.BOOKMARK
 }
 
-export def "main shared" [] {
+export def "shared" [] {
   adb shell input tap $BUTTON.SHARED
 }
 
-export def "main audio" [] {
+export def "audio" [] {
   adb shell input tap $BUTTON.AUDIO
 }
 
-export def "main swipe left" [] {
+export def "swipe left" [] {
   adb shell input swipe $CENTER.LEFT $CENTER.RIGHT 100
 }
 
-export def "main swipe down" [] {
+export def "swipe down" [] {
   adb shell input swipe $BOTTOM.CENTER $TOP.CENTER 100
 }
 
-export def "main swipe up" [] {
+export def "swipe up" [] {
   adb shell input swipe $TOP.CENTER $BOTTOM.CENTER 100
 }
 
-export def "main swipe right" [] {
+export def "swipe right" [] {
   adb shell input swipe $CENTER.RIGHT $CENTER.LEFT 100
 }
 
-export def "main fast" [] {
+export def "fast" [] {
   adb shell input swipe $CENTER.RIGHT $CENTER.RIGHT 10000
 }
 
-export def "main tap" [] {
+export def "tap" [] {
   adb shell input tap $CENTER.CENTER
 }
 
-export def "main dtap" [] {
+export def "dtap" [] {
   adb shell input tap $CENTER.CENTER
   sleep 100ms
   adb shell input tap $CENTER.CENTER
 }
 
-export def "main unlike" [] {
+export def "unlike" [] {
   adb shell input swipe $CENTER.CENTER $CENTER.CENTER 1000
   sleep 500ms
   adb shell input tap $BUTTON.UNLIKE
 }
 
-export def "main download" [] {
+export def "download" [] {
   adb shell input swipe $CENTER.CENTER $CENTER.CENTER 1000
   sleep 500ms
   adb shell input tap $BUTTON.DOWNLOAD
 }
 
-export def "main power" [] {
+export def "power" [] {
   adb shell input keyevent $KEYCODE.POWER
 }
 
-export def "main sleep" [] {
+export def "input sleep" [] {
   adb shell input keyevent $KEYCODE.SLEEP
 }
 
-export def "main volumen up" [] {
+export def "volumen up" [] {
   adb shell input keyevent $KEYCODE.VOLUME_UP
 }
 
-export def "main volumen down" [] {
+export def "volumen down" [] {
   adb shell input keyevent $KEYCODE.VOLUME_DOWN
 }
 
-export def "main volumen mute" [] {
+export def "volumen mute" [] {
   adb shell input keyevent $KEYCODE.VOLUME_MUTE
 }
 
-export def "main media next" [] {
+export def "media next" [] {
   adb shell input keyevent $KEYCODE.MEDIA_NEXT
 }
 
-export def "main media previous" [] {
+export def "media previous" [] {
   adb shell input keyevent $KEYCODE.MEDIA_PREVIOUS
 }
 
-export def "main media play" [] {
+export def "media play" [] {
   adb shell input keyevent $KEYCODE.MEDIA_PLAY_PAUSE
 }
 
-export def "main terminal" [] {
+export def "terminal" [] {
   wezterm
   # ghostty
   # alacritty
   # flatpak run com.raggesilver.BlackBox
 }
 
-export def "main files" [] {
+export def "files" [] {
   nautilus
 }
 
-export def "main scrcpy audio" [] {
+export def "scrcpy audio" [] {
   scrcpy --no-window
 }
 
-let global_args = [
+const global_args = [
   --max-size=1600
   --window-title='Tiktok'
   --window-borderless
@@ -170,7 +168,7 @@ let global_args = [
   --keyboard=uhid
 ]
 
-export def "main scrcpy tiktok" [] {
+export def "scrcpy tiktok" [] {
   let local_args = [
     # --new-display
     --start-app=?tiktok
@@ -179,6 +177,41 @@ export def "main scrcpy tiktok" [] {
   scrcpy ...$local_args ...$global_args
 }
 
-export def "main scrcpy borderless" [] {
+export def "scrcpy borderless" [] {
   scrcpy ...$global_args
+}
+
+def "main" [...args] {
+  let cmd = ($args | str join " ")
+  match $cmd {
+    "back" => { back }
+    "profile" => { profile }
+    "like" => { like }
+    "comment" => { comment }
+    "bookmark" => { bookmark }
+    "shared" => { shared }
+    "audio" => { audio }
+    "swipe left" => { swipe left }
+    "swipe down" => { swipe down }
+    "swipe up" => { swipe up }
+    "swipe right" => { swipe right }
+    "fast" => { fast }
+    "tap" => { tap }
+    "dtap" => { dtap }
+    "unlike" => { unlike }
+    "download" => { download }
+    "power" => { power }
+    "input sleep" => { input sleep }
+    "volumen up" => { volumen up }
+    "volumen down" => { volumen down }
+    "volumen mute" => { volumen mute }
+    "media next" => { media next }
+    "media previous" => { media previous }
+    "media play" => { media play }
+    "terminal" => { terminal }
+    "files" => { files }
+    "scrcpy audio" => { scrcpy audio }
+    "scrcpy tiktok" => { scrcpy tiktok }
+    "scrcpy borderless" => { scrcpy borderless }
+  }
 }
