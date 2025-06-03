@@ -4,11 +4,11 @@ export def mirror [] {
 }
 
 export def update [] {
-  sudo pacman --noconfirm -Syu
+  sudo pacman --noconfirm --needed -Syu
 }
 
 export def --wrapped install [...rest] {
-  sudo pacman --noconfirm -Syu ...$rest
+  sudo pacman --noconfirm --needed -Syu ...$rest
 }
 
 export def deps [] {
@@ -57,8 +57,18 @@ export def kitty [] {
   install kitty
 }
 
+export def minidlna [] {
+  install minidlna
+}
+
 export def tools [] {
-  install just unzip unarchiver chafa
+  install just 7zip unzip unrar unarchiver chafa qrencode
+}
+
+export def mdns-scan [] {
+  install avahi mdns-scan
+  sudo systemctl start avahi-daemon
+  sudo systemctl enable avahi-daemon
 }
 
 export def remmina [] {

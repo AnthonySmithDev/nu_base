@@ -48,7 +48,7 @@ export def --wrapped brave-browser [...rest: string, --dir(-d): string, --rm] {
     --ozone-platform=wayland
     --user-data-dir=($data_path)
   ]
-  job spawn {|| ^brave-browser ...$args ...$rest }
+  job spawn {|| ^brave ...$args ...$rest }
 }
 
 export def --wrapped vieb-browser [...rest: string, --dir(-d): string, --rm ] {

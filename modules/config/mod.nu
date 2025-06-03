@@ -174,14 +174,14 @@ export def sway [completion: string@sway-completions] {
 }
 
 def hyde-completions [] {
-  [desktop laptop]
+  [home, work, laptop]
 }
 
-export def hyde [] {
+export def hyde [completion: string@hyde-completions] {
   bind-user hyde/config.toml hyde/config.toml
   bind-user hyde/hypridle.conf hypr/hypridle.conf
-  bind-user hyde/monitors.conf hypr/monitors.conf
   bind-user hyde/userprefs.conf hypr/userprefs.conf
+  bind-user $"hyde/monitors/($completion).conf" hypr/monitors.conf
 
   bind-user hyde/kitty.conf kitty/kitty.conf
   ^kill -SIGUSR1 kitty

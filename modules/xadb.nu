@@ -24,7 +24,7 @@ export def pair [] {
     if ($devices | length) > 0 {
       let device = ($devices | where protocol == IPv4 | where 'service name' == $name | first)
       adb pair $"($device.ip):($device.port)" $password
-      adbx c
+      connect
       break
     }
     sleep 1sec

@@ -95,6 +95,7 @@ export def main [] {
 
   config git
   config mpv
+  config rain
   config vieb
   config kitty
   config opencommit

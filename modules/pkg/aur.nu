@@ -1,6 +1,10 @@
 
 export def --wrapped install [...rest] {
-  yay --noconfirm -Syu ...$rest
+  yay --noconfirm --needed -Syu ...$rest
+}
+
+export def core [] {
+  install zen-browser-bin brave-bin vieb-bin
 }
 
 export def vieb-browser [] {
