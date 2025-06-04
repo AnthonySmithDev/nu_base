@@ -45,10 +45,10 @@ def git-diff-history [filename: string] {
     --style full
     --layout reverse
     --preview $preview
-    --preview-window right:60%
-    # --bind "ctrl-k:preview-up,ctrl-j:preview-down"
-    # --bind "alt-k:preview-page-up,alt-j:preview-page-down"
-    # --bind "ctrl-t:preview-top,ctrl-b:preview-bottom"
+    --preview-window right:75%
+    --bind "ctrl-k:preview-up,ctrl-j:preview-down"
+    --bind "alt-k:preview-page-up,alt-j:preview-page-down"
+    --bind "ctrl-t:preview-top,ctrl-b:preview-bottom"
   ]
 
   git log --pretty=format:"%h" -- $filename | fzf-vim ...$args

@@ -85,6 +85,10 @@ def run_for_each_name [command: closure] {
   }
 }
 
+export def --wrapped cmd [command: string, ...args] {
+  run_for_each_name { |name| git_command $name $command ...$args }
+}
+
 export def clone [] {
   run_for_each_name { |name| git_clone $name }
 }
