@@ -1,7 +1,20 @@
 [user]
 	email = anthonyasdeveloper@gmail.com
 	name = Anthony Smith
+
 [core]
 	editor = hx
+	pager = delta
+
 [init]
 	defaultBranch = main
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	dark = true
+
+[merge]
+	conflictStyle = zdiff3

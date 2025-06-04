@@ -8,11 +8,50 @@ def --wrapped git-clone-cd [repo: string, dir?: string, ...args: string] {
   git clone $repo ($dir | default $repo_name) ...$args
 }
 
-def git-history [file: string] {
-  let logs = (git log --pretty=format:"%h" -- $file | lines)
-  for $commit in $logs {
-    git show $"($commit):($file)" | bat -l go
+def git-show-history [filename: string] {
+  if not ($filename | path exists) {
+    return
   }
+
+  let logs = (git log --pretty=format:"%h" -- $filename | lines)
+  for $commit in $logs {
+    git show $"($commit):($filename)" | bat -l go
+  }
+}
+
+export def --wrapped fzf-vim [...args] {
+  let bind_vim = 'j:down,k:up,/:show-input+unbind(j,k,/)'
+  let bind_enter = 'enter,esc,ctrl-c:transform:
+        if [[ $FZF_INPUT_STATE = enabled ]]; then
+          echo "rebind(j,k,/)+hide-input"
+        elif [[ $FZF_KEY = enter ]]; then
+          echo accept
+        else
+          echo abort
+        fi'
+  $in | fzf --no-input --bind $bind_vim --bind $bind_enter ...$args
+}
+
+def git-diff-history [filename: string] {
+  if not ($filename | path exists) {
+    return
+  }
+
+  $env.GIT_EXTERNAL_DIFF = "difft --skip-unchanged --display inline --color always --syntax-highlight on"
+  let diff = "git diff --color $(git rev-parse {}^) {}"
+  let preview = $"($diff) -- ($filename)"
+
+  mut args = [
+    --style full
+    --layout reverse
+    --preview $preview
+    --preview-window right:60%
+    # --bind "ctrl-k:preview-up,ctrl-j:preview-down"
+    # --bind "alt-k:preview-page-up,alt-j:preview-page-down"
+    # --bind "ctrl-t:preview-top,ctrl-b:preview-bottom"
+  ]
+
+  git log --pretty=format:"%h" -- $filename | fzf-vim ...$args
 }
 
 def --env git-show-filter [filter: string] {
