@@ -1,13 +1,22 @@
 
-export def mdns-scan [resolve: string] {
+export def mdns-scan [resolve: string = "_adb-tls-connect._tcp"] {
   let columns = [type interface protocol 'service name' 'service type' 'host name' scope ip port info]
   avahi-browse -p -t -r $resolve | rg '=' | from csv --noheaders --separator ';' | rename ...$columns
 }
 
+def devices [] {
+  adb devices | str trim | lines | skip | to text | parse '{name}	{status}'
+}
+
 export def connect [] {
-  let devices = (mdns-scan _adb-tls-connect._tcp)
+  let devices = (devices | where status == device)
   if ($devices | length) > 0 {
-    let device = ($devices | where protocol == IPv4 | first)
+    return "Already connected device"
+  }
+
+  let connect = (mdns-scan _adb-tls-connect._tcp)
+  if ($connect | length) > 0 {
+    let device = ($connect | where protocol == IPv4 | first)
     adb connect $"($device.ip):($device.port)"
   }
 }

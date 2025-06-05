@@ -10,7 +10,7 @@
 	defaultBranch = main
 
 [interactive]
-	diffFilter = delta --color-only
+	diffFilter = riff --color=on
 
 [delta]
 	navigate = true
@@ -18,3 +18,8 @@
 
 [merge]
 	conflictStyle = zdiff3
+
+[pager]
+	diff = riff
+	show = riff
+	log = riff

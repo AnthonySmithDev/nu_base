@@ -50,7 +50,7 @@ def path-not-exists [path: string, force: bool] {
 }
 
 export def --env helix [ --force(-f) ] {
-  let repository = 'helix-editor/helix'
+  let repository = "helix-editor/helix"
   let tag_name = ghub tag_name $repository
   let path = lib-path helix $tag_name
 
@@ -66,7 +66,7 @@ export def --env helix [ --force(-f) ] {
 }
 
 export def --env nushell [ --force(-f) ] {
-  let repository = 'nushell/nushell'
+  let repository = "nushell/nushell"
   let tag_name = ghub tag_name $repository
   let path = lib-path nushell $tag_name
 
@@ -82,7 +82,7 @@ export def --env nushell [ --force(-f) ] {
 }
 
 export def --env kitty [--force(-f)] {
-  let repository = 'kovidgoyal/kitty'
+  let repository = "kovidgoyal/kitty"
   let tag_name = ghub tag_name $repository
   let path = lib-path kitty $tag_name
 
@@ -98,7 +98,7 @@ export def --env kitty [--force(-f)] {
 }
 
 export def starship [ --force(-f) ] {
-  let repository = 'starship/starship'
+  let repository = "starship/starship"
   let tag_name = ghub tag_name $repository
   let path = bin-path starship $tag_name
 
@@ -112,7 +112,7 @@ export def starship [ --force(-f) ] {
 }
 
 export def zoxide [ --force(-f) ] {
-  let repository = 'ajeetdsouza/zoxide'
+  let repository = "ajeetdsouza/zoxide"
   let tag_name = ghub tag_name $repository
   let path = bin-path zoxide $tag_name
 
@@ -126,7 +126,7 @@ export def zoxide [ --force(-f) ] {
 }
 
 export def zellij [--force(-f)] {
-  let repository = 'zellij-org/zellij'
+  let repository = "zellij-org/zellij"
   let tag_name = ghub tag_name $repository
   let path = bin-path zellij $tag_name
 
@@ -140,7 +140,7 @@ export def zellij [--force(-f)] {
 }
 
 export def rg [ --force(-f) ] {
-  let repository = 'BurntSushi/ripgrep'
+  let repository = "BurntSushi/ripgrep"
   let tag_name = ghub tag_name $repository
   let path = bin-path rg $tag_name
 
@@ -154,7 +154,7 @@ export def rg [ --force(-f) ] {
 }
 
 export def fd [ --force(-f) ] {
-  let repository = 'sharkdp/fd'
+  let repository = "sharkdp/fd"
   let tag_name = ghub tag_name $repository
   let path = bin-path fd $tag_name
 
@@ -168,7 +168,7 @@ export def fd [ --force(-f) ] {
 }
 
 export def --env yazi [ --force(-f) ] {
-  let repository = 'sxyazi/yazi'
+  let repository = "sxyazi/yazi"
   let tag_name = ghub tag_name $repository
   let path = lib-path yazi $tag_name
 
@@ -185,7 +185,7 @@ export def --env yazi [ --force(-f) ] {
 }
 
 export def fzf [ --force(-f) ] {
-  let repository = 'junegunn/fzf'
+  let repository = "junegunn/fzf"
   let tag_name = ghub tag_name $repository
   let path = bin-path fzf $tag_name
 
@@ -199,7 +199,7 @@ export def fzf [ --force(-f) ] {
 }
 
 export def lsp-ai [ --force(-f) ] {
-  let repository = 'SilasMarvin/lsp-ai'
+  let repository = "SilasMarvin/lsp-ai"
   let tag_name = ghub tag_name $repository
   let path = bin-path lsp-ai $tag_name
 
@@ -213,7 +213,7 @@ export def lsp-ai [ --force(-f) ] {
 }
 
 export def gum [ --force(-f) ] {
-  let repository = 'charmbracelet/gum'
+  let repository = "charmbracelet/gum"
   let tag_name = ghub tag_name $repository
   let path = bin-path gum $tag_name
 
@@ -226,7 +226,7 @@ export def gum [ --force(-f) ] {
 }
 
 export def mods [ --force(-f) ] {
-  let repository = 'charmbracelet/mods'
+  let repository = "charmbracelet/mods"
   let tag_name = ghub tag_name $repository
   let path = bin-path mods $tag_name
 
@@ -239,7 +239,7 @@ export def mods [ --force(-f) ] {
 }
 
 export def glow [ --force(-f) ] {
-  let repository = 'charmbracelet/glow'
+  let repository = "charmbracelet/glow"
   let tag_name = ghub tag_name $repository
   let path = bin-path glow $tag_name
 
@@ -252,7 +252,7 @@ export def glow [ --force(-f) ] {
 }
 
 export def soft [ --force(-f) ] {
-  let repository = 'charmbracelet/soft-serve'
+  let repository = "charmbracelet/soft-serve"
   let tag_name = ghub tag_name $repository
   let path = bin-path soft $tag_name
 
@@ -265,7 +265,7 @@ export def soft [ --force(-f) ] {
 }
 
 export def vhs [ --force(-f) ] {
-  let repository = 'charmbracelet/vhs'
+  let repository = "charmbracelet/vhs"
   let tag_name = ghub tag_name $repository
   let path = bin-path vhs $tag_name
 
@@ -278,7 +278,7 @@ export def vhs [ --force(-f) ] {
 }
 
 export def freeze [ --force(-f) ] {
-  let repository = 'charmbracelet/freeze'
+  let repository = "charmbracelet/freeze"
   let tag_name = ghub tag_name $repository
   let path = bin-path freeze $tag_name
 
@@ -291,7 +291,7 @@ export def freeze [ --force(-f) ] {
 }
 
 export def melt [ --force(-f) ] {
-  let repository = 'charmbracelet/melt'
+  let repository = "charmbracelet/melt"
   let tag_name = ghub tag_name $repository
   let path = bin-path melt $tag_name
 
@@ -304,7 +304,7 @@ export def melt [ --force(-f) ] {
 }
 
 export def skate [ --force(-f) ] {
-  let repository = 'charmbracelet/skate'
+  let repository = "charmbracelet/skate"
   let tag_name = ghub tag_name $repository
   let path = bin-path skate $tag_name
 
@@ -317,7 +317,7 @@ export def skate [ --force(-f) ] {
 }
 
 export def --env neovim [ --force(-f) ] {
-  let repository = 'neovim/neovim'
+  let repository = "neovim/neovim"
   let tag_name = ghub tag_name $repository
   let path = lib-path neovim $tag_name
 
@@ -331,7 +331,7 @@ export def --env neovim [ --force(-f) ] {
 }
 
 export def broot [ --force(-f) ] {
-  let repository = 'Canop/broot'
+  let repository = "Canop/broot"
   let tag_name = ghub tag_name $repository
   let path = bin-path broot $tag_name
 
@@ -344,7 +344,7 @@ export def broot [ --force(-f) ] {
 }
 
 export def mirrord [ --force(-f) ] {
-  let repository = 'metalbear-co/mirrord'
+  let repository = "metalbear-co/mirrord"
   let tag_name = ghub tag_name $repository
   let path = bin-path mirrord $tag_name
 
@@ -357,7 +357,7 @@ export def mirrord [ --force(-f) ] {
 }
 
 export def gitu [ --force(-f) ] {
-  let repository = 'altsem/gitu'
+  let repository = "altsem/gitu"
   let tag_name = ghub tag_name $repository
   let path = bin-path gitu $tag_name
 
@@ -371,7 +371,7 @@ export def gitu [ --force(-f) ] {
 }
 
 export def fm [ --force(-f) ] {
-  let repository = 'mistakenelf/fm'
+  let repository = "mistakenelf/fm"
   let tag_name = ghub tag_name $repository
   let path = bin-path fm $tag_name
 
@@ -384,7 +384,7 @@ export def fm [ --force(-f) ] {
 }
 
 export def superfile [ --force(-f) ] {
-  let repository = 'yorukot/superfile'
+  let repository = "yorukot/superfile"
   let tag_name = ghub tag_name $repository
   let path = bin-path spf $tag_name
 
@@ -397,7 +397,7 @@ export def superfile [ --force(-f) ] {
 }
 
 export def zk [ --force(-f) ] {
-  let repository = 'zk-org/zk'
+  let repository = "zk-org/zk"
   let tag_name = ghub tag_name $repository
   let path = bin-path zk $tag_name
 
@@ -410,7 +410,7 @@ export def zk [ --force(-f) ] {
 }
 
 export def hostctl [ --force(-f) ] {
-  let repository = 'guumaster/hostctl'
+  let repository = "guumaster/hostctl"
   let tag_name = ghub tag_name $repository
   let path = bin-path hostctl $tag_name
 
@@ -423,7 +423,7 @@ export def hostctl [ --force(-f) ] {
 }
 
 export def bat [ --force(-f) ] {
-  let repository = 'sharkdp/bat'
+  let repository = "sharkdp/bat"
   let tag_name = ghub tag_name $repository
   let path = bin-path bat $tag_name
 
@@ -437,7 +437,7 @@ export def bat [ --force(-f) ] {
 }
 
 export def gdu [ --force(-f) ] {
-  let repository = 'dundee/gdu'
+  let repository = "dundee/gdu"
   let tag_name = ghub tag_name $repository
   let path = bin-path gdu $tag_name
 
@@ -451,7 +451,7 @@ export def gdu [ --force(-f) ] {
 }
 
 export def task [ --force(-f) ] {
-  let repository = 'go-task/task'
+  let repository = "go-task/task"
   let tag_name = ghub tag_name $repository
   let path = bin-path task $tag_name
 
@@ -465,7 +465,7 @@ export def task [ --force(-f) ] {
 }
 
 export def mouseless [ --force(-f) ] {
-  let repository = 'jbensmann/mouseless'
+  let repository = "jbensmann/mouseless"
   let tag_name = ghub tag_name $repository
   let path = bin-path mouseless $tag_name
 
@@ -479,7 +479,7 @@ export def mouseless [ --force(-f) ] {
 }
 
 export def websocat [ --force(-f) ] {
-  let repository = 'vi/websocat'
+  let repository = "vi/websocat"
   let tag_name = ghub tag_name $repository
   let path = bin-path websocat $tag_name
 
@@ -493,7 +493,7 @@ export def websocat [ --force(-f) ] {
 }
 
 export def --env amber [ --force(-f) ] {
-  let repository = 'dalance/amber'
+  let repository = "dalance/amber"
   let tag_name = ghub tag_name $repository
   let path = lib-path amber $tag_name
 
@@ -507,7 +507,7 @@ export def --env amber [ --force(-f) ] {
 }
 
 export def obsidian-cli [ --force(-f) ] {
-  let repository = 'Yakitrak/obsidian-cli'
+  let repository = "Yakitrak/obsidian-cli"
   let tag_name = ghub tag_name $repository
   let path = bin-path obsidian-cli $tag_name
 
@@ -520,7 +520,7 @@ export def obsidian-cli [ --force(-f) ] {
 }
 
 export def lazygit [ --force(-f) ] {
-  let repository = 'jesseduffield/lazygit'
+  let repository = "jesseduffield/lazygit"
   let tag_name = ghub tag_name $repository
   let path = bin-path lazygit $tag_name
 
@@ -533,7 +533,7 @@ export def lazygit [ --force(-f) ] {
 }
 
 export def lazydocker [ --force(-f) ] {
-  let repository = 'jesseduffield/lazydocker'
+  let repository = "jesseduffield/lazydocker"
   let tag_name = ghub tag_name $repository
   let path = bin-path lazydocker $tag_name
 
@@ -546,7 +546,7 @@ export def lazydocker [ --force(-f) ] {
 }
 
 export def oxker [ --force(-f) ] {
-  let repository = 'mrjackwills/oxker'
+  let repository = "mrjackwills/oxker"
   let tag_name = ghub tag_name $repository
   let path = bin-path oxker $tag_name
 
@@ -559,7 +559,7 @@ export def oxker [ --force(-f) ] {
 }
 
 export def lazycli [ --force(-f) ] {
-  let repository = 'jesseduffield/lazycli'
+  let repository = "jesseduffield/lazycli"
   let tag_name = ghub tag_name $repository
   let path = bin-path lazycli $tag_name
 
@@ -572,7 +572,7 @@ export def lazycli [ --force(-f) ] {
 }
 
 export def horcrux [ --force(-f) ] {
-  let repository = 'jesseduffield/horcrux'
+  let repository = "jesseduffield/horcrux"
   let tag_name = ghub tag_name $repository
   let path = bin-path horcrux $tag_name
 
@@ -585,7 +585,7 @@ export def horcrux [ --force(-f) ] {
 }
 
 export def tweety [ --force(-f) ] {
-  let repository = 'pomdtr/tweety'
+  let repository = "pomdtr/tweety"
   let tag_name = ghub tag_name $repository
   let path = bin-path tweety $tag_name
 
@@ -598,7 +598,7 @@ export def tweety [ --force(-f) ] {
 }
 
 export def podman-tui [ --force(-f) ] {
-  let repository = 'containers/podman-tui'
+  let repository = "containers/podman-tui"
   let tag_name = ghub tag_name $repository
   let path = bin-path podman-tui $tag_name
 
@@ -612,7 +612,7 @@ export def podman-tui [ --force(-f) ] {
 }
 
 export def jless [ --force(-f) ] {
-  let repository = 'PaulJuliusMartinez/jless'
+  let repository = "PaulJuliusMartinez/jless"
   let tag_name = ghub tag_name $repository
   let path = bin-path jless $tag_name
 
@@ -625,7 +625,7 @@ export def jless [ --force(-f) ] {
 }
 
 export def silicon [ --force(-f) ] {
-  let repository = 'Aloxaf/silicon'
+  let repository = "Aloxaf/silicon"
   let tag_name = ghub tag_name $repository
   let path = bin-path silicon $tag_name
 
@@ -638,7 +638,7 @@ export def silicon [ --force(-f) ] {
 }
 
 export def dasel [ --force(-f) ] {
-  let repository = 'TomWright/dasel'
+  let repository = "TomWright/dasel"
   let tag_name = ghub tag_name $repository
   let path = bin-path dasel $tag_name
 
@@ -652,7 +652,7 @@ export def dasel [ --force(-f) ] {
 }
 
 export def pueue [ --force(-f) ] {
-  let repository = 'Nukesor/pueue'
+  let repository = "Nukesor/pueue"
   let tag_name = ghub tag_name $repository
 
   let path = bin-path pueue $tag_name
@@ -673,7 +673,7 @@ export def pueue [ --force(-f) ] {
 }
 
 export def xh [ --force(-f) ] {
-  let repository = 'ducaale/xh'
+  let repository = "ducaale/xh"
   let tag_name = ghub tag_name $repository
   let path = bin-path xh $tag_name
 
@@ -687,7 +687,7 @@ export def xh [ --force(-f) ] {
 }
 
 export def delta [ --force(-f) ] {
-  let repository = 'dandavison/delta'
+  let repository = "dandavison/delta"
   let tag_name = ghub tag_name $repository
   let path = bin-path delta $tag_name
 
@@ -700,7 +700,7 @@ export def delta [ --force(-f) ] {
 }
 
 export def difftastic [ --force(-f) ] {
-  let repository = 'Wilfred/difftastic'
+  let repository = "Wilfred/difftastic"
   let tag_name = ghub tag_name $repository
   let path = bin-path difft $tag_name
 
@@ -712,8 +712,22 @@ export def difftastic [ --force(-f) ] {
   bind-file difft $path
 }
 
+export def riff [ --force(-f) ] {
+  let repository = "walles/riff"
+  let tag_name = ghub tag_name $repository
+  let path = bin-path riff $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository --force=($force)
+    move -f $download_path -p $path
+    add-execute $download_path
+  }
+
+  bind-file riff $path
+}
+
 export def bottom [ --force(-f) ] {
-  let repository = 'ClementTsang/bottom'
+  let repository = "ClementTsang/bottom"
   let tag_name = ghub tag_name $repository
   let path = bin-path btm $tag_name
 
@@ -727,7 +741,7 @@ export def bottom [ --force(-f) ] {
 }
 
 export def btop [ --force(-f) ] {
-  let repository = 'aristocratos/btop'
+  let repository = "aristocratos/btop"
   let tag_name = ghub tag_name $repository
   let path = bin-path btop $tag_name
 
@@ -740,7 +754,7 @@ export def btop [ --force(-f) ] {
 }
 
 export def ttyper [ --force(-f) ] {
-  let repository = 'max-niederman/ttyper'
+  let repository = "max-niederman/ttyper"
   let tag_name = ghub tag_name $repository
   let path = bin-path ttyper $tag_name
 
@@ -753,7 +767,7 @@ export def ttyper [ --force(-f) ] {
 }
 
 export def ezshare [ --force(-f) ] {
-  let repository = 'mifi/ezshare'
+  let repository = "mifi/ezshare"
   let tag_name = ghub tag_name $repository
   let path = bin-path ezshare $tag_name
 
@@ -766,7 +780,7 @@ export def ezshare [ --force(-f) ] {
 }
 
 export def qrcp [ --force(-f) ] {
-  let repository = 'claudiodangelis/qrcp'
+  let repository = "claudiodangelis/qrcp"
   let tag_name = ghub tag_name $repository
   let path = bin-path qrcp $tag_name
 
@@ -779,7 +793,7 @@ export def qrcp [ --force(-f) ] {
 }
 
 export def qrsync [ --force(-f) ] {
-  let repository = 'crisidev/qrsync'
+  let repository = "crisidev/qrsync"
   let tag_name = ghub tag_name $repository
   let path = bin-path qrsync $tag_name
 
@@ -792,7 +806,7 @@ export def qrsync [ --force(-f) ] {
 }
 
 export def binsider [ --force(-f) ] {
-  let repository = 'orhun/binsider'
+  let repository = "orhun/binsider"
   let tag_name = ghub tag_name $repository
   let path = bin-path binsider $tag_name
 
@@ -805,7 +819,7 @@ export def binsider [ --force(-f) ] {
 }
 
 export def usql [ --force(-f) ] {
-  let repository = 'xo/usql'
+  let repository = "xo/usql"
   let tag_name = ghub tag_name $repository
   let path = bin-path usql $tag_name
 
@@ -818,7 +832,7 @@ export def usql [ --force(-f) ] {
 }
 
 export def gotty [ --force(-f) ] {
-  let repository = 'yudai/gotty'
+  let repository = "yudai/gotty"
   let tag_name = ghub tag_name $repository
   let path = bin-path atlas $tag_name
 
@@ -831,7 +845,7 @@ export def gotty [ --force(-f) ] {
 }
 
 export def ttyd [ --force(-f) ] {
-  let repository = 'tsl0922/ttyd'
+  let repository = "tsl0922/ttyd"
   let tag_name = ghub tag_name $repository
   let path = bin-path ttyd $tag_name
 
@@ -845,7 +859,7 @@ export def ttyd [ --force(-f) ] {
 }
 
 export def tty-share [ --force(-f) ] {
-  let repository = 'elisescu/tty-share'
+  let repository = "elisescu/tty-share"
   let tag_name = ghub tag_name $repository
   let path = bin-path tty-share $tag_name
 
@@ -859,7 +873,7 @@ export def tty-share [ --force(-f) ] {
 }
 
 export def upterm [ --force(-f) ] {
-  let repository = 'owenthereal/upterm'
+  let repository = "owenthereal/upterm"
   let tag_name = ghub tag_name $repository
   let path = bin-path upterm $tag_name
 
@@ -872,7 +886,7 @@ export def upterm [ --force(-f) ] {
 }
 
 export def --env sftpgo [ --force(-f) ] {
-  let repository = 'drakkan/sftpgo'
+  let repository = "drakkan/sftpgo"
   let tag_name = ghub tag_name $repository
   let path = lib-path sftpgo $tag_name
 
@@ -886,7 +900,7 @@ export def --env sftpgo [ --force(-f) ] {
 }
 
 export def telegram [ --force(-f) ] {
-  let repository = 'telegramdesktop/tdesktop'
+  let repository = "telegramdesktop/tdesktop"
   let tag_name = ghub tag_name $repository
   let path = bin-path telegram $tag_name
 
@@ -899,7 +913,7 @@ export def telegram [ --force(-f) ] {
 }
 
 export def tdl [ --force(-f) ] {
-  let repository = 'iyear/tdl'
+  let repository = "iyear/tdl"
   let tag_name = ghub tag_name $repository
   let path = bin-path tdl $tag_name
 
@@ -912,7 +926,7 @@ export def tdl [ --force(-f) ] {
 }
 
 export def kanata [ --force(-f) ] {
-  let repository = 'jtroo/kanata'
+  let repository = "jtroo/kanata"
   let tag_name = ghub tag_name $repository
   let path = bin-path kanata $tag_name
 
@@ -927,7 +941,7 @@ export def kanata [ --force(-f) ] {
 }
 
 export def --env mongosh [ --force(-f) ] {
-  let repository = 'mongodb-js/mongosh'
+  let repository = "mongodb-js/mongosh"
   let tag_name = ghub tag_name $repository
   let path = lib-path mongosh $tag_name
 
@@ -941,7 +955,7 @@ export def --env mongosh [ --force(-f) ] {
 }
 
 export def shell2http [ --force(-f) ] {
-  let repository = 'msoap/shell2http'
+  let repository = "msoap/shell2http"
   let tag_name = ghub tag_name $repository
   let path = bin-path shell2http $tag_name
 
@@ -954,7 +968,7 @@ export def shell2http [ --force(-f) ] {
 }
 
 export def mprocs [ --force(-f) ] {
-  let repository = 'pvolok/mprocs'
+  let repository = "pvolok/mprocs"
   let tag_name = ghub tag_name $repository
   let path = bin-path mprocs $tag_name
 
@@ -967,7 +981,7 @@ export def mprocs [ --force(-f) ] {
 }
 
 export def dua [ --force(-f) ] {
-  let repository = 'Byron/dua-cli'
+  let repository = "Byron/dua-cli"
   let tag_name = ghub tag_name $repository
   let path = bin-path dua $tag_name
 
@@ -980,7 +994,7 @@ export def dua [ --force(-f) ] {
 }
 
 export def grex [ --force(-f) ] {
-  let repository = 'pemistahl/grex'
+  let repository = "pemistahl/grex"
   let tag_name = ghub tag_name $repository
   let path = bin-path grex $tag_name
 
@@ -993,7 +1007,7 @@ export def grex [ --force(-f) ] {
 }
 
 export def navi [ --force(-f) ] {
-  let repository = 'denisidoro/navi'
+  let repository = "denisidoro/navi"
   let tag_name = ghub tag_name $repository
   let path = bin-path navi $tag_name
 
@@ -1006,7 +1020,7 @@ export def navi [ --force(-f) ] {
 }
 
 export def bore [ --force(-f) ] {
-  let repository = 'ekzhang/bore'
+  let repository = "ekzhang/bore"
   let tag_name = ghub tag_name $repository
   let path = bin-path bore $tag_name
 
@@ -1019,7 +1033,7 @@ export def bore [ --force(-f) ] {
 }
 
 export def rclone [ --force(-f) ] {
-  let repository = 'rclone/rclone'
+  let repository = "rclone/rclone"
   let tag_name = ghub tag_name $repository
   let path = bin-path rclone $tag_name
 
@@ -1033,7 +1047,7 @@ export def rclone [ --force(-f) ] {
 }
 
 export def ffsend [ --force(-f) ] {
-  let repository = 'timvisee/ffsend'
+  let repository = "timvisee/ffsend"
   let tag_name = ghub tag_name $repository
   let path = bin-path ffsend $tag_name
 
@@ -1047,7 +1061,7 @@ export def ffsend [ --force(-f) ] {
 }
 
 export def walk [ --force(-f) ] {
-  let repository = 'antonmedv/walk'
+  let repository = "antonmedv/walk"
   let tag_name = ghub tag_name $repository
   let path = bin-path walk $tag_name
 
@@ -1061,7 +1075,7 @@ export def walk [ --force(-f) ] {
 }
 
 export def tere [ --force(-f) ] {
-  let repository = 'mgunyho/tere'
+  let repository = "mgunyho/tere"
   let tag_name = ghub tag_name $repository
   let path = bin-path tere $tag_name
 
@@ -1074,7 +1088,7 @@ export def tere [ --force(-f) ] {
 }
 
 export def sd [ --force(-f) ] {
-  let repository = 'chmln/sd'
+  let repository = "chmln/sd"
   let tag_name = ghub tag_name $repository
   let path = bin-path sd $tag_name
 
@@ -1087,7 +1101,7 @@ export def sd [ --force(-f) ] {
 }
 
 export def sad [ --force(-f) ] {
-  let repository = 'ms-jpq/sad'
+  let repository = "ms-jpq/sad"
   let tag_name = ghub tag_name $repository
   let path = bin-path sad $tag_name
 
@@ -1100,7 +1114,7 @@ export def sad [ --force(-f) ] {
 }
 
 export def fx [ --force(-f) ] {
-  let repository = 'antonmedv/fx'
+  let repository = "antonmedv/fx"
   let tag_name = ghub tag_name $repository
   let path = bin-path fx $tag_name
 
@@ -1114,7 +1128,7 @@ export def fx [ --force(-f) ] {
 }
 
 export def jqp [ --force(-f) ] {
-  let repository = 'noahgorstein/jqp'
+  let repository = "noahgorstein/jqp"
   let tag_name = ghub tag_name $repository
   let path = bin-path jqp $tag_name
 
@@ -1127,7 +1141,7 @@ export def jqp [ --force(-f) ] {
 }
 
 export def lux [ --force(-f) ] {
-  let repository = 'iawia002/lux'
+  let repository = "iawia002/lux"
   let tag_name = ghub tag_name $repository
   let path = bin-path lux $tag_name
 
@@ -1140,7 +1154,7 @@ export def lux [ --force(-f) ] {
 }
 
 export def qrterminal [ --force(-f) ] {
-  let repository = 'mdp/qrterminal'
+  let repository = "mdp/qrterminal"
   let tag_name = ghub tag_name $repository
   let path = bin-path qrterminal $tag_name
 
@@ -1153,7 +1167,7 @@ export def qrterminal [ --force(-f) ] {
 }
 
 export def qrrs [ --force(-f) ] {
-  let repository = 'Lenivaya/qrrs'
+  let repository = "Lenivaya/qrrs"
   let tag_name = ghub tag_name $repository
   let path = bin-path qrrs $tag_name
 
@@ -1166,7 +1180,7 @@ export def qrrs [ --force(-f) ] {
 }
 
 export def genact [ --force(-f) ] {
-  let repository = 'svenstaro/genact'
+  let repository = "svenstaro/genact"
   let tag_name = ghub tag_name $repository
   let path = bin-path genact $tag_name
 
@@ -1180,7 +1194,7 @@ export def genact [ --force(-f) ] {
 }
 
 export def ouch [ --force(-f) ] {
-  let repository = 'ouch-org/ouch'
+  let repository = "ouch-org/ouch"
   let tag_name = ghub tag_name $repository
   let path = bin-path ouch $tag_name
 
@@ -1193,7 +1207,7 @@ export def ouch [ --force(-f) ] {
 }
 
 export def lsd [ --force(-f) ] {
-  let repository = 'lsd-rs/lsd'
+  let repository = "lsd-rs/lsd"
   let tag_name = ghub tag_name $repository
   let path = bin-path lsd $tag_name
 
@@ -1206,7 +1220,7 @@ export def lsd [ --force(-f) ] {
 }
 
 export def eza [ --force(-f) ] {
-  let repository = 'eza-community/eza'
+  let repository = "eza-community/eza"
   let tag_name = ghub tag_name $repository
   let path = bin-path eza $tag_name
 
@@ -1219,7 +1233,7 @@ export def eza [ --force(-f) ] {
 }
 
 export def ast-grep [ --force(-f) ] {
-  let repository = 'ast-grep/ast-grep'
+  let repository = "ast-grep/ast-grep"
   let tag_name = ghub tag_name $repository
   let path = lib-path ast-grep $tag_name
 
@@ -1233,7 +1247,7 @@ export def ast-grep [ --force(-f) ] {
 }
 
 export def d2 [ --force(-f) ] {
-  let repository = 'terrastruct/d2'
+  let repository = "terrastruct/d2"
   let tag_name = ghub tag_name $repository
   let path = bin-path d2 $tag_name
 
@@ -1246,7 +1260,7 @@ export def d2 [ --force(-f) ] {
 }
 
 export def mdcat [ --force(-f) ] {
-  let repository = 'swsnr/mdcat'
+  let repository = "swsnr/mdcat"
   let tag_name = ghub tag_name $repository
   let path = bin-path mdcat $tag_name
 
@@ -1259,7 +1273,7 @@ export def mdcat [ --force(-f) ] {
 }
 
 export def chatgpt [ --force(-f) ] {
-  let repository = 'j178/chatgpt'
+  let repository = "j178/chatgpt"
   let tag_name = ghub tag_name $repository
   let path = bin-path chatgpt $tag_name
 
@@ -1272,7 +1286,7 @@ export def chatgpt [ --force(-f) ] {
 }
 
 export def aichat [ --force(-f) ] {
-  let repository = 'sigoden/aichat'
+  let repository = "sigoden/aichat"
   let tag_name = ghub tag_name $repository
   let path = bin-path aichat $tag_name
 
@@ -1285,7 +1299,7 @@ export def aichat [ --force(-f) ] {
 }
 
 export def tgpt [ --force(-f) ] {
-  let repository = 'aandrew-me/tgpt'
+  let repository = "aandrew-me/tgpt"
   let tag_name = ghub tag_name $repository
   let path = bin-path tgpt $tag_name
 
@@ -1299,7 +1313,7 @@ export def tgpt [ --force(-f) ] {
 }
 
 export def slices [ --force(-f) ] {
-  let repository = 'maaslalani/slides'
+  let repository = "maaslalani/slides"
   let tag_name = ghub tag_name $repository
   let path = bin-path slices $tag_name
 
@@ -1312,7 +1326,7 @@ export def slices [ --force(-f) ] {
 }
 
 export def nap [ --force(-f) ] {
-  let repository = 'maaslalani/nap'
+  let repository = "maaslalani/nap"
   let tag_name = ghub tag_name $repository
   let path = bin-path nap $tag_name
 
@@ -1325,7 +1339,7 @@ export def nap [ --force(-f) ] {
 }
 
 export def invoice [ --force(-f) ] {
-  let repository = 'maaslalani/invoice'
+  let repository = "maaslalani/invoice"
   let tag_name = ghub tag_name $repository
   let path = bin-path invoice $tag_name
 
@@ -1338,7 +1352,7 @@ export def invoice [ --force(-f) ] {
 }
 
 export def coreutils [ --force(-f) ] {
-  let repository = 'uutils/coreutils'
+  let repository = "uutils/coreutils"
   let tag_name = ghub tag_name $repository
   let path = bin-path coreutils $tag_name
 
@@ -1352,7 +1366,7 @@ export def coreutils [ --force(-f) ] {
 
 export def carapace [ --force(-f) ] {
 
-  let repository = 'carapace-sh/carapace-bin'
+  let repository = "carapace-sh/carapace-bin"
   let tag_name = ghub tag_name $repository
   let path = bin-path carapace $tag_name
 
@@ -1365,7 +1379,7 @@ export def carapace [ --force(-f) ] {
 }
 
 export def bombardier [ --force(-f) ] {
-  let repository = 'codesenberg/bombardier'
+  let repository = "codesenberg/bombardier"
   let tag_name = ghub tag_name $repository
   let path = bin-path bombardier $tag_name
 
@@ -1379,7 +1393,7 @@ export def bombardier [ --force(-f) ] {
 }
 
 export def ruff [ --force(-f) ] {
-  let repository = 'astral-sh/ruff'
+  let repository = "astral-sh/ruff"
   let tag_name = ghub tag_name $repository
   let path = bin-path ruff $tag_name
 
@@ -1392,7 +1406,7 @@ export def ruff [ --force(-f) ] {
 }
 
 export def --env uv [ --force(-f) ] {
-  let repository = 'astral-sh/uv'
+  let repository = "astral-sh/uv"
   let tag_name = ghub tag_name $repository
   let path = lib-path uv $tag_name
 
@@ -1406,7 +1420,7 @@ export def --env uv [ --force(-f) ] {
 }
 
 export def --env cargo-binstall [ --force(-f) ] {
-  let repository = 'cargo-bins/cargo-binstall'
+  let repository = "cargo-bins/cargo-binstall"
   let tag_name = ghub tag_name $repository
   let path = lib-path cargo-binstall $tag_name
 
@@ -1420,7 +1434,7 @@ export def --env cargo-binstall [ --force(-f) ] {
 }
 
 export def --env carbonyl [ --force(-f) ] {
-  let repository = 'fathyb/carbonyl'
+  let repository = "fathyb/carbonyl"
   let tag_name = ghub tag_name $repository
   let path = lib-path carbonyl $tag_name
 
@@ -1434,7 +1448,7 @@ export def --env carbonyl [ --force(-f) ] {
 }
 
 export def micro [ --force(-f) ] {
-  let repository = 'zyedidia/micro'
+  let repository = "zyedidia/micro"
   let tag_name = ghub tag_name $repository
   let path = bin-path micro $tag_name
 
@@ -1447,7 +1461,7 @@ export def micro [ --force(-f) ] {
 }
 
 export def dufs [ --force(-f) ] {
-  let repository = 'sigoden/dufs'
+  let repository = "sigoden/dufs"
   let tag_name = ghub tag_name $repository
   let path = bin-path dufs $tag_name
 
@@ -1460,7 +1474,7 @@ export def dufs [ --force(-f) ] {
 }
 
 export def miniserve [ --force(-f) ] {
-  let repository = 'svenstaro/miniserve'
+  let repository = "svenstaro/miniserve"
   let tag_name = ghub tag_name $repository
   let path = bin-path miniserve $tag_name
 
@@ -1474,7 +1488,7 @@ export def miniserve [ --force(-f) ] {
 }
 
 export def simple-http-server [ --force(-f) ] {
-  let repository = 'TheWaWaR/simple-http-server'
+  let repository = "TheWaWaR/simple-http-server"
   let tag_name = ghub tag_name $repository
   let path = bin-path simple-http-server $tag_name
 
@@ -1488,7 +1502,7 @@ export def simple-http-server [ --force(-f) ] {
 }
 
 export def ftpserver [ --force(-f) ] {
-  let repository = 'fclairamb/ftpserver'
+  let repository = "fclairamb/ftpserver"
   let tag_name = ghub tag_name $repository
   let path = bin-path ftpserver $tag_name
 
@@ -1501,7 +1515,7 @@ export def ftpserver [ --force(-f) ] {
 }
 
 export def onefetch [ --force(-f) ] {
-  let repository = 'o2sh/onefetch'
+  let repository = "o2sh/onefetch"
   let tag_name = ghub tag_name $repository
   let path = bin-path onefetch $tag_name
 
@@ -1514,7 +1528,7 @@ export def onefetch [ --force(-f) ] {
 }
 
 export def gping [ --force(-f) ] {
-  let repository = 'orf/gping'
+  let repository = "orf/gping"
   let tag_name = ghub tag_name $repository
   let path = bin-path gping $tag_name
 
@@ -1527,7 +1541,7 @@ export def gping [ --force(-f) ] {
 }
 
 export def duf [ --force(-f) ] {
-  let repository = 'muesli/duf'
+  let repository = "muesli/duf"
   let tag_name = ghub tag_name $repository
   let path = bin-path duf $tag_name
 
@@ -1540,7 +1554,7 @@ export def duf [ --force(-f) ] {
 }
 
 export def github-cli [ --force(-f) ] {
-  let repository = 'cli/cli'
+  let repository = "cli/cli"
   let tag_name = ghub tag_name $repository
   let path = bin-path gh $tag_name
 
@@ -1553,7 +1567,7 @@ export def github-cli [ --force(-f) ] {
 }
 
 export def dive [ --force(-f) ] {
-  let repository = 'wagoodman/dive'
+  let repository = "wagoodman/dive"
   let tag_name = ghub tag_name $repository
   let path = bin-path dive $tag_name
 
@@ -1566,7 +1580,7 @@ export def dive [ --force(-f) ] {
 }
 
 export def hyperfine [ --force(-f) ] {
-  let repository = 'sharkdp/hyperfine'
+  let repository = "sharkdp/hyperfine"
   let tag_name = ghub tag_name $repository
   let path = bin-path hyperfine $tag_name
 
@@ -1579,7 +1593,7 @@ export def hyperfine [ --force(-f) ] {
 }
 
 export def taskell [ --force(-f) ] {
-  let repository = 'smallhadroncollider/taskell'
+  let repository = "smallhadroncollider/taskell"
   let tag_name = ghub tag_name $repository
   let path = bin-path taskell $tag_name
 
@@ -1592,7 +1606,7 @@ export def taskell [ --force(-f) ] {
 }
 
 export def tasklite [ --force(-f) ] {
-  let repository = 'ad-si/TaskLite'
+  let repository = "ad-si/TaskLite"
   let tag_name = ghub tag_name $repository
   let path = bin-path tasklite $tag_name
 
@@ -1606,7 +1620,7 @@ export def tasklite [ --force(-f) ] {
 }
 
 export def doctl [ --force(-f) ] {
-  let repository = 'digitalocean/doctl'
+  let repository = "digitalocean/doctl"
   let tag_name = ghub tag_name $repository
   let path = bin-path doctl $tag_name
 
@@ -1619,7 +1633,7 @@ export def doctl [ --force(-f) ] {
 }
 
 export def hcloud [ --force(-f) ] {
-  let repository = 'hetznercloud/cli'
+  let repository = "hetznercloud/cli"
   let tag_name = ghub tag_name $repository
   let path = bin-path hcloud $tag_name
 
@@ -1632,7 +1646,7 @@ export def hcloud [ --force(-f) ] {
 }
 
 export def kubecolor [ --force(-f) ] {
-  let repository = 'kubecolor/kubecolor'
+  let repository = "kubecolor/kubecolor"
   let tag_name = ghub tag_name $repository
   let path = bin-path kubecolor $tag_name
 
@@ -1645,7 +1659,7 @@ export def kubecolor [ --force(-f) ] {
 }
 
 export def kubetui [ --force(-f) ] {
-  let repository = 'sarub0b0/kubetui'
+  let repository = "sarub0b0/kubetui"
   let tag_name = ghub tag_name $repository
   let path = bin-path kubetui $tag_name
 
@@ -1659,7 +1673,7 @@ export def kubetui [ --force(-f) ] {
 }
 
 export def kube-prompt [ --force(-f) ] {
-  let repository = 'c-bata/kube-prompt'
+  let repository = "c-bata/kube-prompt"
   let tag_name = ghub tag_name $repository
   let path = bin-path kube-prompt $tag_name
 
@@ -1672,7 +1686,7 @@ export def kube-prompt [ --force(-f) ] {
 }
 
 export def k9s [ --force(-f) ] {
-  let repository = 'derailed/k9s'
+  let repository = "derailed/k9s"
   let tag_name = ghub tag_name $repository
   let path = bin-path k9s $tag_name
 
@@ -1685,7 +1699,7 @@ export def k9s [ --force(-f) ] {
 }
 
 export def kdash [ --force(-f) ] {
-  let repository = 'kdash-rs/kdash'
+  let repository = "kdash-rs/kdash"
   let tag_name = ghub tag_name $repository
   let path = bin-path kdash $tag_name
 
@@ -1698,7 +1712,7 @@ export def kdash [ --force(-f) ] {
 }
 
 export def bettercap [ --force(-f) ] {
-  let repository = 'bettercap/bettercap'
+  let repository = "bettercap/bettercap"
   let tag_name = ghub tag_name $repository
   let path = bin-path bettercap $tag_name
 
@@ -1712,7 +1726,7 @@ export def bettercap [ --force(-f) ] {
 }
 
 export def viddy [ --force(-f) ] {
-  let repository = 'sachaos/viddy'
+  let repository = "sachaos/viddy"
   let tag_name = ghub tag_name $repository
   let path = bin-path viddy $tag_name
 
@@ -1725,7 +1739,7 @@ export def viddy [ --force(-f) ] {
 }
 
 export def hwatch [ --force(-f) ] {
-  let repository = 'blacknon/hwatch'
+  let repository = "blacknon/hwatch"
   let tag_name = ghub tag_name $repository
   let path = bin-path hwatch $tag_name
 
@@ -1738,7 +1752,7 @@ export def hwatch [ --force(-f) ] {
 }
 
 export def kmon [ --force(-f) ] {
-  let repository = 'orhun/kmon'
+  let repository = "orhun/kmon"
   let tag_name = ghub tag_name $repository
   let path = bin-path kmon $tag_name
 
@@ -1751,7 +1765,7 @@ export def kmon [ --force(-f) ] {
 }
 
 export def --env ollama [ --force(-f) ] {
-  let repository = 'ollama/ollama'
+  let repository = "ollama/ollama"
   let tag_name = ghub tag_name $repository
   let path = lib-path ollama $tag_name
 
@@ -1765,7 +1779,7 @@ export def --env ollama [ --force(-f) ] {
 }
 
 export def plandex [ --force(-f) ] {
-  let repository = 'plandex-ai/plandex'
+  let repository = "plandex-ai/plandex"
   let tag_name = ghub tag_name $repository
   let path = bin-path plandex $tag_name
 
@@ -1778,7 +1792,7 @@ export def plandex [ --force(-f) ] {
 }
 
 export def local-ai [ --force(-f) ] {
-  let repository = 'mudler/LocalAI'
+  let repository = "mudler/LocalAI"
   let tag_name = ghub tag_name $repository
   let path = bin-path local-ai $tag_name
 
@@ -1792,7 +1806,7 @@ export def local-ai [ --force(-f) ] {
 }
 
 export def lan-mouse [ --force(-f) ] {
-  let repository = 'feschber/lan-mouse'
+  let repository = "feschber/lan-mouse"
   let tag_name = ghub tag_name $repository
   let path = bin-path lan-mouse $tag_name
 
@@ -1807,7 +1821,7 @@ export def lan-mouse [ --force(-f) ] {
 }
 
 export def lapce [ --force(-f) ] {
-  let repository = 'lapce/lapce'
+  let repository = "lapce/lapce"
   let tag_name = ghub tag_name $repository
   let path = bin-path lapce $tag_name
 
@@ -1820,7 +1834,7 @@ export def lapce [ --force(-f) ] {
 }
 
 export def --env vscodium [ --force(-f) ] {
-  let repository = 'VSCodium/vscodium'
+  let repository = "VSCodium/vscodium"
   let tag_name = ghub tag_name $repository
   let path = lib-path vscodium $tag_name
 
@@ -1834,7 +1848,7 @@ export def --env vscodium [ --force(-f) ] {
 }
 
 export def --env code-server [ --force(-f) ] {
-  let repository = 'coder/code-server'
+  let repository = "coder/code-server"
   let tag_name = ghub tag_name $repository
   let path = lib-path code-server $tag_name
 
@@ -1848,7 +1862,7 @@ export def --env code-server [ --force(-f) ] {
 }
 
 export def termshark [ --force(-f) ] {
-  let repository = 'gcla/termshark'
+  let repository = "gcla/termshark"
   let tag_name = ghub tag_name $repository
   let path = bin-path termshark $tag_name
 
@@ -1861,7 +1875,7 @@ export def termshark [ --force(-f) ] {
 }
 
 export def termscp [ --force(-f) ] {
-  let repository = 'veeso/termscp'
+  let repository = "veeso/termscp"
   let tag_name = ghub tag_name $repository
   let path = bin-path termscp $tag_name
 
@@ -1874,7 +1888,7 @@ export def termscp [ --force(-f) ] {
 }
 
 export def kbt [ --force(-f) ] {
-  let repository = 'bloznelis/kbt'
+  let repository = "bloznelis/kbt"
   let tag_name = ghub tag_name $repository
   let path = bin-path kbt $tag_name
 
@@ -1887,7 +1901,7 @@ export def kbt [ --force(-f) ] {
 }
 
 export def trippy [ --force(-f) ] {
-  let repository = 'fujiapple852/trippy'
+  let repository = "fujiapple852/trippy"
   let tag_name = ghub tag_name $repository
   let path = bin-path trippy $tag_name
 
@@ -1901,7 +1915,7 @@ export def trippy [ --force(-f) ] {
 }
 
 export def gitui [ --force(-f) ] {
-  let repository = 'extrawurst/gitui'
+  let repository = "extrawurst/gitui"
   let tag_name = ghub tag_name $repository
   let path = bin-path gitui $tag_name
 
@@ -1914,7 +1928,7 @@ export def gitui [ --force(-f) ] {
 }
 
 export def monolith [ --force(-f) ] {
-  let repository = 'Y2Z/monolith'
+  let repository = "Y2Z/monolith"
   let tag_name = ghub tag_name $repository
   let path = bin-path monolith $tag_name
 
@@ -1928,7 +1942,7 @@ export def monolith [ --force(-f) ] {
 }
 
 export def dijo [ --force(-f) ] {
-  let repository = 'nerdypepper/dijo'
+  let repository = "nerdypepper/dijo"
   let tag_name = ghub tag_name $repository
   let path = bin-path dijo $tag_name
 
@@ -1942,7 +1956,7 @@ export def dijo [ --force(-f) ] {
 }
 
 export def ventoy [ --force(-f) ] {
-  let repository = 'ventoy/Ventoy'
+  let repository = "ventoy/Ventoy"
   let tag_name = ghub tag_name $repository
   let path = bin-path ventoy $tag_name
 
@@ -1955,7 +1969,7 @@ export def ventoy [ --force(-f) ] {
 }
 
 export def stash [ --force(-f) ] {
-  let repository = 'stashapp/stash'
+  let repository = "stashapp/stash"
   let tag_name = ghub tag_name $repository
   let path = bin-path stash $tag_name
 
@@ -1969,7 +1983,7 @@ export def stash [ --force(-f) ] {
 }
 
 export def AdGuardHome [ --force(-f) ] {
-  let repository = 'AdguardTeam/AdGuardHome'
+  let repository = "AdguardTeam/AdGuardHome"
   let tag_name = ghub tag_name $repository
   let path = bin-path AdGuardHome $tag_name
 
@@ -1983,7 +1997,7 @@ export def AdGuardHome [ --force(-f) ] {
 }
 
 export def zen [ --force(-f) ] {
-  let repository = 'anfragment/zen'
+  let repository = "anfragment/zen"
   let tag_name = ghub tag_name $repository
   let path = bin-path zen $tag_name
 
@@ -1997,7 +2011,7 @@ export def zen [ --force(-f) ] {
 }
 
 export def superhtml [ --force(-f) ] {
-  let repository = 'kristoff-it/superhtml'
+  let repository = "kristoff-it/superhtml"
   let tag_name = ghub tag_name $repository
   let path = bin-path superhtml $tag_name
 
@@ -2010,7 +2024,7 @@ export def superhtml [ --force(-f) ] {
 }
 
 export def proxyfor [ --force(-f) ] {
-  let repository = 'sigoden/proxyfor'
+  let repository = "sigoden/proxyfor"
   let tag_name = ghub tag_name $repository
   let path = bin-path proxyfor $tag_name
 
@@ -2023,7 +2037,7 @@ export def proxyfor [ --force(-f) ] {
 }
 
 export def hetty [ --force(-f) ] {
-  let repository = 'dstotijn/hetty'
+  let repository = "dstotijn/hetty"
   let tag_name = ghub tag_name $repository
   let path = bin-path hetty $tag_name
 
@@ -2036,7 +2050,7 @@ export def hetty [ --force(-f) ] {
 }
 
 export def fclones [ --force(-f) ] {
-  let repository = 'pkolaczk/fclones'
+  let repository = "pkolaczk/fclones"
   let tag_name = ghub tag_name $repository
   let path = bin-path fclones $tag_name
 
@@ -2050,7 +2064,7 @@ export def fclones [ --force(-f) ] {
 }
 
 export def nano-work-server [ --force(-f) ] {
-  let repository = 'nanocurrency/nano-work-server'
+  let repository = "nanocurrency/nano-work-server"
   let tag_name = ghub tag_name $repository
   let path = bin-path nano-work-server $tag_name
 
@@ -2066,7 +2080,7 @@ export def nano-work-server [ --force(-f) ] {
 export def mkcert [ --force(-f) ] {
   deps mkcert
 
-  let repository = 'FiloSottile/mkcert'
+  let repository = "FiloSottile/mkcert"
   let tag_name = ghub tag_name $repository
   let path = bin-path mkcert $tag_name
 
@@ -2080,7 +2094,7 @@ export def mkcert [ --force(-f) ] {
 }
 
 export def cloudflared [ --force(-f) ] {
-  let repository = 'cloudflare/cloudflared'
+  let repository = "cloudflare/cloudflared"
   let tag_name = ghub tag_name $repository
   let path = bin-path cloudflared $tag_name
 
@@ -2094,7 +2108,7 @@ export def cloudflared [ --force(-f) ] {
 }
 
 export def librespeed [ --force(-f) ] {
-  let repository = 'librespeed/speedtest-cli'
+  let repository = "librespeed/speedtest-cli"
   let tag_name = ghub tag_name $repository
   let path = bin-path librespeed $tag_name
 
@@ -2107,7 +2121,7 @@ export def librespeed [ --force(-f) ] {
 }
 
 export def devbox [ --force(-f) ] {
-  let repository = 'jetify-com/devbox'
+  let repository = "jetify-com/devbox"
   let tag_name = ghub tag_name $repository
   let path = bin-path devbox $tag_name
 
@@ -2120,7 +2134,7 @@ export def devbox [ --force(-f) ] {
 }
 
 export def bun [ --force(-f) ] {
-  let repository = 'oven-sh/bun'
+  let repository = "oven-sh/bun"
   let tag_name = ghub tag_name $repository
   let path = bin-path bun $tag_name
 
@@ -2133,7 +2147,7 @@ export def bun [ --force(-f) ] {
 }
 
 export def --env fvm [ --force(-f) ] {
-  let repository = 'leoafarias/fvm'
+  let repository = "leoafarias/fvm"
   let tag_name = ghub tag_name $repository
   let path = lib-path fvm $tag_name
 
@@ -2147,7 +2161,7 @@ export def --env fvm [ --force(-f) ] {
 }
 
 export def pnpm [ --force(-f) ] {
-  let repository = 'pnpm/pnpm'
+  let repository = "pnpm/pnpm"
   let tag_name = ghub tag_name $repository
   let path = bin-path pnpm $tag_name
 
@@ -2161,7 +2175,7 @@ export def pnpm [ --force(-f) ] {
 }
 
 export def --env kotlin [ --force(-f) ] {
-  let repository = 'JetBrains/kotlin'
+  let repository = "JetBrains/kotlin"
   let tag_name = ghub tag_name $repository
   let path = lib-path kotlin $tag_name
 
@@ -2175,7 +2189,7 @@ export def --env kotlin [ --force(-f) ] {
 }
 
 export def --env kotlin-native [ --force(-f) ] {
-  let repository = 'JetBrains/kotlin'
+  let repository = "JetBrains/kotlin"
   let tag_name = ghub tag_name $repository
   let path = lib-path kotlin-native $tag_name
 
@@ -2189,7 +2203,7 @@ export def --env kotlin-native [ --force(-f) ] {
 }
 
 export def --env kotlin-language-server [ --force(-f) ] {
-  let repository = 'fwcd/kotlin-language-server'
+  let repository = "fwcd/kotlin-language-server"
   let tag_name = ghub tag_name $repository
   let path = lib-path kotlin-language-server $tag_name
 
@@ -2203,7 +2217,7 @@ export def --env kotlin-language-server [ --force(-f) ] {
 }
 
 export def --env lua-language-server [ --force(-f) ] {
-  let repository = 'LuaLS/lua-language-server'
+  let repository = "LuaLS/lua-language-server"
   let tag_name = ghub tag_name $repository
   let path = lib-path lua-language-server $tag_name
 
@@ -2217,7 +2231,7 @@ export def --env lua-language-server [ --force(-f) ] {
 }
 
 export def --env btcd [ --force(-f) ] {
-  let repository = 'btcsuite/btcd'
+  let repository = "btcsuite/btcd"
   let tag_name = ghub tag_name $repository
   let path = lib-path btcd $tag_name
 
@@ -2231,7 +2245,7 @@ export def --env btcd [ --force(-f) ] {
 }
 
 export def --env bitcoin [ --force(-f) ] {
-  let repository = 'bitcoin/bitcoin'
+  let repository = "bitcoin/bitcoin"
   let tag_name = ghub tag_name $repository
   let path = lib-path bitcoin $tag_name
 
@@ -2245,7 +2259,7 @@ export def --env bitcoin [ --force(-f) ] {
 }
 
 export def --env lightning-network [ --force(-f) ] {
-  let repository = 'lightningnetwork/lnd'
+  let repository = "lightningnetwork/lnd"
   let tag_name = ghub tag_name $repository
   let path = lib-path lightning $tag_name
 
@@ -2259,7 +2273,7 @@ export def --env lightning-network [ --force(-f) ] {
 }
 
 export def clangd [ --force(-f) ] {
-  let repository = 'clangd/clangd'
+  let repository = "clangd/clangd"
   let tag_name = ghub tag_name $repository
   let path = bin-path clangd $tag_name
 
@@ -2273,7 +2287,7 @@ export def clangd [ --force(-f) ] {
 }
 
 export def marksman [ --force(-f) ] {
-  let repository = 'artempyanykh/marksman'
+  let repository = "artempyanykh/marksman"
   let tag_name = ghub tag_name $repository
   let path = bin-path marksman $tag_name
 
@@ -2287,7 +2301,7 @@ export def marksman [ --force(-f) ] {
 }
 
 export def v-analyzer [ --force(-f) ] {
-  let repository = 'vlang/v-analyzer'
+  let repository = "vlang/v-analyzer"
   let tag_name = ghub tag_name $repository
   let path = bin-path v-analyzer $tag_name
 
@@ -2300,7 +2314,7 @@ export def v-analyzer [ --force(-f) ] {
 }
 
 export def zls [ --force(-f) ] {
-  let repository = 'zigtools/zls'
+  let repository = "zigtools/zls"
   let tag_name = ghub tag_name $repository
   let path = bin-path zls $tag_name
 
@@ -2313,7 +2327,7 @@ export def zls [ --force(-f) ] {
 }
 
 export def presenterm [ --force(-f) ] {
-  let repository = 'mfontanini/presenterm'
+  let repository = "mfontanini/presenterm"
   let tag_name = ghub tag_name $repository
   let path = bin-path presenterm $tag_name
 
@@ -2326,7 +2340,7 @@ export def presenterm [ --force(-f) ] {
 }
 
 export def contour [ --force(-f) ] {
-  let repository = 'contour-terminal/contour'
+  let repository = "contour-terminal/contour"
   let tag_name = ghub tag_name $repository
   let path = bin-path contour $tag_name
 
@@ -2339,7 +2353,7 @@ export def contour [ --force(-f) ] {
 }
 
 export def viu [ --force(-f) ] {
-  let repository = 'atanunq/viu'
+  let repository = "atanunq/viu"
   let tag_name = ghub tag_name $repository
   let path = bin-path viu $tag_name
 
@@ -2353,7 +2367,7 @@ export def viu [ --force(-f) ] {
 }
 
 export def immich-go [ --force(-f) ] {
-  let repository = 'simulot/immich-go'
+  let repository = "simulot/immich-go"
   let tag_name = ghub tag_name $repository
   let path = bin-path immich-go $tag_name
 
@@ -2366,7 +2380,7 @@ export def immich-go [ --force(-f) ] {
 }
 
 export def picocrypt [ --force(-f) ] {
-  let repository = 'Picocrypt/CLI'
+  let repository = "Picocrypt/CLI"
   let tag_name = ghub tag_name $repository
   let path = bin-path picocrypt $tag_name
 
@@ -2380,7 +2394,7 @@ export def picocrypt [ --force(-f) ] {
 }
 
 export def clipboard [ --force(-f) ] {
-  let repository = 'Slackadays/Clipboard'
+  let repository = "Slackadays/Clipboard"
   let tag_name = ghub tag_name $repository
   let path = bin-path cb $tag_name
 
@@ -2393,7 +2407,7 @@ export def clipboard [ --force(-f) ] {
 }
 
 export def vi-mongo [ --force(-f) ] {
-  let repository = 'kopecmaciej/vi-mongo'
+  let repository = "kopecmaciej/vi-mongo"
   let tag_name = ghub tag_name $repository
   let path = bin-path vi-mongo $tag_name
 
@@ -2406,7 +2420,7 @@ export def vi-mongo [ --force(-f) ] {
 }
 
 export def cloak [ --force(-f) ] {
-  let repository = 'evansmurithi/cloak'
+  let repository = "evansmurithi/cloak"
   let tag_name = ghub tag_name $repository
   let path = bin-path cloak $tag_name
 
@@ -2419,7 +2433,7 @@ export def cloak [ --force(-f) ] {
 }
 
 export def totp [ --force(-f) ] {
-  let repository = 'Zebradil/rustotpony'
+  let repository = "Zebradil/rustotpony"
   let tag_name = ghub tag_name $repository
   let path = bin-path totp $tag_name
 
@@ -2433,7 +2447,7 @@ export def totp [ --force(-f) ] {
 }
 
 export def totp-cli [ --force(-f) ] {
-  let repository = 'yitsushi/totp-cli'
+  let repository = "yitsushi/totp-cli"
   let tag_name = ghub tag_name $repository
   let path = bin-path totp-cli $tag_name
 
@@ -2446,7 +2460,7 @@ export def totp-cli [ --force(-f) ] {
 }
 
 export def jnv [ --force(-f) ] {
-  let repository = 'ynqa/jnv'
+  let repository = "ynqa/jnv"
   let tag_name = ghub tag_name $repository
   let path = bin-path jnv $tag_name
 
@@ -2459,7 +2473,7 @@ export def jnv [ --force(-f) ] {
 }
 
 export def devspace [ --force(-f) ] {
-  let repository = 'devspace-sh/devspace'
+  let repository = "devspace-sh/devspace"
   let tag_name = ghub tag_name $repository
   let path = bin-path devspace $tag_name
 
@@ -2473,7 +2487,7 @@ export def devspace [ --force(-f) ] {
 }
 
 export def atto [ --force(-f) ] {
-  let repository = 'codesoap/atto'
+  let repository = "codesoap/atto"
   let tag_name = ghub tag_name $repository
   let path = bin-path atto $tag_name
 
@@ -2486,7 +2500,7 @@ export def atto [ --force(-f) ] {
 }
 
 export def wsget [ --force(-f) ] {
-  let repository = 'ksysoev/wsget'
+  let repository = "ksysoev/wsget"
   let tag_name = ghub tag_name $repository
   let path = bin-path wsget $tag_name
 
@@ -2499,7 +2513,7 @@ export def wsget [ --force(-f) ] {
 }
 
 export def koji [ --force(-f) ] {
-  let repository = 'cococonscious/koji'
+  let repository = "cococonscious/koji"
   let tag_name = ghub tag_name $repository
   let path = bin-path koji $tag_name
 
@@ -2512,7 +2526,7 @@ export def koji [ --force(-f) ] {
 }
 
 export def smartcat [ --force(-f) ] {
-  let repository = 'efugier/smartcat'
+  let repository = "efugier/smartcat"
   let tag_name = ghub tag_name $repository
   let path = bin-path sc $tag_name
 
@@ -2525,7 +2539,7 @@ export def smartcat [ --force(-f) ] {
 }
 
 export def jwt [ --force(-f) ] {
-  let repository = 'mike-engel/jwt-cli'
+  let repository = "mike-engel/jwt-cli"
   let tag_name = ghub tag_name $repository
   let path = bin-path jwt $tag_name
 
@@ -2538,7 +2552,7 @@ export def jwt [ --force(-f) ] {
 }
 
 export def procs [ --force(-f) ] {
-  let repository = 'dalance/procs'
+  let repository = "dalance/procs"
   let tag_name = ghub tag_name $repository
   let path = bin-path procs $tag_name
 
@@ -2551,7 +2565,7 @@ export def procs [ --force(-f) ] {
 }
 
 export def oha [ --force(-f) ] {
-  let repository = 'hatoo/oha'
+  let repository = "hatoo/oha"
   let tag_name = ghub tag_name $repository
   let path = bin-path oha $tag_name
 
@@ -2565,7 +2579,7 @@ export def oha [ --force(-f) ] {
 }
 
 export def adguardian [ --force(-f) ] {
-  let repository = 'Lissy93/AdGuardian-Term'
+  let repository = "Lissy93/AdGuardian-Term"
   let tag_name = ghub tag_name $repository
   let path = bin-path adguardian $tag_name
 
@@ -2579,7 +2593,7 @@ export def adguardian [ --force(-f) ] {
 }
 
 export def --env gix [ --force(-f) ] {
-  let repository = 'GitoxideLabs/gitoxide'
+  let repository = "GitoxideLabs/gitoxide"
   let tag_name = ghub tag_name $repository
   let path = bin-path gix $tag_name
 
@@ -2593,7 +2607,7 @@ export def --env gix [ --force(-f) ] {
 }
 
 export def kubewall [ --force(-f) ] {
-  let repository = 'kubewall/kubewall'
+  let repository = "kubewall/kubewall"
   let tag_name = ghub tag_name $repository
   let path = bin-path kubewall $tag_name
 
@@ -2606,7 +2620,7 @@ export def kubewall [ --force(-f) ] {
 }
 
 export def f2 [ --force(-f) ] {
-  let repository = 'ayoisaiah/f2'
+  let repository = "ayoisaiah/f2"
   let tag_name = ghub tag_name $repository
   let path = bin-path f2 $tag_name
 
@@ -2619,7 +2633,7 @@ export def f2 [ --force(-f) ] {
 }
 
 export def doggo [ --force(-f) ] {
-  let repository = 'mr-karan/doggo'
+  let repository = "mr-karan/doggo"
   let tag_name = ghub tag_name $repository
   let path = bin-path doggo $tag_name
 
@@ -2632,7 +2646,7 @@ export def doggo [ --force(-f) ] {
 }
 
 export def lnav [ --force(-f) ] {
-  let repository = 'tstack/lnav'
+  let repository = "tstack/lnav"
   let tag_name = ghub tag_name $repository
   let path = bin-path lnav $tag_name
 
@@ -2645,7 +2659,7 @@ export def lnav [ --force(-f) ] {
 }
 
 export def --env scrcpy [ --force(-f) ] {
-  let repository = 'Genymobile/scrcpy'
+  let repository = "Genymobile/scrcpy"
   let tag_name = ghub tag_name $repository
   let path = lib-path scrcpy $tag_name
 
@@ -2659,7 +2673,7 @@ export def --env scrcpy [ --force(-f) ] {
 }
 
 export def apkeep [ --force(-f) ] {
-  let repository = 'EFForg/apkeep'
+  let repository = "EFForg/apkeep"
   let tag_name = ghub tag_name $repository
   let path = bin-path apkeep $tag_name
 
@@ -2673,7 +2687,7 @@ export def apkeep [ --force(-f) ] {
 }
 
 export def lf [ --force(-f) ] {
-  let repository = 'gokcehan/lf'
+  let repository = "gokcehan/lf"
   let tag_name = ghub tag_name $repository
   let path = bin-path lf $tag_name
 
@@ -2686,7 +2700,7 @@ export def lf [ --force(-f) ] {
 }
 
 export def wdcrypt [ --force(-f) ] {
-  let repository = 'stefins/wdcrypt'
+  let repository = "stefins/wdcrypt"
   let tag_name = ghub tag_name $repository
   let path = bin-path wdcrypt $tag_name
 
@@ -2700,7 +2714,7 @@ export def wdcrypt [ --force(-f) ] {
 }
 
 export def upscayl-bin [ --force(-f) ] {
-  let repository = 'upscayl/upscayl-ncnn'
+  let repository = "upscayl/upscayl-ncnn"
   let tag_name = ghub tag_name $repository
   let path = bin-path upscayl-bin $tag_name
 
@@ -2713,7 +2727,7 @@ export def upscayl-bin [ --force(-f) ] {
 }
 
 export def resvg [ --force(-f) ] {
-  let repository = 'linebender/resvg'
+  let repository = "linebender/resvg"
   let tag_name = ghub tag_name $repository
   let path = bin-path resvg $tag_name
 
@@ -2726,7 +2740,7 @@ export def resvg [ --force(-f) ] {
 }
 
 export def yt-dlp [ --force(-f) ] {
-  let repository = 'yt-dlp/yt-dlp'
+  let repository = "yt-dlp/yt-dlp"
   let tag_name = ghub tag_name $repository
   let path = bin-path yt-dlp $tag_name
 
@@ -2740,7 +2754,7 @@ export def yt-dlp [ --force(-f) ] {
 }
 
 export def go2tv [ --force(-f) ] {
-  let repository = 'alexballas/go2tv'
+  let repository = "alexballas/go2tv"
   let tag_name = ghub tag_name $repository
   let path = bin-path go2tv $tag_name
 
@@ -2753,7 +2767,7 @@ export def go2tv [ --force(-f) ] {
 }
 
 export def tv [ --force(-f) ] {
-  let repository = 'alexpasmantier/television'
+  let repository = "alexpasmantier/television"
   let tag_name = ghub tag_name $repository
   let path = bin-path tv $tag_name
 
@@ -2766,7 +2780,7 @@ export def tv [ --force(-f) ] {
 }
 
 export def cyme [ --force(-f) ] {
-  let repository = 'tuna-f1sh/cyme'
+  let repository = "tuna-f1sh/cyme"
   let tag_name = ghub tag_name $repository
   let path = bin-path cyme $tag_name
 
@@ -2779,7 +2793,7 @@ export def cyme [ --force(-f) ] {
 }
 
 export def omm [ --force(-f) ] {
-  let repository = 'dhth/omm'
+  let repository = "dhth/omm"
   let tag_name = ghub tag_name $repository
   let path = bin-path omm $tag_name
 
@@ -2792,7 +2806,7 @@ export def omm [ --force(-f) ] {
 }
 
 export def cotp [ --force(-f) ] {
-  let repository = 'replydev/cotp'
+  let repository = "replydev/cotp"
   let tag_name = ghub tag_name $repository
   let path = bin-path cotp $tag_name
 
@@ -2805,7 +2819,7 @@ export def cotp [ --force(-f) ] {
 }
 
 export def openapi-tui [ --force(-f) ] {
-  let repository = 'zaghaghi/openapi-tui'
+  let repository = "zaghaghi/openapi-tui"
   let tag_name = ghub tag_name $repository
   let path = bin-path openapi-tui $tag_name
 
@@ -2818,7 +2832,7 @@ export def openapi-tui [ --force(-f) ] {
 }
 
 export def eget [ --force(-f) ] {
-  let repository = 'zyedidia/eget'
+  let repository = "zyedidia/eget"
   let tag_name = ghub tag_name $repository
   let path = bin-path eget $tag_name
 
@@ -2831,7 +2845,7 @@ export def eget [ --force(-f) ] {
 }
 
 export def oryx [ --force(-f) ] {
-  let repository = 'pythops/oryx'
+  let repository = "pythops/oryx"
   let tag_name = ghub tag_name $repository
   let path = bin-path oryx $tag_name
 
@@ -2845,7 +2859,7 @@ export def oryx [ --force(-f) ] {
 }
 
 export def impala [ --force(-f) ] {
-  let repository = 'pythops/impala'
+  let repository = "pythops/impala"
   let tag_name = ghub tag_name $repository
   let path = bin-path impala $tag_name
 
@@ -2859,7 +2873,7 @@ export def impala [ --force(-f) ] {
 }
 
 export def bluetui [ --force(-f) ] {
-  let repository = 'pythops/bluetui'
+  let repository = "pythops/bluetui"
   let tag_name = ghub tag_name $repository
   let path = bin-path bluetui $tag_name
 
@@ -2873,7 +2887,7 @@ export def bluetui [ --force(-f) ] {
 }
 
 export def tenere [ --force(-f) ] {
-  let repository = 'pythops/tenere'
+  let repository = "pythops/tenere"
   let tag_name = ghub tag_name $repository
   let path = bin-path tenere $tag_name
 
@@ -2887,7 +2901,7 @@ export def tenere [ --force(-f) ] {
 }
 
 export def bluetuith [ --force(-f) ] {
-  let repository = 'bluetuith-org/bluetuith'
+  let repository = "bluetuith-org/bluetuith"
   let tag_name = ghub tag_name $repository
   let path = bin-path bluetuith $tag_name
 
@@ -2900,7 +2914,7 @@ export def bluetuith [ --force(-f) ] {
 }
 
 export def serpl [ --force(-f) ] {
-  let repository = 'yassinebridi/serpl'
+  let repository = "yassinebridi/serpl"
   let tag_name = ghub tag_name $repository
   let path = bin-path serpl $tag_name
 
@@ -2913,7 +2927,7 @@ export def serpl [ --force(-f) ] {
 }
 
 export def rgr [ --force(-f) ] {
-  let repository = 'acheronfail/repgrep'
+  let repository = "acheronfail/repgrep"
   let tag_name = ghub tag_name $repository
   let path = bin-path repgrep $tag_name
 
@@ -2926,7 +2940,7 @@ export def rgr [ --force(-f) ] {
 }
 
 export def rain [ --force(-f) ] {
-  let repository = 'cenkalti/rain'
+  let repository = "cenkalti/rain"
   let tag_name = ghub tag_name $repository
   let path = bin-path rain $tag_name
 
@@ -2940,7 +2954,7 @@ export def rain [ --force(-f) ] {
 }
 
 export def tabiew [ --force(-f) ] {
-  let repository = 'shshemi/tabiew'
+  let repository = "shshemi/tabiew"
   let tag_name = ghub tag_name $repository
   let path = bin-path tabiew $tag_name
 
@@ -2954,7 +2968,7 @@ export def tabiew [ --force(-f) ] {
 }
 
 export def csvlens [ --force(-f) ] {
-  let repository = 'YS-L/csvlens'
+  let repository = "YS-L/csvlens"
   let tag_name = ghub tag_name $repository
   let path = bin-path csvlens $tag_name
 
@@ -2967,7 +2981,7 @@ export def csvlens [ --force(-f) ] {
 }
 
 export def lumen [ --force(-f) ] {
-  let repository = 'jnsahaj/lumen'
+  let repository = "jnsahaj/lumen"
   let tag_name = ghub tag_name $repository
   let path = bin-path lumen $tag_name
 
@@ -2980,7 +2994,7 @@ export def lumen [ --force(-f) ] {
 }
 
 export def gfold [ --force(-f) ] {
-  let repository = 'nickgerace/gfold'
+  let repository = "nickgerace/gfold"
   let tag_name = ghub tag_name $repository
   let path = bin-path gfold $tag_name
 

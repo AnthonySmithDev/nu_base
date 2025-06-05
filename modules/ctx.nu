@@ -172,6 +172,11 @@ export def "clear file" [] {
   print $saved
 }
 
+export def "clear" [] {
+  clear chunck
+  clear file
+}
+
 # export def "add dir" [dir: path] {
 #   let dirs = (fd --type dir | lines)
 #   if ($dirs | is-empty) { return }

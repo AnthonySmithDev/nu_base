@@ -177,8 +177,8 @@ export def "scrcpy tiktok" [] {
   scrcpy ...$local_args ...$global_args
 }
 
-export def "scrcpy borderless" [] {
-  scrcpy ...$global_args
+export def --wrapped  "scrcpy borderless" [...args] {
+  scrcpy ...$global_args ...$args
 }
 
 def "main" [...args] {

@@ -607,6 +607,20 @@
   },
   {
     "category": "core",
+    "name": "walles/riff",
+    "tag_name": "3.3.10",
+    "created_at": "2025-04-05T09:08:59Z",
+    "assets": [
+      "riff-3.3.10-universal-macos",
+      "riff-3.3.10-x86_64-linux",
+      "riff-3.3.10-x86_64-windows.exe"
+    ],
+    "linux_x64": {
+      "ends": "x86_64-linux"
+    }
+  },
+  {
+    "category": "core",
     "name": "sigoden/dufs",
     "tag_name": "v0.43.0",
     "created_at": "2024-11-05T09:08:43Z",
@@ -2464,14 +2478,14 @@
   {
     "category": "core",
     "name": "pomdtr/tweety",
-    "tag_name": "v2.1.6",
-    "created_at": "2025-06-04T13:53:22Z",
+    "tag_name": "v2.1.8",
+    "created_at": "2025-06-05T11:19:14Z",
     "assets": [
-      "tweety-2.1.6-darwin_amd64.tar.gz",
-      "tweety-2.1.6-darwin_arm64.tar.gz",
-      "tweety-2.1.6-linux_386.tar.gz",
-      "tweety-2.1.6-linux_amd64.tar.gz",
-      "tweety-2.1.6-linux_arm64.tar.gz"
+      "tweety-2.1.8-darwin_amd64.tar.gz",
+      "tweety-2.1.8-darwin_arm64.tar.gz",
+      "tweety-2.1.8-linux_386.tar.gz",
+      "tweety-2.1.8-linux_amd64.tar.gz",
+      "tweety-2.1.8-linux_arm64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3650,8 +3664,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.11.12",
-    "created_at": "2025-05-29T13:17:12Z",
+    "tag_name": "0.11.13",
+    "created_at": "2025-06-05T20:18:38Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -4174,21 +4188,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.22.0",
-    "created_at": "2025-06-04T06:47:23Z",
+    "tag_name": "v0.22.2",
+    "created_at": "2025-06-05T08:19:57Z",
     "assets": [
-      "affine-0.22.0-stable-linux-x64.appimage",
-      "affine-0.22.0-stable-linux-x64.deb",
-      "affine-0.22.0-stable-linux-x64.flatpak",
-      "affine-0.22.0-stable-linux-x64.zip",
-      "affine-0.22.0-stable-macos-arm64.dmg",
-      "affine-0.22.0-stable-macos-arm64.zip",
-      "affine-0.22.0-stable-macos-x64.dmg",
-      "affine-0.22.0-stable-macos-x64.zip",
-      "affine-0.22.0-stable-windows-arm64.exe",
-      "affine-0.22.0-stable-windows-arm64.nsis.exe",
-      "affine-0.22.0-stable-windows-x64.exe",
-      "affine-0.22.0-stable-windows-x64.nsis.exe",
+      "affine-0.22.2-stable-linux-x64.appimage",
+      "affine-0.22.2-stable-linux-x64.deb",
+      "affine-0.22.2-stable-linux-x64.flatpak",
+      "affine-0.22.2-stable-linux-x64.zip",
+      "affine-0.22.2-stable-macos-arm64.dmg",
+      "affine-0.22.2-stable-macos-arm64.zip",
+      "affine-0.22.2-stable-macos-x64.dmg",
+      "affine-0.22.2-stable-macos-x64.zip",
+      "affine-0.22.2-stable-windows-arm64.exe",
+      "affine-0.22.2-stable-windows-arm64.nsis.exe",
+      "affine-0.22.2-stable-windows-x64.exe",
+      "affine-0.22.2-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
@@ -4330,16 +4344,17 @@
   {
     "category": "other",
     "name": "telegramdesktop/tdesktop",
-    "tag_name": "v5.15.0",
-    "created_at": "2025-06-04T18:56:02Z",
+    "tag_name": "v5.15.1",
+    "created_at": "2025-06-05T15:08:28Z",
     "assets": [
-      "tdesktop-5.15.0-full.tar.gz",
-      "tportable-x64.5.15.0.zip",
-      "tportable.5.15.0.zip",
-      "tsetup-x64.5.15.0.exe",
-      "tsetup.5.15.0.dmg",
-      "tsetup.5.15.0.exe",
-      "tsetup.5.15.0.tar.xz"
+      "tdesktop-5.15.1-full.tar.gz",
+      "tportable-arm64.5.15.1.zip",
+      "tportable-x64.5.15.1.zip",
+      "tportable.5.15.1.zip",
+      "tsetup-arm64.5.15.1.exe",
+      "tsetup-x64.5.15.1.exe",
+      "tsetup.5.15.1.dmg",
+      "tsetup.5.15.1.exe"
     ],
     "linux_x64": {
       "starts": "tsetup",
@@ -4497,17 +4512,17 @@
   {
     "category": "other",
     "name": "ytmdesktop/ytmdesktop",
-    "tag_name": "v2.0.8",
-    "created_at": "2025-03-19T22:04:52Z",
+    "tag_name": "v2.0.9",
+    "created_at": "2025-06-05T19:38:31Z",
     "assets": [
       "RELEASES",
-      "youtube-music-desktop-app-2.0.8-1.arm64.rpm",
-      "youtube-music-desktop-app-2.0.8-1.x86_64.rpm",
-      "youtube-music-desktop-app_2.0.8_amd64.deb",
-      "youtube-music-desktop-app_2.0.8_arm64.deb",
-      "YouTube.Music.Desktop.App-2.0.8.Setup.exe",
-      "YouTube.Music.Desktop.App-darwin-x64-2.0.8.zip",
-      "youtube_music_desktop_app-2.0.8-full.nupkg"
+      "youtube-music-desktop-app-2.0.9-1.arm64.rpm",
+      "youtube-music-desktop-app-2.0.9-1.x86_64.rpm",
+      "youtube-music-desktop-app_2.0.9_amd64.deb",
+      "youtube-music-desktop-app_2.0.9_arm64.deb",
+      "YouTube.Music.Desktop.App-2.0.9.Setup.exe",
+      "YouTube.Music.Desktop.App-darwin-x64-2.0.9.zip",
+      "youtube_music_desktop_app-2.0.9-full.nupkg"
     ]
   },
   {
@@ -4561,22 +4576,22 @@
   {
     "category": "other",
     "name": "raphamorim/rio",
-    "tag_name": "v0.2.17",
-    "created_at": "2025-06-03T14:18:25Z",
+    "tag_name": "v0.2.18",
+    "created_at": "2025-06-05T20:34:00Z",
     "assets": [
       "rio-installer-aarch64.msi",
       "rio-installer-x86_64.msi",
       "rio-portable-aarch64.exe",
       "rio-portable-x86_64.exe",
       "rio.dmg",
-      "rioterm-0.2.17-1.aarch64_wayland.rpm",
-      "rioterm-0.2.17-1.aarch64_x11.rpm",
-      "rioterm-0.2.17-1.x86_64_wayland.rpm",
-      "rioterm-0.2.17-1.x86_64_x11.rpm",
-      "rioterm_0.2.17_amd64_wayland.deb",
-      "rioterm_0.2.17_amd64_x11.deb",
-      "rioterm_0.2.17_arm64_wayland.deb",
-      "rioterm_0.2.17_arm64_x11.deb"
+      "rioterm-0.2.18-1.aarch64_wayland.rpm",
+      "rioterm-0.2.18-1.aarch64_x11.rpm",
+      "rioterm-0.2.18-1.x86_64_wayland.rpm",
+      "rioterm-0.2.18-1.x86_64_x11.rpm",
+      "rioterm_0.2.18_amd64_wayland.deb",
+      "rioterm_0.2.18_amd64_x11.deb",
+      "rioterm_0.2.18_arm64_wayland.deb",
+      "rioterm_0.2.18_arm64_x11.deb"
     ]
   },
   {
@@ -6129,14 +6144,14 @@
   {
     "category": "android",
     "name": "maxrave-dev/SimpMusic",
-    "tag_name": "v0.2.15",
-    "created_at": "2025-05-22T14:46:50Z",
+    "tag_name": "v0.2.16",
+    "created_at": "2025-06-05T14:50:41Z",
     "assets": [
-      "SimpMusic_0.2.15-arm64-v8a-release.apk",
-      "SimpMusic_0.2.15-armeabi-v7a-release.apk",
-      "SimpMusic_0.2.15-universal-release.apk",
-      "SimpMusic_0.2.15-x86-release.apk",
-      "SimpMusic_0.2.15-x86_64-release.apk"
+      "SimpMusic_v0.2.16-arm64-v8a-release.apk",
+      "SimpMusic_v0.2.16-armeabi-v7a-release.apk",
+      "SimpMusic_v0.2.16-universal-release.apk",
+      "SimpMusic_v0.2.16-x86-release.apk",
+      "SimpMusic_v0.2.16-x86_64-release.apk"
     ],
     "android": {
       "ends": "universal-release.apk"
