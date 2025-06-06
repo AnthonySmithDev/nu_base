@@ -144,7 +144,10 @@ export def hyde-install [] {
   bash ./install.sh
 }
 
-export def bnb-ws [addr: string = "0x82F5F0599371081448456Cd951b645EdeA56760c"] {
+export def bnb-ws [
+  addr: string = "0x82F5F0599371081448456Cd951b645EdeA56760c",
+  --url: string = "ws://167.235.203.170:3011"
+] {
   let msg = {
     "action":"subscribe",
     "filters":[{
@@ -153,5 +156,5 @@ export def bnb-ws [addr: string = "0x82F5F0599371081448456Cd951b645EdeA56760c"] 
       "currency":"BNB"
     }]
   }
-  wsget ws://167.235.203.170:3011/ -r ($msg | to json)
+  wsget $url -r ($msg | to json)
 }
