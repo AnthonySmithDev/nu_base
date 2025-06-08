@@ -82,3 +82,7 @@ export def discord [] {
 export def flatpak [] {
   install flatpak
 }
+
+export def wifite [] {
+  install wifite wireshark-cli reaver hcxtools hcxdumptool
+}

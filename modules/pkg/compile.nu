@@ -496,3 +496,13 @@ export def termfilechooser [] {
 
   cp -r /usr/local/share/xdg-desktop-portal-termfilechooser ($env.HOME | path join .config/xdg-desktop-portal-termfilechooser)
 }
+
+export def hcxtools [] {
+  let path = ($env.USR_LOCAL_SOURCE | path join hcxtools)
+  git-down https://github.com/ZerBea/hcxtools.git $path
+
+  with-wd $path {||
+    make
+    sudo make install
+  }
+}

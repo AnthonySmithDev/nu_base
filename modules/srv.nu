@@ -1,4 +1,9 @@
 
+export-env {
+  $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
+  $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
+}
+
 def commands [] {
   [init remove status start stop restart enable disable]
 }

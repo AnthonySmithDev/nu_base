@@ -67,13 +67,15 @@ export def podman [] {
   pkg flathub podman
 }
 
-export def evremap [file: string@'config complete-evremap'] {
-  pkg compile evremap --uinput
-  config evremap $file
-  srv init evremap
+def mouseless-completions [] {
+  [desktop laptop]
 }
 
-export def mouseless [file: string@'config complete-mouseless'] {
+export def mouseless [file: string@mouseless-completions] {
+  use pkg
+  use config
+  use srv.nu
+
   pkg bin mouseless
   config mouseless $file
 
