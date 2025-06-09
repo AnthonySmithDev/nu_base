@@ -257,6 +257,10 @@ export def wallpapers [] {
   bind-user wallpapers
 }
 
+export def mimeapps [] {
+  bind-user mimeapps.list
+}
+
 export def core [] {
   nushell
   helix
