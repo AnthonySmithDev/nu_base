@@ -207,6 +207,10 @@ export def cosmic [] {
   bind-user --dir cosmic/ cosmic/
 }
 
+export def zed [] {
+  bind-user --dir zed
+}
+
 export def helix [] {
   bind-user helix/config.toml
   bind-user helix/languages.toml
