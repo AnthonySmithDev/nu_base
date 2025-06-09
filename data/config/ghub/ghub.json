@@ -408,23 +408,23 @@
   {
     "category": "core",
     "name": "jesseduffield/lazygit",
-    "tag_name": "v0.51.1",
-    "created_at": "2025-05-23T10:33:22Z",
+    "tag_name": "v0.52.0",
+    "created_at": "2025-06-05T11:24:34Z",
     "assets": [
-      "lazygit_0.51.1_Darwin_arm64.tar.gz",
-      "lazygit_0.51.1_Darwin_x86_64.tar.gz",
-      "lazygit_0.51.1_freebsd_32-bit.tar.gz",
-      "lazygit_0.51.1_freebsd_arm64.tar.gz",
-      "lazygit_0.51.1_freebsd_armv6.tar.gz",
-      "lazygit_0.51.1_freebsd_x86_64.tar.gz",
-      "lazygit_0.51.1_Linux_32-bit.tar.gz",
-      "lazygit_0.51.1_Linux_arm64.tar.gz",
-      "lazygit_0.51.1_Linux_armv6.tar.gz",
-      "lazygit_0.51.1_Linux_x86_64.tar.gz",
-      "lazygit_0.51.1_Windows_32-bit.zip",
-      "lazygit_0.51.1_Windows_arm64.zip",
-      "lazygit_0.51.1_Windows_armv6.zip",
-      "lazygit_0.51.1_Windows_x86_64.zip"
+      "lazygit_0.52.0_Darwin_arm64.tar.gz",
+      "lazygit_0.52.0_Darwin_x86_64.tar.gz",
+      "lazygit_0.52.0_freebsd_32-bit.tar.gz",
+      "lazygit_0.52.0_freebsd_arm64.tar.gz",
+      "lazygit_0.52.0_freebsd_armv6.tar.gz",
+      "lazygit_0.52.0_freebsd_x86_64.tar.gz",
+      "lazygit_0.52.0_Linux_32-bit.tar.gz",
+      "lazygit_0.52.0_Linux_arm64.tar.gz",
+      "lazygit_0.52.0_Linux_armv6.tar.gz",
+      "lazygit_0.52.0_Linux_x86_64.tar.gz",
+      "lazygit_0.52.0_Windows_32-bit.zip",
+      "lazygit_0.52.0_Windows_arm64.zip",
+      "lazygit_0.52.0_Windows_armv6.zip",
+      "lazygit_0.52.0_Windows_x86_64.zip"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -731,8 +731,8 @@
   {
     "category": "core",
     "name": "go-task/task",
-    "tag_name": "v3.43.3",
-    "created_at": "2025-04-27T22:29:34Z",
+    "tag_name": "v3.44.0",
+    "created_at": "2025-06-09T00:34:13Z",
     "assets": [
       "task_darwin_amd64.tar.gz",
       "task_darwin_arm64.tar.gz",
@@ -1190,13 +1190,13 @@
   {
     "category": "extra",
     "name": "altsem/gitu",
-    "tag_name": "v0.32.0",
-    "created_at": "2025-05-24T07:28:10Z",
+    "tag_name": "v0.33.0",
+    "created_at": "2025-06-07T14:23:28Z",
     "assets": [
-      "gitu-v0.32.0-aarch64-apple-darwin.zip",
-      "gitu-v0.32.0-x86_64-apple-darwin.zip",
-      "gitu-v0.32.0-x86_64-pc-windows-msvc.zip",
-      "gitu-v0.32.0-x86_64-unknown-linux-gnu.zip"
+      "gitu-v0.33.0-aarch64-apple-darwin.zip",
+      "gitu-v0.33.0-x86_64-apple-darwin.zip",
+      "gitu-v0.33.0-x86_64-pc-windows-msvc.zip",
+      "gitu-v0.33.0-x86_64-unknown-linux-gnu.zip"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-gnu.zip"
@@ -1622,8 +1622,8 @@
   {
     "category": "extra",
     "name": "sarub0b0/kubetui",
-    "tag_name": "v1.7.1",
-    "created_at": "2025-05-10T05:49:18Z",
+    "tag_name": "v1.8.1",
+    "created_at": "2025-06-08T17:42:14Z",
     "assets": [
       "kubetui-aarch64-apple-darwin",
       "kubetui-x86_64-apple-darwin",
@@ -2406,8 +2406,8 @@
   {
     "category": "extra",
     "name": "ast-grep/ast-grep",
-    "tag_name": "0.38.4",
-    "created_at": "2025-06-02T01:03:57Z",
+    "tag_name": "0.38.5",
+    "created_at": "2025-06-08T17:17:26Z",
     "assets": [
       "app-aarch64-apple-darwin.zip",
       "app-aarch64-pc-windows-msvc.zip",
@@ -3695,8 +3695,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.7.11",
-    "created_at": "2025-06-04T19:35:56Z",
+    "tag_name": "0.7.12",
+    "created_at": "2025-06-06T19:42:06Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -4344,17 +4344,18 @@
   {
     "category": "other",
     "name": "telegramdesktop/tdesktop",
-    "tag_name": "v5.15.1",
-    "created_at": "2025-06-05T15:08:28Z",
+    "tag_name": "v5.15.3",
+    "created_at": "2025-06-09T07:05:47Z",
     "assets": [
-      "tdesktop-5.15.1-full.tar.gz",
-      "tportable-arm64.5.15.1.zip",
-      "tportable-x64.5.15.1.zip",
-      "tportable.5.15.1.zip",
-      "tsetup-arm64.5.15.1.exe",
-      "tsetup-x64.5.15.1.exe",
-      "tsetup.5.15.1.dmg",
-      "tsetup.5.15.1.exe"
+      "tdesktop-5.15.3-full.tar.gz",
+      "tportable-arm64.5.15.3.zip",
+      "tportable-x64.5.15.3.zip",
+      "tportable.5.15.3.zip",
+      "tsetup-arm64.5.15.3.exe",
+      "tsetup-x64.5.15.3.exe",
+      "tsetup.5.15.3.dmg",
+      "tsetup.5.15.3.exe",
+      "tsetup.5.15.3.tar.xz"
     ],
     "linux_x64": {
       "starts": "tsetup",
@@ -4528,18 +4529,18 @@
   {
     "category": "other",
     "name": "digitalocean/doctl",
-    "tag_name": "v1.129.0",
-    "created_at": "2025-06-04T15:41:05Z",
+    "tag_name": "v1.130.0",
+    "created_at": "2025-06-09T17:07:23Z",
     "assets": [
-      "doctl-1.129.0-darwin-amd64.tar.gz",
-      "doctl-1.129.0-darwin-arm64.tar.gz",
-      "doctl-1.129.0-linux-386.tar.gz",
-      "doctl-1.129.0-linux-amd64.tar.gz",
-      "doctl-1.129.0-linux-arm64.tar.gz",
-      "doctl-1.129.0-source.tar.gz",
-      "doctl-1.129.0-windows-386.zip",
-      "doctl-1.129.0-windows-amd64.zip",
-      "doctl-1.129.0-windows-arm64.zip"
+      "doctl-1.130.0-darwin-amd64.tar.gz",
+      "doctl-1.130.0-darwin-arm64.tar.gz",
+      "doctl-1.130.0-linux-386.tar.gz",
+      "doctl-1.130.0-linux-amd64.tar.gz",
+      "doctl-1.130.0-linux-arm64.tar.gz",
+      "doctl-1.130.0-source.tar.gz",
+      "doctl-1.130.0-windows-386.zip",
+      "doctl-1.130.0-windows-amd64.zip",
+      "doctl-1.130.0-windows-arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux-amd64.tar.gz"
@@ -4614,8 +4615,8 @@
   {
     "category": "other",
     "name": "containers/podman-tui",
-    "tag_name": "v1.6.0",
-    "created_at": "2025-05-28T07:36:53Z",
+    "tag_name": "v1.6.1",
+    "created_at": "2025-06-07T07:31:45Z",
     "assets": [
       "podman-tui-release-darwin_amd64.zip",
       "podman-tui-release-linux_amd64.zip",
@@ -4781,8 +4782,8 @@
   {
     "category": "other",
     "name": "pnpm/pnpm",
-    "tag_name": "v10.11.1",
-    "created_at": "2025-06-02T13:30:14Z",
+    "tag_name": "v10.12.1",
+    "created_at": "2025-06-08T14:12:24Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",
@@ -4886,15 +4887,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.16.1",
-    "created_at": "2025-06-03T12:39:47Z",
+    "tag_name": "v0.17.0",
+    "created_at": "2025-06-09T05:07:58Z",
     "assets": [
-      "aider-desk-0.16.1-macos.zip",
-      "aider-desk-0.16.1-setup.exe",
-      "aider-desk-0.16.1.AppImage",
-      "aider-desk-0.16.1.dmg",
-      "aider-desk-0.16.1.x86_64.rpm",
-      "aider-desk_0.16.1_amd64.deb"
+      "aider-desk-0.17.0-macos.zip",
+      "aider-desk-0.17.0-setup.exe",
+      "aider-desk-0.17.0.AppImage",
+      "aider-desk-0.17.0.dmg",
+      "aider-desk-0.17.0.x86_64.rpm",
+      "aider-desk_0.17.0_amd64.deb"
     ]
   },
   {
@@ -5027,8 +5028,8 @@
   {
     "category": "other",
     "name": "pythops/oryx",
-    "tag_name": "v0.6",
-    "created_at": "2025-05-30T21:36:00Z",
+    "tag_name": "v0.6.1",
+    "created_at": "2025-06-07T20:01:57Z",
     "assets": [
       "oryx-aarch64-unknown-linux-musl",
       "oryx-x86_64-unknown-linux-musl"
@@ -5933,8 +5934,8 @@
   {
     "category": "android",
     "name": "FriesI23/mhabit",
-    "tag_name": "v1.16.14+83",
-    "created_at": "2025-05-24T07:12:26Z",
+    "tag_name": "v1.16.17+86",
+    "created_at": "2025-06-09T11:16:04Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
