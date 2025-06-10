@@ -265,6 +265,10 @@ export def mimeapps [] {
   bind-user mimeapps.list
 }
 
+export def neovide [] {
+  bind-user neovide/config.toml
+}
+
 export def core [] {
   nushell
   helix

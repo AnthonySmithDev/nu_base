@@ -86,3 +86,7 @@ export def flatpak [] {
 export def wifite [] {
   install wifite wireshark-cli reaver hcxtools hcxdumptool
 }
+
+export def neovide [] {
+  install neovide
+}

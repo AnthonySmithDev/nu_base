@@ -1061,8 +1061,8 @@
   {
     "category": "core",
     "name": "ariga/atlas",
-    "tag_name": "v0.34.0",
-    "created_at": "2025-05-29T07:23:33Z",
+    "tag_name": "v0.35.0",
+    "created_at": "2025-06-03T13:17:09Z",
     "assets": []
   },
   {
@@ -1167,8 +1167,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.143.0",
-    "created_at": "2025-05-29T10:44:00Z",
+    "tag_name": "3.144.0",
+    "created_at": "2025-06-10T10:55:58Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -1335,18 +1335,20 @@
   {
     "category": "extra",
     "name": "ekzhang/bore",
-    "tag_name": "v0.5.3",
-    "created_at": "2025-04-14T21:48:02Z",
+    "tag_name": "v0.6.0",
+    "created_at": "2025-06-09T20:12:10Z",
     "assets": [
-      "bore-v0.5.3-aarch64-unknown-linux-musl.tar.gz",
-      "bore-v0.5.3-arm-unknown-linux-gnueabi.tar.gz",
-      "bore-v0.5.3-arm-unknown-linux-musleabi.tar.gz",
-      "bore-v0.5.3-armv7-unknown-linux-gnueabihf.tar.gz",
-      "bore-v0.5.3-armv7-unknown-linux-musleabihf.tar.gz",
-      "bore-v0.5.3-i686-pc-windows-msvc.zip",
-      "bore-v0.5.3-i686-unknown-linux-musl.tar.gz",
-      "bore-v0.5.3-x86_64-pc-windows-msvc.zip",
-      "bore-v0.5.3-x86_64-unknown-linux-musl.tar.gz"
+      "bore-v0.6.0-aarch64-apple-darwin.tar.gz",
+      "bore-v0.6.0-aarch64-unknown-linux-musl.tar.gz",
+      "bore-v0.6.0-arm-unknown-linux-gnueabi.tar.gz",
+      "bore-v0.6.0-arm-unknown-linux-musleabi.tar.gz",
+      "bore-v0.6.0-armv7-unknown-linux-gnueabihf.tar.gz",
+      "bore-v0.6.0-armv7-unknown-linux-musleabihf.tar.gz",
+      "bore-v0.6.0-i686-pc-windows-msvc.zip",
+      "bore-v0.6.0-i686-unknown-linux-musl.tar.gz",
+      "bore-v0.6.0-x86_64-apple-darwin.tar.gz",
+      "bore-v0.6.0-x86_64-pc-windows-msvc.zip",
+      "bore-v0.6.0-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -3632,30 +3634,30 @@
   {
     "category": "other",
     "name": "cli/cli",
-    "tag_name": "v2.74.0",
-    "created_at": "2025-05-29T20:49:12Z",
+    "tag_name": "v2.74.1",
+    "created_at": "2025-06-10T13:09:10Z",
     "assets": [
-      "gh_2.74.0_linux_386.deb",
-      "gh_2.74.0_linux_386.rpm",
-      "gh_2.74.0_linux_386.tar.gz",
-      "gh_2.74.0_linux_amd64.deb",
-      "gh_2.74.0_linux_amd64.rpm",
-      "gh_2.74.0_linux_amd64.tar.gz",
-      "gh_2.74.0_linux_arm64.deb",
-      "gh_2.74.0_linux_arm64.rpm",
-      "gh_2.74.0_linux_arm64.tar.gz",
-      "gh_2.74.0_linux_armv6.deb",
-      "gh_2.74.0_linux_armv6.rpm",
-      "gh_2.74.0_linux_armv6.tar.gz",
-      "gh_2.74.0_macOS_amd64.zip",
-      "gh_2.74.0_macOS_arm64.zip",
-      "gh_2.74.0_macOS_universal.pkg",
-      "gh_2.74.0_windows_386.msi",
-      "gh_2.74.0_windows_386.zip",
-      "gh_2.74.0_windows_amd64.msi",
-      "gh_2.74.0_windows_amd64.zip",
-      "gh_2.74.0_windows_arm64.msi",
-      "gh_2.74.0_windows_arm64.zip"
+      "gh_2.74.1_linux_386.deb",
+      "gh_2.74.1_linux_386.rpm",
+      "gh_2.74.1_linux_386.tar.gz",
+      "gh_2.74.1_linux_amd64.deb",
+      "gh_2.74.1_linux_amd64.rpm",
+      "gh_2.74.1_linux_amd64.tar.gz",
+      "gh_2.74.1_linux_arm64.deb",
+      "gh_2.74.1_linux_arm64.rpm",
+      "gh_2.74.1_linux_arm64.tar.gz",
+      "gh_2.74.1_linux_armv6.deb",
+      "gh_2.74.1_linux_armv6.rpm",
+      "gh_2.74.1_linux_armv6.tar.gz",
+      "gh_2.74.1_macOS_amd64.zip",
+      "gh_2.74.1_macOS_arm64.zip",
+      "gh_2.74.1_macOS_universal.pkg",
+      "gh_2.74.1_windows_386.msi",
+      "gh_2.74.1_windows_386.zip",
+      "gh_2.74.1_windows_amd64.msi",
+      "gh_2.74.1_windows_amd64.zip",
+      "gh_2.74.1_windows_arm64.msi",
+      "gh_2.74.1_windows_arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3726,8 +3728,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.12.7",
-    "created_at": "2025-06-06T15:39:45Z",
+    "tag_name": "v1.13.0",
+    "created_at": "2025-06-10T13:53:10Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -4743,8 +4745,8 @@
   {
     "category": "other",
     "name": "SUPERCILEX/clipboard-history",
-    "tag_name": "0.10.1",
-    "created_at": "2025-05-28T02:32:14Z",
+    "tag_name": "0.11.0",
+    "created_at": "2025-06-10T00:17:06Z",
     "assets": [
       "aarch64-unknown-linux-gnu-ringboard",
       "aarch64-unknown-linux-gnu-ringboard-egui",
@@ -5777,8 +5779,8 @@
   {
     "category": "other",
     "name": "yt-dlp/yt-dlp",
-    "tag_name": "2025.05.22",
-    "created_at": "2025-05-22T09:49:11Z",
+    "tag_name": "2025.06.09",
+    "created_at": "2025-06-09T23:41:52Z",
     "assets": [
       "SHA2-256SUMS",
       "SHA2-512SUMS",
@@ -6104,8 +6106,8 @@
   {
     "category": "android",
     "name": "Arturo254/OpenTune",
-    "tag_name": "1.9.9",
-    "created_at": "2025-05-26T00:59:50Z",
+    "tag_name": "2.0.0",
+    "created_at": "2025-06-10T15:07:46Z",
     "assets": [
       "app-release.apk"
     ],

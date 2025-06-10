@@ -492,7 +492,7 @@ export def --env scilab [ --force(-f) ] {
 }
 
 export def gitlab-cli [ --force(-f) ] {
-  let version = '1.57.0'
+  let version = '1.59.2'
   let path = bin-path glab $version
 
   if (path-not-exists $path $force) {
