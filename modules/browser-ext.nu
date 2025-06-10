@@ -7,6 +7,7 @@ const extensions = {
     [picture-in-picture-extens, https://chromewebstore.google.com/detail/picture-in-picture-extens/hkgfoiooedgoejojocmhlaklaeopbecg]
     [close-duplicate-tab, https://chromewebstore.google.com/detail/close-duplicate-tab/lccfnphpgnpeghoffocbacbkohbapinm]
     [copy-all-urls, https://chromewebstore.google.com/detail/copy-all-urls/djdmadneanknadilpjiknlnanaolmbfk?hl]
+    [github-dark-mode, https://chromewebstore.google.com/detail/github-dark-mode/hddelogpnldbdiocpppjbcenphnghehg]
     # [authenticator, https://chromewebstore.google.com/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai]
     # [simple-translate, https://chromewebstore.google.com/detail/simple-translate/ibplnjkanclpjokhdolnendpplpjiace]
     # [user-javascript-and-css, https://chromewebstore.google.com/detail/user-javascript-and-css/nbhcbdghjpllgmfilhnhkllmkecfmpld]
