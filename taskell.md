@@ -9,6 +9,7 @@
 - cambiar el horario de hyde a peru -5:00
 - modularizar mi configuracion de kitty
 - agregar la insercion de extension para zen browser
+- agregar una opcion para recortar todos los pkg descargados para poder actualizarlos
 
 ## Doing
 

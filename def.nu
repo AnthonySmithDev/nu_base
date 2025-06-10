@@ -158,3 +158,7 @@ export def bnb-ws [
   }
   wsget $url -r ($msg | to json)
 }
+
+export def session-recovery [] { # chat
+  [website hashing saved gymnast lullaby occur salads yodel fewest ceiling dazed eldest gymnast]
+}
