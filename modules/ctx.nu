@@ -4,8 +4,21 @@ def main [] {
   print "Context Manager"
 }
 
+def path-top [] {
+  try {
+    let git = git rev-parse --show-toplevel
+    return $git
+  } catch {
+    return $env.PWD
+  }
+}
+
 def path-ctx [...paths: string] {
-  $env.PWD | path join ctx ...$paths
+  path-top | path join ctx ...$paths
+}
+
+def path-full [] {
+  each {|filename| path-top | path join $filename}
 }
 
 def path-chunck [] {
@@ -48,7 +61,7 @@ export def "show chunck" [--lang(-l): string = "txt"] {
   if ($chunks | is-empty) {
     return
   }
-  cat ...$chunks
+  cat ...($chunks | path-full)
 }
 
 export def "pretty chunck" [--lang(-l): string = "txt"] {
@@ -56,7 +69,7 @@ export def "pretty chunck" [--lang(-l): string = "txt"] {
   if ($chunks | is-empty) {
     return
   }
-  bat --color=always --paging=never --language=($lang) --style=full ...$chunks
+  bat --color=always --paging=never --language=($lang) --style=full ...($chunks | path-full)
 }
 
 export def "edit chunck" [] {
@@ -75,7 +88,7 @@ export def "remove chunck" [--lang(-l): string = "txt"] {
   if ($select | is-empty) {
     return
   }
-  rm ...$select
+  rm ...($select | path-full)
   print "OK"
 }
 
@@ -84,7 +97,7 @@ export def "clear chunck" [] {
   if ($chunks | is-empty) {
     return
   }
-  rm ...$chunks
+  rm ...($chunks | path-full)
   print "OK"
 }
 
@@ -104,9 +117,9 @@ def filter-files [query?: string] {
   custom-filter "bat --color=always --style=numbers {}" $query
 }
 
-export def "add file" [...paths: string, --search(-s): string] {
+export def "add file" [...paths: path, --search(-s): string] {
   let select = if ($paths | is-not-empty) {
-    ($paths | filter {|el| ($el | path type) == file })
+    ($paths | filter {|el| ($el | path type) == file } | path relative-to (path-top))
   } else {
     (fd --type file | filter-files $search | lines)
   }
@@ -124,7 +137,7 @@ export def "show file" [] {
   if ($files | is-empty) {
     return
   }
-  cat ...$files
+  cat ...($files | path-full)
 }
 
 export def "pretty file" [] {
@@ -132,7 +145,7 @@ export def "pretty file" [] {
   if ($files | is-empty) {
     return
   }
-  bat --color=always --paging=never --style=full ...$files
+  bat --color=always --paging=never --style=full ...($files | path-full)
 }
 
 export def "path file" [] {
@@ -180,7 +193,7 @@ export def "clear" [] {
 # export def "add dir" [dir: path] {
 #   let dirs = (fd --type dir | lines)
 #   if ($dirs | is-empty) { return }
-#   show-dirs ...$dirs
+#   show-dirs ...($dirs | path-full)
 # }
 
 export def show [] {
@@ -188,7 +201,7 @@ export def show [] {
   if ($files | is-empty) {
     return
   }
-  cat ...$files
+  cat ...($files | path-full)
 }
 
 def "main add chunck" [] {
