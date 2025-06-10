@@ -119,7 +119,7 @@ def filter-files [query?: string] {
 
 export def "add file" [...paths: path, --search(-s): string] {
   let select = if ($paths | is-not-empty) {
-    ($paths | filter {|el| ($el | path type) == file } | path relative-to (path-top))
+    ($paths | where {|e| ($e | path type) == file } | path relative-to (path-top))
   } else {
     (fd --type file | filter-files $search | lines)
   }

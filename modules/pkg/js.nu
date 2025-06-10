@@ -34,6 +34,7 @@ export def packages [] {
     [ dev wscat wscat ]
     [ dev prettier prettier ]
     [ dev opencommit opencommit ]
+    [ dev http-server http-server ]
     [ dev gitmoji-cli gitmoji-cli ]
     [ dev localtunnel localtunnel ]
     [ dev ezshare ezshare ]

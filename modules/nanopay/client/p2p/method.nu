@@ -17,7 +17,7 @@ export def bank [] {
 }
 
 def iso-code [] {
-  bank | get iso_code? | filter {is-not-empty} | uniq
+  bank | get iso_code? | where {is-not-empty} | uniq
 }
 
 export def bank-iso [iso: string@iso-code] {
