@@ -1,5 +1,6 @@
 
 def list [] {
+  use clock.nu
   clock run kube-pods 1min {
     kubectl get pods
   } | from ssv
@@ -23,6 +24,7 @@ export def logs [name: string@names] {
 
 export def delete [...name: string@names] {
   kubectl delete pods ...$name --now
+  use clock.nu
   clock delete kube-pods
 }
 
@@ -92,7 +94,7 @@ export def namespaces [] {
   all | group-by NAMESPACE
 }
 
-export def rm [] {
+export def remove [] {
   let pods = (kubectl get pods | lines | skip)
   let filter = (gum filter --strict --no-limit ...$pods | from ssv --noheaders)
   let names = ($filter | rename NAME READY STATUS RESTARTS AGE | get NAME)

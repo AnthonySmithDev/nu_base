@@ -1,5 +1,6 @@
 
 def list [] {
+  use clock.nu
   clock run kube-ingress 1min {
     kubectl get ingress
   } | from ssv

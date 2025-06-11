@@ -1,5 +1,6 @@
 
 def list [] {
+  use clock.nu
   clock run kube-deployments 1min {
     kubectl get deployments
   } | from ssv
@@ -19,5 +20,6 @@ export def scale [name: string@names, replicas: int = 1] {
 
 export def delete [name: string@names] {
   kubectl delete deployment $name
+  use clock.nu
   clock delete kube-deployments
 }

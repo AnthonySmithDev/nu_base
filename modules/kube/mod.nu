@@ -26,3 +26,10 @@ export module logs {
     pods logs (pods names  | where ($it | str contains backend-p2p) | first)
   }
 }
+
+export def config [src: path] {
+  let dir = ($env.HOME | path join .kube)
+  mkdir $dir
+
+  ln -sf $src ($dir | path join config)
+}

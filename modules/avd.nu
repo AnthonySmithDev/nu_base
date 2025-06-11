@@ -4,6 +4,7 @@ export-env {
 }
 
 export def list-device [] {
+  use clock.nu
   clock run avd-list-device 1wk {
     ^avdmanager list device -c
   } | lines
@@ -14,18 +15,21 @@ def to-system-images [] {
 }
 
 export def list-system-images [] {
+  use clock.nu
   clock run avd-list-system-images 1wk {
     ^sdkmanager --list --verbose err> /dev/null
   } | to-system-images
 }
 
 export def system-images [] {
+  use clock.nu
   clock run avd-system-images 1min {
     ^sdkmanager --list_installed --verbose err> /dev/null
   } | to-system-images
 }
 
 export def list-virtual [] {
+  use clock.nu
   clock run avd-list-avd 1min {
     ^avdmanager list avd -c
   } | lines
@@ -42,6 +46,7 @@ export def create [
 
 export def delete [name: string@list-virtual] {
   ^avdmanager delete avd -n $name
+  use clock.nu
   clock delete avd-list-avd
 }
 

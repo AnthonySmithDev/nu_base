@@ -1,5 +1,6 @@
 
 def list [] {
+  use clock.nu
   clock run kube-replicasets 1min {
     kubectl get replicasets
   } | from ssv
@@ -27,5 +28,6 @@ export def describe [name: string@names] {
 
 export def delete [name: string@names] {
   kubectl delete replicaset $name
+  use clock.nu
   clock delete kube-replicasets
 }

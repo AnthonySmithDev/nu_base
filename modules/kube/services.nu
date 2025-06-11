@@ -1,5 +1,6 @@
 
 def list [] {
+  use clock.nu
   clock run kube-services 1min {
     kubectl get services
   } | from ssv

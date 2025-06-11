@@ -1,5 +1,6 @@
 
 def list [] {
+  use clock.nu
   clock run kube-secrets 1min {
     kubectl get secrets
   } | from ssv

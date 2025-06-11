@@ -1,5 +1,6 @@
 
 def list [] {
+  use clock.nu
   clock run kube-namespaces 1min {
     kubectl get namespaces
   } | from ssv
