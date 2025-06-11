@@ -62,7 +62,7 @@ export def minidlna [] {
 }
 
 export def tools [] {
-  install just 7zip unzip unrar unarchiver chafa qrencode man-db less
+  install just 7zip unzip unrar unarchiver chafa qrencode man-db less imv
 }
 
 export def mdns-scan [] {

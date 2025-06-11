@@ -99,6 +99,8 @@ export def main [] {
   config vieb
   config kitty
   config opencommit
+
+  config mimeapps
 }
 
 export def --env dev [] {

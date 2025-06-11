@@ -4,9 +4,9 @@ def download [repository: string, version: string, url: string, force: bool] {
   let dirname = ($env.PKG_TEMP_PATH | path join appimage $name)
   mkdir $dirname
 
-  let path = ($dirname | path join $'($name)_($version).apk')
+  let path = ($dirname | path join $"($name)_($version).apk")
   if $force or not ($path | path exists) {
-    print $'Download: ($name) - ($version)'
+    print $"Download: ($name) - ($version)"
     http download $url --output $path
   }
   return $path
@@ -44,9 +44,24 @@ export def cursor [ --force(-f) ] {
 }
 
 export def AndroidMic [ --force(-f) ] {
-  let name = 'AndroidMic'
-  let version = '2.1.4'
-  let download_url = $'https://github.com/teamclouday/AndroidMic/releases/download/($version)/android-mic_($version)_x86_64.AppImage'
+  let name = "AndroidMic"
+  let version = "2.1.4"
+  let download_url = $"https://github.com/teamclouday/AndroidMic/releases/download/($version)/android-mic_($version)_x86_64.AppImage"
+  let path = filepath $name $version
+
+  if (path-not-exists $path $force) {
+    let download_path = download $name $version $download_url $force
+    chmod +x $download_path
+    mv $download_path $path
+  }
+
+  install $name $path
+}
+
+export def Session [ --force(-f) ] {
+  let name = "Session"
+  let version = "latest"
+  let download_url = $"https://getsession.org/linux"
   let path = filepath $name $version
 
   if (path-not-exists $path $force) {

@@ -81,17 +81,17 @@ export def tag_name [name: string@names] {
 export def assetx [r: record, start?: string] {
   mut assets = $r.assets
   if $start != null {
-    $assets = ($assets | filter { |e| str starts-with $start })
+    $assets = ($assets | where { |e| str starts-with $start })
   }
   let system = $env.PKG_BIN_SYS?
   if ($system != null) {
     let starts = ($r | get -i $system | get -i starts)
     if $starts != null {
-      $assets = ($assets | filter { |e| str starts-with $starts })
+      $assets = ($assets | where { |e| str starts-with $starts })
     }
     let ends = ($r | get -i $system | get -i ends)
     if $ends != null {
-      $assets = ($assets | filter { |e| str ends-with $ends })
+      $assets = ($assets | where { |e| str ends-with $ends })
     }
   }
   if ($assets | length) == 0 {
@@ -249,7 +249,7 @@ def cyan [str: string] {
 const exclusion_words = [.sum .sha1 .sha256 .sha512 .sig .sbom .json .txt .yml .yaml .blockmap, .whl LICENSE]
 
 def exclusion [] {
-  filter {|line|
+  where {|line|
     mut $excluded = false
     for exclusion in $exclusion_words {
       if ($line | str contains $exclusion) {

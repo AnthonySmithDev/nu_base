@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Session
+Comment=Session is a private messenger
+Exec=/home/anthony/.usr/local/bin/Session
+Icon=session.svg
+Terminal=false
+Type=Application
+Categories=Utility;
+StartupNotify=true
