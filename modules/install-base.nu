@@ -123,11 +123,15 @@ const dirs = [
 ]
 
 export def setup_nu [] {
-  $dirs
+  let dirs = $dirs
   | each {path expand}
   | where {path exists}
-  | each {|dir| $"source ($dir)/mod.nu"}
-  | prepend $"const NU_LIB_DIRS = [ ($env.HOME | path join nu/nu_base/modules) ]"
+
+  let modules = ($dirs | each {|dir| $dir | path join modules})
+  let sources = ($dirs | each {|dir| $"source ($dir)/mod.nu"})
+
+  $"const NU_LIB_DIRS = ($modules)"
+  | append $sources
   | save --force ~/.source.nu
 }
 
