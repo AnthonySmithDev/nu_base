@@ -249,25 +249,6 @@ export def copy_wsclient [] {
    ambr --no-interactive 'payzum/backend/ws/internal' 'payzum/backend/bot/external' $bot
 }
 
-export def lncli-copy [] {
-  mkdir ~/.lnd/yoda
-  scp $"freyrecorp@(tailscale_get yoda):~/.lnd/tls.cert" ~/.lnd/yoda/tls.cert
-  scp $"freyrecorp@(tailscale_get yoda):~/.lnd/data/chain/bitcoin/testnet/admin.macaroon" ~/.lnd/yoda/admin.macaroon
-
-  mkdir ~/.lnd/hansolo
-  scp $"freyrecorp@(tailscale_get hansolo):~/.lnd/tls.cert" ~/.lnd/hansolo/tls.cert
-  scp $"freyrecorp@(tailscale_get hansolo):~/.lnd/data/chain/bitcoin/testnet/admin.macaroon" ~/.lnd/hansolo/admin.macaroon
-}
-
-export def lncli [--yoda, --hansolo] {
-  if $yoda {
-    ^lncli --rpcserver $"(tailscale_get yoda):10009" --network testnet --tlscertpath ~/.lnd/yoda/tls.cert --macaroonpath ~/.lnd/yoda/admin.macaroon
-  }
-  if $hansolo {
-    ^lncli --rpcserver $"(tailscale_get hansolo):10009" --network testnet --tlscertpath ~/.lnd/hansolo/tls.cert --macaroonpath ~/.lnd/hansolo/admin.macaroon
-  }
-}
-
 export def __logs_user [] {
   [anthony jean]
 }

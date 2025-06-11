@@ -1,11 +1,4 @@
 
-export-env {
-  $env.BITCOIN_RPC_HOST = '192.168.0.13'
-  $env.BITCOIN_RPC_PORT = '18332'
-  $env.BITCOIN_RPC_USER = 'fcorp'
-  $env.BITCOIN_RPC_PASS = "40149616"
-}
-
 def commands [] {
   ^bitcoin-cli help | lines | each {|e|
     if ($e | is-empty) {

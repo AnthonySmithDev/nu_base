@@ -1,8 +1,4 @@
 
-export-env {
-  $env.SSH_SERVERS = ($env.HOME | path join nu/nu_base/data/config/connect/connect.json)
-}
-
 def get-server-aliases [] {
   open $env.SSH_SERVERS | select alias desc | rename value description
 }
