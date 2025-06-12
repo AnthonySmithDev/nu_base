@@ -1,21 +1,35 @@
 
 def list [] {
   use clock.nu
+
   clock run kube-pods 1min {
     kubectl get pods
   } | from ssv
 }
 
-def data [all: bool] {
-  if $all { list } else { list | where NAME =~ backend }
+def type-groups [] {
+  [all backend frontend db]
 }
 
-export def main [ --all(-a) ] {
-  data $all
+export def --env set [group: string@type-groups] {
+  $env.KUBE_POD_NAME = $group
 }
 
-export def names [ --all(-a) ] {
-  data $all | select NAME STATUS | rename value description
+def data [] {
+  match $env.KUBE_POD_NAME? {
+    "backend" => (list | where NAME =~ backend)
+    "frontend" => (list | where NAME =~ frontend)
+    "db" => (list | where {|it| $it.NAME =~ mongo- or $it.NAME =~ redis- })
+    _ => (list)
+  }
+}
+
+export def main [] {
+  data
+}
+
+export def names [] {
+  data | select NAME STATUS | rename value description
 }
 
 export def logs [name: string@names] {
@@ -23,8 +37,9 @@ export def logs [name: string@names] {
 }
 
 export def delete [...name: string@names] {
-  kubectl delete pods ...$name --now
   use clock.nu
+
+  kubectl delete pods ...$name --now
   clock delete kube-pods
 }
 
@@ -72,11 +87,11 @@ export def images [] {
   kubectl get pods -o custom-columns=($output) | from ssv
 }
 
-def groups [] {
+def diff-groups [] {
   [backend frontend]
 }
 
-export def --wrapped diff [group: string@groups, ...rest] {
+export def --wrapped diff [group: string@diff-groups, ...rest] {
   let output = "NAMESPACE:.metadata.namespace,NAME:.metadata.name,STATUS:.status.phase,IMAGES:.spec.containers[*].image"
   let pods = (kubectl get pods -o custom-columns=($output) -A | from ssv | where NAME =~ $group)
   let a = (mktemp -t --suffix .txt)

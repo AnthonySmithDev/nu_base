@@ -351,6 +351,7 @@ export def mirrord [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f mirrord -p $path
+    add-execute $path
   }
 
   bind-file mirrord $path

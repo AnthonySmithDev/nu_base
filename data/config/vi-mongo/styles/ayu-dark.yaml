@@ -38,7 +38,7 @@ databases:
   closedNodeSymbol: " "
   leafSymbol: "󰈙 "
 content:
-  statusTextColor: "#A0A0B0"
+  statusTextColor: "#00A86B"
   headerRowColor: "#2A2A3A"
   columnKeyColor: "#e6b450"
   columnTypeColor: "#00A86B"

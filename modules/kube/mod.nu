@@ -1,4 +1,8 @@
 
+export-env {
+  $env.KUBE_POD_NAME = "backend"
+}
+
 export use pods.nu
 export use services.nu
 export use deployments.nu

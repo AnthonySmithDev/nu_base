@@ -8,7 +8,7 @@ editor:
     env: EDITOR
 showConnectionPage: true
 showWelcomePage: false
-currentConnection: nanopay dev
+currentConnection: nanopay kube dev
 connections:
     - url: ""
       host: 0.0.0.0
