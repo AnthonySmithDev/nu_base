@@ -19,6 +19,7 @@ export def core [ --force(-f) ] {
   rgr
   bat
   fzf
+  riff
 
   eza
   gdu
@@ -31,6 +32,7 @@ export def core [ --force(-f) ] {
   lazydocker
   difftastic
   carapace
+  mirrord
 
   uv
   pnpm
@@ -68,6 +70,9 @@ export def core [ --force(-f) ] {
   java
   node
   golang
+
+  kitty
+  neovim
 }
 
 def remove [path: string] {

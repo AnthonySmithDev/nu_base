@@ -127,3 +127,9 @@ export def zen-browser [ --force(-f) ] {
     curl -s https://updates.zen-browser.app/install.sh | bash
   }
 }
+
+export def plandex [ --force(-f) ] {
+  if not (exists-external plandex) or $force {
+    curl -sL https://plandex.ai/install.sh | bash
+  }
+}

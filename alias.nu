@@ -151,3 +151,5 @@ alias irc = input-remapper-control --command autoload
 
 alias fg = job unfreeze
 alias tree = eza --tree
+
+alias snw = scrcpy --no-window

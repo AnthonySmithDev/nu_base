@@ -2,13 +2,13 @@
 def bin-path [name: string, version: string] {
   let dir = ($env.USR_LOCAL_SHARE_BIN | path join $name)
   mkdir $dir
-  return ($dir | path join $version)
+  return ($dir | path join $"($name)_($version)")
 }
 
 def lib-path [name: string, version: string] {
   let dir = ($env.USR_LOCAL_SHARE_LIB | path join $name)
   mkdir $dir
-  return ($dir | path join $version)
+  return ($dir | path join $"($name)_($version)")
 }
 
 def bind-dir [src: string, dst: string] {
@@ -3033,4 +3033,17 @@ export def hexyl [ --force(-f) ] {
   }
 
   bind-file hexyl $path
+}
+
+export def opencode [ --force(-f) ] {
+  let repository = "opencode-ai/opencode"
+  let tag_name = ghub tag_name $repository
+  let path = bin-path opencode $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download -x $repository --force=($force)
+    move -d $download_path -f opencode -p $path
+  }
+
+  bind-file opencode $path
 }

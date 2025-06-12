@@ -126,7 +126,7 @@ export def decompress [filepath: path, --dirpath(-d): string] {
     mktemp --directory --tmpdir-path ($env.GHUB_TEMP_PATH | path join dir)
   }
 
-  rm -rf $dir
+  rm -p -rf $dir
   mkdir $dir
 
   let tar_exts = ['.tar', '.txz', '.tbz', '.tar.xz', '.tgz', '.tar.gz', '.tar.bz2']
@@ -263,7 +263,7 @@ def exclusion [] {
 
 export def "repo update" [...names: string@names] {
   let changelog_dir = ($env.GHUB_TEMP_PATH | path join changelog)
-  rm -rf $changelog_dir
+  rm -p -rf $changelog_dir
   mkdir $changelog_dir
 
   let rate_limit = rate_limit

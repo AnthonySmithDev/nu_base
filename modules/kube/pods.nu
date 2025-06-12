@@ -2,7 +2,7 @@
 def list [] {
   use clock.nu
 
-  clock run kube-pods 1min {
+  clock run kube-pods 2min {
     kubectl get pods
   } | from ssv
 }
@@ -37,9 +37,12 @@ export def logs [name: string@names] {
 }
 
 export def delete [...name: string@names] {
-  use clock.nu
-
   kubectl delete pods ...$name --now
+  refresh
+}
+
+export def refresh [] {
+  use clock.nu
   clock delete kube-pods
 }
 

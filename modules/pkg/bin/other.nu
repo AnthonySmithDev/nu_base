@@ -2,13 +2,13 @@
 def bin-path [name: string, version: string] {
   let dir = ($env.USR_LOCAL_SHARE_BIN | path join $name)
   mkdir $dir
-  return ($dir | path join $version)
+  return ($dir | path join $"($name)_($version)")
 }
 
 def lib-path [name: string, version: string] {
   let dir = ($env.USR_LOCAL_SHARE_LIB | path join $name)
   mkdir $dir
-  return ($dir | path join $version)
+  return ($dir | path join $"($name)_($version)")
 }
 
 def bind-dir [src: string, dst: string] {
