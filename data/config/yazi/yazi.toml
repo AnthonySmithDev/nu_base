@@ -13,6 +13,10 @@ append_rules = [
 	{ mime = "{audio,video}/*", use = [ "play", "reveal", "cast" ] },
 ]
 
+[[plugin.append_previewers]]
+name = "*.svg"
+run  = 'piper -- chafa "$1"'
+
 [[plugin.prepend_previewers]]
 name = "*.tar*"
 run  = 'piper --format=url -- tar tf "$1"'

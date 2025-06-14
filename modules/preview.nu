@@ -35,7 +35,7 @@ export def grid [
   --dir(-d): path = "."
 ] {
   let images = if ($images | is-not-empty) { $images } else {
-    fd -e png -e jpg -e jpeg -d $max_depth $search $dir | lines
+    fd -e png -e jpg -e jpeg -e svg -d $max_depth $search $dir | lines
   }
 
   if ($images | is-empty) {
