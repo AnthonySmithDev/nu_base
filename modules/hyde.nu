@@ -13,6 +13,7 @@ export def update [] {
 }
 
 export def "config state" [] {
+# $env.HYDE_STATE_HOME
 }
 
 export def "config hypridle" [] {
