@@ -37,6 +37,11 @@ def git-diff-history [filename: string] {
     return
   }
 
+  let hash = git log --pretty=format:"%h" -- $filename
+  if ($hash | lines | length) <= 1 {
+    return (open -r $filename)
+  }
+
   $env.GIT_EXTERNAL_DIFF = "difft --skip-unchanged --display inline --color always --syntax-highlight on"
   let diff = "git diff --color $(git rev-parse {}^) {}"
   let preview = $"($diff) -- ($filename)"
@@ -51,7 +56,7 @@ def git-diff-history [filename: string] {
     --bind "ctrl-t:preview-top,ctrl-b:preview-bottom"
   ]
 
-  git log --pretty=format:"%h" -- $filename | fzf-vim ...$args
+  $hash | fzf-vim ...$args
 }
 
 def --env git-show-filter [filter: string] {
