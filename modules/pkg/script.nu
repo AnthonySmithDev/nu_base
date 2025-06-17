@@ -3,7 +3,7 @@ export def install [filename: string, --root(-r), --dev ] {
   let mod_path = ($env.MODULES_PATH | path join $filename)
 
   let stem = ($filename | path parse | get stem)
-  let share_path = ($env.USR_LOCAL_SHARE_BIN | path join $stem)
+  let share_path = ($env.USR_LOCAL_SHARE_SCRIPT | path join $stem)
   cp $mod_path $share_path
 
   let src_path = if $dev { $mod_path } else { $share_path }

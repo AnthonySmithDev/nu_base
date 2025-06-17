@@ -2515,8 +2515,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.9.0",
-    "created_at": "2025-05-29T02:38:52Z",
+    "tag_name": "v0.9.1",
+    "created_at": "2025-06-14T15:54:03Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -2525,9 +2525,11 @@
       "ollama-linux-arm64-jetpack5.tgz",
       "ollama-linux-arm64-jetpack6.tgz",
       "ollama-linux-arm64.tgz",
+      "Ollama-Preview.dmg",
       "ollama-windows-amd64-rocm.zip",
       "ollama-windows-amd64.zip",
       "ollama-windows-arm64.zip",
+      "OllamaSetup-Preview.exe",
       "OllamaSetup.exe"
     ],
     "linux_x64": {
@@ -3440,8 +3442,8 @@
   {
     "category": "other",
     "name": "cloudflare/cloudflared",
-    "tag_name": "2025.6.0",
-    "created_at": "2025-06-11T09:51:37Z",
+    "tag_name": "2025.6.1",
+    "created_at": "2025-06-17T09:42:18Z",
     "assets": [
       "cloudflared-amd64.pkg",
       "cloudflared-arm64.pkg",
@@ -3683,8 +3685,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.11.13",
-    "created_at": "2025-06-05T20:18:38Z",
+    "tag_name": "0.12.0",
+    "created_at": "2025-06-17T15:05:59Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -4598,22 +4600,22 @@
   {
     "category": "other",
     "name": "raphamorim/rio",
-    "tag_name": "v0.2.18",
-    "created_at": "2025-06-05T20:34:00Z",
+    "tag_name": "v0.2.19",
+    "created_at": "2025-06-17T21:23:59Z",
     "assets": [
       "rio-installer-aarch64.msi",
       "rio-installer-x86_64.msi",
       "rio-portable-aarch64.exe",
       "rio-portable-x86_64.exe",
       "rio.dmg",
-      "rioterm-0.2.18-1.aarch64_wayland.rpm",
-      "rioterm-0.2.18-1.aarch64_x11.rpm",
-      "rioterm-0.2.18-1.x86_64_wayland.rpm",
-      "rioterm-0.2.18-1.x86_64_x11.rpm",
-      "rioterm_0.2.18_amd64_wayland.deb",
-      "rioterm_0.2.18_amd64_x11.deb",
-      "rioterm_0.2.18_arm64_wayland.deb",
-      "rioterm_0.2.18_arm64_x11.deb"
+      "rioterm-0.2.19-1.aarch64_wayland.rpm",
+      "rioterm-0.2.19-1.aarch64_x11.rpm",
+      "rioterm-0.2.19-1.x86_64_wayland.rpm",
+      "rioterm-0.2.19-1.x86_64_x11.rpm",
+      "rioterm_0.2.19_amd64_wayland.deb",
+      "rioterm_0.2.19_amd64_x11.deb",
+      "rioterm_0.2.19_arm64_wayland.deb",
+      "rioterm_0.2.19_arm64_x11.deb"
     ]
   },
   {
@@ -4908,16 +4910,19 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.17.0",
-    "created_at": "2025-06-09T05:07:58Z",
+    "tag_name": "v0.18.0",
+    "created_at": "2025-06-15T20:18:48Z",
     "assets": [
-      "aider-desk-0.17.0-macos.zip",
-      "aider-desk-0.17.0-setup.exe",
-      "aider-desk-0.17.0.AppImage",
-      "aider-desk-0.17.0.dmg",
-      "aider-desk-0.17.0.x86_64.rpm",
-      "aider-desk_0.17.0_amd64.deb"
-    ]
+      "aider-desk-0.18.0-macos.zip",
+      "aider-desk-0.18.0-setup.exe",
+      "aider-desk-0.18.0.AppImage",
+      "aider-desk-0.18.0.dmg",
+      "aider-desk-0.18.0.x86_64.rpm",
+      "aider-desk_0.18.0_amd64.deb"
+    ],
+    "linux_x64": {
+      "ends": ".AppImage"
+    }
   },
   {
     "category": "other",
@@ -6024,8 +6029,8 @@
   {
     "category": "android",
     "name": "stratumauth/app",
-    "tag_name": "v1.2.5",
-    "created_at": "2025-05-28T17:33:10Z",
+    "tag_name": "v1.3.0",
+    "created_at": "2025-06-14T13:27:17Z",
     "assets": [
       "com.stratumauth.app-arm64-v8a.fdroid.apk",
       "com.stratumauth.app-armeabi-v7a.fdroid.apk",

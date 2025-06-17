@@ -38,6 +38,7 @@ $env.USR_LOCAL_FONT = ($env.USR_LOCAL_DOWN | path join font)
 $env.USR_LOCAL_SHARE_BIN = ($env.USR_LOCAL_SHARE | path join bin)
 $env.USR_LOCAL_SHARE_LIB = ($env.USR_LOCAL_SHARE | path join lib)
 $env.USR_LOCAL_SHARE_BUILD = ($env.USR_LOCAL_SHARE | path join build)
+$env.USR_LOCAL_SHARE_SCRIPT = ($env.USR_LOCAL_SHARE | path join script)
 $env.USR_LOCAL_SHARE_APP_IMAGE = ($env.USR_LOCAL_SHARE | path join appimage)
 
 $env.NUSHELL_BIN = ($env.USR_LOCAL_LIB | path join nushell)
@@ -227,6 +228,10 @@ env-path $env.MINICONDA_BIN
 $env.DOTNET_ROOT = ($env.HOME | path join .dotnet)
 $env.DOTNET_CLI_TELEMETRY_OPTOUT = false
 env-path $env.DOTNET_ROOT
+
+$env.OPENCODE_PATH = ($env.HOME | path join .opencode)
+$env.OPENCODE_BIN = ($env.OPENCODE_PATH | path join bin)
+env-path $env.OPENCODE_BIN
 
 $env.ANDROID_HOME = ($env.HOME | path join Android Sdk)
 $env.ANDROID_SDK_ROOT = ($env.HOME | path join Android Sdk)

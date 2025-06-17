@@ -133,3 +133,9 @@ export def plandex [ --force(-f) ] {
     curl -sL https://plandex.ai/install.sh | bash
   }
 }
+
+export def opencode [ --force(-f) ] {
+  if not (exists-external opencode) or $force {
+    curl -fsSL https://opencode.ai/install | bash
+  }
+}
