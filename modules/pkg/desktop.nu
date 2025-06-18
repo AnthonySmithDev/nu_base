@@ -58,3 +58,11 @@ export  def session [] {
 export  def imv [] {
   ln -sf (applications imv) (share imv.desktop)
 }
+
+export  def discord-web [] {
+  ln -sf (applications discord-web) (share discord-web.desktop)
+}
+
+export  def whatsapp-web [] {
+  ln -sf (applications whatsapp-web) (share whatsapp-web.desktop)
+}

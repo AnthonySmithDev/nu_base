@@ -2,7 +2,7 @@
 Name=Session
 Comment=Session is a private messenger
 Exec=/home/anthony/.usr/local/bin/Session
-Icon=session.svg
+Icon=session
 Terminal=false
 Type=Application
 Categories=Utility;
