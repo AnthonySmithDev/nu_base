@@ -66,6 +66,8 @@ export def main [] {
   pkg bin ouch
   pkg bin gitu
   pkg bin jless
+  pkg bin jnv
+  pkg bin jqp
   pkg bin hexyl
   pkg bin bottom
   pkg bin lazygit

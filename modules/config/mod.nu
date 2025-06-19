@@ -294,6 +294,10 @@ export def neovide [] {
   bind-user neovide/config.toml
 }
 
+export def opencode [] {
+  bind-user opencode/config.json
+}
+
 export def gitlab [] {
   glab config set -g -h $env.GITLAB_HOST token $env.GITLAB_TOKEN
   glab config set -g -h $env.GITLAB_HOST api_protocol http

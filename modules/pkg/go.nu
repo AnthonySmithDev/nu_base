@@ -89,6 +89,7 @@ export def packages [] {
 		[ extra confetty github.com/maaslalani/confetty@latest ]
 		[ extra gat github.com/koki-develop/gat@latest ]
 		[ extra gambit github.com/maaslalani/gambit@latest ]
-		[ extra bettercap github.com/bettercap/bettercap@latest  ]
+		[ extra bettercap github.com/bettercap/bettercap@latest ]
+		[ extra countdown github.com/antonmedv/countdown@latest ]
 	]
 }

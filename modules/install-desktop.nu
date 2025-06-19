@@ -28,13 +28,11 @@ export def main [] {
   if (exists-external apt) {
     pkg apt flatpak
 
-    pkg deb discord
     pkg deb vieb-browser
   }
 
   if (exists-external pacman) {
     pkg pacman flatpak
-    pkg pacman discord
 
     pkg aur vieb-browser
     pkg aur timg
@@ -80,6 +78,9 @@ export def main [] {
   pkg desktop helix
   pkg desktop yazi
   pkg desktop zellij
+
+  pkg desktop discord-web
+  pkg desktop whatsapp-web
 
   pkg desktop kitty
   pkg desktop rain-add

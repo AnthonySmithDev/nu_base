@@ -66,7 +66,21 @@ export def to-json []: any -> nothing {
   if ($input | is-empty) {
     return
   }
-  $input | to json | jless --mode line
+  match ($input | describe) {
+    "string" => { $input | jless --mode line },
+    _ => { $input | to json | jless --mode line }
+  }
+}
+
+export def to-jq []: any -> nothing {
+  let input = $in
+  if ($input | is-empty) {
+    return
+  }
+  match ($input | describe) {
+    "string" => { $input | jnv },
+    _ => { $input | to json | jnv }
+  }
 }
 
 export def to-csv []: any -> nothing  {
