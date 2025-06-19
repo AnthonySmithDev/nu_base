@@ -40,3 +40,11 @@ export def "config" [] {
   config waybar
   config kitty
 }
+
+export def plugins [] {
+  hyprpm add https://github.com/hyprwm/hyprland-plugins
+  hyprpm update
+
+  hyprpm add https://github.com/KZDKM/Hyprspace
+  hyprpm enable Hyprspace
+}

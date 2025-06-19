@@ -174,3 +174,7 @@ export def yaml [] {
 export def --env zig [] {
   bin zls
 }
+
+export def hyprlang [] {
+  go install github.com/hyprland-community/hyprls/cmd/hyprls@latest
+}

@@ -1,2 +1,3 @@
 data-dir: ~/Torrent
 data-dir-includes-torrent-id: false
+speed-limit-upload: 10

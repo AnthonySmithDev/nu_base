@@ -8,9 +8,20 @@ def bind-user [
   src_name: string,
   dst_name?: string,
   --home,
+  --local,
+  --state,
   --dir,
 ] {
-  let base_path = if $home { $env.HOME } else { ($env.HOME | path join ".config/") }
+  let base_path = if $home {
+    $env.HOME
+  } else if $local {
+    $env.HOME | path join .local/
+  } else if $state {
+    $env.HOME | path join .local/state/
+  } else {
+    $env.HOME | path join .config/
+  }
+
   let dst_name = ($dst_name | default $src_name)
   let dst_path = ($base_path | path join $dst_name)
   let dst_dir = ($dst_path | path dirname)
@@ -33,9 +44,20 @@ def bind-root [
   src_name: string,
   dst_name?: string,
   --home,
+  --local,
+  --state,
   --dir,
 ] {
-  let base_path = if $home { "/root/" } else { "/root/.config/" }
+  let base_path = if $home {
+    "/root/"
+  } else if $local {
+    "/root/.local/"
+  } else if $state {
+    "/root/.local/state/"
+  } else {
+    "/root/.config/"
+  }
+
   let dst_name = ($dst_name | default $src_name)
   let dst_path = ($base_path | path join $dst_name)
   let dst_dir = ($dst_path | path dirname)
@@ -178,12 +200,15 @@ def hyde-completions [] {
 }
 
 export def hyde [completion: string@hyde-completions] {
+  bind-user --state hyde/state/config hyde/config
   bind-user hyde/config.toml hyde/config.toml
-  bind-user hyde/hypridle.conf hypr/hypridle.conf
-  bind-user hyde/userprefs.conf hypr/userprefs.conf
+
+  bind-user hyde/hypr/hypridle.conf hypr/hypridle.conf
+  bind-user hyde/hypr/userprefs.conf hypr/userprefs.conf
+
   bind-user $"hyde/monitors/($completion).conf" hypr/monitors.conf
 
-  bind-user hyde/kitty.conf kitty/kitty.conf
+  bind-user hyde/kitty/kitty.conf kitty/kitty.conf
   ^kill -SIGUSR1 kitty
 }
 

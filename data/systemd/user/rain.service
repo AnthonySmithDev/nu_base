@@ -1,0 +1,12 @@
+[Unit]
+Description=Rain Server
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/rain server --config %h/rain/config.yaml
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target
