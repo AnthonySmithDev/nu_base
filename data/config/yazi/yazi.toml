@@ -1,15 +1,21 @@
+# https://github.com/sxyazi/yazi/blob/main/yazi-config/preset/yazi-default.toml
 
 [mgr]
 ratio = [2,4,4]
 linemode = "size"
 
 [opener]
+imv = [
+	{ run = 'imv -b ffffff "$@"', orphan = true, desc = "Viewer white", for = "unix" },
+	{ run = 'imv -b 000000 "$@"', orphan = true, desc = "Viewer black", for = "unix" },
+]
 cast = [
-	{ run = 'go2tv -v "$@"', orphan = true, for = "unix" },
+	{ run = 'go2tv -v "$@"', orphan = true, desc = "Cast media files", for = "unix" },
 ]
 
 [open]
 append_rules = [
+	{ mime = "image/*", use = [ "open", "reveal", "imv" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "reveal", "cast" ] },
 ]
 

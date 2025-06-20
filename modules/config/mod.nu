@@ -199,17 +199,23 @@ def hyde-completions [] {
   [home, work, laptop]
 }
 
-export def hyde [completion: string@hyde-completions] {
+export def hyde-state [] {
   bind-user --state hyde/state/config hyde/config
+  ^hyde-shell waybar -u
+}
+
+export def hyde-kitty [] {
+  bind-user hyde/kitty/kitty.conf kitty/kitty.conf
+  ^kill -SIGUSR1 kitty
+}
+
+export def hyde [completion: string@hyde-completions] {
   bind-user hyde/config.toml hyde/config.toml
 
   bind-user hyde/hypr/hypridle.conf hypr/hypridle.conf
   bind-user hyde/hypr/userprefs.conf hypr/userprefs.conf
 
   bind-user $"hyde/monitors/($completion).conf" hypr/monitors.conf
-
-  bind-user hyde/kitty/kitty.conf kitty/kitty.conf
-  ^kill -SIGUSR1 kitty
 }
 
 def mouseless-completions [] {
