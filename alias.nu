@@ -155,4 +155,4 @@ alias tree = eza --tree
 alias snw = scrcpy --no-window
 alias yless = jless --yaml
 
-alias whichkey = kitty -- nu -e "adctrl whichkey"
+alias whichkey = kitty --title adctrl --class adctrl -- nu -e "adctrl whichkey"

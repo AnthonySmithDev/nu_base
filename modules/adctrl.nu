@@ -72,6 +72,10 @@ const KEYCODE = {
   VOLUME_PLAY_PAUSE: 'KEYCODE_VOLUME_PLAY_PAUSE'
 }
 
+def --wrapped adb [...rest] {
+  try { ^adb ...$rest }
+}
+
 export def "tiktok back" [] {
   adb shell input tap $BUTTON.TIKTOK.BACK
 }
@@ -202,8 +206,8 @@ export def "media play" [] {
   adb shell input keyevent $KEYCODE.MEDIA_PLAY_PAUSE
 }
 
-export def whichkey [] {
-  let default = {
+export def keybindings [] {
+  {
     "q": { tiktok back }
 
     "j": { instagram swipe down }
@@ -235,9 +239,35 @@ export def whichkey [] {
       "d": { tiktok download }
     }
  }
+}
+
+export def whichkey [] {
+  let default = keybindings
   mut keybindings = $default
 
   loop {
+    clear
+
+# blue_bold light_red_bold green_bold
+
+    let list = ($keybindings | transpose key value | each {|e|
+      let type = ($e.value | describe --detailed | get type)
+      let key = ($e.key | fill -w 4 -c " ")
+      if $type == "record"  {
+        return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi green_bold)+($e.value | columns | length) keymaps(ansi reset)"
+      }
+      if $type == "string"  {
+        return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)($e.value)(ansi reset)"
+      }
+      if $type == "closure"  {
+        return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)(view source $e.value)(ansi reset)"
+      }
+    })
+
+    print ($list | to text)
+    let lines = (term size | get rows) - ($list | length) - 3
+    for $x in 1..$lines { print "" }
+
     let input = input listen --types ["key"]
     let modifiers = ($input | get -i modifiers | default [])
 
@@ -247,12 +277,8 @@ export def whichkey [] {
       $input.code
     }
 
-    if $key == "C-q" {
+    if $key == "C-c" or $key == "C-q" or $key == "esc" {
       exit
-    }
-
-    if $key == "C-c" {
-      break
     }
 
     if ($key not-in $keybindings) {
@@ -267,9 +293,16 @@ export def whichkey [] {
       continue
     }
 
+    if $type == "string" {
+      $keybindings = $default
+      nu -c $value
+    }
+
     if $type == "closure" {
       $keybindings = $default
       do $value
     }
+
+    sleep 1sec
   }
 }
