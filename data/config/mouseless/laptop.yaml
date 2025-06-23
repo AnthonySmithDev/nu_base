@@ -23,7 +23,7 @@ layers:
     tab: tap-hold-next tab ; toggle-layer mouse ; 400
 
     a: tap-hold a ; leftalt ; 400
-    s: tap-hold s ; toggle-layer system ; 400
+    # s: tap-hold s ; toggle-layer system ; 400
     semicolon: tap-hold-next semicolon ; leftalt ; 400
 
     rightalt: toggle-layer arrows

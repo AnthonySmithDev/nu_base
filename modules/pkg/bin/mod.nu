@@ -78,9 +78,13 @@ export def core [ --force(-f) ] {
 def remove [path: string] {
   let dirs = (ls $path | where type == dir | get name)
   for dir in $dirs {
-    let versions = (ls $dir | sort-by -r modified | skip 1 | get name)
-    for version in $versions {
-      print $version
+    let versions = (ls $dir | sort-by -r modified | get name)
+    if ($versions | length) == 1 {
+      continue
+    }
+    print $" + (ansi green_bold)($versions | first)(ansi reset)"
+    for version in ($versions | skip 1) {
+      print $" - (ansi red_bold)($version)(ansi reset)"
       rm -rf $version
     }
   }

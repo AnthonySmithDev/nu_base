@@ -42,8 +42,9 @@ export def "config" [] {
 }
 
 export def plugins [] {
-  hyprpm add https://github.com/hyprwm/hyprland-plugins
+  sudo pacman -Syu cmake meson cpio pkg-config git gcc
   hyprpm update
+  hyprpm add https://github.com/hyprwm/hyprland-plugins
 
   hyprpm add https://github.com/KZDKM/Hyprspace
   hyprpm enable Hyprspace
