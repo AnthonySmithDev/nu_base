@@ -244,8 +244,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.1.117",
-    "created_at": "2025-06-21T02:43:04Z",
+    "tag_name": "v0.1.121",
+    "created_at": "2025-06-23T01:10:05Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -988,8 +988,8 @@
   {
     "category": "core",
     "name": "shshemi/tabiew",
-    "tag_name": "v0.9.4",
-    "created_at": "2025-05-05T16:53:49Z",
+    "tag_name": "v0.10.0",
+    "created_at": "2025-06-22T14:17:24Z",
     "assets": [
       "tabiew-aarch64-unknown-linux-gnu.deb",
       "tabiew-aarch64-unknown-linux-gnu.rpm",
@@ -2301,8 +2301,8 @@
   {
     "category": "extra",
     "name": "jtroo/kanata",
-    "tag_name": "v1.8.1",
-    "created_at": "2025-03-30T23:28:03Z",
+    "tag_name": "v1.9.0",
+    "created_at": "2025-06-23T07:25:15Z",
     "assets": [
       "kanata",
       "kanata.exe",
@@ -2613,14 +2613,14 @@
   {
     "category": "other",
     "name": "JetBrains/kotlin",
-    "tag_name": "v2.1.21",
-    "created_at": "2025-04-30T12:13:07Z",
+    "tag_name": "v2.2.0",
+    "created_at": "2025-06-11T14:48:41Z",
     "assets": [
-      "kotlin-compiler-2.1.21.zip",
-      "kotlin-native-prebuilt-linux-x86_64-2.1.21.tar.gz",
-      "kotlin-native-prebuilt-macos-aarch64-2.1.21.tar.gz",
-      "kotlin-native-prebuilt-macos-x86_64-2.1.21.tar.gz",
-      "kotlin-native-prebuilt-windows-x86_64-2.1.21.zip"
+      "kotlin-compiler-2.2.0.zip",
+      "kotlin-native-prebuilt-linux-x86_64-2.2.0.tar.gz",
+      "kotlin-native-prebuilt-macos-aarch64-2.2.0.tar.gz",
+      "kotlin-native-prebuilt-macos-x86_64-2.2.0.tar.gz",
+      "kotlin-native-prebuilt-windows-x86_64-2.2.0.zip"
     ],
     "linux_x64": {
       "ends": "kotlin-native-prebuilt-linux-x86_64"
@@ -3763,8 +3763,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.14.0",
-    "created_at": "2025-06-21T15:35:29Z",
+    "tag_name": "v1.14.1",
+    "created_at": "2025-06-22T13:04:19Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -4820,8 +4820,8 @@
   {
     "category": "other",
     "name": "pnpm/pnpm",
-    "tag_name": "v10.12.1",
-    "created_at": "2025-06-08T14:12:24Z",
+    "tag_name": "v10.12.2",
+    "created_at": "2025-06-23T00:16:21Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",
@@ -4925,15 +4925,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.18.0",
-    "created_at": "2025-06-15T20:18:48Z",
+    "tag_name": "v0.19.0",
+    "created_at": "2025-06-23T04:59:19Z",
     "assets": [
-      "aider-desk-0.18.0-macos.zip",
-      "aider-desk-0.18.0-setup.exe",
-      "aider-desk-0.18.0.AppImage",
-      "aider-desk-0.18.0.dmg",
-      "aider-desk-0.18.0.x86_64.rpm",
-      "aider-desk_0.18.0_amd64.deb"
+      "aider-desk-0.19.0-macos.zip",
+      "aider-desk-0.19.0-setup.exe",
+      "aider-desk-0.19.0.AppImage",
+      "aider-desk-0.19.0.dmg",
+      "aider-desk-0.19.0.x86_64.rpm",
+      "aider-desk_0.19.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -5538,8 +5538,8 @@
   {
     "category": "other",
     "name": "hatoo/oha",
-    "tag_name": "v1.8.0",
-    "created_at": "2025-02-15T06:39:58Z",
+    "tag_name": "v1.9.0",
+    "created_at": "2025-06-21T09:00:03Z",
     "assets": [
       "oha-linux-amd64",
       "oha-linux-amd64-pgo",
@@ -5862,10 +5862,10 @@
   {
     "category": "other",
     "name": "pacstall/pacstall",
-    "tag_name": "6.3.1",
-    "created_at": "2025-05-24T20:35:39Z",
+    "tag_name": "6.3.2",
+    "created_at": "2025-06-22T20:56:00Z",
     "assets": [
-      "pacstall_6.3.1-pacstall1_all.deb"
+      "pacstall_6.3.2-pacstall1_all.deb"
     ]
   },
   {
@@ -6186,14 +6186,17 @@
   {
     "category": "android",
     "name": "maxrave-dev/SimpMusic",
-    "tag_name": "v0.2.16",
-    "created_at": "2025-06-05T14:50:41Z",
+    "tag_name": "v0.2.17",
+    "created_at": "2025-06-22T07:30:17Z",
     "assets": [
-      "SimpMusic_v0.2.16-arm64-v8a-release.apk",
-      "SimpMusic_v0.2.16-armeabi-v7a-release.apk",
-      "SimpMusic_v0.2.16-universal-release.apk",
-      "SimpMusic_v0.2.16-x86-release.apk",
-      "SimpMusic_v0.2.16-x86_64-release.apk"
+      "SimpMusic-foss-arm64-v8a-release.apk",
+      "SimpMusic-foss-armeabi-v7a-release.apk",
+      "SimpMusic-foss-universal-release.apk",
+      "SimpMusic-foss-x86_64-release.apk",
+      "SimpMusic-full-arm64-v8a-release.apk",
+      "SimpMusic-full-armeabi-v7a-release.apk",
+      "SimpMusic-full-universal-release.apk",
+      "SimpMusic-full-x86_64-release.apk"
     ],
     "android": {
       "ends": "universal-release.apk"

@@ -215,7 +215,7 @@ export def hyde [completion: string@hyde-completions] {
   bind-user hyde/hypr/hypridle.conf hypr/hypridle.conf
   bind-user hyde/hypr/userprefs.conf hypr/userprefs.conf
 
-  bind-user $"hyde/monitors/($completion).conf" hypr/monitors.conf
+  bind-user $"hyde/hypr/monitors/($completion).conf" hypr/monitors.conf
 }
 
 def mouseless-completions [] {

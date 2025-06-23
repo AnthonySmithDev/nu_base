@@ -29,6 +29,7 @@ export  def zellij [] {
 export  def kitty [] {
   ln -sf (icons kitty.svg) $env.LOCAL_SHARE_ICONS
   ln -sf (applications kitty) (share)
+  ln -sf (applications kitty-open) (share)
 }
 
 export  def lan-mouse [] {

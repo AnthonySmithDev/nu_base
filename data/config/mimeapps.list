@@ -6,15 +6,15 @@ x-scheme-handler/chrome=brave-browser.desktop
 
 text/html=brave-browser.desktop
 application/xhtml+xml=brave-browser.desktop
+application/x-extension-xht=brave-browser.desktop
 application/x-extension-htm=brave-browser.desktop
 application/x-extension-html=brave-browser.desktop
 application/x-extension-shtml=brave-browser.desktop
 application/x-extension-xhtml=brave-browser.desktop
-application/x-extension-xht=brave-browser.desktop
 
+x-scheme-handler/wox=wox-url-handler.desktop
 x-scheme-handler/about=brave-browser.desktop
 x-scheme-handler/unknown=brave-browser.desktop
-x-scheme-handler/wox=wox-url-handler.desktop
 
 image/png=imv.desktop
 image/jpeg=imv.desktop
@@ -29,6 +29,8 @@ video/quicktime=mpv.desktop
 video/x-avi=mpv.desktop
 video/*=mpv.desktop
 
+application/x-executable=kitty-open.desktop
+
 [Added Associations]
 x-scheme-handler/http=brave-browser.desktop;
 x-scheme-handler/https=brave-browser.desktop;
@@ -38,6 +40,6 @@ text/html=brave-browser.desktop;
 application/x-extension-htm=brave-browser.desktop;
 application/x-extension-html=brave-browser.desktop;
 application/x-extension-shtml=brave-browser.desktop;
-application/xhtml+xml=brave-browser.desktop;
 application/x-extension-xhtml=brave-browser.desktop;
 application/x-extension-xht=brave-browser.desktop;
+application/xhtml+xml=brave-browser.desktop;

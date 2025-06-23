@@ -3056,6 +3056,7 @@ export def sst-opencode [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -f $download_path -p $path
+    add-execute $path
   }
 
   bind-file opencode $path
