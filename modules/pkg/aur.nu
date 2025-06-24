@@ -31,4 +31,8 @@ export def timg [] {
   install timg
 }
 
+export def qview [] {
+  install qview
+}
+
 # chaotic-aur/code-marketplace

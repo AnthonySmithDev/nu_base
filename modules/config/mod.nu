@@ -7,6 +7,7 @@ export-env {
 def bind-user [
   src_name: string,
   dst_name?: string,
+  --copy,
   --home,
   --local,
   --state,
@@ -35,7 +36,13 @@ def bind-user [
   }
 
   let src_path = ($env.CONFIG_PATH | path join $src_name)
-  ln -sf $src_path $dst_path
+
+  if $copy {
+    rm -rf $dst_path
+    cp -f $src_path $dst_path
+  } else {
+    ln -sf $src_path $dst_path
+  }
 
   print $"Config: ($dst_path)"
 }
@@ -302,6 +309,14 @@ export def neovide [] {
 
 export def opencode [] {
   bind-user opencode/config.json
+}
+
+export def qview [] {
+  bind-user --copy qView/qView.conf
+}
+
+export def imv [] {
+  bind-user imv/config
 }
 
 export def gitlab [] {

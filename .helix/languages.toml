@@ -17,4 +17,13 @@ file-types = ["ron", { glob = "cosmic/**" }]
 
 [[language]]
 name = "ini"
-file-types = [{ glob = "**/*.ini" }, { glob = "*.desktop" }, { glob = "*.service" }, { glob = "mimeapps.list" }, { glob = "gitconfig" }, { glob = "opencommit" }]
+file-types = [
+{ glob = "**/*.ini" },
+{ glob = "*.desktop" },
+{ glob = "*.service" },
+{ glob = "mimeapps.list" },
+{ glob = "gitconfig" },
+{ glob = "opencommit" },
+{ glob = "qView.conf" },
+{ glob = "imv/*" },
+]

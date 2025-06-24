@@ -5,9 +5,10 @@ ratio = [2,4,4]
 linemode = "size"
 
 [opener]
-imv = [
-	{ run = 'imv -b ffffff "$@"', orphan = true, desc = "Viewer white", for = "unix" },
-	{ run = 'imv -b 000000 "$@"', orphan = true, desc = "Viewer black", for = "unix" },
+view = [
+	{ run = 'qview "$@"', orphan = true, desc = "qView", for = "unix" },
+	{ run = 'imv -b ffffff "$@"', orphan = true, desc = "Imv white", for = "unix" },
+	{ run = 'imv -b 000000 "$@"', orphan = true, desc = "Imv black", for = "unix" },
 ]
 cast = [
 	{ run = 'go2tv -v "$@"', orphan = true, desc = "Cast media files", for = "unix" },
@@ -15,7 +16,7 @@ cast = [
 
 [open]
 append_rules = [
-	{ mime = "image/*", use = [ "open", "reveal", "imv" ] },
+	{ mime = "image/*", use = [ "open", "view", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "reveal", "cast" ] },
 ]
 

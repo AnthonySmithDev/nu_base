@@ -30,6 +30,9 @@ video/x-avi=mpv.desktop
 video/*=mpv.desktop
 
 application/x-executable=kitty-open.desktop
+x-scheme-handler/tg=telegram-web.desktop
+x-scheme-handler/telegram=telegram-web.desktop
+text/plain=helix.desktop
 
 [Added Associations]
 x-scheme-handler/http=brave-browser.desktop;

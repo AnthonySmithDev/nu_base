@@ -57,7 +57,9 @@ export  def session [] {
 }
 
 export  def imv [] {
+  ln -sf (icons qView.svg) $env.LOCAL_SHARE_ICONS
   ln -sf (applications imv) (share imv.desktop)
+  ln -sf (applications imv-dir) (share imv-dir.desktop)
 }
 
 export  def discord-web [] {
@@ -66,4 +68,8 @@ export  def discord-web [] {
 
 export  def whatsapp-web [] {
   ln -sf (applications whatsapp-web) (share whatsapp-web.desktop)
+}
+
+export  def telegram-web [] {
+  ln -sf (applications telegram-web) (share telegram-web.desktop)
 }
