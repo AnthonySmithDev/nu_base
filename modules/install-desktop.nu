@@ -44,6 +44,8 @@ export def main [] {
   pkg bin kitty
 
   pkg bin rain
+  pkg bin resvg
+
   pkg bin melt
   pkg bin soft
   pkg bin freeze
@@ -78,6 +80,7 @@ export def main [] {
   pkg desktop helix
   pkg desktop yazi
   pkg desktop zellij
+  pkg desktop scrcpy
 
   pkg desktop discord-web
   pkg desktop whatsapp-web
@@ -94,8 +97,11 @@ export def main [] {
 
   # pkg js install opencommit
 
-  config git
   config mpv
+  config imv
+  config qview
+
+  config git
   config rain
   config vieb
   config kitty

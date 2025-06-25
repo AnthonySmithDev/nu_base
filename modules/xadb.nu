@@ -1,4 +1,7 @@
 
+# sudo systemctl start avahi-daemon
+# sudo systemctl enable avahi-daemon
+
 export def mdns-scan [resolve: string = "_adb-tls-connect._tcp"] {
   let columns = [type interface protocol 'service name' 'service type' 'host name' scope ip port info]
   avahi-browse -p -t -r $resolve | rg '=' | from csv --noheaders --separator ';' | rename ...$columns

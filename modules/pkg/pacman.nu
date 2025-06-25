@@ -90,3 +90,7 @@ export def wifite [] {
 export def neovide [] {
   install neovide
 }
+
+export def yazi [] {
+  install yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide imagemagick
+}

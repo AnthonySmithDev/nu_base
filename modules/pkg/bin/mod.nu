@@ -38,6 +38,8 @@ export def core [ --force(-f) ] {
   pnpm
 
   rain
+  resvg
+
   melt
   soft
   freeze
@@ -82,9 +84,9 @@ def remove [path: string] {
     if ($versions | length) == 1 {
       continue
     }
-    print $" + (ansi green_bold)($versions | first)(ansi reset)"
+    print $"(ansi green_bold) + ($versions | first)(ansi reset)"
     for version in ($versions | skip 1) {
-      print $" - (ansi red_bold)($version)(ansi reset)"
+      print $"(ansi red_bold) - ($version)(ansi reset)"
       rm -rf $version
     }
   }

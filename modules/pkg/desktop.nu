@@ -73,3 +73,8 @@ export  def whatsapp-web [] {
 export  def telegram-web [] {
   ln -sf (applications telegram-web) (share telegram-web.desktop)
 }
+
+export  def scrcpy [] {
+  ln -sf (icons scrcpy.svg) $env.LOCAL_SHARE_ICONS
+  ln -sf (applications scrcpy) (share scrcpy.desktop)
+}
