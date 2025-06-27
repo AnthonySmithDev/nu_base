@@ -86,7 +86,7 @@ def remove [path: string] {
     }
     print $"(ansi green_bold) + ($versions | first)(ansi reset)"
     for version in ($versions | skip 1) {
-      print $"(ansi red_bold) - ($version)(ansi reset)"
+      print $"  (ansi red_bold) - ($version)(ansi reset)"
       rm -rf $version
     }
   }

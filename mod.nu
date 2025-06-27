@@ -16,6 +16,5 @@ source alias/zellij.nu
 source alias/mods.nu
 
 use ctx.nu
-use adctrl.nu
 use file-manager.nu
 source alias/file-manager.nu

@@ -26,7 +26,7 @@ enable = true
 
 [editor.inline-diagnostics]
 cursor-line = "warning"
-# other-lines = "warning"
+other-lines = "warning"
 
 [keys.insert.j]
 k = "normal_mode"

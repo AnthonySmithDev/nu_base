@@ -63,7 +63,7 @@ export def download_url [name: string@names, tag_name: string, asset: string] {
 def print-repository [r: record] {
   let version = ($r.tag_name | to-version)
   let created_at = ($r.created_at | to-created-at)
-  print $"(link $r.name $r.tag_name) (white $version) (italic $created_at)"
+  print $"(tag-url $r.name $r.tag_name) (white $version) (italic $created_at)"
 }
 
 export def version [name: string@names] {
@@ -213,8 +213,13 @@ export def index-set [index: int] {
   $index | save --force ($env.HOME | path join .github-index)
 }
 
-def link [name: string@names, tag: string] {
+def tag-url [name: string@names, tag: string] {
   let text = ($"https://github.com/($name)/releases/tag/($tag)" | ansi link --text $name)
+  return (light $text)
+}
+
+def releases-url [name: string@names] {
+  let text = ($"https://github.com/($name)/releases" | ansi link --text $name)
   return (light $text)
 }
 
@@ -311,17 +316,17 @@ export def "repo update" [...names: string@names] {
     }
 
     if $old.tag_name == $new.tag_name {
-      print $"(link $old.name $old.tag_name) (white $old_version) (italic $new_created_at)"
+      print $"(tag-url $old.name $old.tag_name) (white $old_version) (italic $new_created_at)"
       continue
     }
     if ($old.assets? | is-not-empty) {
       if ($new.assets | length) < 1 {
-        print $"(link $old.name $new.tag_name) (purple $old_version) (cyan $new_version) (italic $new_created_at)"
+        print $"(tag-url $old.name $new.tag_name) (purple $old_version) (cyan $new_version) (italic $new_created_at)"
         continue
       }
     }
 
-    print $"(link $old.name $new.tag_name) (red $old_version) (green $new_version) (italic $new_created_at)"
+    print $"(releases-url $old.name) (red $old_version) (green $new_version) (italic $new_created_at)"
 
     mut repo = ($old
       | upsert tag_name $new.tag_name
@@ -380,7 +385,7 @@ export def "repo upgrade" [] {
       index-set ($it.index + 1 )
     }
 
-    print $"(link $old.name $new.tag_name)"
+    print $"(tag-url $old.name $new.tag_name)"
 
     mut repo = ($old
       | upsert tag_name $new.tag_name

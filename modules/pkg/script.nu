@@ -46,3 +46,7 @@ export def scrollback-editor [] {
 export def vicat [] {
   install vicat.nu --dev --root
 }
+
+export def adctrl [] {
+  install adctrl.nu --dev --root
+}

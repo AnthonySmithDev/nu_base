@@ -64,12 +64,15 @@ const CENTER = {
 const KEYCODE = {
   POWER: 'KEYCODE_POWER'
   SLEEP: 'KEYCODE_SLEEP'
+
   VOLUME_UP: 'KEYCODE_VOLUME_UP'
   VOLUME_DOWN: 'KEYCODE_VOLUME_DOWN'
   VOLUME_MUTE: 'KEYCODE_VOLUME_MUTE'
-  VOLUME_NEXT: 'KEYCODE_VOLUME_NEXT'
-  VOLUME_PREVIOUS: 'KEYCODE_VOLUME_PREVIOUS'
-  VOLUME_PLAY_PAUSE: 'KEYCODE_VOLUME_PLAY_PAUSE'
+
+  MEDIA_NEXT: 'KEYCODE_MEDIA_NEXT'
+  MEDIA_PREVIOUS: 'KEYCODE_MEDIA_PREVIOUS'
+  MEDIA_PLAY_PAUSE: 'KEYCODE_MEDIA_PLAY_PAUSE'
+  MEDIA_STOP: 'KEYCODE_MEDIA_STOP'
 }
 
 def --wrapped adb [...rest] {
@@ -206,6 +209,19 @@ export def "media play" [] {
   adb shell input keyevent $KEYCODE.MEDIA_PLAY_PAUSE
 }
 
+export def "screen-off" [] {
+  adb shell cmd display power-off 0
+  exit
+}
+
+export def "screen-on" [] {
+  adb shell cmd display power-on 0
+}
+
+export def "scrcpy no-window" [] {
+  job spawn {scrcpy --no-window | null}
+}
+
 export def keybindings [] {
   {
     "q": { tiktok back }
@@ -223,6 +239,12 @@ export def keybindings [] {
     "C-j": { volumen down }
     "C-m": { volumen mute }
 
+    "s": {
+      "u": { screen-on }
+      "d": { screen-off }
+      "n": { scrcpy no-window }
+    }
+
     "i": {
       "t": { instagram toggle }
       "b": { instagram back }
@@ -231,6 +253,8 @@ export def keybindings [] {
 
     "t": {
       "q": { tiktok back }
+      "t": { tiktok tap }
+      "h": { tiktok dtap }
       "p": { tiktok profile }
       "c": { tiktok comment }
       "m": { tiktok bookmark }
@@ -241,14 +265,28 @@ export def keybindings [] {
  }
 }
 
+const TITLE = "adctrl"
+
+export def hyprland [] {
+  let clients = (hyprctl clients -j | from json)
+  let client = ($clients | where title == $TITLE | get 0?)
+  if ($client | is-empty) {
+    return (kitty --title $TITLE -- nu --login -c "adctrl whichkey")
+  }
+  if $client.focusHistoryID != 0 {
+    hyprctl dispatch focuswindow address:($client.address)
+  } else {
+    hyprctl dispatch focuscurrentorlast
+  }
+}
+
 export def whichkey [] {
   let default = keybindings
   mut keybindings = $default
+  mut inner = false
 
   loop {
     clear
-
-# blue_bold light_red_bold green_bold
 
     let list = ($keybindings | transpose key value | each {|e|
       let type = ($e.value | describe --detailed | get type)
@@ -264,21 +302,33 @@ export def whichkey [] {
       }
     })
 
+    let fill = (term size | get rows) - ($list | length) - 3
+
     print ($list | to text)
-    let lines = (term size | get rows) - ($list | length) - 3
-    for $x in 1..$lines { print "" }
+    print ("" | fill -w $fill -c "\n" )
 
-    let input = input listen --types ["key"]
-    let modifiers = ($input | get -i modifiers | default [])
-
-    let key = if "keymodifiers(control)" in $modifiers {
-      $"C-($input.code)"
-    } else {
-      $input.code
+    let input = input listen --types ["key" "resize"]
+    if $input.type == "resize" {
+      continue
     }
 
-    if $key == "C-c" or $key == "C-q" or $key == "esc" {
+    let key = match ($input | get -i modifiers | default []) {
+      $mod if "keymodifiers(control)" in $mod => $"C-($input.code)",
+      $mod if "keymodifiers(shift)" in $mod => $"S-($input.code)",
+      _ => $input.code
+    }
+
+    if $key == "C-c" or $key == "C-q" {
       exit
+    }
+
+    if $key == "esc" {
+      if $inner {
+        $inner = false
+        $keybindings = $default
+      } else {
+        exit
+      }
     }
 
     if ($key not-in $keybindings) {
@@ -290,19 +340,32 @@ export def whichkey [] {
 
     if $type == "record" {
       $keybindings = $value
+      $inner = true
       continue
     }
 
     if $type == "string" {
       $keybindings = $default
+      $inner = false
       nu -c $value
     }
 
     if $type == "closure" {
       $keybindings = $default
+      $inner = false
       do $value
     }
 
-    sleep 1sec
+    sleep 100ms
   }
 }
+
+def "main hyprland" [] {
+  hyprland
+}
+
+def "main whichkey" [] {
+  whichkey
+}
+
+def main [] {}
