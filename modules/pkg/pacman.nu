@@ -92,5 +92,5 @@ export def neovide [] {
 }
 
 export def yazi [] {
-  install yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide imagemagick
+  install yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide imagemagick exiftool mediainfo
 }

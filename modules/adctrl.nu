@@ -222,6 +222,18 @@ export def "scrcpy no-window" [] {
   job spawn {scrcpy --no-window | null}
 }
 
+export def "stay-on" [] {
+  adb shell svc power stayon true
+}
+
+export def "stay-off" [] {
+  adb shell svc power stayon false
+}
+
+export def "stay-plug" [] {
+  adb shell settings put global stay_on_while_plugged_in 3
+}
+
 export def keybindings [] {
   {
     "q": { tiktok back }
@@ -240,6 +252,9 @@ export def keybindings [] {
     "C-m": { volumen mute }
 
     "s": {
+      "s": { stay-on }
+      "f": { stay-off }
+      "p": { stay-plug }
       "u": { screen-on }
       "d": { screen-off }
       "n": { scrcpy no-window }

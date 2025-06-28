@@ -17,7 +17,7 @@ export def names [] {
 }
 
 export def rate_limit [] {
-  let rate = (http get https://api.github.com/rate_limit | get rate)
+  let rate = (http get --max-time 10sec https://api.github.com/rate_limit | get rate)
   let reset = ($rate | get reset | $in * 1_000_000_000 | into datetime --offset -5)
   return ($rate | upsert reset $reset)
 }
@@ -289,6 +289,10 @@ export def "repo update" [...names: string@names] {
   for $it in $repos_to_process {
     let old = $it.item
     let old_version = ($old.tag_name | to-version)
+
+    if $old.skip? == true {
+      continue
+    }
 
     let new = if $old.prerelease? == true {
       try {

@@ -244,11 +244,10 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.1.153",
-    "created_at": "2025-06-27T15:35:57Z",
+    "tag_name": "v0.1.159",
+    "created_at": "2025-06-28T13:16:29Z",
     "assets": [
       "opencode-darwin-arm64.zip",
-      "opencode-darwin-x64.zip",
       "opencode-linux-arm64.zip",
       "opencode-linux-x64.zip",
       "opencode-windows-x64.zip"
@@ -359,26 +358,27 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.62.0",
-    "created_at": "2025-05-04T09:32:15Z",
+    "tag_name": "v0.63.0",
+    "created_at": "2025-06-27T16:11:43Z",
     "assets": [
-      "fzf-0.62.0-darwin_amd64.tar.gz",
-      "fzf-0.62.0-darwin_arm64.tar.gz",
-      "fzf-0.62.0-freebsd_amd64.tar.gz",
-      "fzf-0.62.0-linux_amd64.tar.gz",
-      "fzf-0.62.0-linux_arm64.tar.gz",
-      "fzf-0.62.0-linux_armv5.tar.gz",
-      "fzf-0.62.0-linux_armv6.tar.gz",
-      "fzf-0.62.0-linux_armv7.tar.gz",
-      "fzf-0.62.0-linux_loong64.tar.gz",
-      "fzf-0.62.0-linux_ppc64le.tar.gz",
-      "fzf-0.62.0-linux_s390x.tar.gz",
-      "fzf-0.62.0-openbsd_amd64.tar.gz",
-      "fzf-0.62.0-windows_amd64.zip",
-      "fzf-0.62.0-windows_arm64.zip",
-      "fzf-0.62.0-windows_armv5.zip",
-      "fzf-0.62.0-windows_armv6.zip",
-      "fzf-0.62.0-windows_armv7.zip"
+      "fzf-0.63.0-android_arm64.tar.gz",
+      "fzf-0.63.0-darwin_amd64.tar.gz",
+      "fzf-0.63.0-darwin_arm64.tar.gz",
+      "fzf-0.63.0-freebsd_amd64.tar.gz",
+      "fzf-0.63.0-linux_amd64.tar.gz",
+      "fzf-0.63.0-linux_arm64.tar.gz",
+      "fzf-0.63.0-linux_armv5.tar.gz",
+      "fzf-0.63.0-linux_armv6.tar.gz",
+      "fzf-0.63.0-linux_armv7.tar.gz",
+      "fzf-0.63.0-linux_loong64.tar.gz",
+      "fzf-0.63.0-linux_ppc64le.tar.gz",
+      "fzf-0.63.0-linux_s390x.tar.gz",
+      "fzf-0.63.0-openbsd_amd64.tar.gz",
+      "fzf-0.63.0-windows_amd64.zip",
+      "fzf-0.63.0-windows_arm64.zip",
+      "fzf-0.63.0-windows_armv5.zip",
+      "fzf-0.63.0-windows_armv6.zip",
+      "fzf-0.63.0-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -1187,8 +1187,8 @@
   {
     "category": "extra",
     "name": "zed-industries/zed",
-    "tag_name": "v0.192.6",
-    "created_at": "2025-06-26T07:59:31Z",
+    "tag_name": "v0.192.7",
+    "created_at": "2025-06-27T16:44:45Z",
     "assets": [
       "Zed-aarch64.dmg",
       "zed-linux-aarch64.tar.gz",
@@ -1249,6 +1249,7 @@
   {
     "category": "extra",
     "name": "Lunaris-Project/HyprLuna",
+    "skip": true,
     "tag_name": "",
     "created_at": "",
     "assets": []
@@ -2606,8 +2607,8 @@
   {
     "category": "other",
     "name": "mudler/LocalAI",
-    "tag_name": "v3.1.0",
-    "created_at": "2025-06-26T20:09:26Z",
+    "tag_name": "v3.1.1",
+    "created_at": "2025-06-27T21:46:27Z",
     "assets": [
       "local-ai-Darwin-arm64",
       "local-ai-Darwin-x86_64",
