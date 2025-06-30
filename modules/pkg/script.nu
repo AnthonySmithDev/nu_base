@@ -50,3 +50,7 @@ export def vicat [] {
 export def adctrl [] {
   install adctrl.nu --dev --root
 }
+
+export def hyprnu [] {
+  install hyprnu.nu --dev --root
+}

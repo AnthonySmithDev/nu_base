@@ -84,7 +84,7 @@ def bind-root [
 }
 
 export def rain [] {
-  bind-user --home rain/config.yaml
+  bind-user --copy --home rain/config.yaml
 }
 
 export def nushell [] {

@@ -244,8 +244,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.1.162",
-    "created_at": "2025-06-29T01:01:53Z",
+    "tag_name": "v0.1.169",
+    "created_at": "2025-06-30T19:28:59Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -1188,8 +1188,8 @@
   {
     "category": "extra",
     "name": "zed-industries/zed",
-    "tag_name": "v0.192.7",
-    "created_at": "2025-06-27T16:44:45Z",
+    "tag_name": "v0.192.8",
+    "created_at": "2025-06-30T16:09:32Z",
     "assets": [
       "Zed-aarch64.dmg",
       "zed-linux-aarch64.tar.gz",
@@ -3919,8 +3919,8 @@
   {
     "category": "other",
     "name": "TheWaWaR/simple-http-server",
-    "tag_name": "v0.6.12",
-    "created_at": "2025-03-30T06:58:06Z",
+    "tag_name": "v0.6.13",
+    "created_at": "2025-06-30T14:12:25Z",
     "assets": [
       "aarch64-apple-darwin-simple-http-server",
       "aarch64-unknown-linux-musl-simple-http-server",
@@ -4797,8 +4797,8 @@
   {
     "category": "other",
     "name": "SUPERCILEX/clipboard-history",
-    "tag_name": "0.11.0",
-    "created_at": "2025-06-10T00:17:06Z",
+    "tag_name": "0.12.0",
+    "created_at": "2025-06-29T01:01:14Z",
     "assets": [
       "aarch64-unknown-linux-gnu-ringboard",
       "aarch64-unknown-linux-gnu-ringboard-egui",
@@ -4941,15 +4941,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.19.0",
-    "created_at": "2025-06-23T04:59:19Z",
+    "tag_name": "v0.20.0",
+    "created_at": "2025-06-30T05:48:28Z",
     "assets": [
-      "aider-desk-0.19.0-macos.zip",
-      "aider-desk-0.19.0-setup.exe",
-      "aider-desk-0.19.0.AppImage",
-      "aider-desk-0.19.0.dmg",
-      "aider-desk-0.19.0.x86_64.rpm",
-      "aider-desk_0.19.0_amd64.deb"
+      "aider-desk-0.20.0-macos.zip",
+      "aider-desk-0.20.0-setup.exe",
+      "aider-desk-0.20.0.AppImage",
+      "aider-desk-0.20.0.dmg",
+      "aider-desk-0.20.0.x86_64.rpm",
+      "aider-desk_0.20.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
