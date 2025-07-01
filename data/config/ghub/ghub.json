@@ -244,8 +244,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.1.169",
-    "created_at": "2025-06-30T19:28:59Z",
+    "tag_name": "v0.1.173",
+    "created_at": "2025-07-01T17:50:57Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -644,12 +644,12 @@
   {
     "category": "core",
     "name": "walles/riff",
-    "tag_name": "3.3.10",
-    "created_at": "2025-04-05T09:08:59Z",
+    "tag_name": "3.4.0",
+    "created_at": "2025-07-01T20:29:52Z",
     "assets": [
-      "riff-3.3.10-universal-macos",
-      "riff-3.3.10-x86_64-linux",
-      "riff-3.3.10-x86_64-windows.exe"
+      "riff-3.4.0-universal-macos",
+      "riff-3.4.0-x86_64-linux",
+      "riff-3.4.0-x86_64-windows.exe"
     ],
     "linux_x64": {
       "ends": "x86_64-linux"
@@ -1258,8 +1258,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.147.0",
-    "created_at": "2025-06-26T17:56:17Z",
+    "tag_name": "3.148.0",
+    "created_at": "2025-07-01T08:39:28Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -2567,8 +2567,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.9.3",
-    "created_at": "2025-06-26T07:19:44Z",
+    "tag_name": "v0.9.4",
+    "created_at": "2025-06-30T15:59:03Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -2577,11 +2577,10 @@
       "ollama-linux-arm64-jetpack5.tgz",
       "ollama-linux-arm64-jetpack6.tgz",
       "ollama-linux-arm64.tgz",
-      "Ollama-Preview.dmg",
       "ollama-windows-amd64-rocm.zip",
       "ollama-windows-amd64.zip",
       "ollama-windows-arm64.zip",
-      "OllamaSetup-Preview.exe",
+      "Ollama.dmg",
       "OllamaSetup.exe"
     ],
     "linux_x64": {
@@ -3745,8 +3744,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.7.17",
-    "created_at": "2025-06-29T13:58:33Z",
+    "tag_name": "0.7.18",
+    "created_at": "2025-07-01T20:30:44Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -4731,35 +4730,35 @@
   {
     "category": "other",
     "name": "brave/brave-browser",
-    "tag_name": "v1.80.113",
-    "created_at": "2025-06-26T00:06:33Z",
+    "tag_name": "v1.80.115",
+    "created_at": "2025-07-01T03:20:20Z",
     "assets": [
-      "brave-browser-1.80.113-1.aarch64.rpm",
-      "brave-browser-1.80.113-1.x86_64.rpm",
-      "brave-browser-1.80.113-linux-amd64.zip",
-      "brave-browser-1.80.113-linux-arm64.zip",
+      "brave-browser-1.80.115-1.aarch64.rpm",
+      "brave-browser-1.80.115-1.x86_64.rpm",
+      "brave-browser-1.80.115-linux-amd64.zip",
+      "brave-browser-1.80.115-linux-arm64.zip",
       "Brave-Browser-arm64.dmg",
       "Brave-Browser-arm64.pkg",
       "Brave-Browser-universal.dmg",
       "Brave-Browser-universal.pkg",
       "Brave-Browser-x64.dmg",
       "Brave-Browser-x64.pkg",
-      "brave-browser_1.80.113_amd64.deb",
-      "brave-browser_1.80.113_arm64.deb",
-      "brave-core-ios-1.80.113.app.dSYM.zip",
-      "brave-core-ios-1.80.113.ipa",
-      "brave-v1.80.113-darwin-arm64-symbols.zip",
-      "brave-v1.80.113-darwin-arm64.zip",
-      "brave-v1.80.113-darwin-x64-symbols.zip",
-      "brave-v1.80.113-darwin-x64.zip",
-      "brave-v1.80.113-linux-arm64-symbols.zip",
-      "brave-v1.80.113-linux-x64-symbols.zip",
-      "brave-v1.80.113-win32-arm64-symbols.zip",
-      "brave-v1.80.113-win32-arm64.zip",
-      "brave-v1.80.113-win32-ia32-symbols.zip",
-      "brave-v1.80.113-win32-ia32.zip",
-      "brave-v1.80.113-win32-x64-symbols.zip",
-      "brave-v1.80.113-win32-x64.zip",
+      "brave-browser_1.80.115_amd64.deb",
+      "brave-browser_1.80.115_arm64.deb",
+      "brave-core-ios-1.80.115.app.dSYM.zip",
+      "brave-core-ios-1.80.115.ipa",
+      "brave-v1.80.115-darwin-arm64-symbols.zip",
+      "brave-v1.80.115-darwin-arm64.zip",
+      "brave-v1.80.115-darwin-x64-symbols.zip",
+      "brave-v1.80.115-darwin-x64.zip",
+      "brave-v1.80.115-linux-arm64-symbols.zip",
+      "brave-v1.80.115-linux-x64-symbols.zip",
+      "brave-v1.80.115-win32-arm64-symbols.zip",
+      "brave-v1.80.115-win32-arm64.zip",
+      "brave-v1.80.115-win32-ia32-symbols.zip",
+      "brave-v1.80.115-win32-ia32.zip",
+      "brave-v1.80.115-win32-x64-symbols.zip",
+      "brave-v1.80.115-win32-x64.zip",
       "Bravearm64Universal.apk",
       "BraveBrowserSetup.exe",
       "BraveBrowserStandaloneSetup.exe",
@@ -5834,8 +5833,8 @@
   {
     "category": "other",
     "name": "yt-dlp/yt-dlp",
-    "tag_name": "2025.06.25",
-    "created_at": "2025-06-25T23:53:38Z",
+    "tag_name": "2025.06.30",
+    "created_at": "2025-06-30T23:47:20Z",
     "assets": [
       "SHA2-256SUMS",
       "SHA2-512SUMS",
@@ -6161,8 +6160,8 @@
   {
     "category": "android",
     "name": "Arturo254/OpenTune",
-    "tag_name": "2.0.0",
-    "created_at": "2025-06-10T15:07:46Z",
+    "tag_name": "2.0.1",
+    "created_at": "2025-07-01T03:36:36Z",
     "assets": [
       "app-release.apk"
     ],

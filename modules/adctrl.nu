@@ -218,6 +218,11 @@ export def "screen-on" [] {
   adb shell cmd display power-on 0
 }
 
+export def "scrcpy quit" [] {
+  ps | where name =~ scrcpy | first | kill $in.pid
+  exit
+}
+
 export def "scrcpy no-window" [] {
   job spawn {scrcpy --no-window | null}
 }
@@ -257,6 +262,7 @@ export def keybindings [] {
       "p": { stay-plug }
       "u": { screen-on }
       "d": { screen-off }
+      "q": { scrcpy quit }
       "n": { scrcpy no-window }
     }
 
@@ -278,21 +284,6 @@ export def keybindings [] {
       "d": { tiktok download }
     }
  }
-}
-
-const TITLE = "adctrl"
-
-export def hyprland [] {
-  let clients = (hyprctl clients -j | from json)
-  let client = ($clients | where title == $TITLE | get 0?)
-  if ($client | is-empty) {
-    return (kitty --title $TITLE -- nu --login -c "adctrl whichkey")
-  }
-  if $client.focusHistoryID != 0 {
-    hyprctl dispatch focuswindow address:($client.address)
-  } else {
-    hyprctl dispatch focuscurrentorlast
-  }
 }
 
 export def whichkey [] {
@@ -373,10 +364,6 @@ export def whichkey [] {
 
     sleep 100ms
   }
-}
-
-def "main hyprland" [] {
-  hyprland
 }
 
 def "main whichkey" [] {
