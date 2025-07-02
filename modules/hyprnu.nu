@@ -1,7 +1,19 @@
 #!/usr/bin/env nu
 
-def get-client [value: string, --title, --class] {
-  let clients = (hyprctl clients -j | from json)
+export def monitors [] {
+  hyprctl monitors -j | from json
+}
+
+export def clients [] {
+  hyprctl clients -j | from json
+}
+
+export def activewindow [] {
+  hyprctl activewindow -j | from json
+}
+
+def filter [value: string, --title(-t), --class(-c)] {
+  let clients = clients
   let client = if $title {
     ($clients | where title == $value | get 0?)
   } else if $class {
@@ -11,7 +23,8 @@ def get-client [value: string, --title, --class] {
 }
 
 export def move [value: string, --title, --class] {
-  let client = get-client $value --title=$title --class=$class
+  let active = activewindow
+  let client = filter $value --title=$title --class=$class
 
   if ($client.grouped | is-not-empty) {
     hyprctl dispatch moveoutofgroup address:($client.address)
@@ -26,28 +39,30 @@ export def move [value: string, --title, --class] {
   }
 
   hyprctl dispatch focuswindow address:($client.address)
-  hyprctl dispatch resizeactive exact 50% 45%
 
-  if ("top" in $client.tags) {
-    hyprctl dispatch moveactive exact 49% 53%
-  } else {
-    hyprctl dispatch moveactive exact 49% 4%
+  let monitor = (monitors | where id == $active.monitor | first)
+  if $monitor.transform == 0 {
+    if ("top" in $client.tags) {
+      hyprctl dispatch moveactive exact 1000 560
+    } else {
+      hyprctl dispatch moveactive exact 1000 20
+    }
+    hyprctl dispatch resizeactive exact 900 500
+  } else if $monitor.transform == 1  {
+    if ("top" in $client.tags) {
+      hyprctl dispatch moveactive exact 1940 -100
+    } else {
+      hyprctl dispatch moveactive exact 1940 940
+    }
+    hyprctl dispatch resizeactive exact 860 500
   }
 
   hyprctl dispatch tagwindow top address:($client.address)
-  hyprctl dispatch focuscurrentorlast
-}
-
-def "main move mpv" [] {
-  move --class "mpv"
-}
-
-def "main move pip" [] {
-  move --title "Picture in picture"
+  hyprctl dispatch focuswindow address:($active.address)
 }
 
 export def focus [value: string, --title, --class] {
-  let client = get-client $value --title=$title --class=$class
+  let client = filter $value --title=$title --class=$class
   if $client.focusHistoryID != 0 {
     hyprctl dispatch focuswindow address:($client.address)
   } else {
@@ -55,16 +70,8 @@ export def focus [value: string, --title, --class] {
   }
 }
 
-def "main focus mpv" [] {
-  focus --class "mpv"
-}
-
-def "main focus pip" [] {
-  focus --title "Picture in picture"
-}
-
 export def adctrl [] {
-  let client = get-client "adctrl" --title
+  let client = filter "adctrl" --title
   if ($client | is-empty) {
     return (kitty --title "adctrl" -- nu --login -c "adctrl whichkey")
   }
@@ -75,9 +82,45 @@ export def adctrl [] {
   }
 }
 
+def "main clients" [] {
+  clients
+}
+
+def "main monitors" [] {
+  monitors
+}
+
+def "main filter" [value: string, --title(-t), --class(-c)] {
+  filter $value --title=$title --class=$class
+}
+
+def "main move mpv" [] {
+  move --class "mpv"
+}
+
+def "main move pip" [] {
+  move --title "Picture in picture"
+}
+
+def "main focus mpv" [] {
+  focus --class "mpv"
+}
+
+def "main focus pip" [] {
+  focus --title "Picture in picture"
+}
+
+def "main switch mpv" [] {
+  switch --class "mpv"
+}
+
+def "main switch pip" [] {
+  switch --title "Picture in picture"
+}
+
 def "main adctrl" [] {
   adctrl
 }
 
-export def main [] {
+def "main" [] {
 }
