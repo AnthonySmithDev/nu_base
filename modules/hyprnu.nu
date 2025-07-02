@@ -45,24 +45,36 @@ export def move [value: string, --title, --class] {
 
   let monitor = (monitors | where id == $active.monitor | first)
   let monitor_y = if $waybar_is_run { $monitor.y + 40 } else { $monitor.y }
-  if $monitor.transform == 0 {
-    let monitor_x = ($monitor.x + 980)
+  if $monitor.transform == 0 { # horizontal
+    let width = $monitor.width
+    let monitor_height = $monitor.height
+    let waybar_height = if $waybar_is_run {40} else {0}
+    let padding = 20
+
+    let window_width = 920
+    let window_height = ((($monitor_height - $waybar_height) * 0.5) - ($padding * 2))
+
     if ("top" in $client.tags) {
-      let move_y = if $waybar_is_run {0} else {20}
-      hyprctl dispatch moveactive exact $monitor_x ($monitor_y + 540 + $move_y)
+      hyprctl dispatch moveactive exact ($monitor.x + 980) ($monitor_height - $window_height - $padding)
     } else {
-      hyprctl dispatch moveactive exact $monitor_x ($monitor_y + 20)
+      hyprctl dispatch moveactive exact ($monitor.x + 980) ($monitor.x + $waybar_height + $padding)
     }
-    hyprctl dispatch resizeactive exact 920 $resize_height
-  } else if $monitor.transform == 1  {
-    let monitor_x = ($monitor.x + 20)
+    hyprctl dispatch resizeactive exact $window_width $window_height
+  } else if $monitor.transform == 1  { # vertical
+    let monitor_width = $monitor.height
+    let monitor_height = $monitor.width
+    let waybar_height = if $waybar_is_run {40} else {0}
+    let padding = 20
+
+    let window_width = 860
+    let window_height = ((($monitor_width - $waybar_height) * 0.5) - ($padding * 2))
+
     if ("top" in $client.tags) {
-      hyprctl dispatch moveactive exact $monitor_x ($monitor_y + 20)
+      hyprctl dispatch moveactive exact ($monitor.x + $padding) ($monitor.y + $waybar_height + $padding)
     } else {
-      let move_y = if $waybar_is_run {0} else {20}
-      hyprctl dispatch moveactive exact $monitor_x ($monitor_y + 1060 + $move_y)
+      hyprctl dispatch moveactive exact ($monitor.x + $padding) ($monitor_height - $window_height - $padding)
     }
-    hyprctl dispatch resizeactive exact 860 $resize_height
+    hyprctl dispatch resizeactive exact $window_width $window_height
   }
 
   hyprctl dispatch tagwindow top address:($client.address)
