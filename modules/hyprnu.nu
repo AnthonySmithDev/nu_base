@@ -40,21 +40,29 @@ export def move [value: string, --title, --class] {
 
   hyprctl dispatch focuswindow address:($client.address)
 
+  let waybar_is_run = (^ps -a | from ssv -m 1| where CMD =~ waybar | is-not-empty)
+  let resize_height = if $waybar_is_run { 480 } else { 500 }
+
   let monitor = (monitors | where id == $active.monitor | first)
+  let monitor_y = if $waybar_is_run { $monitor.y + 40 } else { $monitor.y }
   if $monitor.transform == 0 {
+    let monitor_x = ($monitor.x + 980)
     if ("top" in $client.tags) {
-      hyprctl dispatch moveactive exact 1000 560
+      let move_y = if $waybar_is_run {0} else {20}
+      hyprctl dispatch moveactive exact $monitor_x ($monitor_y + 540 + $move_y)
     } else {
-      hyprctl dispatch moveactive exact 1000 20
+      hyprctl dispatch moveactive exact $monitor_x ($monitor_y + 20)
     }
-    hyprctl dispatch resizeactive exact 900 500
+    hyprctl dispatch resizeactive exact 920 $resize_height
   } else if $monitor.transform == 1  {
+    let monitor_x = ($monitor.x + 20)
     if ("top" in $client.tags) {
-      hyprctl dispatch moveactive exact 1940 -100
+      hyprctl dispatch moveactive exact $monitor_x ($monitor_y + 20)
     } else {
-      hyprctl dispatch moveactive exact 1940 940
+      let move_y = if $waybar_is_run {0} else {20}
+      hyprctl dispatch moveactive exact $monitor_x ($monitor_y + 1060 + $move_y)
     }
-    hyprctl dispatch resizeactive exact 860 500
+    hyprctl dispatch resizeactive exact 860 $resize_height
   }
 
   hyprctl dispatch tagwindow top address:($client.address)
