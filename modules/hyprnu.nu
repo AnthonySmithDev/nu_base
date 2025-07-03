@@ -41,15 +41,13 @@ export def move [value: string, --title, --class] {
   hyprctl dispatch focuswindow address:($client.address)
 
   let waybar_is_run = (^ps -a | from ssv -m 1| where CMD =~ waybar | is-not-empty)
-  let resize_height = if $waybar_is_run { 480 } else { 500 }
+  let waybar_height = if $waybar_is_run {40} else {0}
+  let padding = 20
 
   let monitor = (monitors | where id == $active.monitor | first)
-  let monitor_y = if $waybar_is_run { $monitor.y + 40 } else { $monitor.y }
   if $monitor.transform == 0 { # horizontal
-    let width = $monitor.width
+    let monitor_width = $monitor.width
     let monitor_height = $monitor.height
-    let waybar_height = if $waybar_is_run {40} else {0}
-    let padding = 20
 
     let window_width = 920
     let window_height = ((($monitor_height - $waybar_height) * 0.5) - ($padding * 2))
@@ -63,8 +61,6 @@ export def move [value: string, --title, --class] {
   } else if $monitor.transform == 1  { # vertical
     let monitor_width = $monitor.height
     let monitor_height = $monitor.width
-    let waybar_height = if $waybar_is_run {40} else {0}
-    let padding = 20
 
     let window_width = 860
     let window_height = ((($monitor_width - $waybar_height) * 0.5) - ($padding * 2))
@@ -72,7 +68,7 @@ export def move [value: string, --title, --class] {
     if ("top" in $client.tags) {
       hyprctl dispatch moveactive exact ($monitor.x + $padding) ($monitor.y + $waybar_height + $padding)
     } else {
-      hyprctl dispatch moveactive exact ($monitor.x + $padding) ($monitor_height - $window_height - $padding)
+      hyprctl dispatch moveactive exact ($monitor.x + $padding) (920 + $waybar_height)
     }
     hyprctl dispatch resizeactive exact $window_width $window_height
   }

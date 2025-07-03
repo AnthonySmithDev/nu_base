@@ -12,6 +12,7 @@ view = [
 ]
 cast = [
 	{ run = 'go2tv -v "$@"', orphan = true, desc = "Cast media files", for = "unix" },
+	{ run = 'kitty --class qrcp -- qrcp "$@"', orphan = true, desc = "Generate QR", for = "unix" },
 ]
 
 [open]
