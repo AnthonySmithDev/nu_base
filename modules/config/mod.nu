@@ -1,7 +1,6 @@
 
 export-env {
-  $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
-  $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
+  # $env.CONFIG_DIRS = []
 }
 
 def bind-user [
@@ -35,16 +34,23 @@ def bind-user [
     rm -rf $dst_path
   }
 
-  let src_path = ($env.CONFIG_PATH | path join $src_name)
-
-  if $copy {
-    rm -rf $dst_path
-    cp -f $src_path $dst_path
-  } else {
-    ln -sf $src_path $dst_path
+  if ($env.CONFIG_DIRS? | is-empty) {
+    return
   }
 
-  print $"Config: ($dst_path)"
+  for config_dir in $env.CONFIG_DIRS {
+    let src_path = ($config_dir | path join $src_name)
+    if not ($src_path | path exists) {
+      continue
+    }
+    if $copy {
+      rm -rf $dst_path
+      cp -f $src_path $dst_path
+    } else {
+      ln -sf $src_path $dst_path
+    }
+    print $"Config: ($dst_path)"
+  }
 }
 
 def bind-root [

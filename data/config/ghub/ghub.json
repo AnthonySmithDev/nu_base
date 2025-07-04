@@ -244,8 +244,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.1.186",
-    "created_at": "2025-07-03T19:34:04Z",
+    "tag_name": "v0.1.190",
+    "created_at": "2025-07-04T12:45:18Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -3239,15 +3239,16 @@
   {
     "category": "other",
     "name": "clangd/clangd",
-    "tag_name": "19.1.2",
-    "created_at": "2024-09-13T04:53:36Z",
+    "tag_name": "20.1.0",
+    "created_at": "2025-02-09T07:05:11Z",
     "assets": [
-      "clangd-linux-19.1.2.zip",
-      "clangd-mac-19.1.2.zip",
-      "clangd-windows-19.1.2.zip",
-      "clangd_indexing_tools-linux-19.1.2.zip",
-      "clangd_indexing_tools-mac-19.1.2.zip",
-      "clangd_indexing_tools-windows-19.1.2.zip"
+      "clangd-linux-20.1.0.zip",
+      "clangd-mac-20.1.0.zip",
+      "clangd-windows-20.1.0-debug-symbols.7z",
+      "clangd-windows-20.1.0.zip",
+      "clangd_indexing_tools-linux-20.1.0.zip",
+      "clangd_indexing_tools-mac-20.1.0.zip",
+      "clangd_indexing_tools-windows-20.1.0.zip"
     ],
     "linux_x64": {
       "ends": "linux-19.1.2.zip"
@@ -5925,10 +5926,10 @@
   {
     "category": "android",
     "name": "PhilKes/NotallyX",
-    "tag_name": "v7.4.1",
-    "created_at": "2025-06-04T16:35:01Z",
+    "tag_name": "v7.4.2",
+    "created_at": "2025-07-04T16:32:00Z",
     "assets": [
-      "NotallyX-7.4.1.apk"
+      "NotallyX-7.4.2.apk"
     ],
     "android": {
       "ends": ".apk"
@@ -5987,8 +5988,8 @@
   {
     "category": "android",
     "name": "FriesI23/mhabit",
-    "tag_name": "v1.16.17+86",
-    "created_at": "2025-06-09T11:16:04Z",
+    "tag_name": "v1.16.20+89",
+    "created_at": "2025-07-04T10:15:01Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",

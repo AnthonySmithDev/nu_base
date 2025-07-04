@@ -131,9 +131,14 @@ export def setup_nu [] {
   | where {path exists}
 
   let modules = ($dirs | each {|dir| $dir | path join modules})
+  let configs = ($dirs | each {|dir| $dir | path join data/config})
   let sources = ($dirs | each {|dir| $"source ($dir)/mod.nu"})
 
-  $"const NU_LIB_DIRS = ($modules)"
+  let lib_dirs = $"const NU_LIB_DIRS = ($modules)"
+  let config_dirs = $"$env.CONFIG_DIRS = ($configs)"
+
+  $lib_dirs
+  | append $config_dirs
   | append $sources
   | save --force ~/.source.nu
 }

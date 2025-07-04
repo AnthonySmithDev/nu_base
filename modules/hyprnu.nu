@@ -22,23 +22,41 @@ def filter [value: string, --title(-t), --class(-c)] {
   return $client
 }
 
-export def move [value: string, --title, --class] {
+const select_clients = [
+  ["class", "mpv"],
+  ["title", "Picture in picture"],
+]
+
+export def activeclient [] {
+  let clients = clients
+  mut select = {}
+  for $client in $select_clients {
+    let client = match $client.0 {
+      "class" => ($clients | where class == $client.1)
+      "title" => ($clients | where title == $client.1)
+    }
+    if ($client | is-not-empty) {
+      $select = ($client | first)
+    }
+  }
+  return $select
+}
+
+export def move [select: record] {
   let active = activewindow
-  let client = filter $value --title=$title --class=$class
 
-  if ($client.grouped | is-not-empty) {
-    hyprctl dispatch moveoutofgroup address:($client.address)
+  if ($select.grouped | is-not-empty) {
+    hyprctl dispatch moveoutofgroup address:($select.address)
+  }
+  if not $select.floating {
+    hyprctl dispatch setfloating address:($select.address)
+  }
+  if not $select.pinned {
+    hyprctl dispatch pin address:($select.address)
   }
 
-  if not $client.floating {
-    hyprctl dispatch setfloating address:($client.address)
-  }
-
-  if not $client.pinned {
-    hyprctl dispatch pin address:($client.address)
-  }
-
-  hyprctl dispatch focuswindow address:($client.address)
+  hyprctl dispatch focuswindow address:($select.address)
+  # hyprctl dispatch tagwindow $"monitor_($active.monitor)" address:($select.address)
 
   let waybar_is_run = (^ps -a | from ssv -m 1| where CMD =~ waybar | is-not-empty)
   let waybar_height = if $waybar_is_run {40} else {0}
@@ -52,11 +70,17 @@ export def move [value: string, --title, --class] {
     let window_width = 920
     let window_height = ((($monitor_height - $waybar_height) * 0.5) - ($padding * 2))
 
-    if ("top" in $client.tags) {
-      hyprctl dispatch moveactive exact ($monitor.x + 980) ($monitor_height - $window_height - $padding)
+    mut window_x = 0
+    mut window_y = 0
+
+    if ("top" in $select.tags) {
+      $window_x = ($monitor.x + 980)
+      $window_y = ($monitor_height - $window_height - $padding)
     } else {
-      hyprctl dispatch moveactive exact ($monitor.x + 980) ($monitor.x + $waybar_height + $padding)
+      $window_x = ($monitor.x + 980)
+      $window_y = ($monitor.x + $waybar_height + $padding)
     }
+    hyprctl dispatch moveactive exact $window_x $window_y
     hyprctl dispatch resizeactive exact $window_width $window_height
   } else if $monitor.transform == 1  { # vertical
     let monitor_width = $monitor.height
@@ -65,34 +89,27 @@ export def move [value: string, --title, --class] {
     let window_width = 860
     let window_height = ((($monitor_width - $waybar_height) * 0.5) - ($padding * 2))
 
-    if ("top" in $client.tags) {
-      hyprctl dispatch moveactive exact ($monitor.x + $padding) ($monitor.y + $waybar_height + $padding)
+    mut window_x = 0
+    mut window_y = 0
+
+    if ("top" in $select.tags) {
+      $window_x = ($monitor.x + $padding)
+      $window_y = ($monitor.y + $waybar_height + $padding)
     } else {
-      hyprctl dispatch moveactive exact ($monitor.x + $padding) (920 + $waybar_height)
+      $window_x = ($monitor.x + $padding)
+      $window_y = (920 + $waybar_height)
     }
+    hyprctl dispatch moveactive exact $window_x $window_y
     hyprctl dispatch resizeactive exact $window_width $window_height
   }
 
-  hyprctl dispatch tagwindow top address:($client.address)
+  hyprctl dispatch tagwindow top address:($select.address)
   hyprctl dispatch focuswindow address:($active.address)
 }
 
-export def focus [value: string, --title, --class] {
-  let client = filter $value --title=$title --class=$class
-  if $client.focusHistoryID != 0 {
-    hyprctl dispatch focuswindow address:($client.address)
-  } else {
-    hyprctl dispatch focuscurrentorlast
-  }
-}
-
-export def adctrl [] {
-  let client = filter "adctrl" --title
-  if ($client | is-empty) {
-    return (kitty --title "adctrl" -- nu --login -c "adctrl whichkey")
-  }
-  if $client.focusHistoryID != 0 {
-    hyprctl dispatch focuswindow address:($client.address)
+export def focus [select: record] {
+  if $select.focusHistoryID != 0 {
+    hyprctl dispatch focuswindow address:($select.address)
   } else {
     hyprctl dispatch focuscurrentorlast
   }
@@ -111,31 +128,42 @@ def "main filter" [value: string, --title(-t), --class(-c)] {
 }
 
 def "main move mpv" [] {
-  move --class "mpv"
+  let select = filter --class mpv
+  move $select
 }
 
 def "main move pip" [] {
-  move --title "Picture in picture"
+  let select = filter --title "Picture in picture"
+  move $select
+}
+
+def "main move toggle" [] {
+  let select = activeclient
+  move $select
 }
 
 def "main focus mpv" [] {
-  focus --class "mpv"
+  let select = filter --class mpv
+  focus $select
 }
 
 def "main focus pip" [] {
-  focus --title "Picture in picture"
+  let select = filter --title "Picture in picture"
+  focus $select
 }
 
-def "main switch mpv" [] {
-  switch --class "mpv"
-}
-
-def "main switch pip" [] {
-  switch --title "Picture in picture"
+def "main focus toggle" [] {
+  let select = activeclient
+  focus $select
 }
 
 def "main adctrl" [] {
-  adctrl
+  let select = filter "adctrl" --title
+  if ($select | is-empty) {
+    kitty --title "adctrl" -- nu --login -c "adctrl whichkey"
+    return
+  }
+  focus $select
 }
 
 def "main" [] {
