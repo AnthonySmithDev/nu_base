@@ -244,8 +244,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.1.190",
-    "created_at": "2025-07-04T12:45:18Z",
+    "tag_name": "v0.1.194",
+    "created_at": "2025-07-04T21:58:03Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -4392,18 +4392,18 @@
   {
     "category": "other",
     "name": "telegramdesktop/tdesktop",
-    "tag_name": "v5.16.1",
-    "created_at": "2025-07-02T13:32:50Z",
+    "tag_name": "v5.16.2",
+    "created_at": "2025-07-04T16:23:44Z",
     "assets": [
-      "tdesktop-5.16.1-full.tar.gz",
-      "tportable-arm64.5.16.1.zip",
-      "tportable-x64.5.16.1.zip",
-      "tportable.5.16.1.zip",
-      "tsetup-arm64.5.16.1.exe",
-      "tsetup-x64.5.16.1.exe",
-      "tsetup.5.16.1.dmg",
-      "tsetup.5.16.1.exe",
-      "tsetup.5.16.1.tar.xz"
+      "tdesktop-5.16.2-full.tar.gz",
+      "tportable-arm64.5.16.2.zip",
+      "tportable-x64.5.16.2.zip",
+      "tportable.5.16.2.zip",
+      "tsetup-arm64.5.16.2.exe",
+      "tsetup-x64.5.16.2.exe",
+      "tsetup.5.16.2.dmg",
+      "tsetup.5.16.2.exe",
+      "tsetup.5.16.2.tar.xz"
     ],
     "linux_x64": {
       "starts": "tsetup",

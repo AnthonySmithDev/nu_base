@@ -156,3 +156,5 @@ alias snw = scrcpy --no-window
 alias yless = jless --yaml
 
 alias whichkey = kitty --title adctrl --class adctrl -- nu -e "adctrl whichkey"
+
+alias rcc = rain client console

@@ -2,7 +2,7 @@
 Type=Application
 Name=Rain Add Torrent (Magnet)
 Comment=Add magnetic links to Rain Server
-Exec=rain client add --torrent %u; notify-send --icon ~/.local/share/icons/rain.png "Rain" "Torrent successfully added"
+Exec=rain-add %u
 Icon=rain
 Terminal=false
 MimeType=x-scheme-handler/magnet;

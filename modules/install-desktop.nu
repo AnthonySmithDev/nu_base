@@ -90,6 +90,7 @@ export def main [] {
 
   pkg script ctx
   pkg script vicat
+  pkg script rain-add
   pkg script clipboard
   pkg script term-editor
   pkg script scrollback-pager

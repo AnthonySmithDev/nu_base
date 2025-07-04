@@ -54,3 +54,7 @@ export def adctrl [] {
 export def hyprnu [] {
   install hyprnu.nu --dev --root
 }
+
+export def rain-add [] {
+  install rain-add.nu --dev --root
+}
