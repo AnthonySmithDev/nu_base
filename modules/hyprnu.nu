@@ -51,57 +51,42 @@ export def move [select: record] {
   if not $select.floating {
     hyprctl dispatch setfloating address:($select.address)
   }
-  if not $select.pinned {
-    hyprctl dispatch pin address:($select.address)
-  }
 
   hyprctl dispatch focuswindow address:($select.address)
-  # hyprctl dispatch tagwindow $"monitor_($active.monitor)" address:($select.address)
 
   let waybar_is_run = (^ps -a | from ssv -m 1| where CMD =~ waybar | is-not-empty)
   let waybar_height = if $waybar_is_run {40} else {0}
   let padding = 20
 
   let monitor = (monitors | where id == $active.monitor | first)
-  if $monitor.transform == 0 { # horizontal
-    let monitor_width = $monitor.width
-    let monitor_height = $monitor.height
 
-    let window_width = 920
-    let window_height = ((($monitor_height - $waybar_height) * 0.5) - ($padding * 2))
+  mut window_x = 0
+  mut window_y = 0
+  mut window_width = 0
+  mut window_height = 0
 
-    mut window_x = 0
-    mut window_y = 0
-
-    if ("top" in $select.tags) {
-      $window_x = ($monitor.x + 980)
-      $window_y = ($monitor_height - $window_height - $padding)
+  if $monitor.transform == 0 {
+    $window_width = ($monitor.width * 0.5) - ($padding * 4)
+    $window_height = (($monitor.height - $waybar_height) * 0.5) - ($padding * 2)
+    $window_x = ($monitor.x + ($monitor.width * 0.5) + ($padding * 3))
+    $window_y = if ("top" in $select.tags) {
+      ($monitor.height - $window_height - $padding)
     } else {
-      $window_x = ($monitor.x + 980)
-      $window_y = ($monitor.x + $waybar_height + $padding)
+      ($monitor.y + $waybar_height + $padding)
     }
-    hyprctl dispatch moveactive exact $window_x $window_y
-    hyprctl dispatch resizeactive exact $window_width $window_height
-  } else if $monitor.transform == 1  { # vertical
-    let monitor_width = $monitor.height
-    let monitor_height = $monitor.width
-
-    let window_width = 860
-    let window_height = ((($monitor_width - $waybar_height) * 0.5) - ($padding * 2))
-
-    mut window_x = 0
-    mut window_y = 0
-
-    if ("top" in $select.tags) {
-      $window_x = ($monitor.x + $padding)
-      $window_y = ($monitor.y + $waybar_height + $padding)
+  } else {
+    $window_width = ($monitor.height * 0.8)
+    $window_height = (($monitor.width - $waybar_height) * 0.3) - ($padding * 3)
+    $window_x = ($monitor.x + $padding)
+    $window_y = if ("top" in $select.tags) {
+      ($monitor.y + $waybar_height + $padding)
     } else {
-      $window_x = ($monitor.x + $padding)
-      $window_y = (920 + $waybar_height)
+      ($monitor.y + $monitor.width - $window_width + $padding)
     }
-    hyprctl dispatch moveactive exact $window_x $window_y
-    hyprctl dispatch resizeactive exact $window_width $window_height
   }
+
+  hyprctl dispatch moveactive exact $window_x $window_y
+  hyprctl dispatch resizeactive exact $window_width $window_height
 
   hyprctl dispatch tagwindow top address:($select.address)
   hyprctl dispatch focuswindow address:($active.address)
@@ -112,6 +97,12 @@ export def focus [select: record] {
     hyprctl dispatch focuswindow address:($select.address)
   } else {
     hyprctl dispatch focuscurrentorlast
+  }
+}
+
+export def pin [select: record] {
+  if $select.floating {
+    hyprctl dispatch pin address:($select.address)
   }
 }
 
@@ -155,6 +146,21 @@ def "main focus pip" [] {
 def "main focus toggle" [] {
   let select = activeclient
   focus $select
+}
+
+def "main pin mpv" [] {
+  let select = filter --class mpv
+  pin $select
+}
+
+def "main pin pip" [] {
+  let select = filter --title "Picture in picture"
+  pin $select
+}
+
+def "main pin toggle" [] {
+  let select = activeclient
+  pin $select
 }
 
 def "main adctrl" [] {
