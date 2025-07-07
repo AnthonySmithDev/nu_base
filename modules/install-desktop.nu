@@ -28,18 +28,17 @@ export def main [] {
   if (exists-external apt) {
     pkg apt flatpak
 
-    pkg deb vieb-browser
+    # pkg deb vieb-browser
   }
 
   if (exists-external pacman) {
     pkg pacman flatpak
 
-    pkg aur vieb-browser
-    pkg aur timg
+    # pkg aur vieb-browser
+    # pkg aur timg
   }
 
   pkg sh brave-browser
-  pkg sh zen-browser
 
   pkg bin kitty
 

@@ -56,6 +56,7 @@ def bind-user [
 def bind-root [
   src_name: string,
   dst_name?: string,
+  --copy,
   --home,
   --local,
   --state,
@@ -83,10 +84,23 @@ def bind-root [
     sudo rm -rf $dst_path
   }
 
-  let src_path = ($env.CONFIG_PATH | path join $src_name)
-  sudo ln -sf $src_path $dst_path
+  if ($env.CONFIG_DIRS? | is-empty) {
+    return
+  }
 
-  print $"Config: ($dst_path)"
+  for config_dir in $env.CONFIG_DIRS {
+    let src_path = ($config_dir | path join $src_name)
+    if not ($src_path | path exists) {
+      continue
+    }
+    if $copy {
+      sudo rm -rf $dst_path
+      sudo cp -f $src_path $dst_path
+    } else {
+      sudo ln -sf $src_path $dst_path
+    }
+    print $"Config: ($dst_path)"
+  }
 }
 
 export def rain [] {

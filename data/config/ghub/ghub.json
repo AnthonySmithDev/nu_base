@@ -244,8 +244,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.1.194",
-    "created_at": "2025-07-04T21:58:03Z",
+    "tag_name": "v0.2.4",
+    "created_at": "2025-07-07T21:39:52Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -359,27 +359,27 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.63.0",
-    "created_at": "2025-06-27T16:11:43Z",
+    "tag_name": "v0.64.0",
+    "created_at": "2025-07-06T14:59:38Z",
     "assets": [
-      "fzf-0.63.0-android_arm64.tar.gz",
-      "fzf-0.63.0-darwin_amd64.tar.gz",
-      "fzf-0.63.0-darwin_arm64.tar.gz",
-      "fzf-0.63.0-freebsd_amd64.tar.gz",
-      "fzf-0.63.0-linux_amd64.tar.gz",
-      "fzf-0.63.0-linux_arm64.tar.gz",
-      "fzf-0.63.0-linux_armv5.tar.gz",
-      "fzf-0.63.0-linux_armv6.tar.gz",
-      "fzf-0.63.0-linux_armv7.tar.gz",
-      "fzf-0.63.0-linux_loong64.tar.gz",
-      "fzf-0.63.0-linux_ppc64le.tar.gz",
-      "fzf-0.63.0-linux_s390x.tar.gz",
-      "fzf-0.63.0-openbsd_amd64.tar.gz",
-      "fzf-0.63.0-windows_amd64.zip",
-      "fzf-0.63.0-windows_arm64.zip",
-      "fzf-0.63.0-windows_armv5.zip",
-      "fzf-0.63.0-windows_armv6.zip",
-      "fzf-0.63.0-windows_armv7.zip"
+      "fzf-0.64.0-android_arm64.tar.gz",
+      "fzf-0.64.0-darwin_amd64.tar.gz",
+      "fzf-0.64.0-darwin_arm64.tar.gz",
+      "fzf-0.64.0-freebsd_amd64.tar.gz",
+      "fzf-0.64.0-linux_amd64.tar.gz",
+      "fzf-0.64.0-linux_arm64.tar.gz",
+      "fzf-0.64.0-linux_armv5.tar.gz",
+      "fzf-0.64.0-linux_armv6.tar.gz",
+      "fzf-0.64.0-linux_armv7.tar.gz",
+      "fzf-0.64.0-linux_loong64.tar.gz",
+      "fzf-0.64.0-linux_ppc64le.tar.gz",
+      "fzf-0.64.0-linux_s390x.tar.gz",
+      "fzf-0.64.0-openbsd_amd64.tar.gz",
+      "fzf-0.64.0-windows_amd64.zip",
+      "fzf-0.64.0-windows_arm64.zip",
+      "fzf-0.64.0-windows_armv5.zip",
+      "fzf-0.64.0-windows_armv6.zip",
+      "fzf-0.64.0-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -990,8 +990,8 @@
   {
     "category": "core",
     "name": "shshemi/tabiew",
-    "tag_name": "v0.10.0",
-    "created_at": "2025-06-22T14:17:24Z",
+    "tag_name": "v0.10.1",
+    "created_at": "2025-07-06T14:49:36Z",
     "assets": [
       "tabiew-aarch64-unknown-linux-gnu.deb",
       "tabiew-aarch64-unknown-linux-gnu.rpm",
@@ -1616,8 +1616,8 @@
   {
     "category": "extra",
     "name": "derailed/k9s",
-    "tag_name": "v0.50.6",
-    "created_at": "2025-05-12T05:18:11Z",
+    "tag_name": "v0.50.7",
+    "created_at": "2025-07-05T16:58:39Z",
     "assets": [
       "k9s_Darwin_amd64.tar.gz",
       "k9s_Darwin_arm64.tar.gz",
@@ -1695,8 +1695,8 @@
   {
     "category": "extra",
     "name": "sarub0b0/kubetui",
-    "tag_name": "v1.8.1",
-    "created_at": "2025-06-08T17:42:14Z",
+    "tag_name": "v1.9.0",
+    "created_at": "2025-07-06T09:20:34Z",
     "assets": [
       "kubetui-aarch64-apple-darwin",
       "kubetui-x86_64-apple-darwin",
@@ -3419,19 +3419,19 @@
   {
     "category": "other",
     "name": "sigoden/aichat",
-    "tag_name": "v0.29.0",
-    "created_at": "2025-03-28T00:49:06Z",
+    "tag_name": "v0.30.0",
+    "created_at": "2025-07-06T23:38:08Z",
     "assets": [
-      "aichat-v0.29.0-aarch64-apple-darwin.tar.gz",
-      "aichat-v0.29.0-aarch64-pc-windows-msvc.zip",
-      "aichat-v0.29.0-aarch64-unknown-linux-musl.tar.gz",
-      "aichat-v0.29.0-arm-unknown-linux-musleabihf.tar.gz",
-      "aichat-v0.29.0-armv7-unknown-linux-musleabihf.tar.gz",
-      "aichat-v0.29.0-i686-pc-windows-msvc.zip",
-      "aichat-v0.29.0-i686-unknown-linux-musl.tar.gz",
-      "aichat-v0.29.0-x86_64-apple-darwin.tar.gz",
-      "aichat-v0.29.0-x86_64-pc-windows-msvc.zip",
-      "aichat-v0.29.0-x86_64-unknown-linux-musl.tar.gz"
+      "aichat-v0.30.0-aarch64-apple-darwin.tar.gz",
+      "aichat-v0.30.0-aarch64-pc-windows-msvc.zip",
+      "aichat-v0.30.0-aarch64-unknown-linux-musl.tar.gz",
+      "aichat-v0.30.0-arm-unknown-linux-musleabihf.tar.gz",
+      "aichat-v0.30.0-armv7-unknown-linux-musleabihf.tar.gz",
+      "aichat-v0.30.0-i686-pc-windows-msvc.zip",
+      "aichat-v0.30.0-i686-unknown-linux-musl.tar.gz",
+      "aichat-v0.30.0-x86_64-apple-darwin.tar.gz",
+      "aichat-v0.30.0-x86_64-pc-windows-msvc.zip",
+      "aichat-v0.30.0-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -3955,14 +3955,14 @@
   {
     "category": "other",
     "name": "o2sh/onefetch",
-    "tag_name": "2.24.0",
-    "created_at": "2025-04-12T16:22:34Z",
+    "tag_name": "2.25.0",
+    "created_at": "2025-07-05T22:15:03Z",
     "assets": [
       "onefetch-linux.tar.gz",
       "onefetch-mac.tar.gz",
       "onefetch-setup.exe",
       "onefetch-win.tar.gz",
-      "onefetch_2.24.0_amd64.deb"
+      "onefetch_2.25.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -4938,15 +4938,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.20.0",
-    "created_at": "2025-06-30T05:48:28Z",
+    "tag_name": "v0.21.0",
+    "created_at": "2025-07-07T06:23:33Z",
     "assets": [
-      "aider-desk-0.20.0-macos.zip",
-      "aider-desk-0.20.0-setup.exe",
-      "aider-desk-0.20.0.AppImage",
-      "aider-desk-0.20.0.dmg",
-      "aider-desk-0.20.0.x86_64.rpm",
-      "aider-desk_0.20.0_amd64.deb"
+      "aider-desk-0.21.0-macos.zip",
+      "aider-desk-0.21.0-setup.exe",
+      "aider-desk-0.21.0.AppImage",
+      "aider-desk-0.21.0.dmg",
+      "aider-desk-0.21.0.x86_64.rpm",
+      "aider-desk_0.21.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -4993,19 +4993,19 @@
   {
     "category": "other",
     "name": "alexpasmantier/television",
-    "tag_name": "0.11.9",
-    "created_at": "2025-04-21T23:22:23Z",
+    "tag_name": "0.12.0",
+    "created_at": "2025-07-07T16:21:18Z",
     "assets": [
-      "tv-0.11.9-aarch64-apple-darwin.tar.gz",
-      "tv-0.11.9-aarch64-unknown-linux-gnu.tar.gz",
-      "tv-0.11.9-i686-unknown-linux-gnu.tar.gz",
-      "tv-0.11.9-x86_64-apple-darwin.tar.gz",
-      "tv-0.11.9-x86_64-pc-windows-msvc.tar.gz",
-      "tv-0.11.9-x86_64-pc-windows-msvc.zip",
-      "tv-0.11.9-x86_64-unknown-linux-gnu.deb",
-      "tv-0.11.9-x86_64-unknown-linux-gnu.tar.gz",
-      "tv-0.11.9-x86_64-unknown-linux-musl.deb",
-      "tv-0.11.9-x86_64-unknown-linux-musl.tar.gz"
+      "tv-0.12.0-aarch64-apple-darwin.tar.gz",
+      "tv-0.12.0-aarch64-unknown-linux-gnu.tar.gz",
+      "tv-0.12.0-i686-unknown-linux-gnu.tar.gz",
+      "tv-0.12.0-x86_64-apple-darwin.tar.gz",
+      "tv-0.12.0-x86_64-pc-windows-msvc.tar.gz",
+      "tv-0.12.0-x86_64-pc-windows-msvc.zip",
+      "tv-0.12.0-x86_64-unknown-linux-gnu.deb",
+      "tv-0.12.0-x86_64-unknown-linux-gnu.tar.gz",
+      "tv-0.12.0-x86_64-unknown-linux-musl.deb",
+      "tv-0.12.0-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -5225,16 +5225,16 @@
   {
     "category": "other",
     "name": "tjblackheart/andcli",
-    "tag_name": "v2.1.3",
-    "created_at": "2025-05-07T07:20:20Z",
+    "tag_name": "v2.2.0",
+    "created_at": "2025-07-06T10:36:01Z",
     "assets": [
-      "andcli_v2.1.3_android_arm64",
-      "andcli_v2.1.3_darwin_amd64",
-      "andcli_v2.1.3_darwin_arm64",
-      "andcli_v2.1.3_linux_aarch64",
-      "andcli_v2.1.3_linux_amd64",
-      "andcli_v2.1.3_win_amd64.exe",
-      "andcli_v2.1.3_win_arm64.exe"
+      "andcli_v2.2.0_android_arm64",
+      "andcli_v2.2.0_darwin_amd64",
+      "andcli_v2.2.0_darwin_arm64",
+      "andcli_v2.2.0_linux_aarch64",
+      "andcli_v2.2.0_linux_amd64",
+      "andcli_v2.2.0_win_amd64.exe",
+      "andcli_v2.2.0_win_arm64.exe"
     ],
     "linux_x64": {
       "ends": "linux_amd64"
@@ -5950,8 +5950,8 @@
   {
     "category": "android",
     "name": "t895/DNSNet",
-    "tag_name": "1.3.0",
-    "created_at": "2025-06-02T03:25:44Z",
+    "tag_name": "1.3.1",
+    "created_at": "2025-07-06T16:20:00Z",
     "assets": [
       "app-release.aab",
       "app-release.apk",
@@ -6102,8 +6102,8 @@
   {
     "category": "android",
     "name": "Droid-ify/client",
-    "tag_name": "v0.6.5",
-    "created_at": "2025-02-28T13:56:04Z",
+    "tag_name": "v0.6.6",
+    "created_at": "2025-07-06T03:49:27Z",
     "assets": [
       "app-release.apk"
     ],
