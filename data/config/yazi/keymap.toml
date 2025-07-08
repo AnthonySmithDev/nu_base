@@ -1,7 +1,12 @@
+# https://github.com/sxyazi/yazi/blob/main/yazi-config/preset/keymap-default.toml
 
 [[mgr.prepend_keymap]]
 on = [ "g", "r" ]
 run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"'
+
+[[mgr.prepend_keymap]]
+on = "<C-o>"
+run = 'shell -- kitty --class qrcp -- qrcp "$@"'
 
 [[mgr.prepend_keymap]]
 on = "<C-y>"

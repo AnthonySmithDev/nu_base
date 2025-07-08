@@ -244,8 +244,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.2.4",
-    "created_at": "2025-07-07T21:39:52Z",
+    "tag_name": "v0.2.9",
+    "created_at": "2025-07-08T20:37:25Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -2565,8 +2565,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.9.5",
-    "created_at": "2025-07-01T16:46:15Z",
+    "tag_name": "v0.9.6",
+    "created_at": "2025-07-07T23:53:13Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -3440,8 +3440,8 @@
   {
     "category": "other",
     "name": "aandrew-me/tgpt",
-    "tag_name": "v2.10.0",
-    "created_at": "2025-05-07T15:59:07Z",
+    "tag_name": "v2.10.1",
+    "created_at": "2025-07-08T17:55:58Z",
     "assets": [
       "tgpt-amd64.exe",
       "tgpt-arm.exe",
@@ -4392,18 +4392,18 @@
   {
     "category": "other",
     "name": "telegramdesktop/tdesktop",
-    "tag_name": "v5.16.2",
-    "created_at": "2025-07-04T16:23:44Z",
+    "tag_name": "v5.16.3",
+    "created_at": "2025-07-08T18:44:40Z",
     "assets": [
-      "tdesktop-5.16.2-full.tar.gz",
-      "tportable-arm64.5.16.2.zip",
-      "tportable-x64.5.16.2.zip",
-      "tportable.5.16.2.zip",
-      "tsetup-arm64.5.16.2.exe",
-      "tsetup-x64.5.16.2.exe",
-      "tsetup.5.16.2.dmg",
-      "tsetup.5.16.2.exe",
-      "tsetup.5.16.2.tar.xz"
+      "tdesktop-5.16.3-full.tar.gz",
+      "tportable-arm64.5.16.3.zip",
+      "tportable-x64.5.16.3.zip",
+      "tportable.5.16.3.zip",
+      "tsetup-arm64.5.16.3.exe",
+      "tsetup-x64.5.16.3.exe",
+      "tsetup.5.16.3.dmg",
+      "tsetup.5.16.3.exe",
+      "tsetup.5.16.3.tar.xz"
     ],
     "linux_x64": {
       "starts": "tsetup",

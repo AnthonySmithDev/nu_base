@@ -225,28 +225,10 @@ export def "main watch" [] {
 
 # After completing those instructions, also be sure to remove all the "AI" comments from the code too.
 # '#
-#
-#
 
 export def 'chmod nu_work' [] {
   fd -t f -x chmod 655
   fd -t d -x chmod 777
-}
-
-export def copy_wsclient [] {
-  let src = ($env.NANOPAY_BACKEND | path join payzum-backend-ws/internal/wsclient)
-
-   let p2p = ($env.NANOPAY_BACKEND | path join payzum-backend-p2p/external)
-   cp -r $src $p2p
-   ambr --no-interactive 'payzum/backend/ws/internal' 'payzum/backend/p2p/external' $p2p
-
-   let main = ($env.NANOPAY_BACKEND | path join payzum-backend-main/external)
-   cp -r $src $main
-   ambr --no-interactive 'payzum/backend/ws/internal' 'payzum/backend/main/external' $main
-
-   let bot = ($env.NANOPAY_BACKEND | path join payzum-backend-bot/external)
-   cp -r $src $bot
-   ambr --no-interactive 'payzum/backend/ws/internal' 'payzum/backend/bot/external' $bot
 }
 
 export def __logs_user [] {

@@ -101,6 +101,7 @@ export def switch-pos [select: record] {
   }
   if not $select.floating {
     hyprctl dispatch setfloating address:($select.address)
+    hyprctl dispatch pin address:($select.address)
   }
 
   hyprctl dispatch focuswindow address:($select.address)

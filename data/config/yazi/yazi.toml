@@ -12,13 +12,16 @@ view = [
 ]
 cast = [
 	{ run = 'go2tv -v "$@"', orphan = true, desc = "Cast media files", for = "unix" },
-	{ run = 'kitty --class qrcp -- qrcp "$@"', orphan = true, desc = "Generate QR", for = "unix" },
+]
+share = [
+	{ run = 'kitty --class qrcp -- qrcp "$@"', orphan = true, desc = "Share by QR", for = "unix" },
 ]
 
 [open]
 append_rules = [
 	{ mime = "image/*", use = [ "open", "view", "reveal" ] },
 	{ mime = "{audio,video}/*", use = [ "play", "reveal", "cast" ] },
+	{ name = "*", use = [ "open", "reveal", "share" ] },
 ]
 
 [[plugin.prepend_previewers]]
@@ -28,6 +31,14 @@ run  = 'piper --format=url -- tar tf "$1"'
 [[plugin.prepend_previewers]]
 name = "*.csv"
 run  = 'piper -- bat -p --color=always "$1"'
+
+[[plugin.prepend_previewers]]
+name = "*.url"
+run  = 'piper -- bat -p --color=always "$1"'
+
+[[plugin.prepend_previewers]]
+name = "*.vbs"
+run  = 'piper -- bat -p --color=always -l bash "$1"'
 
 [[plugin.prepend_previewers]]
 name = "*.md"
