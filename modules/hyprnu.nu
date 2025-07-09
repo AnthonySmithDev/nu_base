@@ -54,9 +54,9 @@ export def window-pos [select: record, monitor: int] {
 
   let monitor = (monitors | where id == $monitor | first)
   if $monitor.transform == 0 {
-    $window_width = ($monitor.width * 0.5) - ($padding * 4)
+    $window_width = ($monitor.width * 0.5) - ($padding * 2)
     $window_height = (($monitor.height - $waybar_height) * 0.5) - ($padding * 2)
-    $window_x = ($monitor.x + ($monitor.width * 0.5) + ($padding * 3))
+    $window_x = ($monitor.x + ($monitor.width * 0.5) + $padding)
     $window_y = if ("top" in $select.tags) {
       ($monitor.y + $monitor.height - $window_height - $padding)
     } else {
@@ -67,7 +67,7 @@ export def window-pos [select: record, monitor: int] {
     $window_height = (($monitor.width - $waybar_height) * 0.3) - ($padding * 3)
     $window_x = ($monitor.x + $padding)
     $window_y = if ("top" not-in $select.tags) {
-      ($monitor.y + $monitor.width - $window_width - $padding)
+      ($monitor.y + $monitor.width - $window_width + $padding)
     } else {
       ($monitor.y + $waybar_height + $padding)
     }

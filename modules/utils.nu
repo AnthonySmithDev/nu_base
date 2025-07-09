@@ -196,10 +196,6 @@ export def asr [] {
   job spawn {|| audiosource run}
 }
 
-export def sshkeygen [] {
-  ssh-keygen -t ed25519
-}
-
 export def watch_ask_prompt [] {
   r#'
   Find the "AI" comments below (marked with ?) in the code files I've shared with you.
