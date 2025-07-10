@@ -53,32 +53,32 @@
   {
     "category": "core",
     "name": "charmbracelet/mods",
-    "tag_name": "v1.8.0",
-    "created_at": "2025-07-03T16:41:28Z",
+    "tag_name": "v1.8.1",
+    "created_at": "2025-07-10T17:36:56Z",
     "assets": [
-      "mods-1.8.0-1.aarch64.rpm",
-      "mods-1.8.0-1.armv7hl.rpm",
-      "mods-1.8.0-1.i386.rpm",
-      "mods-1.8.0-1.x86_64.rpm",
-      "mods-1.8.0.tar.gz",
-      "mods_1.8.0_aarch64.apk",
-      "mods_1.8.0_amd64.deb",
-      "mods_1.8.0_arm64.deb",
-      "mods_1.8.0_armhf.deb",
-      "mods_1.8.0_armv7.apk",
-      "mods_1.8.0_Darwin_arm64.tar.gz",
-      "mods_1.8.0_Darwin_x86_64.tar.gz",
-      "mods_1.8.0_Freebsd_arm64.tar.gz",
-      "mods_1.8.0_Freebsd_x86_64.tar.gz",
-      "mods_1.8.0_i386.deb",
-      "mods_1.8.0_Linux_arm.tar.gz",
-      "mods_1.8.0_Linux_arm64.tar.gz",
-      "mods_1.8.0_Linux_i386.tar.gz",
-      "mods_1.8.0_Linux_x86_64.tar.gz",
-      "mods_1.8.0_Windows_arm64.zip",
-      "mods_1.8.0_Windows_x86_64.zip",
-      "mods_1.8.0_x86.apk",
-      "mods_1.8.0_x86_64.apk"
+      "mods-1.8.1-1.aarch64.rpm",
+      "mods-1.8.1-1.armv7hl.rpm",
+      "mods-1.8.1-1.i386.rpm",
+      "mods-1.8.1-1.x86_64.rpm",
+      "mods-1.8.1.tar.gz",
+      "mods_1.8.1_aarch64.apk",
+      "mods_1.8.1_amd64.deb",
+      "mods_1.8.1_arm64.deb",
+      "mods_1.8.1_armhf.deb",
+      "mods_1.8.1_armv7.apk",
+      "mods_1.8.1_Darwin_arm64.tar.gz",
+      "mods_1.8.1_Darwin_x86_64.tar.gz",
+      "mods_1.8.1_Freebsd_arm64.tar.gz",
+      "mods_1.8.1_Freebsd_x86_64.tar.gz",
+      "mods_1.8.1_i386.deb",
+      "mods_1.8.1_Linux_arm.tar.gz",
+      "mods_1.8.1_Linux_arm64.tar.gz",
+      "mods_1.8.1_Linux_i386.tar.gz",
+      "mods_1.8.1_Linux_x86_64.tar.gz",
+      "mods_1.8.1_Windows_arm64.zip",
+      "mods_1.8.1_Windows_x86_64.zip",
+      "mods_1.8.1_x86.apk",
+      "mods_1.8.1_x86_64.apk"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -244,8 +244,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.2.15",
-    "created_at": "2025-07-09T16:11:54Z",
+    "tag_name": "v0.2.27",
+    "created_at": "2025-07-10T20:59:03Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -2477,8 +2477,8 @@
   {
     "category": "extra",
     "name": "ast-grep/ast-grep",
-    "tag_name": "0.38.6",
-    "created_at": "2025-06-24T00:38:32Z",
+    "tag_name": "0.38.7",
+    "created_at": "2025-07-10T03:50:29Z",
     "assets": [
       "app-aarch64-apple-darwin.zip",
       "app-aarch64-pc-windows-msvc.zip",
@@ -2928,8 +2928,8 @@
   {
     "category": "other",
     "name": "microsoft/vscode",
-    "tag_name": "1.101.2",
-    "created_at": "2025-06-24T20:22:47Z",
+    "tag_name": "1.102.0",
+    "created_at": "2025-07-09T22:00:36Z",
     "assets": []
   },
   {
@@ -4578,18 +4578,18 @@
   {
     "category": "other",
     "name": "digitalocean/doctl",
-    "tag_name": "v1.132.0",
-    "created_at": "2025-07-03T12:41:37Z",
+    "tag_name": "v1.133.0",
+    "created_at": "2025-07-10T11:42:38Z",
     "assets": [
-      "doctl-1.132.0-darwin-amd64.tar.gz",
-      "doctl-1.132.0-darwin-arm64.tar.gz",
-      "doctl-1.132.0-linux-386.tar.gz",
-      "doctl-1.132.0-linux-amd64.tar.gz",
-      "doctl-1.132.0-linux-arm64.tar.gz",
-      "doctl-1.132.0-source.tar.gz",
-      "doctl-1.132.0-windows-386.zip",
-      "doctl-1.132.0-windows-amd64.zip",
-      "doctl-1.132.0-windows-arm64.zip"
+      "doctl-1.133.0-darwin-amd64.tar.gz",
+      "doctl-1.133.0-darwin-arm64.tar.gz",
+      "doctl-1.133.0-linux-386.tar.gz",
+      "doctl-1.133.0-linux-amd64.tar.gz",
+      "doctl-1.133.0-linux-arm64.tar.gz",
+      "doctl-1.133.0-source.tar.gz",
+      "doctl-1.133.0-windows-386.zip",
+      "doctl-1.133.0-windows-amd64.zip",
+      "doctl-1.133.0-windows-arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux-amd64.tar.gz"
@@ -4993,19 +4993,19 @@
   {
     "category": "other",
     "name": "alexpasmantier/television",
-    "tag_name": "0.12.0",
-    "created_at": "2025-07-07T16:21:18Z",
+    "tag_name": "0.12.2",
+    "created_at": "2025-07-10T16:40:00Z",
     "assets": [
-      "tv-0.12.0-aarch64-apple-darwin.tar.gz",
-      "tv-0.12.0-aarch64-unknown-linux-gnu.tar.gz",
-      "tv-0.12.0-i686-unknown-linux-gnu.tar.gz",
-      "tv-0.12.0-x86_64-apple-darwin.tar.gz",
-      "tv-0.12.0-x86_64-pc-windows-msvc.tar.gz",
-      "tv-0.12.0-x86_64-pc-windows-msvc.zip",
-      "tv-0.12.0-x86_64-unknown-linux-gnu.deb",
-      "tv-0.12.0-x86_64-unknown-linux-gnu.tar.gz",
-      "tv-0.12.0-x86_64-unknown-linux-musl.deb",
-      "tv-0.12.0-x86_64-unknown-linux-musl.tar.gz"
+      "tv-0.12.2-aarch64-apple-darwin.tar.gz",
+      "tv-0.12.2-aarch64-unknown-linux-gnu.tar.gz",
+      "tv-0.12.2-i686-unknown-linux-gnu.tar.gz",
+      "tv-0.12.2-x86_64-apple-darwin.tar.gz",
+      "tv-0.12.2-x86_64-pc-windows-msvc.tar.gz",
+      "tv-0.12.2-x86_64-pc-windows-msvc.zip",
+      "tv-0.12.2-x86_64-unknown-linux-gnu.deb",
+      "tv-0.12.2-x86_64-unknown-linux-gnu.tar.gz",
+      "tv-0.12.2-x86_64-unknown-linux-musl.deb",
+      "tv-0.12.2-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -5096,8 +5096,8 @@
   {
     "category": "other",
     "name": "pythops/impala",
-    "tag_name": "v0.2.4",
-    "created_at": "2024-11-17T20:38:29Z",
+    "tag_name": "v0.3.0",
+    "created_at": "2025-07-10T21:03:17Z",
     "assets": [
       "impala-aarch64-unknown-linux-gnu",
       "impala-x86_64-unknown-linux-gnu"
@@ -5781,15 +5781,15 @@
   {
     "category": "other",
     "name": "jetify-com/devbox",
-    "tag_name": "0.14.2",
-    "created_at": "2025-04-17T19:36:59Z",
+    "tag_name": "0.15.0",
+    "created_at": "2025-07-10T17:03:13Z",
     "assets": [
-      "devbox_0.14.2_darwin_amd64.tar.gz",
-      "devbox_0.14.2_darwin_arm64.tar.gz",
-      "devbox_0.14.2_linux_386.tar.gz",
-      "devbox_0.14.2_linux_amd64.tar.gz",
-      "devbox_0.14.2_linux_arm64.tar.gz",
-      "devbox_0.14.2_linux_armv7l.tar.gz"
+      "devbox_0.15.0_darwin_amd64.tar.gz",
+      "devbox_0.15.0_darwin_arm64.tar.gz",
+      "devbox_0.15.0_linux_386.tar.gz",
+      "devbox_0.15.0_linux_amd64.tar.gz",
+      "devbox_0.15.0_linux_arm64.tar.gz",
+      "devbox_0.15.0_linux_armv7l.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -5875,10 +5875,10 @@
   {
     "category": "other",
     "name": "pacstall/pacstall",
-    "tag_name": "6.3.2",
-    "created_at": "2025-06-22T20:56:00Z",
+    "tag_name": "6.3.3",
+    "created_at": "2025-07-09T23:14:26Z",
     "assets": [
-      "pacstall_6.3.2-pacstall1_all.deb"
+      "pacstall_6.3.3-pacstall1_all.deb"
     ]
   },
   {
