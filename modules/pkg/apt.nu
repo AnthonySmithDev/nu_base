@@ -13,14 +13,14 @@ export def browsers [] {
 }
 
 def add-universe [] {
-  let deb = 'deb http://archive.ubuntu.com/ubuntu/ mantic universe'
+  let deb = "deb http://archive.ubuntu.com/ubuntu/ mantic universe"
   if (open /etc/apt/sources.list | lines | find $deb | is-empty) {
     sudo add-apt-repository -y universe
   }
 }
 
 def add-multiverse [] {
-  let deb = 'deb http://archive.ubuntu.com/ubuntu/ mantic multiverse'
+  let deb = "deb http://archive.ubuntu.com/ubuntu/ mantic multiverse"
   if (open /etc/apt/sources.list | lines | find $deb | is-empty) {
     sudo add-apt-repository -y multiverse
   }
@@ -331,7 +331,7 @@ export def flatpak [] {
 
   install flatpak
   install gnome-software-plugin-flatpak
-  ^flatpak remote-add --if-not-exists flathub 'https://flathub.org/repo/flathub.flatpakrepo'
+  ^flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
 }
 
 export def cpp [] {
@@ -355,13 +355,13 @@ export def java [] {
 }
 
 export def dart [] {
-  sudo rm '/usr/share/keyrings/dart.gpg'
+  sudo rm "/usr/share/keyrings/dart.gpg"
 
   wget -qO- "https://dl-ssl.google.com/linux/linux_signing_key.pub"
-  | sudo gpg --yes --dearmor -o '/usr/share/keyrings/dart.gpg' | ignore
+  | sudo gpg --yes --dearmor -o "/usr/share/keyrings/dart.gpg" | ignore
 
-  echo 'deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main'
-  | sudo tee '/etc/apt/sources.list.d/dart_stable.list' | ignore
+  echo "deb [signed-by=/usr/share/keyrings/dart.gpg arch=amd64] https://storage.googleapis.com/download.dartlang.org/linux/debian stable main"
+  | sudo tee "/etc/apt/sources.list.d/dart_stable.list" | ignore
 
   update
   install dart
@@ -397,7 +397,7 @@ export def docker [] {
     return
   }
 
-  let gpg = '/etc/apt/keyrings/docker.gpg'
+  let gpg = "/etc/apt/keyrings/docker.gpg"
   if ($gpg | path exists) {
     sudo rm $gpg
   }
@@ -405,16 +405,16 @@ export def docker [] {
   try {
     sudo install -m 0755 -d /etc/apt/keyrings
 
-    curl -fsSL 'https://download.docker.com/linux/ubuntu/gpg'
+    curl -fsSL "https://download.docker.com/linux/ubuntu/gpg"
     | sudo gpg --yes --dearmor -o /etc/apt/keyrings/docker.gpg | ignore
 
     sudo chmod a+r /etc/apt/keyrings/docker.gpg
   }
 
   let arch = (dpkg --print-architecture)
-  let codename = (bash -c '. /etc/os-release && echo "$VERSION_CODENAME"')
+  let codename = (bash -c ". /etc/os-release && echo "$VERSION_CODENAME"")
 
-  echo $'deb [arch=($arch) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu ($codename) stable'
+  echo $"deb [arch=($arch) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu ($codename) stable"
   | sudo tee /etc/apt/sources.list.d/docker.list | ignore
 
   update
@@ -584,7 +584,7 @@ export def unityhub [] {
   | sudo tee /usr/share/keyrings/Unity_Technologies_ApS.gpg | ignore
 
   echo "deb [signed-by=/usr/share/keyrings/Unity_Technologies_ApS.gpg] https://hub.unity3d.com/linux/repos/deb stable main" 
-  | sudo tee '/etc/apt/sources.list.d/unityhub.list' | ignore
+  | sudo tee "/etc/apt/sources.list.d/unityhub.list" | ignore
 
   update
   install unityhub
@@ -622,7 +622,7 @@ export def wezterm [] {
   curl -fsSL https://apt.fury.io/wez/gpg.key
   | sudo gpg --yes --dearmor -o /usr/share/keyrings/wezterm-fury.gpg
 
-  echo 'deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *'
+  echo "deb [signed-by=/usr/share/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *"
   | sudo tee /etc/apt/sources.list.d/wezterm.list
 
   sudo chmod 644 /usr/share/keyrings/wezterm-fury.gpg

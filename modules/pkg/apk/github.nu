@@ -4,16 +4,16 @@ def download [repository: string, version: string, url: string, force: bool] {
   let dirname = ($env.PKG_TEMP_PATH | path join apk $name)
   mkdir $dirname
 
-  let path = ($dirname | path join $'($name)_($version).apk')
+  let path = ($dirname | path join $"($name)_($version).apk")
   if $force or not ($path | path exists) {
-    print $'Download: ($name) - ($version)'
+    print $"Download: ($name) - ($version)"
     http download $url --output $path
   }
   return $path
 }
 
 export def NewPipe [ --force(-f) ] {
-  let repository = 'TeamNewPipe/NewPipe'
+  let repository = "TeamNewPipe/NewPipe"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -21,7 +21,7 @@ export def NewPipe [ --force(-f) ] {
 }
 
 export def LibreTube [ --force(-f) ] {
-  let repository = 'libre-tube/LibreTube'
+  let repository = "libre-tube/LibreTube"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -29,7 +29,7 @@ export def LibreTube [ --force(-f) ] {
 }
 
 export def InnerTune [ --force(-f) ] {
-  let repository = 'z-huang/InnerTune'
+  let repository = "z-huang/InnerTune"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -37,7 +37,7 @@ export def InnerTune [ --force(-f) ] {
 }
 
 export def OpenTune [ --force(-f) ] {
-  let repository = 'Arturo254/OpenTune'
+  let repository = "Arturo254/OpenTune"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -45,7 +45,7 @@ export def OpenTune [ --force(-f) ] {
 }
 
 export def OuterTune [ --force(-f) ] {
-  let repository = 'DD3Boh/OuterTune'
+  let repository = "OuterTune/OuterTune"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -53,7 +53,7 @@ export def OuterTune [ --force(-f) ] {
 }
 
 export def Metrolist [ --force(-f) ] {
-  let repository = 'mostafaalagamy/Metrolist'
+  let repository = "mostafaalagamy/Metrolist"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -61,7 +61,7 @@ export def Metrolist [ --force(-f) ] {
 }
 
 export def SimpMusic [ --force(-f) ] {
-  let repository = 'maxrave-dev/SimpMusic'
+  let repository = "maxrave-dev/SimpMusic"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -69,7 +69,7 @@ export def SimpMusic [ --force(-f) ] {
 }
 
 export def RiMusic [ --force(-f) ] {
-  let repository = 'fast4x/RiMusic'
+  let repository = "fast4x/RiMusic"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -77,7 +77,7 @@ export def RiMusic [ --force(-f) ] {
 }
 
 export def ToDark [ --force(-f) ] {
-  let repository = 'darkmoonight/ToDark'
+  let repository = "darkmoonight/ToDark"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -85,7 +85,7 @@ export def ToDark [ --force(-f) ] {
 }
 
 export def IvyWallet [ --force(-f) ] {
-  let repository = 'Ivy-Apps/ivy-wallet'
+  let repository = "Ivy-Apps/ivy-wallet"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -93,7 +93,7 @@ export def IvyWallet [ --force(-f) ] {
 }
 
 export def NatriumWallet [ --force(-f) ] {
-  let repository = 'appditto/natrium_wallet_flutter'
+  let repository = "appditto/natrium_wallet_flutter"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -101,7 +101,7 @@ export def NatriumWallet [ --force(-f) ] {
 }
 
 export def DroidIfy [ --force(-f) ] {
-  let repository = 'Droid-ify/client'
+  let repository = "Droid-ify/client"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -109,7 +109,7 @@ export def DroidIfy [ --force(-f) ] {
 }
 
 export def localsend [ --force(-f) ] {
-  let repository = 'localsend/localsend'
+  let repository = "localsend/localsend"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -117,7 +117,7 @@ export def localsend [ --force(-f) ] {
 }
 
 export def stratumauth [ --force(-f) ] {
-  let repository = 'stratumauth/app'
+  let repository = "stratumauth/app"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -125,7 +125,7 @@ export def stratumauth [ --force(-f) ] {
 }
 
 export def AppFlowy [ --force(-f) ] {
-  let repository = 'AppFlowy-IO/AppFlowy'
+  let repository = "AppFlowy-IO/AppFlowy"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -133,7 +133,7 @@ export def AppFlowy [ --force(-f) ] {
 }
 
 export def siyuan [ --force(-f) ] {
-  let repository = 'siyuan-note/siyuan'
+  let repository = "siyuan-note/siyuan"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -141,7 +141,7 @@ export def siyuan [ --force(-f) ] {
 }
 
 export def LinkSheet [ --force(-f) ] {
-  let repository = 'LinkSheet/LinkSheet'
+  let repository = "LinkSheet/LinkSheet"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -149,7 +149,7 @@ export def LinkSheet [ --force(-f) ] {
 }
 
 export def Linkora [ --force(-f) ] {
-  let repository = 'sakethpathike/Linkora'
+  let repository = "sakethpathike/Linkora"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -157,7 +157,7 @@ export def Linkora [ --force(-f) ] {
 }
 
 export def immich [ --force(-f) ] {
-  let repository = 'immich-app/immich'
+  let repository = "immich-app/immich"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -165,7 +165,7 @@ export def immich [ --force(-f) ] {
 }
 
 export def uhabits [ --force(-f) ] {
-  let repository = 'iSoron/uhabits'
+  let repository = "iSoron/uhabits"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -173,7 +173,7 @@ export def uhabits [ --force(-f) ] {
 }
 
 export def Habo [ --force(-f) ] {
-  let repository = 'xpavle00/Habo'
+  let repository = "xpavle00/Habo"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -181,7 +181,7 @@ export def Habo [ --force(-f) ] {
 }
 
 export def mhabit [ --force(-f) ] {
-  let repository = 'FriesI23/mhabit'
+  let repository = "FriesI23/mhabit"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -189,7 +189,7 @@ export def mhabit [ --force(-f) ] {
 }
 
 export def HabitBuilder [ --force(-f) ] {
-  let repository = 'ofalvai/HabitBuilder'
+  let repository = "ofalvai/HabitBuilder"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -197,7 +197,7 @@ export def HabitBuilder [ --force(-f) ] {
 }
 
 export def RoutineTracker [ --force(-f) ] {
-  let repository = 'DanielRendox/RoutineTracker'
+  let repository = "DanielRendox/RoutineTracker"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -205,7 +205,7 @@ export def RoutineTracker [ --force(-f) ] {
 }
 
 export def habits [ --force(-f) ] {
-  let repository = 'willbsp/habits'
+  let repository = "willbsp/habits"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -213,7 +213,7 @@ export def habits [ --force(-f) ] {
 }
 
 export def saber [ --force(-f) ] {
-  let repository = 'saber-notes/saber'
+  let repository = "saber-notes/saber"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -221,7 +221,7 @@ export def saber [ --force(-f) ] {
 }
 
 export def EasyNotes [ --force(-f) ] {
-  let repository = 'Kin69/EasyNotes'
+  let repository = "Kin69/EasyNotes"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -229,7 +229,7 @@ export def EasyNotes [ --force(-f) ] {
 }
 
 export def MaterialNotes [ --force(-f) ] {
-  let repository = 'maelchiotti/LocalMaterialNotes'
+  let repository = "maelchiotti/LocalMaterialNotes"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -237,7 +237,7 @@ export def MaterialNotes [ --force(-f) ] {
 }
 
 export def NotallyX [ --force(-f) ] {
-  let repository = 'PhilKes/NotallyX'
+  let repository = "PhilKes/NotallyX"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -245,7 +245,7 @@ export def NotallyX [ --force(-f) ] {
 }
 
 export def AdAway [ --force(-f) ] {
-  let repository = 'AdAway/AdAway'
+  let repository = "AdAway/AdAway"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -253,7 +253,7 @@ export def AdAway [ --force(-f) ] {
 }
 
 export def DNSNet [ --force(-f) ] {
-  let repository = 't895/DNSNet'
+  let repository = "t895/DNSNet"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -261,7 +261,7 @@ export def DNSNet [ --force(-f) ] {
 }
 
 export def PdfReaderPro [ --force(-f) ] {
-  let repository = 'ahmmedrejowan/PdfReaderPro'
+  let repository = "ahmmedrejowan/PdfReaderPro"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -269,7 +269,7 @@ export def PdfReaderPro [ --force(-f) ] {
 }
 
 export def VolumeBoost [ --force(-f) ] {
-  let repository = 'ElishaAz/AndroidVolumeBoost'
+  let repository = "ElishaAz/AndroidVolumeBoost"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -277,7 +277,7 @@ export def VolumeBoost [ --force(-f) ] {
 }
 
 export def MaterialFiles [ --force(-f) ] {
-  let repository = 'zhanghai/MaterialFiles'
+  let repository = "zhanghai/MaterialFiles"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -285,7 +285,7 @@ export def MaterialFiles [ --force(-f) ] {
 }
 
 export def KeePassDX [ --force(-f) ] {
-  let repository = 'Kunzisoft/KeePassDX'
+  let repository = "Kunzisoft/KeePassDX"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -293,7 +293,7 @@ export def KeePassDX [ --force(-f) ] {
 }
 
 export def voicenotify [ --force(-f) ] {
-  let repository = 'pilot51/voicenotify'
+  let repository = "pilot51/voicenotify"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -301,7 +301,7 @@ export def voicenotify [ --force(-f) ] {
 }
 
 export def VirtualHosts [ --force(-f) ] {
-  let repository = 'x-falcon/Virtual-Hosts'
+  let repository = "x-falcon/Virtual-Hosts"
   let version = ghub version $repository
   let download_url = ghub asset apk download_url $repository
   let download_path = download $repository $version $download_url $force
@@ -309,121 +309,121 @@ export def VirtualHosts [ --force(-f) ] {
 }
 
 export def AudioSource [ --force(-f) ] {
-  let repository = 'AudioSource'
-  let version = '1.2'
-  let download_url = $'https://github.com/gdzx/audiosource/releases/download/v($version)/audiosource.apk'
+  let repository = "AudioSource"
+  let version = "1.2"
+  let download_url = $"https://github.com/gdzx/audiosource/releases/download/v($version)/audiosource.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def ScreenStream [ --force(-f) ] {
-  let repository = 'ScreenStream'
-  let version = '4.1.12'
-  let download_url = $'https://github.com/dkrivoruchko/ScreenStream/releases/download/($version)/ScreenStream-PlayStore-41012.apk'
+  let repository = "ScreenStream"
+  let version = "4.1.12"
+  let download_url = $"https://github.com/dkrivoruchko/ScreenStream/releases/download/($version)/ScreenStream-PlayStore-41012.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def OllamaApp [ --force(-f) ] {
-  let repository = 'OllamaApp'
-  let version = '1.2.0'
-  let download_url = $'https://github.com/JHubi1/ollama-app/releases/download/($version)/ollama-android-v($version).apk'
+  let repository = "OllamaApp"
+  let version = "1.2.0"
+  let download_url = $"https://github.com/JHubi1/ollama-app/releases/download/($version)/ollama-android-v($version).apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def qrserv [ --force(-f) ] {
-  let repository = 'qrserv'
-  let version = '2.6.0'
-  let download_url = $'https://github.com/uintdev/qrserv/releases/download/v($version)/qrserv-v2_6_0-arm64-v8a.apk'
+  let repository = "qrserv"
+  let version = "2.6.0"
+  let download_url = $"https://github.com/uintdev/qrserv/releases/download/v($version)/qrserv-v2_6_0-arm64-v8a.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def sharik [ --force(-f) ] {
-  let repository = 'sharik'
-  let version = '3.1'
-  let download_url = $'https://github.com/marchellodev/sharik/releases/download/v($version)/sharik_v($version)_android.apk'
+  let repository = "sharik"
+  let version = "3.1"
+  let download_url = $"https://github.com/marchellodev/sharik/releases/download/v($version)/sharik_v($version)_android.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def NewPass [ --force(-f) ] {
-  let repository = 'NewPass'
-  let version = '1.2.0'
-  let download_url = $'https://github.com/6eero/NewPass/releases/download/v($version)/NewPass-v($version).apk'
+  let repository = "NewPass"
+  let version = "1.2.0"
+  let download_url = $"https://github.com/6eero/NewPass/releases/download/v($version)/NewPass-v($version).apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def PlainApp [ --force(-f) ] {
-  let repository = 'PlainApp'
-  let version = '1.3.6'
-  let download_url = $'https://github.com/ismartcoding/plain-app/releases/download/v($version)/PlainApp-($version).apk'
+  let repository = "PlainApp"
+  let version = "1.3.6"
+  let download_url = $"https://github.com/ismartcoding/plain-app/releases/download/v($version)/PlainApp-($version).apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def ServerBox [ --force(-f) ] {
-  let repository = 'ServerBox'
-  let version = '1.0.1104'
-  let download_url = $'https://github.com/lollipopkit/flutter_server_box/releases/download/v($version)/ServerBox_v($version)_arm64.apk'
+  let repository = "ServerBox"
+  let version = "1.0.1104"
+  let download_url = $"https://github.com/lollipopkit/flutter_server_box/releases/download/v($version)/ServerBox_v($version)_arm64.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def DataBackup [ --force(-f) ] {
-  let repository = 'DataBackup'
-  let version = '2.0.3'
-  let download_url = $'https://github.com/XayahSuSuSu/Android-DataBackup/releases/download/($version)/DataBackup-($version)-arm64-v8a-foss-release.apk'
+  let repository = "DataBackup"
+  let version = "2.0.3"
+  let download_url = $"https://github.com/XayahSuSuSu/Android-DataBackup/releases/download/($version)/DataBackup-($version)-arm64-v8a-foss-release.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def HTTPShortcuts [ --force(-f) ] {
-  let repository = 'HTTPShortcuts'
-  let version = '3.18.0'
-  let download_url = $'https://github.com/Waboodoo/HTTP-Shortcuts/releases/download/v($version)/app-arm64-v8a-release.apk'
+  let repository = "HTTPShortcuts"
+  let version = "3.18.0"
+  let download_url = $"https://github.com/Waboodoo/HTTP-Shortcuts/releases/download/v($version)/app-arm64-v8a-release.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def Acode [ --force(-f) ] {
-  let repository = 'Acode'
-  let version = '1.10.5'
-  let download_url = $'https://github.com/deadlyjack/Acode/releases/download/v($version)/app-release.apk'
+  let repository = "Acode"
+  let version = "1.10.5"
+  let download_url = $"https://github.com/deadlyjack/Acode/releases/download/v($version)/app-release.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def blokada5 [ --force(-f) ] {
-  let repository = 'blokada5'
-  let version = 'latest'
-  let download_url = 'https://go.blokada.org/apk5'
+  let repository = "blokada5"
+  let version = "latest"
+  let download_url = "https://go.blokada.org/apk5"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def aurora [ --force(-f) ] {
-  let repository = 'aurora'
-  let version = '65'
-  let download_url = 'https://f-droid.org/repo/com.aurora.store_65.apk'
+  let repository = "aurora"
+  let version = "65"
+  let download_url = "https://f-droid.org/repo/com.aurora.store_65.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def AndroidMic [ --force(-f) ] {
-  let repository = 'AndroidMic'
-  let version = '2.1.4'
-  let download_url = $'https://github.com/teamclouday/AndroidMic/releases/download/($version)/app-release.apk'
+  let repository = "AndroidMic"
+  let version = "2.1.4"
+  let download_url = $"https://github.com/teamclouday/AndroidMic/releases/download/($version)/app-release.apk"
     let download_path = download $repository $version $download_url $force
   install $download_path
 }
 
 export def RootlessJamesDSP [ --force(-f) ] {
-  let repository = 'RootlessJamesDSP'
-  let version = '50'
-  let download_url = $'https://f-droid.org/repo/me.timschneeberger.rootlessjamesdsp_($version).apk'
+  let repository = "RootlessJamesDSP"
+  let version = "50"
+  let download_url = $"https://f-droid.org/repo/me.timschneeberger.rootlessjamesdsp_($version).apk"
   let download_path = download $repository $version $download_url $force
   install $download_path
 

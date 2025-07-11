@@ -29,8 +29,8 @@ def bind-root [cmd: string, src: string] {
 }
 
 def move [
-  --dir(-d): string = ''
-  --file(-f): string = '',
+  --dir(-d): string = ""
+  --file(-f): string = "",
   --path(-p): string,
 ] {
   if ($path | path exists) {

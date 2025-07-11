@@ -29,8 +29,8 @@ def bind-root [cmd: string, src: string] {
 }
 
 def move [
-  --dir(-d): string = ''
-  --file(-f): string = '',
+  --dir(-d): string = ""
+  --file(-f): string = "",
   --path(-p): string,
 ] {
   if ($path | path exists) {
@@ -80,18 +80,18 @@ def decompress [path: path] {
 
   if $path =~ ".tar" or $path =~ ".tbz" or $path =~ ".tgz" or $path =~ ".tar.gz" {
     if (exists-external gum) {
-      ^gum spin --spinner dot --title 'Extract tar...' -- tar -xvf $path -C $dir
+      ^gum spin --spinner dot --title "Extract tar..." -- tar -xvf $path -C $dir
     } else {
       tar -xvf $path -C $dir
     }
   } else if $path =~ ".zip" {
     if (exists-external gum) {
-      ^gum spin --spinner dot --title 'Extract zip...' -- unzip $path -d $dir
+      ^gum spin --spinner dot --title "Extract zip..." -- unzip $path -d $dir
     } else {
       unzip $path -d $dir
     }
   } else if $path =~ ".gz" {
-    let basename = ($path | path basename | str replace '.gz' '')
+    let basename = ($path | path basename | str replace ".gz" "")
     let filepath = ($dir | path join $basename)
     gunzip -c $path | save --force $filepath
     return $filepath
@@ -123,17 +123,17 @@ def choose [versions: list] {
 }
 
 export def atlas [ --eula, --force(-f) ] {
-  let repository = 'ariga/atlas'
+  let repository = "ariga/atlas"
   let tag_name = ghub tag_name $repository
   let path = bin-path atlas $tag_name
 
   if (path-not-exists $path $force) {
     let filename = if $eula {
-      'atlas-linux-amd64-latest'
+      "atlas-linux-amd64-latest"
     } else {
-      'atlas-community-linux-amd64-latest'
+      "atlas-community-linux-amd64-latest"
     }
-    let download_path = download $'https://release.ariga.io/atlas/($filename)' -d atlas --force=($force)
+    let download_path = download $"https://release.ariga.io/atlas/($filename)" -d atlas --force=($force)
     add-execute $download_path
     move -f $download_path -p $path
   }
@@ -142,7 +142,7 @@ export def atlas [ --eula, --force(-f) ] {
 }
 
 export def --env sshx [ --force(-f) ] {
-  let repository = 'ekzhang/sshx'
+  let repository = "ekzhang/sshx"
   let tag_name = ghub tag_name $repository
 
   let os = (uname | get operating-system)
@@ -201,13 +201,13 @@ export def kubectl [ --force(-f) ] {
 }
 
 export def --env mitmproxy [ --force(-f) ] {
-  let repository = 'mitmproxy/mitmproxy'
+  let repository = "mitmproxy/mitmproxy"
   let tag_name = ghub tag_name $repository
   let path = lib-path mitmproxy $tag_name
 
   if (path-not-exists $path $force) {
     let version = ($tag_name | ghub to-version)
-    let download_path = download $'https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz' -d mitmproxy --force=($force)
+    let download_path = download $"https://downloads.mitmproxy.org/($version)/mitmproxy-($version)-linux-x86_64.tar.gz" -d mitmproxy --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -241,11 +241,11 @@ export def pinggy [ --force(-f) ] {
 }
 
 export def --env remote-mouse [ --force(-f) ] {
-  let version = 'latest'
+  let version = "latest"
   let path = bin-path remotemouse $version
 
   if (path-not-exists $path $force) {
-    let download_path = download 'https://www.remotemouse.net/downloads/linux/RemoteMouse_x86_64.zip' -d remotemouse --force=($force)
+    let download_path = download "https://www.remotemouse.net/downloads/linux/RemoteMouse_x86_64.zip" -d remotemouse --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -255,11 +255,11 @@ export def --env remote-mouse [ --force(-f) ] {
 }
 
 export def --env docker [ --group(-g), --force(-f) ] {
-  let version = '27.5.1'
+  let version = "27.5.1"
   let path = lib-path docker $version
 
   if (path-not-exists $path $force) {
-    let download_path = download $'https://download.docker.com/linux/static/stable/x86_64/docker-($version).tgz' -d docker --force=($force)
+    let download_path = download $"https://download.docker.com/linux/static/stable/x86_64/docker-($version).tgz" -d docker --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -274,7 +274,7 @@ export def --env docker [ --group(-g), --force(-f) ] {
 }
 
 def print-version [name: string, version: string] {
-  print $'(ansi default)($name)(ansi reset) (ansi white_bold)($version)(ansi reset)'
+  print $""(ansi default)($name)(ansi reset) (ansi white_bold)($version)(ansi reset)""
 }
 
 def node-latest [] {
@@ -282,7 +282,7 @@ def node-latest [] {
 }
 
 def node-versions [] {
-  [(node-latest) '22.15.0' '21.2.0' '20.9.0' '18.18.2']
+  [(node-latest) "22.15.0" "21.2.0" "20.9.0" "18.18.2"]
 }
 
 export def --env node [ version?: string@node-versions, --force(-f) ] {
@@ -291,7 +291,7 @@ export def --env node [ version?: string@node-versions, --force(-f) ] {
 
   let path = lib-path node $version
   if (path-not-exists $path $force) {
-    let download_path = download $'https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz' -d node --force=($force)
+    let download_path = download $"https://nodejs.org/download/release/v($version)/node-v($version)-linux-x64.tar.gz" -d node --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -310,7 +310,7 @@ export def --env golang [ version?: string@golang-versions, --force(-f) ] {
 
   let path = lib-path go $version
   if (path-not-exists $path $force) {
-    let download_path = download $'https://go.dev/dl/go($version).linux-amd64.tar.gz' -d golang --force=($force)
+    let download_path = download $"https://go.dev/dl/go($version).linux-amd64.tar.gz" -d golang --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -324,7 +324,7 @@ export def --env zig [ --force(-f) ] {
   let path = lib-path zig $version
 
   if (path-not-exists $path $force) {
-    let download_path = download $'https://ziglang.org/download/($version)/zig-linux-x86_64-($version).tar.xz' -d zig --force=($force)
+    let download_path = download $"https://ziglang.org/download/($version)/zig-linux-x86_64-($version).tar.xz" -d zig --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -334,11 +334,11 @@ export def --env zig [ --force(-f) ] {
 }
 
 export def --env vlang [ --force(-f) ] {
-  let version = 'latest'
+  let version = "latest"
   let path = lib-path vlang $version
 
   if (path-not-exists $path $force) {
-    let download_path = download $'https://github.com/vlang/v/releases/($version)/download/v_linux.zip' -d vlang --force=($force)
+    let download_path = download $"https://github.com/vlang/v/releases/($version)/download/v_linux.zip" -d vlang --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -349,12 +349,12 @@ export def --env vlang [ --force(-f) ] {
 
 def java-list [] {
   {
-    '11': 'https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz'
-    '17': 'https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz'
-    '21': 'https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz'
-    '22': 'https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_linux-x64_bin.tar.gz'
-    '23': 'https://download.java.net/java/GA/jdk23.0.2/6da2a6609d6e406f85c491fcb119101b/7/GPL/openjdk-23.0.2_linux-x64_bin.tar.gz'
-    '24': 'https://download.java.net/java/GA/jdk24/1f9ff9062db4449d8ca828c504ffae90/36/GPL/openjdk-24_linux-x64_bin.tar.gz'
+    "11": "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz"
+    "17": "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz"
+    "21": "https://download.java.net/java/GA/jdk21.0.2/f2283984656d49d69e91c558476027ac/13/GPL/openjdk-21.0.2_linux-x64_bin.tar.gz"
+    "22": "https://download.java.net/java/GA/jdk22.0.2/c9ecb94cd31b495da20a27d4581645e8/9/GPL/openjdk-22.0.2_linux-x64_bin.tar.gz"
+    "23": "https://download.java.net/java/GA/jdk23.0.2/6da2a6609d6e406f85c491fcb119101b/7/GPL/openjdk-23.0.2_linux-x64_bin.tar.gz"
+    "24": "https://download.java.net/java/GA/jdk24/1f9ff9062db4449d8ca828c504ffae90/36/GPL/openjdk-24_linux-x64_bin.tar.gz"
   }
 }
 
@@ -362,7 +362,7 @@ def java-versions [] {
   java-list | columns
 }
 
-export def --env java [ version: string@java-versions = '21', --force(-f) ] {
+export def --env java [ version: string@java-versions = "21", --force(-f) ] {
   print-version Java $version
 
   let path = lib-path java $version
@@ -379,7 +379,7 @@ export def --env java [ version: string@java-versions = '21', --force(-f) ] {
 }
 
 export def --env jdtls [ --force(-f) ] {
-  let path = lib-path jdtls 'latest'
+  let path = lib-path jdtls "latest"
 
   if (path-not-exists $path $force) {
     let download_path = download https://www.eclipse.org/downloads/download.php?download_path=/jdtls/snapshots/jdt-language-server-latest.tar.gz -d jdt -n jdt-language-server-latest.tar.gz --force=($force)
@@ -396,7 +396,7 @@ def flutter-latest [] {
 }
 
 def flutter-versions [] {
-  [(flutter-latest), '3.10.6' '3.7.12' '3.0.5' '2.10.5' '2.2.3']
+  [(flutter-latest), "3.10.6" "3.7.12" "3.0.5" "2.10.5" "2.2.3"]
 }
 
 export def --env flutter [ version?: string@flutter-versions, --force(-f) ] {
@@ -405,7 +405,7 @@ export def --env flutter [ version?: string@flutter-versions, --force(-f) ] {
 
   let path = lib-path flutter $version
   if (path-not-exists $path $force) {
-    let download_path = download $'https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz' -d flutter --force=($force)
+    let download_path = download $"https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_($version)-stable.tar.xz" -d flutter --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -425,7 +425,7 @@ export def --env android-studio [ --force(-f) ] {
   let path = lib-path android-studio $version
 
   if (path-not-exists $path $force) {
-    let download_path = download $'https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz' -d android-studio --force=($force)
+    let download_path = download $"https://redirector.gvt1.com/edgedl/android/studio/ide-zips/($version)/android-studio-($version)-linux.tar.gz" -d android-studio --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -468,7 +468,7 @@ export def --env dart [ version?: string@dart-versions, --force(-f) ] {
   let path = lib-path dart $version
 
   if (path-not-exists $path $force) {
-    let download_path = download $'https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip' -d dart --force=($force)
+    let download_path = download $"https://storage.googleapis.com/dart-archive/channels/stable/release/($version)/sdk/dartsdk-linux-x64-release.zip" -d dart --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -478,11 +478,11 @@ export def --env dart [ version?: string@dart-versions, --force(-f) ] {
 }
 
 export def --env scilab [ --force(-f) ] {
-  let version = '2024.1.0'
+  let version = "2024.1.0"
   let path = lib-path scilab $version
 
   if (path-not-exists $path $force) {
-    let download_path = download $'https://www.scilab.org/download/($version)/scilab-($version).bin.x86_64-linux-gnu.tar.xz' -d scilab --force=($force)
+    let download_path = download $"https://www.scilab.org/download/($version)/scilab-($version).bin.x86_64-linux-gnu.tar.xz" -d scilab --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }
@@ -492,7 +492,7 @@ export def --env scilab [ --force(-f) ] {
 }
 
 export def gitlab-cli [ --force(-f) ] {
-  let version = '1.61.0'
+  let version = "1.61.0"
   let path = bin-path glab $version
 
   if (path-not-exists $path $force) {
@@ -505,9 +505,9 @@ export def gitlab-cli [ --force(-f) ] {
 }
 
 export def gitlab-runner [ --force(-f) ] {
-  sudo curl -L --output /usr/local/bin/gitlab-runner 'https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64'
+  sudo curl -L --output /usr/local/bin/gitlab-runner "https://s3.dualstack.us-east-1.amazonaws.com/gitlab-runner-downloads/latest/binaries/gitlab-runner-linux-amd64"
   sudo chmod 777 /usr/local/bin/gitlab-runner
-  sudo useradd --comment 'GitLab Runner' --create-home gitlab-runner --shell /bin/bash
+  sudo useradd --comment "GitLab Runner" --create-home gitlab-runner --shell /bin/bash
   sudo gitlab-runner install --user=gitlab-runner --working-directory=/home/gitlab-runner
   sudo gitlab-runner start
 }
