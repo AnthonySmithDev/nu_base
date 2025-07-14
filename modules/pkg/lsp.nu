@@ -50,15 +50,15 @@ export def core [] {
 }
 
 export def astro [] {
-  npm install -g @astrojs/language-server
+  pnpm install -g @astrojs/language-server
 }
 
 export def awk [] {
-  npm install -g "awk-language-server@>=0.5.2"
+  pnpm install -g "awk-language-server@>=0.5.2"
 }
 
 export def bash [] {
-  npm install -g bash-language-server
+  pnpm install -g bash-language-server
 }
 
 export def --env cpp [] {
@@ -70,7 +70,7 @@ export def cmake [] {
 }
 
 export def css [] {
-  npm install -g vscode-langservers-extracted
+  pnpm install -g vscode-langservers-extracted
 }
 
 export def --env dart [] {
@@ -82,11 +82,11 @@ export def --env deno [] {
 }
 
 export def docker [] {
-  npm install -g dockerfile-language-server-nodejs
+  pnpm install -g dockerfile-language-server-nodejs
 }
 
 export def docker-compose [] {
-  npm install -g @microsoft/compose-language-service
+  pnpm install -g @microsoft/compose-language-service
 }
 
 export def golang [] {
@@ -97,7 +97,7 @@ export def golang [] {
 }
 
 export def --env html [] {
-  npm install -g vscode-langservers-extracted
+  pnpm install -g vscode-langservers-extracted
   bin superhtml
 }
 
@@ -106,11 +106,11 @@ export def --env java [] {
 }
 
 export def javascript [] {
-  npm install -g typescript-language-server
+  pnpm install -g typescript-language-server
 }
 
 export def json [] {
-  npm install -g vscode-langservers-extracted
+  pnpm install -g vscode-langservers-extracted
 }
 
 export def --env kotlin [] {
@@ -126,7 +126,7 @@ export def --env markdown [] {
 }
 
 export def php [] {
-  npm install -g intelephense
+  pnpm install -g intelephense
 }
 
 export def python [] {
@@ -139,16 +139,16 @@ export def rust [] {
 }
 
 export def svelte [] {
-  npm install -g svelte-language-server
-  npm install -g typescript-svelte-plugin
+  pnpm install -g svelte-language-server
+  pnpm install -g typescript-svelte-plugin
 }
 
 export def sql [] {
-  npm install -g sql-language-server
+  pnpm install -g sql-language-server
 }
 
 export def tailwindcss [] {
-  npm install -g @tailwindcss/language-server
+  pnpm install -g @tailwindcss/language-server
 }
 
 export def toml [] {
@@ -156,7 +156,7 @@ export def toml [] {
 }
 
 export def typescript [] {
-  npm install -g typescript-language-server typescript
+  pnpm install -g typescript-language-server typescript
 }
 
 export def --env vlang [] {
@@ -164,11 +164,11 @@ export def --env vlang [] {
 }
 
 export def vue [] {
-  npm install -g @vue/language-server
+  pnpm install -g @vue/language-server
 }
 
 export def yaml [] {
-  npm install -g yaml-language-server@next
+  pnpm install -g yaml-language-server@next
 }
 
 export def --env zig [] {

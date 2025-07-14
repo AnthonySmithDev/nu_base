@@ -224,28 +224,9 @@
   },
   {
     "category": "core",
-    "name": "opencode-ai/opencode",
-    "tag_name": "v0.0.55",
-    "created_at": "2025-06-27T06:44:20Z",
-    "assets": [
-      "opencode-linux-amd64.deb",
-      "opencode-linux-amd64.rpm",
-      "opencode-linux-arm64.deb",
-      "opencode-linux-arm64.rpm",
-      "opencode-linux-arm64.tar.gz",
-      "opencode-linux-x86_64.tar.gz",
-      "opencode-mac-arm64.tar.gz",
-      "opencode-mac-x86_64.tar.gz"
-    ],
-    "linux_x64": {
-      "ends": "linux-x86_64.tar.gz"
-    }
-  },
-  {
-    "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.2.27",
-    "created_at": "2025-07-10T20:59:03Z",
+    "tag_name": "v0.3.5",
+    "created_at": "2025-07-14T17:20:58Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -1167,8 +1148,8 @@
   {
     "category": "extra",
     "name": "neovim/neovim",
-    "tag_name": "v0.11.2",
-    "created_at": "2025-05-30T09:41:12Z",
+    "tag_name": "v0.11.3",
+    "created_at": "2025-07-12T18:36:01Z",
     "assets": [
       "nvim-linux-arm64.appimage",
       "nvim-linux-arm64.appimage.zsync",
@@ -1258,8 +1239,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.149.0",
-    "created_at": "2025-07-11T11:49:52Z",
+    "tag_name": "3.150.0",
+    "created_at": "2025-07-14T17:10:04Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -2428,10 +2409,10 @@
   {
     "category": "extra",
     "name": "eza-community/eza",
-    "tag_name": "v0.22.0",
-    "created_at": "2025-07-03T18:10:06Z",
+    "tag_name": "v0.22.1",
+    "created_at": "2025-07-12T19:30:40Z",
     "assets": [
-      "completions-0.22.0.tar.gz",
+      "completions-0.22.1.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.zip",
       "eza_aarch64-unknown-linux-gnu.tar.gz",
@@ -2446,7 +2427,7 @@
       "eza_x86_64-unknown-linux-gnu.zip",
       "eza_x86_64-unknown-linux-musl.tar.gz",
       "eza_x86_64-unknown-linux-musl.zip",
-      "man-0.22.0.tar.gz"
+      "man-0.22.1.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -2600,6 +2581,25 @@
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
+    }
+  },
+  {
+    "category": "core",
+    "name": "opencode-ai/opencode",
+    "tag_name": "v0.0.55",
+    "created_at": "2025-06-27T06:44:20Z",
+    "assets": [
+      "opencode-linux-amd64.deb",
+      "opencode-linux-amd64.rpm",
+      "opencode-linux-arm64.deb",
+      "opencode-linux-arm64.rpm",
+      "opencode-linux-arm64.tar.gz",
+      "opencode-linux-x86_64.tar.gz",
+      "opencode-mac-arm64.tar.gz",
+      "opencode-mac-x86_64.tar.gz"
+    ],
+    "linux_x64": {
+      "ends": "linux-x86_64.tar.gz"
     }
   },
   {
@@ -3645,8 +3645,8 @@
   {
     "category": "other",
     "name": "antonmedv/fx",
-    "tag_name": "37.0.0",
-    "created_at": "2025-06-23T20:48:43Z",
+    "tag_name": "37.0.1",
+    "created_at": "2025-07-11T20:02:11Z",
     "assets": [
       "fx_darwin_amd64",
       "fx_darwin_arm64",
@@ -4499,21 +4499,21 @@
   {
     "category": "other",
     "name": "mfontanini/presenterm",
-    "tag_name": "v0.14.0",
-    "created_at": "2025-05-17T20:33:54Z",
+    "tag_name": "v0.15.0",
+    "created_at": "2025-07-13T20:50:27Z",
     "assets": [
-      "presenterm-0.14.0-aarch64-apple-darwin.tar.gz",
-      "presenterm-0.14.0-aarch64-unknown-linux-gnu.tar.gz",
-      "presenterm-0.14.0-aarch64-unknown-linux-musl.tar.gz",
-      "presenterm-0.14.0-armv5te-unknown-linux-gnueabi.tar.gz",
-      "presenterm-0.14.0-armv7-unknown-linux-gnueabihf.tar.gz",
-      "presenterm-0.14.0-i686-pc-windows-msvc.zip",
-      "presenterm-0.14.0-i686-unknown-linux-gnu.tar.gz",
-      "presenterm-0.14.0-i686-unknown-linux-musl.tar.gz",
-      "presenterm-0.14.0-x86_64-apple-darwin.tar.gz",
-      "presenterm-0.14.0-x86_64-pc-windows-msvc.zip",
-      "presenterm-0.14.0-x86_64-unknown-linux-gnu.tar.gz",
-      "presenterm-0.14.0-x86_64-unknown-linux-musl.tar.gz"
+      "presenterm-0.15.0-aarch64-apple-darwin.tar.gz",
+      "presenterm-0.15.0-aarch64-unknown-linux-gnu.tar.gz",
+      "presenterm-0.15.0-aarch64-unknown-linux-musl.tar.gz",
+      "presenterm-0.15.0-armv5te-unknown-linux-gnueabi.tar.gz",
+      "presenterm-0.15.0-armv7-unknown-linux-gnueabihf.tar.gz",
+      "presenterm-0.15.0-i686-pc-windows-msvc.zip",
+      "presenterm-0.15.0-i686-unknown-linux-gnu.tar.gz",
+      "presenterm-0.15.0-i686-unknown-linux-musl.tar.gz",
+      "presenterm-0.15.0-x86_64-apple-darwin.tar.gz",
+      "presenterm-0.15.0-x86_64-pc-windows-msvc.zip",
+      "presenterm-0.15.0-x86_64-unknown-linux-gnu.tar.gz",
+      "presenterm-0.15.0-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -4553,32 +4553,32 @@
   {
     "category": "other",
     "name": "th-ch/youtube-music",
-    "tag_name": "v3.9.0",
-    "created_at": "2025-04-26T19:26:17Z",
+    "tag_name": "v3.10.0",
+    "created_at": "2025-07-13T08:10:18Z",
     "assets": [
-      "YouTube-Music-3.9.0-arm64.AppImage",
-      "YouTube-Music-3.9.0-arm64.dmg",
-      "youtube-music-3.9.0-arm64.freebsd",
-      "youtube-music-3.9.0-arm64.nsis.7z",
-      "youtube-music-3.9.0-arm64.tar.gz",
-      "YouTube-Music-3.9.0-armv7l.AppImage",
-      "youtube-music-3.9.0-armv7l.freebsd",
-      "youtube-music-3.9.0-armv7l.tar.gz",
-      "youtube-music-3.9.0-ia32.nsis.7z",
-      "youtube-music-3.9.0-x64.nsis.7z",
-      "YouTube-Music-3.9.0-x86_64.flatpak",
-      "youtube-music-3.9.0.aarch64.rpm",
-      "YouTube-Music-3.9.0.AppImage",
-      "YouTube-Music-3.9.0.dmg",
-      "YouTube-Music-3.9.0.exe",
-      "youtube-music-3.9.0.freebsd",
-      "youtube-music-3.9.0.tar.gz",
-      "youtube-music-3.9.0.x86_64.rpm",
-      "YouTube-Music-Web-Setup-3.9.0.exe",
-      "youtube-music_3.9.0_amd64.deb",
-      "youtube-music_3.9.0_amd64.snap",
-      "youtube-music_3.9.0_arm64.deb",
-      "youtube-music_3.9.0_armv7l.deb"
+      "YouTube-Music-3.10.0-arm64.AppImage",
+      "YouTube-Music-3.10.0-arm64.dmg",
+      "youtube-music-3.10.0-arm64.freebsd",
+      "youtube-music-3.10.0-arm64.nsis.7z",
+      "youtube-music-3.10.0-arm64.tar.gz",
+      "YouTube-Music-3.10.0-armv7l.AppImage",
+      "youtube-music-3.10.0-armv7l.freebsd",
+      "youtube-music-3.10.0-armv7l.tar.gz",
+      "youtube-music-3.10.0-ia32.nsis.7z",
+      "youtube-music-3.10.0-x64.nsis.7z",
+      "YouTube-Music-3.10.0-x86_64.flatpak",
+      "youtube-music-3.10.0.aarch64.rpm",
+      "YouTube-Music-3.10.0.AppImage",
+      "YouTube-Music-3.10.0.dmg",
+      "YouTube-Music-3.10.0.exe",
+      "youtube-music-3.10.0.freebsd",
+      "youtube-music-3.10.0.tar.gz",
+      "youtube-music-3.10.0.x86_64.rpm",
+      "YouTube-Music-Web-Setup-3.10.0.exe",
+      "youtube-music_3.10.0_amd64.deb",
+      "youtube-music_3.10.0_amd64.snap",
+      "youtube-music_3.10.0_arm64.deb",
+      "youtube-music_3.10.0_armv7l.deb"
     ]
   },
   {
@@ -4960,15 +4960,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.21.0",
-    "created_at": "2025-07-07T06:23:33Z",
+    "tag_name": "v0.22.0",
+    "created_at": "2025-07-14T06:35:51Z",
     "assets": [
-      "aider-desk-0.21.0-macos.zip",
-      "aider-desk-0.21.0-setup.exe",
-      "aider-desk-0.21.0.AppImage",
-      "aider-desk-0.21.0.dmg",
-      "aider-desk-0.21.0.x86_64.rpm",
-      "aider-desk_0.21.0_amd64.deb"
+      "aider-desk-0.22.0-macos.zip",
+      "aider-desk-0.22.0-setup.exe",
+      "aider-desk-0.22.0.AppImage",
+      "aider-desk-0.22.0.dmg",
+      "aider-desk-0.22.0.x86_64.rpm",
+      "aider-desk_0.22.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -5015,19 +5015,19 @@
   {
     "category": "other",
     "name": "alexpasmantier/television",
-    "tag_name": "0.12.2",
-    "created_at": "2025-07-10T16:40:00Z",
+    "tag_name": "0.12.4",
+    "created_at": "2025-07-13T11:57:54Z",
     "assets": [
-      "tv-0.12.2-aarch64-apple-darwin.tar.gz",
-      "tv-0.12.2-aarch64-unknown-linux-gnu.tar.gz",
-      "tv-0.12.2-i686-unknown-linux-gnu.tar.gz",
-      "tv-0.12.2-x86_64-apple-darwin.tar.gz",
-      "tv-0.12.2-x86_64-pc-windows-msvc.tar.gz",
-      "tv-0.12.2-x86_64-pc-windows-msvc.zip",
-      "tv-0.12.2-x86_64-unknown-linux-gnu.deb",
-      "tv-0.12.2-x86_64-unknown-linux-gnu.tar.gz",
-      "tv-0.12.2-x86_64-unknown-linux-musl.deb",
-      "tv-0.12.2-x86_64-unknown-linux-musl.tar.gz"
+      "tv-0.12.4-aarch64-apple-darwin.tar.gz",
+      "tv-0.12.4-aarch64-unknown-linux-gnu.tar.gz",
+      "tv-0.12.4-i686-unknown-linux-gnu.tar.gz",
+      "tv-0.12.4-x86_64-apple-darwin.tar.gz",
+      "tv-0.12.4-x86_64-pc-windows-msvc.tar.gz",
+      "tv-0.12.4-x86_64-pc-windows-msvc.zip",
+      "tv-0.12.4-x86_64-unknown-linux-gnu.deb",
+      "tv-0.12.4-x86_64-unknown-linux-gnu.tar.gz",
+      "tv-0.12.4-x86_64-unknown-linux-musl.deb",
+      "tv-0.12.4-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -5247,16 +5247,16 @@
   {
     "category": "other",
     "name": "tjblackheart/andcli",
-    "tag_name": "v2.2.0",
-    "created_at": "2025-07-06T10:36:01Z",
+    "tag_name": "v2.3.0",
+    "created_at": "2025-07-13T07:03:29Z",
     "assets": [
-      "andcli_v2.2.0_android_arm64",
-      "andcli_v2.2.0_darwin_amd64",
-      "andcli_v2.2.0_darwin_arm64",
-      "andcli_v2.2.0_linux_aarch64",
-      "andcli_v2.2.0_linux_amd64",
-      "andcli_v2.2.0_win_amd64.exe",
-      "andcli_v2.2.0_win_arm64.exe"
+      "andcli_v2.3.0_android_arm64",
+      "andcli_v2.3.0_darwin_amd64",
+      "andcli_v2.3.0_darwin_arm64",
+      "andcli_v2.3.0_linux_aarch64",
+      "andcli_v2.3.0_linux_amd64",
+      "andcli_v2.3.0_win_amd64.exe",
+      "andcli_v2.3.0_win_arm64.exe"
     ],
     "linux_x64": {
       "ends": "linux_amd64"
@@ -5469,18 +5469,18 @@
   {
     "category": "other",
     "name": "ksysoev/wsget",
-    "tag_name": "v0.7.1",
-    "created_at": "2025-03-19T14:25:32Z",
+    "tag_name": "v0.7.2",
+    "created_at": "2025-07-12T15:20:27Z",
     "assets": [
-      "wsget_0.7.1_linux_386.apk",
-      "wsget_0.7.1_linux_386.deb",
-      "wsget_0.7.1_linux_386.rpm",
-      "wsget_0.7.1_linux_amd64.apk",
-      "wsget_0.7.1_linux_amd64.deb",
-      "wsget_0.7.1_linux_amd64.rpm",
-      "wsget_0.7.1_linux_arm64.apk",
-      "wsget_0.7.1_linux_arm64.deb",
-      "wsget_0.7.1_linux_arm64.rpm",
+      "wsget_0.7.2_linux_386.apk",
+      "wsget_0.7.2_linux_386.deb",
+      "wsget_0.7.2_linux_386.rpm",
+      "wsget_0.7.2_linux_amd64.apk",
+      "wsget_0.7.2_linux_amd64.deb",
+      "wsget_0.7.2_linux_amd64.rpm",
+      "wsget_0.7.2_linux_arm64.apk",
+      "wsget_0.7.2_linux_arm64.deb",
+      "wsget_0.7.2_linux_arm64.rpm",
       "wsget_Darwin_arm64.tar.gz",
       "wsget_Darwin_x86_64.tar.gz",
       "wsget_Linux_arm64.tar.gz",
@@ -5897,10 +5897,10 @@
   {
     "category": "other",
     "name": "pacstall/pacstall",
-    "tag_name": "6.3.3",
-    "created_at": "2025-07-09T23:14:26Z",
+    "tag_name": "6.3.4",
+    "created_at": "2025-07-13T02:59:49Z",
     "assets": [
-      "pacstall_6.3.3-pacstall1_all.deb"
+      "pacstall_6.3.4-pacstall1_all.deb"
     ]
   },
   {

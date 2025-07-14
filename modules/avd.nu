@@ -5,48 +5,59 @@ export-env {
 
 export def list-device [] {
   use clock.nu
+
   clock run avd-list-device 1wk {
     ^avdmanager list device -c
   } | lines
 }
 
 def to-system-images [] {
-  grep "system-images;" | grep ";x86_64" | lines | uniq | each { |it| $"`($it)`" }
+  grep "system-images;" | grep ";x86_64" | lines | uniq | each { |it| $"'($it)'" }
 }
 
 export def list-system-images [] {
   use clock.nu
+
   clock run avd-list-system-images 1wk {
-    ^sdkmanager --list --verbose err> /dev/null
+    ^sdkmanager --sdk_root=($env.ANDROID_SDK_ROOT) --list --verbose err> /dev/null
   } | to-system-images
 }
 
 export def system-images [] {
   use clock.nu
+
   clock run avd-system-images 1min {
-    ^sdkmanager --list_installed --verbose err> /dev/null
+    ^sdkmanager --sdk_root=($env.ANDROID_SDK_ROOT) --list_installed --verbose err> /dev/null
   } | to-system-images
 }
 
 export def list-virtual [] {
   use clock.nu
+
   clock run avd-list-avd 1min {
     ^avdmanager list avd -c
   } | lines
 }
 
+const DEFAULT_SYSTEM_IMAGE = "system-images;android-35;default;x86_64"
+
+export def install-system [package: string@list-system-images = $DEFAULT_SYSTEM_IMAGE] {
+  ^sdkmanager --sdk_root=($env.ANDROID_SDK_ROOT) --install $package err> /dev/null
+}
+
 export def create [
   name: string,
-  --device(-d): string@list-device = "pixel_7",
-  --package(-p): string@system-images = "system-images;android-35;google_apis_playstore;x86_64"
+  --device(-d): string@list-device = "pixel_9",
+  --package(-p): string@system-images = $DEFAULT_SYSTEM_IMAGE
   ] {
-  ^sdkmanager --install $package err> /dev/null
-  ^avdmanager --silent create avd -n $name -d $device -k $package
+  ^sdkmanager --sdk_root=($env.ANDROID_SDK_ROOT) --install $package err> /dev/null
+  ^avdmanager create avd -n $name -d $device -k $package
 }
 
 export def delete [name: string@list-virtual] {
-  ^avdmanager delete avd -n $name
   use clock.nu
+
+  ^avdmanager delete avd -n $name
   clock delete avd-list-avd
 }
 

@@ -274,7 +274,7 @@ export def --env docker [ --group(-g), --force(-f) ] {
 }
 
 def print-version [name: string, version: string] {
-  print $""(ansi default)($name)(ansi reset) (ansi white_bold)($version)(ansi reset)""
+  print $"(ansi default)($name)(ansi reset) (ansi white_bold)($version)(ansi reset)"
 }
 
 def node-latest [] {
@@ -434,13 +434,23 @@ export def --env android-studio [ --force(-f) ] {
   env-path $env.ANDROID_STUDIO_BIN
 }
 
+def android-cmdline-tools-latest [] {
+  curl -s https://developer.android.com/studio | grep -oP 'commandlinetools-linux-\K\d+(?=_latest\.zip)' | head -1
+}
+
 export def --env android-cmdline-tools [ --force(-f) ] {
-  if (path-not-exists $env.ANDROID_CMDLINE_TOOLS $force) {
-    let download_path = download https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip -d android-cmdline-tools --force=($force)
+  let version = android-cmdline-tools-latest
+  print-version "Android Cmdline Tools" $version
+
+  let path = lib-path android-cmdline-tools $version
+
+  if (path-not-exists $path $force) {
+    let download_path = download $"https://dl.google.com/android/repository/commandlinetools-linux-($version)_latest.zip" -d android-cmdline-tools --force=($force)
     let decompress_path = decompress $download_path
     mkdir ($env.ANDROID_CMDLINE_TOOLS | path dirname)
     move -d $decompress_path -p $env.ANDROID_CMDLINE_TOOLS
   }
+
   env-path $env.ANDROID_CMDLINE_TOOLS_BIN
 }
 

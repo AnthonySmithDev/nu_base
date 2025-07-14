@@ -89,3 +89,9 @@ export def mouseless [file: string@mouseless-completions] {
 
   srv root mouseless init
 }
+
+export def waydroid [] {
+  sudo waydroid shell setprop persist.adb.tcp.port 5555
+  sudo waydroid shell stop adbd
+  sudo waydroid shell start adbd
+}

@@ -3048,7 +3048,7 @@ export def ai-opencode [ --force(-f) ] {
   bind-file opencode $path
 }
 
-export def sst-opencode [ --force(-f) ] {
+export def opencode [ --force(-f) ] {
   let repository = "sst/opencode"
   let tag_name = ghub tag_name $repository
   let path = bin-path sst-opencode $tag_name

@@ -1,8 +1,15 @@
 
 export def install [apk: path] {
-  try {
-    # adb wait-for-device
-    adb install -r -g $apk
+  if (exists-external waydroid) {
+    try {
+      waydroid app install $apk
+    }
+  }
+  if (exists-external adb) {
+    try {
+      # adb wait-for-device
+      adb install -r -g $apk
+    }
   }
 }
 
