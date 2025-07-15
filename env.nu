@@ -235,6 +235,8 @@ env-path $env.OPENCODE_BIN
 
 $env.ANDROID_HOME = ($env.HOME | path join Android Sdk)
 $env.ANDROID_SDK_ROOT = ($env.HOME | path join Android Sdk)
+$env.ANDROID_SDK_HOME = ($env.HOME | path join .config/.android)
+$env.ANDROID_AVD_HOME = ($env.HOME | path join .config/.android/avd)
 
 $env.ANDROID_EMULATOR = ($env.ANDROID_HOME | path join emulator)
 env-path $env.ANDROID_EMULATOR

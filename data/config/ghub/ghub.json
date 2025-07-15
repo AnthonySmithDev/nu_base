@@ -87,18 +87,18 @@
   {
     "category": "core",
     "name": "helix-editor/helix",
-    "tag_name": "25.01.1",
-    "created_at": "2025-01-19T20:51:26Z",
+    "tag_name": "25.07",
+    "created_at": "2025-07-15T18:27:33Z",
     "assets": [
-      "helix-25.01.1-aarch64-linux.tar.xz",
-      "helix-25.01.1-aarch64-macos.tar.xz",
-      "helix-25.01.1-source.tar.xz",
-      "helix-25.01.1-x86_64-linux.tar.xz",
-      "helix-25.01.1-x86_64-macos.tar.xz",
-      "helix-25.01.1-x86_64-windows.zip",
-      "helix-25.01.1-x86_64.AppImage",
-      "helix-25.01.1-x86_64.AppImage.zsync",
-      "helix_25.1.1-1_amd64.deb"
+      "helix-25.07-aarch64-linux.tar.xz",
+      "helix-25.07-aarch64-macos.tar.xz",
+      "helix-25.07-source.tar.xz",
+      "helix-25.07-x86_64-linux.tar.xz",
+      "helix-25.07-x86_64-macos.tar.xz",
+      "helix-25.07-x86_64-windows.zip",
+      "helix-25.07-x86_64.AppImage",
+      "helix-25.07-x86_64.AppImage.zsync",
+      "helix_25.7.0-1_amd64.deb"
     ],
     "linux_x64": {
       "ends": "x86_64-linux.tar.xz"
@@ -225,14 +225,13 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.5",
-    "created_at": "2025-07-14T17:20:58Z",
+    "tag_name": "v0.3.11",
+    "created_at": "2025-07-15T17:44:41Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
       "opencode-linux-arm64.zip",
-      "opencode-linux-x64.zip",
-      "opencode-windows-x64.zip"
+      "opencode-linux-x64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x64.zip"
@@ -1597,8 +1596,8 @@
   {
     "category": "extra",
     "name": "derailed/k9s",
-    "tag_name": "v0.50.7",
-    "created_at": "2025-07-05T16:58:39Z",
+    "tag_name": "v0.50.8",
+    "created_at": "2025-07-15T14:39:01Z",
     "assets": [
       "k9s_Darwin_amd64.tar.gz",
       "k9s_Darwin_arm64.tar.gz",
@@ -1692,8 +1691,13 @@
   {
     "category": "extra",
     "name": "bettercap/bettercap",
-    "tag_name": "v2.41.0",
-    "created_at": "2025-01-31T11:27:12Z"
+    "tag_name": "v2.41.1",
+    "created_at": "2025-07-15T09:53:00Z",
+    "assets": [
+      "bettercap_darwin_arm64.zip",
+      "bettercap_linux_amd64.zip",
+      "bettercap_windows_amd64.zip"
+    ]
   },
   {
     "category": "extra",
@@ -3261,16 +3265,16 @@
   {
     "category": "other",
     "name": "clangd/clangd",
-    "tag_name": "20.1.0",
-    "created_at": "2025-02-09T07:05:11Z",
+    "tag_name": "20.1.8",
+    "created_at": "2025-07-11T01:27:40Z",
     "assets": [
-      "clangd-linux-20.1.0.zip",
-      "clangd-mac-20.1.0.zip",
-      "clangd-windows-20.1.0-debug-symbols.7z",
-      "clangd-windows-20.1.0.zip",
-      "clangd_indexing_tools-linux-20.1.0.zip",
-      "clangd_indexing_tools-mac-20.1.0.zip",
-      "clangd_indexing_tools-windows-20.1.0.zip"
+      "clangd-debug-symbols-windows-20.1.8.7z",
+      "clangd-linux-20.1.8.zip",
+      "clangd-mac-20.1.8.zip",
+      "clangd-windows-20.1.8.zip",
+      "clangd_indexing_tools-linux-20.1.8.zip",
+      "clangd_indexing_tools-mac-20.1.8.zip",
+      "clangd_indexing_tools-windows-20.1.8.zip"
     ],
     "linux_x64": {
       "ends": "linux-19.1.2.zip"
@@ -3702,30 +3706,30 @@
   {
     "category": "other",
     "name": "cli/cli",
-    "tag_name": "v2.75.0",
-    "created_at": "2025-07-09T14:16:18Z",
+    "tag_name": "v2.75.1",
+    "created_at": "2025-07-14T21:34:58Z",
     "assets": [
-      "gh_2.75.0_linux_386.deb",
-      "gh_2.75.0_linux_386.rpm",
-      "gh_2.75.0_linux_386.tar.gz",
-      "gh_2.75.0_linux_amd64.deb",
-      "gh_2.75.0_linux_amd64.rpm",
-      "gh_2.75.0_linux_amd64.tar.gz",
-      "gh_2.75.0_linux_arm64.deb",
-      "gh_2.75.0_linux_arm64.rpm",
-      "gh_2.75.0_linux_arm64.tar.gz",
-      "gh_2.75.0_linux_armv6.deb",
-      "gh_2.75.0_linux_armv6.rpm",
-      "gh_2.75.0_linux_armv6.tar.gz",
-      "gh_2.75.0_macOS_amd64.zip",
-      "gh_2.75.0_macOS_arm64.zip",
-      "gh_2.75.0_macOS_universal.pkg",
-      "gh_2.75.0_windows_386.msi",
-      "gh_2.75.0_windows_386.zip",
-      "gh_2.75.0_windows_amd64.msi",
-      "gh_2.75.0_windows_amd64.zip",
-      "gh_2.75.0_windows_arm64.msi",
-      "gh_2.75.0_windows_arm64.zip"
+      "gh_2.75.1_linux_386.deb",
+      "gh_2.75.1_linux_386.rpm",
+      "gh_2.75.1_linux_386.tar.gz",
+      "gh_2.75.1_linux_amd64.deb",
+      "gh_2.75.1_linux_amd64.rpm",
+      "gh_2.75.1_linux_amd64.tar.gz",
+      "gh_2.75.1_linux_arm64.deb",
+      "gh_2.75.1_linux_arm64.rpm",
+      "gh_2.75.1_linux_arm64.tar.gz",
+      "gh_2.75.1_linux_armv6.deb",
+      "gh_2.75.1_linux_armv6.rpm",
+      "gh_2.75.1_linux_armv6.tar.gz",
+      "gh_2.75.1_macOS_amd64.zip",
+      "gh_2.75.1_macOS_arm64.zip",
+      "gh_2.75.1_macOS_universal.pkg",
+      "gh_2.75.1_windows_386.msi",
+      "gh_2.75.1_windows_386.zip",
+      "gh_2.75.1_windows_amd64.msi",
+      "gh_2.75.1_windows_amd64.zip",
+      "gh_2.75.1_windows_arm64.msi",
+      "gh_2.75.1_windows_arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
