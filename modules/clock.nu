@@ -44,14 +44,19 @@ def execute_and_cache [
   json: bool
 ] {
   let output = do $closure
-
   if $json {
-    let json_output = ($output | to json)
-    $json_output | save --force $filename
-    $json_output
+    $output | to json | save --force $filename
   } else {
     $output | save --force $filename
-    $output
+  }
+  $output
+}
+
+def get_cached_result [filename: string, json: bool] {
+  if $json {
+    open $filename | from json
+  } else {
+    open $filename
   }
 }
 
@@ -77,17 +82,22 @@ export def add [name: string@complete-names, value: string] {
   | save --force $filename
 }
 
-export def delete [name: string@complete-names, value?: string] {
+export def delete [name: string@complete-names, value?: string, --debug(-d)] {
   let filename = filename $name
   if not ($filename | path exists) {
     error make {msg: "File not found"}
   }
   if ($value | is-empty) {
     rm -rfp $filename
-    return $"Delete ($name)"
+    if ($debug) {
+      print $"Delete ($name)"
+    }
+    return
   }
   let data = (open $filename | from json)
   let filtered = ($data | where {|x| $x != $value})
   $filtered | to json | save --force $filename
-  return $"Delete ($value) in ($name)"
+  if ($debug) {
+    print $"Delete ($value) in ($name)"
+  }
 }
