@@ -225,13 +225,14 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.11",
-    "created_at": "2025-07-15T17:44:41Z",
+    "tag_name": "v0.3.13",
+    "created_at": "2025-07-16T01:50:43Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
       "opencode-linux-arm64.zip",
-      "opencode-linux-x64.zip"
+      "opencode-linux-x64.zip",
+      "opencode-windows-x64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x64.zip"
@@ -279,8 +280,8 @@
   {
     "category": "core",
     "name": "kovidgoyal/kitty",
-    "tag_name": "v0.42.1",
-    "created_at": "2025-05-17T03:37:09Z",
+    "tag_name": "v0.42.2",
+    "created_at": "2025-07-16T01:59:34Z",
     "assets": [
       "kitten-darwin-amd64",
       "kitten-darwin-arm64",
@@ -295,10 +296,10 @@
       "kitten-netbsd-arm64",
       "kitten-openbsd-amd64",
       "kitten-openbsd-arm64",
-      "kitty-0.42.1-arm64.txz",
-      "kitty-0.42.1-x86_64.txz",
-      "kitty-0.42.1.dmg",
-      "kitty-0.42.1.tar.xz"
+      "kitty-0.42.2-arm64.txz",
+      "kitty-0.42.2-x86_64.txz",
+      "kitty-0.42.2.dmg",
+      "kitty-0.42.2.tar.xz"
     ],
     "linux_x64": {
       "ends": "x86_64.txz"
@@ -1238,8 +1239,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.150.0",
-    "created_at": "2025-07-14T17:10:04Z",
+    "tag_name": "3.151.0",
+    "created_at": "2025-07-16T11:49:49Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -1319,15 +1320,15 @@
   {
     "category": "extra",
     "name": "yorukot/superfile",
-    "tag_name": "v1.3.1",
-    "created_at": "2025-05-25T14:51:02Z",
+    "tag_name": "v1.3.2",
+    "created_at": "2025-07-16T13:56:41Z",
     "assets": [
-      "superfile-darwin-v1.3.1-amd64.tar.gz",
-      "superfile-darwin-v1.3.1-arm64.tar.gz",
-      "superfile-linux-v1.3.1-amd64.tar.gz",
-      "superfile-linux-v1.3.1-arm64.tar.gz",
-      "superfile-windows-v1.3.1-amd64.zip",
-      "superfile-windows-v1.3.1-arm64.zip"
+      "superfile-darwin-v1.3.2-amd64.tar.gz",
+      "superfile-darwin-v1.3.2-arm64.tar.gz",
+      "superfile-linux-v1.3.2-amd64.tar.gz",
+      "superfile-linux-v1.3.2-arm64.tar.gz",
+      "superfile-windows-v1.3.2-amd64.zip",
+      "superfile-windows-v1.3.2-arm64.zip"
     ],
     "linux_x64": {
       "starts": "superfile-linux",
@@ -1596,14 +1597,13 @@
   {
     "category": "extra",
     "name": "derailed/k9s",
-    "tag_name": "v0.50.8",
-    "created_at": "2025-07-15T14:39:01Z",
+    "tag_name": "v0.50.9",
+    "created_at": "2025-07-16T13:42:41Z",
     "assets": [
       "k9s_Darwin_amd64.tar.gz",
       "k9s_Darwin_arm64.tar.gz",
       "k9s_Freebsd_amd64.tar.gz",
       "k9s_Freebsd_arm64.tar.gz",
-      "k9s_Freebsd_armv7.tar.gz",
       "k9s_linux_amd64.apk",
       "k9s_linux_amd64.deb",
       "k9s_linux_amd64.rpm",
@@ -2932,8 +2932,8 @@
   {
     "category": "other",
     "name": "microsoft/vscode",
-    "tag_name": "1.102.0",
-    "created_at": "2025-07-09T22:00:36Z",
+    "tag_name": "1.102.1",
+    "created_at": "2025-07-15T14:40:12Z",
     "assets": []
   },
   {
@@ -3769,8 +3769,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.7.20",
-    "created_at": "2025-07-09T20:36:08Z",
+    "tag_name": "0.7.21",
+    "created_at": "2025-07-14T18:01:28Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -4152,25 +4152,25 @@
   {
     "category": "other",
     "name": "lightningnetwork/lnd",
-    "tag_name": "v0.19.1-beta",
-    "created_at": "2025-06-11T01:50:15Z",
+    "tag_name": "v0.19.2-beta",
+    "created_at": "2025-07-16T08:45:01Z",
     "assets": [
-      "lnd-darwin-amd64-v0.19.1-beta.tar.gz",
-      "lnd-darwin-arm64-v0.19.1-beta.tar.gz",
-      "lnd-freebsd-386-v0.19.1-beta.tar.gz",
-      "lnd-freebsd-amd64-v0.19.1-beta.tar.gz",
-      "lnd-freebsd-arm-v0.19.1-beta.tar.gz",
-      "lnd-linux-386-v0.19.1-beta.tar.gz",
-      "lnd-linux-amd64-v0.19.1-beta.tar.gz",
-      "lnd-linux-arm64-v0.19.1-beta.tar.gz",
-      "lnd-linux-armv6-v0.19.1-beta.tar.gz",
-      "lnd-linux-armv7-v0.19.1-beta.tar.gz",
-      "lnd-netbsd-amd64-v0.19.1-beta.tar.gz",
-      "lnd-openbsd-amd64-v0.19.1-beta.tar.gz",
-      "lnd-source-v0.19.1-beta.tar.gz",
-      "lnd-windows-386-v0.19.1-beta.zip",
-      "lnd-windows-amd64-v0.19.1-beta.zip",
-      "lnd-windows-arm-v0.19.1-beta.zip",
+      "lnd-darwin-amd64-v0.19.2-beta.tar.gz",
+      "lnd-darwin-arm64-v0.19.2-beta.tar.gz",
+      "lnd-freebsd-386-v0.19.2-beta.tar.gz",
+      "lnd-freebsd-amd64-v0.19.2-beta.tar.gz",
+      "lnd-freebsd-arm-v0.19.2-beta.tar.gz",
+      "lnd-linux-386-v0.19.2-beta.tar.gz",
+      "lnd-linux-amd64-v0.19.2-beta.tar.gz",
+      "lnd-linux-arm64-v0.19.2-beta.tar.gz",
+      "lnd-linux-armv6-v0.19.2-beta.tar.gz",
+      "lnd-linux-armv7-v0.19.2-beta.tar.gz",
+      "lnd-netbsd-amd64-v0.19.2-beta.tar.gz",
+      "lnd-openbsd-amd64-v0.19.2-beta.tar.gz",
+      "lnd-source-v0.19.2-beta.tar.gz",
+      "lnd-windows-386-v0.19.2-beta.zip",
+      "lnd-windows-amd64-v0.19.2-beta.zip",
+      "lnd-windows-arm-v0.19.2-beta.zip",
       "vendor.tar.gz"
     ],
     "linux_x64": {
@@ -4263,21 +4263,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.22.4",
-    "created_at": "2025-06-13T06:29:44Z",
+    "tag_name": "v0.23.0",
+    "created_at": "2025-07-15T03:24:08Z",
     "assets": [
-      "affine-0.22.4-stable-linux-x64.appimage",
-      "affine-0.22.4-stable-linux-x64.deb",
-      "affine-0.22.4-stable-linux-x64.flatpak",
-      "affine-0.22.4-stable-linux-x64.zip",
-      "affine-0.22.4-stable-macos-arm64.dmg",
-      "affine-0.22.4-stable-macos-arm64.zip",
-      "affine-0.22.4-stable-macos-x64.dmg",
-      "affine-0.22.4-stable-macos-x64.zip",
-      "affine-0.22.4-stable-windows-arm64.exe",
-      "affine-0.22.4-stable-windows-arm64.nsis.exe",
-      "affine-0.22.4-stable-windows-x64.exe",
-      "affine-0.22.4-stable-windows-x64.nsis.exe",
+      "affine-0.23.0-stable-linux-x64.appimage",
+      "affine-0.23.0-stable-linux-x64.deb",
+      "affine-0.23.0-stable-linux-x64.flatpak",
+      "affine-0.23.0-stable-linux-x64.zip",
+      "affine-0.23.0-stable-macos-arm64.dmg",
+      "affine-0.23.0-stable-macos-arm64.zip",
+      "affine-0.23.0-stable-macos-x64.dmg",
+      "affine-0.23.0-stable-macos-x64.zip",
+      "affine-0.23.0-stable-windows-arm64.exe",
+      "affine-0.23.0-stable-windows-arm64.nsis.exe",
+      "affine-0.23.0-stable-windows-x64.exe",
+      "affine-0.23.0-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {

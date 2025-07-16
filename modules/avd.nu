@@ -46,9 +46,9 @@ export def device [] {
 export def virtual [] {
   use clock.nu
 
-  clock run avd-list-avd 1min {
-    ^avdmanager list avd -c
-  } | lines
+  clock run avd-list-avd 1min --json {
+    ^avdmanager list avd -c | lines
+  }
 }
 
 export def create [
@@ -65,7 +65,7 @@ export def create [
     let name = if ($name | is-empty) { $device } else { $name }
     ^avdmanager create avd -n $name -d $device -k ($package | from-system-image)
   }
-  clock delete avd-list-avd
+  clock add avd-list-avd $name
 }
 
 export def delete [name: string@virtual] {
@@ -79,8 +79,8 @@ export def editor [name: string@virtual] {
   let dir = ($env.ANDROID_AVD_HOME | path join $"($name).avd")
   let files = [
     ($dir | path join "config.ini")
-    ($dir | path join "hardware-qemu.ini")
-    ($dir | path join "snapshots/default_boot/hardware.ini")
+    # ($dir | path join "hardware-qemu.ini")
+    # ($dir | path join "snapshots/default_boot/hardware.ini")
   ]
   hx ...$files
 }
@@ -96,12 +96,13 @@ export def run [
     -ranchu
     -accel on
     -engine qemu2
+    -no-audio
     -no-window
     -no-metrics
     -no-boot-anim
     -verbose
   ]
-  ^emulator -avd $name -dpi-device 240 ...$args
+  ^emulator -avd $name ...$args
 }
 
 export def --wrapped screen [--max-size: int = 800, ...rest] {
