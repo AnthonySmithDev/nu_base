@@ -266,7 +266,7 @@ export def cosmic [] {
 }
 
 export def zed [] {
-  bind-user --dir zed
+  bind-user zed/settings.json
 }
 
 export def helix [] {

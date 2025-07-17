@@ -12,20 +12,22 @@ def lib-path [name: string, version: string] {
 }
 
 def bind-dir [src: string, dst: string] {
-  rm -rf $dst
+  rm -rfp $dst
   ln -sf $src $dst
 }
 
 def bind-file [cmd: string, src: string] {
   let dst = ($env.USR_LOCAL_BIN | path join $cmd)
-  rm -rf $dst
+  rm -rfp $dst
   ln -sf $src $dst
 }
 
 def bind-root [cmd: string, src: string] {
   let dst = ($env.SYS_LOCAL_BIN | path join $cmd)
-  sudo rm -rf $dst
-  sudo ln -sf $src $dst
+  if not ($dst | path exists) {
+    # sudo rm -rf $dst
+    sudo ln -sf $src $dst
+  }
 }
 
 def move [
@@ -34,7 +36,7 @@ def move [
   --path(-p): string,
 ] {
   if ($path | path exists) {
-    rm -rf $path
+    rm -rfp $path
   }
   let src = ($dir | path join $file)
   if ($src | path exists) {
@@ -42,7 +44,7 @@ def move [
   } else {
     error make -u {msg: $"Source not exists \n ($src)"}
   }
-  if ($dir | path exists) { rm -rf $dir }
+  if ($dir | path exists) { rm -rfp $dir }
 }
 
 def path-not-exists [path: string, force: bool] {

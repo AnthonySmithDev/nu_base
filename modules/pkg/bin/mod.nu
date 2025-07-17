@@ -4,7 +4,7 @@ export use other.nu *
 
 export def core [ --force(-f) ] {
   gum
-  mods
+  # mods
   glow
 
   helix
@@ -69,12 +69,12 @@ export def core [ --force(-f) ] {
 
   scrcpy
 
+  kitty
+  neovim
+
   java
   node
   golang
-
-  kitty
-  neovim
 }
 
 def remove [path: string] {
@@ -87,7 +87,7 @@ def remove [path: string] {
     print $"(ansi green_bold) + ($versions | first)(ansi reset)"
     for version in ($versions | skip 1) {
       print $"  (ansi red_bold) - ($version)(ansi reset)"
-      rm -prf $version
+      rm -rfp $version
     }
   }
 }
