@@ -347,7 +347,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
       try {
         releases $old.name | where prerelease == true | first
       } catch {|err|
-        print "error prerelease" $err
+        print $"(ansi red_bold) error prerelease (ansi reset)"
         if $loop {
           let wait = 3sec
           print $"wait ($wait)"
@@ -361,7 +361,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
       try {
         releases-latest $old.name
       } catch {|err|
-        print "error release latest" $err
+        print $"(ansi red_bold) error release latest (ansi reset)"
         if $loop {
           let wait = 3sec
           print $"wait ($wait)"

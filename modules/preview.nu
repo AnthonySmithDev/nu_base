@@ -81,7 +81,7 @@ export def slide [
   let images = (fd -e png -e jpg -e jpeg -e svg -d $max_depth $search $dir | lines | skip $skip)
 
   for images_chunk in ($images | chunks $chunck) {
-    try { timg -wr1 --grid $chunck -W -U -C ...($images_chunk) }
+    timg -wr1 --grid $chunck --fit-width --upscale=i --center ...($images_chunk) # -g 200x100
     $skip = $skip + $chunck
     $skip | save -f $state_file
   }

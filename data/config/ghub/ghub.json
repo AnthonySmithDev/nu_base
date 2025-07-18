@@ -87,18 +87,18 @@
   {
     "category": "core",
     "name": "helix-editor/helix",
-    "tag_name": "25.07",
-    "created_at": "2025-07-15T18:27:33Z",
+    "tag_name": "25.07.1",
+    "created_at": "2025-07-18T14:32:09Z",
     "assets": [
-      "helix-25.07-aarch64-linux.tar.xz",
-      "helix-25.07-aarch64-macos.tar.xz",
-      "helix-25.07-source.tar.xz",
-      "helix-25.07-x86_64-linux.tar.xz",
-      "helix-25.07-x86_64-macos.tar.xz",
-      "helix-25.07-x86_64-windows.zip",
-      "helix-25.07-x86_64.AppImage",
-      "helix-25.07-x86_64.AppImage.zsync",
-      "helix_25.7.0-1_amd64.deb"
+      "helix-25.07.1-aarch64-linux.tar.xz",
+      "helix-25.07.1-aarch64-macos.tar.xz",
+      "helix-25.07.1-source.tar.xz",
+      "helix-25.07.1-x86_64-linux.tar.xz",
+      "helix-25.07.1-x86_64-macos.tar.xz",
+      "helix-25.07.1-x86_64-windows.zip",
+      "helix-25.07.1-x86_64.AppImage",
+      "helix-25.07.1-x86_64.AppImage.zsync",
+      "helix_25.7.1-1_amd64.deb"
     ],
     "linux_x64": {
       "ends": "x86_64-linux.tar.xz"
@@ -225,13 +225,14 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.19",
-    "created_at": "2025-07-17T22:07:06Z",
+    "tag_name": "v0.3.22",
+    "created_at": "2025-07-18T18:16:50Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
       "opencode-linux-arm64.zip",
-      "opencode-linux-x64.zip"
+      "opencode-linux-x64.zip",
+      "opencode-windows-x64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x64.zip"
@@ -1168,8 +1169,8 @@
   {
     "category": "extra",
     "name": "zed-industries/zed",
-    "tag_name": "v0.195.3",
-    "created_at": "2025-07-16T19:54:59Z",
+    "tag_name": "v0.195.5",
+    "created_at": "2025-07-18T16:41:53Z",
     "assets": [
       "Zed-aarch64.dmg",
       "zed-linux-aarch64.tar.gz",
@@ -1237,8 +1238,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.151.0",
-    "created_at": "2025-07-16T11:49:49Z",
+    "tag_name": "3.152.0",
+    "created_at": "2025-07-18T14:36:28Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -2411,10 +2412,10 @@
   {
     "category": "extra",
     "name": "eza-community/eza",
-    "tag_name": "v0.22.1",
-    "created_at": "2025-07-12T19:30:40Z",
+    "tag_name": "v0.23.0",
+    "created_at": "2025-07-18T14:25:47Z",
     "assets": [
-      "completions-0.22.1.tar.gz",
+      "completions-0.23.0.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.zip",
       "eza_aarch64-unknown-linux-gnu.tar.gz",
@@ -2429,7 +2430,7 @@
       "eza_x86_64-unknown-linux-gnu.zip",
       "eza_x86_64-unknown-linux-musl.tar.gz",
       "eza_x86_64-unknown-linux-musl.zip",
-      "man-0.22.1.tar.gz"
+      "man-0.23.0.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -3210,8 +3211,8 @@
   {
     "category": "other",
     "name": "gokcehan/lf",
-    "tag_name": "r35",
-    "created_at": "2025-04-25T01:23:45Z",
+    "tag_name": "r36",
+    "created_at": "2025-07-18T01:52:31Z",
     "assets": [
       "lf-android-arm64.tar.gz",
       "lf-darwin-amd64.tar.gz",
@@ -3579,34 +3580,34 @@
   {
     "category": "other",
     "name": "carapace-sh/carapace-bin",
-    "tag_name": "v1.3.3",
-    "created_at": "2025-06-19T19:21:49Z",
+    "tag_name": "v1.4.0",
+    "created_at": "2025-07-17T20:12:12Z",
     "assets": [
-      "carapace-bin_1.3.3_android_386.termux.deb",
-      "carapace-bin_1.3.3_android_amd64.termux.deb",
-      "carapace-bin_1.3.3_android_arm64.termux.deb",
-      "carapace-bin_1.3.3_android_armv6.termux.deb",
-      "carapace-bin_1.3.3_darwin_amd64.tar.gz",
-      "carapace-bin_1.3.3_darwin_arm64.tar.gz",
-      "carapace-bin_1.3.3_linux_386.apk",
-      "carapace-bin_1.3.3_linux_386.deb",
-      "carapace-bin_1.3.3_linux_386.rpm",
-      "carapace-bin_1.3.3_linux_386.tar.gz",
-      "carapace-bin_1.3.3_linux_amd64.apk",
-      "carapace-bin_1.3.3_linux_amd64.deb",
-      "carapace-bin_1.3.3_linux_amd64.rpm",
-      "carapace-bin_1.3.3_linux_amd64.tar.gz",
-      "carapace-bin_1.3.3_linux_arm64.apk",
-      "carapace-bin_1.3.3_linux_arm64.deb",
-      "carapace-bin_1.3.3_linux_arm64.rpm",
-      "carapace-bin_1.3.3_linux_arm64.tar.gz",
-      "carapace-bin_1.3.3_termux_386.tar.gz",
-      "carapace-bin_1.3.3_termux_amd64.tar.gz",
-      "carapace-bin_1.3.3_termux_arm64.tar.gz",
-      "carapace-bin_1.3.3_termux_armv6.tar.gz",
-      "carapace-bin_1.3.3_windows_386.zip",
-      "carapace-bin_1.3.3_windows_amd64.zip",
-      "carapace-bin_1.3.3_windows_arm64.zip"
+      "carapace-bin_1.4.0_android_386.termux.deb",
+      "carapace-bin_1.4.0_android_amd64.termux.deb",
+      "carapace-bin_1.4.0_android_arm64.termux.deb",
+      "carapace-bin_1.4.0_android_armv6.termux.deb",
+      "carapace-bin_1.4.0_darwin_amd64.tar.gz",
+      "carapace-bin_1.4.0_darwin_arm64.tar.gz",
+      "carapace-bin_1.4.0_linux_386.apk",
+      "carapace-bin_1.4.0_linux_386.deb",
+      "carapace-bin_1.4.0_linux_386.rpm",
+      "carapace-bin_1.4.0_linux_386.tar.gz",
+      "carapace-bin_1.4.0_linux_amd64.apk",
+      "carapace-bin_1.4.0_linux_amd64.deb",
+      "carapace-bin_1.4.0_linux_amd64.rpm",
+      "carapace-bin_1.4.0_linux_amd64.tar.gz",
+      "carapace-bin_1.4.0_linux_arm64.apk",
+      "carapace-bin_1.4.0_linux_arm64.deb",
+      "carapace-bin_1.4.0_linux_arm64.rpm",
+      "carapace-bin_1.4.0_linux_arm64.tar.gz",
+      "carapace-bin_1.4.0_termux_386.tar.gz",
+      "carapace-bin_1.4.0_termux_amd64.tar.gz",
+      "carapace-bin_1.4.0_termux_arm64.tar.gz",
+      "carapace-bin_1.4.0_termux_armv6.tar.gz",
+      "carapace-bin_1.4.0_windows_386.zip",
+      "carapace-bin_1.4.0_windows_amd64.zip",
+      "carapace-bin_1.4.0_windows_arm64.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -3767,8 +3768,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.7.22",
-    "created_at": "2025-07-17T16:27:15Z",
+    "tag_name": "0.8.0",
+    "created_at": "2025-07-17T22:28:16Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -4261,21 +4262,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.23.0",
-    "created_at": "2025-07-15T03:24:08Z",
+    "tag_name": "v0.23.1",
+    "created_at": "2025-07-18T03:16:11Z",
     "assets": [
-      "affine-0.23.0-stable-linux-x64.appimage",
-      "affine-0.23.0-stable-linux-x64.deb",
-      "affine-0.23.0-stable-linux-x64.flatpak",
-      "affine-0.23.0-stable-linux-x64.zip",
-      "affine-0.23.0-stable-macos-arm64.dmg",
-      "affine-0.23.0-stable-macos-arm64.zip",
-      "affine-0.23.0-stable-macos-x64.dmg",
-      "affine-0.23.0-stable-macos-x64.zip",
-      "affine-0.23.0-stable-windows-arm64.exe",
-      "affine-0.23.0-stable-windows-arm64.nsis.exe",
-      "affine-0.23.0-stable-windows-x64.exe",
-      "affine-0.23.0-stable-windows-x64.nsis.exe",
+      "affine-0.23.1-stable-linux-x64.appimage",
+      "affine-0.23.1-stable-linux-x64.deb",
+      "affine-0.23.1-stable-linux-x64.flatpak",
+      "affine-0.23.1-stable-linux-x64.zip",
+      "affine-0.23.1-stable-macos-arm64.dmg",
+      "affine-0.23.1-stable-macos-arm64.zip",
+      "affine-0.23.1-stable-macos-x64.dmg",
+      "affine-0.23.1-stable-macos-x64.zip",
+      "affine-0.23.1-stable-windows-arm64.exe",
+      "affine-0.23.1-stable-windows-arm64.nsis.exe",
+      "affine-0.23.1-stable-windows-x64.exe",
+      "affine-0.23.1-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
@@ -4651,22 +4652,22 @@
   {
     "category": "other",
     "name": "raphamorim/rio",
-    "tag_name": "v0.2.21",
-    "created_at": "2025-07-16T12:45:04Z",
+    "tag_name": "v0.2.22",
+    "created_at": "2025-07-18T10:31:30Z",
     "assets": [
       "rio-installer-aarch64.msi",
       "rio-installer-x86_64.msi",
       "rio-portable-aarch64.exe",
       "rio-portable-x86_64.exe",
       "rio.dmg",
-      "rioterm-0.2.21-1.aarch64_wayland.rpm",
-      "rioterm-0.2.21-1.aarch64_x11.rpm",
-      "rioterm-0.2.21-1.x86_64_wayland.rpm",
-      "rioterm-0.2.21-1.x86_64_x11.rpm",
-      "rioterm_0.2.21_amd64_wayland.deb",
-      "rioterm_0.2.21_amd64_x11.deb",
-      "rioterm_0.2.21_arm64_wayland.deb",
-      "rioterm_0.2.21_arm64_x11.deb"
+      "rioterm-0.2.22-1.aarch64_wayland.rpm",
+      "rioterm-0.2.22-1.aarch64_x11.rpm",
+      "rioterm-0.2.22-1.x86_64_wayland.rpm",
+      "rioterm-0.2.22-1.x86_64_x11.rpm",
+      "rioterm_0.2.22_amd64_wayland.deb",
+      "rioterm_0.2.22_amd64_x11.deb",
+      "rioterm_0.2.22_arm64_wayland.deb",
+      "rioterm_0.2.22_arm64_x11.deb"
     ]
   },
   {
@@ -4875,35 +4876,35 @@
   {
     "category": "other",
     "name": "mongodb-js/mongosh",
-    "tag_name": "v2.5.5",
-    "created_at": "2025-07-02T13:57:45Z",
+    "tag_name": "v2.5.6",
+    "created_at": "2025-07-17T14:49:03Z",
     "assets": [
-      "mongodb-mongosh-2.5.5.aarch64.rpm",
-      "mongodb-mongosh-2.5.5.ppc64le.rpm",
-      "mongodb-mongosh-2.5.5.s390x.rpm",
-      "mongodb-mongosh-2.5.5.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl11-2.5.5.aarch64.rpm",
-      "mongodb-mongosh-shared-openssl11-2.5.5.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl11_2.5.5_amd64.deb",
-      "mongodb-mongosh-shared-openssl11_2.5.5_arm64.deb",
-      "mongodb-mongosh-shared-openssl3-2.5.5.aarch64.rpm",
-      "mongodb-mongosh-shared-openssl3-2.5.5.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl3_2.5.5_amd64.deb",
-      "mongodb-mongosh-shared-openssl3_2.5.5_arm64.deb",
-      "mongodb-mongosh_2.5.5_amd64.deb",
-      "mongodb-mongosh_2.5.5_arm64.deb",
-      "mongosh-2.5.5-darwin-arm64.zip",
-      "mongosh-2.5.5-darwin-x64.zip",
-      "mongosh-2.5.5-linux-arm64-openssl11.tgz",
-      "mongosh-2.5.5-linux-arm64-openssl3.tgz",
-      "mongosh-2.5.5-linux-arm64.tgz",
-      "mongosh-2.5.5-linux-ppc64le.tgz",
-      "mongosh-2.5.5-linux-s390x.tgz",
-      "mongosh-2.5.5-linux-x64-openssl11.tgz",
-      "mongosh-2.5.5-linux-x64-openssl3.tgz",
-      "mongosh-2.5.5-linux-x64.tgz",
-      "mongosh-2.5.5-win32-x64.zip",
-      "mongosh-2.5.5-x64.msi"
+      "mongodb-mongosh-2.5.6.aarch64.rpm",
+      "mongodb-mongosh-2.5.6.ppc64le.rpm",
+      "mongodb-mongosh-2.5.6.s390x.rpm",
+      "mongodb-mongosh-2.5.6.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl11-2.5.6.aarch64.rpm",
+      "mongodb-mongosh-shared-openssl11-2.5.6.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl11_2.5.6_amd64.deb",
+      "mongodb-mongosh-shared-openssl11_2.5.6_arm64.deb",
+      "mongodb-mongosh-shared-openssl3-2.5.6.aarch64.rpm",
+      "mongodb-mongosh-shared-openssl3-2.5.6.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl3_2.5.6_amd64.deb",
+      "mongodb-mongosh-shared-openssl3_2.5.6_arm64.deb",
+      "mongodb-mongosh_2.5.6_amd64.deb",
+      "mongodb-mongosh_2.5.6_arm64.deb",
+      "mongosh-2.5.6-darwin-arm64.zip",
+      "mongosh-2.5.6-darwin-x64.zip",
+      "mongosh-2.5.6-linux-arm64-openssl11.tgz",
+      "mongosh-2.5.6-linux-arm64-openssl3.tgz",
+      "mongosh-2.5.6-linux-arm64.tgz",
+      "mongosh-2.5.6-linux-ppc64le.tgz",
+      "mongosh-2.5.6-linux-s390x.tgz",
+      "mongosh-2.5.6-linux-x64-openssl11.tgz",
+      "mongosh-2.5.6-linux-x64-openssl3.tgz",
+      "mongosh-2.5.6-linux-x64.tgz",
+      "mongosh-2.5.6-win32-x64.zip",
+      "mongosh-2.5.6-x64.msi"
     ],
     "linux_x64": {
       "ends": "linux-x64-openssl3.tgz"
@@ -5016,19 +5017,19 @@
   {
     "category": "other",
     "name": "alexpasmantier/television",
-    "tag_name": "0.12.4",
-    "created_at": "2025-07-13T11:57:54Z",
+    "tag_name": "0.12.5",
+    "created_at": "2025-07-18T00:35:03Z",
     "assets": [
-      "tv-0.12.4-aarch64-apple-darwin.tar.gz",
-      "tv-0.12.4-aarch64-unknown-linux-gnu.tar.gz",
-      "tv-0.12.4-i686-unknown-linux-gnu.tar.gz",
-      "tv-0.12.4-x86_64-apple-darwin.tar.gz",
-      "tv-0.12.4-x86_64-pc-windows-msvc.tar.gz",
-      "tv-0.12.4-x86_64-pc-windows-msvc.zip",
-      "tv-0.12.4-x86_64-unknown-linux-gnu.deb",
-      "tv-0.12.4-x86_64-unknown-linux-gnu.tar.gz",
-      "tv-0.12.4-x86_64-unknown-linux-musl.deb",
-      "tv-0.12.4-x86_64-unknown-linux-musl.tar.gz"
+      "tv-0.12.5-aarch64-apple-darwin.tar.gz",
+      "tv-0.12.5-aarch64-unknown-linux-gnu.tar.gz",
+      "tv-0.12.5-i686-unknown-linux-gnu.tar.gz",
+      "tv-0.12.5-x86_64-apple-darwin.tar.gz",
+      "tv-0.12.5-x86_64-pc-windows-msvc.tar.gz",
+      "tv-0.12.5-x86_64-pc-windows-msvc.zip",
+      "tv-0.12.5-x86_64-unknown-linux-gnu.deb",
+      "tv-0.12.5-x86_64-unknown-linux-gnu.tar.gz",
+      "tv-0.12.5-x86_64-unknown-linux-musl.deb",
+      "tv-0.12.5-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -5937,13 +5938,13 @@
   {
     "category": "android",
     "name": "maelchiotti/LocalMaterialNotes",
-    "tag_name": "v2.0.0",
-    "created_at": "2025-05-18T13:27:47Z",
+    "tag_name": "v2.1.0",
+    "created_at": "2025-07-18T21:00:08Z",
     "assets": [
-      "localmaterialnotes_arm64-v8a_v2.0.0.apk",
-      "localmaterialnotes_armeabi-v7a_v2.0.0.apk",
-      "localmaterialnotes_v2.0.0.apk",
-      "localmaterialnotes_x86_64_v2.0.0.apk"
+      "localmaterialnotes_arm64-v8a_v2.1.0.apk",
+      "localmaterialnotes_armeabi-v7a_v2.1.0.apk",
+      "localmaterialnotes_v2.1.0.apk",
+      "localmaterialnotes_x86_64_v2.1.0.apk"
     ]
   },
   {
@@ -6195,16 +6196,13 @@
   {
     "category": "android",
     "name": "OuterTune/OuterTune",
-    "tag_name": "v0.9.0-final",
-    "created_at": "2025-07-11T01:23:07Z",
+    "tag_name": "v0.9.1",
+    "created_at": "2025-07-17T19:40:51Z",
     "assets": [
-      "OuterTune-0.9.0-core-arm64-v8a-release-62.apk",
-      "OuterTune-0.9.0-core-universal-release-62.apk",
-      "OuterTune-0.9.0-full-arm64-v8a-release-62.apk",
-      "OuterTune-0.9.0-full-armeabi-v7a-release-62.apk",
-      "OuterTune-0.9.0-full-universal-release-62.apk",
-      "OuterTune-0.9.0-full-x86-release-62.apk",
-      "OuterTune-0.9.0-full-x86_64-release-62.apk"
+      "OuterTune-0.9.1-core-arm64-v8a-release-63.apk",
+      "OuterTune-0.9.1-core-universal-release-63.apk",
+      "OuterTune-0.9.1-full-arm64-v8a-release-63.apk",
+      "OuterTune-0.9.1-full-universal-release-63.apk"
     ],
     "android": {
       "ends": "universal-release.apk"
@@ -6317,15 +6315,16 @@
   {
     "category": "android",
     "name": "sakethpathike/Linkora",
-    "tag_name": "release-v0.13.3",
-    "created_at": "2025-06-29T16:28:41Z",
+    "tag_name": "release-v0.13.5",
+    "created_at": "2025-07-17T19:10:52Z",
     "assets": [
+      "composeApp-release-I93-patch.apk",
       "composeApp-release.apk",
-      "Linkora-1.0.7.exe",
-      "Linkora-1.0.7.msi",
-      "Linkora-linux-x64-1.0.7.jar",
+      "Linkora-1.0.8.exe",
+      "Linkora-1.0.8.msi",
+      "Linkora-linux-x64-1.0.8.jar",
       "Linkora.AppImage",
-      "linkora_1.0.7-1_amd64.deb"
+      "linkora_1.0.8-1_amd64.deb"
     ],
     "android": {
       "ends": ".apk"
