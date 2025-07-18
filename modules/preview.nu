@@ -67,6 +67,7 @@ export def slide [
   --search(-s): string = "."
   --max-depth(-m): int = 1
   --dir(-d): path = "."
+  --chunck(-c): int = 3
   --reset
 ] {
   let state_file = ($nu.temp-path | path join "slide_state.txt")
@@ -77,13 +78,11 @@ export def slide [
     try { open $state_file | into int } catch { 0 }
   }
 
-  let images = (fd -e png -e jpg -e jpeg -e svg -d $max_depth $search $dir | lines)
+  let images = (fd -e png -e jpg -e jpeg -e svg -d $max_depth $search $dir | lines | skip $skip)
 
-  for $image in ($images | skip $skip) {
-    timg $image
-    try { sleep 500ms }
-
-    $skip = $skip + 1
+  for images_chunk in ($images | chunks $chunck) {
+    try { timg -wr1 --grid $chunck -W -U -C ...($images_chunk) }
+    $skip = $skip + $chunck
     $skip | save -f $state_file
   }
 
