@@ -126,7 +126,7 @@ export def decompress [filepath: path, --dirpath(-d): string] {
     mktemp --directory --tmpdir-path ($env.GHUB_TEMP_PATH | path join dir)
   }
 
-  rm -p -rf $dir
+  rm -rfp $dir
   mkdir $dir
 
   let tar_exts = ['.tar', '.txz', '.tbz', '.tar.xz', '.tgz', '.tar.gz', '.tar.bz2']
@@ -266,45 +266,110 @@ def exclusion [] {
   }
 }
 
-export def "repo update" [...names: string@names] {
-  let changelog_dir = ($env.GHUB_TEMP_PATH | path join changelog)
-  rm -p -rf $changelog_dir
-  mkdir $changelog_dir
+def gen-index [
+  max_length: int,
+  start: int,
+  count: int,
+] {
+  if $count <= 0 {
+    return []
+  }
+  0..($count - 1) | each {|i|
+    ($start + $i) mod ($max_length)
+  }
+}
 
-  let rate_limit = rate_limit
-  if $rate_limit.remaining == 0 {
-    return ($rate_limit | select reset remaining)
+export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), --debug(-d)] {
+  let changelog_dir = ($env.GHUB_TEMP_PATH | path join changelog)
+
+  let save_changelog = $changelog and ($names | is-empty)
+  if $save_changelog {
+    mkdir $changelog_dir
   }
 
+  let wait = 1min
+  mut remaining = true
+  while $remaining {
+    let rate_limit = rate_limit
+    if $loop {
+      if $rate_limit.remaining == 0 {
+        print $"wait ($wait)"
+        sleep $wait
+        continue
+      } else {
+        $remaining = false
+      }
+    } else {
+      if $rate_limit.remaining == 0 {
+        return ($rate_limit | select reset remaining)
+      } else {
+        $remaining = false
+      }
+    }
+  }
+
+  let rate_limit = rate_limit
   let last_index = index-get
   mut repos = open $env.GHUB_REPOSITORY_PATH
   let length = ($repos | length)
   
   let repos_to_process = if ($names | is-empty) {
-    $repos | enumerate | skip $last_index | first $rate_limit.remaining
+    gen-index $length $last_index $rate_limit.remaining
   } else {
-    $repos | enumerate | where {|it| $it.item.name in $names}
+    $repos | enumerate | where {|it| $it.item.name in $names} | get index
   }
 
-  for $it in $repos_to_process {
-    let old = $it.item
+  if $debug {
+    print $rate_limit
+    print $repos_to_process
+  }
+
+  mut current_index = 0
+  loop {
+    if $current_index >= ($repos_to_process | length) {
+      break
+    }
+
+    let index = ($repos_to_process | get $current_index)
+    let old = ($repos | get $index)
     let old_version = ($old.tag_name | to-version)
+    let old_created_at = ($old.created_at | to-created-at)
+
+    let num = $index + 1
 
     if $old.skip? == true {
+      print $"($num) (releases-url $old.name) (white $old_version) (italic $old_created_at)"
+      $current_index = $current_index + 1
       continue
     }
 
     let new = if $old.prerelease? == true {
       try {
         releases $old.name | where prerelease == true | first
-      } catch {
-        break
+      } catch {|err|
+        print "error prerelease" $err
+        if $loop {
+          let wait = 3sec
+          print $"wait ($wait)"
+          sleep $wait
+          continue
+        } else {
+          break
+        }
       }
     } else {
       try {
         releases-latest $old.name
-      } catch {
-        break
+      } catch {|err|
+        print "error release latest" $err
+        if $loop {
+          let wait = 3sec
+          print $"wait ($wait)"
+          sleep $wait
+          continue
+        } else {
+          break
+        }
       }
     }
 
@@ -312,25 +377,23 @@ export def "repo update" [...names: string@names] {
     let new_created_at = ($new.created_at | to-created-at)
 
     if ($names | is-empty) {
-      if ($it.index + 1) == $length {
-        index-set 0
-      } else {
-        index-set ($it.index + 1)
-      }
+      index-set $index
     }
 
     if $old.tag_name == $new.tag_name {
-      print $"(tag-url $old.name $old.tag_name) (white $old_version) (italic $new_created_at)"
+      print $"($num) (tag-url $old.name $old.tag_name) (white $old_version) (italic $new_created_at)"
+      $current_index = $current_index + 1
       continue
     }
     if ($old.assets? | is-not-empty) {
       if ($new.assets | length) < 1 {
-        print $"(tag-url $old.name $new.tag_name) (purple $old_version) (cyan $new_version) (italic $new_created_at)"
+        print $"($num) (tag-url $old.name $new.tag_name) (purple $old_version) (cyan $new_version) (italic $new_created_at)"
+        $current_index = $current_index + 1
         continue
       }
     }
 
-    print $"(releases-url $old.name) (red $old_version) (green $new_version) (italic $new_created_at)"
+    print $"($num) (releases-url $old.name) (red $old_version) (green $new_version) (italic $new_created_at)"
 
     mut repo = ($old
       | upsert tag_name $new.tag_name
@@ -342,23 +405,29 @@ export def "repo update" [...names: string@names] {
       $repo = ($repo | upsert prerelease $new.prerelease)
     }
 
-    $repos = ($repos | upsert $it.index $repo)
+    $repos = ($repos | upsert $index $repo)
     $repos | save --force $env.GHUB_REPOSITORY_PATH
 
-    let changelog_file = ($changelog_dir | path join $"($old.name | path basename).md")
-    $new.body | save --force $changelog_file
+    if $save_changelog {
+      let changelog_file = ($changelog_dir | path join $"($old.name | path basename).md")
+      $new.body | save --force $changelog_file
+    }
+
+    $current_index = $current_index + 1
   }
 
-  if ($names | is-empty) and (ls $changelog_dir | is-not-empty) {
+  if (ls $changelog_dir | is-not-empty) {
     if (confirm "see changelog...?") {
       glow $changelog_dir
+      rm -rfp $changelog_dir
     }
   }
 
   if ($names | is-empty) {
-    print $"($length) -> ($last_index)..($last_index + $rate_limit.remaining)"
+    print $"($length) -> ($last_index)..($last_index + ($repos_to_process | length))"
   }
 }
+
 
 def confirm [prompt: string] {
   try {

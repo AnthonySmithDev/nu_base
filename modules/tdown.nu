@@ -10,8 +10,17 @@ export def setup [] {
   mkdir $env.TELEGRAM_CHAT_DIR
 }
 
+def to-visible-name [] {
+  tr -cd '[:alnum:] ' | str replace -a " " "_" | str downcase
+}
+
 export def 'chat ls' [] {
-  let chats = (tdl chat ls -o json | from json | select id type visible_name username?)
+  let chats = (
+  tdl chat ls -o json | from json
+  | select id type visible_name username?
+  | upsert visible_name {|row| ($row.visible_name | to-visible-name)}
+  )
+
   $chats | save --force $env.TELEGRAM_CHAT_FILE
   return $chats
 }
@@ -29,7 +38,7 @@ def chats_get_name_by_id [id: int] {
 }
 
 export def 'chat export' [id: int@chats_get_id, --last(-l): int] {
-  let name = (chats_get_name_by_id $id | path-safe | str downcase)
+  let name = chats_get_name_by_id $id
   let filename = (gum input --header="Export name: " --value $name)
   let output = ($env.TELEGRAM_CHAT_DIR | path join $"($id) - ($filename).json")
   mut args = [
