@@ -62,3 +62,32 @@ export def grid [
   let pixelation = ($pixelation | default $graphics)
   timg --title --pixelation $pixelation --grid $grid_columns ...$images
 }
+
+export def slide [
+  --search(-s): string = "."
+  --max-depth(-m): int = 1
+  --dir(-d): path = "."
+  --reset
+] {
+  let state_file = ($nu.temp-path | path join "slide_state.txt")
+
+  mut skip = if $reset or not ($state_file | path exists) {
+    0
+  } else {
+    try { open $state_file | into int } catch { 0 }
+  }
+
+  let images = (fd -e png -e jpg -e jpeg -e svg -d $max_depth $search $dir | lines)
+
+  for $image in ($images | skip $skip) {
+    timg $image
+    try { sleep 500ms }
+
+    $skip = $skip + 1
+    $skip | save -f $state_file
+  }
+
+  if ($skip >= ($images | length)) {
+    0 | save -f $state_file
+  }
+}
