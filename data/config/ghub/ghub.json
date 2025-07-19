@@ -225,8 +225,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.22",
-    "created_at": "2025-07-18T18:16:50Z",
+    "tag_name": "v0.3.23",
+    "created_at": "2025-07-18T20:04:29Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -1223,8 +1223,8 @@
   {
     "category": "extra",
     "name": "HyDE-Project/HyDE",
-    "tag_name": "v2025.7.3",
-    "created_at": "2025-07-03T04:32:34Z",
+    "tag_name": "v25.7.3",
+    "created_at": "2025-07-19T01:46:45Z",
     "assets": []
   },
   {
@@ -4118,8 +4118,8 @@
   {
     "category": "other",
     "name": "oven-sh/bun",
-    "tag_name": "bun-v1.2.18",
-    "created_at": "2025-07-03T08:06:22Z",
+    "tag_name": "bun-v1.2.19",
+    "created_at": "2025-07-19T11:11:28Z",
     "assets": [
       "bun-darwin-aarch64-profile.zip",
       "bun-darwin-aarch64.zip",
@@ -5938,13 +5938,13 @@
   {
     "category": "android",
     "name": "maelchiotti/LocalMaterialNotes",
-    "tag_name": "v2.1.0",
-    "created_at": "2025-07-18T21:00:08Z",
+    "tag_name": "v2.1.1",
+    "created_at": "2025-07-19T09:41:45Z",
     "assets": [
-      "localmaterialnotes_arm64-v8a_v2.1.0.apk",
-      "localmaterialnotes_armeabi-v7a_v2.1.0.apk",
-      "localmaterialnotes_v2.1.0.apk",
-      "localmaterialnotes_x86_64_v2.1.0.apk"
+      "localmaterialnotes_arm64-v8a_v2.1.1.apk",
+      "localmaterialnotes_armeabi-v7a_v2.1.1.apk",
+      "localmaterialnotes_v2.1.1.apk",
+      "localmaterialnotes_x86_64_v2.1.1.apk"
     ]
   },
   {

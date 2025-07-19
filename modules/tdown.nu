@@ -1,32 +1,35 @@
 
 export-env {
   $env.TDOWN_DIR = ($env.HOME | path join .tdown)
-  $env.TDOWN_CHAT_DIR = ($env.TDOWN_DIR | path join chats)
-  $env.TDOWN_CHAT_FILE = ($env.TDOWN_DIR | path join chats.json)
+  $env.TDOWN_CHAT_PATH = ($env.TDOWN_DIR | path join chats.json)
+  $env.TDOWN_EXPORT_PATH = ($env.TDOWN_DIR | path join export)
+  $env.TDOWN_DOWNLOAD_PATH = ($env.TDOWN_DIR | path join download)
 }
 
 export def setup [] {
   mkdir $env.TDOWN_DIR
-  mkdir $env.TDOWN_CHAT_DIR
+  mkdir $env.TDOWN_EXPORT_PATH
+  mkdir $env.TDOWN_DOWNLOAD_PATH
 }
 
 def to-custom-name [] {
-  iconv -f utf-8 -t ascii//translit | tr -cd '[:alnum:] ' | str downcase | split words | str join "_"
+  iconv -f utf-8 -t ascii//translit | tr -cd '[:alnum:] '
+  | str downcase | split words | str join "_"
 }
 
 export def 'chat ls' [] {
   let chats = (
-  tdl chat ls -o json | from json
-  | select id type visible_name username?
-  | upsert custom_name {|row| ($row.visible_name | to-custom-name)}
+    tdl chat ls -o json | from json
+    | select id type visible_name username?
+    | upsert custom_name {|row| ($row.visible_name | to-custom-name)}
   )
 
-  $chats | save --force $env.TDOWN_CHAT_FILE
+  $chats | save --force $env.TDOWN_CHAT_PATH
   return $chats
 }
 
 def chats [] {
-  open $env.TDOWN_CHAT_FILE | select id custom_name
+  open $env.TDOWN_CHAT_PATH | select id custom_name
 }
 
 def chats_get_id [] {
@@ -37,79 +40,104 @@ def chats_get_name_by_id [id: int] {
   chats | where id == $id | first | get custom_name
 }
 
-export def 'chat export' [id: int@chats_get_id, --last(-l): int] {
-  let name = chats_get_name_by_id $id
-  let filename = (gum input --header="Export name: " --value $name)
-  let output = ($env.TDOWN_CHAT_DIR | path join $"($id)_($filename).json")
-  mut args = [
-    --raw
-    --chat $id
-    --output $output
-  ]
-  if ($last | is-not-empty) {
-    $args = ($args | append [--type last --input $last])
-  }
-  tdl chat export ...$args
+def export-path [chat_id: int, name: string] {
+  $env.TDOWN_EXPORT_PATH | path join $"($chat_id)_($name).json"
 }
 
-export def "last chat msg" [chat_id: string@files_get_ids] {
-  let filename = ($env.TDOWN_CHAT_DIR | path join last.json)
-  tdl chat export -c $chat_id -o $filename -T last -i 1
-  let last = (open $filename | get messages.0.id | into int)
-  rm $filename
+def download-path [chat_id: int, name: string] {
+  $env.TDOWN_DOWNLOAD_PATH | path join $"($chat_id)_($name)"
+}
+
+export def 'chat export' [...chat_ids: int@chats_get_id, --last(-l): int] {
+  for chat_id in $chat_ids {
+    let name = chats_get_name_by_id $chat_id
+    let output = export-path $chat_id $name
+    mut args = [
+      --raw
+      --chat $chat_id
+      --output $output
+    ]
+    if ($last | is-not-empty) {
+      $args = ($args | append [--type last --input $last])
+    }
+    tdl chat export ...$args
+  }
+}
+
+export def "last chat msg" [chat_id: int@files_get_ids] {
+  let output = export-path $chat_id "last"
+  tdl chat export -c $chat_id -o $output -T last -i 1
+  let last = (open $output | get messages.0.id | into int)
+  rm $output
   return $last
 }
 
-export def 'chat update' [chat_id: string@files_get_ids] {
+export def 'chat update' [chat_id: int@files_get_ids] {
   let chat_name = files_get_name_by_id $chat_id
-  let chat_dir = ($env.TDOWN_CHAT_DIR | path join $"($chat_id)_($chat_name)")
-  let chat_file = ($env.TDOWN_CHAT_DIR | path join $"($chat_id)_($chat_name).json")
-  let temp_file = ($env.TDOWN_CHAT_DIR | path join temp.json)
+  let export_path = export-path $chat_id $chat_name
+  let update_path = export-path $chat_id "update"
 
-  mut file = open $chat_file
+  mut export_content = open $export_path
   print "Open chat messages"
 
-  let last_chat = (last chat msg $chat_id)
-  let last_file = ($file | get messages.0.id | into int)
-  print $"($last_chat) ($last_file)"
+  let last_msg_in_chat = (last chat msg $chat_id)
+  let last_msg_in_export = ($export_content | get messages.0.id | into int)
+  print $"($last_msg_in_chat) ($last_msg_in_export)"
 
-  if ($last_chat <= $last_file) {
+  if ($last_msg_in_chat <= $last_msg_in_export) {
     return
   }
 
   mut args = [
     --raw
     --chat $chat_id
-    --output $temp_file
+    --output $update_path
     --type id
-    --input $"($last_file),($last_chat)"
+    --input $"($last_msg_in_export),($last_msg_in_chat)"
   ]
   tdl chat export ...$args
 
-  let temp = open $temp_file
-  $file | upsert messages ($file.messages | prepend ($temp.messages)) | to json -r | save -f $chat_file
+  let update_content = open $update_path
+  $export_content | upsert messages ($export_content.messages | prepend ($update_content.messages)) | to json -r | save -f $export_path
 }
 
-def files [] {
-  ls -s $env.TDOWN_CHAT_DIR | where type == file | get name | split column '.' name | get name | parse "{id}_{name}"
+def export-files [] {
+  ls -s $env.TDOWN_EXPORT_PATH | where type == file
+  | get name | split column '.' filename
+  | get filename | parse "{id}_{name}"
+  | upsert id {|row| ($row.id | into int) }
 }
+
+export def export-files-size [] {
+  ls -s $env.TDOWN_EXPORT_PATH
+  | where type == file
+  | each {|row|
+    let parse = ($row.name | split column '.' filename | get filename | parse "{id}_{name}" | first)
+    return {
+      id: ($parse.id | into int)
+      name: $parse.name
+      size: $row.size
+    }
+  }
+}
+# name: $"($parse.name), size:($row.size)"
 
 def files_get_ids [] {
-  files | rename value description
+  export-files | rename value description
 }
 
-def files_get_name_by_id [id: string] {
-  files | where id == $id | first | get name
+def files_get_name_by_id [id: int] {
+  export-files | where id == $id | first | get name
 }
 
-export def download [chat_id: string@files_get_ids] {
+export def download [chat_id: int@files_get_ids] {
   let chat_name = files_get_name_by_id $chat_id
-  let chat_dir = ($env.TDOWN_CHAT_DIR | path join $"($chat_id)_($chat_name)")
-  let chat_file = ($env.TDOWN_CHAT_DIR | path join $"($chat_id)_($chat_name).json")
+  let export_path = export-path $chat_id $chat_name
+  let download_path = download-path $chat_id $chat_name
 
   mut total = 0
   print "Open file..."
-  let messages = (open $chat_file | get messages)
+  let messages = (open $export_path | get messages)
   print "Open file OK"
   for msg in  $messages {
     let url = $"https://t.me/c/($chat_id)/($msg.id)"
@@ -126,11 +154,18 @@ export def download [chat_id: string@files_get_ids] {
           print $"Very long video duration: ($url) ($duration), size: ($size)"
           continue
         }
+        let w = ($attributes | first | get W)
+        let h = ($attributes | first | get H)
+        let menor = if $w < $h { $w } else { $h }
+        if $menor < 480 {
+          print $"Low resolution video detected: ($url) Resolution: ($w)x($h)"
+          continue
+        }
       }
     }
-    let filename = ([$chat_id $msg.id $msg.file] | str join '_')
-    let path = ($chat_dir | path join $filename)
-    if ($path | path exists) {
+    let basename = ([$chat_id $msg.id $msg.file] | str join '_')
+    let file_path = ($download_path | path join $basename)
+    if ($file_path | path exists) {
       $total += 1
       continue
     }
@@ -138,7 +173,7 @@ export def download [chat_id: string@files_get_ids] {
       print $"total files that already exist: ($total)"
       $total = 0
     }
-    let args = [download --continue --dir $chat_dir --url $url]
+    let args = [download --continue --dir $download_path --url $url]
     try {
       tdl ...$args
     } catch { |err|
@@ -187,14 +222,14 @@ export def organize [dir: string] {
   }
 }
 
-export def --env dir [chat_id: string@files_get_ids] {
+export def --env dir [chat_id: int@files_get_ids] {
   let chat_name = files_get_name_by_id $chat_id
-  let chat_dir = ($env.TDOWN_CHAT_DIR | path join $"($chat_id)_($chat_name)")
-  cd  $chat_dir
+  let download_path = download-path $chat_id $chat_name
+  cd  $download_path
 }
 
-export def nautilus [chat_id: string@files_get_ids] {
+export def nautilus [chat_id: int@files_get_ids] {
   let chat_name = files_get_name_by_id $chat_id
-  let chat_dir = ($env.TDOWN_CHAT_DIR | path join $"($chat_id)_($chat_name)")
-  try { nautilus $chat_dir }
+  let download_path = download-path $chat_id $chat_name
+  try { nautilus $download_path }
 }
