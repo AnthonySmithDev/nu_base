@@ -52,6 +52,10 @@ export def 'chat export' [...chat_ids: int@chats_get_id, --last(-l): int] {
   for chat_id in $chat_ids {
     let name = chats_get_name_by_id $chat_id
     let output = export-path $chat_id $name
+    if ($output | path exists) {
+      print $"Chat export alreay exist: ($chat_id) ($name)"
+      return
+    }
     mut args = [
       --raw
       --chat $chat_id
@@ -102,28 +106,32 @@ export def 'chat update' [chat_id: int@files_get_ids] {
 }
 
 def export-files [] {
-  ls -s $env.TDOWN_EXPORT_PATH | where type == file
-  | get name | split column '.' filename
-  | get filename | parse "{id}_{name}"
-  | upsert id {|row| ($row.id | into int) }
-}
-
-export def export-files-size [] {
-  ls -s $env.TDOWN_EXPORT_PATH
-  | where type == file
-  | each {|row|
+  ls -s $env.TDOWN_EXPORT_PATH | where type == file | each {|row|
     let parse = ($row.name | split column '.' filename | get filename | parse "{id}_{name}" | first)
-    return {
+    {
       id: ($parse.id | into int)
       name: $parse.name
       size: $row.size
     }
   }
 }
-# name: $"($parse.name), size:($row.size)"
 
 def files_get_ids [] {
-  export-files | rename value description
+  let completions = (export-files | sort-by size | each {|row|
+    {
+      value: $row.id
+      description: $"($row.name), size:($row.size)"
+    }
+  })
+
+  {
+    options: {
+      case_sensitive: false,
+      completion_algorithm: substring,
+      sort: false,
+    },
+    completions: $completions
+  }
 }
 
 def files_get_name_by_id [id: int] {
@@ -135,15 +143,27 @@ export def download [chat_id: int@files_get_ids] {
   let export_path = export-path $chat_id $chat_name
   let download_path = download-path $chat_id $chat_name
 
-  mut total = 0
+  mut already_exist = 0
+  mut total_images = 0
+  mut total_videos = 0
+  mut low_resolution = 0
+  mut too_long = 0
+  mut too_large = 0
+  
   print "Open file..."
   let messages = (open $export_path | get messages)
   print "Open file OK"
-  for msg in  $messages {
+  
+  for msg in $messages {
     let url = $"https://t.me/c/($chat_id)/($msg.id)"
+    if ($msg.raw.Media?.Photo? != null) {
+      $total_images += 1
+    }
     if ($msg.raw.Media?.Video? == true) {
+      $total_videos += 1
       let size = ($msg.raw.Media?.Document?.Size | into filesize)
       if $size > 100mb {
+        $too_large += 1
         print $"Very large video size: ($url) ($size)"
         continue
       }
@@ -151,6 +171,7 @@ export def download [chat_id: int@files_get_ids] {
       if ($attributes | is-not-empty) {
         let duration = ($attributes | first | get Duration | into duration --unit sec)
         if $duration > 10min {
+          $too_long += 1
           print $"Very long video duration: ($url) ($duration), size: ($size)"
           continue
         }
@@ -158,6 +179,7 @@ export def download [chat_id: int@files_get_ids] {
         let h = ($attributes | first | get H)
         let menor = if $w < $h { $w } else { $h }
         if $menor < 480 {
+          $low_resolution += 1
           print $"Low resolution video detected: ($url) Resolution: ($w)x($h)"
           continue
         }
@@ -166,12 +188,11 @@ export def download [chat_id: int@files_get_ids] {
     let basename = ([$chat_id $msg.id $msg.file] | str join '_')
     let file_path = ($download_path | path join $basename)
     if ($file_path | path exists) {
-      $total += 1
+      $already_exist += 1
       continue
     }
-    if $total > 0 {
-      print $"total files that already exist: ($total)"
-      $total = 0
+    if $already_exist > 0 {
+      print $"total files that already exist: ($already_exist)"
     }
     let args = [download --continue --dir $download_path --url $url]
     try {
@@ -181,6 +202,15 @@ export def download [chat_id: int@files_get_ids] {
       print $err.msg
       break
     }
+  }
+  
+  {
+    "Already exsits": $already_exist
+    "Total images": $total_images
+    "Total videos": $total_videos
+    "Low resolution videos": $low_resolution
+    "Too long videos (>10min)": $too_long
+    "Too large videos (>100MB)": $too_large
   }
 }
 
@@ -225,7 +255,7 @@ export def organize [dir: string] {
 export def --env dir [chat_id: int@files_get_ids] {
   let chat_name = files_get_name_by_id $chat_id
   let download_path = download-path $chat_id $chat_name
-  cd  $download_path
+  cd $download_path
 }
 
 export def nautilus [chat_id: int@files_get_ids] {
