@@ -225,8 +225,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.55",
-    "created_at": "2025-07-22T14:28:13Z",
+    "tag_name": "v0.3.56",
+    "created_at": "2025-07-22T20:46:44Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -3768,8 +3768,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.8.0",
-    "created_at": "2025-07-17T22:28:16Z",
+    "tag_name": "0.8.2",
+    "created_at": "2025-07-22T19:39:53Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -4215,20 +4215,20 @@
   {
     "category": "other",
     "name": "siyuan-note/siyuan",
-    "tag_name": "v3.2.0",
-    "created_at": "2025-07-03T05:56:34Z",
+    "tag_name": "v3.2.1",
+    "created_at": "2025-07-22T08:17:54Z",
     "assets": [
-      "siyuan-3.2.0-linux-arm64.AppImage",
-      "siyuan-3.2.0-linux-arm64.deb",
-      "siyuan-3.2.0-linux-arm64.tar.gz",
-      "siyuan-3.2.0-linux.AppImage",
-      "siyuan-3.2.0-linux.deb",
-      "siyuan-3.2.0-linux.tar.gz",
-      "siyuan-3.2.0-mac-arm64.dmg",
-      "siyuan-3.2.0-mac.dmg",
-      "siyuan-3.2.0-win-arm64.exe",
-      "siyuan-3.2.0-win.exe",
-      "siyuan-3.2.0.apk"
+      "siyuan-3.2.1-linux-arm64.AppImage",
+      "siyuan-3.2.1-linux-arm64.deb",
+      "siyuan-3.2.1-linux-arm64.tar.gz",
+      "siyuan-3.2.1-linux.AppImage",
+      "siyuan-3.2.1-linux.deb",
+      "siyuan-3.2.1-linux.tar.gz",
+      "siyuan-3.2.1-mac-arm64.dmg",
+      "siyuan-3.2.1-mac.dmg",
+      "siyuan-3.2.1-win-arm64.exe",
+      "siyuan-3.2.1-win.exe",
+      "siyuan-3.2.1.apk"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -4262,21 +4262,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.23.1",
-    "created_at": "2025-07-18T03:16:11Z",
+    "tag_name": "v0.23.2",
+    "created_at": "2025-07-21T10:58:29Z",
     "assets": [
-      "affine-0.23.1-stable-linux-x64.appimage",
-      "affine-0.23.1-stable-linux-x64.deb",
-      "affine-0.23.1-stable-linux-x64.flatpak",
-      "affine-0.23.1-stable-linux-x64.zip",
-      "affine-0.23.1-stable-macos-arm64.dmg",
-      "affine-0.23.1-stable-macos-arm64.zip",
-      "affine-0.23.1-stable-macos-x64.dmg",
-      "affine-0.23.1-stable-macos-x64.zip",
-      "affine-0.23.1-stable-windows-arm64.exe",
-      "affine-0.23.1-stable-windows-arm64.nsis.exe",
-      "affine-0.23.1-stable-windows-x64.exe",
-      "affine-0.23.1-stable-windows-x64.nsis.exe",
+      "affine-0.23.2-stable-linux-x64.appimage",
+      "affine-0.23.2-stable-linux-x64.deb",
+      "affine-0.23.2-stable-linux-x64.flatpak",
+      "affine-0.23.2-stable-linux-x64.zip",
+      "affine-0.23.2-stable-macos-arm64.dmg",
+      "affine-0.23.2-stable-macos-arm64.zip",
+      "affine-0.23.2-stable-macos-x64.dmg",
+      "affine-0.23.2-stable-macos-x64.zip",
+      "affine-0.23.2-stable-windows-arm64.exe",
+      "affine-0.23.2-stable-windows-arm64.nsis.exe",
+      "affine-0.23.2-stable-windows-x64.exe",
+      "affine-0.23.2-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
@@ -4652,22 +4652,22 @@
   {
     "category": "other",
     "name": "raphamorim/rio",
-    "tag_name": "v0.2.22",
-    "created_at": "2025-07-18T10:31:30Z",
+    "tag_name": "v0.2.23",
+    "created_at": "2025-07-22T21:26:41Z",
     "assets": [
       "rio-installer-aarch64.msi",
       "rio-installer-x86_64.msi",
       "rio-portable-aarch64.exe",
       "rio-portable-x86_64.exe",
       "rio.dmg",
-      "rioterm-0.2.22-1.aarch64_wayland.rpm",
-      "rioterm-0.2.22-1.aarch64_x11.rpm",
-      "rioterm-0.2.22-1.x86_64_wayland.rpm",
-      "rioterm-0.2.22-1.x86_64_x11.rpm",
-      "rioterm_0.2.22_amd64_wayland.deb",
-      "rioterm_0.2.22_amd64_x11.deb",
-      "rioterm_0.2.22_arm64_wayland.deb",
-      "rioterm_0.2.22_arm64_x11.deb"
+      "rioterm-0.2.23-1.aarch64_wayland.rpm",
+      "rioterm-0.2.23-1.aarch64_x11.rpm",
+      "rioterm-0.2.23-1.x86_64_wayland.rpm",
+      "rioterm-0.2.23-1.x86_64_x11.rpm",
+      "rioterm_0.2.23_amd64_wayland.deb",
+      "rioterm_0.2.23_amd64_x11.deb",
+      "rioterm_0.2.23_arm64_wayland.deb",
+      "rioterm_0.2.23_arm64_x11.deb"
     ]
   },
   {
@@ -5855,8 +5855,8 @@
   {
     "category": "other",
     "name": "yt-dlp/yt-dlp",
-    "tag_name": "2025.06.30",
-    "created_at": "2025-06-30T23:47:20Z",
+    "tag_name": "2025.07.21",
+    "created_at": "2025-07-21T23:47:12Z",
     "assets": [
       "SHA2-256SUMS",
       "SHA2-512SUMS",

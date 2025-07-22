@@ -15,6 +15,7 @@ source alias/pacman.nu
 source alias/zellij.nu
 source alias/mods.nu
 
+# use rc.nu
 use ctx.nu
 use file-manager.nu
 source alias/file-manager.nu

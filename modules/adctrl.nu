@@ -239,6 +239,12 @@ export def "stay-plug" [] {
   adb shell settings put global stay_on_while_plugged_in 3
 }
 
+export def hooks [] {
+  {
+    "on_run": { hyprctl dispatch focuscurrentorlast }
+  }
+}
+
 export def keybindings [] {
   {
     "q": { tiktok back }
@@ -283,10 +289,10 @@ export def keybindings [] {
       "a": { tiktok audio }
       "d": { tiktok download }
     }
- }
+  }
 }
 
-export def whichkey [] {
+export def whichkey [--hooks] {
   let default = keybindings
   mut keybindings = $default
   mut inner = false
@@ -354,12 +360,14 @@ export def whichkey [] {
       $keybindings = $default
       $inner = false
       nu -c $value
+      if $hooks { do (hooks | get on_run) }
     }
 
     if $type == "closure" {
       $keybindings = $default
       $inner = false
       do $value
+      if $hooks { do (hooks | get on_run) }
     }
 
     sleep 100ms
