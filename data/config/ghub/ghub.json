@@ -225,8 +225,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.50",
-    "created_at": "2025-07-21T15:22:51Z",
+    "tag_name": "v0.3.55",
+    "created_at": "2025-07-22T14:28:13Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -971,8 +971,8 @@
   {
     "category": "core",
     "name": "shshemi/tabiew",
-    "tag_name": "v0.10.1",
-    "created_at": "2025-07-06T14:49:36Z",
+    "tag_name": "v0.11.0",
+    "created_at": "2025-07-21T23:57:10Z",
     "assets": [
       "tabiew-aarch64-unknown-linux-gnu.deb",
       "tabiew-aarch64-unknown-linux-gnu.rpm",
@@ -1238,8 +1238,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.152.0",
-    "created_at": "2025-07-18T14:36:28Z",
+    "tag_name": "3.152.1",
+    "created_at": "2025-07-22T11:20:04Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -3648,8 +3648,8 @@
   {
     "category": "other",
     "name": "antonmedv/fx",
-    "tag_name": "37.0.1",
-    "created_at": "2025-07-11T20:02:11Z",
+    "tag_name": "38.0.0",
+    "created_at": "2025-07-22T08:52:25Z",
     "assets": [
       "fx_darwin_amd64",
       "fx_darwin_arm64",
@@ -4962,15 +4962,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.22.0",
-    "created_at": "2025-07-14T06:35:51Z",
+    "tag_name": "v0.23.0",
+    "created_at": "2025-07-21T05:17:41Z",
     "assets": [
-      "aider-desk-0.22.0-macos.zip",
-      "aider-desk-0.22.0-setup.exe",
-      "aider-desk-0.22.0.AppImage",
-      "aider-desk-0.22.0.dmg",
-      "aider-desk-0.22.0.x86_64.rpm",
-      "aider-desk_0.22.0_amd64.deb"
+      "aider-desk-0.23.0-macos.zip",
+      "aider-desk-0.23.0-setup.exe",
+      "aider-desk-0.23.0.AppImage",
+      "aider-desk-0.23.0.dmg",
+      "aider-desk-0.23.0.x86_64.rpm",
+      "aider-desk_0.23.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -5314,8 +5314,8 @@
   {
     "category": "other",
     "name": "ynqa/jnv",
-    "tag_name": "v0.6.0",
-    "created_at": "2025-04-01T13:26:40Z",
+    "tag_name": "v0.6.1",
+    "created_at": "2025-07-21T06:21:14Z",
     "assets": [
       "jnv-aarch64-apple-darwin.tar.xz",
       "jnv-aarch64-unknown-linux-gnu.tar.xz",
@@ -6315,16 +6315,15 @@
   {
     "category": "android",
     "name": "sakethpathike/Linkora",
-    "tag_name": "release-v0.13.5",
-    "created_at": "2025-07-17T19:10:52Z",
+    "tag_name": "release-v0.13.6",
+    "created_at": "2025-07-21T18:25:49Z",
     "assets": [
-      "composeApp-release-I93-patch.apk",
       "composeApp-release.apk",
-      "Linkora-1.0.8.exe",
-      "Linkora-1.0.8.msi",
-      "Linkora-linux-x64-1.0.8.jar",
+      "Linkora-1.0.9.exe",
+      "Linkora-1.0.9.msi",
+      "Linkora-linux-x64-1.0.9.jar",
       "Linkora.AppImage",
-      "linkora_1.0.8-1_amd64.deb"
+      "linkora_1.0.9-1_amd64.deb"
     ],
     "android": {
       "ends": ".apk"

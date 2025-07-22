@@ -261,6 +261,14 @@ export def lan-mouse [completion: string@lan-mouse-completions] {
   bind-user $"lan-mouse/($completion).toml" lan-mouse/config.toml
 }
 
+def ssh-completions [] {
+  [home work]
+}
+
+export def ssh [completion: string@ssh-completions] {
+  bind-user --home ssh/($completion) .ssh/config
+}
+
 export def cosmic [] {
   bind-user --dir cosmic/ cosmic/
 }

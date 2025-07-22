@@ -48,8 +48,19 @@ def download-path [chat_id: int, name: string] {
   $env.TDOWN_DOWNLOAD_PATH | path join $"($chat_id)_($name)"
 }
 
+def chat-select [] {
+  open $env.TDOWN_CHAT_PATH
+  | each {|row| $"(ansi green)($row.id)(ansi reset) _ ($row.visible_name)"}
+  | to text | fzf --exact --ansi --height=20 | lines | parse "{id} _ {name}" | get id | into int
+}
+
 export def 'chat export' [...chat_ids: int@chats_get_id, --last(-l): int] {
-  for chat_id in $chat_ids {
+  let ids = if ($chat_ids | is-empty) {
+    chat-select
+  } else {
+    $chat_ids
+  }
+  for chat_id in $ids {
     let name = chats_get_name_by_id $chat_id
     let output = export-path $chat_id $name
     if ($output | path exists) {
@@ -138,7 +149,22 @@ def files_get_name_by_id [id: int] {
   export-files | where id == $id | first | get name
 }
 
-export def download [chat_id: int@files_get_ids] {
+def export-select [] {
+  let ids = (ls -s $env.TDOWN_EXPORT_PATH | where type == file | get name |  parse "{id}_{name}" | get id | into int)
+
+  open $env.TDOWN_CHAT_PATH
+  | where id in $ids
+  | each {|row| $"(ansi green)($row.id)(ansi reset) _ ($row.visible_name)"}
+  | to text | fzf --exact --ansi --height=20 | lines | parse "{id} _ {name}" | get id | into int
+}
+
+export def download [...chat_ids: int@files_get_ids] {
+  let chat_id = if ($chat_ids | is-empty) {
+    export-select | first
+  } else {
+    $chat_ids | first
+  }
+
   let chat_name = files_get_name_by_id $chat_id
   let export_path = export-path $chat_id $chat_name
   let download_path = download-path $chat_id $chat_name
@@ -149,6 +175,8 @@ export def download [chat_id: int@files_get_ids] {
   mut low_resolution = 0
   mut too_long = 0
   mut too_large = 0
+
+  mut print_exists = true
   
   print "Open file..."
   let messages = (open $export_path | get messages)
@@ -191,17 +219,13 @@ export def download [chat_id: int@files_get_ids] {
       $already_exist += 1
       continue
     }
-    if $already_exist > 0 {
+    if $print_exists and ($already_exist > 0) {
       print $"total files that already exist: ($already_exist)"
+      $print_exists = false
     }
     let args = [download --continue --dir $download_path --url $url]
-    try {
-      tdl ...$args
-    } catch { |err|
-      print $"tdl ($args | str join ' ')"
-      print $err.msg
-      break
-    }
+    tdl ...$args
+    # print $"tdl ($args | str join ' ')"
   }
   
   {
