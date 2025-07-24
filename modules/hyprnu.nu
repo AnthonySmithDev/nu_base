@@ -132,7 +132,8 @@ export def switch-pin [select: record] {
 }
 
 export def switch-focus [select: record] {
-  if $select.focusHistoryID != 0 {
+  let active = activewindow
+  if $active.address != $select.address {
     hyprctl dispatch focuswindow address:($select.address)
   } else {
     hyprctl dispatch focuscurrentorlast

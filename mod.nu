@@ -17,5 +17,6 @@ source alias/mods.nu
 
 # use rc.nu
 use ctx.nu
+use tdown.nu
 use file-manager.nu
 source alias/file-manager.nu

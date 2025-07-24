@@ -85,11 +85,11 @@ export def assetx [r: record, start?: string] {
   }
   let system = $env.PKG_BIN_SYS?
   if ($system != null) {
-    let starts = ($r | get -i $system | get -i starts)
+    let starts = ($r | get -o $system | get -o starts)
     if $starts != null {
       $assets = ($assets | where { |e| str starts-with $starts })
     }
-    let ends = ($r | get -i $system | get -i ends)
+    let ends = ($r | get -o $system | get -o ends)
     if $ends != null {
       $assets = ($assets | where { |e| str ends-with $ends })
     }

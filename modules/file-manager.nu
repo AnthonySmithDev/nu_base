@@ -17,7 +17,7 @@ def write [action: string] {
 }
 
 def storage-get-items [action: string, group: string] {
-  read $action | get -i $group
+  read $action | get -o $group
 }
 
 def storage-set-items [action: string, group: string, value: any] {

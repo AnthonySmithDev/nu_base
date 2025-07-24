@@ -211,6 +211,7 @@ export def "media play" [] {
 
 export def "screen-off" [] {
   adb shell cmd display power-off 0
+  hyprctl dispatch focuscurrentorlast
   exit
 }
 
@@ -242,6 +243,7 @@ export def "stay-plug" [] {
 export def hooks [] {
   {
     "on_run": { hyprctl dispatch focuscurrentorlast }
+    "on_exit": { hyprctl dispatch focuscurrentorlast }
   }
 }
 
@@ -261,6 +263,10 @@ export def keybindings [] {
     "C-k": { volumen up }
     "C-j": { volumen down }
     "C-m": { volumen mute }
+
+    "1": { hyprctl dispatch moveactive exact 2145 900 }
+    "2": { hyprctl dispatch moveactive exact 2145 1290 }
+    "3": { hyprctl dispatch moveactive exact 2145 1390 }
 
     "s": {
       "s": { stay-on }
@@ -310,7 +316,13 @@ export def whichkey [--hooks] {
         return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)($e.value)(ansi reset)"
       }
       if $type == "closure"  {
-        return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)(view source $e.value)(ansi reset)"
+        let words = (view source $e.value | split words)
+        let cmd = if ($words | length) > 3 {
+          $words | first 3 | append "..." | str join " "
+        } else {
+          $words | str join " "
+        }
+        return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)($cmd)(ansi reset)"
       }
     })
 
@@ -324,13 +336,14 @@ export def whichkey [--hooks] {
       continue
     }
 
-    let key = match ($input | get -i modifiers | default []) {
+    let key = match ($input | get -o modifiers | default []) {
       $mod if "keymodifiers(control)" in $mod => $"C-($input.code)",
       $mod if "keymodifiers(shift)" in $mod => $"S-($input.code)",
       _ => $input.code
     }
 
     if $key == "C-c" or $key == "C-q" {
+      do (hooks | get on_exit)
       exit
     }
 
@@ -339,6 +352,7 @@ export def whichkey [--hooks] {
         $inner = false
         $keybindings = $default
       } else {
+        do (hooks | get on_exit)
         exit
       }
     }
