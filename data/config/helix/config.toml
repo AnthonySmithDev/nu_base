@@ -48,6 +48,8 @@ C-l = [
 ]
 
 [keys.normal.ret]
-"a" = ":pipe-to ctx add chunck"
+"c" = ":pipe-to ctx add chunck"
+"f" = ":sh ctx add file %{buffer_name}"
 "C" = ":sh ctx clear chunck"
 "F" = ":sh ctx clear file"
+"X" = ":sh ctx clear"

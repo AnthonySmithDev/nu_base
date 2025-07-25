@@ -16,12 +16,8 @@
       "provider": "copilot_chat",
       "model": "gpt-4o"
     },
-    "version": "2"
   },
-  "vim_mode": true,
-  "vim": {
-    "default_mode": "helix_normal"
-  },
+  "helix_mode": true,
   "soft_wrap": "editor_width",
   "ui_font_size": 15,
   "buffer_font_size": 15,

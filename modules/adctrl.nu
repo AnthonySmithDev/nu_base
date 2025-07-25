@@ -1,64 +1,16 @@
 #!/usr/bin/env nu
 
-const BUTTON = {
-  TIKTOK: {
-    BACK: "70 150"
-  
-    PROFILE: "1000 1100"
-    LIKE: "1000 1300"
-    COMMENT: "1000 1450"
-    BOOKMARK: "1000 1650"
-    SHARED: "1000 1800"
-    AUDIO: "1000 2000"
-  
-    UNLIKE: "280 1850"
-    DOWNLOAD: "450 1850"
-  }
-  
-  INSTAGRAM: {
-    BACK: "70 150"
-  
-    PROFILE: "1000 1100"
-    LIKE: "1000 1300"
-    COMMENT: "1000 1450"
-    BOOKMARK: "1000 1650"
-    SHARED: "1000 1800"
-    AUDIO: "1000 2000"
-  
-    UNLIKE: "280 1850"
-    DOWNLOAD: "450 1850"
-  }
-}
-
 const DISPLAY = {
   WIDTH: 1080
   HEIGHT: 2400
 }
 
-const SCREEN = {
-  INSTAGRAM: {
-    TOP: {
-      LEFT: $"($DISPLAY.WIDTH * 0.1) ($DISPLAY.HEIGHT * 0.1)"
-      CENTER: $"($DISPLAY.WIDTH * 0.5) ($DISPLAY.HEIGHT * 0.1)"
-      RIGHT: $"($DISPLAY.WIDTH * 0.9) ($DISPLAY.HEIGHT * 0.1)"
-    }
-    CENTER: {
-      LEFT: $"($DISPLAY.WIDTH * 0.1) ($DISPLAY.HEIGHT * 0.5)"
-      CENTER: $"($DISPLAY.WIDTH * 0.5) ($DISPLAY.HEIGHT * 0.5)"
-      RIGHT: $"($DISPLAY.WIDTH * 0.9) ($DISPLAY.HEIGHT * 0.5)"
-    }
-    BOTTOM: {
-      LEFT: $"($DISPLAY.WIDTH * 0.1) ($DISPLAY.HEIGHT * 0.9)"
-      CENTER: $"($DISPLAY.WIDTH * 0.5) ($DISPLAY.HEIGHT * 0.9)"
-      RIGHT: $"($DISPLAY.WIDTH * 0.9) ($DISPLAY.HEIGHT * 0.9)"
-    }
-  }
+def cord_x [value: float] {
+  $value / 100 * $DISPLAY.WIDTH | math round -p 3
 }
 
-const CENTER = {
-  LEFT: "200 1000"
-  CENTER: "500 1000"
-  RIGHT: "800 1000"
+def cord_y [value: float] {
+  $value / 100 * $DISPLAY.HEIGHT | math round -p 3
 }
 
 const KEYCODE = {
@@ -73,108 +25,107 @@ const KEYCODE = {
   MEDIA_PREVIOUS: 'KEYCODE_MEDIA_PREVIOUS'
   MEDIA_PLAY_PAUSE: 'KEYCODE_MEDIA_PLAY_PAUSE'
   MEDIA_STOP: 'KEYCODE_MEDIA_STOP'
+
+  BRIGHTNESS_UP: 'KEYCODE_BRIGHTNESS_UP'
+  BRIGHTNESS_DOWN: 'KEYCODE_BRIGHTNESS_DOWN'
 }
 
 def --wrapped adb [...rest] {
   try { ^adb ...$rest }
 }
 
+export def "tiktok open" [] {
+  adb shell am start -n com.zhiliaoapp.musically/com.ss.android.ugc.aweme.splash.SplashActivity
+}
+
 export def "tiktok back" [] {
-  adb shell input tap $BUTTON.TIKTOK.BACK
+  adb shell input tap (cord_x 6.2) (cord_y 6.2)
 }
 
-export def "tiktok profile" [] {
-  adb shell input tap $BUTTON.TIKTOK.PROFILE
+export def "tiktok foryou" [] {
+  adb shell input tap (cord_x 75) (cord_y 6.2)
 }
 
-export def "tiktok like" [] {
-  adb shell input tap $BUTTON.TIKTOK.LIKE
+export def "tiktok friends" [] {
+  adb shell input tap (cord_x 55) (cord_y 6.2)
 }
 
-export def "tiktok comment" [] {
-  adb shell input tap $BUTTON.TIKTOK.COMMENT
+export def "tiktok profile" [--adjust(-a): float = 0.0] {
+  adb shell input tap (cord_x 92.5) (cord_y (52 - $adjust))
 }
 
-export def "tiktok bookmark" [] {
-  adb shell input tap $BUTTON.TIKTOK.BOOKMARK
+export def "tiktok like" [--adjust(-a): float = 0.0] {
+  adb shell input tap (cord_x 92.5) (cord_y (60 - $adjust))
 }
 
-export def "tiktok shared" [] {
-  adb shell input tap $BUTTON.TIKTOK.SHARED
+export def "tiktok comment" [--adjust(-a): float = 0.0] {
+  adb shell input tap (cord_x 92.5) (cord_y (67 - $adjust))
 }
 
-export def "tiktok audio" [] {
-  adb shell input tap $BUTTON.TIKTOK.AUDIO
+export def "tiktok bookmark" [--adjust(-a): float = 0.0] {
+  adb shell input tap (cord_x 92.5) (cord_y (74 - $adjust))
+}
+
+export def "tiktok shared" [--adjust(-a): float = 0.0] {
+  adb shell input tap (cord_x 92.5) (cord_y (82 - $adjust))
+}
+
+export def "tiktok audio" [--adjust(-a): float = 0.0] {
+  adb shell input tap (cord_x 92.5) (cord_y (89 - $adjust))
+}
+
+export def "tiktok register close" [] {
+  adb shell input tap (cord_x 93) (cord_y 10)
+}
+
+export def "tiktok comment close" [] {
+  adb shell input tap (cord_x 93) (cord_y 37)
+}
+
+export def "tiktok press" [] {
+  adb shell input swipe (cord_x 50) (cord_y 46) (cord_x 50) (cord_y 46) 1000
 }
 
 export def "tiktok unlike" [] {
-  adb shell input swipe $CENTER.CENTER $CENTER.CENTER 1000
+  tiktok press
   sleep 500ms
-  adb shell input tap $BUTTON.TIKTOK.UNLIKE
+  adb shell input tap (cord_x 25) (cord_y 85)
 }
 
 export def "tiktok download" [] {
-  adb shell input swipe $CENTER.CENTER $CENTER.CENTER 1000
+  tiktok press
   sleep 500ms
-  adb shell input tap $BUTTON.TIKTOK.DOWNLOAD
+  adb shell input tap (cord_x 45) (cord_y 85)
 }
 
 export def "tiktok fast" [] {
-  adb shell input swipe $CENTER.RIGHT $CENTER.RIGHT 3000
+  adb shell input swipe (cord_x 85) (cord_y 50) (cord_x 85) (cord_y 50) 3000
 }
 
 export def "tiktok tap" [] {
-  adb shell input tap $CENTER.CENTER
+  adb shell input tap (cord_x 50) (cord_y 46)
 }
 
 export def "tiktok dtap" [] {
-  adb shell input tap $CENTER.CENTER
+  tiktok tap
   sleep 100ms
-  adb shell input tap $CENTER.CENTER
+  tiktok tap
 }
 
-export def "instagram back" [] {
-  adb shell input tap $BUTTON.INSTAGRAM.BACK
+export def "swipe left" [] {
+  adb shell input swipe (cord_x 20) (cord_y 50) (cord_x 80) (cord_y 50) 100
 }
 
-export def "instagram toggle" [] {
-  adb shell input tap 540 1220
+export def "swipe right" [] {
+  adb shell input swipe (cord_x 80) (cord_y 50) (cord_x 20) (cord_y 50) 100
 }
 
-export def "instagram fast" [] {
-  adb shell input swipe 1000 1000 1000 1000 3000
+export def "swipe down" [] {
+  adb shell input swipe (cord_x 50) (cord_y 70) (cord_x 50) (cord_y 20) 100
 }
 
-export def "swipe left" [screen: record] {
-  adb shell input swipe $screen.CENTER.LEFT $screen.CENTER.RIGHT 100
-}
-
-export def "swipe down" [screen: record] {
-  adb shell input swipe $screen.BOTTOM.CENTER $screen.TOP.CENTER 100
-}
-
-export def "swipe up" [screen: record] {
-  adb shell input swipe $screen.TOP.CENTER $screen.BOTTOM.CENTER 100
-}
-
-export def "swipe right" [screen: record] {
-  adb shell input swipe $screen.CENTER.RIGHT $screen.CENTER.LEFT 100
-}
-
-export def "instagram swipe left" [] {
-  swipe left $SCREEN.INSTAGRAM
-}
-
-export def "instagram swipe down" [] {
-  swipe down $SCREEN.INSTAGRAM
-}
-
-export def "instagram swipe up" [] {
-  swipe up $SCREEN.INSTAGRAM
-}
-
-export def "instagram swipe right" [] {
-  swipe right $SCREEN.INSTAGRAM
+export def "swipe up" [] {
+  adb shell input swipe (cord_x 50) (cord_y 20) (cord_x 50) (cord_y 70) 100
 }
 
 export def "power" [] {
@@ -191,6 +142,18 @@ export def "volumen up" [] {
 
 export def "volumen down" [] {
   adb shell input keyevent $KEYCODE.VOLUME_DOWN
+}
+
+export def "brightness up" [] {
+  adb shell input keyevent $KEYCODE.BRIGHTNESS_UP
+}
+
+export def "brightness down" [] {
+  adb shell input keyevent $KEYCODE.BRIGHTNESS_DOWN
+}
+
+export def "system brightness" [value: int] {
+  adb shell settings put system screen_brightness 50
 }
 
 export def "volumen mute" [] {
@@ -225,7 +188,11 @@ export def "scrcpy quit" [] {
 }
 
 export def "scrcpy no-window" [] {
-  job spawn {scrcpy --no-window | null}
+  job spawn { scrcpy --no-window }
+}
+
+export def "scrcpy tiktok" [] {
+  job spawn { scrcpy --no-window --start-app=com.zhiliaoapp.musically }
 }
 
 export def "stay-on" [] {
@@ -240,6 +207,10 @@ export def "stay-plug" [] {
   adb shell settings put global stay_on_while_plugged_in 3
 }
 
+export def list-apps [] {
+  scrcpy --list-apps | awk '/^\s*[*-]/ {sub(/^\s*[*-]\s*/, " "); print}' | from ssv -n | rename name package
+}
+
 export def hooks [] {
   {
     "on_run": { hyprctl dispatch focuscurrentorlast }
@@ -251,10 +222,10 @@ export def keybindings [] {
   {
     "q": { tiktok back }
 
-    "j": { instagram swipe down }
-    "k": { instagram swipe up }
-    "h": { instagram swipe left }
-    "l": { instagram swipe right }
+    "j": { swipe down }
+    "k": { swipe up }
+    "h": { swipe left }
+    "l": { swipe right }
 
     "y": { media play }
     "n": { media next }
@@ -263,6 +234,12 @@ export def keybindings [] {
     "C-k": { volumen up }
     "C-j": { volumen down }
     "C-m": { volumen mute }
+
+    "C-u": { brightness up }
+    "C-d": { brightness down }
+
+    "S-k": { system brightness 50 }
+    "S-j": { system brightness 0 }
 
     "1": { hyprctl dispatch moveactive exact 2145 900 }
     "2": { hyprctl dispatch moveactive exact 2145 1290 }
@@ -278,22 +255,34 @@ export def keybindings [] {
       "n": { scrcpy no-window }
     }
 
-    "i": {
-      "t": { instagram toggle }
-      "b": { instagram back }
-      "f": { instagram fast }
-    }
-
     "t": {
+      "o": { tiktok open }
       "q": { tiktok back }
+      "f": { tiktok foryou }
+      "S-f": { tiktok friends }
       "t": { tiktok tap }
-      "h": { tiktok dtap }
+      "S-t": { tiktok dtap }
+      "S-p": { tiktok press }
+
       "p": { tiktok profile }
+      "l": { tiktok like }
       "c": { tiktok comment }
       "m": { tiktok bookmark }
       "s": { tiktok shared }
       "a": { tiktok audio }
+
+      "A-p": { tiktok profile -a 4 }
+      "A-l": { tiktok like -a 4 }
+      "A-c": { tiktok comment -a 4 }
+      "A-m": { tiktok bookmark -a 4 }
+      "A-s": { tiktok shared -a 4 }
+      "A-a": { tiktok audio -a 4 }
+
+      "u": { tiktok unlike }
       "d": { tiktok download }
+
+      "x": { tiktok comment close }
+      "S-x": { tiktok register close }
     }
   }
 }
@@ -327,9 +316,10 @@ export def whichkey [--hooks] {
     })
 
     let fill = (term size | get rows) - ($list | length) - 3
-
     print ($list | to text)
-    print ("" | fill -w $fill -c "\n" )
+    if $fill > 0 {
+      print ("" | fill -w $fill -c "\n" )
+    }
 
     let input = input listen --types ["key" "resize"]
     if $input.type == "resize" {
@@ -337,8 +327,9 @@ export def whichkey [--hooks] {
     }
 
     let key = match ($input | get -o modifiers | default []) {
-      $mod if "keymodifiers(control)" in $mod => $"C-($input.code)",
-      $mod if "keymodifiers(shift)" in $mod => $"S-($input.code)",
+      $mod if "keymodifiers(control)" in $mod => $"C-($input.code | str downcase)",
+      $mod if "keymodifiers(shift)" in $mod => $"S-($input.code | str downcase)",
+      $mod if "keymodifiers(alt)" in $mod => $"A-($input.code | str downcase)",
       _ => $input.code
     }
 
@@ -384,7 +375,7 @@ export def whichkey [--hooks] {
       if $hooks { do (hooks | get on_run) }
     }
 
-    sleep 100ms
+    sleep 200ms
   }
 }
 

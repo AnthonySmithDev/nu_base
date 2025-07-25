@@ -329,6 +329,20 @@ export def --env neovim [ --force(-f) ] {
   env-path $env.NVIM_BIN
 }
 
+export def --env zed [ --force(-f) ] {
+  let repository = "zed-industries/zed"
+  let tag_name = ghub tag_name $repository
+  let path = lib-path zed $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download -x $repository --force=($force)
+    move -d $download_path -p $path
+  }
+
+  bind-dir $path $env.ZED_PATH
+  env-path $env.ZED_BIN
+}
+
 export def broot [ --force(-f) ] {
   let repository = "Canop/broot"
   let tag_name = ghub tag_name $repository

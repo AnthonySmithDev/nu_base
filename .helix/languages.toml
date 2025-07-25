@@ -1,7 +1,28 @@
 
 [[language]]
+name = "ini"
+file-types = [ "ini",
+  { glob = "*.desktop" },
+  { glob = "*.service" },
+  { glob = "viebrc" },
+  { glob = "gitconfig" },
+  { glob = "opencommit" },
+  { glob = "qView.conf" },
+  { glob = "mimeapps.list" },
+  { glob = "imv/config" },
+]
+
+[[language]]
 name = "bash"
-file-types = ["sh", { glob = "bat/**" }, { glob = "regolith3/**" }, { glob = "ghostty/**" }, { glob = "sway/**" }, { glob = "**/*.conf" }, { glob = "kitty/*.conf" }]
+file-types = [ "sh",
+{ glob = "bat/**" },
+{ glob = "regolith3/**" },
+{ glob = "ghostty/**" },
+{ glob = "sway/**" },
+{ glob = "**/*.conf" },
+{ glob = "kitty/*.conf" },
+{ glob = "hyde/state/*" }
+]
 
 [[language]]
 name = "hyprlang"
@@ -16,14 +37,5 @@ name = "ron"
 file-types = ["ron", { glob = "cosmic/**" }]
 
 [[language]]
-name = "ini"
-file-types = [
-{ glob = "**/*.ini" },
-{ glob = "*.desktop" },
-{ glob = "*.service" },
-{ glob = "mimeapps.list" },
-{ glob = "gitconfig" },
-{ glob = "opencommit" },
-{ glob = "qView.conf" },
-{ glob = "imv/*" },
-]
+name = "jsonc"
+file-types = ["jsonc", { glob = "zed/*.json" }]

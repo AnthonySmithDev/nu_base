@@ -54,6 +54,10 @@ $env.NVIM_PATH = ($env.USR_LOCAL_LIB | path join nvim)
 $env.NVIM_BIN = ($env.NVIM_PATH | path join bin)
 env-path $env.NVIM_BIN
 
+$env.ZED_PATH = ($env.USR_LOCAL_LIB | path join zed)
+$env.ZED_BIN = ($env.ZED_PATH | path join bin)
+env-path $env.ZED_BIN
+
 $env.KITTY_PATH = ($env.USR_LOCAL_LIB | path join kitty)
 $env.KITTY_BIN = ($env.KITTY_PATH | path join bin)
 env-path $env.KITTY_BIN
