@@ -226,8 +226,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.75",
-    "created_at": "2025-07-25T23:05:55Z",
+    "tag_name": "v0.3.78",
+    "created_at": "2025-07-26T06:49:05Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64.zip",
@@ -503,10 +503,12 @@
   {
     "category": "core",
     "name": "ad-si/TaskLite",
-    "tag_name": "v0.4.0.0",
-    "created_at": "2024-09-23T04:48:38Z",
+    "tag_name": "v0.5.0.0",
+    "created_at": "2025-07-26T13:34:53Z",
     "assets": [
+      "tasklite_linux_arm64.zip",
       "tasklite_linux_x86_64.zip",
+      "tasklite_macos_arm64.zip",
       "tasklite_macos_x86_64.zip"
     ],
     "linux_x64": {
@@ -2610,14 +2612,14 @@
   {
     "category": "other",
     "name": "mudler/LocalAI",
-    "tag_name": "v3.2.1",
-    "created_at": "2025-07-25T14:38:09Z",
+    "tag_name": "v3.2.3",
+    "created_at": "2025-07-26T06:30:59Z",
     "assets": [
-      "local-ai-v3.2.1-darwin-amd64",
-      "local-ai-v3.2.1-darwin-arm64",
-      "local-ai-v3.2.1-linux-amd64",
-      "local-ai-v3.2.1-linux-arm64",
-      "LocalAI-v3.2.1-source.tar.gz"
+      "local-ai-v3.2.3-darwin-amd64",
+      "local-ai-v3.2.3-darwin-arm64",
+      "local-ai-v3.2.3-linux-amd64",
+      "local-ai-v3.2.3-linux-arm64",
+      "LocalAI-v3.2.3-source.tar.gz"
     ],
     "linux_x64": {
       "ends": "Linux-x86_64"

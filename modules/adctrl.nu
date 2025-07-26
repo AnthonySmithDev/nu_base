@@ -144,6 +144,10 @@ export def "volumen down" [] {
   adb shell input keyevent $KEYCODE.VOLUME_DOWN
 }
 
+export def "volumen mute" [] {
+  adb shell input keyevent $KEYCODE.VOLUME_MUTE
+}
+
 export def "brightness up" [] {
   adb shell input keyevent $KEYCODE.BRIGHTNESS_UP
 }
@@ -154,10 +158,6 @@ export def "brightness down" [] {
 
 export def "system brightness" [value: int] {
   adb shell settings put system screen_brightness 50
-}
-
-export def "volumen mute" [] {
-  adb shell input keyevent $KEYCODE.VOLUME_MUTE
 }
 
 export def "media next" [] {
@@ -241,8 +241,8 @@ export def keybindings [] {
     "S-k": { system brightness 50 }
     "S-j": { system brightness 0 }
 
-    "1": { hyprctl dispatch moveactive exact 2145 900 }
-    "2": { hyprctl dispatch moveactive exact 2145 1290 }
+    "1": { hyprctl dispatch moveactive exact 2145 728 }
+    "2": { hyprctl dispatch moveactive exact 2145 1304 }
     "3": { hyprctl dispatch moveactive exact 2145 1390 }
 
     "s": {
@@ -287,44 +287,52 @@ export def keybindings [] {
   }
 }
 
+export def whichkey-show [keybindings: record] {
+  mut list = ($keybindings | transpose key value | each {|e|
+    let type = ($e.value | describe --detailed | get type)
+    let key = ($e.key | fill -w 4 -c " ")
+    if $type == "record"  {
+      return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi green_bold)+($e.value | columns | length) keymaps(ansi reset)"
+    }
+    if $type == "string"  {
+      return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)($e.value)(ansi reset)"
+    }
+    if $type == "closure"  {
+      let words = (view source $e.value | split words)
+      let cmd = if ($words | length) > 3 {
+        $words | first 3 | append "..." | str join " "
+      } else {
+        $words | str join " "
+      }
+      return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)($cmd)(ansi reset)"
+    }
+  })
+  # let fill = (term size | get rows) - ($list | length) - 3
+  # if $fill > 0 {
+  #   $list = ($list | append ("" | fill -w $fill -c "\n") | lines)
+  # }
+  clear
+  print ($list | to text)
+}
+
 export def whichkey [--hooks] {
   let default = keybindings
   mut keybindings = $default
   mut inner = false
 
+  whichkey-show $keybindings
+  mut last = (date now) - 250ms
+
   loop {
-    clear
-
-    let list = ($keybindings | transpose key value | each {|e|
-      let type = ($e.value | describe --detailed | get type)
-      let key = ($e.key | fill -w 4 -c " ")
-      if $type == "record"  {
-        return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi green_bold)+($e.value | columns | length) keymaps(ansi reset)"
-      }
-      if $type == "string"  {
-        return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)($e.value)(ansi reset)"
-      }
-      if $type == "closure"  {
-        let words = (view source $e.value | split words)
-        let cmd = if ($words | length) > 3 {
-          $words | first 3 | append "..." | str join " "
-        } else {
-          $words | str join " "
-        }
-        return $"(ansi blue_bold)($key)(ansi reset) (ansi default_dimmed)->(ansi reset) (ansi light_red_bold)($cmd)(ansi reset)"
-      }
-    })
-
-    let fill = (term size | get rows) - ($list | length) - 3
-    print ($list | to text)
-    if $fill > 0 {
-      print ("" | fill -w $fill -c "\n" )
-    }
-
     let input = input listen --types ["key" "resize"]
     if $input.type == "resize" {
       continue
     }
+    let now = date now
+    if ($now - $last) < 250ms {
+      continue
+    }
+    $last = $now
 
     let key = match ($input | get -o modifiers | default []) {
       $mod if "keymodifiers(control)" in $mod => $"C-($input.code | str downcase)",
@@ -339,43 +347,40 @@ export def whichkey [--hooks] {
     }
 
     if $key == "esc" {
-      if $inner {
-        $inner = false
-        $keybindings = $default
-      } else {
+      if not $inner {
         do (hooks | get on_exit)
         exit
       }
     }
 
-    if ($key not-in $keybindings) {
-      continue
-    }
+    if ($key in $keybindings) {
+      let value = ($keybindings | get $key)
+      let type = ($value | describe --detailed | get type)
 
-    let value = ($keybindings | get $key)
-    let type = ($value | describe --detailed | get type)
+      if $type == "record" {
+        $keybindings = $value
+        $inner = true
+      }
 
-    if $type == "record" {
-      $keybindings = $value
-      $inner = true
-      continue
-    }
+      if $type == "string" {
+        $keybindings = $default
+        $inner = false
+        nu -c $value | ignore
+        if $hooks { do (hooks | get on_run) }
+      }
 
-    if $type == "string" {
+      if $type == "closure" {
+        $keybindings = $default
+        $inner = false
+        do $value | ignore
+        if $hooks { do (hooks | get on_run) }
+      }
+    } else {
       $keybindings = $default
       $inner = false
-      nu -c $value
-      if $hooks { do (hooks | get on_run) }
     }
 
-    if $type == "closure" {
-      $keybindings = $default
-      $inner = false
-      do $value
-      if $hooks { do (hooks | get on_run) }
-    }
-
-    sleep 200ms
+    whichkey-show $keybindings
   }
 }
 

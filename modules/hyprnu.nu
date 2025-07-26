@@ -193,7 +193,7 @@ def main [
     "adctrl" => {
       let select = select-window --title "adctrl"
       if ($select | is-empty) {
-        kitty --title "adctrl" -- nu --login -c "adctrl whichkey"
+        kitty -o cursor_trail=0 --title "adctrl" -- nu --login -c "adctrl whichkey"
         return
       }
       switch-focus $select
