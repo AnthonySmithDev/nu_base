@@ -1,15 +1,15 @@
 
-let wd = ($env.HOME | path join '.last.wd')
+let path = ($env.HOME | path join .env_change.pwd)
 
-$env.config = ($env.config | update hooks.env_change.PWD ($env.config.hooks.env_change.PWD | append {|_, dir|
-  $dir | save -f $wd
-}))
+$env.config.hooks = {
+  env_change: {
+    PWD: [{|before, after| $after | save --force $path }]
+  }
+}
 
-if ($env.ZELLIJ? | is-empty) {
-  if ($wd | path exists) {
-    let path = (open $wd | to text)
-    if ($path | path exists) {
-      cd $path
-    }
+if ($env.ZELLIJ? | is-empty) and ($path | path exists) {
+  let path = (open $path | to text)
+  if ($path | path exists) {
+    cd $path
   }
 }

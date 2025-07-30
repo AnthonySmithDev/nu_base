@@ -17,6 +17,11 @@ const KEYCODE = {
   POWER: 'KEYCODE_POWER'
   SLEEP: 'KEYCODE_SLEEP'
 
+  BACK: 'KEYCODE_BACK'
+  HOME: 'KEYCODE_HOME'
+
+  APP_SWITCH: 'KEYCODE_APP_SWITCH'
+
   VOLUME_UP: 'KEYCODE_VOLUME_UP'
   VOLUME_DOWN: 'KEYCODE_VOLUME_DOWN'
   VOLUME_MUTE: 'KEYCODE_VOLUME_MUTE'
@@ -32,6 +37,20 @@ const KEYCODE = {
 
 def --wrapped adb [...rest] {
   try { ^adb ...$rest }
+}
+
+export def "debug screenshot" [x: float, y: float] {
+  adb shell screencap -p /sdcard/screenshot.png o+e>| ignore
+  adb pull /sdcard/screenshot.png . o+e>| ignore
+
+  let draw = $"circle ($x - 25),($y) ($x + 25),($y)"
+  magick screenshot.png -fill none -stroke red -strokewidth 5 -draw $draw screenshot_annotated.png
+
+  adb push screenshot_annotated.png /sdcard/ o+e>| ignore
+  adb shell am start -a android.intent.action.VIEW -d file:///sdcard/screenshot_annotated.png -t image/png o+e>| ignore
+
+  rm -rfp screenshot.png
+  rm -rfp screenshot_annotated.png
 }
 
 export def "tiktok open" [] {
@@ -72,6 +91,18 @@ export def "tiktok shared" [--adjust(-a): float = 0.0] {
 
 export def "tiktok audio" [--adjust(-a): float = 0.0] {
   adb shell input tap (cord_x 92.5) (cord_y (89 - $adjust))
+}
+
+export def "pointer on" [] {
+  adb shell settings put system pointer_location 1
+}
+
+export def "pointer off" [] {
+  adb shell settings put system pointer_location 0
+}
+
+export def "tiktok search" [] {
+  adb shell input tap (cord_x 90) (cord_y 90)
 }
 
 export def "tiktok register close" [] {
@@ -120,12 +151,30 @@ export def "swipe right" [] {
   adb shell input swipe (cord_x 80) (cord_y 50) (cord_x 20) (cord_y 50) 100
 }
 
-export def "swipe down" [] {
-  adb shell input swipe (cord_x 50) (cord_y 70) (cord_x 50) (cord_y 20) 100
+export def "swipe down" [duration: int = 100] {
+  adb shell input swipe (cord_x 50) (cord_y 70) (cord_x 50) (cord_y 20) $duration
 }
 
-export def "swipe up" [] {
-  adb shell input swipe (cord_x 50) (cord_y 20) (cord_x 50) (cord_y 70) 100
+export def "swipe up" [duration: int = 100] {
+  adb shell input swipe (cord_x 50) (cord_y 20) (cord_x 50) (cord_y 70) $duration
+}
+
+export def "back" [] {
+  adb shell input keyevent $KEYCODE.BACK
+}
+
+export def "home" [] {
+  adb shell input keyevent $KEYCODE.HOME
+}
+
+export def "app switch" [] {
+  adb shell input keyevent $KEYCODE.APP_SWITCH
+}
+
+export def "app back" [] {
+  app switch
+  sleep 100ms
+  app switch
 }
 
 export def "power" [] {
@@ -148,12 +197,20 @@ export def "volumen mute" [] {
   adb shell input keyevent $KEYCODE.VOLUME_MUTE
 }
 
+export def "list system" [] {
+  adb shell settings list system
+}
+
 export def "brightness up" [] {
-  adb shell input keyevent $KEYCODE.BRIGHTNESS_UP
+  # adb shell input keyevent $KEYCODE.BRIGHTNESS_UP
+  let brightness = adb shell settings get system screen_brightness | into int
+  adb shell settings put system screen_brightness ($brightness + 5)
 }
 
 export def "brightness down" [] {
-  adb shell input keyevent $KEYCODE.BRIGHTNESS_DOWN
+  # adb shell input keyevent $KEYCODE.BRIGHTNESS_DOWN
+  let brightness = adb shell settings get system screen_brightness | into int
+  adb shell settings put system screen_brightness ($brightness - 5)
 }
 
 export def "system brightness" [value: int] {
@@ -172,14 +229,15 @@ export def "media play" [] {
   adb shell input keyevent $KEYCODE.MEDIA_PLAY_PAUSE
 }
 
-export def "screen-off" [] {
+export def "screen off" [] {
   adb shell cmd display power-off 0
   hyprctl dispatch focuscurrentorlast
   exit
 }
 
-export def "screen-on" [] {
+export def "screen on" [] {
   adb shell cmd display power-on 0
+  sleep 50ms
 }
 
 export def "scrcpy quit" [] {
@@ -220,12 +278,20 @@ export def hooks [] {
 
 export def keybindings [] {
   {
-    "q": { tiktok back }
+    "q": { back }
+    "S-q": { home }
+
+    "a": { app switch }
+    "S-a": { app back }
+
+    "h": { swipe left }
+    "l": { swipe right }
 
     "j": { swipe down }
     "k": { swipe up }
-    "h": { swipe left }
-    "l": { swipe right }
+
+    "S-j": { swipe down 400 }
+    "S-k": { swipe up 400 }
 
     "y": { media play }
     "n": { media next }
@@ -238,8 +304,11 @@ export def keybindings [] {
     "C-u": { brightness up }
     "C-d": { brightness down }
 
-    "S-k": { system brightness 50 }
-    "S-j": { system brightness 0 }
+    "S-u": { system brightness 50 }
+    "S-d": { system brightness 0 }
+
+    "x": { tiktok tap; screen off }
+    "S-x": { screen on; tiktok tap }
 
     "1": { hyprctl dispatch moveactive exact 2145 728 }
     "2": { hyprctl dispatch moveactive exact 2145 1304 }
@@ -248,9 +317,14 @@ export def keybindings [] {
     "s": {
       "s": { stay-on }
       "f": { stay-off }
-      "p": { stay-plug }
-      "u": { screen-on }
-      "d": { screen-off }
+      "l": { stay-plug }
+
+      "u": { screen on }
+      "d": { screen off }
+
+      "p": { pointer on }
+      "S-p": { pointer off }
+
       "q": { scrcpy quit }
       "n": { scrcpy no-window }
     }
@@ -270,6 +344,7 @@ export def keybindings [] {
       "m": { tiktok bookmark }
       "s": { tiktok shared }
       "a": { tiktok audio }
+      "S-s": { tiktok search }
 
       "A-p": { tiktok profile -a 4 }
       "A-l": { tiktok like -a 4 }
@@ -315,13 +390,13 @@ export def whichkey-show [keybindings: record] {
   print ($list | to text)
 }
 
-export def whichkey [--hooks] {
+export def whichkey [--hooks, --dur(-d): duration = 50ms] {
   let default = keybindings
   mut keybindings = $default
   mut inner = false
 
   whichkey-show $keybindings
-  mut last = (date now) - 250ms
+  mut last = (date now) - $dur
 
   loop {
     let input = input listen --types ["key" "resize"]
@@ -329,7 +404,7 @@ export def whichkey [--hooks] {
       continue
     }
     let now = date now
-    if ($now - $last) < 250ms {
+    if ($now - $last) < $dur {
       continue
     }
     $last = $now
