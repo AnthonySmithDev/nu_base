@@ -204,13 +204,13 @@ export def "list system" [] {
 export def "brightness up" [] {
   # adb shell input keyevent $KEYCODE.BRIGHTNESS_UP
   let brightness = adb shell settings get system screen_brightness | into int
-  adb shell settings put system screen_brightness ($brightness + 5)
+  adb shell settings put system screen_brightness ($brightness + 10)
 }
 
 export def "brightness down" [] {
   # adb shell input keyevent $KEYCODE.BRIGHTNESS_DOWN
   let brightness = adb shell settings get system screen_brightness | into int
-  adb shell settings put system screen_brightness ($brightness - 5)
+  adb shell settings put system screen_brightness ($brightness - 10)
 }
 
 export def "system brightness" [value: int] {
@@ -253,16 +253,20 @@ export def "scrcpy tiktok" [] {
   job spawn { scrcpy --no-window --start-app=com.zhiliaoapp.musically }
 }
 
-export def "stay-on" [] {
+export def "power stayon on" [] {
   adb shell svc power stayon true
 }
 
-export def "stay-off" [] {
+export def "power stayon off" [] {
   adb shell svc power stayon false
 }
 
-export def "stay-plug" [] {
+export def "global stayon on" [] {
   adb shell settings put global stay_on_while_plugged_in 3
+}
+
+export def "global stayon off" [] {
+  adb shell settings put global stay_on_while_plugged_in 0
 }
 
 export def list-apps [] {
@@ -315,12 +319,14 @@ export def keybindings [] {
     "3": { hyprctl dispatch moveactive exact 2145 1390 }
 
     "s": {
-      "s": { stay-on }
-      "f": { stay-off }
-      "l": { stay-plug }
-
       "u": { screen on }
       "d": { screen off }
+
+      "s": { power stayon on }
+      "S-s": { power stayon off }
+
+      "g": { global stayon on }
+      "S-g": { global stayon off }
 
       "p": { pointer on }
       "S-p": { pointer off }
@@ -447,7 +453,7 @@ export def whichkey [--hooks, --dur(-d): duration = 50ms] {
       if $type == "closure" {
         $keybindings = $default
         $inner = false
-        do $value | ignore
+        do --ignore-errors $value | ignore
         if $hooks { do (hooks | get on_run) }
       }
     } else {
