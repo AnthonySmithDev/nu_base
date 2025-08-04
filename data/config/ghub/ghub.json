@@ -87,48 +87,48 @@
   {
     "category": "core",
     "name": "charmbracelet/crush",
-    "tag_name": "v0.1.11",
-    "created_at": "2025-07-31T21:51:57Z",
+    "tag_name": "v0.2.1",
+    "created_at": "2025-08-02T15:03:04Z",
     "assets": [
-      "crush-0.1.11-1-aarch64.pkg.tar.zst",
-      "crush-0.1.11-1-armv7h.pkg.tar.zst",
-      "crush-0.1.11-1-i686.pkg.tar.zst",
-      "crush-0.1.11-1-x86_64.pkg.tar.zst",
-      "crush-0.1.11-1.aarch64.rpm",
-      "crush-0.1.11-1.armv7hl.rpm",
-      "crush-0.1.11-1.i386.rpm",
-      "crush-0.1.11-1.x86_64.rpm",
-      "crush-0.1.11.tar.gz",
-      "crush_0.1.11_aarch64.apk",
-      "crush_0.1.11_amd64.deb",
-      "crush_0.1.11_arm64.deb",
-      "crush_0.1.11_armhf.deb",
-      "crush_0.1.11_armv7.apk",
-      "crush_0.1.11_Darwin_arm64.tar.gz",
-      "crush_0.1.11_Darwin_x86_64.tar.gz",
-      "crush_0.1.11_Freebsd_arm64.tar.gz",
-      "crush_0.1.11_Freebsd_armv7.tar.gz",
-      "crush_0.1.11_Freebsd_i386.tar.gz",
-      "crush_0.1.11_Freebsd_x86_64.tar.gz",
-      "crush_0.1.11_i386.deb",
-      "crush_0.1.11_Linux_arm64.tar.gz",
-      "crush_0.1.11_Linux_armv7.tar.gz",
-      "crush_0.1.11_Linux_i386.tar.gz",
-      "crush_0.1.11_Linux_x86_64.tar.gz",
-      "crush_0.1.11_Netbsd_arm64.tar.gz",
-      "crush_0.1.11_Netbsd_armv7.tar.gz",
-      "crush_0.1.11_Netbsd_i386.tar.gz",
-      "crush_0.1.11_Netbsd_x86_64.tar.gz",
-      "crush_0.1.11_Openbsd_arm64.tar.gz",
-      "crush_0.1.11_Openbsd_armv7.tar.gz",
-      "crush_0.1.11_Openbsd_i386.tar.gz",
-      "crush_0.1.11_Openbsd_x86_64.tar.gz",
-      "crush_0.1.11_Windows_arm64.zip",
-      "crush_0.1.11_Windows_armv7.zip",
-      "crush_0.1.11_Windows_i386.zip",
-      "crush_0.1.11_Windows_x86_64.zip",
-      "crush_0.1.11_x86.apk",
-      "crush_0.1.11_x86_64.apk"
+      "crush-0.2.1-1-aarch64.pkg.tar.zst",
+      "crush-0.2.1-1-armv7h.pkg.tar.zst",
+      "crush-0.2.1-1-i686.pkg.tar.zst",
+      "crush-0.2.1-1-x86_64.pkg.tar.zst",
+      "crush-0.2.1-1.aarch64.rpm",
+      "crush-0.2.1-1.armv7hl.rpm",
+      "crush-0.2.1-1.i386.rpm",
+      "crush-0.2.1-1.x86_64.rpm",
+      "crush-0.2.1.tar.gz",
+      "crush_0.2.1_aarch64.apk",
+      "crush_0.2.1_amd64.deb",
+      "crush_0.2.1_arm64.deb",
+      "crush_0.2.1_armhf.deb",
+      "crush_0.2.1_armv7.apk",
+      "crush_0.2.1_Darwin_arm64.tar.gz",
+      "crush_0.2.1_Darwin_x86_64.tar.gz",
+      "crush_0.2.1_Freebsd_arm64.tar.gz",
+      "crush_0.2.1_Freebsd_armv7.tar.gz",
+      "crush_0.2.1_Freebsd_i386.tar.gz",
+      "crush_0.2.1_Freebsd_x86_64.tar.gz",
+      "crush_0.2.1_i386.deb",
+      "crush_0.2.1_Linux_arm64.tar.gz",
+      "crush_0.2.1_Linux_armv7.tar.gz",
+      "crush_0.2.1_Linux_i386.tar.gz",
+      "crush_0.2.1_Linux_x86_64.tar.gz",
+      "crush_0.2.1_Netbsd_arm64.tar.gz",
+      "crush_0.2.1_Netbsd_armv7.tar.gz",
+      "crush_0.2.1_Netbsd_i386.tar.gz",
+      "crush_0.2.1_Netbsd_x86_64.tar.gz",
+      "crush_0.2.1_Openbsd_arm64.tar.gz",
+      "crush_0.2.1_Openbsd_armv7.tar.gz",
+      "crush_0.2.1_Openbsd_i386.tar.gz",
+      "crush_0.2.1_Openbsd_x86_64.tar.gz",
+      "crush_0.2.1_Windows_arm64.zip",
+      "crush_0.2.1_Windows_armv7.zip",
+      "crush_0.2.1_Windows_i386.zip",
+      "crush_0.2.1_Windows_x86_64.zip",
+      "crush_0.2.1_x86.apk",
+      "crush_0.2.1_x86_64.apk"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -276,8 +276,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.112",
-    "created_at": "2025-08-01T21:48:01Z",
+    "tag_name": "v0.3.128",
+    "created_at": "2025-08-04T16:15:24Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",
@@ -393,27 +393,27 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.65.0",
-    "created_at": "2025-07-27T01:40:22Z",
+    "tag_name": "v0.65.1",
+    "created_at": "2025-08-03T05:42:11Z",
     "assets": [
-      "fzf-0.65.0-android_arm64.tar.gz",
-      "fzf-0.65.0-darwin_amd64.tar.gz",
-      "fzf-0.65.0-darwin_arm64.tar.gz",
-      "fzf-0.65.0-freebsd_amd64.tar.gz",
-      "fzf-0.65.0-linux_amd64.tar.gz",
-      "fzf-0.65.0-linux_arm64.tar.gz",
-      "fzf-0.65.0-linux_armv5.tar.gz",
-      "fzf-0.65.0-linux_armv6.tar.gz",
-      "fzf-0.65.0-linux_armv7.tar.gz",
-      "fzf-0.65.0-linux_loong64.tar.gz",
-      "fzf-0.65.0-linux_ppc64le.tar.gz",
-      "fzf-0.65.0-linux_s390x.tar.gz",
-      "fzf-0.65.0-openbsd_amd64.tar.gz",
-      "fzf-0.65.0-windows_amd64.zip",
-      "fzf-0.65.0-windows_arm64.zip",
-      "fzf-0.65.0-windows_armv5.zip",
-      "fzf-0.65.0-windows_armv6.zip",
-      "fzf-0.65.0-windows_armv7.zip"
+      "fzf-0.65.1-android_arm64.tar.gz",
+      "fzf-0.65.1-darwin_amd64.tar.gz",
+      "fzf-0.65.1-darwin_arm64.tar.gz",
+      "fzf-0.65.1-freebsd_amd64.tar.gz",
+      "fzf-0.65.1-linux_amd64.tar.gz",
+      "fzf-0.65.1-linux_arm64.tar.gz",
+      "fzf-0.65.1-linux_armv5.tar.gz",
+      "fzf-0.65.1-linux_armv6.tar.gz",
+      "fzf-0.65.1-linux_armv7.tar.gz",
+      "fzf-0.65.1-linux_loong64.tar.gz",
+      "fzf-0.65.1-linux_ppc64le.tar.gz",
+      "fzf-0.65.1-linux_s390x.tar.gz",
+      "fzf-0.65.1-openbsd_amd64.tar.gz",
+      "fzf-0.65.1-windows_amd64.zip",
+      "fzf-0.65.1-windows_arm64.zip",
+      "fzf-0.65.1-windows_armv5.zip",
+      "fzf-0.65.1-windows_armv6.zip",
+      "fzf-0.65.1-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -478,23 +478,23 @@
   {
     "category": "core",
     "name": "jesseduffield/lazygit",
-    "tag_name": "v0.53.0",
-    "created_at": "2025-07-04T17:46:36Z",
+    "tag_name": "v0.54.0",
+    "created_at": "2025-08-02T08:23:13Z",
     "assets": [
-      "lazygit_0.53.0_Darwin_arm64.tar.gz",
-      "lazygit_0.53.0_Darwin_x86_64.tar.gz",
-      "lazygit_0.53.0_freebsd_32-bit.tar.gz",
-      "lazygit_0.53.0_freebsd_arm64.tar.gz",
-      "lazygit_0.53.0_freebsd_armv6.tar.gz",
-      "lazygit_0.53.0_freebsd_x86_64.tar.gz",
-      "lazygit_0.53.0_Linux_32-bit.tar.gz",
-      "lazygit_0.53.0_Linux_arm64.tar.gz",
-      "lazygit_0.53.0_Linux_armv6.tar.gz",
-      "lazygit_0.53.0_Linux_x86_64.tar.gz",
-      "lazygit_0.53.0_Windows_32-bit.zip",
-      "lazygit_0.53.0_Windows_arm64.zip",
-      "lazygit_0.53.0_Windows_armv6.zip",
-      "lazygit_0.53.0_Windows_x86_64.zip"
+      "lazygit_0.54.0_darwin_arm64.tar.gz",
+      "lazygit_0.54.0_darwin_x86_64.tar.gz",
+      "lazygit_0.54.0_freebsd_32-bit.tar.gz",
+      "lazygit_0.54.0_freebsd_arm64.tar.gz",
+      "lazygit_0.54.0_freebsd_armv6.tar.gz",
+      "lazygit_0.54.0_freebsd_x86_64.tar.gz",
+      "lazygit_0.54.0_linux_32-bit.tar.gz",
+      "lazygit_0.54.0_linux_arm64.tar.gz",
+      "lazygit_0.54.0_linux_armv6.tar.gz",
+      "lazygit_0.54.0_linux_x86_64.tar.gz",
+      "lazygit_0.54.0_windows_32-bit.zip",
+      "lazygit_0.54.0_windows_arm64.zip",
+      "lazygit_0.54.0_windows_armv6.zip",
+      "lazygit_0.54.0_windows_x86_64.zip"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -1293,8 +1293,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.154.0",
-    "created_at": "2025-07-31T06:17:47Z",
+    "tag_name": "3.154.1",
+    "created_at": "2025-08-04T09:36:17Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -2665,14 +2665,14 @@
   {
     "category": "other",
     "name": "mudler/LocalAI",
-    "tag_name": "v3.3.1",
-    "created_at": "2025-08-01T06:25:36Z",
+    "tag_name": "v3.3.2",
+    "created_at": "2025-08-04T09:01:28Z",
     "assets": [
-      "local-ai-v3.3.1-darwin-amd64",
-      "local-ai-v3.3.1-darwin-arm64",
-      "local-ai-v3.3.1-linux-amd64",
-      "local-ai-v3.3.1-linux-arm64",
-      "LocalAI-v3.3.1-source.tar.gz"
+      "local-ai-v3.3.2-darwin-amd64",
+      "local-ai-v3.3.2-darwin-arm64",
+      "local-ai-v3.3.2-linux-amd64",
+      "local-ai-v3.3.2-linux-arm64",
+      "LocalAI-v3.3.2-source.tar.gz"
     ],
     "linux_x64": {
       "ends": "Linux-x86_64"
@@ -3356,15 +3356,13 @@
   {
     "category": "other",
     "name": "Byron/dua-cli",
-    "tag_name": "v2.30.1",
-    "created_at": "2025-05-10T18:50:00Z",
+    "tag_name": "v2.31.0",
+    "created_at": "2025-08-02T05:45:05Z",
     "assets": [
-      "dua-v2.30.1-aarch64-unknown-linux-musl.tar.gz",
-      "dua-v2.30.1-arm-unknown-linux-gnueabihf.tar.gz",
-      "dua-v2.30.1-i686-pc-windows-msvc.zip",
-      "dua-v2.30.1-x86_64-apple-darwin.tar.gz",
-      "dua-v2.30.1-x86_64-pc-windows-msvc.zip",
-      "dua-v2.30.1-x86_64-unknown-linux-musl.tar.gz"
+      "dua-v2.31.0-aarch64-unknown-linux-musl.tar.gz",
+      "dua-v2.31.0-arm-unknown-linux-gnueabihf.tar.gz",
+      "dua-v2.31.0-x86_64-apple-darwin.tar.gz",
+      "dua-v2.31.0-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -4476,18 +4474,18 @@
   {
     "category": "other",
     "name": "telegramdesktop/tdesktop",
-    "tag_name": "v6.0.0",
-    "created_at": "2025-07-31T20:15:34Z",
+    "tag_name": "v6.0.2",
+    "created_at": "2025-08-01T18:44:55Z",
     "assets": [
-      "tdesktop-6.0.0-full.tar.gz",
-      "tportable-arm64.6.0.0.zip",
-      "tportable-x64.6.0.0.zip",
-      "tportable.6.0.0.zip",
-      "tsetup-arm64.6.0.0.exe",
-      "tsetup-x64.6.0.0.exe",
-      "tsetup.6.0.0.dmg",
-      "tsetup.6.0.0.exe",
-      "tsetup.6.0.0.tar.xz"
+      "tdesktop-6.0.2-full.tar.gz",
+      "tportable-arm64.6.0.2.zip",
+      "tportable-x64.6.0.2.zip",
+      "tportable.6.0.2.zip",
+      "tsetup-arm64.6.0.2.exe",
+      "tsetup-x64.6.0.2.exe",
+      "tsetup.6.0.2.dmg",
+      "tsetup.6.0.2.exe",
+      "tsetup.6.0.2.tar.xz"
     ],
     "linux_x64": {
       "starts": "tsetup",
@@ -4561,21 +4559,21 @@
   {
     "category": "other",
     "name": "mfontanini/presenterm",
-    "tag_name": "v0.15.0",
-    "created_at": "2025-07-13T20:50:27Z",
+    "tag_name": "v0.15.1",
+    "created_at": "2025-08-03T20:39:24Z",
     "assets": [
-      "presenterm-0.15.0-aarch64-apple-darwin.tar.gz",
-      "presenterm-0.15.0-aarch64-unknown-linux-gnu.tar.gz",
-      "presenterm-0.15.0-aarch64-unknown-linux-musl.tar.gz",
-      "presenterm-0.15.0-armv5te-unknown-linux-gnueabi.tar.gz",
-      "presenterm-0.15.0-armv7-unknown-linux-gnueabihf.tar.gz",
-      "presenterm-0.15.0-i686-pc-windows-msvc.zip",
-      "presenterm-0.15.0-i686-unknown-linux-gnu.tar.gz",
-      "presenterm-0.15.0-i686-unknown-linux-musl.tar.gz",
-      "presenterm-0.15.0-x86_64-apple-darwin.tar.gz",
-      "presenterm-0.15.0-x86_64-pc-windows-msvc.zip",
-      "presenterm-0.15.0-x86_64-unknown-linux-gnu.tar.gz",
-      "presenterm-0.15.0-x86_64-unknown-linux-musl.tar.gz"
+      "presenterm-0.15.1-aarch64-apple-darwin.tar.gz",
+      "presenterm-0.15.1-aarch64-unknown-linux-gnu.tar.gz",
+      "presenterm-0.15.1-aarch64-unknown-linux-musl.tar.gz",
+      "presenterm-0.15.1-armv5te-unknown-linux-gnueabi.tar.gz",
+      "presenterm-0.15.1-armv7-unknown-linux-gnueabihf.tar.gz",
+      "presenterm-0.15.1-i686-pc-windows-msvc.zip",
+      "presenterm-0.15.1-i686-unknown-linux-gnu.tar.gz",
+      "presenterm-0.15.1-i686-unknown-linux-musl.tar.gz",
+      "presenterm-0.15.1-x86_64-apple-darwin.tar.gz",
+      "presenterm-0.15.1-x86_64-pc-windows-msvc.zip",
+      "presenterm-0.15.1-x86_64-unknown-linux-gnu.tar.gz",
+      "presenterm-0.15.1-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -4710,22 +4708,22 @@
   {
     "category": "other",
     "name": "raphamorim/rio",
-    "tag_name": "v0.2.23",
-    "created_at": "2025-07-22T21:26:41Z",
+    "tag_name": "v0.2.25",
+    "created_at": "2025-08-03T15:37:31Z",
     "assets": [
       "rio-installer-aarch64.msi",
       "rio-installer-x86_64.msi",
       "rio-portable-aarch64.exe",
       "rio-portable-x86_64.exe",
       "rio.dmg",
-      "rioterm-0.2.23-1.aarch64_wayland.rpm",
-      "rioterm-0.2.23-1.aarch64_x11.rpm",
-      "rioterm-0.2.23-1.x86_64_wayland.rpm",
-      "rioterm-0.2.23-1.x86_64_x11.rpm",
-      "rioterm_0.2.23_amd64_wayland.deb",
-      "rioterm_0.2.23_amd64_x11.deb",
-      "rioterm_0.2.23_arm64_wayland.deb",
-      "rioterm_0.2.23_arm64_x11.deb"
+      "rioterm-0.2.25-1.aarch64_wayland.rpm",
+      "rioterm-0.2.25-1.aarch64_x11.rpm",
+      "rioterm-0.2.25-1.x86_64_wayland.rpm",
+      "rioterm-0.2.25-1.x86_64_x11.rpm",
+      "rioterm_0.2.25_amd64_wayland.deb",
+      "rioterm_0.2.25_amd64_x11.deb",
+      "rioterm_0.2.25_arm64_wayland.deb",
+      "rioterm_0.2.25_arm64_x11.deb"
     ]
   },
   {
@@ -4795,8 +4793,8 @@
   {
     "category": "other",
     "name": "Picocrypt/CLI",
-    "tag_name": "1.48",
-    "created_at": "2025-04-13T00:31:22Z",
+    "tag_name": "1.49",
+    "created_at": "2025-08-03T15:32:49Z",
     "assets": [
       "picocrypt-linux-amd64",
       "picocrypt-linux-arm64",
@@ -5014,15 +5012,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.24.0",
-    "created_at": "2025-07-27T22:01:44Z",
+    "tag_name": "v0.25.0",
+    "created_at": "2025-08-04T05:13:00Z",
     "assets": [
-      "aider-desk-0.24.0-macos.zip",
-      "aider-desk-0.24.0-setup.exe",
-      "aider-desk-0.24.0.AppImage",
-      "aider-desk-0.24.0.dmg",
-      "aider-desk-0.24.0.x86_64.rpm",
-      "aider-desk_0.24.0_amd64.deb"
+      "aider-desk-0.25.0-macos.zip",
+      "aider-desk-0.25.0-setup.exe",
+      "aider-desk-0.25.0.AppImage",
+      "aider-desk-0.25.0.dmg",
+      "aider-desk-0.25.0.x86_64.rpm",
+      "aider-desk_0.25.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -5953,10 +5951,10 @@
   {
     "category": "other",
     "name": "pacstall/pacstall",
-    "tag_name": "6.3.4",
-    "created_at": "2025-07-13T02:59:49Z",
+    "tag_name": "6.3.5",
+    "created_at": "2025-08-03T23:11:46Z",
     "assets": [
-      "pacstall_6.3.4-pacstall1_all.deb"
+      "pacstall_6.3.5-pacstall1_all.deb"
     ]
   },
   {
@@ -6238,8 +6236,8 @@
   {
     "category": "android",
     "name": "Arturo254/OpenTune",
-    "tag_name": "2.0.2-fix",
-    "created_at": "2025-07-28T03:37:29Z",
+    "tag_name": "2.0.3",
+    "created_at": "2025-08-03T22:20:29Z",
     "assets": [
       "app-release.apk"
     ],
@@ -6250,13 +6248,13 @@
   {
     "category": "android",
     "name": "OuterTune/OuterTune",
-    "tag_name": "v0.9.2",
-    "created_at": "2025-07-30T21:59:08Z",
+    "tag_name": "v0.9.2.1",
+    "created_at": "2025-08-04T03:27:32Z",
     "assets": [
-      "OuterTune-0.9.2-core-arm64-v8a-release-64.apk",
-      "OuterTune-0.9.2-core-universal-release-64.apk",
-      "OuterTune-0.9.2-full-arm64-v8a-release-64.apk",
-      "OuterTune-0.9.2-full-universal-release-64.apk"
+      "OuterTune-0.9.2.1-core-arm64-v8a-release-65.apk",
+      "OuterTune-0.9.2.1-core-universal-release-65.apk",
+      "OuterTune-0.9.2.1-full-arm64-v8a-release-65.apk",
+      "OuterTune-0.9.2.1-full-universal-release-65.apk"
     ],
     "android": {
       "ends": "universal-release.apk"

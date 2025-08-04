@@ -232,6 +232,11 @@ export def hyde-kitty [] {
   ^kill -SIGUSR1 kitty
 }
 
+export def hyde-theme [] {
+  let path = ($env.HOME | path join Documents/hyde-ayu-dark-theme)
+  git-down git@github.com:AnthonySmithDev/hyde-ayu-dark-theme.git $path
+}
+
 def hyde-completions [] {
   [home, work, laptop]
 }

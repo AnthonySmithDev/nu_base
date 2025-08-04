@@ -1,6 +1,7 @@
 
 alias toj = to-json
 alias toc = to-csv
+alias oc = opencode
 
 alias la = ls -la
 alias tk = taskell
