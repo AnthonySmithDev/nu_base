@@ -35,7 +35,12 @@ const KEYCODE = {
   BRIGHTNESS_DOWN: 'KEYCODE_BRIGHTNESS_DOWN'
 }
 
-def --wrapped adb [...rest] {
+def hosts [] {
+  ["192.168.0.11" "192.168.0.200"]
+}
+
+def --wrapped adb [--host: string@hosts = "192.168.0.11", ...rest] {
+  $env.ADB_SERVER_SOCKET = $"tcp:($host):5037"
   try { ^adb ...$rest }
 }
 

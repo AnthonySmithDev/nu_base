@@ -1,6 +1,3 @@
-export-env {
-  $env.AVD_TUNNEL_HOST = "192.168.0.200"
-}
 
 const DEFAULT_DEVICE = "pixel_9"
 const DEFAULT_SYSTEM_IMAGE = "system-images.android-36.google_apis_playstore.x86_64"
@@ -114,7 +111,7 @@ export def update [name: string@virtual] {
   | upsert-ini hw.lcd.density 240
   | upsert-ini hw.ramSize 4096
   | upsert-ini hw.cpu.ncore 5
-  | to-ini | save -f $path
+  | to-ini | save --force $path
 }
 
 export def edit [name: string@virtual] {
@@ -130,7 +127,8 @@ export def edit [name: string@virtual] {
 }
 
 export def editor [name: string@virtual] {
-  hx ($env.ANDROID_AVD_HOME | path join $"($name).avd" "config.ini")
+  let path = ($env.HOME | path join .android avd $"($name).avd" "config.ini")
+  hx $path
 }
 
 export def device-info [] {
@@ -164,8 +162,7 @@ export def run [
   let args = [
     -memory ($memory * 1024)
     -accel auto
-    -engine auto
-    -no-audio
+    # -no-audio
     -no-window
     -no-boot-anim
     -debug init
@@ -175,20 +172,24 @@ export def run [
   ^emulator -avd $name ...$args
 }
 
-export def --wrapped view [--max-size: int = 800, ...rest] {
-  ^scrcpy --max-size $max_size ...$rest
+export def --wrapped view [--max-size: int = 720, ...rest] {
+  ^scrcpy --window-title AVD --keyboard uhid  --max-size $max_size ...$rest
 }
 
-export def server [] {
+def hosts [] {
+  ["192.168.0.11" "192.168.0.200"]
+}
+
+export def "adb server" [] {
   ^adb kill-server
   ^adb -a nodaemon server start
 }
 
-export def --env env [] {
-  $env.ADB_SERVER_SOCKET = $"tcp:($env.AVD_TUNNEL_HOST):5037"
+export def --env "adb env" [host: string@hosts] {
+  $env.ADB_SERVER_SOCKET = $"tcp:($host):5037"
 }
 
-export def --env --wrapped client [--max-size: int = 1080, ...rest] {
-  $env.ADB_SERVER_SOCKET = $"tcp:($env.AVD_TUNNEL_HOST):5037"
-  ^scrcpy --tunnel-host $env.AVD_TUNNEL_HOST --max-size $max_size ...$rest
+export def --env --wrapped client [host: string@hosts, --max-size: int = 720, ...rest] {
+  adb env $host
+  ^scrcpy --window-title AVD --keyboard uhid --tunnel-host $host --max-size $max_size ...$rest
 }
