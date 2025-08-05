@@ -1,7 +1,7 @@
 
 export-env {
-  $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
-  $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
+  $env.DATA_PATH = ($env.NU_BASE_PATH | path join data/)
+  $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd/)
 }
 
 def commands [] {

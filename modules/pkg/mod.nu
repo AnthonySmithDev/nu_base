@@ -1,7 +1,7 @@
 
 export-env {
-  $env.DATA_PATH = ($env.HOME | path join nu/nu_base/data/)
-  $env.MODULES_PATH = ($env.HOME | path join nu/nu_base/modules/)
+  $env.DATA_PATH = ($env.NU_BASE_PATH | path join data/)
+  $env.MODULES_PATH = ($env.NU_BASE_PATH | path join modules/)
 
   $env.ICONS_PATH = ($env.DATA_PATH | path join icons)
   $env.APPLICATIONS_PATH = ($env.DATA_PATH | path join applications)

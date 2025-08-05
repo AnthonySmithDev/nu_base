@@ -1,6 +1,6 @@
 
 export-env {
-  $env.CONFIG_PATH = ($env.HOME | path join nu/nu_base/data/config/)
+  $env.CONFIG_PATH = ($env.NU_BASE_PATH | path join data/config/)
 }
 
 def helix_themes [theme: string] {

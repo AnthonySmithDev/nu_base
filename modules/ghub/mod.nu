@@ -1,6 +1,6 @@
 
 export-env {
-  $env.GHUB_REPOSITORY_PATH = ($env.HOME | path join nu/nu_base/data/config/ghub/ghub.json)
+  $env.GHUB_REPOSITORY_PATH = ($env.NU_BASE_PATH | path join data/config/ghub/ghub.json)
   $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
 }
 

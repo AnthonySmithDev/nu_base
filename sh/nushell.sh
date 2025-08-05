@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Función para verificar la conexión a Internet
+# Function to check internet connection
 check_internet_connection() {
-    echo "Verificando conexión a Internet..."
+    echo "Checking internet connection..."
 
     local ping_cmd="ping -c 1 -W 3 google.com"
     if [[ "$(uname -s)" =~ ^(CYGWIN|MINGW|MSYS).* ]]; then
@@ -10,29 +10,29 @@ check_internet_connection() {
     fi
 
     if $ping_cmd &> /dev/null; then
-        echo "Conexión a Internet detectada."
+        echo "Internet connection detected."
         return 0
     else
-        echo "No se pudo establecer conexión a Internet."
+        echo "Could not establish internet connection."
         return 1
     fi
 }
 
-# Versión de Nushell a descargar
+# Nushell version to download
 VERSION="0.106.0"
 BASE_URL="https://github.com/nushell/nushell/releases/download/$VERSION"
 
-# Determinar la arquitectura y el sistema operativo
+# Determine architecture and operating system
 ARCH=$(uname -m)
 OS=$(uname -s)
 
-# Mapear la arquitectura y el sistema operativo al nombre del archivo
+# Map architecture and OS to filename
 case "$OS" in
     Darwin)
         case "$ARCH" in
             arm64) FILE="nu-$VERSION-aarch64-apple-darwin.tar.gz" ;;
             x86_64) FILE="nu-$VERSION-x86_64-apple-darwin.tar.gz" ;;
-            *) echo "Arquitectura no soportada: $ARCH"; exit 1 ;;
+            *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
         esac
         ;;
     Linux)
@@ -40,70 +40,70 @@ case "$OS" in
             aarch64) FILE="nu-$VERSION-aarch64-unknown-linux-gnu.tar.gz" ;;
             armv7l) FILE="nu-$VERSION-armv7-unknown-linux-gnueabihf.tar.gz" ;;
             x86_64) FILE="nu-$VERSION-x86_64-unknown-linux-gnu.tar.gz" ;;
-            *) echo "Arquitectura no soportada: $ARCH"; exit 1 ;;
+            *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
         esac
         ;;
     MINGW*|MSYS*)
         case "$ARCH" in
             x86_64) FILE="nu-$VERSION-x86_64-pc-windows-msvc.zip" ;;
-            *) echo "Arquitectura no soportada: $ARCH"; exit 1 ;;
+            *) echo "Unsupported architecture: $ARCH"; exit 1 ;;
         esac
         ;;
     *)
-        echo "Sistema operativo no soportado: $OS"
+        echo "Unsupported operating system: $OS"
         exit 1
         ;;
 esac
 
-# URL completa del archivo a descargar
+# Complete download URL
 DOWNLOAD_URL="$BASE_URL/$FILE"
 
-# Directorio temporal para la descarga
+# Temporary download directory
 HOME_TMP_FILE="$HOME/tmp/file"
 mkdir -p "$HOME_TMP_FILE"
 
-# Verificar si el archivo ya existe
+# Check if file already exists
 if [ -f "$HOME_TMP_FILE/$FILE" ]; then
-    echo "El archivo $FILE ya existe en $HOME_TMP_FILE. No se descargará nuevamente."
+    echo "File $FILE already exists in $HOME_TMP_FILE. Will not download again."
 else
-    # Verificar conexión a Internet antes de descargar
+    # Check internet connection before downloading
     if ! check_internet_connection; then
-        echo "No se puede proceder con la descarga sin conexión a Internet."
+        echo "Cannot proceed with download without internet connection."
         exit 1
     fi
 
-    # Descargar el archivo
+    # Download the file
     if command -v wget &> /dev/null; then
         wget --quiet --show-progress -O "$HOME_TMP_FILE/$FILE" "$DOWNLOAD_URL"
     elif command -v curl &> /dev/null; then
         curl -L -o "$HOME_TMP_FILE/$FILE" "$DOWNLOAD_URL"
     else
-        echo "No se encontró ni wget ni curl. Por favor, instala uno de ellos."
+        echo "Neither wget nor curl found. Please install one of them."
         exit 1
     fi
 fi
 
-# Directorio temporal para la descompresión
+# Temporary extraction directory
 HOME_TMP_DIR="$HOME/tmp/dir"
 mkdir -p "$HOME_TMP_DIR"
 
 TEMP_DIR=$(mktemp -d "$HOME_TMP_DIR/nushell_XXXXXX")
 
-# Descomprimir el archivo
+# Extract the file
 if [[ "$FILE" == *.tar.gz ]]; then
     tar -xzf "$HOME_TMP_FILE/$FILE" -C "$TEMP_DIR"
 elif [[ "$FILE" == *.zip ]]; then
     unzip "$HOME_TMP_FILE/$FILE" -d "$TEMP_DIR"
 else
-    echo "Formato de archivo no soportado: $FILE"
+    echo "Unsupported file format: $FILE"
     exit 1
 fi
 
-# Obtener el nombre de la carpeta descomprimida
+# Get the extracted folder name
 EXTRACTED_FOLDER=$(ls -d "$TEMP_DIR"/* | head -n 1)
 EXTRACTED_FOLDER=$(basename "$EXTRACTED_FOLDER")
 
-# Mover la carpeta descomprimida al directorio final
+# Move extracted folder to final directory
 SHARED_DIR="$HOME/.usr/local/share/lib/nushell"
 mkdir -p "$SHARED_DIR"
 
@@ -112,21 +112,22 @@ rm -rf "$INSTALL_DIR"
 
 mv "$TEMP_DIR/$EXTRACTED_FOLDER" "$INSTALL_DIR"
 
-# Limpiar
+# Clean up
 rm -rf "$TEMP_DIR"
 
-echo "Nushell $VERSION ha sido instalado en $INSTALL_DIR"
+echo "Nushell $VERSION has been installed in $INSTALL_DIR"
 
-# Crear el directorio de destino si no existe
+# Create destination directory if it doesn't exist
 mkdir -p ~/.usr/local/bin
 
-# Crear el enlace simbólico
+# Create symbolic link
 ln -sf "$INSTALL_DIR/nu" ~/.usr/local/bin/nu
+sudo ln -sf "$INSTALL_DIR/nu" /usr/local/bin/nu
 
-# Verificar que el enlace simbólico se haya creado correctamente
+# Verify symbolic link was created successfully
 if [ -L ~/.usr/local/bin/nu ]; then
-    echo "Enlace simbólico creado correctamente en ~/.usr/local/bin/nu"
+    echo "Symbolic link successfully created at ~/.usr/local/bin/nu"
 else
-    echo "Error al crear el enlace simbólico."
+    echo "Error creating symbolic link."
     exit 1
 fi
