@@ -236,16 +236,20 @@
   {
     "category": "core",
     "name": "zellij-org/zellij",
-    "tag_name": "v0.42.2",
-    "created_at": "2025-04-15T07:14:02Z",
+    "tag_name": "v0.43.0",
+    "created_at": "2025-08-05T06:57:22Z",
     "assets": [
       "zellij-aarch64-apple-darwin.tar.gz",
       "zellij-aarch64-unknown-linux-musl.tar.gz",
+      "zellij-no-web-aarch64-apple-darwin.tar.gz",
+      "zellij-no-web-aarch64-unknown-linux-musl.tar.gz",
+      "zellij-no-web-x86_64-apple-darwin.tar.gz",
+      "zellij-no-web-x86_64-unknown-linux-musl.tar.gz",
       "zellij-x86_64-apple-darwin.tar.gz",
       "zellij-x86_64-unknown-linux-musl.tar.gz"
     ],
     "linux_x64": {
-      "ends": "x86_64-unknown-linux-musl.tar.gz"
+      "ends": "zellij-x86_64-unknown-linux-musl.tar.gz"
     }
   },
   {
@@ -276,8 +280,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.128",
-    "created_at": "2025-08-04T16:15:24Z",
+    "tag_name": "v0.3.130",
+    "created_at": "2025-08-05T03:20:04Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",
@@ -497,7 +501,7 @@
       "lazygit_0.54.0_windows_x86_64.zip"
     ],
     "linux_x64": {
-      "ends": "Linux_x86_64.tar.gz"
+      "ends": "linux_x86_64.tar.gz"
     }
   },
   {
@@ -4342,22 +4346,22 @@
   {
     "category": "other",
     "name": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.9.5",
+    "tag_name": "0.9.6",
     "created_at": "2025-07-14T03:25:53Z",
     "assets": [
-      "AppFlowy-0.9.5-android.apk",
-      "AppFlowy-0.9.5-linux-x86_64.AppImage",
-      "AppFlowy-0.9.5-linux-x86_64.deb",
-      "AppFlowy-0.9.5-linux-x86_64.rpm",
-      "AppFlowy-0.9.5-linux-x86_64.tar.gz",
-      "AppFlowy-0.9.5-macos-arm64.dmg",
-      "AppFlowy-0.9.5-macos-arm64.zip",
-      "AppFlowy-0.9.5-macos-universal.dmg",
-      "AppFlowy-0.9.5-macos-universal.zip",
-      "AppFlowy-0.9.5-macos-x86_64.dmg",
-      "AppFlowy-0.9.5-macos-x86_64.zip",
-      "AppFlowy-0.9.5-windows-x86_64.exe",
-      "AppFlowy-0.9.5-windows-x86_64.zip"
+      "AppFlowy-0.9.6-android.apk",
+      "AppFlowy-0.9.6-linux-x86_64.AppImage",
+      "AppFlowy-0.9.6-linux-x86_64.deb",
+      "AppFlowy-0.9.6-linux-x86_64.rpm",
+      "AppFlowy-0.9.6-linux-x86_64.tar.gz",
+      "AppFlowy-0.9.6-macos-arm64.dmg",
+      "AppFlowy-0.9.6-macos-arm64.zip",
+      "AppFlowy-0.9.6-macos-universal.dmg",
+      "AppFlowy-0.9.6-macos-universal.zip",
+      "AppFlowy-0.9.6-macos-x86_64.dmg",
+      "AppFlowy-0.9.6-macos-x86_64.zip",
+      "AppFlowy-0.9.6-windows-x86_64.exe",
+      "AppFlowy-0.9.6-windows-x86_64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
@@ -4708,22 +4712,22 @@
   {
     "category": "other",
     "name": "raphamorim/rio",
-    "tag_name": "v0.2.25",
-    "created_at": "2025-08-03T15:37:31Z",
+    "tag_name": "v0.2.26",
+    "created_at": "2025-08-04T20:01:59Z",
     "assets": [
       "rio-installer-aarch64.msi",
       "rio-installer-x86_64.msi",
       "rio-portable-aarch64.exe",
       "rio-portable-x86_64.exe",
       "rio.dmg",
-      "rioterm-0.2.25-1.aarch64_wayland.rpm",
-      "rioterm-0.2.25-1.aarch64_x11.rpm",
-      "rioterm-0.2.25-1.x86_64_wayland.rpm",
-      "rioterm-0.2.25-1.x86_64_x11.rpm",
-      "rioterm_0.2.25_amd64_wayland.deb",
-      "rioterm_0.2.25_amd64_x11.deb",
-      "rioterm_0.2.25_arm64_wayland.deb",
-      "rioterm_0.2.25_arm64_x11.deb"
+      "rioterm-0.2.26-1.aarch64_wayland.rpm",
+      "rioterm-0.2.26-1.aarch64_x11.rpm",
+      "rioterm-0.2.26-1.x86_64_wayland.rpm",
+      "rioterm-0.2.26-1.x86_64_x11.rpm",
+      "rioterm_0.2.26_amd64_wayland.deb",
+      "rioterm_0.2.26_amd64_x11.deb",
+      "rioterm_0.2.26_arm64_wayland.deb",
+      "rioterm_0.2.26_arm64_x11.deb"
     ]
   },
   {
@@ -5012,15 +5016,15 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.25.0",
-    "created_at": "2025-08-04T05:13:00Z",
+    "tag_name": "v0.25.1",
+    "created_at": "2025-08-05T16:29:41Z",
     "assets": [
-      "aider-desk-0.25.0-macos.zip",
-      "aider-desk-0.25.0-setup.exe",
-      "aider-desk-0.25.0.AppImage",
-      "aider-desk-0.25.0.dmg",
-      "aider-desk-0.25.0.x86_64.rpm",
-      "aider-desk_0.25.0_amd64.deb"
+      "aider-desk-0.25.1-macos.zip",
+      "aider-desk-0.25.1-setup.exe",
+      "aider-desk-0.25.1.AppImage",
+      "aider-desk-0.25.1.dmg",
+      "aider-desk-0.25.1.x86_64.rpm",
+      "aider-desk_0.25.1_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -5960,16 +5964,16 @@
   {
     "category": "android",
     "name": "saber-notes/saber",
-    "tag_name": "v0.26.0",
-    "created_at": "2025-07-16T21:04:03Z",
+    "tag_name": "v0.26.1",
+    "created_at": "2025-08-04T21:50:14Z",
     "assets": [
-      "Saber-0.26.0-x86_64.AppImage",
-      "Saber-0.26.0-x86_64.AppImage.zsync",
-      "SaberInstaller_v0.26.0.exe",
-      "Saber_FOSS_v0.26.0.apk",
-      "Saber_v0.26.0.apk",
-      "Saber_v0.26.0_Linux_arm64.tar.gz",
-      "Saber_v0.26.0_Linux_x86_64.tar.gz"
+      "Saber-0.26.1-x86_64.AppImage",
+      "Saber-0.26.1-x86_64.AppImage.zsync",
+      "SaberInstaller_v0.26.1.exe",
+      "Saber_FOSS_v0.26.1.apk",
+      "Saber_v0.26.1.apk",
+      "Saber_v0.26.1_Linux_arm64.tar.gz",
+      "Saber_v0.26.1_Linux_x86_64.tar.gz"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"

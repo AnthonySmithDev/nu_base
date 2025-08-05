@@ -87,11 +87,13 @@ export def assetx [r: record, start?: string] {
   if ($system != null) {
     let starts = ($r | get -o $system | get -o starts)
     if $starts != null {
-      $assets = ($assets | where { |e| str starts-with $starts })
+      let filter = ($assets | where { |e| str starts-with $starts })
+      if ($filter | is-not-empty) { $assets = $filter }
     }
     let ends = ($r | get -o $system | get -o ends)
     if $ends != null {
-      $assets = ($assets | where { |e| str ends-with $ends })
+      let filter = ($assets | where { |e| str ends-with $ends })
+      if ($filter | is-not-empty) { $assets = $filter }
     }
   }
   if ($assets | length) == 0 {
