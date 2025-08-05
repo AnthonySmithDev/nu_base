@@ -117,3 +117,15 @@ export def "http download" [url: string, --output(-o): string] {
     error make -u { msg: $"URL not found: ($url)" }
   }
 }
+
+export def --env env-path [path: string --prepend(-p)] {
+  if ($path | path exists) {
+    if ($path not-in $env.PATH) {
+      if $prepend {
+        $env.PATH = ($env.PATH | split row (char esep) | prepend $path)
+      } else {
+        $env.PATH = ($env.PATH | split row (char esep) | append $path)
+      }
+    }
+  }
+}

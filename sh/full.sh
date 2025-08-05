@@ -7,4 +7,6 @@ fi
 
 echo "NU_BASE_PATH: $NU_BASE_PATH"
 
+bash "$NU_BASE_PATH/sh/nushell.sh"
 nu "$NU_BASE_PATH/modules/install-base.nu"
+nu "$NU_BASE_PATH/modules/install-desktop.nu"

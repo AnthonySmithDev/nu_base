@@ -1,13 +1,13 @@
 
-def --wrapped 'adb d' [ ...rest ] {
+export def --wrapped 'adb d' [ ...rest ] {
   adb devices ...$rest
 }
 
-def --wrapped 'adb c' [ ...rest ] {
+export def --wrapped 'adb c' [ ...rest ] {
   adb connect ...$rest
 }
 
-def --wrapped 'adb p' [ ...rest ] {
+export def --wrapped 'adb p' [ ...rest ] {
   adb pair ...$rest
 }
 
@@ -19,7 +19,7 @@ def gradlew_tasks [] {
   return []
 }
 
-def --wrapped gradlew [ task: string@gradlew_tasks, ...rest ] {
+export def --wrapped gradlew [ task: string@gradlew_tasks, ...rest ] {
   let script = ($env.PWD | path join gradlew)
   if ($script | path exists) {
     bash $script $task ...$rest
@@ -28,7 +28,7 @@ def --wrapped gradlew [ task: string@gradlew_tasks, ...rest ] {
   }
 }
 
-def --wrapped sail  [...rest ] {
+export def --wrapped sail  [...rest ] {
   let script = ($env.PWD | path join vendor/bin/sail)
   if ($script | path exists) {
     bash $script ...$rest
@@ -37,6 +37,6 @@ def --wrapped sail  [...rest ] {
   }
 }
 
-def tunnel [port: int] {
+export def tunnel [port: int] {
   cloudflared tunnel --url http://localhost:($port)
 }

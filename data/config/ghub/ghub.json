@@ -280,8 +280,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.3.130",
-    "created_at": "2025-08-05T03:20:04Z",
+    "tag_name": "v0.3.131",
+    "created_at": "2025-08-05T19:58:12Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",

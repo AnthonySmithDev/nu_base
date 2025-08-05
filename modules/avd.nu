@@ -103,13 +103,14 @@ def upsert-ini [key: string, value: string] {
 }
 
 export def update [name: string@virtual] {
-  let path = ($env.ANDROID_AVD_HOME | path join $"($name).avd" "config.ini")
+  let path = ($env.HOME | path join .android avd $"($name).avd" "config.ini")
   let config = (open $path | from-ini)
   print $path
 
   $config
   | upsert-ini hw.lcd.height 960
   | upsert-ini hw.lcd.width 480
+  | upsert-ini hw.lcd.vsync 60
   | upsert-ini hw.lcd.density 240
   | upsert-ini hw.ramSize 4096
   | upsert-ini hw.cpu.ncore 5
@@ -117,12 +118,13 @@ export def update [name: string@virtual] {
 }
 
 export def edit [name: string@virtual] {
-  let path = ($env.ANDROID_AVD_HOME | path join $"($name).avd" "config.ini")
+  let path = ($env.HOME | path join .android avd $"($name).avd" "config.ini")
   let config = (open $path | from-ini)
 
   gum input --header "Height" --value ($config | get-ini hw.lcd.height)
   gum input --header "Width" --value ($config | get-ini hw.lcd.width)
   gum input --header "Vsync" --value ($config | get-ini hw.lcd.vsync)
+  gum input --header "Density" --value ($config | get-ini hw.lcd.density)
   gum input --header "RamSize" --value ($config | get-ini hw.ramSize)
   gum input --header "Ncore" --value ($config | get-ini hw.cpu.ncore)
 }

@@ -240,7 +240,7 @@ env-path $env.OPENCODE_BIN
 $env.ANDROID_HOME = ($env.HOME | path join Android Sdk)
 $env.ANDROID_SDK_ROOT = ($env.HOME | path join Android Sdk)
 $env.ANDROID_SDK_HOME = ($env.HOME | path join .config/.android)
-$env.ANDROID_AVD_HOME = ($env.HOME | path join .config/.android/avd)
+# $env.ANDROID_AVD_HOME = ($env.HOME | path join .config/.android/avd)
 
 $env.ANDROID_EMULATOR = ($env.ANDROID_HOME | path join emulator)
 env-path $env.ANDROID_EMULATOR
@@ -266,15 +266,3 @@ if ($admin_keys | path exists) {
 }
 
 $env.CHROME_EXECUTABLE = "/usr/bin/google-chrome-stable"
-
-def --env env-path [path: string --prepend(-p)] {
-  if ($path | path exists) {
-    if ($path not-in $env.PATH) {
-      if $prepend {
-        $env.PATH = ($env.PATH | split row (char esep) | prepend $path)
-      } else {
-        $env.PATH = ($env.PATH | split row (char esep) | append $path)
-      }
-    }
-  }
-}
