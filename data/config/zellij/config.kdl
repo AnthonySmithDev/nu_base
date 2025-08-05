@@ -156,6 +156,17 @@ keybinds clear-defaults=true {
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
         bind "Ctrl q" { Quit; }
+
+        bind "Alt e" { TogglePaneEmbedOrFloating; }
+        bind "Alt t" { NewTab; }
+        bind "Alt x" { CloseFocus; }
+        bind "Alt Shift x" { CloseTab; }
+        bind "Alt m" { SwitchToMode "move"; }
+        bind "Alt s" { SwitchToMode "scroll"; }
+        bind "Alt r" { SwitchToMode "resize"; }
+        bind "Alt Shift f" { ToggleFocusFullscreen; }
+        bind "Alt Shift p" { TogglePanePinned; }
+        bind "Alt Shift n" { NewPane "down"; }
     }
     shared_except "locked" "move" {
         bind "Ctrl h" { SwitchToMode "move"; }
