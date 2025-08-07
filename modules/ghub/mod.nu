@@ -203,18 +203,6 @@ export def "asset download" [
   return $filepath
 }
 
-export def index-get [] {
-  let index_path = ($env.HOME | path join .github-index)
-  if ($index_path | path exists) {
-    return (open $index_path | into int)
-  }
-  return 0
-}
-
-export def index-set [index: int] {
-  $index | save --force ($env.HOME | path join .github-index)
-}
-
 def tag-url [name: string@names, tag: string] {
   let text = ($"https://github.com/($name)/releases/tag/($tag)" | ansi link --text $name)
   return (light $text)
@@ -281,6 +269,29 @@ def gen-index [
   }
 }
 
+def config [key: any, value?: any] {
+  let path = ($env.HOME | path join .ghub.json)
+  mut config = try { open $path } catch {
+    { "index": 0, "date": ""}
+  }
+  if ($value != null) {
+    $config | upsert $key $value | save --force $path
+  } else {
+    $config | get -o $key
+  }
+}
+
+def get-index-by-date [] {
+  let today = (date now | format date '%Y-%m-%d')
+  let last_date = config date
+  if ($last_date == $today) {
+    return (config index)
+  } else {
+    config date $today
+    return 0
+  }
+}
+
 export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), --debug(-d)] {
   let changelog_dir = ($env.GHUB_TEMP_PATH | path join changelog)
 
@@ -311,7 +322,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
   }
 
   let rate_limit = rate_limit
-  let last_index = index-get
+  let last_index = get-index-by-date
   mut repos = open $env.GHUB_REPOSITORY_PATH
   let length = ($repos | length)
   
@@ -379,7 +390,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
     let new_created_at = ($new.created_at | to-created-at)
 
     if ($names | is-empty) {
-      index-set $index
+      config index ($index + 1)
     }
 
     if $old.tag_name == $new.tag_name {
@@ -446,7 +457,7 @@ export def "repo upgrade" [] {
     return ($rate_limit | select reset remaining)
   }
 
-  let last_index = index-get
+  let last_index = config index
   mut repos = open $env.GHUB_REPOSITORY_PATH
   let length = ($repos | length)
   for $it in ($repos | enumerate | skip $last_index | first $rate_limit.remaining) {
@@ -455,9 +466,9 @@ export def "repo upgrade" [] {
     let new = releases-latest $old.name
 
     if ($it.index + 1) == $length {
-      index-set 0
+      config index 0
     } else {
-      index-set ($it.index + 1 )
+      config index ($it.index + 1 )
     }
 
     print $"(tag-url $old.name $new.tag_name)"

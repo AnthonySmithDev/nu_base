@@ -747,7 +747,7 @@ export def riff [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download $repository --force=($force)
     move -f $download_path -p $path
-    add-execute $download_path
+    add-execute $path
   }
 
   bind-file riff $path
@@ -3061,23 +3061,10 @@ export def hexyl [ --force(-f) ] {
   bind-file hexyl $path
 }
 
-export def ai-opencode [ --force(-f) ] {
-  let repository = "opencode-ai/opencode"
-  let tag_name = ghub tag_name $repository
-  let path = bin-path ai-opencode $tag_name
-
-  if (path-not-exists $path $force) {
-    let download_path = ghub asset download -x $repository --force=($force)
-    move -d $download_path -f opencode -p $path
-  }
-
-  bind-file opencode $path
-}
-
 export def opencode [ --force(-f) ] {
   let repository = "sst/opencode"
   let tag_name = ghub tag_name $repository
-  let path = bin-path sst-opencode $tag_name
+  let path = bin-path opencode $tag_name
 
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)

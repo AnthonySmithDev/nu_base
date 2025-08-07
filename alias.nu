@@ -158,3 +158,6 @@ alias yless = jless --yaml
 alias whichkey = kitty --title adctrl --class adctrl -- nu -e "adctrl whichkey"
 
 alias rcc = rain client console
+
+alias hyc = hyprctl clients -j
+alias hyd = hyprctl dispatch

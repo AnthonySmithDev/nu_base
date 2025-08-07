@@ -35,11 +35,16 @@ const KEYCODE = {
   BRIGHTNESS_DOWN: 'KEYCODE_BRIGHTNESS_DOWN'
 }
 
-def hosts [] {
-  ["192.168.0.11" "192.168.0.200"]
+def adb-host-path [] {
+  $env.HOME | path join .adb_host
 }
 
-def --wrapped adb [--host: string@hosts = "192.168.0.11", ...rest] {
+def adb-host-set [] {
+  save --force (adb-host-path)
+}
+
+def --wrapped adb [...rest] {
+  let host = try { open (adb-host-path) } catch { "localhost" }
   $env.ADB_SERVER_SOCKET = $"tcp:($host):5037"
   try { ^adb ...$rest }
 }
@@ -324,6 +329,10 @@ export def keybindings [] {
     "3": { hyprctl dispatch moveactive exact 2145 1390 }
 
     "s": {
+      "1": { "localhost" | adb-host-set }
+      "2": { "192.168.0.11" | adb-host-set }
+      "3": { "192.168.0.200" | adb-host-set }
+
       "u": { screen on }
       "d": { screen off }
 
