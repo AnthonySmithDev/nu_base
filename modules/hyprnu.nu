@@ -198,6 +198,9 @@ def main [
       }
       switch-focus $select
     }
+    "adb-pair" => {
+      kitty --class adb-pair -- nu --login -c "use xadb.nu; xadb pair qr"
+    }
     _ => {
       print "Commands:"
       print "  hyprnu clients"
@@ -208,6 +211,7 @@ def main [
       print "  hyprnu switch-pin [mpv|pip]"
       print "  hyprnu switch-focus [mpv|pip]"
       print "  hyprnu adctrl"
+      print "  hyprnu adb pair"
     }
   }
 }
