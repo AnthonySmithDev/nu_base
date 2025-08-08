@@ -14,7 +14,7 @@ cast = [
 	{ run = 'go2tv -v "$@"', orphan = true, desc = "Cast media files", for = "unix" },
 ]
 share = [
-	{ run = 'kitty --class qrcp -- qrcp "$@"', orphan = true, desc = "Share by QR", for = "unix" },
+	{ run = 'kitty --class qrcp -- qrcp -r -q "$@"', orphan = true, desc = "Share by QR", for = "unix" },
 ]
 
 [open]
