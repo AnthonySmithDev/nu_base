@@ -6,6 +6,8 @@ export def core [ --force(-f) ] {
   gum
   # mods
   glow
+  crush
+  opencode
 
   helix
   nushell
