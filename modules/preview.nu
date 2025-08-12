@@ -1,24 +1,39 @@
 
-def fuzzy [preview: string, size: int, bind?: string] {
+def fuzzy [preview: string, size: int, execute: string = ""] {
   let stdin = $in
   if ($stdin | is-empty) {
     return
   }
+
+  let enter = if ($execute | is-not-empty) {
+    $"execute\(($execute))"
+  } else {
+    "accept"
+  }
+
+  let bind_vim = "j:down,k:up,/:show-input+unbind(j,k,/)"
+  let bind_enter = $"enter,esc,ctrl-c:transform:
+        if [[ $FZF_INPUT_STATE = enabled ]]; then
+          echo 'rebind\(j,k,/)+hide-input'
+        elif [[ $FZF_KEY = enter ]]; then
+          echo '($enter)'
+        else
+          echo 'abort'
+        fi"
+
   mut args = [
     --style full
     --layout reverse
     --preview $preview
     --preview-window right:($size)%
   ]
-  if $bind != null {
-    $args = ($args | append [--bind $bind])
-  }
-  $stdin | fzf ...$args
+
+  $stdin | fzf --no-input --bind $bind_vim --bind $bind_enter ...$args
 }
 
 export def videos [--size(-s): int = 80] {
   let preview = "vicat -W $FZF_PREVIEW_COLUMNS -H $FZF_PREVIEW_LINES {}"
-  fd -e mp4 -e mkv | fuzzy $preview $size "enter:execute(mpv {})"
+  fd -e mp4 -e mkv | fuzzy $preview $size "mpv {}"
 }
 
 export def images [--size(-s): int = 80] {

@@ -241,13 +241,15 @@ def hyde-completions [] {
   [home, work, laptop]
 }
 
+export def hyde-monitor [completion: string@hyde-completions] {
+  bind-user $"hyde/hypr/($completion)/monitors.conf" hypr/monitors.conf
+}
+
 export def hyde [completion: string@hyde-completions] {
   bind-user hyde/config.toml hyde/config.toml
 
   bind-user hyde/hypr/hypridle.conf hypr/hypridle.conf
   bind-user hyde/hypr/userprefs.conf hypr/userprefs.conf
-
-  # bind-user $"hyde/hypr/($completion)/monitors.conf" hypr/monitors.conf
 
   bind-user --dir hyde/hypr/($completion) hypr/custom
 }

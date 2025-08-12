@@ -62,7 +62,7 @@ export def minidlna [] {
 }
 
 export def tools [] {
-  install just 7zip unzip unrar unarchiver chafa qrencode man-db less imv
+  install just 7zip zip unzip unrar mediainfo unarchiver chafa qrencode man-db less imv
 }
 
 export def mdns-scan [] {
@@ -92,5 +92,5 @@ export def neovide [] {
 }
 
 export def yazi [] {
-  install yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide imagemagick exiftool mediainfo
+  install yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick exiftool mediainfo
 }

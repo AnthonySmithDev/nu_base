@@ -51,7 +51,7 @@ def download-path [chat_id: int, name: string] {
 def chat-select [] {
   open $env.TDOWN_CHAT_PATH
   | each {|row| $"(ansi green)($row.id)(ansi reset) _ ($row.visible_name)"}
-  | to text | fzf --exact --ansi --height=20 | lines | parse "{id} _ {name}" | get id | into int
+  | to text | fzf --exact --ansi --height=40 | lines | parse "{id} _ {name}" | get id | into int
 }
 
 export def 'chat export' [...chat_ids: int@chats_get_id, --last(-l): int] {
@@ -244,7 +244,11 @@ export def sum [...chat_ids: int@files_get_ids, --skip(-s)] {
   }
 }
 
-export def download [...chat_ids: int@files_get_ids] {
+export def download [
+  ...chat_ids: int@files_get_ids,
+  --max-size(-s): filesize = 100mb
+  --max-dur(-d): duration = 10min
+] {
   let chat_id = if ($chat_ids | is-empty) {
     export-select | first
   } else {
@@ -288,13 +292,17 @@ export def download [...chat_ids: int@files_get_ids] {
     if ($message.raw.Media?.Video? == true) {
       $count_videos += 1
       let size = ($message.raw.Media?.Document?.Size | into filesize)
-      if $size > 100mb {
+      if $size > $max_size {
         $too_large += 1
         continue
       }
-      let attribute = ($message.raw.Media.Document.Attributes | where Duration != 0 | first)
+      let attributes = ($message.raw.Media.Document.Attributes | where Duration != 0)
+      if ($attributes | is-empty) {
+        continue
+      }
+      let attribute = ($attributes | first)
       let duration = ($attribute | get Duration | into duration --unit sec)
-      if $duration > 10min {
+      if $duration > $max_dur {
         $too_long += 1
         continue
       }

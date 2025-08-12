@@ -1,21 +1,26 @@
 
 export-env {
-  # $env.NU_BASE_PATH = ($env.HOME | path join nu/nu_base/)
+  $env.NU_BASE_PATH = ($env.HOME | path join nu/nu_base/)
 
-  # $env.DATA_PATH = ($env.HOME | path join data/)
-  # $env.MODULES_PATH = ($env.HOME | path join modules/)
+  $env.DATA_PATH = ($env.HOME | path join data/)
+  $env.MODULES_PATH = ($env.HOME | path join modules/)
 
-  # $env.ICONS_PATH = ($env.DATA_PATH | path join icons)
-  # $env.APPLICATIONS_PATH = ($env.DATA_PATH | path join applications)
+  $env.ICONS_PATH = ($env.DATA_PATH | path join icons)
+  $env.APPLICATIONS_PATH = ($env.DATA_PATH | path join applications)
 
-  # $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
-  # $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
+  $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
+  $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
   
-  # $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
-  # $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
+  $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
+  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
 
-  # $env.PKG_BIN_SYS = "linux_x64"
-  # $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
+  $env.PKG_BIN_SYS = "linux_x64"
+  $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
+
+  $env.CONFIG_DIRS = [
+    /home/anthony/nu/nu_base/data/config,
+    /home/anthony/nu/nu_work/data/config
+  ]
 }
 
 source ../builtin.nu
@@ -94,6 +99,8 @@ export def main [] {
 
   pkg script ctx
   pkg script vicat
+  pkg script adctrl
+  pkg script hyprnu
   pkg script rain-add
   pkg script clipboard
   pkg script term-editor
@@ -111,6 +118,7 @@ export def main [] {
   config vieb
   config kitty
   config opencommit
+  config vi-mongo
 
   config mimeapps
 }

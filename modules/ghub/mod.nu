@@ -429,7 +429,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
     $current_index = $current_index + 1
   }
 
-  if (ls $changelog_dir | is-not-empty) {
+  if $save_changelog and (ls $changelog_dir | is-not-empty) {
     if (confirm "see changelog...?") {
       glow $changelog_dir
       rm -rfp $changelog_dir

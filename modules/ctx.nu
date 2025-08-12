@@ -4,12 +4,12 @@ def main [] {
   print "Context Manager"
 }
 
-def path-top [] {
-  try {
-    let git = git rev-parse --show-toplevel
-    return $git
-  } catch {
-    return $env.PWD
+export def path-top [] {
+  let complete = git rev-parse --show-toplevel | complete
+  if $complete.stderr == "" {
+    $complete.stdout
+  } else {
+    $env.PWD
   }
 }
 
@@ -117,19 +117,21 @@ def filter-files [query?: string] {
   custom-filter "bat --color=always --style=numbers {}" $query
 }
 
-export def "add file" [...paths: path, --search(-s): string] {
-  let select = if ($paths | is-not-empty) {
-    ($paths | where {|e| ($e | path type) == file } | path relative-to (path-top))
-  } else {
-    (fd --type file | filter-files $search | lines)
-  }
-  if ($select | is-empty) {
-    return
-  }
+export def "add file" [paths: string, --search(-s): string] {
+  (ls $paths | where {|e| ($e | path type) == file } | path relative-to (path-top))
+  # let select = if ($paths | is-not-empty) {
+    
+  # } else {
+  #   (fd --type file | filter-files $search | lines)
+  # }
+  # $select
+  # if ($select | is-empty) {
+  #   return
+  # }
 
-  mkdir (path-ctx)
-  open-files | append $select | uniq | save --force (path-files)
-  print $select
+  # mkdir (path-ctx)
+  # open-files | append $select | uniq | save --force (path-files)
+  # print $select
 }
 
 export def "show file" [] {
@@ -228,8 +230,8 @@ def "main clear chunck" [] {
   clear chunck
 }
 
-def "main add file" [--search(-s): string = ""] {
-  add file --search $search
+def "main add file" [...paths: string, --search(-s): string = ""] {
+  # add file ...$paths --search $search
 }
 
 def "main show file" [] {
@@ -280,7 +282,7 @@ def xmain [
     ["edit" "chunck"] => { edit chunck }
     ["remove" "chunck"] => { remove chunck -l $lang }
     ["clear" "chunck"] => { clear chunck }
-    ["add" "file"] => { add file }
+    # ["add" "file"] => { add file }
     ["show" "file"] => { show file }
     ["pretty" "file"] => { pretty file }
     ["path" "file"] => { path file }

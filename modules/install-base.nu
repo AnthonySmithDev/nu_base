@@ -1,18 +1,23 @@
 
 export-env {
-  # $env.NU_BASE_PATH = ($env.HOME | path join nu/nu_base/)
+  $env.NU_BASE_PATH = ($env.HOME | path join nu/nu_base/)
 
-  # $env.DATA_PATH = ($env.NU_BASE_PATH | path join data/)
-  # $env.MODULES_PATH = ($env.NU_BASE_PATH | path join modules/)
+  $env.DATA_PATH = ($env.NU_BASE_PATH | path join data/)
+  $env.MODULES_PATH = ($env.NU_BASE_PATH | path join modules/)
 
-  # $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
-  # $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
+  $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
+  $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
   
-  # $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
-  # $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
+  $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
+  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
 
-  # $env.PKG_BIN_SYS = "linux_x64"
-  # $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
+  $env.PKG_BIN_SYS = "linux_x64"
+  $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
+
+  $env.CONFIG_DIRS = [
+    /home/anthony/nu/nu_base/data/config,
+    /home/anthony/nu/nu_work/data/config
+  ]
 }
 
 source ../builtin.nu
@@ -52,6 +57,8 @@ export def main [] {
   pkg bin gum
   pkg bin mods
   pkg bin glow
+  pkg bin crush
+  pkg bin opencode
 
   pkg bin helix
   pkg bin nushell
@@ -79,6 +86,7 @@ export def main [] {
   pkg bin lazydocker
   pkg bin difftastic
   pkg bin carapace
+  pkg bin mirrord
 
   pkg bin uv
   pkg bin pnpm
@@ -90,6 +98,7 @@ export def main [] {
   pkg sh rust
 
   config mods
+  config opencode
   config nushell
   config helix
   config zellij
