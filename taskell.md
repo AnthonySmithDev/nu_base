@@ -7,6 +7,7 @@
 - agregar una previsualizaion de los video largos y pesados para ver si se descargan despues o mediante un select a tdown
 - agregar mi "ssh-key restore" cuando in install-desktop.nu
 - el la variable CONFIG_DIRS se lea de un archivo en mi HOME para mi config/mod.nu
+- hacer que el servicio se corra cuando se instala el desktop.sh, rain init
 
 ## Doing
 
