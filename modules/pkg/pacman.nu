@@ -62,7 +62,7 @@ export def minidlna [] {
 }
 
 export def tools [] {
-  install just 7zip zip unzip unrar mediainfo unarchiver chafa qrencode man-db less imv
+  install just 7zip zip unzip unrar mediainfo unarchiver chafa qrencode man-db less imv lsof mpv
 }
 
 export def mdns-scan [] {
@@ -93,4 +93,40 @@ export def neovide [] {
 
 export def yazi [] {
   install yazi ffmpeg 7zip jq poppler fd ripgrep fzf zoxide resvg imagemagick exiftool mediainfo
+}
+
+export def base [] {
+  let pkgs = [
+    zip
+    7zip
+    unzip
+    unrar
+    unarchiver
+
+    imv
+    mpv
+    chafa
+    mediainfo
+
+    qrencode
+    openssh
+    man-db
+    less
+    lsof
+    just
+
+    docker
+    docker-compose
+    docker-buildx,
+
+    libvirt
+    qemu-full
+    virt-viewer
+    virt-manager
+
+    nautilus
+    nautilus-open-any-terminal
+    gnome-disk-utility
+  ]
+  install ...$pkgs
 }

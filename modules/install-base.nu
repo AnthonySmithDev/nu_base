@@ -46,12 +46,7 @@ export def main [] {
 
   if (exists-external pacman) {
     pkg pacman update
-
-    pkg pacman ssh
-    pkg pacman tools
-    pkg pacman docker
-    pkg pacman gnome
-    pkg pacman qemu
+    pkg pacman base
   }
 
   pkg bin gum
@@ -158,8 +153,11 @@ export def setup_nu [] {
 }
 
 export def setup_zoxide [] {
-  $dirs
+  let dirs = $dirs
   | each {path expand}
   | where {path exists}
-  | each { |dir| ^zoxide add $dir; "OK" }
+
+  for $dir in $dirs {
+    ^zoxide add $dir
+  }
 }

@@ -16,10 +16,14 @@ export def names [] {
   }
 }
 
-export def rate_limit [] {
+export def rate-limit [] {
   let rate = (http get --max-time 10sec https://api.github.com/rate_limit | get rate)
   let reset = ($rate | get reset | $in * 1_000_000_000 | into datetime --offset -5)
   return ($rate | upsert reset $reset)
+}
+
+export def rate-limit-v2 [] {
+  curl -s -L https://api.github.com/rate_limit | from json | get rate
 }
 
 export def releases [name: string@names] {
@@ -42,6 +46,11 @@ export def releases-latest [name: string@names] {
     error make -u { msg: $"($name): ($response | get body.message)" }
   }
   $response | get body
+}
+
+
+export def releases-latest-v2 [name: string@names] {
+  curl -s -L https://api.github.com/repos/($name)/releases/latest | from json
 }
 
 export def list [] {
@@ -303,7 +312,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
   let wait = 1min
   mut remaining = true
   while $remaining {
-    let rate_limit = rate_limit
+    let rate_limit = rate-limit-v2
     if $loop {
       if $rate_limit.remaining == 0 {
         print $"wait ($wait)"
@@ -321,7 +330,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
     }
   }
 
-  let rate_limit = rate_limit
+  let rate_limit = rate-limit-v2
   let last_index = get-index-by-date
   mut repos = open $env.GHUB_REPOSITORY_PATH
   let length = ($repos | length)
@@ -372,9 +381,9 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
       }
     } else {
       try {
-        releases-latest $old.name
+        releases-latest-v2 $old.name
       } catch {|err|
-        print $"(ansi red_bold) error release latest (ansi reset)"
+        print $"(ansi red_bold) error release latest (ansi reset)" $err
         if $loop {
           let wait = 3sec
           print $"wait ($wait)"
@@ -452,7 +461,7 @@ def confirm [prompt: string] {
 }
 
 export def "repo upgrade" [] {
-  let rate_limit = rate_limit
+  let rate_limit = rate-limit
   if $rate_limit.remaining == 0 {
     return ($rate_limit | select reset remaining)
   }
