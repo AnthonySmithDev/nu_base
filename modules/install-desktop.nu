@@ -45,7 +45,7 @@ export def main [] {
     pkg pacman flatpak
 
     # pkg aur vieb-browser
-    # pkg aur timg
+    pkg aur base
   }
 
   pkg sh brave-browser

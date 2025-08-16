@@ -306,7 +306,7 @@ def golang-versions [] {
   http get https://go.dev/dl/?mode=json | get version | str replace go ""
 }
 
-export def --env golang [ version?: string@golang-versions, --force(-f) ] {
+export def --env golang [ version?: string@golang-versions = "1.24.6", --force(-f) ] {
   let version = ($version | default (golang-versions | first))
   print-version Golang $version
 

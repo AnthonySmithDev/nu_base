@@ -28,7 +28,17 @@ export def mdns-connect [] {
   | where svc_type in ["_adb-tls-connect._tcp"]
 }
 
+export def mdns-check [] {
+  try {
+    systemctl is-active avahi-daemon
+  } catch {
+    sudo systemctl start avahi-daemon
+  }
+}
+
 export def "pair pin" [] {
+  mdns-check
+
   let devices = mdns-pairing | each { $"($in.ip):($in.port)" }
   if ($devices | is-empty) {
     return
@@ -49,6 +59,8 @@ export def "gen-qr" [] {
 }
 
 export def "pair qr" [] {
+  mdns-check
+
   gen-qr
 
   loop {
@@ -71,6 +83,8 @@ export def devices [] {
 }
 
 export def connect [] {
+  mdns-check
+
   let devices = (devices | where status == device)
   if ($devices | length) > 0 {
     return "Already connected device"

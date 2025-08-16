@@ -43,4 +43,8 @@ export def ghostty [] {
   install ghostty-git
 }
 
+export def base [] {
+  install timg qview neofech-git
+}
+
 # chaotic-aur/code-marketplace

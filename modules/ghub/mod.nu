@@ -312,7 +312,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
   let wait = 1min
   mut remaining = true
   while $remaining {
-    let rate_limit = rate-limit-v2
+    let rate_limit = rate-limit
     if $loop {
       if $rate_limit.remaining == 0 {
         print $"wait ($wait)"
@@ -330,7 +330,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
     }
   }
 
-  let rate_limit = rate-limit-v2
+  let rate_limit = rate-limit
   let last_index = get-index-by-date
   mut repos = open $env.GHUB_REPOSITORY_PATH
   let length = ($repos | length)
@@ -381,7 +381,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
       }
     } else {
       try {
-        releases-latest-v2 $old.name
+        releases-latest $old.name
       } catch {|err|
         print $"(ansi red_bold) error release latest (ansi reset)" $err
         if $loop {
