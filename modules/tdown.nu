@@ -1,15 +1,12 @@
 
 export-env {
   $env.TDOWN_DIR = ($env.HOME | path join .tdown)
-  $env.TDOWN_CHAT_PATH = ($env.TDOWN_DIR | path join chats.json)
-  $env.TDOWN_EXPORT_PATH = ($env.TDOWN_DIR | path join export)
-  $env.TDOWN_DOWNLOAD_PATH = ($env.TDOWN_DIR | path join download)
-}
 
-export def setup [] {
-  mkdir $env.TDOWN_DIR
-  mkdir $env.TDOWN_EXPORT_PATH
-  mkdir $env.TDOWN_DOWNLOAD_PATH
+  $env.TDOWN_CHAT_JSON_PATH = ($env.TDOWN_DIR | path join chats.json)
+  $env.TDOWN_EXPORT_JSON_PATH = ($env.TDOWN_DIR | path join export.json)
+
+  $env.TDOWN_EXPORT_DIR_PATH = ($env.TDOWN_DIR | path join export)
+  $env.TDOWN_DOWNLOAD_DIR_PATH = ($env.TDOWN_DIR | path join download)
 }
 
 def to-custom-name [] {
@@ -24,16 +21,17 @@ export def 'chat ls' [] {
     | upsert custom_name {|row| ($row.visible_name | to-custom-name)}
   )
 
-  $chats | save --force $env.TDOWN_CHAT_PATH
+  mkdir $env.TDOWN_DIR
+  $chats | save --force $env.TDOWN_CHAT_JSON_PATH
   return $chats
 }
 
 def chats [] {
-  open $env.TDOWN_CHAT_PATH | select id custom_name
+  open $env.TDOWN_CHAT_JSON_PATH
 }
 
 def chats_get_id [] {
-  chats | rename value description
+  chats | select id visible_name | rename value description
 }
 
 def chats_get_name_by_id [id: int] {
@@ -41,20 +39,22 @@ def chats_get_name_by_id [id: int] {
 }
 
 def export-path [chat_id: int, name: string] {
-  $env.TDOWN_EXPORT_PATH | path join $"($chat_id)_($name).json"
+  $env.TDOWN_EXPORT_DIR_PATH | path join $"($chat_id)_($name).json"
 }
 
 def download-path [chat_id: int, name: string] {
-  $env.TDOWN_DOWNLOAD_PATH | path join $"($chat_id)_($name)"
+  $env.TDOWN_DOWNLOAD_DIR_PATH | path join $"($chat_id)_($name)"
 }
 
 def chat-select [] {
-  open $env.TDOWN_CHAT_PATH
+  open $env.TDOWN_CHAT_JSON_PATH
   | each {|row| $"(ansi green)($row.id)(ansi reset) _ ($row.visible_name)"}
   | to text | fzf --multi --exact --ansi --height=40 | lines | parse "{id} _ {name}" | get id | into int
 }
 
 export def 'chat export' [...chat_ids: int@chats_get_id, --last(-l): int, --force(-f)] {
+  mkdir $env.TDOWN_EXPORT_DIR_PATH
+
   let select_ids = if ($chat_ids | is-empty) {
     chat-select
   } else {
@@ -117,7 +117,7 @@ export def 'chat update' [chat_id: int@files_get_ids] {
 }
 
 def export-files [] {
-  ls -s $env.TDOWN_EXPORT_PATH | where type == file | each {|row|
+  ls -s $env.TDOWN_EXPORT_DIR_PATH | where type == file | each {|row|
     let parse = ($row.name | split column '.' filename | get filename | parse "{id}_{name}" | first)
     {
       id: ($parse.id | into int)
@@ -149,10 +149,14 @@ def files_get_name_by_id [id: int] {
   export-files | where id == $id | first | get name
 }
 
-export def export-select [] {
-  let ids = (ls -s $env.TDOWN_EXPORT_PATH | where type == file | get name |  parse "{id}_{name}" | get id | into int)
+export def export-ids [] {
+  ls -s $env.TDOWN_EXPORT_DIR_PATH | sort-by size | where type == file | get name |  parse "{id}_{name}" | get id | into int
+}
 
-  open $env.TDOWN_CHAT_PATH
+export def export-select [] {
+  let ids = export-ids
+
+  open $env.TDOWN_CHAT_JSON_PATH
   | where id in $ids
   | each {|row| $"(ansi green)($row.id)(ansi reset) _ ($row.visible_name)"}
   | to text | fzf --exact --ansi --height=20 | lines | parse "{id} _ {name}" | get id | into int
@@ -258,8 +262,13 @@ export def download [
   ...chat_ids: int@files_get_ids,
   --max-size(-s): filesize = 100mb
   --max-dur(-d): duration = 10min
+  --all(-a)
 ] {
-  let select_ids = if ($chat_ids | is-empty) {
+  mkdir $env.TDOWN_DOWNLOAD_DIR_PATH
+
+  let select_ids = if $all {
+    export-ids
+  } else if ($chat_ids | is-empty) {
     export-select
   } else {
     $chat_ids

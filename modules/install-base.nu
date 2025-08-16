@@ -45,7 +45,6 @@ export def main [] {
   }
 
   if (exists-external pacman) {
-    pkg pacman update
     pkg pacman base
   }
 
