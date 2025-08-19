@@ -173,22 +173,23 @@ export def sum [...chat_ids: int@files_get_ids, --skip(-s)] {
     let chat_name = files_get_name_by_id $chat_id
     let export_path = export-path $chat_id $chat_name
 
-    mut video_sizes = []
-    mut image_sizes = []
-    mut video_count = 0
-    mut image_count = 0
-    mut skipped_videos = 0
-    mut skipped_images = 0
+    mut videos_sizes = []
+    mut videos_count = 0
+    mut videos_skip = 0
+
+    mut photos_sizes = []
+    mut photos_count = 0
+    mut photos_skip = 0
 
     for $message in (open $export_path | get messages) {
       if ($message.file | str ends-with ".mp4") {
         if not $message.raw.Media.Video {
-          $skipped_videos += 1
+          $videos_skip += 1
           continue
         }
         let size = ($message.raw.Media.Document.Size | into filesize)
         if $skip and ($size > 100mb) {
-          $skipped_videos += 1
+          $videos_skip += 1
           continue
         }
         let attributes = ($message.raw.Media.Document.Attributes)
@@ -199,61 +200,62 @@ export def sum [...chat_ids: int@files_get_ids, --skip(-s)] {
         }
         let duration = ($attribute | get Duration | into duration --unit sec)
         if $skip and $duration > 10min {
-          $skipped_videos += 1
+          $videos_skip += 1
           continue
         }
         let width = ($attribute | get W)
         let height = ($attribute | get H)
         let higher = if $width > $height { $width } else { $height }
         if $skip and ($higher < 720) {
-          $skipped_videos += 1
+          $videos_skip += 1
           continue
         }
-        $video_sizes ++= [$size]
-        $video_count += 1
+        $videos_sizes ++= [$size]
+        $videos_count += 1
       } else if ($message.file | str ends-with ".jpg") {
         if $message.raw.Media.Photo? == null {
-          $skipped_images += 1
+          $photos_skip += 1
           continue
         }
         let last_size = ($message.raw.Media.Photo.Sizes | last)
         let size = if ($last_size | get Sizes?) != null {
-          $last_size | get Sizes | last
+          $last_size | get Sizes | last | into filesize
         } else {
-          $last_size | get Size
+          $last_size | get Size | into filesize
         }
         let width = $last_size | get W?
         let height = $last_size | get H?
-        if $skip and ($width != null and $height != null) {
+        if $width != null and $height != null {
           let higher = if $width > $height { $width } else { $height }
-          if $higher < 720 {
-            $skipped_images += 1
+          if $skip and ($higher < 720) {
+            $photos_skip += 1
             continue
           }
         }
-        $image_sizes ++= [($size | into filesize)]
-        $image_count += 1
+        $photos_sizes ++= [$size]
+        $photos_count += 1
       }
     }
 
     let info = {
       chat_id: $chat_id
-      skip: {
-        "images": $skipped_images,
-        "videos": $skipped_videos,
-        "total": ($skipped_videos + $skipped_images)
+      photos: {
+        "skip": $photos_skip
+        "count": $photos_count
+        "size": ($photos_sizes | math sum)
       }
-      count: {
-        "images": $image_count,
-        "videos": $video_count,
-        "total": ($video_count + $image_count)
-      },
-      sizes: {
-        "images": ($image_sizes | math sum),
-        "videos": ($video_sizes | math sum),
-        "total": ($image_sizes | append $video_sizes | math sum)
-      },
+      videos: {
+        "skip": $videos_skip
+        "count": $videos_count
+        "size": ($videos_sizes | math sum)
+      }
+      total: {
+        "skip": ($videos_skip + $photos_skip)
+        "count": ($videos_count + $photos_count)
+        "size": ($photos_sizes | append $videos_sizes | math sum)
+      }
     }
+
     print ($info | table --expand)
   }
 }
@@ -262,6 +264,7 @@ export def download [
   ...chat_ids: int@files_get_ids,
   --max-size(-s): filesize = 100mb
   --max-dur(-d): duration = 10min
+  --min-res(-d): int = 720
   --all(-a)
 ] {
   mkdir $env.TDOWN_DOWNLOAD_DIR_PATH
@@ -277,70 +280,83 @@ export def download [
     let chat_name = files_get_name_by_id $chat_id
     let export_path = export-path $chat_id $chat_name
     let download_path = download-path $chat_id $chat_name
+    mkdir $download_path
 
-    mut count_images = 0
-    mut count_videos = 0
-    mut low_images = 0
-    mut low_videos = 0
-    mut too_long = 0
-    mut too_large = 0
-    mut existing_images = 0
-    mut existing_videos = 0
+    mut photos_count = 0
+    mut photos_exist = 0
+    mut photos_low = 0
+    mut photos_sizes = []
 
-    print "Open file..."
+    mut videos_count = 0
+    mut videos_exist = 0
+    mut videos_low = 0
+    mut videos_long = 0
+    mut videos_large = 0
+    mut videos_sizes = []
+
+    let is_large = (ls $export_path | first | get size | $in > 5mb)
+    if $is_large { print "Opening large file, please wait..." }
     let messages = (open $export_path | get messages)
-    print "Open file OK"
+    if $is_large { print "File loaded successfully" }
 
     mut urls = []
   
     for message in $messages {
       let url = $"https://t.me/c/($chat_id)/($message.id)"
       if ($message.raw.Media?.Photo? != null) {
-        $count_images += 1
+        $photos_count += 1
         let last_size = ($message.raw.Media.Photo.Sizes | last)
+        let size = if ($last_size | get Sizes?) != null {
+          $last_size | get Sizes | last | into filesize
+        } else {
+          $last_size | get Size | into filesize
+        }
         let width = $last_size | get W?
         let height = $last_size | get H?
         if ($width != null and $height != null) {
           let higher = if $width > $height { $width } else { $height }
-          if $higher < 720 {
-            $low_images += 1
+          if $higher < $min_res {
+            $photos_low += 1
             continue
           }
         }
+        $photos_sizes = ($photos_sizes | append $size)
       }
       if ($message.raw.Media?.Video? == true) {
-        $count_videos += 1
+        $videos_count += 1
         let size = ($message.raw.Media?.Document?.Size | into filesize)
         if $size > $max_size {
-          $too_large += 1
+          $videos_large += 1
           continue
         }
-        let attributes = ($message.raw.Media.Document.Attributes | where Duration != 0)
-        if ($attributes | is-empty) {
-          continue
+        let attributes = ($message.raw.Media.Document.Attributes)
+        let attribute = if ($attributes | length) > 1 {
+          $attributes | where Duration != 0 | first
+        } else {
+          $attributes | first
         }
-        let attribute = ($attributes | first)
         let duration = ($attribute | get Duration | into duration --unit sec)
         if $duration > $max_dur {
-          $too_long += 1
+          $videos_long += 1
           continue
         }
         let width = ($attribute | get W)
         let height = ($attribute | get H)
         let higher = if $width > $height { $width } else { $height }
-        if $higher < 720 {
-          $low_videos += 1
+        if $higher < $min_res {
+          $videos_low += 1
           continue
         }
+        $videos_sizes = ($videos_sizes | append $size)
       }
       let basename = ([$chat_id $message.id $message.file] | str join '_')
       let file_path = ($download_path | path join $basename)
       if ($file_path | path exists) {
         if ($message.raw.Media?.Photo? != null) {
-          $existing_images += 1
+          $photos_exist += 1
         }
         if ($message.raw.Media?.Video? == true) {
-          $existing_videos += 1
+          $videos_exist += 1
         }
         continue
       }
@@ -349,33 +365,38 @@ export def download [
 
     let info = {
       chat_id: $chat_id
-      exist: {
-        "images": $existing_images
-        "videos": $existing_videos
-        "total": ($existing_images + $existing_videos)
+      photos: {
+        "size": ($photos_sizes | math sum)
+        "exist": $photos_exist
+        "count": $photos_count
+        "low": $photos_low
       }
-      count: {
-        "images": $count_images
-        "videos": $count_videos
-        "total": ($count_images + $count_videos)
+      videos: {
+        "size": ($videos_sizes | math sum)
+        "exist": $videos_exist
+        "count": $videos_count
+        "low": $videos_low
+        "long": $videos_long
+        "large": $videos_large
       }
-      low: {
-        "images": $low_images
-        "videos": $low_videos
-        "total": ($low_images + $low_videos)
-      }
-      video: {
-        "long": $too_long
-        "large": $too_large
+      total: {
+        "size": ($photos_sizes | append $videos_sizes | math sum)
+        "exits": ($photos_exist + $videos_exist)
+        "count": ($photos_count + $videos_count)
+        "low": ($photos_low + $videos_low)
       }
     }
   
     print ($info | table --expand)
 
     for url in $urls {
-      let args = [download --continue --dir $download_path --url $url]
-      tdl ...$args
-      # print $"tdl ($args | str join ' ')"
+      let args = [--continue --dir $download_path --url $url]
+      try {
+        tdl download ...$args
+      } catch {
+        # print $"tdl download ($args | str join ' ')"
+        break
+      }
     }
   }
 }

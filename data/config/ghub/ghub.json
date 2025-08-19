@@ -282,8 +282,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.5.5",
-    "created_at": "2025-08-16T15:00:04Z",
+    "tag_name": "v0.5.6",
+    "created_at": "2025-08-18T15:56:22Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",
@@ -1231,8 +1231,8 @@
   {
     "category": "extra",
     "name": "zed-industries/zed",
-    "tag_name": "v0.199.8",
-    "created_at": "2025-08-16T15:26:57Z",
+    "tag_name": "v0.199.10",
+    "created_at": "2025-08-18T16:27:25Z",
     "assets": [
       "Zed-aarch64.dmg",
       "zed-linux-aarch64.tar.gz",
@@ -1752,8 +1752,8 @@
   {
     "category": "extra",
     "name": "bettercap/bettercap",
-    "tag_name": "v2.41.1",
-    "created_at": "2025-07-15T09:53:00Z",
+    "tag_name": "v2.41.3",
+    "created_at": "2025-08-18T15:08:44Z",
     "assets": [
       "bettercap_darwin_arm64.zip",
       "bettercap_linux_amd64.zip",
@@ -2525,8 +2525,8 @@
   {
     "category": "extra",
     "name": "ast-grep/ast-grep",
-    "tag_name": "0.39.3",
-    "created_at": "2025-08-05T19:41:47Z",
+    "tag_name": "0.39.4",
+    "created_at": "2025-08-17T00:40:48Z",
     "assets": [
       "app-aarch64-apple-darwin.zip",
       "app-aarch64-pc-windows-msvc.zip",
@@ -3003,64 +3003,51 @@
   {
     "category": "other",
     "name": "VSCodium/vscodium",
-    "tag_name": "1.103.15418",
-    "created_at": "2025-08-13T18:22:15Z",
+    "tag_name": "1.103.15539",
+    "created_at": "2025-08-18T19:12:19Z",
     "assets": [
-      "codium-1.103.15418-el8.aarch64.rpm",
-      "codium-1.103.15418-el8.x86_64.rpm",
-      "codium_1.103.15418_amd64.deb",
-      "codium_1.103.15418_arm64.deb",
-      "VSCodium-1.103.15418-src.tar.gz",
-      "VSCodium-1.103.15418-src.zip",
-      "VSCodium-1.103.15418.glibc2.29-x86_64.AppImage",
-      "VSCodium-1.103.15418.glibc2.29-x86_64.AppImage.zsync",
-      "vscodium-cli-darwin-arm64-1.103.15418.tar.gz",
-      "vscodium-cli-darwin-x64-1.103.15418.tar.gz",
-      "vscodium-cli-linux-arm64-1.103.15418.tar.gz",
-      "vscodium-cli-linux-x64-1.103.15418.tar.gz",
-      "vscodium-cli-win32-arm64-1.103.15418.tar.gz",
-      "vscodium-cli-win32-x64-1.103.15418.tar.gz",
-      "VSCodium-darwin-arm64-1.103.15418.zip",
-      "VSCodium-darwin-x64-1.103.15418.zip",
-      "VSCodium-linux-arm64-1.103.15418.tar.gz",
-      "VSCodium-linux-loong64-1.103.15418.tar.gz",
-      "VSCodium-linux-ppc64le-1.103.15418.tar.gz",
-      "VSCodium-linux-riscv64-1.103.15418.tar.gz",
-      "VSCodium-linux-x64-1.103.15418.tar.gz",
-      "vscodium-reh-alpine-arm64-1.103.15418.tar.gz",
-      "vscodium-reh-alpine-x64-1.103.15418.tar.gz",
-      "vscodium-reh-darwin-arm64-1.103.15418.tar.gz",
-      "vscodium-reh-darwin-x64-1.103.15418.tar.gz",
-      "vscodium-reh-linux-arm64-1.103.15418.tar.gz",
-      "vscodium-reh-linux-armhf-1.103.15418.tar.gz",
-      "vscodium-reh-linux-loong64-1.103.15418.tar.gz",
-      "vscodium-reh-linux-ppc64le-1.103.15418.tar.gz",
-      "vscodium-reh-linux-riscv64-1.103.15418.tar.gz",
-      "vscodium-reh-linux-s390x-1.103.15418.tar.gz",
-      "vscodium-reh-linux-x64-1.103.15418.tar.gz",
-      "vscodium-reh-web-alpine-arm64-1.103.15418.tar.gz",
-      "vscodium-reh-web-alpine-x64-1.103.15418.tar.gz",
-      "vscodium-reh-web-darwin-arm64-1.103.15418.tar.gz",
-      "vscodium-reh-web-darwin-x64-1.103.15418.tar.gz",
-      "vscodium-reh-web-linux-arm64-1.103.15418.tar.gz",
-      "vscodium-reh-web-linux-armhf-1.103.15418.tar.gz",
-      "vscodium-reh-web-linux-loong64-1.103.15418.tar.gz",
-      "vscodium-reh-web-linux-ppc64le-1.103.15418.tar.gz",
-      "vscodium-reh-web-linux-riscv64-1.103.15418.tar.gz",
-      "vscodium-reh-web-linux-s390x-1.103.15418.tar.gz",
-      "vscodium-reh-web-linux-x64-1.103.15418.tar.gz",
-      "vscodium-reh-web-win32-x64-1.103.15418.tar.gz",
-      "vscodium-reh-win32-x64-1.103.15418.tar.gz",
-      "VSCodium-win32-arm64-1.103.15418.zip",
-      "VSCodium-win32-x64-1.103.15418.zip",
-      "VSCodium-x64-1.103.15418.msi",
-      "VSCodium-x64-updates-disabled-1.103.15418.msi",
-      "VSCodium.arm64.1.103.15418.dmg",
-      "VSCodium.x64.1.103.15418.dmg",
-      "VSCodiumSetup-arm64-1.103.15418.exe",
-      "VSCodiumSetup-x64-1.103.15418.exe",
-      "VSCodiumUserSetup-arm64-1.103.15418.exe",
-      "VSCodiumUserSetup-x64-1.103.15418.exe"
+      "codium-1.103.15539-el8.aarch64.rpm",
+      "codium-1.103.15539-el8.armv7hl.rpm",
+      "codium-1.103.15539-el8.x86_64.rpm",
+      "codium_1.103.15539_amd64.deb",
+      "codium_1.103.15539_arm64.deb",
+      "codium_1.103.15539_armhf.deb",
+      "VSCodium-1.103.15539-src.tar.gz",
+      "VSCodium-1.103.15539-src.zip",
+      "VSCodium-1.103.15539.glibc2.29-x86_64.AppImage",
+      "VSCodium-1.103.15539.glibc2.29-x86_64.AppImage.zsync",
+      "vscodium-cli-darwin-arm64-1.103.15539.tar.gz",
+      "vscodium-cli-linux-arm64-1.103.15539.tar.gz",
+      "vscodium-cli-linux-armhf-1.103.15539.tar.gz",
+      "vscodium-cli-linux-x64-1.103.15539.tar.gz",
+      "VSCodium-darwin-arm64-1.103.15539.zip",
+      "VSCodium-linux-arm64-1.103.15539.tar.gz",
+      "VSCodium-linux-armhf-1.103.15539.tar.gz",
+      "VSCodium-linux-loong64-1.103.15539.tar.gz",
+      "VSCodium-linux-ppc64le-1.103.15539.tar.gz",
+      "VSCodium-linux-riscv64-1.103.15539.tar.gz",
+      "VSCodium-linux-x64-1.103.15539.tar.gz",
+      "vscodium-reh-alpine-arm64-1.103.15539.tar.gz",
+      "vscodium-reh-alpine-x64-1.103.15539.tar.gz",
+      "vscodium-reh-darwin-arm64-1.103.15539.tar.gz",
+      "vscodium-reh-linux-arm64-1.103.15539.tar.gz",
+      "vscodium-reh-linux-armhf-1.103.15539.tar.gz",
+      "vscodium-reh-linux-loong64-1.103.15539.tar.gz",
+      "vscodium-reh-linux-ppc64le-1.103.15539.tar.gz",
+      "vscodium-reh-linux-riscv64-1.103.15539.tar.gz",
+      "vscodium-reh-linux-s390x-1.103.15539.tar.gz",
+      "vscodium-reh-linux-x64-1.103.15539.tar.gz",
+      "vscodium-reh-web-alpine-arm64-1.103.15539.tar.gz",
+      "vscodium-reh-web-alpine-x64-1.103.15539.tar.gz",
+      "vscodium-reh-web-darwin-arm64-1.103.15539.tar.gz",
+      "vscodium-reh-web-linux-arm64-1.103.15539.tar.gz",
+      "vscodium-reh-web-linux-armhf-1.103.15539.tar.gz",
+      "vscodium-reh-web-linux-loong64-1.103.15539.tar.gz",
+      "vscodium-reh-web-linux-ppc64le-1.103.15539.tar.gz",
+      "vscodium-reh-web-linux-riscv64-1.103.15539.tar.gz",
+      "vscodium-reh-web-linux-s390x-1.103.15539.tar.gz",
+      "vscodium-reh-web-linux-x64-1.103.15539.tar.gz",
+      "VSCodium.arm64.1.103.15539.dmg"
     ],
     "linux_x64": {
       "ends": "VSCodium-linux-x64"
@@ -3222,12 +3209,12 @@
   {
     "category": "other",
     "name": "ventoy/Ventoy",
-    "tag_name": "v1.1.05",
-    "created_at": "2025-02-24T11:29:46Z",
+    "tag_name": "v1.1.07",
+    "created_at": "2025-08-18T15:20:15Z",
     "assets": [
-      "ventoy-1.1.05-linux.tar.gz",
-      "ventoy-1.1.05-livecd.iso",
-      "ventoy-1.1.05-windows.zip"
+      "ventoy-1.1.07-linux.tar.gz",
+      "ventoy-1.1.07-livecd.iso",
+      "ventoy-1.1.07-windows.zip"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -4239,14 +4226,14 @@
   {
     "category": "other",
     "name": "Yakitrak/obsidian-cli",
-    "tag_name": "v0.1.8",
-    "created_at": "2024-12-27T19:18:17Z",
+    "tag_name": "v0.1.9",
+    "created_at": "2025-08-18T15:17:47Z",
     "assets": [
-      "obsidian-cli_0.1.8_darwin_all.tar.gz",
-      "obsidian-cli_0.1.8_linux_amd64.tar.gz",
-      "obsidian-cli_0.1.8_linux_arm64.tar.gz",
-      "obsidian-cli_0.1.8_windows_amd64.tar.gz",
-      "obsidian-cli_0.1.8_windows_arm64.tar.gz"
+      "obsidian-cli_0.1.9_darwin_all.tar.gz",
+      "obsidian-cli_0.1.9_linux_amd64.tar.gz",
+      "obsidian-cli_0.1.9_linux_arm64.tar.gz",
+      "obsidian-cli_0.1.9_windows_amd64.tar.gz",
+      "obsidian-cli_0.1.9_windows_arm64.tar.gz"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -4255,18 +4242,18 @@
   {
     "category": "other",
     "name": "obsidianmd/obsidian-releases",
-    "tag_name": "v1.8.10",
-    "created_at": "2025-04-22T14:52:28Z",
+    "tag_name": "v1.9.10",
+    "created_at": "2025-08-18T20:14:17Z",
     "assets": [
-      "Obsidian-1.8.10-arm64.AppImage",
-      "obsidian-1.8.10-arm64.tar.gz",
-      "Obsidian-1.8.10.apk",
-      "Obsidian-1.8.10.AppImage",
-      "obsidian-1.8.10.asar.gz",
-      "Obsidian-1.8.10.dmg",
-      "Obsidian-1.8.10.exe",
-      "obsidian-1.8.10.tar.gz",
-      "obsidian_1.8.10_amd64.deb"
+      "Obsidian-1.9.10-arm64.AppImage",
+      "obsidian-1.9.10-arm64.tar.gz",
+      "Obsidian-1.9.10.apk",
+      "Obsidian-1.9.10.AppImage",
+      "obsidian-1.9.10.asar.gz",
+      "Obsidian-1.9.10.dmg",
+      "Obsidian-1.9.10.exe",
+      "obsidian-1.9.10.tar.gz",
+      "obsidian_1.9.10_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".tar.gz"
@@ -4322,21 +4309,21 @@
   {
     "category": "other",
     "name": "toeverything/AFFiNE",
-    "tag_name": "v0.24.0",
-    "created_at": "2025-08-11T08:29:49Z",
+    "tag_name": "v0.24.1",
+    "created_at": "2025-08-18T01:59:34Z",
     "assets": [
-      "affine-0.24.0-stable-linux-x64.appimage",
-      "affine-0.24.0-stable-linux-x64.deb",
-      "affine-0.24.0-stable-linux-x64.flatpak",
-      "affine-0.24.0-stable-linux-x64.zip",
-      "affine-0.24.0-stable-macos-arm64.dmg",
-      "affine-0.24.0-stable-macos-arm64.zip",
-      "affine-0.24.0-stable-macos-x64.dmg",
-      "affine-0.24.0-stable-macos-x64.zip",
-      "affine-0.24.0-stable-windows-arm64.exe",
-      "affine-0.24.0-stable-windows-arm64.nsis.exe",
-      "affine-0.24.0-stable-windows-x64.exe",
-      "affine-0.24.0-stable-windows-x64.nsis.exe",
+      "affine-0.24.1-stable-linux-x64.appimage",
+      "affine-0.24.1-stable-linux-x64.deb",
+      "affine-0.24.1-stable-linux-x64.flatpak",
+      "affine-0.24.1-stable-linux-x64.zip",
+      "affine-0.24.1-stable-macos-arm64.dmg",
+      "affine-0.24.1-stable-macos-arm64.zip",
+      "affine-0.24.1-stable-macos-x64.dmg",
+      "affine-0.24.1-stable-macos-x64.zip",
+      "affine-0.24.1-stable-windows-arm64.exe",
+      "affine-0.24.1-stable-windows-arm64.nsis.exe",
+      "affine-0.24.1-stable-windows-x64.exe",
+      "affine-0.24.1-stable-windows-x64.nsis.exe",
       "default.env.example"
     ],
     "linux_x64": {
@@ -4716,22 +4703,22 @@
   {
     "category": "other",
     "name": "raphamorim/rio",
-    "tag_name": "v0.2.28",
-    "created_at": "2025-08-10T20:08:43Z",
+    "tag_name": "v0.2.29",
+    "created_at": "2025-08-17T22:13:55Z",
     "assets": [
       "rio-installer-aarch64.msi",
       "rio-installer-x86_64.msi",
       "rio-portable-aarch64.exe",
       "rio-portable-x86_64.exe",
       "rio.dmg",
-      "rioterm-0.2.28-1.aarch64_wayland.rpm",
-      "rioterm-0.2.28-1.aarch64_x11.rpm",
-      "rioterm-0.2.28-1.x86_64_wayland.rpm",
-      "rioterm-0.2.28-1.x86_64_x11.rpm",
-      "rioterm_0.2.28_amd64_wayland.deb",
-      "rioterm_0.2.28_amd64_x11.deb",
-      "rioterm_0.2.28_arm64_wayland.deb",
-      "rioterm_0.2.28_arm64_x11.deb"
+      "rioterm-0.2.29-1.aarch64_wayland.rpm",
+      "rioterm-0.2.29-1.aarch64_x11.rpm",
+      "rioterm-0.2.29-1.x86_64_wayland.rpm",
+      "rioterm-0.2.29-1.x86_64_x11.rpm",
+      "rioterm_0.2.29_amd64_wayland.deb",
+      "rioterm_0.2.29_amd64_x11.deb",
+      "rioterm_0.2.29_arm64_wayland.deb",
+      "rioterm_0.2.29_arm64_x11.deb"
     ]
   },
   {
@@ -4769,8 +4756,8 @@
   {
     "category": "other",
     "name": "immich-app/immich",
-    "tag_name": "v1.138.0",
-    "created_at": "2025-08-13T17:08:29Z",
+    "tag_name": "v1.138.1",
+    "created_at": "2025-08-18T15:23:35Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -5028,17 +5015,17 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.26.0",
-    "created_at": "2025-08-11T06:07:31Z",
+    "tag_name": "v0.27.0",
+    "created_at": "2025-08-17T21:12:13Z",
     "assets": [
-      "aider-desk-0.26.0-macos-arm64.dmg",
-      "aider-desk-0.26.0-macos-arm64.zip",
-      "aider-desk-0.26.0-macos-x64.dmg",
-      "aider-desk-0.26.0-macos-x64.zip",
-      "aider-desk-0.26.0-setup.exe",
-      "aider-desk-0.26.0.AppImage",
-      "aider-desk-0.26.0.x86_64.rpm",
-      "aider-desk_0.26.0_amd64.deb"
+      "aider-desk-0.27.0-macos-arm64.dmg",
+      "aider-desk-0.27.0-macos-arm64.zip",
+      "aider-desk-0.27.0-macos-x64.dmg",
+      "aider-desk-0.27.0-macos-x64.zip",
+      "aider-desk-0.27.0-setup.exe",
+      "aider-desk-0.27.0.AppImage",
+      "aider-desk-0.27.0.x86_64.rpm",
+      "aider-desk_0.27.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -5977,16 +5964,16 @@
   {
     "category": "android",
     "name": "saber-notes/saber",
-    "tag_name": "v0.26.3",
-    "created_at": "2025-08-15T00:34:29Z",
+    "tag_name": "v0.26.4",
+    "created_at": "2025-08-18T14:37:23Z",
     "assets": [
-      "Saber-0.26.3-x86_64.AppImage",
-      "Saber-0.26.3-x86_64.AppImage.zsync",
-      "SaberInstaller_v0.26.3.exe",
-      "Saber_FOSS_v0.26.3.apk",
-      "Saber_v0.26.3.apk",
-      "Saber_v0.26.3_Linux_arm64.tar.gz",
-      "Saber_v0.26.3_Linux_x86_64.tar.gz"
+      "Saber-0.26.4-x86_64.AppImage",
+      "Saber-0.26.4-x86_64.AppImage.zsync",
+      "SaberInstaller_v0.26.4.exe",
+      "Saber_FOSS_v0.26.4.apk",
+      "Saber_v0.26.4.apk",
+      "Saber_v0.26.4_Linux_arm64.tar.gz",
+      "Saber_v0.26.4_Linux_x86_64.tar.gz"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -6153,8 +6140,8 @@
   {
     "category": "android",
     "name": "stratumauth/app",
-    "tag_name": "v1.3.0",
-    "created_at": "2025-06-14T13:27:17Z",
+    "tag_name": "v1.4.0",
+    "created_at": "2025-08-17T11:36:51Z",
     "assets": [
       "com.stratumauth.app-arm64-v8a.fdroid.apk",
       "com.stratumauth.app-armeabi-v7a.fdroid.apk",
@@ -6280,8 +6267,8 @@
   {
     "category": "android",
     "name": "mostafaalagamy/Metrolist",
-    "tag_name": "v12.3.0",
-    "created_at": "2025-08-09T02:16:07Z",
+    "tag_name": "v12.4.0",
+    "created_at": "2025-08-16T19:31:39Z",
     "assets": [
       "app-arm64-release.apk",
       "app-armeabi-release.apk",
