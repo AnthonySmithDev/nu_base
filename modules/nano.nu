@@ -1,6 +1,6 @@
 
 def nano-rpc [body: record] {
-   http post -u $env.NANO_USER -p $env.NANO_PASS -t 'application/json' $env.NANO_RPC $body
+   http post --allow-errors -u $env.NANO_USER -p $env.NANO_PASS -t 'application/json' $env.NANO_RPC $body
 }
 
 export def account-balance [account: string] {

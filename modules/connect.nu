@@ -167,7 +167,7 @@ export def setup [
   copy-key-to-host $host
   copy-files-to-host $host
   exec-cmd-to-host $host (create-script $host)
-  # exec-cmd-to-host $host "bash ~/.local/nu_base/sh/nushell.sh"
+  exec-cmd-to-host $host "bash ~/.local/nu_base/sh/nushell.sh"
   exec-cmd-to-host $host "bash ~/.local/nu_base/sh/base.sh"
 }
 

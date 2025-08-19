@@ -33,8 +33,6 @@ use pkg/
 export def main [] {
   setup_zoxide
 
-  pkg font FiraCode
-
   if (exists-external apt) {
     pkg apt flatpak
 

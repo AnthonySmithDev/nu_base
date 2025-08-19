@@ -383,7 +383,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
       try {
         releases-latest $old.name
       } catch {|err|
-        print $"(ansi red_bold) error release latest (ansi reset)" $err
+        print $"(ansi red_bold) error release latest (ansi reset)"
         if $loop {
           let wait = 3sec
           print $"wait ($wait)"

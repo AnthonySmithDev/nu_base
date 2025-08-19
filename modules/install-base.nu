@@ -91,6 +91,13 @@ export def main [] {
 
   pkg sh rust
 
+  pkg font FiraCode
+
+  enable-service sshd
+  enable-service docker
+  enable-service libvirtd
+  enable-service avahi-daemon
+
   config mods
   config opencode
   config nushell
@@ -99,6 +106,12 @@ export def main [] {
   config yazi
 
   setup_zoxide
+}
+
+export def enable-service [service: string] {
+  if (systemctl list-unit-files | find $service | is-not-empty) {
+    sudo systemctl enable --now $service
+  }
 }
 
 export def setup_dir [] {

@@ -67,8 +67,7 @@ export def tools [] {
 
 export def mdns-scan [] {
   install avahi mdns-scan
-  sudo systemctl start avahi-daemon
-  sudo systemctl enable avahi-daemon
+  sudo systemctl enable --now avahi-daemon
 }
 
 export def remmina [] {
@@ -110,7 +109,9 @@ export def base [] {
 
     qrencode
     openssh
+    sshpass
     man-db
+    rsync
     less
     lsof
     just
