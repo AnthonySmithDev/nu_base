@@ -162,3 +162,7 @@ export def bnb-ws [
 export def copy-session-password [] {
   "website hashing saved gymnast lullaby occur salads yodel fewest ceiling dazed eldest gymnast" | wl-copy
 }
+
+export def aron-nano-work [] {
+  ssh Aron 'C:\Users\Aaron\Documents\nano-work-server\nano-work-server.exe -c 0 -g 0:0 -l 0.0.0.0:7076'
+}

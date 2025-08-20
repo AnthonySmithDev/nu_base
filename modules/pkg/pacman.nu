@@ -115,6 +115,7 @@ export def base [] {
     less
     lsof
     just
+    calc
 
     docker
     docker-compose
