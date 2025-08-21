@@ -1,6 +1,16 @@
 
-def nano-rpc [body: record] {
-   http post --allow-errors -u $env.NANO_USER -p $env.NANO_PASS -t "application/json" $env.NANO_RPC $body
+def nano-rpc [body: record, --debug(-d)] {
+   if $debug {
+      print $body
+   }
+   let data = http post -u $env.NANO_USER -p $env.NANO_PASS -t "application/json" $env.NANO_RPC $body
+   if "error" in $data {
+      error make -u { msg: $data.error }
+   }
+   if $debug {
+      print $data
+   }
+   return $data
 }
 
 export def account-balance [account: string] {
@@ -234,9 +244,10 @@ export def qr [address: string, amount: float = $min, label: string = "", messag
    qrrs $uri -m 1
 }
 
-export def send [to_address: string, amount: float] {
-   let key = key-expand $env.NANO_PRIVATE_KEY
-   let account = account-info $key.account
+export def send [to_address: string, amount: float, --private(-p): string] {
+   let private = ($private | default $env.NANO_PRIVATE_KEY)
+   let address = key-expand $private | get account
+   let account = account-info $address
    let balance = raw_to_nano $account.balance | into float
    if $balance < $amount {
       error make -u {
@@ -244,6 +255,31 @@ export def send [to_address: string, amount: float] {
       }
    }
    let balance_raw = nano_to_raw ($balance - $amount | to text)
-   let block = block-create $account.frontier $key.account $account.representative $balance_raw $to_address $env.NANO_PRIVATE_KEY
+   let block = block-create $account.frontier $address $account.representative $balance_raw $to_address $private
    process send $block.block
+}
+
+export def seed-create [] {
+   open /dev/urandom | tr -dc '0-9A-F' | head -c 64
+}
+
+export def seed-derived [from_seed: string, --max-index(-m): int = 100, --private(-p)] {
+   seq 0 $max_index | each {|index|
+      let key = deterministic-key $from_seed $index
+      let balance = (balance $key.account)
+      if $private {
+         {private: $key.private, address: $key.account, balance: $balance}
+      } else {
+         {address: $key.account, balance: $balance}
+      }
+   }
+}
+
+export def seed-send [from_seed: string, to_address: string, --max-index(-m): int = 100] {
+   for $account in (seed-derived $from_seed --max-index $max_index --private) {
+      if $account.balance == "0" {
+         continue
+      }
+      print (send $to_address ($account.balance | into float) --private $account.private)
+   }
 }

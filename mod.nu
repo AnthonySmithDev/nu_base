@@ -14,6 +14,7 @@ source alias/zellij.nu
 source alias/mods.nu
 
 # use rc.nu
+use nano.nu
 use ctx.nu
 # use tdown.nu
 use file-manager.nu
