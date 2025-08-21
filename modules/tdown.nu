@@ -194,7 +194,7 @@ export def sum [...chat_ids: int@files_get_ids, --skip(-s)] {
         }
         let attributes = ($message.raw.Media.Document.Attributes)
         let attribute = if ($attributes | length) > 1 {
-          $attributes | where Duration != 0 | first
+          $attributes | where Duration != null | first
         } else {
           $attributes | first
         }
@@ -240,19 +240,19 @@ export def sum [...chat_ids: int@files_get_ids, --skip(-s)] {
     let info = {
       chat_id: $chat_id
       photos: {
-        "skip": $photos_skip
-        "count": $photos_count
         "size": ($photos_sizes | math sum)
+        "count": $photos_count
+        "skip": $photos_skip
       }
       videos: {
-        "skip": $videos_skip
-        "count": $videos_count
         "size": ($videos_sizes | math sum)
+        "count": $videos_count
+        "skip": $videos_skip
       }
       total: {
-        "skip": ($videos_skip + $photos_skip)
-        "count": ($videos_count + $photos_count)
         "size": ($photos_sizes | append $videos_sizes | math sum)
+        "count": ($videos_count + $photos_count)
+        "skip": ($videos_skip + $photos_skip)
       }
     }
 
@@ -331,7 +331,7 @@ export def download [
         }
         let attributes = ($message.raw.Media.Document.Attributes)
         let attribute = if ($attributes | length) > 1 {
-          $attributes | where Duration != 0 | first
+          $attributes | where Duration != null | first
         } else {
           $attributes | first
         }
@@ -367,22 +367,24 @@ export def download [
       chat_id: $chat_id
       photos: {
         "size": ($photos_sizes | math sum)
-        "exist": $photos_exist
         "count": $photos_count
+        "exist": $photos_exist
         "low": $photos_low
+        "skip": ($photos_exist + $photos_low)
       }
       videos: {
         "size": ($videos_sizes | math sum)
-        "exist": $videos_exist
         "count": $videos_count
+        "exist": $videos_exist
         "low": $videos_low
         "long": $videos_long
         "large": $videos_large
+        "skip": ($videos_exist + $videos_low + $videos_long + $videos_large)
       }
       total: {
         "size": ($photos_sizes | append $videos_sizes | math sum)
-        "exits": ($photos_exist + $videos_exist)
         "count": ($photos_count + $videos_count)
+        "exits": ($photos_exist + $videos_exist)
         "low": ($photos_low + $videos_low)
       }
     }

@@ -83,6 +83,11 @@ def remove [path: string] {
   let dirs = (ls $path | where type == dir | get name)
   for dir in $dirs {
     let versions = (ls $dir | sort-by -r modified | get name)
+    if ($versions | length) == 0 {
+      print $"(ansi blue_bold) - ($dir)(ansi reset)"
+      rm -rfp $dir
+      continue
+    }
     if ($versions | length) == 1 {
       continue
     }

@@ -184,8 +184,9 @@ export def mount [
     let mount_point = ($mount_dir | path join ($remote_path | path basename))
     mkdir $mount_point
 
+    let args = [-o ro $"($host.username)@($host.hostname):($remote_path)" $mount_point]
     try {
-        sshfs -o ro $"($host.username)@($host.hostname):($remote_path)" $mount_point
+        sshfs ...$args
         return {
             status: "success",
             mount_point: $mount_point,
@@ -193,6 +194,7 @@ export def mount [
             host: ($host | reject password)
         }
     } catch {
+        print ($args | str join " ")
         return {
             status: "error",
             message: $"Failed to mount ($alias)",

@@ -107,11 +107,13 @@ export def base [] {
     chafa
     mediainfo
 
-    qrencode
     openssh
     sshpass
-    man-db
+    sshfs
     rsync
+
+    qrencode
+    man-db
     less
     lsof
     just
