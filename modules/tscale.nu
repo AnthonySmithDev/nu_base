@@ -57,8 +57,13 @@ export def backup [--dir(-d): path] {
   print (ansi green) "Backup completed. Tailscale restarted." (ansi reset)
 }
 
-export def restore [--dir(-d): path] {
-  let backup_dir = ($dir | default $env.TAILSCALED_BACKUP_DIR)
+def restore-dirs [] {
+  [laptop work]
+}
+
+export def restore [dir: string@restore-dirs] {
+  let config_dir = (config-get tailscale | path join $dir)
+  let backup_dir = ($config_dir | default $env.TAILSCALED_BACKUP_DIR)
   let backup_path = ($backup_dir | path join $env.TAILSCALED_BACKUP_NAME)
 
   if not ($backup_path | path exists) {

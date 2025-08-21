@@ -129,3 +129,17 @@ export def --env env-path [path: string --prepend(-p)] {
     }
   }
 }
+
+export def config-get [src_name: string] {
+  if ($env.CONFIG_DIRS? | is-empty) {
+    return
+  }
+
+  for config_dir in $env.CONFIG_DIRS {
+    let src_path = ($config_dir | path join $src_name)
+    if not ($src_path | path exists) {
+      continue
+    }
+    return $src_path
+  }
+}

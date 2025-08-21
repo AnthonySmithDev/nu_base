@@ -351,6 +351,10 @@ export def qview [] {
   bind-user --copy qView/qView.conf
 }
 
+export def kube [] {
+  bind-user --home kube/config .kube/config
+}
+
 export def imv [] {
   bind-user imv/config
 }
