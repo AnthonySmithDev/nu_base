@@ -34,8 +34,12 @@ def chats_get_id [] {
   chats | select id visible_name | rename value description
 }
 
+def chat_find_by_id [id: int] {
+  chats | where id == $id | first
+}
+
 def chats_get_name_by_id [id: int] {
-  chats | where id == $id | first | get custom_name
+  chat_find_by_id $id | get custom_name
 }
 
 def export-path [chat_id: int, name: string] {
@@ -49,7 +53,8 @@ def download-path [chat_id: int, name: string] {
 def chat-select [] {
   open $env.TDOWN_CHAT_JSON_PATH
   | each {|row| $"(ansi green)($row.id)(ansi reset) _ ($row.visible_name)"}
-  | to text | fzf --multi --exact --ansi --height=40 | lines | parse "{id} _ {name}" | get id | into int
+  | to text | fzf --multi --exact --ansi --height=~25 --layout reverse --style full
+  | lines | parse "{id} _ {name}" | get id | into int
 }
 
 export def 'chat export' [...chat_ids: int@chats_get_id, --last(-l): int, --force(-f)] {
@@ -114,6 +119,7 @@ export def 'chat update' [chat_id: int@files_get_ids] {
 
   let update_content = open $update_path
   $export_content | upsert messages ($export_content.messages | prepend ($update_content.messages)) | to json -r | save -f $export_path
+  rm -rfp $update_path
 }
 
 def export-files [] {
@@ -150,16 +156,17 @@ def files_get_name_by_id [id: int] {
 }
 
 export def export-ids [] {
-  ls -s $env.TDOWN_EXPORT_DIR_PATH | sort-by size | where type == file | get name |  parse "{id}_{name}" | get id | into int
+  export-files | sort-by size | get id
 }
 
 export def export-select [] {
-  let ids = export-ids
+  let ids = open $env.TDOWN_CHAT_JSON_PATH | get id
 
-  open $env.TDOWN_CHAT_JSON_PATH
+  export-files | sort-by size
   | where id in $ids
-  | each {|row| $"(ansi green)($row.id)(ansi reset) _ ($row.visible_name)"}
-  | to text | fzf --exact --ansi --height=20 | lines | parse "{id} _ {name}" | get id | into int
+  | each {|row| $"(ansi green)($row.id)(ansi reset) _ (chat_find_by_id $row.id | get visible_name) _ ($row.size)" }
+  | to text | fzf --multi --exact --ansi --height=~25 --layout reverse --style full 
+  | lines | parse "{id} _ {name}" | get id | into int
 }
 
 export def sum [...chat_ids: int@files_get_ids, --skip(-s)] {
@@ -298,6 +305,7 @@ export def download [
     if $is_large { print "Opening large file, please wait..." }
     let messages = (open $export_path | get messages)
     if $is_large { print "File loaded successfully" }
+    if ($messages | is-empty) { continue }
 
     mut urls = []
   
