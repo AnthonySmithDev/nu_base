@@ -371,7 +371,7 @@ export def --env java [ version: string@java-versions = "21", --force(-f) ] {
   let download_url = (java-list | get $version)
 
   if (path-not-exists $path $force) {
-    let download_path = download $download_url -d java --force=($force) --force=($force)
+    let download_path = download $download_url -d java --force=($force)
     let decompress_path = decompress $download_path
     move -d $decompress_path -p $path
   }

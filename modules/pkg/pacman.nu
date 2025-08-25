@@ -134,3 +134,10 @@ export def base [] {
   ]
   install ...$pkgs
 }
+
+export def desktop [] {
+  let pkgs = [
+    ghostty
+  ]
+  install ...$pkgs
+}

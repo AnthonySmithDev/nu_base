@@ -85,9 +85,11 @@ export def main [] {
   pkg bin uv
   pkg bin pnpm
 
-  pkg bin java
-  pkg bin node
-  pkg bin golang
+  try {
+    pkg bin java
+    pkg bin node
+    pkg bin golang
+  }
 
   pkg sh rust
 

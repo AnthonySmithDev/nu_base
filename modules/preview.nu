@@ -68,6 +68,7 @@ export def grid [
 
   let graphics = match [$env.TERM, $env.TERM_PROGRAM?] {
     ["xterm-kitty", null] => "k",          # kitty graphics
+    ["xterm-ghostty", null] => "k",        # kitty graphics
     ["xterm-ghostty", "ghostty"] => "k",   # kitty graphics
     ["xterm-256color", "WezTerm"] => "s",  # sixel graphics
     ["xterm-256color", "BlackBox"] => "s", # sixel graphics
