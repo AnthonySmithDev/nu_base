@@ -282,8 +282,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.5.15",
-    "created_at": "2025-08-22T21:16:23Z",
+    "tag_name": "v0.5.27",
+    "created_at": "2025-08-25T17:10:18Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",
@@ -1300,8 +1300,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.158.0",
-    "created_at": "2025-08-20T18:52:14Z",
+    "tag_name": "3.159.0",
+    "created_at": "2025-08-24T19:33:06Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -1575,8 +1575,8 @@
   {
     "category": "extra",
     "name": "mitmproxy/mitmproxy",
-    "tag_name": "v12.1.1",
-    "created_at": "2025-05-25T19:49:13Z",
+    "tag_name": "v12.1.2",
+    "created_at": "2025-08-24T18:28:38Z",
     "assets": []
   },
   {
@@ -2798,8 +2798,8 @@
   {
     "category": "other",
     "name": "zigtools/zls",
-    "tag_name": "0.14.0",
-    "created_at": "2025-03-06T23:25:53Z",
+    "tag_name": "0.15.0",
+    "created_at": "2025-08-24T15:21:19Z",
     "assets": [
       "zls-aarch64-linux.tar.xz",
       "zls-aarch64-linux.tar.xz.minisig",
@@ -2807,14 +2807,16 @@
       "zls-aarch64-macos.tar.xz.minisig",
       "zls-aarch64-windows.zip",
       "zls-aarch64-windows.zip.minisig",
-      "zls-armv7a-linux.tar.xz",
-      "zls-armv7a-linux.tar.xz.minisig",
+      "zls-arm-linux.tar.xz",
+      "zls-arm-linux.tar.xz.minisig",
       "zls-loongarch64-linux.tar.xz",
       "zls-loongarch64-linux.tar.xz.minisig",
       "zls-powerpc64le-linux.tar.xz",
       "zls-powerpc64le-linux.tar.xz.minisig",
       "zls-riscv64-linux.tar.xz",
       "zls-riscv64-linux.tar.xz.minisig",
+      "zls-s390x-linux.tar.xz",
+      "zls-s390x-linux.tar.xz.minisig",
       "zls-wasm32-wasi.tar.xz",
       "zls-wasm32-wasi.tar.xz.minisig",
       "zls-x86-linux.tar.xz",
@@ -3276,8 +3278,8 @@
   {
     "category": "other",
     "name": "gokcehan/lf",
-    "tag_name": "r36",
-    "created_at": "2025-07-18T01:52:31Z",
+    "tag_name": "r37",
+    "created_at": "2025-08-25T04:41:53Z",
     "assets": [
       "lf-android-arm64.tar.gz",
       "lf-darwin-amd64.tar.gz",
@@ -3864,8 +3866,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.15.0",
-    "created_at": "2025-08-22T14:24:47Z",
+    "tag_name": "v1.15.1",
+    "created_at": "2025-08-24T08:50:48Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -4182,8 +4184,8 @@
   {
     "category": "other",
     "name": "oven-sh/bun",
-    "tag_name": "bun-v1.2.20",
-    "created_at": "2025-08-10T11:01:35Z",
+    "tag_name": "bun-v1.2.21",
+    "created_at": "2025-08-25T06:57:45Z",
     "assets": [
       "bun-darwin-aarch64-profile.zip",
       "bun-darwin-aarch64.zip",
@@ -4773,8 +4775,8 @@
   {
     "category": "other",
     "name": "immich-app/immich",
-    "tag_name": "v1.139.2",
-    "created_at": "2025-08-21T22:35:59Z",
+    "tag_name": "v1.139.4",
+    "created_at": "2025-08-25T02:39:18Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -5030,17 +5032,17 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.27.0",
-    "created_at": "2025-08-17T21:12:13Z",
+    "tag_name": "v0.28.0",
+    "created_at": "2025-08-25T05:17:26Z",
     "assets": [
-      "aider-desk-0.27.0-macos-arm64.dmg",
-      "aider-desk-0.27.0-macos-arm64.zip",
-      "aider-desk-0.27.0-macos-x64.dmg",
-      "aider-desk-0.27.0-macos-x64.zip",
-      "aider-desk-0.27.0-setup.exe",
-      "aider-desk-0.27.0.AppImage",
-      "aider-desk-0.27.0.x86_64.rpm",
-      "aider-desk_0.27.0_amd64.deb"
+      "aider-desk-0.28.0-macos-arm64.dmg",
+      "aider-desk-0.28.0-macos-arm64.zip",
+      "aider-desk-0.28.0-macos-x64.dmg",
+      "aider-desk-0.28.0-macos-x64.zip",
+      "aider-desk-0.28.0-setup.exe",
+      "aider-desk-0.28.0.AppImage",
+      "aider-desk-0.28.0.x86_64.rpm",
+      "aider-desk_0.28.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -5929,8 +5931,8 @@
   {
     "category": "other",
     "name": "yt-dlp/yt-dlp",
-    "tag_name": "2025.08.20",
-    "created_at": "2025-08-20T02:51:33Z",
+    "tag_name": "2025.08.22",
+    "created_at": "2025-08-22T23:59:02Z",
     "assets": [
       "SHA2-256SUMS",
       "SHA2-512SUMS",
@@ -6176,11 +6178,11 @@
   {
     "category": "android",
     "name": "Kunzisoft/KeePassDX",
-    "tag_name": "4.1.6",
-    "created_at": "2025-08-19T07:39:26Z",
+    "tag_name": "4.1.7",
+    "created_at": "2025-08-22T22:39:54Z",
     "assets": [
-      "KeePassDX-4.1.6-free.apk",
-      "KeePassDX-4.1.6-libre.apk"
+      "KeePassDX-4.1.7-free.apk",
+      "KeePassDX-4.1.7-libre.apk"
     ],
     "android": {
       "ends": "libre.apk"

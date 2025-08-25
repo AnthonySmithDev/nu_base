@@ -27,12 +27,25 @@ export def run [] {
   eval (open $path)
 }
 
-export def eval [ eval: string ] {
+export def eval [ eval: string, json: bool = true ] {
   $eval | save --force $env.MONGO_FILE
+  mut args = [--eval $eval]
+  if $json {
+    $args = ($args | append [--json])
+  }
   if $env.MONGO_ADMIN {
-    mongosh --quiet --json --eval $eval --authenticationDatabase admin (admin uri) | from json
+    $args = ($args | append [--authenticationDatabase admin (admin uri)])
   } else {
-    mongosh --quiet --json --eval $eval (user uri) | from json
+    $args = ($args | append [(user uri)])
+  }
+  let complete = (mongosh --quiet ...$args | complete)
+  if $complete.exit_code != 0 {
+    error make -u { msg: $complete.stderr }
+  }
+  if $json {
+    $complete.stdout | from json
+  } else {
+    $complete.stdout
   }
 }
 
@@ -42,6 +55,15 @@ export def file [ filename: string ] {
 
 export def --env toggle [] {
   $env.MONGO_ADMIN = (not $env.MONGO_ADMIN)
+}
+
+def confirm [] {
+  try {
+    gum confirm "Are you sure to run this query?"
+    return true
+  } catch {
+    return false
+  }
 }
 
 export def 'user create' [] {
@@ -61,8 +83,10 @@ export def 'db show' [] {
   eval "show databases" | get value.name
 }
 
-export def 'db drop' [ name: string@'db show' ] {
-  eval "db.dropDatabase()"
+export def 'db drop' [ name: string@'db show', --yes(-y) ] {
+  if $yes or (confirm) {
+    eval "db.dropDatabase()"
+  }
 }
 
 export def 'coll show' [] {
@@ -85,18 +109,65 @@ export def 'coll find' [ name: string@'coll show', filter: record = {}, --skip: 
   eval $"db.($name).find\( ($filter | to json) ).skip\(($skip)).limit\(($limit)).toArray\()"
 }
 
-export def 'coll drop' [ ...names: string@'coll show' ] {
+export def 'coll drop' [ ...names: string@'coll show', --yes(-y) ] {
   mut lines = []
   for $name in $names {
     $lines = ($lines | append $"db.($name).drop\()" )
   }
-  eval ($lines | to text)
+  if $yes or (confirm) {
+    eval ($lines | to text)
+  }
 }
 
-export def 'coll deleteMany' [ name: string@'coll show', filter: record = {} ] {
-  eval $"db.($name).deleteMany\( ($filter | to json) )"
+export def 'coll deleteMany' [ name: string@'coll show', filter: record = {}, --yes(-y) ] {
+  if $yes or (confirm) {
+    eval $"db.($name).deleteMany\( ($filter | to json) )"
+  }
 }
 
-export def 'coll updateMany' [ name: string@'coll show', filter: record, document: record ] {
-  eval $"db.($name).updateMany\( ($filter | to json) , { $set: ($document | to json) })"
+export def 'coll updateMany' [ name: string@'coll show', filter: record, document: record, --yes(-y) ] {
+  if $yes or (confirm) {
+    eval $"db.($name).updateMany\( ($filter | to json) , { $set: ($document | to json) })"
+  }
+}
+
+export def 'coll count' [ name: string@'coll show', filter: record = {} ] {
+  eval $"db.($name).countDocuments\( ($filter | to json) )" false | into int
+}
+
+export def 'coll watch' [ name: string@'coll show', filter: record = {}, --sleep(-s): duration = 3sec, --enter(-e) ] {
+  mut docs_count = coll count $name $filter
+  mut loop_count = 0
+
+  loop {
+    let docs = coll find $name $filter --skip $docs_count
+    if ($docs | is-not-empty) {
+      clear
+      print $' (ansi green_bold)($loop_count)(ansi reset) (date now | format date "%Y-%m-%d %I:%M:%S %p")'
+
+      $loop_count += 1
+      $docs_count += ($docs | length)
+
+      mut show_help = true
+
+      for $doc in $docs {
+        print ($doc | table --expand)
+        if ($docs | length) > 1 and $enter {
+          if $show_help {
+            print "Enter to show next:"
+            $show_help = false
+          }
+          loop {
+            let input = input listen --types [key]
+            if $input.code == "enter" {
+              break
+            }
+          }
+        } else {
+          sleep 1sec
+        }
+      }
+    }
+    sleep $sleep
+  }
 }

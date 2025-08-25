@@ -166,3 +166,19 @@ export def copy-session-password [] {
 export def aron-nano-work [] {
   ssh Aron 'C:\Users\Aaron\Documents\nano-work-server\nano-work-server.exe -c 0 -g 0:0 -l 0.0.0.0:7076'
 }
+
+export def repeat [closure: closure] {
+  loop {
+    let input = input listen --types [key]
+    if ("keymodifiers(control)" in $input.modifiers) and $input.code == "c" {
+      return
+    }
+    if $input.code == "esc" {
+      return
+    }
+    if $input.code == "enter" {
+      print (do $closure)
+    }
+    continue
+  }
+}

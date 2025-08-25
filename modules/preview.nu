@@ -229,3 +229,51 @@ export def slide [
 
   0 | save --force $state_path
 }
+
+export def slide-v2 [] {
+  let group_config = [
+    { max_ratio: 0.5, max_items: 4, group: "1" }
+    { max_ratio: 0.6, max_items: 4, group: "2" }
+    { max_ratio: 0.7, max_items: 4, group: "3" }
+    { max_ratio: 0.8, max_items: 4, group: "4" }
+    { max_ratio: 0.9, max_items: 4, group: "5" }
+    { max_ratio: 1.0, max_items: 3, group: "6" }
+    { max_ratio: 1.1, max_items: 3, group: "7" }
+    { max_ratio: 1.2, max_items: 3, group: "8" }
+    { max_ratio: 1.3, max_items: 3, group: "9" }
+    { max_ratio: 1.4, max_items: 3, group: "10" }
+    { max_ratio: 1.5, max_items: 3, group: "11" }
+    { max_ratio: 1.6, max_items: 2, group: "12" }
+    { max_ratio: 1.7, max_items: 2, group: "13" }
+    { max_ratio: 1.8, max_items: 2, group: "14" }
+    { max_ratio: 1.9, max_items: 2, group: "15" }
+    { max_ratio: 2.0, max_items: 1, group: "16" }
+  ]
+
+  mut groups = {}
+
+  let images = (fd -e png -e jpg -e jpeg | lines)
+
+  for $image in $images {
+    let size = (file $image | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
+    let ratio = (($size.width | into int) / ($size.height | into int))
+
+    let filter = ($group_config | where $ratio < $it.max_ratio)
+    let config = if ($filter | is-not-empty) {
+      $filter | first
+    } else {
+      # error make -u {msg: $"($image) - ($ratio)"}
+      { max_items: 1, group: "x" }
+    }
+    let group_value = ($groups | get -o $config.group | default [] | append $image)
+    $groups = ($groups | upsert $config.group $group_value)
+
+    let group_length = ($group_value | length)
+    if $group_length == ($config.max_items) {
+      # print $group_value
+      timg --title --grid $group_length --fit-width ...$group_value
+      $groups = ($groups | upsert $config.group [])
+      sleep 1sec
+    }
+  }
+}

@@ -44,7 +44,7 @@ export def ghostty [] {
 }
 
 export def base [] {
-  install timg qview neofetch-git
+  install timg qview neofetch-git youtube-music-bin
 }
 
 # chaotic-aur/code-marketplace
