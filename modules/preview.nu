@@ -79,158 +79,16 @@ export def grid [
   timg --title -wr1 --fit-width --pixelation $pixelation --grid $grid_columns ...$images
 }
 
-
-export def image-mediainfo-size [path: string] {
-  mediainfo --Inform="Image;%Width%_%Height%" $path | parse "{width}_{height}" | first
-}
-
-export def image-identify-size [path: string] {
-  identify -format "%w_%h" $path | parse "{width}_{height}" | first
-}
-
-export def image-size [path: string] {
-  let size = (file $path | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
-  {
-    width: ($size.width | into int)
-    height: ($size.height | into int)
-  }
-}
-
-export def image-group [images: list] {
-  # let images = (fd -e png -e jpg -e jpeg | lines | first 1000)
-
-  mut square_group = []
-  mut vertical_group = []
-  mut horizontal_group = []
-
-  mut groups = []
-
-  for $image in $images {
-    let size = image-size $image
-
-    if ($size.width == $size.height) {
-      $square_group = ($square_group | append $image)
-    }
-    if ($size.width < $size.height) {
-      $vertical_group = ($vertical_group | append $image)
-    }
-    if ($size.width > $size.height) {
-      $horizontal_group = ($horizontal_group | append $image)
-    }
-
-    if ($square_group | length) == 2 {
-      $groups = ($groups | append [$square_group])
-      $square_group = []
-    }
-    if ($vertical_group | length) == 3 {
-      $groups = ($groups | append [$vertical_group])
-      $vertical_group = []
-    }
-    if ($horizontal_group | length) == 2 {
-      $groups = ($groups | append [$horizontal_group])
-      $horizontal_group = []
-    }
-  }
-
-  $groups
-}
-
-export def image-group-v1 [images: list] {
-  # let images = (fd -e png -e jpg -e jpeg | lines | first 1000)
-
-  mut group_a = []
-  mut group_b = []
-  mut group_c = []
-  mut group_d = []
-  mut group_e = []
-  mut group_f = []
-  mut group_g = []
-
-  mut groups = []
-
-  for $image in $images {
-    let size = image-size $image
-    let ratio = ($size.width / $size.height)
-
-    if $ratio < 0.5 {
-      $group_a = ($group_a | append $image)
-    } else if $ratio < 0.75 {
-      $group_b = ($group_b | append $image)
-    } else if $ratio < 1 {
-      $group_c = ($group_c | append $image)
-    } else if $ratio < 1.25 {
-      $group_d = ($group_d | append $image)
-    } else if $ratio < 1.5 {
-      $group_e = ($group_e | append $image)
-    } else if $ratio < 1.75 {
-      $group_f = ($group_f | append $image)
-    } else {
-      $group_g = ($group_g | append $image)
-    }
-
-    if ($group_a | length) == 4 {
-      $groups = ($groups | append [$group_a])
-      $group_a = []
-    }
-    if ($group_b | length) == 3 {
-      $groups = ($groups | append [$group_b])
-      $group_b = []
-    }
-    if ($group_c | length) == 3 {
-      $groups = ($groups | append [$group_c])
-      $group_c = []
-    }
-    if ($group_d | length) == 2 {
-      $groups = ($groups | append [$group_d])
-      $group_d = []
-    }
-    if ($group_e | length) == 2 {
-      $groups = ($groups | append [$group_e])
-      $group_e = []
-    }
-    if ($group_f | length) == 2 {
-      $groups = ($groups | append [$group_f])
-      $group_f = []
-    }
-    if ($group_g | length) == 1 {
-      $groups = ($groups | append [$group_g])
-      $group_g = []
-    }
-  }
-
-  $groups
-}
-
 export def slide [
-  --search(-s): string = "."
+  dir: path = ".",
   --max-depth(-m): int = 1
+  --search(-s): string = "."
   --sleep(-s): duration = 1sec
-  --dir(-d): path = "."
   --reset(-r)
+  --title(-t)
+  --debug(-d)
 ] {
-  let state_path = ($nu.temp-path | path join "preview_slide_state.txt")
 
-  mut skip = if ($state_path | path exists) {
-    open $state_path | into int
-  } else if $reset or not ($state_path | path exists) {
-    0
-  }
-
-  let images = (fd -e png -e jpg -e jpeg -e svg -d $max_depth $search $dir | lines | skip $skip)
-
-  for group in (image-group-v1 $images) {
-    let length = ($group | length)
-    timg --title --grid $length --fit-width --upscale=i --center ...($group) # -g 200x100
-
-    $skip = $skip + $length
-    $skip | save --force $state_path
-    sleep $sleep
-  }
-
-  0 | save --force $state_path
-}
-
-export def slide-v2 [] {
   let group_config = [
     { max_ratio: 0.5, max_items: 4, group: "1" }
     { max_ratio: 0.6, max_items: 4, group: "2" }
@@ -252,28 +110,44 @@ export def slide-v2 [] {
 
   mut groups = {}
 
-  let images = (fd -e png -e jpg -e jpeg | lines)
+  let path = ($dir | path expand | path join .preview.index)
+  let images = (fd -e png -e jpg -e jpeg -d $max_depth $search $dir | lines)
+  let index = if $reset or not ($path | path exists) { 0 } else { open $path | into int }
 
-  for $image in $images {
-    let size = (file $image | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
-    let ratio = (($size.width | into int) / ($size.height | into int))
+  for $image in ($images | skip $index | enumerate) {
+    let size = (file $image.item | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
+    let ratio = ($size.width | into int) / ($size.height | into int)
 
     let filter = ($group_config | where $ratio < $it.max_ratio)
     let config = if ($filter | is-not-empty) {
       $filter | first
     } else {
-      # error make -u {msg: $"($image) - ($ratio)"}
       { max_items: 1, group: "x" }
     }
-    let group_value = ($groups | get -o $config.group | default [] | append $image)
-    $groups = ($groups | upsert $config.group $group_value)
 
-    let group_length = ($group_value | length)
-    if $group_length == ($config.max_items) {
-      # print $group_value
-      timg --title --grid $group_length --fit-width ...$group_value
+    let items = ($groups | get -o $config.group | default [] | append {path: $image.item, ratio: $ratio})
+    $groups = ($groups | upsert $config.group $items)
+
+    let items_length = ($items | length)
+    if $items_length == ($config.max_items) {
       $groups = ($groups | upsert $config.group [])
-      sleep 1sec
+      if $debug {
+        print $items
+      } else {
+        mut args = []
+        if $title {
+          $args = ($args | append [--title])
+        }
+        try {
+          timg ...$args --fit-width --grid $items_length ...($items | get path)
+        } catch {
+          return
+        }
+      }
+      $index + $image.index | save --force $path
+      try { sleep $sleep } catch { return }
     }
   }
+
+  0 | save --force $path
 }

@@ -200,6 +200,10 @@ export def mpv [] {
   bind-user mpv/input.conf
 }
 
+export def mpd [] {
+  bind-user mpd/input.conf
+}
+
 export def opencommit [] {
   bind-user --home oco/opencommit .opencommit
   bind-user --home oco/opencommit_migrations .opencommit_migrations
