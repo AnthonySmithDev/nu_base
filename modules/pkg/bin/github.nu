@@ -2084,10 +2084,23 @@ export def fclones [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f release/fclones -p $path
-    rm -rf target
   }
 
   bind-file fclones $path
+}
+
+export def czkawka [ --force(-f) ] {
+  let repository = "qarmin/czkawka"
+  let tag_name = ghub tag_name $repository
+  let path = bin-path czkawka $tag_name
+
+  if (path-not-exists $path $force) {
+    let download_path = ghub asset download $repository --force=($force)
+    move -f $download_path -p $path
+    add-execute $path
+  }
+
+  bind-file czkawka $path
 }
 
 export def nano-work-server [ --force(-f) ] {
