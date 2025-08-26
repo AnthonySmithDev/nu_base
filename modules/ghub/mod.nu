@@ -1,7 +1,7 @@
 
 export-env {
   $env.GHUB_REPOSITORY_PATH = ($env.NU_BASE_PATH | path join data/config/ghub/ghub.json)
-  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
+  $env.GHUB_CACHE_PATH = ($env.HOME | path join .cache/ghub)
 }
 
 export def names [] {
@@ -48,7 +48,6 @@ export def releases-latest [name: string@names] {
   $response | get body
 }
 
-
 export def releases-latest-v2 [name: string@names] {
   curl -s -L https://api.github.com/repos/($name)/releases/latest | from json
 }
@@ -70,9 +69,7 @@ export def download_url [name: string@names, tag_name: string, asset: string] {
 }
 
 def print-repository [r: record] {
-  let version = ($r.tag_name | to-version)
-  let created_at = ($r.created_at | to-created-at)
-  print $"(tag-url $r.name $r.tag_name) (white $version) (italic $created_at)"
+  print-release 0 $r.name $r.created_at -v $r.tag_name
 }
 
 export def version [name: string@names] {
@@ -133,36 +130,32 @@ export def decompress [filepath: path, --dirpath(-d): string] {
     error make {msg: $"Path not exists: ($filepath)"}
   }
 
-  let dir = if $dirpath != null { $dirpath } else {
-    mktemp --directory --tmpdir-path ($env.GHUB_TEMP_PATH | path join dir)
-  }
-
-  rm -rfp $dir
-  mkdir $dir
+  rm -rfp $dirpath
+  mkdir $dirpath
 
   let tar_exts = ['.tar', '.txz', '.tbz', '.tar.xz', '.tgz', '.tar.gz', '.tar.bz2']
   if ($tar_exts | any { |ext| $filepath | str ends-with $ext }) {
     if (exists-external gum) {
-      ^gum spin --spinner dot --title 'Extract tar...' -- tar -xvf $filepath -C $dir
+      ^gum spin --spinner dot --title 'Extract tar...' -- tar -xvf $filepath -C $dirpath
     } else {
-      tar -xvf $filepath -C $dir
+      tar -xvf $filepath -C $dirpath
     }
   } else if $filepath =~ ".zip" {
     if (exists-external gum) {
-      ^gum spin --spinner dot --title 'Extract zip...' -- unzip $filepath -d $dir
+      ^gum spin --spinner dot --title 'Extract zip...' -- unzip $filepath -d $dirpath
     } else {
-      unzip $filepath -d $dir
+      unzip $filepath -d $dirpath
     }
   } else if $filepath =~ ".gz" {
     let basename = ($filepath | path basename | str replace '.gz' '')
-    let filepath = ($dir | path join $basename)
+    let filepath = ($dirpath | path join $basename)
     gunzip -c $filepath | save --force $filepath
     return $filepath
   } else {
     error make {msg: "Unsupported file format"}
   }
 
-  let content = (ls $dir | get name)
+  let content = (ls $dirpath | get name)
   let first_item = ($content | first)
 
   if ($content | length) == 1 and ($first_item | path type) == "dir" {
@@ -174,11 +167,7 @@ export def decompress [filepath: path, --dirpath(-d): string] {
     }
     return $first_item
   }
-  return $dir
-}
-
-export def download [url: string] {
-  
+  return $dirpath
 }
 
 export def "asset download" [
@@ -194,7 +183,7 @@ export def "asset download" [
   let download_url = download_url $name $repo.tag_name $asset
 
   let basename = ($name | path basename)
-  let dirpath = $path | default ($env.GHUB_TEMP_PATH | path join file)
+  let dirpath = $path | default ($env.GHUB_CACHE_PATH)
   let dirname = ($dirpath | path join $basename $repo.tag_name) 
   let download_dir = ($dirname | path join "download")
   mkdir $download_dir
@@ -210,44 +199,6 @@ export def "asset download" [
   }
 
   return $filepath
-}
-
-def tag-url [name: string@names, tag: string] {
-  let text = ($"https://github.com/($name)/releases/tag/($tag)" | ansi link --text $name)
-  return (light $text)
-}
-
-def releases-url [name: string@names] {
-  let text = ($"https://github.com/($name)/releases" | ansi link --text $name)
-  return (light $text)
-}
-
-def light [str: string] {
-  return $'(ansi default)($str)(ansi reset)'
-}
-
-def white [str: string] {
-  return $'(ansi white_bold)($str)(ansi reset)'
-}
-
-def italic [str: string] {
-  return $'(ansi white_italic)($str)(ansi reset)'
-}
-
-def red [str: string] {
-  return $'(ansi red_bold)($str)(ansi reset)'
-}
-
-def green [str: string] {
-  return $'(ansi green_bold)($str)(ansi reset)'
-}
-
-def purple [str: string] {
-  return $'(ansi purple_bold)($str)(ansi reset)'
-}
-
-def cyan [str: string] {
-  return $'(ansi cyan_bold)($str)(ansi reset)'
 }
 
 const exclusion_words = [.sum .sha1 .sha256 .sha512 .sig .sbom .json .txt .yml .yaml .blockmap, .whl LICENSE]
@@ -301,8 +252,58 @@ def get-index-by-date [] {
   }
 }
 
+def url-release [repository: string, tag?: string, --releases(-r)] {
+  mut paths = [$repository]
+  if $releases {
+    $paths = ($paths | append [releases])
+  }
+  if $tag != null {
+    $paths = ($paths | append [releases tag $tag])
+  }
+  { scheme: "https" host: "github.com" path: ($paths | path join) } | url join
+}
+
+def print-release [
+  index: int,
+  repository: string
+  created_at: string
+  --curr-version(-v): string
+  --next-version(-n): string
+  --prev-version(-p): string
+  --soft(-s)
+] {
+  let repository_link = url-release $repository | ansi link --text $repository
+
+  let index_ansi = $"(ansi default_dimmed)($index)(ansi reset)"
+  let repository_ansi = $'(ansi default)($repository_link)(ansi reset)'
+  let created_at_ansi = $'(ansi white_italic)($created_at | to-created-at)(ansi reset)'
+
+  mut lines = if $index != 0 {
+    [$index_ansi $repository_ansi]
+  } else {
+    [$repository_ansi]
+  }
+
+  let curr_version_ansi = if ($curr_version != null) {
+    let link = url-release $repository -r | ansi link --text $curr_version
+    $lines = ($lines | append $'(ansi white_bold)($link)(ansi reset)')
+  }
+  let prev_version_ansi = if ($prev_version != null) {
+    let link = url-release $repository $prev_version | ansi link --text $prev_version
+    let color = if $soft { "purple_bold" } else { "red_bold" }
+    $lines = ($lines | append $'(ansi $color)($link)(ansi reset)')
+  }
+  let next_version_ansi = if ($next_version != null) {
+    let link = url-release $repository $next_version | ansi link --text $next_version
+    let color = if $soft { "cyan_bold" } else { "green_bold" }
+    $lines = ($lines | append $'(ansi $color)($link)(ansi reset)')
+  }
+
+  print ($lines | append $created_at_ansi | str join " ")
+}
+
 export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), --debug(-d)] {
-  let changelog_dir = ($env.GHUB_TEMP_PATH | path join changelog)
+  let changelog_dir = ($env.GHUB_CACHE_PATH | path join changelog)
 
   let save_changelog = $changelog and ($names | is-empty)
   if $save_changelog {
@@ -346,28 +347,25 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
     print $repos_to_process
   }
 
-  mut current_index = 0
+  mut curr_index = 0
   loop {
-    if $current_index >= ($repos_to_process | length) {
+    if $curr_index >= ($repos_to_process | length) {
       break
     }
 
-    let index = ($repos_to_process | get $current_index)
-    let old = ($repos | get $index)
-    let old_version = ($old.tag_name | to-version)
-    let old_created_at = ($old.created_at | to-created-at)
-
+    let index = ($repos_to_process | get $curr_index)
+    let curr = ($repos | get $index)
     let num = $index + 1
 
-    if $old.skip? == true {
-      print $"($num) (releases-url $old.name) (white $old_version) (italic $old_created_at)"
-      $current_index = $current_index + 1
+    if $curr.skip? == true {
+      print-release $num $curr.name $curr.created_at -v $curr.tag_name
+      $curr_index = $curr_index + 1
       continue
     }
 
-    let new = if $old.prerelease? == true {
+    let new = if $curr.prerelease? == true {
       try {
-        releases $old.name | where prerelease == true | first
+        releases $curr.name | where prerelease == true | first
       } catch {|err|
         print $"(ansi red_bold) error prerelease (ansi reset)"
         if $loop {
@@ -381,7 +379,7 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
       }
     } else {
       try {
-        releases-latest $old.name
+        releases-latest $curr.name
       } catch {|err|
         print $"(ansi red_bold) error release latest (ansi reset)"
         if $loop {
@@ -395,29 +393,26 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
       }
     }
 
-    let new_version = ($new.tag_name | to-version)
-    let new_created_at = ($new.created_at | to-created-at)
-
     if ($names | is-empty) {
       config index ($index + 1)
     }
 
-    if $old.tag_name == $new.tag_name {
-      print $"($num) (tag-url $old.name $old.tag_name) (white $old_version) (italic $new_created_at)"
-      $current_index = $current_index + 1
+    if $curr.tag_name == $new.tag_name {
+      print-release $num $curr.name $new.created_at -v $curr.tag_name
+      $curr_index = $curr_index + 1
       continue
     }
-    if ($old.assets? | is-not-empty) {
+    if ($curr.assets? | is-not-empty) {
       if ($new.assets | length) < 1 {
-        print $"($num) (tag-url $old.name $new.tag_name) (purple $old_version) (cyan $new_version) (italic $new_created_at)"
-        $current_index = $current_index + 1
+        print-release $num $curr.name $new.created_at -p $curr.tag_name -n $new.tag_name -s
+        $curr_index = $curr_index + 1
         continue
       }
     }
 
-    print $"($num) (releases-url $old.name) (red $old_version) (green $new_version) (italic $new_created_at)"
+    print-release $num $curr.name $new.created_at -p $curr.tag_name -n $new.tag_name
 
-    mut repo = ($old
+    mut repo = ($curr
       | upsert tag_name $new.tag_name
       | upsert created_at $new.created_at
       | upsert assets ($new.assets | get name | exclusion)
@@ -431,11 +426,11 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
     $repos | save --force $env.GHUB_REPOSITORY_PATH
 
     if $save_changelog {
-      let changelog_file = ($changelog_dir | path join $"($old.name | path basename).md")
+      let changelog_file = ($changelog_dir | path join $"($curr.name | path basename).md")
       $new.body | save --force $changelog_file
     }
 
-    $current_index = $current_index + 1
+    $curr_index = $curr_index + 1
   }
 
   if $save_changelog and (ls $changelog_dir | is-not-empty) {
@@ -449,7 +444,6 @@ export def "repo update" [...names: string@names, --changelog(-c), --loop(-l), -
     print $"($length) -> ($last_index)..($last_index + ($repos_to_process | length))"
   }
 }
-
 
 def confirm [prompt: string] {
   try {
@@ -480,7 +474,7 @@ export def "repo upgrade" [] {
       config index ($it.index + 1 )
     }
 
-    print $"(tag-url $old.name $new.tag_name)"
+    print-release 0 $old.name $new.created_at -v $new.tag_name
 
     mut repo = ($old
       | upsert tag_name $new.tag_name

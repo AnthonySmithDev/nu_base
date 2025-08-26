@@ -1,3 +1,4 @@
+# https://github.com/sxyazi/yazi/blob/main/yazi-plugin/preset/plugins/video.lua
 
 def fuzzy [preview: string, size: int, execute: string = ""] {
   let stdin = $in

@@ -9,10 +9,10 @@ export-env {
   $env.CONFIG_PATH = ($env.DATA_PATH | path join config)
 
   $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
-  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
+  $env.GHUB_CACHE_PATH = ($env.HOME | path join .cache/ghub)
 
   $env.PKG_BIN_SYS = "linux_x64"
-  $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
+  $env.PKG_CACHE_PATH = ($env.HOME | path join .cache/pkg)
   $env.DOWNLOAD_FORCE = false
 }
 

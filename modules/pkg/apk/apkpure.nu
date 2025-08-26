@@ -4,7 +4,7 @@ def download_url [package: string, version: string] {
 }
 
 def download_apk [name: string, version: string, url: string, force: bool] {
-  let dirname = ($env.PKG_TEMP_PATH | path join apk $name)
+  let dirname = ($env.PKG_CACHE_PATH | path join apk $name)
   mkdir $dirname
 
   let path = ($dirname | path join $"($name)_($version).apk")

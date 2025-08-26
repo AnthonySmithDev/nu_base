@@ -12,10 +12,10 @@ export-env {
   $env.SYSTEMD_PATH = ($env.DATA_PATH | path join systemd)
   
   $env.GHUB_REPOSITORY_PATH = ($env.CONFIG_PATH | path join ghub/ghub.json)
-  $env.GHUB_TEMP_PATH = ($env.HOME | path join temp/ghub)
+  $env.GHUB_CACHE_PATH = ($env.HOME | path join .cache/ghub)
 
   $env.PKG_BIN_SYS = "linux_x64"
-  $env.PKG_TEMP_PATH = ($env.HOME | path join temp/pkg)
+  $env.PKG_CACHE_PATH = ($env.HOME | path join .cache/pkg)
 
   $env.CONFIG_DIRS = [
     /home/anthony/nu/nu_base/data/config,

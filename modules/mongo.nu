@@ -1,15 +1,17 @@
 
 export-env {
   $env.MONGO_ADMIN = true
-  $env.MONGO_FILE = ($env.HOME | path join .mongo.js)
+  $env.MONGO_DIR = ($env.HOME | path join .mongo)
+  $env.MONGO_DB_DIR = ($env.MONGO_DIR | path join db)
+  $env.MONGO_QUERY_FILE = ($env.MONGO_DIR | path join query.js)
 }
 
-export def 'admin uri' [] {
-  $'mongodb://($env.MONGO_ROOT_USER):($env.MONGO_ROOT_PASS)@($env.MONGO_HOST):($env.MONGO_PORT)/($env.MONGO_NAME)'
+export def 'admin uri' [db_name: string = ""] {
+  $'mongodb://($env.MONGO_ROOT_USER):($env.MONGO_ROOT_PASS)@($env.MONGO_HOST):($env.MONGO_PORT)/($db_name)'
 }
 
-export def 'user uri' [] {
-  $'mongodb://($env.MONGO_USER):($env.MONGO_PASS)@($env.MONGO_HOST):($env.MONGO_PORT)/($env.MONGO_NAME)'
+export def 'user uri' [db_name: string = ""] {
+  $'mongodb://($env.MONGO_USER):($env.MONGO_PASS)@($env.MONGO_HOST):($env.MONGO_PORT)/($env.db_name)'
 }
 
 export def cli [] {
@@ -22,23 +24,39 @@ export def cli [] {
 
 export def run [] {
   let path = mktemp -t --suffix .js
-  cp --force $env.MONGO_FILE $path
+  cp --force $env.MONGO_QUERY_FILE $path
   hx $path
   eval (open $path)
 }
 
 export def eval [ eval: string, json: bool = true ] {
-  $eval | save --force $env.MONGO_FILE
+  mkdir $env.MONGO_DB_DIR
+  $eval | save --force $env.MONGO_QUERY_FILE
+
   mut args = [--eval $eval]
   if $json {
     $args = ($args | append [--json])
   }
   if $env.MONGO_ADMIN {
-    $args = ($args | append [--authenticationDatabase admin (admin uri)])
-  } else {
-    $args = ($args | append [(user uri)])
+    $args = ($args | append [--authenticationDatabase admin])
   }
-  let complete = (mongosh --quiet ...$args | complete)
+  let db_hash = if $env.MONGO_ADMIN {
+    admin uri | hash md5
+  } else {
+    user uri | hash md5
+  }
+  let db_path = ($env.MONGO_DB_DIR | path join $db_hash)
+  let db_name = if ($db_path | path exists) {
+    open $db_path 
+  } else {
+    $env.MONGO_NAME
+  }
+  let uri = if $env.MONGO_ADMIN {
+    admin uri $db_name
+  } else {
+    user uri $db_name
+  }
+  let complete = (mongosh --quiet ...$args $uri | complete)
   if $complete.exit_code != 0 {
     error make -u { msg: $complete.stderr }
   }
@@ -87,6 +105,11 @@ export def 'db drop' [ name: string@'db show', --yes(-y) ] {
   if $yes or (confirm) {
     eval "db.dropDatabase()"
   }
+}
+
+export def 'db set' [ name: string@'db show' ] {
+  let hash = admin uri | hash md5
+  $name | save --force ($env.MONGO_DB_DIR | path join $hash)
 }
 
 export def 'coll show' [] {

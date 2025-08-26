@@ -1,7 +1,7 @@
 
 def download [repository: string, version: string, url: string, force: bool] {
   let name = ($repository | path basename)
-  let dirname = ($env.PKG_TEMP_PATH | path join appimage $name)
+  let dirname = ($env.PKG_CACHE_PATH | path join appimage $name)
   mkdir $dirname
 
   let path = ($dirname | path join $"($name)_($version).apk")

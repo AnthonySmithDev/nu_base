@@ -1,16 +1,28 @@
 
-export def images [] {
-  let playlist = (fd -e jpg -e jpg -e png)
-  if ($playlist | is-empty) {
+export def images [--sort] {
+  let find = (fd -e jpg -e jpg -e png)
+  if ($find | is-empty) {
     return
   }
-  $playlist | mpv --config-dir=~/.config/mpd --playlist=-
+  mut playlist = []
+  if $sort {
+    $playlist = ($find | lines | du ...$in | sort-by -r physical)
+  } else {
+    $playlist = ($find | lines)
+  }
+  $playlist | to text | mpv --config-dir=~/.config/mpd --playlist=-
 }
 
-export def videos [] {
-  let playlist = (fd -e mp4 -e mkv)
-  if ($playlist | is-empty) {
+export def videos [--sort] {
+  let find = (fd -e mp4 -e mkv)
+  if ($find | is-empty) {
     return
   }
-  $playlist | mpv --config-dir=~/.config/mpd --playlist=-
+  mut playlist = []
+  if $sort {
+    $playlist = ($find | lines | du ...$in | sort-by -r physical)
+  } else {
+    $playlist = ($find | lines)
+  }
+  $playlist | to text | mpv --config-dir=~/.config/mpd --playlist=-
 }
