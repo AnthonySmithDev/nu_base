@@ -17,7 +17,6 @@ source alias/mods.nu
 # use ctx.nu
 use nano.nu
 use mongo.nu
-use video.nu
 use preview.nu
 # use tdown.nu
 use file-manager.nu

@@ -154,11 +154,11 @@ export def slide [
 }
 
 export def main [] {
-  use video.nu
+  use preload
   let videos = (fd -e mp4 | lines)
   for $chunk in ($videos | chunks 3) {
     for $img in $chunk {
-      print (video preload $img)
+      print (preload video $img)
     }
     print ""
   }
