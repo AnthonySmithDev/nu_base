@@ -14,38 +14,18 @@ def symlink [src: string, name: string] {
   ln -sf $src $dest
 }
 
-export def FiraCode [ --force(-f) ] {
-  let version = ghub version 'ryanoasis/nerd-fonts'
-  let dirpath = dirpath FiraCode $version
-  
-  if (path-not-exists $dirpath $force) {
-    let download_path = ghub asset download ryanoasis/nerd-fonts -s FiraCode.zip -x
-    mv $download_path $dirpath
-  }
-
-  symlink $dirpath FiraCode
+def fonts [] {
+  [FiraCode CascadiaCode JetBrainsMono Monaspace]
 }
 
-export def CascadiaCode [ --force(-f) ] {
+export def main [ font: string@fonts, --force(-f) ] {
   let version = ghub version 'ryanoasis/nerd-fonts'
-  let dirpath = dirpath CascadiaCode $version
+  let dirpath = dirpath $font $version
   
   if (path-not-exists $dirpath $force) {
-    let download_path = ghub asset download ryanoasis/nerd-fonts -s CascadiaCode.zip -x
+    let download_path = ghub asset download ryanoasis/nerd-fonts -s $"($font).zip" -x
     mv $download_path $dirpath
   }
 
-  symlink $dirpath CascadiaCode
-}
-
-export def JetBrainsMono [ --force(-f) ] {
-  let version = ghub version 'ryanoasis/nerd-fonts'
-  let dirpath = dirpath JetBrainsMono $version
-  
-  if (path-not-exists $dirpath $force) {
-    let download_path = ghub asset download ryanoasis/nerd-fonts -s JetBrainsMono.zip -x
-    mv $download_path $dirpath
-  }
-
-  symlink $dirpath JetBrainsMono
+  symlink $dirpath $font
 }

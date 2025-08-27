@@ -7,14 +7,14 @@ const rt = {
   }
 }
 
-export def list_meta [url: string, entries: string] {
+export def list_meta [file: string, entries: string] {
   mut args = [-v quiet]
 
   if not ($entries | str contains "attached_pic") {
     $args = ($args | append ["-select_streams", "v"])
   }
 
-  $args = ($args | append [-show_entries $entries -of json=c=1 $url])
+  $args = ($args | append [-show_entries $entries -of json=c=1 $file])
 
   let output = (ffprobe ...$args | complete)
   if $output.exit_code != 0 {
@@ -43,7 +43,7 @@ export def preload [file: string] {
     return "Failed to get video duration"
   }
 
-  let percent = 50
+  let percent = if (has_pic $meta) { 0 } else { 5 }
   let hwaccel = "none" # "auto"
 
   mut args = [
@@ -51,8 +51,9 @@ export def preload [file: string] {
 		"-skip_frame", "nokey",
 		"-an", "-sn", "-dn",
   ]
-  if $args != 0 {
-    $args = ($args | append ["-ss", (($meta.format.duration | into int) * $percent / 100 | math floor)])
+  if $percent != 0 {
+    let seek_start = (($meta.format.duration | into int) * $percent / 100 | math floor)
+    $args = ($args | append ["-ss", $seek_start])
   }
   $args = ($args | append ["-i", $file])
   if $percent == 0 {
@@ -74,4 +75,9 @@ export def preload [file: string] {
     return $"`ffmpeg` exited with error code: ($output.exit_code)"
   }
   return $cache
+}
+
+export def has_pic [meta: record] {
+  if ($meta.streams | is-empty) { return false }
+  ($meta.streams | where {|s| $s.disposition?.attached_pic? == 1 } | length) > 0
 }

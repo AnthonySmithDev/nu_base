@@ -48,5 +48,6 @@ export def packages [] {
 
     [ other nativescript nativescript ]
     [ other quasar @quasar/cli ]
+    [ other claude-code @anthropic-ai/claude-code ]
   ]
 }
