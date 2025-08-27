@@ -22,7 +22,7 @@ export def account-balance [account: string] {
 }
 
 export def balance [account: string] {
-   raw_to_nano (account-balance $account | get balance)
+   account-balance $account | get balance | raw_to_nano
 }
 
 export def account-block-count [account: string] {
@@ -105,11 +105,7 @@ export def receivable [account: string] {
       sorting: "true",
       include_active: "true"
       include_only_confirmed: "false"
-   } | to-receivable
-}
-
-def to-receivable [] {
-   get blocks | transpose key value | each {|row| { block: $row.key, ...$row.value } }
+   }
 }
 
 def process_subtype [] {
@@ -150,17 +146,17 @@ export def work-peers [] {
    }
 }
 
-export def work-peer-add [address: string, port: int] {
+export def work-peer-add [address?: string, port?: int] {
    nano-rpc {
       action: "work_peer_add"
-      address: $address
-      port: $port
+      address: ($address | default $env.NANO_WORK_HOST)
+      port: ($port | default $env.NANO_WORK_PORT)
    }
 }
 
-export def work-peer-clear [] {
+export def work-peers-clear [] {
    nano-rpc {
-      action: "work_peer_clear"
+      action: "work_peers_clear"
    }
 }
 
@@ -192,12 +188,12 @@ export def raw-to-nano [amount: string] {
    }
 }
 
-export def raw_to_nano [amount: string] {
-   calc $"round\(\(($amount) / 10^30), 10)" | str trim
+export def raw_to_nano [] {
+   calc $"round\(\(($in) / 10^30), 10)" | str trim
 }
 
-export def nano_to_raw [amount: string] {
-   calc $"($amount) * 10^30" | str trim
+export def nano_to_raw [] {
+   calc $"($in) * 10^30" | str trim
 }
 
 export def raw_add [...rest: string] {
@@ -209,7 +205,7 @@ export def raw_sub [...rest: string] {
 }
 
 export def work-benchmark [count: int] {
-   http post -u $env.NANO_USER -p $env.NANO_PASS -t "application/json" $env.NANO_WORK {
+   http post -u $env.NANO_USER -p $env.NANO_PASS -t "application/json" $env.NANO_WORK_RPC {
       action: "benchmark"
       count: $count
    }
@@ -268,27 +264,53 @@ export def account_info [account: string] {
    }
 }
 
-export def receive [--private(-p): string] {
-   let private = ($private | default $env.NANO_PRIVATE)
-   let receivables = (receivable $env.NANO_ACCOUNT)
-   mut account = account_info $env.NANO_ACCOUNT
+def to-receivable-v1 [] {
+   let blocks = $in.blocks
+   if ($blocks | is-empty) { [] } else {
+      $blocks | transpose key value | each {|row| { block: $row.key, ...$row.value } }
+   }
+}
+
+def to-receivable-v2 [] {
+   let blocks = $in.blocks
+   if ($blocks | is-empty) { [] } else {
+      $blocks | transpose key value | each {|row|
+         { address: $row.value.source, amount: ($row.value.amount | raw_to_nano) }
+      }
+   }
+}
+
+export def receive [--private(-p): string, --full(-f)] {
+   let private = $private | default $env.NANO_PRIVATE
+   let address = key-expand $private | get account
+   mut account = account_info $address
    mut balance = $account.balance
 
-   for $receivable in $receivables {
+   let receivables = receivable $address
+   for $receivable in ($receivables | to-receivable-v1) {
       $balance = ($balance | raw_add $receivable.amount)
-      let block = block-create $account.frontier $env.NANO_ACCOUNT $account.representative $balance $receivable.block $private
-      let subtype = (if $account.frontier == "0" { "open" } else { "receive" })
+      let block = block-create $account.frontier $address $account.representative $balance $receivable.block $private
+      let subtype = if $account.frontier == "0" { "open" } else { "receive" }
       let process = process $subtype $block.block
       $account.frontier = $process.hash
-      print $receivable
+   }
+
+   let record = if $full { {"private": $private} } else { {} }
+
+   {
+      ...$record
+      "address": $address
+      "balance": ($balance | raw_to_nano)
+      "receivables": ($receivables | to-receivable-v2)
    }
 }
 
 export def send [to_address: string, amount: float = 0.000001, --private(-p): string, --all(-a)] {
-   let private = ($private | default $env.NANO_PRIVATE)
+   let private = $private | default $env.NANO_PRIVATE
    let address = key-expand $private | get account
    let account = account-info $address
-   let balance = raw_to_nano $account.balance | into float
+   let balance = $account.balance | raw_to_nano | into float
+
    let amount = if $all { balance $address | into float } else { $amount }
    if $amount == 0 {
       return {error: "Amount is zero", balance: $"($balance) NANO"}
@@ -296,7 +318,8 @@ export def send [to_address: string, amount: float = 0.000001, --private(-p): st
    if $balance < $amount {
       return {error: "Insufficient balance", balance: $"($balance) NANO", amount: $"($amount) NANO"}
    }
-   let balance_raw = nano_to_raw ($balance - $amount | to text)
+
+   let balance_raw = ($balance - $amount | nano_to_raw | to text)
    let block = block-create $account.frontier $address $account.representative $balance_raw $to_address $private
    process send $block.block
 }
