@@ -12,6 +12,8 @@ alias fdf = fd --type file
 alias top = btm --basic
 alias stop = sudo btm --basic
 
+alias icat = kitten icat
+
 alias cpu = btm --rate 500ms --expanded --default_widget_type cpu
 alias mem = btm --rate 500ms --expanded --default_widget_type mem
 alias net = btm --rate 500ms --expanded --default_widget_type net

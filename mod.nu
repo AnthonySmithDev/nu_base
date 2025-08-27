@@ -14,9 +14,11 @@ source alias/zellij.nu
 source alias/mods.nu
 
 # use rc.nu
+# use ctx.nu
 use nano.nu
 use mongo.nu
-use ctx.nu
+use video.nu
+use preview.nu
 # use tdown.nu
 use file-manager.nu
 source alias/file-manager.nu
