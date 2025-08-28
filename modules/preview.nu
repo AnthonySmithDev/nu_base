@@ -80,34 +80,29 @@ export def grid [
   timg --title -wr1 --fit-width --pixelation $pixelation --grid $grid_columns ...$images
 }
 
+def max_items_v1 [ratio: float] {
+  if $ratio > 0.5 {
+    5
+  } else if $ratio > 1.0 {
+    4
+  } else if $ratio > 1.5 {
+    3
+  } else if $ratio > 2.0 {
+    2
+  } else {
+    1
+  }
+}
+
 export def slide [
   dir: path = ".",
   --max-depth(-m): int = 1
   --search(-s): string = "."
-  --sleep(-s): duration = 1sec
+  --sleep(-S): duration = 1sec
   --reset(-r)
   --title(-t)
   --debug(-d)
 ] {
-
-  let group_config = [
-    { max_ratio: 0.5, max_items: 4, group: "1" }
-    { max_ratio: 0.6, max_items: 4, group: "2" }
-    { max_ratio: 0.7, max_items: 4, group: "3" }
-    { max_ratio: 0.8, max_items: 4, group: "4" }
-    { max_ratio: 0.9, max_items: 4, group: "5" }
-    { max_ratio: 1.0, max_items: 3, group: "6" }
-    { max_ratio: 1.1, max_items: 3, group: "7" }
-    { max_ratio: 1.2, max_items: 3, group: "8" }
-    { max_ratio: 1.3, max_items: 3, group: "9" }
-    { max_ratio: 1.4, max_items: 3, group: "10" }
-    { max_ratio: 1.5, max_items: 3, group: "11" }
-    { max_ratio: 1.6, max_items: 2, group: "12" }
-    { max_ratio: 1.7, max_items: 2, group: "13" }
-    { max_ratio: 1.8, max_items: 2, group: "14" }
-    { max_ratio: 1.9, max_items: 2, group: "15" }
-    { max_ratio: 2.0, max_items: 1, group: "16" }
-  ]
 
   mut groups = {}
 
@@ -119,38 +114,53 @@ export def slide [
     let size = (file $image.item | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
     let ratio = ($size.width | into int) / ($size.height | into int)
 
-    let filter = ($group_config | where $ratio < $it.max_ratio)
-    let config = if ($filter | is-not-empty) {
-      $filter | first
-    } else {
-      { max_items: 1, group: "x" }
-    }
+    let group_key = ($ratio | math round -p 1 | to text)
+    let max_items = max_items_v1 $ratio
 
-    let items = ($groups | get -o $config.group | default [] | append {path: $image.item, ratio: $ratio})
-    $groups = ($groups | upsert $config.group $items)
+    let items = ($groups | get -o $group_key | default [] | append {path: $image.item, ratio: $ratio})
+    $groups = ($groups | upsert $group_key $items)
 
     let items_length = ($items | length)
-    if $items_length == ($config.max_items) {
-      $groups = ($groups | upsert $config.group [])
+    if $items_length == $max_items {
+      $groups = ($groups | upsert $group_key [])
+      $index + $image.index | save --force $path
+
       if $debug {
         print $items
-      } else {
-        mut args = []
-        if $title {
-          $args = ($args | append [--title])
-        }
-        try {
-          timg ...$args --fit-width --grid $items_length ...($items | get path)
-        } catch {
-          return
-        }
+        continue
       }
-      $index + $image.index | save --force $path
+      if $title {
+        print (space-evenly ...($items | get path | path expand))
+      }
+      try { timg --fit-width --grid $items_length ...($items | get path) } catch { return }
       try { sleep $sleep } catch { return }
     }
   }
 
+  for $item in ($groups | transpose key value) {
+    if ($item.value | is-empty) {
+      continue
+    }
+
+    if $debug {
+      print $item.value
+      continue
+    }
+    if $title {
+      print (space-evenly ...($item.value | get path | path expand))
+    }
+    try { timg --fit-width --grid ($item.value | length) ...($item.value | get path) } catch { return }
+    try { sleep $sleep } catch { return }
+  }
+
   0 | save --force $path
+}
+
+def item-to-link [width: int] {
+  let item = $in
+  let chars = ($item | path basename | split chars)
+  let text = ($chars | last ($width / 1.5 | math floor) | str join)
+  $item | ansi link --text ($text | fill -a center -w $width -c " ")
 }
 
 def space-evenly [...items: string] {
@@ -162,21 +172,17 @@ def space-evenly [...items: string] {
   let items_length = ($items | length)
 
   if $items_length == 1 {
-    return ($items | first | fill -a center -w $term_width -c " ")
+    return ($items | first | item-to-link $term_width)
   }
 
   let width = $term_width / $items_length | math floor
 
   mut blocks = []
   for $index in 0..($items_length - 1) {
-    let item = $items | get $index
-    let text = ($item | path basename | split chars | last ($width / 1.5 | math floor) | str join)
-    let link_text = ($text | fill -a center -w $width -c " ")
-    let link = ($item | ansi link --text $link_text)
-    $blocks = ($blocks | append $link)
+    $blocks = ($blocks | append ($items | get $index | item-to-link $width))
   }
 
-  print ($blocks | str join)
+  return ($blocks | str join)
 }
 
 export def main [] {
@@ -185,9 +191,10 @@ export def main [] {
   let videos = (fd -e mp4 | lines)
   for $chunk in ($videos | chunks 4) {
     let preloads = preload video ...$chunk
+    print $preloads
     try {
-      space-evenly ...($chunk | path expand)
-      timg --fit-width --grid 4 ...$preloads
+      print (space-evenly ...($chunk | path expand))
+      timg --fit-width --grid ($chunk | length) ...$preloads
       sleep 500ms
     } catch {
       return

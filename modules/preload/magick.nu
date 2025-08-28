@@ -55,3 +55,33 @@ export def preload [file: string, flatten: bool = false] {
 
   return $cache
 }
+
+const svg_icon = '<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="60" height="60" rx="30" fill="#000000" fill-opacity="0.6"/>
+<path d="M24 18L42 30L24 42V18Z" fill="#ffffff"/></svg>'
+
+def path_play_icon [] {
+  let svg_path = $"/tmp/play_icon.svg"
+  if not ($svg_path | path exists) {
+    $svg_icon | save --force $svg_path
+  }
+  return $svg_path
+}
+
+export def add_play_icon [image: string] {
+  let svg_icon = path_play_icon
+
+  let cmd_args = [
+    $svg_icon, "-background", "none",
+    $image, "+swap",
+    "-gravity", "southeast", "-composite",
+    $image
+  ]
+ 
+  let output = (run-external magick ...$cmd_args | complete)
+  if $output.exit_code != 0 {
+    error make -u { msg: $"Failed to add play icon: ($output.stderr)" }
+  }
+  
+  return $image
+}

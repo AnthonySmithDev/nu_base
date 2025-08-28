@@ -723,12 +723,12 @@
   {
     "category": "core",
     "name": "mifi/ezshare",
-    "tag_name": "v1.11.5",
-    "created_at": "2024-11-15T03:16:58Z",
+    "tag_name": "v2.0.0",
+    "created_at": "2025-08-27T21:09:09Z",
     "assets": [
-      "ezshare-linux.zip",
-      "ezshare-macos.zip",
-      "ezshare-win.zip"
+      "ezshare-darwin-arm64-2.0.0.zip",
+      "ezshare-linux-x64-2.0.0.zip",
+      "ezshare-win32-x64-2.0.0.zip"
     ],
     "linux_x64": {
       "ends": "linux.zip"
@@ -3762,8 +3762,8 @@
   {
     "category": "other",
     "name": "antonmedv/fx",
-    "tag_name": "39.0.2",
-    "created_at": "2025-08-21T18:37:04Z",
+    "tag_name": "39.0.3",
+    "created_at": "2025-08-28T12:15:33Z",
     "assets": [
       "fx_darwin_amd64",
       "fx_darwin_arm64",
@@ -3851,8 +3851,8 @@
   {
     "category": "other",
     "name": "astral-sh/ruff",
-    "tag_name": "0.12.10",
-    "created_at": "2025-08-21T18:09:31Z",
+    "tag_name": "0.12.11",
+    "created_at": "2025-08-28T13:45:01Z",
     "assets": [
       "ruff-aarch64-apple-darwin.tar.gz",
       "ruff-aarch64-pc-windows-msvc.zip",
@@ -4401,26 +4401,22 @@
   {
     "category": "other",
     "name": "AppFlowy-IO/AppFlowy",
-    "tag_name": "0.9.7",
-    "created_at": "2025-07-14T03:25:53Z",
+    "tag_name": "0.9.8",
+    "created_at": "2025-08-20T02:52:32Z",
     "assets": [
-      "appcast-linux-x86_64.xml",
-      "appcast-macos-arm64.xml",
-      "appcast-macos-x86_64.xml",
-      "appcast-windows-x86_64.xml",
-      "AppFlowy-0.9.7-android.apk",
-      "AppFlowy-0.9.7-linux-x86_64.AppImage",
-      "AppFlowy-0.9.7-linux-x86_64.deb",
-      "AppFlowy-0.9.7-linux-x86_64.rpm",
-      "AppFlowy-0.9.7-linux-x86_64.tar.gz",
-      "AppFlowy-0.9.7-macos-arm64.dmg",
-      "AppFlowy-0.9.7-macos-arm64.zip",
-      "AppFlowy-0.9.7-macos-universal.dmg",
-      "AppFlowy-0.9.7-macos-universal.zip",
-      "AppFlowy-0.9.7-macos-x86_64.dmg",
-      "AppFlowy-0.9.7-macos-x86_64.zip",
-      "AppFlowy-0.9.7-windows-x86_64.exe",
-      "AppFlowy-0.9.7-windows-x86_64.zip"
+      "AppFlowy-0.9.8-android.apk",
+      "AppFlowy-0.9.8-linux-x86_64.AppImage",
+      "AppFlowy-0.9.8-linux-x86_64.deb",
+      "AppFlowy-0.9.8-linux-x86_64.rpm",
+      "AppFlowy-0.9.8-linux-x86_64.tar.gz",
+      "AppFlowy-0.9.8-macos-arm64.dmg",
+      "AppFlowy-0.9.8-macos-arm64.zip",
+      "AppFlowy-0.9.8-macos-universal.dmg",
+      "AppFlowy-0.9.8-macos-universal.zip",
+      "AppFlowy-0.9.8-macos-x86_64.dmg",
+      "AppFlowy-0.9.8-macos-x86_64.zip",
+      "AppFlowy-0.9.8-windows-x86_64.exe",
+      "AppFlowy-0.9.8-windows-x86_64.zip"
     ],
     "linux_x64": {
       "ends": "linux-x86_64.tar.gz"
@@ -4995,35 +4991,35 @@
   {
     "category": "other",
     "name": "mongodb-js/mongosh",
-    "tag_name": "v2.5.6",
-    "created_at": "2025-07-17T14:49:03Z",
+    "tag_name": "v2.5.7",
+    "created_at": "2025-08-26T09:43:51Z",
     "assets": [
-      "mongodb-mongosh-2.5.6.aarch64.rpm",
-      "mongodb-mongosh-2.5.6.ppc64le.rpm",
-      "mongodb-mongosh-2.5.6.s390x.rpm",
-      "mongodb-mongosh-2.5.6.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl11-2.5.6.aarch64.rpm",
-      "mongodb-mongosh-shared-openssl11-2.5.6.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl11_2.5.6_amd64.deb",
-      "mongodb-mongosh-shared-openssl11_2.5.6_arm64.deb",
-      "mongodb-mongosh-shared-openssl3-2.5.6.aarch64.rpm",
-      "mongodb-mongosh-shared-openssl3-2.5.6.x86_64.rpm",
-      "mongodb-mongosh-shared-openssl3_2.5.6_amd64.deb",
-      "mongodb-mongosh-shared-openssl3_2.5.6_arm64.deb",
-      "mongodb-mongosh_2.5.6_amd64.deb",
-      "mongodb-mongosh_2.5.6_arm64.deb",
-      "mongosh-2.5.6-darwin-arm64.zip",
-      "mongosh-2.5.6-darwin-x64.zip",
-      "mongosh-2.5.6-linux-arm64-openssl11.tgz",
-      "mongosh-2.5.6-linux-arm64-openssl3.tgz",
-      "mongosh-2.5.6-linux-arm64.tgz",
-      "mongosh-2.5.6-linux-ppc64le.tgz",
-      "mongosh-2.5.6-linux-s390x.tgz",
-      "mongosh-2.5.6-linux-x64-openssl11.tgz",
-      "mongosh-2.5.6-linux-x64-openssl3.tgz",
-      "mongosh-2.5.6-linux-x64.tgz",
-      "mongosh-2.5.6-win32-x64.zip",
-      "mongosh-2.5.6-x64.msi"
+      "mongodb-mongosh-2.5.7.aarch64.rpm",
+      "mongodb-mongosh-2.5.7.ppc64le.rpm",
+      "mongodb-mongosh-2.5.7.s390x.rpm",
+      "mongodb-mongosh-2.5.7.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl11-2.5.7.aarch64.rpm",
+      "mongodb-mongosh-shared-openssl11-2.5.7.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl11_2.5.7_amd64.deb",
+      "mongodb-mongosh-shared-openssl11_2.5.7_arm64.deb",
+      "mongodb-mongosh-shared-openssl3-2.5.7.aarch64.rpm",
+      "mongodb-mongosh-shared-openssl3-2.5.7.x86_64.rpm",
+      "mongodb-mongosh-shared-openssl3_2.5.7_amd64.deb",
+      "mongodb-mongosh-shared-openssl3_2.5.7_arm64.deb",
+      "mongodb-mongosh_2.5.7_amd64.deb",
+      "mongodb-mongosh_2.5.7_arm64.deb",
+      "mongosh-2.5.7-darwin-arm64.zip",
+      "mongosh-2.5.7-darwin-x64.zip",
+      "mongosh-2.5.7-linux-arm64-openssl11.tgz",
+      "mongosh-2.5.7-linux-arm64-openssl3.tgz",
+      "mongosh-2.5.7-linux-arm64.tgz",
+      "mongosh-2.5.7-linux-ppc64le.tgz",
+      "mongosh-2.5.7-linux-s390x.tgz",
+      "mongosh-2.5.7-linux-x64-openssl11.tgz",
+      "mongosh-2.5.7-linux-x64-openssl3.tgz",
+      "mongosh-2.5.7-linux-x64.tgz",
+      "mongosh-2.5.7-win32-x64.zip",
+      "mongosh-2.5.7-x64.msi"
     ],
     "linux_x64": {
       "ends": "linux-x64-openssl3.tgz"
@@ -5068,8 +5064,9 @@
   {
     "category": "other",
     "name": "darrenburns/posting",
-    "tag_name": "2.7.0",
-    "created_at": "2025-04-19T18:50:22Z"
+    "tag_name": "2.7.1",
+    "created_at": "2025-07-22T22:23:31Z",
+    "assets": []
   },
   {
     "category": "other",
@@ -5081,17 +5078,17 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.28.0",
-    "created_at": "2025-08-25T05:17:26Z",
+    "tag_name": "v0.28.1",
+    "created_at": "2025-08-27T22:09:40Z",
     "assets": [
-      "aider-desk-0.28.0-macos-arm64.dmg",
-      "aider-desk-0.28.0-macos-arm64.zip",
-      "aider-desk-0.28.0-macos-x64.dmg",
-      "aider-desk-0.28.0-macos-x64.zip",
-      "aider-desk-0.28.0-setup.exe",
-      "aider-desk-0.28.0.AppImage",
-      "aider-desk-0.28.0.x86_64.rpm",
-      "aider-desk_0.28.0_amd64.deb"
+      "aider-desk-0.28.1-macos-arm64.dmg",
+      "aider-desk-0.28.1-macos-arm64.zip",
+      "aider-desk-0.28.1-macos-x64.dmg",
+      "aider-desk-0.28.1-macos-x64.zip",
+      "aider-desk-0.28.1-setup.exe",
+      "aider-desk-0.28.1.AppImage",
+      "aider-desk-0.28.1.x86_64.rpm",
+      "aider-desk_0.28.1_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
