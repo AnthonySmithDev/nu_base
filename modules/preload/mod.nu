@@ -1,10 +1,18 @@
 
-export def image [path: path] {
+export def image [...paths: path] {
   use magick.nu
-  magick preload $path
+  $paths | each {|path| magick preload $path}
 }
 
-export def video [path: path] {
+export def video [...paths: path] {
   use ffmpeg.nu
-  ffmpeg preload $path
+  $paths | each {|path| ffmpeg preload $path}
+}
+
+export def list [] {
+  ls /tmp/preload_*
+}
+
+export def remove [] {
+  rm -rfp /tmp/preload_*
 }

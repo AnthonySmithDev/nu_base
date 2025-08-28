@@ -153,13 +153,44 @@ export def slide [
   0 | save --force $path
 }
 
+def space-evenly [...items: string] {
+  if ($items | is-empty) {
+    return ""
+  }
+
+  let term_width = term size | get columns
+  let items_length = ($items | length)
+
+  if $items_length == 1 {
+    return ($items | first | fill -a center -w $term_width -c " ")
+  }
+
+  let width = $term_width / $items_length | math floor
+
+  mut blocks = []
+  for $index in 0..($items_length - 1) {
+    let item = $items | get $index
+    let text = ($item | path basename | split chars | last ($width / 1.5 | math floor) | str join)
+    let link_text = ($text | fill -a center -w $width -c " ")
+    let link = ($item | ansi link --text $link_text)
+    $blocks = ($blocks | append $link)
+  }
+
+  print ($blocks | str join)
+}
+
 export def main [] {
   use preload
+
   let videos = (fd -e mp4 | lines)
-  for $chunk in ($videos | chunks 3) {
-    for $img in $chunk {
-      print (preload video $img)
+  for $chunk in ($videos | chunks 4) {
+    let preloads = preload video ...$chunk
+    try {
+      space-evenly ...($chunk | path expand)
+      timg --fit-width --grid 4 ...$preloads
+      sleep 500ms
+    } catch {
+      return
     }
-    print ""
   }
 }

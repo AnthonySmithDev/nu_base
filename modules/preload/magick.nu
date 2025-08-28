@@ -26,6 +26,11 @@ export def with_limit [] {
 }
 
 export def preload [file: string, flatten: bool = false] {
+  let mimetype = (file --mime-type $file | str replace $"($file): " "" | str trim)
+  if not ($mimetype | str starts-with "image/") {
+    error make -u { msg: $"File is not an image file. Mimetype: ($mimetype)" }
+  }
+
   let cache = $"/tmp/preload_image_($file | hash md5).jpg"
   if ($cache | path exists) {
     return $cache
@@ -44,8 +49,8 @@ export def preload [file: string, flatten: bool = false] {
   ])
 
   let output = (run-external magick ...$cmd_args | complete)
-    if $output.exit_code != 0 {
-    return $"Failed to start `magick`, error: ($output.stderr)"
+  if $output.exit_code != 0 {
+    error make -u { msg: $"Failed to start `magick`, error: ($output.stderr)" }
   }
 
   return $cache
