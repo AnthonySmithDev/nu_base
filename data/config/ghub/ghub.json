@@ -87,50 +87,50 @@
   {
     "category": "core",
     "name": "charmbracelet/crush",
-    "tag_name": "v0.7.2",
-    "created_at": "2025-08-27T18:07:49Z",
+    "tag_name": "v0.7.4",
+    "created_at": "2025-08-28T20:11:06Z",
     "assets": [
-      "crush-0.7.2-1-aarch64.pkg.tar.zst",
-      "crush-0.7.2-1-armv7h.pkg.tar.zst",
-      "crush-0.7.2-1-i686.pkg.tar.zst",
-      "crush-0.7.2-1-x86_64.pkg.tar.zst",
-      "crush-0.7.2-1.aarch64.rpm",
-      "crush-0.7.2-1.armv7hl.rpm",
-      "crush-0.7.2-1.i386.rpm",
-      "crush-0.7.2-1.x86_64.rpm",
-      "crush-0.7.2.tar.gz",
-      "crush_0.7.2_aarch64.apk",
-      "crush_0.7.2_aarch64.deb.termux.deb",
-      "crush_0.7.2_amd64.deb",
-      "crush_0.7.2_Android_arm64.tar.gz",
-      "crush_0.7.2_arm64.deb",
-      "crush_0.7.2_armhf.deb",
-      "crush_0.7.2_armv7.apk",
-      "crush_0.7.2_Darwin_arm64.tar.gz",
-      "crush_0.7.2_Darwin_x86_64.tar.gz",
-      "crush_0.7.2_Freebsd_arm64.tar.gz",
-      "crush_0.7.2_Freebsd_armv7.tar.gz",
-      "crush_0.7.2_Freebsd_i386.tar.gz",
-      "crush_0.7.2_Freebsd_x86_64.tar.gz",
-      "crush_0.7.2_i386.deb",
-      "crush_0.7.2_Linux_arm64.tar.gz",
-      "crush_0.7.2_Linux_armv7.tar.gz",
-      "crush_0.7.2_Linux_i386.tar.gz",
-      "crush_0.7.2_Linux_x86_64.tar.gz",
-      "crush_0.7.2_Netbsd_arm64.tar.gz",
-      "crush_0.7.2_Netbsd_armv7.tar.gz",
-      "crush_0.7.2_Netbsd_i386.tar.gz",
-      "crush_0.7.2_Netbsd_x86_64.tar.gz",
-      "crush_0.7.2_Openbsd_arm64.tar.gz",
-      "crush_0.7.2_Openbsd_armv7.tar.gz",
-      "crush_0.7.2_Openbsd_i386.tar.gz",
-      "crush_0.7.2_Openbsd_x86_64.tar.gz",
-      "crush_0.7.2_Windows_arm64.zip",
-      "crush_0.7.2_Windows_armv7.zip",
-      "crush_0.7.2_Windows_i386.zip",
-      "crush_0.7.2_Windows_x86_64.zip",
-      "crush_0.7.2_x86.apk",
-      "crush_0.7.2_x86_64.apk"
+      "crush-0.7.4-1-aarch64.pkg.tar.zst",
+      "crush-0.7.4-1-armv7h.pkg.tar.zst",
+      "crush-0.7.4-1-i686.pkg.tar.zst",
+      "crush-0.7.4-1-x86_64.pkg.tar.zst",
+      "crush-0.7.4-1.aarch64.rpm",
+      "crush-0.7.4-1.armv7hl.rpm",
+      "crush-0.7.4-1.i386.rpm",
+      "crush-0.7.4-1.x86_64.rpm",
+      "crush-0.7.4.tar.gz",
+      "crush_0.7.4_aarch64.apk",
+      "crush_0.7.4_aarch64.deb.termux.deb",
+      "crush_0.7.4_amd64.deb",
+      "crush_0.7.4_Android_arm64.tar.gz",
+      "crush_0.7.4_arm64.deb",
+      "crush_0.7.4_armhf.deb",
+      "crush_0.7.4_armv7.apk",
+      "crush_0.7.4_Darwin_arm64.tar.gz",
+      "crush_0.7.4_Darwin_x86_64.tar.gz",
+      "crush_0.7.4_Freebsd_arm64.tar.gz",
+      "crush_0.7.4_Freebsd_armv7.tar.gz",
+      "crush_0.7.4_Freebsd_i386.tar.gz",
+      "crush_0.7.4_Freebsd_x86_64.tar.gz",
+      "crush_0.7.4_i386.deb",
+      "crush_0.7.4_Linux_arm64.tar.gz",
+      "crush_0.7.4_Linux_armv7.tar.gz",
+      "crush_0.7.4_Linux_i386.tar.gz",
+      "crush_0.7.4_Linux_x86_64.tar.gz",
+      "crush_0.7.4_Netbsd_arm64.tar.gz",
+      "crush_0.7.4_Netbsd_armv7.tar.gz",
+      "crush_0.7.4_Netbsd_i386.tar.gz",
+      "crush_0.7.4_Netbsd_x86_64.tar.gz",
+      "crush_0.7.4_Openbsd_arm64.tar.gz",
+      "crush_0.7.4_Openbsd_armv7.tar.gz",
+      "crush_0.7.4_Openbsd_i386.tar.gz",
+      "crush_0.7.4_Openbsd_x86_64.tar.gz",
+      "crush_0.7.4_Windows_arm64.zip",
+      "crush_0.7.4_Windows_armv7.zip",
+      "crush_0.7.4_Windows_i386.zip",
+      "crush_0.7.4_Windows_x86_64.zip",
+      "crush_0.7.4_x86.apk",
+      "crush_0.7.4_x86_64.apk"
     ],
     "linux_x64": {
       "ends": "Linux_x86_64.tar.gz"
@@ -1089,10 +1089,10 @@
   {
     "category": "core",
     "name": "Canop/broot",
-    "tag_name": "v1.47.0",
-    "created_at": "2025-06-26T18:08:53Z",
+    "tag_name": "v1.48.0",
+    "created_at": "2025-08-29T06:37:45Z",
     "assets": [
-      "broot_1.47.0.zip"
+      "broot_1.48.0.zip"
     ],
     "linux_x64": {
       "ends": ".zip"
@@ -1232,8 +1232,8 @@
   {
     "category": "extra",
     "name": "zed-industries/zed",
-    "tag_name": "v0.201.5",
-    "created_at": "2025-08-27T16:46:57Z",
+    "tag_name": "v0.201.7",
+    "created_at": "2025-08-29T18:31:10Z",
     "assets": [
       "Zed-aarch64.dmg",
       "zed-linux-aarch64.tar.gz",
@@ -2662,8 +2662,8 @@
   {
     "category": "other",
     "name": "ollama/ollama",
-    "tag_name": "v0.11.7",
-    "created_at": "2025-08-22T23:26:48Z",
+    "tag_name": "v0.11.8",
+    "created_at": "2025-08-28T19:27:13Z",
     "assets": [
       "ollama-darwin.tgz",
       "Ollama-darwin.zip",
@@ -3883,8 +3883,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.8.13",
-    "created_at": "2025-08-21T18:52:39Z",
+    "tag_name": "0.8.14",
+    "created_at": "2025-08-28T21:25:02Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -4820,8 +4820,8 @@
   {
     "category": "other",
     "name": "immich-app/immich",
-    "tag_name": "v1.139.4",
-    "created_at": "2025-08-25T02:39:18Z",
+    "tag_name": "v1.140.0",
+    "created_at": "2025-08-28T18:50:45Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -5028,8 +5028,8 @@
   {
     "category": "other",
     "name": "kopecmaciej/vi-mongo",
-    "tag_name": "v0.1.29",
-    "created_at": "2025-06-11T07:33:52Z",
+    "tag_name": "v0.1.30",
+    "created_at": "2025-08-28T19:42:55Z",
     "assets": [
       "vi-mongo_Darwin_arm64.tar.gz",
       "vi-mongo_Darwin_x86_64.tar.gz",
@@ -5224,8 +5224,8 @@
   {
     "category": "other",
     "name": "pythops/oryx",
-    "tag_name": "v0.7.0",
-    "created_at": "2025-08-21T16:11:54Z",
+    "tag_name": "v0.7.1",
+    "created_at": "2025-08-28T22:10:03Z",
     "assets": [
       "oryx-aarch64-unknown-linux-musl",
       "oryx-x86_64-unknown-linux-musl"
@@ -5546,8 +5546,8 @@
   {
     "category": "other",
     "name": "hoppscotch/releases",
-    "tag_name": "v25.7.1-0",
-    "created_at": "2025-07-30T09:02:57Z",
+    "tag_name": "v25.8.0-0",
+    "created_at": "2025-08-28T06:03:53Z",
     "assets": [
       "Hoppscotch_linux_x64.AppImage",
       "Hoppscotch_linux_x64.deb",
@@ -5977,8 +5977,8 @@
   {
     "category": "other",
     "name": "yt-dlp/yt-dlp",
-    "tag_name": "2025.08.22",
-    "created_at": "2025-08-22T23:59:02Z",
+    "tag_name": "2025.08.27",
+    "created_at": "2025-08-27T23:56:39Z",
     "assets": [
       "SHA2-256SUMS",
       "SHA2-512SUMS",

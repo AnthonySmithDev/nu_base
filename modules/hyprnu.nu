@@ -12,6 +12,43 @@ export def activewindow [] {
   hyprctl activewindow -j | from json
 }
 
+export def drum [] {
+  let layouts = [
+    {x: 20, y: 680, width: 480, height: 380, focus: true}
+    {x: 20, y: 900, width: 860, height: 160, focus: false}
+    {x: 20, y: 1100, width: 480, height: 380, focus: false}
+  ]
+
+  let filter = clients
+  | where initialClass =~ "Brave-browser"
+  | where initialTitle =~ "www.virtualdrumming.com"
+  if ($filter | is-empty) {
+    return
+  }
+
+  let state_path = ($env.HOME | path join drum.state)
+  let state_value = if not ($state_path | path exists) { 0 } else {
+    open $state_path | into int
+  }
+
+  let client = $filter | first
+  let layout = $layouts | get $state_value
+
+  if $client.focusHistoryID != 0 {
+    hyprctl dispatch focuswindow address:($client.address)
+  }
+
+  hyprctl dispatch moveactive exact $layout.x $layout.y
+  hyprctl dispatch resizeactive exact $layout.width $layout.height
+
+  if not $layout.focus {
+    hyprctl dispatch focuscurrentorlast
+  }
+
+  let state_next = ($state_value + 1) mod ($layouts | length)
+  $state_next | save --force $state_path
+}
+
 def select-window [--title(-t): string, --class(-c): string] {
   let clients = clients
   let client = if ($title | is-not-empty) {
@@ -198,6 +235,9 @@ def main [
       }
       switch-focus $select
     }
+    "drum" => {
+      drum
+    }
     "adb-pair" => {
       kitty --class adb-pair -- nu --login -c "use xadb.nu; xadb pair qr"
     }
@@ -210,6 +250,7 @@ def main [
       print "  hyprnu switch-mon [mpv|pip]"
       print "  hyprnu switch-pin [mpv|pip]"
       print "  hyprnu switch-focus [mpv|pip]"
+      print "  hyprnu drum"
       print "  hyprnu adctrl"
       print "  hyprnu adb pair"
     }

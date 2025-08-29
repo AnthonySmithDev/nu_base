@@ -285,10 +285,12 @@ export def receive [--private(-p): string, --full(-f)] {
    let address = key-expand $private | get account
    mut account = account_info $address
    mut balance = $account.balance
+   mut amount = 0
 
    let receivables = receivable $address
    for $receivable in ($receivables | to-receivable-v1) {
       $balance = ($balance | raw_add $receivable.amount)
+      $amount = ($amount | raw_add $receivable.amount)
       let block = block-create $account.frontier $address $account.representative $balance $receivable.block $private
       let subtype = if $account.frontier == "0" { "open" } else { "receive" }
       let process = process $subtype $block.block
@@ -301,6 +303,7 @@ export def receive [--private(-p): string, --full(-f)] {
       ...$record
       "address": $address
       "balance": ($balance | raw_to_nano)
+      "amount": ($amount | raw_to_nano)
       "receivables": ($receivables | to-receivable-v2)
    }
 }
@@ -348,3 +351,9 @@ export def seed-send [from_seed: string, to_address: string, --max-index(-m): in
       print (send $to_address ($account.balance | into float) --private $account.private)
    }
 }
+
+export alias r = receive
+export alias s = send
+export alias sc = seed-create
+export alias sd = seed-derived
+export alias ss = seed-send
