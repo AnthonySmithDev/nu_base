@@ -182,3 +182,7 @@ export def repeat [closure: closure] {
     continue
   }
 }
+
+export def drum [] {
+  brave --app=https://www.virtualdrumming.com/drums/coordinated-independence/drums-basic-rock-1.html
+}
