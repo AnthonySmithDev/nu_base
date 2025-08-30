@@ -2,7 +2,7 @@ theme = ayu
 command = nu
 confirm-close-surface = false
 
-font-family = FiraCode Nerd Font
+font-family = JetBrainsMono Nerd Font
 font-feature = +feat
 font-size = 10.5
 

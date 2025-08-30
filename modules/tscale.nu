@@ -58,7 +58,7 @@ export def backup [--dir(-d): path] {
 }
 
 def restore-dirs [] {
-  [laptop work]
+  [laptop home work]
 }
 
 export def restore [dir: string@restore-dirs] {

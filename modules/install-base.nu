@@ -93,7 +93,7 @@ export def main [] {
 
   pkg sh rust
 
-  pkg font FiraCode
+  pkg font JetBrainsMono
 
   enable-service sshd
   enable-service docker

@@ -282,8 +282,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.5.28",
-    "created_at": "2025-08-26T20:23:34Z",
+    "tag_name": "v0.5.29",
+    "created_at": "2025-08-30T06:00:39Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",
@@ -1232,8 +1232,8 @@
   {
     "category": "extra",
     "name": "zed-industries/zed",
-    "tag_name": "v0.201.7",
-    "created_at": "2025-08-29T18:31:10Z",
+    "tag_name": "v0.201.8",
+    "created_at": "2025-08-29T22:54:13Z",
     "assets": [
       "Zed-aarch64.dmg",
       "zed-linux-aarch64.tar.gz",
@@ -1251,11 +1251,11 @@
   {
     "category": "extra",
     "name": "lapce/lapce",
-    "tag_name": "v0.4.3",
-    "created_at": "2025-06-26T20:06:31Z",
+    "tag_name": "v0.4.4",
+    "created_at": "2025-08-30T05:01:11Z",
     "assets": [
-      "lapce-0.4.3-1.fedora39.x86_64.rpm",
-      "lapce-0.4.3-1.fedora40.x86_64.rpm",
+      "lapce-0.4.4-1.fedora41.x86_64.rpm",
+      "lapce-0.4.4-1.fedora42.x86_64.rpm",
       "lapce-linux-amd64.tar.gz",
       "lapce-linux-arm64.tar.gz",
       "Lapce-macos.dmg",
@@ -1270,8 +1270,6 @@
       "lapce.debian.bookworm.arm64.deb",
       "lapce.debian.bullseye.amd64.deb",
       "lapce.debian.bullseye.arm64.deb",
-      "lapce.ubuntu.focal.amd64.deb",
-      "lapce.ubuntu.focal.arm64.deb",
       "lapce.ubuntu.jammy.amd64.deb",
       "lapce.ubuntu.jammy.arm64.deb",
       "lapce.ubuntu.noble.amd64.deb",

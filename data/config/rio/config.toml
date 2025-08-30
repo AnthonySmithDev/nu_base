@@ -227,7 +227,7 @@ filters = []
 # weight = 800
 
 [fonts]
-family = "FiraCode Nerd Font"
+family = "JetBrainsMono Nerd Font"
 hinting = true
 size = 15
 

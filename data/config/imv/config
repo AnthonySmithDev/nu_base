@@ -7,7 +7,7 @@ overlay_text_color = E5E1CF
 overlay_background_color = 0D1118
 # overlay_background_alpha = 00
 overlay_position_bottom = true
-overlay_font = "FiraCode Nerd Font:14"
+overlay_font = "JetBrainsMono Nerd Font:14"
 suppress_default_binds = true
 
 [aliases]

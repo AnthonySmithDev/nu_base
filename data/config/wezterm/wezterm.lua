@@ -22,8 +22,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.font_size = 11
 
 config.font = wezterm.font_with_fallback({
-  'FiraCode Nerd Font',
-  'JetBrains Mono',
+  'JetBrainsMono Nerd Font',
   'Cascadia Code',
 })
 
