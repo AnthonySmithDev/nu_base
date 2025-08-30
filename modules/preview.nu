@@ -81,79 +81,17 @@ export def grid [
 }
 
 def max_items_v1 [ratio: float] {
-  if $ratio > 0.5 {
+  if $ratio < 0.5 {
     5
-  } else if $ratio > 1.0 {
+  } else if $ratio < 1.0 {
     4
-  } else if $ratio > 1.5 {
+  } else if $ratio < 1.5 {
     3
-  } else if $ratio > 2.0 {
+  } else if $ratio < 2.0 {
     2
   } else {
     1
   }
-}
-
-export def slide [
-  dir: path = ".",
-  --max-depth(-m): int = 1
-  --search(-s): string = "."
-  --sleep(-S): duration = 1sec
-  --reset(-r)
-  --title(-t)
-  --debug(-d)
-] {
-
-  mut groups = {}
-
-  let path = ($dir | path expand | path join .preview.index)
-  let images = (fd -e png -e jpg -e jpeg -d $max_depth $search $dir | lines)
-  let index = if $reset or not ($path | path exists) { 0 } else { open $path | into int }
-
-  for $image in ($images | skip $index | enumerate) {
-    let size = (file $image.item | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
-    let ratio = ($size.width | into int) / ($size.height | into int)
-
-    let group_key = ($ratio | math round -p 1 | to text)
-    let max_items = max_items_v1 $ratio
-
-    let items = ($groups | get -o $group_key | default [] | append {path: $image.item, ratio: $ratio})
-    $groups = ($groups | upsert $group_key $items)
-
-    let items_length = ($items | length)
-    if $items_length == $max_items {
-      $groups = ($groups | upsert $group_key [])
-      $index + $image.index | save --force $path
-
-      if $debug {
-        print $items
-        continue
-      }
-      if $title {
-        print (space-evenly ...($items | get path | path expand))
-      }
-      try { timg --fit-width --grid $items_length ...($items | get path) } catch { return }
-      try { sleep $sleep } catch { return }
-    }
-  }
-
-  for $item in ($groups | transpose key value) {
-    if ($item.value | is-empty) {
-      continue
-    }
-
-    if $debug {
-      print $item.value
-      continue
-    }
-    if $title {
-      print (space-evenly ...($item.value | get path | path expand))
-    }
-    try { timg --fit-width --grid ($item.value | length) ...($item.value | get path) } catch { return }
-    try { sleep $sleep } catch { return }
-  }
-
-  0 | save --force $path
 }
 
 def item-to-link [width: int] {
@@ -185,19 +123,81 @@ def space-evenly [...items: string] {
   return ($blocks | str join)
 }
 
-export def main [] {
-  use preload
+export def slide [
+  dir: path = ".",
+  --max-depth(-m): int = 1
+  --search(-s): string = "."
+  --sleep(-S): duration = 1sec
+  --reset(-r)
+  --no-title(-n)
+  --debug(-d)
+] {
+  use preload/
 
-  let videos = (fd -e mp4 | lines)
-  for $chunk in ($videos | chunks 4) {
-    let preloads = preload video ...$chunk
-    print $preloads
-    try {
-      print (space-evenly ...($chunk | path expand))
-      timg --fit-width --grid ($chunk | length) ...$preloads
-      sleep 500ms
-    } catch {
-      return
+  mut groups = {}
+
+  let index_path = ($dir | path expand | path join .preview.index)
+  let media_paths = (fd -e png -e jpg -e jpeg -e mp4 -d $max_depth $search $dir | lines)
+  let index_value = if $reset or not ($index_path | path exists) { 0 } else { open $index_path | into int }
+
+  for media_path in ($media_paths | skip $index_value | enumerate) {
+    let is_video = ($media_path.item | str downcase | str ends-with "mp4")
+    let media_preview = if $is_video {
+      let preview = preload video $media_path.item
+      if ($preview | is-empty) {
+        continue
+      } else {
+        $preview | first
+      }
+    } else {
+      $media_path.item
+    }
+
+    let size = (file $media_preview | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
+    let ratio = ($size.width | into int) / ($size.height | into int) | math round -p 1
+
+    let group_key = ($ratio | to text)
+    let max_items = max_items_v1 $ratio
+
+    let items = ($groups | get -o $group_key | default [] | append {path: ($media_path.item | path expand), preview: $media_preview, ratio: $ratio})
+    $groups = ($groups | upsert $group_key $items)
+
+    let items_length = ($items | length)
+    if $items_length == $max_items {
+      $groups = ($groups | upsert $group_key [])
+      $index_value + $media_path.index | save --force $index_path
+
+      if $debug {
+        print $items
+        continue
+      }
+      try {
+        print (space-evenly ...($items | get path))
+        timg --fit-width --grid $items_length ...($items | get preview)
+        sleep $sleep
+      }
     }
   }
+
+  for $item in ($groups | transpose key value) {
+    if ($item.value | is-empty) {
+      continue
+    }
+
+    if $debug {
+      print $item.value
+      continue
+    }
+    try {
+      print (space-evenly ...($item.value | get path))
+      timg --fit-width --grid ($item.value | length) ...($item.value | get preview) 
+      sleep $sleep 
+    }
+  }
+
+  0 | save --force $index_path
+}
+
+export def main [] {
+  slide
 }

@@ -1,12 +1,12 @@
 
 export def image [...paths: path] {
   use magick.nu
-  $paths | each {|path| magick preload $path}
+  $paths | each {|path| try { magick preload $path }}
 }
 
 export def video [...paths: path] {
   use ffmpeg.nu
-  $paths | each {|path| ffmpeg preload $path}
+  $paths | each {|path| try { ffmpeg preload $path }}
 }
 
 export def list [] {
