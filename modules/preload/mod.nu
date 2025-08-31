@@ -10,9 +10,10 @@ export def video [...paths: path] {
 }
 
 export def list [] {
-  ls /tmp/preload_*
+  (ls /tmp/preload/image/) | append (ls /tmp/preload/video/)
 }
 
 export def remove [] {
-  rm -rfp /tmp/preload_*
+  rm -rfp /tmp/preload/image/*
+  rm -rfp /tmp/preload/video/*
 }

@@ -80,7 +80,7 @@ export def grid [
   timg --title -wr1 --fit-width --pixelation $pixelation --grid $grid_columns ...$images
 }
 
-def max_items_v1 [ratio: float] {
+def max_length_v1 [ratio: float] {
   if $ratio < 0.5 {
     5
   } else if $ratio < 1.0 {
@@ -96,12 +96,18 @@ def max_items_v1 [ratio: float] {
 
 def item-to-link [width: int] {
   let item = $in
-  let chars = ($item | path basename | split chars)
+  let chars = ($item | get path | path basename | split chars)
   let text = ($chars | last ($width / 1.5 | math floor) | str join)
-  $item | ansi link --text ($text | fill -a center -w $width -c " ")
+  let content = ($text | fill -a center -w $width -c " ")
+  let link_text = if $item.video {
+    (ansi cyan_bold)($content)(ansi reset)
+  } else {
+    (ansi green_bold)($content)(ansi reset)
+  }
+  $item | get path | ansi link --text $link_text
 }
 
-def space-evenly [...items: string] {
+def space-evenly [...items: record] {
   if ($items | is-empty) {
     return ""
   }
@@ -116,8 +122,8 @@ def space-evenly [...items: string] {
   let width = $term_width / $items_length | math floor
 
   mut blocks = []
-  for $index in 0..($items_length - 1) {
-    $blocks = ($blocks | append ($items | get $index | item-to-link $width))
+  for $item in $items {
+    $blocks = ($blocks | append ($item | item-to-link $width))
   }
 
   return ($blocks | str join)
@@ -137,9 +143,9 @@ export def slide [
   mut groups = {}
 
   let index_path = ($dir | path expand | path join .preview.index)
-  let media_paths = (fd -e png -e jpg -e jpeg -e mp4 -d $max_depth $search $dir | lines)
   let index_value = if $reset or not ($index_path | path exists) { 0 } else { open $index_path | into int }
 
+  let media_paths = (fd -e png -e jpg -e jpeg -e mp4 -d $max_depth $search $dir | lines)
   for media_path in ($media_paths | skip $index_value | enumerate) {
     let is_video = ($media_path.item | str downcase | str ends-with "mp4")
     let media_preview = if $is_video {
@@ -150,49 +156,54 @@ export def slide [
         $preview | first
       }
     } else {
-      $media_path.item
+      let preview = preload image $media_path.item
+      if ($preview | is-empty) {
+        $media_path.item
+      } else {
+        $preview | first
+      }
     }
 
     let size = (file $media_preview | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
     let ratio = ($size.width | into int) / ($size.height | into int) | math round -p 1
 
     let group_key = ($ratio | to text)
-    let max_items = max_items_v1 $ratio
+    let group_value = {path: ($media_path.item | path expand), preview: $media_preview, ratio: $ratio, video: $is_video}
+    let group_values = ($groups | get -o $group_key | default [] | append $group_value)
+    $groups = ($groups | upsert $group_key $group_values)
 
-    let items = ($groups | get -o $group_key | default [] | append {path: ($media_path.item | path expand), preview: $media_preview, ratio: $ratio})
-    $groups = ($groups | upsert $group_key $items)
+    let group_length = ($group_values | length)
+    let max_length = max_length_v1 $ratio
 
-    let items_length = ($items | length)
-    if $items_length == $max_items {
+    if $group_length == $max_length {
       $groups = ($groups | upsert $group_key [])
       $index_value + $media_path.index | save --force $index_path
 
       if $debug {
-        print $items
+        print $group_values
         continue
       }
       try {
-        print (space-evenly ...($items | get path))
-        timg --fit-width --grid $items_length ...($items | get preview)
+        print (space-evenly ...$group_values)
+        timg --fit-width --grid $group_length ...($group_values | get preview)
         sleep $sleep
-      }
+      } catch { return }
     }
   }
 
-  for $item in ($groups | transpose key value) {
-    if ($item.value | is-empty) {
+  for group in ($groups | transpose key values) {
+    if ($group.values | is-empty) {
       continue
     }
-
     if $debug {
-      print $item.value
+      print $group.values
       continue
     }
     try {
-      print (space-evenly ...($item.value | get path))
-      timg --fit-width --grid ($item.value | length) ...($item.value | get preview) 
+      print (space-evenly ...$group.values)
+      timg --fit-width --grid ($group.values | length) ...($group.values | get preview) 
       sleep $sleep 
-    }
+    } catch { return }
   }
 
   0 | save --force $index_path

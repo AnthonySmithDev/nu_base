@@ -1,8 +1,8 @@
 
 const rt = {
   preview: {
-    max_width: 600
-    max_height: 900
+    max_width: 800
+    max_height: 1200
     image_quality: 75
   }
 }
@@ -42,9 +42,14 @@ export def preload [file: string, --downscale(-d)] {
     error make -u { msg: $"File is not a video file. Mimetype: ($mimetype)" }
   }
 
-  let cache = $"/tmp/preload_video_($file | hash md5).jpg"
-  if ($cache | path exists) {
-    return $cache
+  let cache_dir = "/tmp/preload/video"
+  if not ($cache_dir | path exists) {
+    mkdir $cache_dir
+  }
+
+  let cache_file = ($cache_dir | path join $"($file | hash md5).jpg")
+  if ($cache_file | path exists) {
+    return $cache_file
   }
 
   let meta = list_meta $file "format=duration:stream_disposition=attached_pic"
@@ -79,7 +84,7 @@ export def preload [file: string, --downscale(-d)] {
 
 	$cmd_args = ($cmd_args | append [
 		"-f", "image2",
-		"-y", $cache,
+		"-y", $cache_file,
   ])
 
   let output = (run-external ffmpeg ...$cmd_args | complete)
@@ -89,5 +94,5 @@ export def preload [file: string, --downscale(-d)] {
     error make -u { msg: $"`ffmpeg` exited with error code: ($output.exit_code)" }
   }
 
-  return $cache
+  return $cache_file
 }

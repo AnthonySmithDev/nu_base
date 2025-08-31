@@ -1,8 +1,8 @@
 
 const rt = {
   preview: {
-    max_width: 600
-    max_height: 900
+    max_width: 800
+    max_height: 1200
     image_quality: 75
   }
   tasks: {
@@ -31,9 +31,14 @@ export def preload [file: string, flatten: bool = false] {
     error make -u { msg: $"File is not an image file. Mimetype: ($mimetype)" }
   }
 
-  let cache = $"/tmp/preload_image_($file | hash md5).jpg"
-  if ($cache | path exists) {
-    return $cache
+  let cache_dir = "/tmp/preload/image"
+  if not ($cache_dir | path exists) {
+    mkdir $cache_dir
+  }
+
+  let cache_file = ($cache_dir | path join $"($file | hash md5).jpg")
+  if ($cache_file | path exists) {
+    return $cache_file
   }
 
   mut cmd_args = with_limit
@@ -41,19 +46,22 @@ export def preload [file: string, flatten: bool = false] {
     $cmd_args = ($cmd_args | append "-flatten")
   }
 
-  $cmd_args = ($cmd_args | append [
-    $file, "-auto-orient", "-strip",
-    "-sample", $"($rt.preview.max_width)x($rt.preview.max_height)>",
-    "-quality", $rt.preview.image_quality,
-    $"JPG:($cache)"
-  ])
+  $cmd_args = ($cmd_args | append [ $file, "-auto-orient", "-strip" ])
+  if (du $file | first | get apparent) > 2mb {
+    $cmd_args = ($cmd_args | append [
+      # "-sample", $"($rt.preview.max_width)x($rt.preview.max_height)>",
+      "-quality", $rt.preview.image_quality,
+    ])
+  }
+  $cmd_args = ($cmd_args | append [ $"JPG:($cache_file)" ])
+
 
   let output = (run-external magick ...$cmd_args | complete)
   if $output.exit_code != 0 {
     error make -u { msg: $"Failed to start `magick`, error: ($output.stderr)" }
   }
 
-  return $cache
+  return $cache_file
 }
 
 const svg_icon = '<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
