@@ -26,7 +26,7 @@ export def drum [] {
     return
   }
 
-  let state_path = ($env.HOME | path join drum.state)
+  let state_path = ($env.HOME | path join .drum.state)
   let state_value = if not ($state_path | path exists) { 0 } else {
     open $state_path | into int
   }

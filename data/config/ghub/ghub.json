@@ -282,8 +282,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.5.29",
-    "created_at": "2025-08-30T06:00:39Z",
+    "tag_name": "v0.6.1",
+    "created_at": "2025-09-01T22:07:53Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",
@@ -400,27 +400,27 @@
   {
     "category": "core",
     "name": "junegunn/fzf",
-    "tag_name": "v0.65.1",
-    "created_at": "2025-08-03T05:42:11Z",
+    "tag_name": "v0.65.2",
+    "created_at": "2025-08-31T13:23:40Z",
     "assets": [
-      "fzf-0.65.1-android_arm64.tar.gz",
-      "fzf-0.65.1-darwin_amd64.tar.gz",
-      "fzf-0.65.1-darwin_arm64.tar.gz",
-      "fzf-0.65.1-freebsd_amd64.tar.gz",
-      "fzf-0.65.1-linux_amd64.tar.gz",
-      "fzf-0.65.1-linux_arm64.tar.gz",
-      "fzf-0.65.1-linux_armv5.tar.gz",
-      "fzf-0.65.1-linux_armv6.tar.gz",
-      "fzf-0.65.1-linux_armv7.tar.gz",
-      "fzf-0.65.1-linux_loong64.tar.gz",
-      "fzf-0.65.1-linux_ppc64le.tar.gz",
-      "fzf-0.65.1-linux_s390x.tar.gz",
-      "fzf-0.65.1-openbsd_amd64.tar.gz",
-      "fzf-0.65.1-windows_amd64.zip",
-      "fzf-0.65.1-windows_arm64.zip",
-      "fzf-0.65.1-windows_armv5.zip",
-      "fzf-0.65.1-windows_armv6.zip",
-      "fzf-0.65.1-windows_armv7.zip"
+      "fzf-0.65.2-android_arm64.tar.gz",
+      "fzf-0.65.2-darwin_amd64.tar.gz",
+      "fzf-0.65.2-darwin_arm64.tar.gz",
+      "fzf-0.65.2-freebsd_amd64.tar.gz",
+      "fzf-0.65.2-linux_amd64.tar.gz",
+      "fzf-0.65.2-linux_arm64.tar.gz",
+      "fzf-0.65.2-linux_armv5.tar.gz",
+      "fzf-0.65.2-linux_armv6.tar.gz",
+      "fzf-0.65.2-linux_armv7.tar.gz",
+      "fzf-0.65.2-linux_loong64.tar.gz",
+      "fzf-0.65.2-linux_ppc64le.tar.gz",
+      "fzf-0.65.2-linux_s390x.tar.gz",
+      "fzf-0.65.2-openbsd_amd64.tar.gz",
+      "fzf-0.65.2-windows_amd64.zip",
+      "fzf-0.65.2-windows_arm64.zip",
+      "fzf-0.65.2-windows_armv5.zip",
+      "fzf-0.65.2-windows_armv6.zip",
+      "fzf-0.65.2-windows_armv7.zip"
     ],
     "linux_x64": {
       "ends": "linux_amd64.tar.gz"
@@ -1211,8 +1211,8 @@
   {
     "category": "extra",
     "name": "neovim/neovim",
-    "tag_name": "v0.11.3",
-    "created_at": "2025-07-12T18:36:01Z",
+    "tag_name": "v0.11.4",
+    "created_at": "2025-08-31T19:27:45Z",
     "assets": [
       "nvim-linux-arm64.appimage",
       "nvim-linux-arm64.appimage.zsync",
@@ -1299,8 +1299,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.159.1",
-    "created_at": "2025-08-27T10:36:35Z",
+    "tag_name": "3.159.2",
+    "created_at": "2025-09-01T10:05:04Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -2403,8 +2403,8 @@
   {
     "category": "extra",
     "name": "owenthereal/upterm",
-    "tag_name": "v0.15.2",
-    "created_at": "2025-07-30T04:45:54Z",
+    "tag_name": "v0.15.3",
+    "created_at": "2025-08-31T18:01:19Z",
     "assets": [
       "uptermd_linux_amd64.tar.gz",
       "uptermd_linux_arm64.tar.gz",
@@ -2523,10 +2523,10 @@
   {
     "category": "extra",
     "name": "eza-community/eza",
-    "tag_name": "v0.23.0",
-    "created_at": "2025-07-18T14:25:47Z",
+    "tag_name": "v0.23.1",
+    "created_at": "2025-08-31T13:54:06Z",
     "assets": [
-      "completions-0.23.0.tar.gz",
+      "completions-0.23.1.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.zip",
       "eza_aarch64-unknown-linux-gnu.tar.gz",
@@ -2541,7 +2541,7 @@
       "eza_x86_64-unknown-linux-gnu.zip",
       "eza_x86_64-unknown-linux-musl.tar.gz",
       "eza_x86_64-unknown-linux-musl.zip",
-      "man-0.23.0.tar.gz"
+      "man-0.23.1.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -2835,11 +2835,11 @@
   {
     "category": "other",
     "name": "ziglang/zig",
-    "tag_name": "0.14.1",
-    "created_at": "2025-05-22T05:46:47Z",
+    "tag_name": "0.15.1",
+    "created_at": "2025-08-19T23:20:53Z",
     "assets": [
-      "zig-bootstrap-0.14.1.tar.xz",
-      "zig-bootstrap-0.14.1.tar.xz.minisig"
+      "zig-bootstrap-0.15.1.tar.xz",
+      "zig-bootstrap-0.15.1.tar.xz.minisig"
     ]
   },
   {
@@ -3760,8 +3760,8 @@
   {
     "category": "other",
     "name": "antonmedv/fx",
-    "tag_name": "39.0.3",
-    "created_at": "2025-08-28T12:15:33Z",
+    "tag_name": "39.0.4",
+    "created_at": "2025-08-31T11:31:33Z",
     "assets": [
       "fx_darwin_amd64",
       "fx_darwin_arm64",
@@ -3913,8 +3913,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.15.1",
-    "created_at": "2025-08-24T08:50:48Z",
+    "tag_name": "v1.15.3",
+    "created_at": "2025-08-31T03:39:45Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -3938,8 +3938,6 @@
       "cargo-binstall-x86_64-unknown-linux-gnu.tgz",
       "cargo-binstall-x86_64-unknown-linux-musl.full.tgz",
       "cargo-binstall-x86_64-unknown-linux-musl.tgz",
-      "cargo-binstall-x86_64h-apple-darwin.full.zip",
-      "cargo-binstall-x86_64h-apple-darwin.zip",
       "minisign.pub"
     ],
     "linux_x64": {
@@ -4531,18 +4529,18 @@
   {
     "category": "other",
     "name": "telegramdesktop/tdesktop",
-    "tag_name": "v6.0.2",
-    "created_at": "2025-08-01T18:44:55Z",
+    "tag_name": "v6.1.0",
+    "created_at": "2025-08-31T20:05:29Z",
     "assets": [
-      "tdesktop-6.0.2-full.tar.gz",
-      "tportable-arm64.6.0.2.zip",
-      "tportable-x64.6.0.2.zip",
-      "tportable.6.0.2.zip",
-      "tsetup-arm64.6.0.2.exe",
-      "tsetup-x64.6.0.2.exe",
-      "tsetup.6.0.2.dmg",
-      "tsetup.6.0.2.exe",
-      "tsetup.6.0.2.tar.xz"
+      "tdesktop-6.1.0-full.tar.gz",
+      "tportable-arm64.6.1.0.zip",
+      "tportable-x64.6.1.0.zip",
+      "tportable.6.1.0.zip",
+      "tsetup-arm64.6.1.0.exe",
+      "tsetup-x64.6.1.0.exe",
+      "tsetup.6.1.0.dmg",
+      "tsetup.6.1.0.exe",
+      "tsetup.6.1.0.tar.xz"
     ],
     "linux_x64": {
       "starts": "tsetup",
@@ -4818,8 +4816,8 @@
   {
     "category": "other",
     "name": "immich-app/immich",
-    "tag_name": "v1.140.0",
-    "created_at": "2025-08-28T18:50:45Z",
+    "tag_name": "v1.140.1",
+    "created_at": "2025-08-30T19:13:06Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -4970,8 +4968,8 @@
   {
     "category": "other",
     "name": "pnpm/pnpm",
-    "tag_name": "v10.15.0",
-    "created_at": "2025-08-19T15:50:35Z",
+    "tag_name": "v10.15.1",
+    "created_at": "2025-09-01T09:41:11Z",
     "assets": [
       "pnpm-linux-arm64",
       "pnpm-linux-x64",
@@ -5076,17 +5074,17 @@
   {
     "category": "other",
     "name": "hotovo/aider-desk",
-    "tag_name": "v0.28.1",
-    "created_at": "2025-08-27T22:09:40Z",
+    "tag_name": "v0.29.0",
+    "created_at": "2025-09-01T05:40:37Z",
     "assets": [
-      "aider-desk-0.28.1-macos-arm64.dmg",
-      "aider-desk-0.28.1-macos-arm64.zip",
-      "aider-desk-0.28.1-macos-x64.dmg",
-      "aider-desk-0.28.1-macos-x64.zip",
-      "aider-desk-0.28.1-setup.exe",
-      "aider-desk-0.28.1.AppImage",
-      "aider-desk-0.28.1.x86_64.rpm",
-      "aider-desk_0.28.1_amd64.deb"
+      "aider-desk-0.29.0-macos-arm64.dmg",
+      "aider-desk-0.29.0-macos-arm64.zip",
+      "aider-desk-0.29.0-macos-x64.dmg",
+      "aider-desk-0.29.0-macos-x64.zip",
+      "aider-desk-0.29.0-setup.exe",
+      "aider-desk-0.29.0.AppImage",
+      "aider-desk-0.29.0.x86_64.rpm",
+      "aider-desk_0.29.0_amd64.deb"
     ],
     "linux_x64": {
       "ends": ".AppImage"
@@ -6349,8 +6347,8 @@
   {
     "category": "android",
     "name": "maxrave-dev/SimpMusic",
-    "tag_name": "v0.2.19",
-    "created_at": "2025-08-11T16:22:09Z",
+    "tag_name": "v0.2.20",
+    "created_at": "2025-08-31T17:17:47Z",
     "assets": [
       "SimpMusic-foss-arm64-v8a-release.apk",
       "SimpMusic-foss-armeabi-v7a-release.apk",

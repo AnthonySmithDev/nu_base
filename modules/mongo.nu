@@ -4,33 +4,75 @@ export-env {
   $env.MONGO_DIR = ($env.HOME | path join .mongo)
   $env.MONGO_DB_DIR = ($env.MONGO_DIR | path join db)
   $env.MONGO_QUERY_FILE = ($env.MONGO_DIR | path join query.js)
+  $env.MONGO_CONN_CONFIG = ($env.MONGO_DIR | path join conn_config.json)
+  $env.MONGO_CONN_CURRENT = ($env.MONGO_DIR | path join conn_current.txt)
 }
 
-export def 'admin uri' [db_name: string = ""] {
-  $'mongodb://($env.MONGO_ROOT_USER):($env.MONGO_ROOT_PASS)@($env.MONGO_HOST):($env.MONGO_PORT)/($db_name)'
-}
-
-export def 'user uri' [db_name: string = ""] {
-  $'mongodb://($env.MONGO_USER):($env.MONGO_PASS)@($env.MONGO_HOST):($env.MONGO_PORT)/($env.db_name)'
-}
-
-export def cli [] {
+def config-uri [config: record, db_name: string = ""] {
   if $env.MONGO_ADMIN {
-    mongosh --quiet --authenticationDatabase admin (admin uri)
+    $"mongodb://($config.root_user):($config.root_pass)@($config.host):($config.port)/($db_name)"
   } else {
-    mongosh --quiet (user uri)
+    $"mongodb://($config.user):($config.pass)@($config.host):($config.port)/($db_name)"
   }
 }
 
-export def run [] {
-  let path = mktemp -t --suffix .js
-  cp --force $env.MONGO_QUERY_FILE $path
-  hx $path
-  eval (open $path)
+def complete_conn [] {
+  if not ($env.MONGO_CONN_CONFIG | path exists) {
+    return []
+  }
+  open $env.MONGO_CONN_CONFIG | transpose conn config | each {|row|
+    { value: $row.conn, description: (config-uri $row.config) }
+  }
+}
+
+export def "conn set" [conn?: string@complete_conn] {
+  mkdir $env.MONGO_DB_DIR
+  if not ($env.MONGO_CONN_CONFIG | path exists) {
+    error make -u {msg: $"MongoDB connection config file not found at: ($env.MONGO_CONN_CONFIG)"}
+  }
+  let current = if ($conn != null) { $conn } else {
+    open $env.MONGO_CONN_CONFIG | columns | to text | gum choose
+  }
+  if ($current | is-not-empty) {
+    $current | save --force $env.MONGO_CONN_CURRENT
+  }
+}
+
+def conn_config [] {
+  let conn_config = open $env.MONGO_CONN_CONFIG
+  let conn_current = open $env.MONGO_CONN_CURRENT
+  $conn_config | get $conn_current
+}
+
+def conn_hash_path [config: record] {
+  let db_hash = (config-uri $config | hash md5)
+  $env.MONGO_DB_DIR | path join $db_hash
+}
+
+export def "conn get" [] {
+  if not ($env.MONGO_CONN_CONFIG | path exists) {
+    error make -u {msg: $"MongoDB connection config file not found at: ($env.MONGO_CONN_CONFIG)"}
+  }
+  if not ($env.MONGO_CONN_CURRENT | path exists) {
+    conn set
+  }
+
+  let conn_config = conn_config
+  let conn_hash_path = conn_hash_path $conn_config
+  let db_name = if ($conn_hash_path | path exists) { open $conn_hash_path  } else { $conn_config.db_name }
+
+  config-uri $conn_config $db_name
+}
+
+export def cli [] {
+  mut args = []
+  if $env.MONGO_ADMIN {
+    $args = ($args | append [--authenticationDatabase admin])
+  }
+  mongosh --quiet ...$args (conn get)
 }
 
 export def eval [ eval: string, json: bool = true ] {
-  mkdir $env.MONGO_DB_DIR
   $eval | save --force $env.MONGO_QUERY_FILE
 
   mut args = [--eval $eval]
@@ -40,23 +82,9 @@ export def eval [ eval: string, json: bool = true ] {
   if $env.MONGO_ADMIN {
     $args = ($args | append [--authenticationDatabase admin])
   }
-  let db_hash = if $env.MONGO_ADMIN {
-    admin uri | hash md5
-  } else {
-    user uri | hash md5
-  }
-  let db_path = ($env.MONGO_DB_DIR | path join $db_hash)
-  let db_name = if ($db_path | path exists) {
-    open $db_path 
-  } else {
-    $env.MONGO_NAME
-  }
-  let uri = if $env.MONGO_ADMIN {
-    admin uri $db_name
-  } else {
-    user uri $db_name
-  }
-  let complete = (mongosh --quiet ...$args $uri | complete)
+
+  let conn_uri = conn get
+  let complete = (mongosh --quiet ...$args $conn_uri | complete)
   if $complete.exit_code != 0 {
     error make -u { msg: $complete.stderr }
   }
@@ -65,6 +93,13 @@ export def eval [ eval: string, json: bool = true ] {
   } else {
     $complete.stdout
   }
+}
+
+export def run [] {
+  let path = mktemp -t --suffix .js
+  cp --force $env.MONGO_QUERY_FILE $path
+  hx $path
+  eval (open $path)
 }
 
 export def file [ filename: string ] {
@@ -86,9 +121,9 @@ def confirm [] {
 
 export def 'user create' [] {
   let record = {
-    user: "payzum_user",
-    pwd:  "payzum_pass",
-    roles: [ { role: "readWrite", db: "payzum" } ]
+    user: "test_user",
+    pwd:  "test_pass",
+    roles: [ { role: "readWrite", db: "test_role" } ]
   }
   eval $"db.createUser\( ($record | to json) )"
 }
@@ -107,9 +142,18 @@ export def 'db drop' [ name: string@'db show', --yes(-y) ] {
   }
 }
 
-export def 'db set' [ name: string@'db show' ] {
-  let hash = admin uri | hash md5
-  $name | save --force ($env.MONGO_DB_DIR | path join $hash)
+export def 'db get' [] {
+  let conn_config = conn_config
+  let conn_hash_path = conn_hash_path $conn_config
+  if ($conn_hash_path | path exists) {
+    open $conn_hash_path
+  }
+}
+
+export def 'db set' [ db_name: string@'db show' ] {
+  let conn_config = conn_config
+  let conn_hash_path = conn_hash_path $conn_config
+  $db_name | save --force $conn_hash_path
 }
 
 export def 'coll show' [] {
@@ -128,7 +172,7 @@ export def 'coll insertMany' [ name: string@'coll show', document: list ] {
   eval $"db.($name).insertMany\( ($document | to json) )"
 }
 
-export def 'coll find' [ name: string@'coll show', filter: record = {}, --skip: int = 0, --limit: int = 1000 ] {
+export def 'coll find' [ name: string@'coll show', filter: record = {}, --skip(-s): int = 0, --limit(-l): int = 1000 ] {
   eval $"db.($name).find\( ($filter | to json) ).skip\(($skip)).limit\(($limit)).toArray\()"
 }
 
@@ -194,3 +238,16 @@ export def 'coll watch' [ name: string@'coll show', filter: record = {}, --sleep
     sleep $sleep
   }
 }
+
+export def query [ name: string@'coll show', filter: record = {}, --skip(-s): int = 0, --limit(-l): int = 1000, --delete(-d), --yes(-y) ] {
+  if $delete {
+    coll deleteMany $name $filter --yes=($yes)
+  } else {
+    coll find $name $filter --skip=($skip) --limit=($limit)
+  }
+}
+
+export alias cs = conn set
+export alias cg = conn get
+export alias dg = db get
+export alias ds = db set
