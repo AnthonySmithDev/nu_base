@@ -177,6 +177,17 @@ export def switch-focus [select: record] {
   }
 }
 
+export def switch-hide [select: record] {
+  let active = activewindow
+  if $active.address != $select.address {
+    hyprctl dispatch focuswindow address:($select.address)
+    hyprctl dispatch moveactive 0 600
+    hyprctl dispatch focuswindow address:($active.address)
+  } else {
+    hyprctl dispatch focuscurrentorlast
+  }
+}
+
 def main [
   command?: string
   value?: string
@@ -226,6 +237,16 @@ def main [
         activeclient
       }
       switch-focus $select
+    }
+    "switch-hide" => {
+      let select = if ($value == "mpv") {
+        select-window --class mpv
+      } else if ($value == "pip") {
+        select-window --title "Picture in picture"
+      } else {
+        activeclient
+      }
+      switch-hide $select
     }
     "adctrl" => {
       let select = select-window --title "adctrl"

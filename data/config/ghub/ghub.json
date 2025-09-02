@@ -282,8 +282,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.6.1",
-    "created_at": "2025-09-01T22:07:53Z",
+    "tag_name": "v0.6.3",
+    "created_at": "2025-09-02T01:52:01Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",
@@ -1101,8 +1101,8 @@
   {
     "category": "core",
     "name": "nickgerace/gfold",
-    "tag_name": "2025.8.0",
-    "created_at": "2025-08-19T20:22:38Z",
+    "tag_name": "2025.9.0",
+    "created_at": "2025-09-02T14:44:38Z",
     "assets": [
       "gfold-darwin-aarch64",
       "gfold-darwin-x86-64",
@@ -1299,8 +1299,8 @@
   {
     "category": "extra",
     "name": "metalbear-co/mirrord",
-    "tag_name": "3.159.2",
-    "created_at": "2025-09-01T10:05:04Z",
+    "tag_name": "3.160.0",
+    "created_at": "2025-09-02T16:49:42Z",
     "assets": [
       "libmirrord_layer_linux_aarch64.so",
       "libmirrord_layer_linux_x86_64.so",
@@ -4326,20 +4326,20 @@
   {
     "category": "other",
     "name": "siyuan-note/siyuan",
-    "tag_name": "v3.3.0",
-    "created_at": "2025-08-26T03:07:19Z",
+    "tag_name": "v3.3.1",
+    "created_at": "2025-09-02T01:31:45Z",
     "assets": [
-      "siyuan-3.3.0-linux-arm64.AppImage",
-      "siyuan-3.3.0-linux-arm64.deb",
-      "siyuan-3.3.0-linux-arm64.tar.gz",
-      "siyuan-3.3.0-linux.AppImage",
-      "siyuan-3.3.0-linux.deb",
-      "siyuan-3.3.0-linux.tar.gz",
-      "siyuan-3.3.0-mac-arm64.dmg",
-      "siyuan-3.3.0-mac.dmg",
-      "siyuan-3.3.0-win-arm64.exe",
-      "siyuan-3.3.0-win.exe",
-      "siyuan-3.3.0.apk"
+      "siyuan-3.3.1-linux-arm64.AppImage",
+      "siyuan-3.3.1-linux-arm64.deb",
+      "siyuan-3.3.1-linux-arm64.tar.gz",
+      "siyuan-3.3.1-linux.AppImage",
+      "siyuan-3.3.1-linux.deb",
+      "siyuan-3.3.1-linux.tar.gz",
+      "siyuan-3.3.1-mac-arm64.dmg",
+      "siyuan-3.3.1-mac.dmg",
+      "siyuan-3.3.1-win-arm64.exe",
+      "siyuan-3.3.1-win.exe",
+      "siyuan-3.3.1.apk"
     ],
     "linux_x64": {
       "ends": "linux.tar.gz"
@@ -4529,18 +4529,18 @@
   {
     "category": "other",
     "name": "telegramdesktop/tdesktop",
-    "tag_name": "v6.1.0",
-    "created_at": "2025-08-31T20:05:29Z",
+    "tag_name": "v6.1.1",
+    "created_at": "2025-09-01T13:53:59Z",
     "assets": [
-      "tdesktop-6.1.0-full.tar.gz",
-      "tportable-arm64.6.1.0.zip",
-      "tportable-x64.6.1.0.zip",
-      "tportable.6.1.0.zip",
-      "tsetup-arm64.6.1.0.exe",
-      "tsetup-x64.6.1.0.exe",
-      "tsetup.6.1.0.dmg",
-      "tsetup.6.1.0.exe",
-      "tsetup.6.1.0.tar.xz"
+      "tdesktop-6.1.1-full.tar.gz",
+      "tportable-arm64.6.1.1.zip",
+      "tportable-x64.6.1.1.zip",
+      "tportable.6.1.1.zip",
+      "tsetup-arm64.6.1.1.exe",
+      "tsetup-x64.6.1.1.exe",
+      "tsetup.6.1.1.dmg",
+      "tsetup.6.1.1.exe",
+      "tsetup.6.1.1.tar.xz"
     ],
     "linux_x64": {
       "starts": "tsetup",
@@ -5259,8 +5259,8 @@
   {
     "category": "other",
     "name": "pythops/tenere",
-    "tag_name": "v0.11.2",
-    "created_at": "2024-09-05T10:34:56Z",
+    "tag_name": "v0.11.3",
+    "created_at": "2025-09-01T18:39:01Z",
     "assets": [
       "tenere-aarch64-apple-darwin",
       "tenere-aarch64-pc-windows-msvc.exe",
@@ -5542,8 +5542,8 @@
   {
     "category": "other",
     "name": "hoppscotch/releases",
-    "tag_name": "v25.8.0-0",
-    "created_at": "2025-08-28T06:03:53Z",
+    "tag_name": "v25.8.1-0",
+    "created_at": "2025-08-28T07:05:19Z",
     "assets": [
       "Hoppscotch_linux_x64.AppImage",
       "Hoppscotch_linux_x64.deb",
@@ -6121,8 +6121,8 @@
   {
     "category": "android",
     "name": "xpavle00/Habo",
-    "tag_name": "v2.1.1",
-    "created_at": "2024-01-18T16:21:33Z",
+    "tag_name": "v3.0.1",
+    "created_at": "2025-09-02T18:55:35Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",
@@ -6132,8 +6132,8 @@
   {
     "category": "android",
     "name": "FriesI23/mhabit",
-    "tag_name": "v1.17.2+95",
-    "created_at": "2025-08-14T07:44:43Z",
+    "tag_name": "v1.17.5+98",
+    "created_at": "2025-09-02T03:22:13Z",
     "assets": [
       "app-arm64-v8a-release.apk",
       "app-armeabi-v7a-release.apk",

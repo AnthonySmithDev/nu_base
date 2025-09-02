@@ -80,17 +80,31 @@ export def grid [
   timg --title -wr1 --fit-width --pixelation $pixelation --grid $grid_columns ...$images
 }
 
-def max_length_v1 [ratio: float] {
-  if $ratio < 0.5 {
-    5
-  } else if $ratio < 1.0 {
-    4
-  } else if $ratio < 1.5 {
-    3
-  } else if $ratio < 2.0 {
-    2
+def max_length_v1 [ratio: float, size_sum: int] {
+  if (term size | get columns) < 120 {
+    if $size_sum < 1280 {
+      2
+    } else if $ratio <= 1  {
+      2
+    } else {
+      1
+    }
   } else {
-    1
+    if $size_sum < 1280 {
+      5
+    } else if $ratio == 0.56  {
+      4
+    } else if $ratio <= 0.5 {
+      4
+    } else if $ratio <= 1.0 {
+      4
+    } else if $ratio <= 1.5 {
+      3
+    } else if $ratio <= 2.0 {
+      2
+    } else {
+      1
+    }
   }
 }
 
@@ -133,7 +147,8 @@ export def slide [
   dir: path = ".",
   --max-depth(-m): int = 1
   --search(-s): string = "."
-  --sleep(-S): duration = 1sec
+  --sleep(-S): duration = 2sec
+  --first(-f): int = 100_000
   --reset(-r)
   --no-title(-n)
   --debug(-d)
@@ -143,6 +158,8 @@ export def slide [
   use preload/
 
   mut groups = {}
+  mut size_sums = []
+  mut group_keys = []
 
   let index_path = ($dir | path expand | path join .preview.index)
   let index_value = if $reset or not ($index_path | path exists) { 0 } else { open $index_path | into int }
@@ -157,8 +174,12 @@ export def slide [
     [-e "png",-e "jpg",-e "jpeg",-e "mp4"]
   }
 
-  let media_paths = (fd ...$extensions -d $max_depth $search $dir | lines)
-  for media_path in ($media_paths | skip $index_value | enumerate) {
+  let media_paths = (fd -a ...$extensions -d $max_depth $search $dir | lines)
+  if ($media_paths | is-empty) {
+    return
+  }
+
+  for media_path in ($media_paths | skip $index_value | first $first | enumerate) {
     let is_video = ($media_path.item | str downcase | str ends-with "mp4")
     let media_preview = if $is_video {
       let preview = preload video $media_path.item
@@ -176,16 +197,28 @@ export def slide [
       }
     }
 
-    let size = (file $media_preview | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ' | first)
-    let ratio = ($size.width | into int) / ($size.height | into int) | math round -p 1
+    let parse = (file $media_preview | parse -r ', (?P<width>\d+)\s*x\s*(?P<height>\d+), ')
+    if ($parse | is-empty) {
+      error make -u {msg: $"File parse: ($media_preview)"}
+    }
+
+    let size = ($parse | first)
+    let width = ($size.width | into int)
+    let height = ($size.height | into int)
+    let ratio = $width / $height | math round -p 2
+
+    let size_sum = $width + $height
+    $size_sums = ($size_sums | append $size_sum)
 
     let group_key = ($ratio | to text)
-    let group_value = {path: ($media_path.item | path expand), preview: $media_preview, ratio: $ratio, video: $is_video}
+    $group_keys = ($group_keys | append $group_key)
+
+    let group_value = {path: $media_path.item, preview: $media_preview, ratio: $group_key, size_sum: $size_sum, video: $is_video}
     let group_values = ($groups | get -o $group_key | default [] | append $group_value)
     $groups = ($groups | upsert $group_key $group_values)
 
     let group_length = ($group_values | length)
-    let max_length = max_length_v1 $ratio
+    let max_length = max_length_v1 $ratio $size_sum
 
     if $group_length == $max_length {
       $groups = ($groups | upsert $group_key [])
@@ -196,14 +229,15 @@ export def slide [
         continue
       }
       try {
-        print (space-evenly ...$group_values)
-        timg --fit-width --grid $group_length ...($group_values | get preview)
+        print "" (space-evenly ...$group_values)
+        timg --center --auto-crop --fit-width --grid $group_length ...($group_values | get preview)
         sleep $sleep
       } catch { return }
     }
   }
 
   for group in ($groups | transpose key values) {
+    let group_length = ($group.values | length)
     if ($group.values | is-empty) {
       continue
     }
@@ -212,15 +246,20 @@ export def slide [
       continue
     }
     try {
-      print (space-evenly ...$group.values)
-      timg --fit-width --grid ($group.values | length) ...($group.values | get preview) 
+      print "" (space-evenly ...$group.values)
+      timg --center --auto-crop --fit-width --grid $group_length ...($group.values | get preview)
       sleep $sleep 
     } catch { return }
+  }
+
+  if false {
+    print ($size_sums | uniq | sort)
+    print ($group_keys | uniq | sort)
   }
 
   0 | save --force $index_path
 }
 
 export def main [] {
-  slide
+  slide --debug
 }
