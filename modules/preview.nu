@@ -137,6 +137,8 @@ export def slide [
   --reset(-r)
   --no-title(-n)
   --debug(-d)
+  --image(-i)
+  --video(-v)
 ] {
   use preload/
 
@@ -145,7 +147,17 @@ export def slide [
   let index_path = ($dir | path expand | path join .preview.index)
   let index_value = if $reset or not ($index_path | path exists) { 0 } else { open $index_path | into int }
 
-  let media_paths = (fd -e png -e jpg -e jpeg -e mp4 -d $max_depth $search $dir | lines)
+  let extensions = if $image and $video {
+    [-e "png",-e "jpg",-e "jpeg",-e "mp4"]
+  } else if $image {
+    [-e "png",-e "jpg",-e "jpeg"]
+  } else if $video {
+    [-e "mp4"]
+  } else {
+    [-e "png",-e "jpg",-e "jpeg",-e "mp4"]
+  }
+
+  let media_paths = (fd ...$extensions -d $max_depth $search $dir | lines)
   for media_path in ($media_paths | skip $index_value | enumerate) {
     let is_video = ($media_path.item | str downcase | str ends-with "mp4")
     let media_preview = if $is_video {
