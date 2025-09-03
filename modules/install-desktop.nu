@@ -48,8 +48,6 @@ export def main [] {
 
   pkg sh brave-browser
 
-  pkg bin kitty
-
   pkg bin rain
   pkg bin resvg
 

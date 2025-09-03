@@ -71,7 +71,6 @@ export def core [ --force(-f) ] {
 
   scrcpy
 
-  kitty
   neovim
 
   java
@@ -99,7 +98,22 @@ def remove [path: string] {
   }
 }
 
-export def clean [] {
+export def "local ls" [] {
+  ls $env.USR_LOCAL_SHARE_BIN | get name
+  | append (ls $env.USR_LOCAL_SHARE_LIB | get name)
+}
+
+export def "local clean" [] {
   remove $env.USR_LOCAL_SHARE_BIN
   remove $env.USR_LOCAL_SHARE_LIB
+}
+
+export def "global ls" [] {
+  ls --long /usr/local/bin/ | where type == symlink | select name target
+}
+
+export def "global clean" [] {
+  for $path in (global list | get name) {
+    sudo rm -rf $path
+  }
 }

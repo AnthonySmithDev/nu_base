@@ -17,7 +17,7 @@ check_internet_connection() {
     fi
 }
 
-VERSION="0.106.1"
+VERSION="0.107.0"
 BASE_URL="https://github.com/nushell/nushell/releases/download/$VERSION"
 
 ARCH=$(uname -m)
@@ -52,13 +52,13 @@ case "$OS" in
 esac
 
 DOWNLOAD_URL="$BASE_URL/$FILE_NAME"
-CACHE_DOWNLOAD_DIR="$HOME/.cache/nushell/download"
-CACHE_DOWNLOAD_FILE="$CACHE_DOWNLOAD_DIR/$FILE_NAME"
-mkdir -p "$CACHE_DOWNLOAD_DIR"
+CACHE_DOWNLOAD_DIR_PATH="$HOME/.cache/nushell/download"
+CACHE_DOWNLOAD_FILE_PATH="$CACHE_DOWNLOAD_DIR_PATH/$FILE_NAME"
+mkdir -p "$CACHE_DOWNLOAD_DIR_PATH"
 
-if [ -f "$CACHE_DOWNLOAD_FILE" ]; then
+if [ -f "$CACHE_DOWNLOAD_FILE_PATH" ]; then
     echo "File $FILE_NAME already exists. Will not download again."
-    echo "$CACHE_DOWNLOAD_FILE"
+    echo "$CACHE_DOWNLOAD_FILE_PATH"
 else
     if ! check_internet_connection; then
         echo "Cannot proceed with download without internet connection."
@@ -66,54 +66,50 @@ else
     fi
 
     if command -v wget &> /dev/null; then
-        wget --quiet --show-progress -O "$CACHE_DOWNLOAD_DIR/$FILE_NAME" "$DOWNLOAD_URL"
+        wget --quiet --show-progress -O "$CACHE_DOWNLOAD_DIR_PATH/$FILE_NAME" "$DOWNLOAD_URL"
     elif command -v curl &> /dev/null; then
-        curl -L -o "$CACHE_DOWNLOAD_DIR/$FILE_NAME" "$DOWNLOAD_URL"
+        curl -L -o "$CACHE_DOWNLOAD_DIR_PATH/$FILE_NAME" "$DOWNLOAD_URL"
     else
         echo "Neither wget nor curl found. Please install one of them."
         exit 1
     fi
 fi
 
-CACHE_EXTRACT_DIR="$HOME/.cache/nushell/extract"
-mkdir -p "$CACHE_EXTRACT_DIR"
+CACHE_EXTRACT_PATH="$HOME/.cache/nushell/extract"
+mkdir -p "$CACHE_EXTRACT_PATH"
 
 if [[ "$FILE_NAME" == *.tar.gz ]]; then
-    tar -xzf "$CACHE_DOWNLOAD_DIR/$FILE_NAME" -C "$CACHE_EXTRACT_DIR"
+    tar -xzf "$CACHE_DOWNLOAD_DIR_PATH/$FILE_NAME" -C "$CACHE_EXTRACT_PATH"
 elif [[ "$FILE_NAME" == *.zip ]]; then
-    unzip "$CACHE_DOWNLOAD_DIR/$FILE_NAME" -d "$CACHE_EXTRACT_DIR"
+    unzip "$CACHE_DOWNLOAD_DIR_PATH/$FILE_NAME" -d "$CACHE_EXTRACT_PATH"
 else
     echo "Unsupported file format: $FILE_NAME"
     exit 1
 fi
 
-EXTRACTED_DIR=$(ls -d "$CACHE_EXTRACT_DIR"/* | head -n 1)
-LOCAL_SHARED_DIR="$HOME/.usr/local/share/lib/nushell"
-INSTALL_DIR="$LOCAL_SHARED_DIR/nushell_$VERSION"
+EXTRACTED_DIR=$(ls -d "$CACHE_EXTRACT_PATH"/* | head -n 1)
+LOCAL_SHARE_PATH="$HOME/.usr/local/share/lib/nushell"
+SHARE_LIB_PATH="$LOCAL_SHARE_PATH/nushell_$VERSION"
 
-mkdir -p "$LOCAL_SHARED_DIR"
-rm -rf "$INSTALL_DIR"
-mv "$EXTRACTED_DIR" "$INSTALL_DIR"
+mkdir -p "$LOCAL_SHARE_PATH"
+rm -rf "$SHARE_LIB_PATH"
+mv "$EXTRACTED_DIR" "$SHARE_LIB_PATH"
 
-GLOBAL_BIN="/usr/local/bin"
-LOCAL_BIN="$HOME/.usr/local/bin"
-LOCAL_LIB="$HOME/.usr/local/lib"
+LOCAL_LIB_PATH="$HOME/.usr/local/lib"
+mkdir -p "$LOCAL_LIB_PATH"
+rm -rf "$LOCAL_LIB_PATH/nushell"
+ln -sf "$SHARE_LIB_PATH" "$LOCAL_LIB_PATH/nushell"
 
-mkdir -p "$LOCAL_BIN"
-mkdir -p "$LOCAL_LIB"
+GLOBAL_BIN_PATH="/usr/local/bin"
+sudo ln -sf "$LOCAL_LIB_PATH/nushell/nu" "$GLOBAL_BIN_PATH/nu"
 
-sudo ln -sf "$INSTALL_DIR/nu" "$GLOBAL_BIN/nu"
-ln -sf "$INSTALL_DIR/nu" "$LOCAL_BIN/nu"
-ln -sf "$INSTALL_DIR" "$LOCAL_LIB/nushell"
-
-if [ -L "$LOCAL_BIN/nu" ]; then
+if [ -L "$GLOBAL_BIN_PATH/nu" ]; then
     echo ""
     echo "Nushell $VERSION has been installed successfully"
     echo "Symbolic link successfully created"
-    echo "GLOBAL_BIN: $GLOBAL_BIN/nu"
-    echo "LOCAL_BIN: $LOCAL_BIN/nu"
-    echo "LOCAL_LIB: $LOCAL_LIB/nushell"
-    echo "SHARED_LIB: $INSTALL_DIR"
+    echo "SHARE_LIB_PATH: $SHARE_LIB_PATH"
+    echo "LOCAL_LIB_PATH: $LOCAL_LIB_PATH/nushell"
+    echo "GLOBAL_BIN_PATH: $GLOBAL_BIN_PATH/nu"
     echo ""
 else
     echo "Error creating symbolic link."

@@ -154,6 +154,7 @@ export def slide [
   --debug(-d)
   --image(-i)
   --video(-v)
+  --input(-I)
 ] {
   use preload/
 
@@ -230,8 +231,8 @@ export def slide [
       }
       try {
         print "" (space-evenly ...$group_values)
-        timg --center --auto-crop --fit-width --grid $group_length ...($group_values | get preview)
-        sleep $sleep
+        timg --center --auto-crop --fit-width --grid $group_length ...($group_values.preview)
+        if $input { input listen } else { sleep $sleep }
       } catch { return }
     }
   }
@@ -247,8 +248,8 @@ export def slide [
     }
     try {
       print "" (space-evenly ...$group.values)
-      timg --center --auto-crop --fit-width --grid $group_length ...($group.values | get preview)
-      sleep $sleep 
+      timg --center --auto-crop --fit-width --grid $group_length ...($group.values.preview)
+      if $input { input listen } else { sleep $sleep }
     } catch { return }
   }
 

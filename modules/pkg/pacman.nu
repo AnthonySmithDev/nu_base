@@ -111,6 +111,7 @@ export def base [] {
     sshpass
     sshfs
     rsync
+    nmap
 
     qrencode
     man-db

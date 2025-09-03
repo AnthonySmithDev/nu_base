@@ -20,12 +20,12 @@ def bind-file [cmd: string, src: string] {
   let dst = ($env.USR_LOCAL_BIN | path join $cmd)
   rm -rfp $dst
   ln -sf $src $dst
+  return $dst
 }
 
 def bind-root [cmd: string, src: string] {
   let dst = ($env.SYS_LOCAL_BIN | path join $cmd)
   if not ($dst | path exists) {
-    sudo rm -rf $dst
     sudo ln -sf $src $dst
   }
 }
@@ -59,10 +59,10 @@ export def --env helix [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -p $path
-    bind-root hx ($path | path join hx)
   }
 
   bind-dir $path $env.HELIX_PATH
+  bind-root hx ($env.HELIX_PATH | path join hx)
   env-path $env.HELIX_PATH
 }
 
@@ -74,10 +74,10 @@ export def --env nushell [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -p $path
-    bind-root nu ($path | path join nu)
   }
 
   bind-dir $path $env.NUSHELL_BIN
+  bind-root nu ($env.NUSHELL_BIN | path join nu)
   env-path $env.NUSHELL_BIN
 }
 
@@ -89,10 +89,10 @@ export def --env kitty [--force(-f)] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -p $path
-    bind-root kitty ($path | path join bin/kitty)
   }
 
   bind-dir $path $env.KITTY_PATH
+  bind-root kitty ($env.KITTY_PATH | path join bin/kitty)
   env-path $env.KITTY_BIN
 }
 
@@ -104,10 +104,10 @@ export def starship [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f starship -p $path
-    bind-root starship $path
   }
 
-  bind-file starship $path
+  let bin = bind-file starship $path
+  bind-root starship $bin
 }
 
 export def zoxide [ --force(-f) ] {
@@ -118,10 +118,10 @@ export def zoxide [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f zoxide -p $path
-    bind-root zoxide $path
   }
 
-  bind-file zoxide $path
+  let bin = bind-file zoxide $path
+  bind-root zoxide $bin
 }
 
 export def zellij [--force(-f)] {
@@ -132,10 +132,10 @@ export def zellij [--force(-f)] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f zellij -p $path
-    bind-root zellij $path
   }
 
-  bind-file zellij $path
+  let bin = bind-file zellij $path
+  bind-root zellij $bin
 }
 
 export def rg [ --force(-f) ] {
@@ -146,10 +146,10 @@ export def rg [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f rg -p $path
-    bind-root rg $path
   }
 
-  bind-file rg $path
+  let bin = bind-file rg $path
+  bind-root rg $bin
 }
 
 export def fd [ --force(-f) ] {
@@ -160,10 +160,10 @@ export def fd [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f fd -p $path
-    bind-root fd $path
   }
 
-  bind-file fd $path
+  let bin = bind-file fd $path
+  bind-root fd $bin
 }
 
 export def --env yazi [ --force(-f) ] {
@@ -174,13 +174,12 @@ export def --env yazi [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -p $path
-    bind-root ya ($path | path join ya)
-    bind-root yazi ($path | path join yazi)
   }
 
   bind-dir $path $env.YAZI_BIN
+  bind-root ya ($env.YAZI_BIN | path join ya)
+  bind-root yazi ($env.YAZI_BIN | path join yazi)
   env-path $env.YAZI_BIN
-
 }
 
 export def fzf [ --force(-f) ] {
@@ -191,10 +190,10 @@ export def fzf [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f fzf -p $path
-    bind-root fzf $path
   }
 
-  bind-file fzf $path
+  let bin = bind-file fzf $path
+  bind-root fzf $bin
 }
 
 export def lsp-ai [ --force(-f) ] {
@@ -457,10 +456,10 @@ export def bat [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f bat -p $path
-    bind-root bat $path
   }
 
-  bind-file bat $path
+  let bin = bind-file bat $path
+  bind-root bat $bin
 }
 
 export def gdu [ --force(-f) ] {
@@ -471,10 +470,10 @@ export def gdu [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f gdu_linux_amd64_static -p $path
-    bind-root gdu $path
   }
 
-  bind-file gdu $path
+  let bin = bind-file gdu $path
+  bind-root gdu $bin
 }
 
 export def task [ --force(-f) ] {
@@ -485,10 +484,10 @@ export def task [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f task -p $path
-    bind-root task $path
   }
 
-  bind-file task $path
+  let bin = bind-file task $path
+  bind-root task $bin
 }
 
 export def mouseless [ --force(-f) ] {
@@ -499,10 +498,10 @@ export def mouseless [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f mouseless -p $path
-    bind-root mouseless $path
   }
 
-  bind-file mouseless $path
+  let bin = bind-file mouseless $path
+  bind-root mouseless $bin
 }
 
 export def websocat [ --force(-f) ] {
@@ -632,10 +631,10 @@ export def podman-tui [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f podman-tui -p $path
-    bind-root podman-tui $path
   }
 
-  bind-file podman-tui $path
+  let bin = bind-file podman-tui $path
+  bind-root podman-tui $bin
 }
 
 export def jless [ --force(-f) ] {
@@ -707,10 +706,10 @@ export def xh [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f xh -p $path
-    bind-root xh $path
   }
 
-  bind-file xh $path
+  let bin = bind-file xh $path
+  bind-root xh $bin
 }
 
 export def delta [ --force(-f) ] {
@@ -761,10 +760,10 @@ export def bottom [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f btm -p $path
-    bind-root btm $path
   }
 
-  bind-file btm $path
+  let bin = bind-file btm $path
+  bind-root btm $bin
 }
 
 export def btop [ --force(-f) ] {
@@ -961,10 +960,10 @@ export def kanata [ --force(-f) ] {
     let download_path = ghub asset download $repository --force=($force)
     add-execute $download_path
     move -f $download_path -p $path
-    bind-root kanata $path
   }
 
-  bind-file kanata $path
+  let bin = bind-file kanata $path
+  bind-root kanata $bin
 }
 
 export def --env mongosh [ --force(-f) ] {
@@ -1067,10 +1066,10 @@ export def rclone [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f rclone -p $path
-    bind-root rclone $path
   }
 
-  bind-file rclone $path
+  let bin = bind-file rclone $path
+  bind-root rclone $bin
 }
 
 export def ffsend [ --force(-f) ] {
@@ -1746,10 +1745,10 @@ export def bettercap [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f bettercap -p $path
-    bind-root bettercap $path
   }
 
-  bind-file bettercap $path
+  let bin = bind-file bettercap $path
+  bind-root bettercap $bin
 }
 
 export def viddy [ --force(-f) ] {
@@ -1841,10 +1840,10 @@ export def lan-mouse [ --force(-f) ] {
     let download_path = ghub asset download $repository --force=($force)
     add-execute $download_path
     move -f $download_path -p $path
-    bind-root lan-mouse $path
   }
 
-  bind-file lan-mouse $path
+  let bin = bind-file lan-mouse $path
+  bind-root lan-mouse $bin
 }
 
 export def lapce [ --force(-f) ] {
@@ -1935,10 +1934,10 @@ export def trippy [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f trip -p $path
-    bind-root trippy $path
   }
 
-  bind-file trippy $path
+  let bin = bind-file trippy $path
+  bind-root trippy $bin
 }
 
 export def gitui [ --force(-f) ] {
@@ -2017,10 +2016,10 @@ export def AdGuardHome [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f AdGuardHome -p $path
-    bind-root adguardhome $path
   }
 
-  bind-file adguardhome $path
+  let bin = bind-file adguardhome $path
+  bind-root adguardhome $bin
 }
 
 export def zen [ --force(-f) ] {
@@ -2031,10 +2030,10 @@ export def zen [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f Zen -p $path
-    bind-root zen $path
   }
 
-  bind-file zen $path
+  let bin = bind-file zen $path
+  bind-root zen $bin
 }
 
 export def superhtml [ --force(-f) ] {
@@ -2320,10 +2319,10 @@ export def clangd [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f bin/clangd -p $path
-    bind-root clangd $path
   }
 
-  bind-file clangd $path
+  let bin = bind-file clangd $path
+  bind-root clangd $bin
 }
 
 export def marksman [ --force(-f) ] {
@@ -2987,10 +2986,10 @@ export def rain [ --force(-f) ] {
   if (path-not-exists $path $force) {
     let download_path = ghub asset download -x $repository --force=($force)
     move -d $download_path -f rain -p $path
-    bind-root rain $path
   }
 
-  bind-file rain $path
+  let bin = bind-file rain $path
+  bind-root rain $bin
 }
 
 export def tabiew [ --force(-f) ] {

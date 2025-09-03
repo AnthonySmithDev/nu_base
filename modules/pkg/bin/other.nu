@@ -20,12 +20,12 @@ def bind-file [cmd: string, src: string] {
   let dst = ($env.USR_LOCAL_BIN | path join $cmd)
   rm -rfp $dst
   ln -sf $src $dst
+  return $dst
 }
 
 def bind-root [cmd: string, src: string] {
   let dst = ($env.SYS_LOCAL_BIN | path join $cmd)
   if not ($dst | path exists) {
-    # sudo rm -rf $dst
     sudo ln -sf $src $dst
   }
 }
@@ -198,8 +198,8 @@ export def kubectl [ --force(-f) ] {
     move -f $download_path -p $path
   }
 
-  bind-file kubectl $path
-  bind-root kubectl $path
+  let bin = bind-file kubectl $path
+  bind-root kubectl $bin
 }
 
 export def --env mitmproxy [ --force(-f) ] {

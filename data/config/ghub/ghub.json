@@ -159,24 +159,24 @@
   {
     "category": "core",
     "name": "nushell/nushell",
-    "tag_name": "0.106.1",
-    "created_at": "2025-07-29T20:19:36Z",
+    "tag_name": "0.107.0",
+    "created_at": "2025-09-03T01:21:06Z",
     "assets": [
-      "nu-0.106.1-aarch64-apple-darwin.tar.gz",
-      "nu-0.106.1-aarch64-pc-windows-msvc.msi",
-      "nu-0.106.1-aarch64-pc-windows-msvc.zip",
-      "nu-0.106.1-aarch64-unknown-linux-gnu.tar.gz",
-      "nu-0.106.1-aarch64-unknown-linux-musl.tar.gz",
-      "nu-0.106.1-armv7-unknown-linux-gnueabihf.tar.gz",
-      "nu-0.106.1-armv7-unknown-linux-musleabihf.tar.gz",
-      "nu-0.106.1-loongarch64-unknown-linux-gnu.tar.gz",
-      "nu-0.106.1-loongarch64-unknown-linux-musl.tar.gz",
-      "nu-0.106.1-riscv64gc-unknown-linux-gnu.tar.gz",
-      "nu-0.106.1-x86_64-apple-darwin.tar.gz",
-      "nu-0.106.1-x86_64-pc-windows-msvc.msi",
-      "nu-0.106.1-x86_64-pc-windows-msvc.zip",
-      "nu-0.106.1-x86_64-unknown-linux-gnu.tar.gz",
-      "nu-0.106.1-x86_64-unknown-linux-musl.tar.gz",
+      "nu-0.107.0-aarch64-apple-darwin.tar.gz",
+      "nu-0.107.0-aarch64-pc-windows-msvc.msi",
+      "nu-0.107.0-aarch64-pc-windows-msvc.zip",
+      "nu-0.107.0-aarch64-unknown-linux-gnu.tar.gz",
+      "nu-0.107.0-aarch64-unknown-linux-musl.tar.gz",
+      "nu-0.107.0-armv7-unknown-linux-gnueabihf.tar.gz",
+      "nu-0.107.0-armv7-unknown-linux-musleabihf.tar.gz",
+      "nu-0.107.0-loongarch64-unknown-linux-gnu.tar.gz",
+      "nu-0.107.0-loongarch64-unknown-linux-musl.tar.gz",
+      "nu-0.107.0-riscv64gc-unknown-linux-gnu.tar.gz",
+      "nu-0.107.0-x86_64-apple-darwin.tar.gz",
+      "nu-0.107.0-x86_64-pc-windows-msvc.msi",
+      "nu-0.107.0-x86_64-pc-windows-msvc.zip",
+      "nu-0.107.0-x86_64-unknown-linux-gnu.tar.gz",
+      "nu-0.107.0-x86_64-unknown-linux-musl.tar.gz",
       "SHA256SUMS"
     ],
     "linux_x64": {
@@ -282,8 +282,8 @@
   {
     "category": "core",
     "name": "sst/opencode",
-    "tag_name": "v0.6.3",
-    "created_at": "2025-09-02T01:52:01Z",
+    "tag_name": "v0.6.4",
+    "created_at": "2025-09-03T13:31:11Z",
     "assets": [
       "opencode-darwin-arm64.zip",
       "opencode-darwin-x64-baseline.zip",
@@ -1232,8 +1232,8 @@
   {
     "category": "extra",
     "name": "zed-industries/zed",
-    "tag_name": "v0.201.8",
-    "created_at": "2025-08-29T22:54:13Z",
+    "tag_name": "v0.202.5",
+    "created_at": "2025-09-03T12:30:26Z",
     "assets": [
       "Zed-aarch64.dmg",
       "zed-linux-aarch64.tar.gz",
@@ -3881,8 +3881,8 @@
   {
     "category": "other",
     "name": "astral-sh/uv",
-    "tag_name": "0.8.14",
-    "created_at": "2025-08-28T21:25:02Z",
+    "tag_name": "0.8.15",
+    "created_at": "2025-09-03T13:32:12Z",
     "assets": [
       "source.tar.gz",
       "uv-aarch64-apple-darwin.tar.gz",
@@ -5220,8 +5220,8 @@
   {
     "category": "other",
     "name": "pythops/oryx",
-    "tag_name": "v0.7.1",
-    "created_at": "2025-08-28T22:10:03Z",
+    "tag_name": "v0.7.2",
+    "created_at": "2025-09-02T22:29:54Z",
     "assets": [
       "oryx-aarch64-unknown-linux-musl",
       "oryx-x86_64-unknown-linux-musl"

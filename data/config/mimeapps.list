@@ -29,10 +29,25 @@ video/quicktime=mpv.desktop
 video/x-avi=mpv.desktop
 video/*=mpv.desktop
 
-application/x-executable=kitty-open.desktop
 x-scheme-handler/tg=telegram.desktop
 x-scheme-handler/telegram=telegram-web.desktop
+
 text/plain=helix.desktop
+text/x-shellscript=helix.desktop
+
+application/json=helix.desktop
+text/x-python=helix.desktop
+text/x-c=helix.desktop
+text/x-c++=helix.desktop
+text/x-java=helix.desktop
+text/x-javascript=helix.desktop
+text/x-typescript=helix.desktop
+text/css=helix.desktop
+text/x-markdown=helix.desktop
+text/xml=helix.desktop
+
+application/x-executable=kitty-open.desktop
+application/x-pie-executable=kitty-open.desktop
 
 [Added Associations]
 x-scheme-handler/http=brave-browser.desktop;
