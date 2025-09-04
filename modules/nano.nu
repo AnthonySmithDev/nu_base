@@ -322,9 +322,15 @@ export def send [to_address: string, amount: float = 0.000001, --private(-p): st
       return {error: "Insufficient balance", balance: $"($balance) NANO", amount: $"($amount) NANO"}
    }
 
-   let balance_raw = ($balance - $amount | nano_to_raw | to text)
+   let balance_raw = ($balance - $amount | nano_to_raw)
    let block = block-create $account.frontier $address $account.representative $balance_raw $to_address $private
-   process send $block.block
+   let process = process send $block.block
+
+   {
+      hash: $process.hash
+      balance: $balance
+      amount: $amount
+   }
 }
 
 export def seed-create [] {

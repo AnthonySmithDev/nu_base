@@ -2,8 +2,8 @@
 export def install [filename: string, --root(-r), --dev ] {
   let mod_path = ($env.MODULES_PATH | path join $filename)
 
-  let stem = ($filename | path parse | get stem)
   mkdir $env.USR_LOCAL_SHARE_SCRIPT
+  let stem = ($filename | path parse | get stem)
   let share_path = ($env.USR_LOCAL_SHARE_SCRIPT | path join $stem)
   cp $mod_path $share_path
 
@@ -13,9 +13,9 @@ export def install [filename: string, --root(-r), --dev ] {
   ln -sf $src_path $usr_path
   chmod +x $usr_path
 
-  if $root {
-    let sys_path = ($env.SYS_LOCAL_BIN | path join $stem)
-    sudo ln -sf $src_path $sys_path
+  let sys_path = ($env.SYS_LOCAL_BIN | path join $stem)
+  if not ($sys_path | path exists) and $root {
+    sudo ln -sf $usr_path $sys_path
     sudo chmod +x $sys_path
   }
 }
@@ -62,7 +62,8 @@ export def rain-add [] {
 
 export def core [] {
   ctx
+  hyprnu
+  rain-add
   scrollback-pager
   scrollback-editor
-  rain-add
 }

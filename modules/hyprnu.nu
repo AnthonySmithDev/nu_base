@@ -188,6 +188,20 @@ export def switch-hide [select: record] {
   }
 }
 
+export def switch-floating [] {
+  let state_path = ($env.HOME | path join .floating)
+  let state_value = if not ($state_path | path exists) { 0 } else {
+    open $state_path | into int
+  }
+
+  let floatings = clients | where floating == true
+  let floating = $floatings | get $state_value
+  hyprctl dispatch focuswindow address:($floating.address)
+
+  let state_next = ($state_value + 1) mod ($floatings | length)
+  $state_next | save --force $state_path
+}
+
 def main [
   command?: string
   value?: string
@@ -256,9 +270,8 @@ def main [
       }
       switch-focus $select
     }
-    "drum" => {
-      drum
-    }
+    "switch-floating" => { switch-floating }
+    "drum" => { drum }
     "adb-pair" => {
       kitty --class adb-pair -- nu --login -c "use xadb.nu; xadb pair qr"
     }
@@ -271,6 +284,7 @@ def main [
       print "  hyprnu switch-mon [mpv|pip]"
       print "  hyprnu switch-pin [mpv|pip]"
       print "  hyprnu switch-focus [mpv|pip]"
+      print "  hyprnu switch-floating"
       print "  hyprnu drum"
       print "  hyprnu adctrl"
       print "  hyprnu adb pair"

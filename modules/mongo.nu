@@ -4,8 +4,9 @@ export-env {
   $env.MONGO_DIR = ($env.HOME | path join .mongo)
   $env.MONGO_DB_DIR = ($env.MONGO_DIR | path join db)
   $env.MONGO_QUERY_FILE = ($env.MONGO_DIR | path join query.js)
-  $env.MONGO_CONN_CONFIG = ($env.MONGO_DIR | path join conn_config.json)
-  $env.MONGO_CONN_CURRENT = ($env.MONGO_DIR | path join conn_current.txt)
+  $env.MONGO_CONN_CONFIG_PATH = ($env.MONGO_DIR | path join conn_config.json)
+  $env.MONGO_CONN_CURRENT_PATH = ($env.MONGO_DIR | path join conn_current.txt)
+  $env.MONGO_QUERY_DELETE = false
 }
 
 def config-uri [config: record, db_name: string = ""] {
@@ -17,49 +18,65 @@ def config-uri [config: record, db_name: string = ""] {
 }
 
 def complete_conn [] {
-  if not ($env.MONGO_CONN_CONFIG | path exists) {
+  if not ($env.MONGO_CONN_CONFIG_PATH | path exists) {
     return []
   }
-  open $env.MONGO_CONN_CONFIG | transpose conn config | each {|row|
+  open $env.MONGO_CONN_CONFIG_PATH | transpose conn config | each {|row|
     { value: $row.conn, description: (config-uri $row.config) }
   }
 }
 
 export def "conn set" [conn?: string@complete_conn] {
   mkdir $env.MONGO_DB_DIR
-  if not ($env.MONGO_CONN_CONFIG | path exists) {
-    error make -u {msg: $"MongoDB connection config file not found at: ($env.MONGO_CONN_CONFIG)"}
+  if not ($env.MONGO_CONN_CONFIG_PATH | path exists) {
+    error make -u {msg: $"MongoDB connection config file not found at: ($env.MONGO_CONN_CONFIG_PATH)"}
   }
   let current = if ($conn != null) { $conn } else {
-    open $env.MONGO_CONN_CONFIG | columns | to text | gum choose
+    open $env.MONGO_CONN_CONFIG_PATH | columns | to text | gum choose
   }
   if ($current | is-not-empty) {
-    $current | save --force $env.MONGO_CONN_CURRENT
+    $current | save --force $env.MONGO_CONN_CURRENT_PATH
   }
 }
 
 def conn_config [] {
-  let conn_config = open $env.MONGO_CONN_CONFIG
-  let conn_current = open $env.MONGO_CONN_CURRENT
+  let conn_config = open $env.MONGO_CONN_CONFIG_PATH
+  let conn_current = if ($env.MONGO_SET_CONN? != null) {
+    $env.MONGO_SET_CONN
+  } else if ($env.MONGO_CONN_CURRENT_PATH | path exists) {
+    open $env.MONGO_CONN_CURRENT_PATH
+  } else {
+    $conn_config | columns | first
+  }
   $conn_config | get $conn_current
 }
 
-def conn_hash_path [config: record] {
-  let db_hash = (config-uri $config | hash md5)
+def conn_hash_path [conn_config: record] {
+  let db_hash = (config-uri $conn_config | hash md5)
   $env.MONGO_DB_DIR | path join $db_hash
 }
 
-export def "conn get" [] {
-  if not ($env.MONGO_CONN_CONFIG | path exists) {
-    error make -u {msg: $"MongoDB connection config file not found at: ($env.MONGO_CONN_CONFIG)"}
+def conn_db_name [conn_config: record] {
+  let conn_hash_path = conn_hash_path $conn_config
+  if ($env.MONGO_SET_DB? != null) {
+    $env.MONGO_SET_DB
+  } else if ($conn_hash_path | path exists) {
+    open $conn_hash_path
+  } else {
+    $conn_config.db_name
   }
-  if not ($env.MONGO_CONN_CURRENT | path exists) {
+}
+
+export def "conn get" [] {
+  if not ($env.MONGO_CONN_CONFIG_PATH | path exists) {
+    error make -u {msg: $"MongoDB connection config file not found at: ($env.MONGO_CONN_CONFIG_PATH)"}
+  }
+  if not ($env.MONGO_CONN_CURRENT_PATH | path exists) {
     conn set
   }
 
   let conn_config = conn_config
-  let conn_hash_path = conn_hash_path $conn_config
-  let db_name = if ($conn_hash_path | path exists) { open $conn_hash_path  } else { $conn_config.db_name }
+  let db_name = conn_db_name $conn_config
 
   config-uri $conn_config $db_name
 }
@@ -143,16 +160,11 @@ export def 'db drop' [ name: string@'db show', --yes(-y) ] {
 }
 
 export def 'db get' [] {
-  let conn_config = conn_config
-  let conn_hash_path = conn_hash_path $conn_config
-  if ($conn_hash_path | path exists) {
-    open $conn_hash_path
-  }
+  conn_db_name (conn_config)
 }
 
 export def 'db set' [ db_name: string@'db show' ] {
-  let conn_config = conn_config
-  let conn_hash_path = conn_hash_path $conn_config
+  let conn_hash_path = conn_hash_path (conn_config)
   $db_name | save --force $conn_hash_path
 }
 
@@ -192,9 +204,13 @@ export def 'coll deleteMany' [ name: string@'coll show', filter: record = {}, --
   }
 }
 
-export def 'coll updateMany' [ name: string@'coll show', filter: record, document: record, --yes(-y) ] {
+def operators [] {
+  [currentDate inc min max mul rename set setOnInsert unset]
+}
+
+export def 'coll updateMany' [ name: string@'coll show', filter: record, update: record, --operator(-o): string@operators = "set" --yes(-y) ] {
   if $yes or (confirm) {
-    eval $"db.($name).updateMany\( ($filter | to json) , { $set: ($document | to json) })"
+    eval $"db.($name).updateMany\( ($filter | to json) , { $($operator): ($update | to json) })"
   }
 }
 
@@ -240,10 +256,66 @@ export def 'coll watch' [ name: string@'coll show', filter: record = {}, --sleep
 }
 
 export def query [ name: string@'coll show', filter: record = {}, --skip(-s): int = 0, --limit(-l): int = 1000, --delete(-d), --yes(-y) ] {
-  if $delete {
+  if $env.MONGO_QUERY_DELETE {
+    coll deleteMany $name $filter --yes
+  } else if $delete {
     coll deleteMany $name $filter --yes=($yes)
   } else {
     coll find $name $filter --skip=($skip) --limit=($limit)
+  }
+}
+
+export def 'conn watch' [conns: record] {
+  mut conn_watch = {}
+  loop {
+    for $conn in ($conns | transpose name dbs) {
+      $env.MONGO_SET_CONN = $conn.name
+
+      for $db in ($conn.dbs | transpose name colls) {
+        $env.MONGO_SET_DB = $db.name
+
+        for $coll in ($db.colls | transpose name filter) {
+
+          let conn_key = $"($conn.name)_($db.name)_($coll.name)"
+          if ($conn_key not-in $conn_watch) {
+            let docs_count = coll count $coll.name $coll.filter
+            $conn_watch = ($conn_watch | insert $conn_key $docs_count)
+          }
+
+          let skip = $conn_watch | get $conn_key
+          let docs = coll find $coll.name $coll.filter --skip $skip
+          let docs_length = ($docs | length)
+          if $docs_length == 0 {
+            continue
+          }
+
+          $conn_watch = ($conn_watch | upsert $conn_key ($skip + $docs_length))
+
+          print $"(ansi blue)($conn.name)(ansi reset) (ansi cyan)($db.name)(ansi reset) (ansi green)($coll.name)(ansi reset)"
+          for $doc in $docs {
+            print ($doc | table --expand)
+          }
+        }
+      }
+    }
+    sleep 1sec
+  }
+}
+
+export def 'conn deleteMany' [conns: record] {
+  for $conn in ($conns | transpose name dbs) {
+    $env.MONGO_SET_CONN = $conn.name
+
+    for $db in ($conn.dbs | transpose name colls) {
+      $env.MONGO_SET_DB = $db.name
+
+      for $coll in ($db.colls | transpose name filter) {
+        print $"(ansi blue)($conn.name)(ansi reset) (ansi cyan)($db.name)(ansi reset) (ansi green)($coll.name)(ansi reset)"
+
+        let out = coll deleteMany $coll.name $coll.filter --yes
+        print ($out | get deletedCount | table --expand)
+      }
+    }
   }
 }
 
