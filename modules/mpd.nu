@@ -1,28 +1,22 @@
 
-export def images [--sort] {
-  let find = (fd -e jpg -e jpg -e png)
-  if ($find | is-empty) {
+export def images [--sort(-s)] {
+  mut playlist = (ls | find -n .jpg .png)
+  if ($playlist | is-empty) {
     return
   }
-  mut playlist = []
   if $sort {
-    $playlist = ($find | lines | du ...$in | sort-by -r physical)
-  } else {
-    $playlist = ($find | lines)
+    $playlist = ($playlist | sort-by -r size)
   }
-  $playlist | to text | mpv --config-dir=~/.config/mpd --playlist=-
+  $playlist | get name | to text | mpv --save-position-on-quit --config-dir=~/.config/mpd --playlist=-
 }
 
-export def videos [--sort] {
-  let find = (fd -e mp4 -e mkv)
-  if ($find | is-empty) {
+export def videos [--sort(-s)] {
+  mut playlist = (ls | find -n .mp4 .mkv)
+  if ($playlist | is-empty) {
     return
   }
-  mut playlist = []
   if $sort {
-    $playlist = ($find | lines | du ...$in | sort-by -r physical)
-  } else {
-    $playlist = ($find | lines)
+    $playlist = ($playlist | sort-by -r size)
   }
-  $playlist | to text | mpv --config-dir=~/.config/mpd --playlist=-
+  $playlist | get name | to text | mpv --save-position-on-quit --config-dir=~/.config/mpd --playlist=-
 }

@@ -19,6 +19,7 @@ use nano.nu
 use mongo.nu
 use preview.nu
 use preload/
+use mpd.nu
 # use tdown.nu
 use file-manager.nu
 source alias/file-manager.nu

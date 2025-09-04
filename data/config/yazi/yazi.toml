@@ -11,7 +11,7 @@ view = [
 	{ run = 'imv -b 000000 "$@"', orphan = true, desc = "Imv black", for = "unix" },
 ]
 cast = [
-	{ run = 'go2tv -v "$@"', orphan = true, desc = "Cast media files", for = "unix" },
+	{ run = 'kitty --class go2tv -- go2tv -v "$@"', orphan = true, desc = "Cast media files", for = "unix" },
 ]
 share = [
 	{ run = 'kitty --class qrcp -- qrcp -r -q "$@"', orphan = true, desc = "Share by QR", for = "unix" },

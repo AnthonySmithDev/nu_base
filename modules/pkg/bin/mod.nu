@@ -113,7 +113,7 @@ export def "global ls" [] {
 }
 
 export def "global clean" [] {
-  for $path in (global list | get name) {
+  for $path in (global ls | get name) {
     sudo rm -rf $path
   }
 }

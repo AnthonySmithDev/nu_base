@@ -59,3 +59,10 @@ export def hyprnu [] {
 export def rain-add [] {
   install rain-add.nu --dev --root
 }
+
+export def core [] {
+  ctx
+  scrollback-pager
+  scrollback-editor
+  rain-add
+}
