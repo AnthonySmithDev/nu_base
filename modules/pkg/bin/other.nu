@@ -434,6 +434,8 @@ export def --env android-studio [ --force(-f) ] {
 
   bind-dir $path $env.ANDROID_STUDIO_PATH
   env-path $env.ANDROID_STUDIO_BIN
+
+  bind-root android-studio ($env.ANDROID_STUDIO_BIN | path join studio)
 }
 
 def android-cmdline-tools-latest [] {

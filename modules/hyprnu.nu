@@ -189,17 +189,17 @@ export def switch-hide [select: record] {
 }
 
 export def switch-floating [] {
-  let state_path = ($env.HOME | path join .floating)
-  let state_value = if not ($state_path | path exists) { 0 } else {
-    open $state_path | into int
-  }
+  let clients = hyprctl clients -j | from json
+  | select address floating monitor class title focusHistoryID
+  | sort-by focusHistoryID
 
-  let floatings = clients | where floating == true
-  let floating = $floatings | get $state_value
-  hyprctl dispatch focuswindow address:($floating.address)
+  let tile = $clients | where floating == false | first
+  let floatings = $clients | where floating == true
 
-  let state_next = ($state_value + 1) mod ($floatings | length)
-  $state_next | save --force $state_path
+  let address = $tile | append $floatings
+  | sort-by focusHistoryID | last | get address
+
+  hyprctl dispatch focuswindow address:($address)
 }
 
 def main [
