@@ -370,6 +370,9 @@ export def gitlab [] {
 }
 
 export def core [] {
+  kitty
+  ghostty
+
   nushell
   helix
   bat
