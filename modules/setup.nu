@@ -90,8 +90,16 @@ export def mouseless [file: string@mouseless-completions] {
   srv root mouseless init
 }
 
-export def waydroid [] {
+export def waydroid-adb [] {
   sudo waydroid shell setprop persist.adb.tcp.port 5555
   sudo waydroid shell stop adbd
   sudo waydroid shell start adbd
+}
+
+export def waydroid-basic [] {
+  ^waydroid prop set persist.waydroid.multi_windows false
+  ^waydroid prop set persist.waydroid.width_padding 0
+  ^waydroid prop set persist.waydroid.height_padding 0
+  ^waydroid prop set persist.waydroid.width 720
+  ^waydroid prop set persist.waydroid.height 1080
 }

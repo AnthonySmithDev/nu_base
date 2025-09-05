@@ -406,7 +406,7 @@ export def blokada5 [ --force(-f) ] {
 
 export def aurora [ --force(-f) ] {
   let repository = "aurora"
-  let version = "65"
+  let version = "70"
   let download_url = "https://f-droid.org/repo/com.aurora.store_65.apk"
   let download_path = download $repository $version $download_url $force
   install $download_path

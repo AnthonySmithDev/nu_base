@@ -23,3 +23,5 @@ use mpd.nu
 # use tdown.nu
 use file-manager.nu
 source alias/file-manager.nu
+
+use extern/hyde-shell.nu
