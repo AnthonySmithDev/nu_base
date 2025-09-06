@@ -485,23 +485,23 @@
   {
     "category": "core",
     "name": "jesseduffield/lazygit",
-    "tag_name": "v0.54.2",
-    "created_at": "2025-08-11T16:22:54Z",
+    "tag_name": "v0.55.0",
+    "created_at": "2025-09-06T08:18:58Z",
     "assets": [
-      "lazygit_0.54.2_darwin_arm64.tar.gz",
-      "lazygit_0.54.2_darwin_x86_64.tar.gz",
-      "lazygit_0.54.2_freebsd_32-bit.tar.gz",
-      "lazygit_0.54.2_freebsd_arm64.tar.gz",
-      "lazygit_0.54.2_freebsd_armv6.tar.gz",
-      "lazygit_0.54.2_freebsd_x86_64.tar.gz",
-      "lazygit_0.54.2_linux_32-bit.tar.gz",
-      "lazygit_0.54.2_linux_arm64.tar.gz",
-      "lazygit_0.54.2_linux_armv6.tar.gz",
-      "lazygit_0.54.2_linux_x86_64.tar.gz",
-      "lazygit_0.54.2_windows_32-bit.zip",
-      "lazygit_0.54.2_windows_arm64.zip",
-      "lazygit_0.54.2_windows_armv6.zip",
-      "lazygit_0.54.2_windows_x86_64.zip"
+      "lazygit_0.55.0_darwin_arm64.tar.gz",
+      "lazygit_0.55.0_darwin_x86_64.tar.gz",
+      "lazygit_0.55.0_freebsd_32-bit.tar.gz",
+      "lazygit_0.55.0_freebsd_arm64.tar.gz",
+      "lazygit_0.55.0_freebsd_armv6.tar.gz",
+      "lazygit_0.55.0_freebsd_x86_64.tar.gz",
+      "lazygit_0.55.0_linux_32-bit.tar.gz",
+      "lazygit_0.55.0_linux_arm64.tar.gz",
+      "lazygit_0.55.0_linux_armv6.tar.gz",
+      "lazygit_0.55.0_linux_x86_64.tar.gz",
+      "lazygit_0.55.0_windows_32-bit.zip",
+      "lazygit_0.55.0_windows_arm64.zip",
+      "lazygit_0.55.0_windows_armv6.zip",
+      "lazygit_0.55.0_windows_x86_64.zip"
     ],
     "linux_x64": {
       "ends": "linux_x86_64.tar.gz"
@@ -1322,13 +1322,13 @@
   {
     "category": "extra",
     "name": "altsem/gitu",
-    "tag_name": "v0.34.0",
-    "created_at": "2025-06-29T07:34:45Z",
+    "tag_name": "v0.35.0",
+    "created_at": "2025-09-06T13:05:50Z",
     "assets": [
-      "gitu-v0.34.0-aarch64-apple-darwin.zip",
-      "gitu-v0.34.0-x86_64-apple-darwin.zip",
-      "gitu-v0.34.0-x86_64-pc-windows-msvc.zip",
-      "gitu-v0.34.0-x86_64-unknown-linux-gnu.zip"
+      "gitu-v0.35.0-aarch64-apple-darwin.zip",
+      "gitu-v0.35.0-x86_64-apple-darwin.zip",
+      "gitu-v0.35.0-x86_64-pc-windows-msvc.zip",
+      "gitu-v0.35.0-x86_64-unknown-linux-gnu.zip"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-gnu.zip"
@@ -2523,10 +2523,10 @@
   {
     "category": "extra",
     "name": "eza-community/eza",
-    "tag_name": "v0.23.1",
-    "created_at": "2025-08-31T13:54:06Z",
+    "tag_name": "v0.23.2",
+    "created_at": "2025-09-06T09:30:49Z",
     "assets": [
-      "completions-0.23.1.tar.gz",
+      "completions-0.23.2.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.tar.gz",
       "eza.exe_x86_64-pc-windows-gnu.zip",
       "eza_aarch64-unknown-linux-gnu.tar.gz",
@@ -2541,7 +2541,7 @@
       "eza_x86_64-unknown-linux-gnu.zip",
       "eza_x86_64-unknown-linux-musl.tar.gz",
       "eza_x86_64-unknown-linux-musl.zip",
-      "man-0.23.1.tar.gz"
+      "man-0.23.2.tar.gz"
     ],
     "linux_x64": {
       "ends": "x86_64-unknown-linux-musl.tar.gz"
@@ -3666,29 +3666,30 @@
   {
     "category": "other",
     "name": "uutils/coreutils",
-    "tag_name": "0.1.0",
-    "created_at": "2025-05-24T21:03:22Z",
+    "tag_name": "0.2.0",
+    "created_at": "2025-09-06T11:41:21Z",
     "assets": [
-      "coreutils-0.1.0-aarch64-apple-darwin.tar.gz",
-      "coreutils-0.1.0-aarch64-pc-windows-msvc.zip",
-      "coreutils-0.1.0-aarch64-unknown-linux-gnu.tar.gz",
-      "coreutils-0.1.0-aarch64-unknown-linux-musl.tar.gz",
-      "coreutils-0.1.0-arm-unknown-linux-gnueabihf.tar.gz",
-      "coreutils-0.1.0-i686-pc-windows-msvc.zip",
-      "coreutils-0.1.0-i686-unknown-linux-gnu.tar.gz",
-      "coreutils-0.1.0-i686-unknown-linux-musl.tar.gz",
-      "coreutils-0.1.0-x86_64-apple-darwin.tar.gz",
-      "coreutils-0.1.0-x86_64-pc-windows-msvc.zip",
-      "coreutils-0.1.0-x86_64-unknown-linux-gnu.tar.gz",
-      "coreutils-0.1.0-x86_64-unknown-linux-musl.tar.gz",
-      "coreutils-0.1.0-x86_64-unknown-redox.tar.gz",
-      "coreutils-musl_0.1.0_amd64.deb",
-      "coreutils-musl_0.1.0_arm64.deb",
-      "coreutils-musl_0.1.0_i686.deb",
-      "coreutils_0.1.0_amd64.deb",
-      "coreutils_0.1.0_arm64.deb",
-      "coreutils_0.1.0_armhf.deb",
-      "coreutils_0.1.0_i686.deb"
+      "coreutils-0.2.0-aarch64-apple-darwin.tar.gz",
+      "coreutils-0.2.0-aarch64-pc-windows-msvc.zip",
+      "coreutils-0.2.0-aarch64-unknown-linux-gnu.tar.gz",
+      "coreutils-0.2.0-aarch64-unknown-linux-musl.tar.gz",
+      "coreutils-0.2.0-arm-unknown-linux-gnueabihf.tar.gz",
+      "coreutils-0.2.0-i686-pc-windows-msvc.zip",
+      "coreutils-0.2.0-i686-unknown-linux-gnu.tar.gz",
+      "coreutils-0.2.0-i686-unknown-linux-musl.tar.gz",
+      "coreutils-0.2.0-x86_64-apple-darwin.tar.gz",
+      "coreutils-0.2.0-x86_64-pc-windows-gnu.zip",
+      "coreutils-0.2.0-x86_64-pc-windows-msvc.zip",
+      "coreutils-0.2.0-x86_64-unknown-linux-gnu.tar.gz",
+      "coreutils-0.2.0-x86_64-unknown-linux-musl.tar.gz",
+      "coreutils-0.2.0-x86_64-unknown-redox.tar.gz",
+      "coreutils-musl_0.2.0_amd64.deb",
+      "coreutils-musl_0.2.0_arm64.deb",
+      "coreutils-musl_0.2.0_i686.deb",
+      "coreutils_0.2.0_amd64.deb",
+      "coreutils_0.2.0_arm64.deb",
+      "coreutils_0.2.0_armhf.deb",
+      "coreutils_0.2.0_i686.deb"
     ]
   },
   {
@@ -3915,8 +3916,8 @@
   {
     "category": "other",
     "name": "cargo-bins/cargo-binstall",
-    "tag_name": "v1.15.3",
-    "created_at": "2025-08-31T03:39:45Z",
+    "tag_name": "v1.15.4",
+    "created_at": "2025-09-06T15:37:33Z",
     "assets": [
       "cargo-binstall-aarch64-apple-darwin.full.zip",
       "cargo-binstall-aarch64-apple-darwin.zip",
@@ -5694,8 +5695,8 @@
   {
     "category": "other",
     "name": "hatoo/oha",
-    "tag_name": "v1.9.0",
-    "created_at": "2025-06-21T09:00:03Z",
+    "tag_name": "v1.10.0",
+    "created_at": "2025-09-06T06:21:22Z",
     "assets": [
       "oha-linux-amd64",
       "oha-linux-amd64-pgo",
@@ -5889,15 +5890,15 @@
   {
     "category": "other",
     "name": "Genymobile/scrcpy",
-    "tag_name": "v3.3.1",
-    "created_at": "2025-06-20T18:15:00Z",
+    "tag_name": "v3.3.2",
+    "created_at": "2025-09-06T12:55:10Z",
     "assets": [
-      "scrcpy-linux-x86_64-v3.3.1.tar.gz",
-      "scrcpy-macos-aarch64-v3.3.1.tar.gz",
-      "scrcpy-macos-x86_64-v3.3.1.tar.gz",
-      "scrcpy-server-v3.3.1",
-      "scrcpy-win32-v3.3.1.zip",
-      "scrcpy-win64-v3.3.1.zip"
+      "scrcpy-linux-x86_64-v3.3.2.tar.gz",
+      "scrcpy-macos-aarch64-v3.3.2.tar.gz",
+      "scrcpy-macos-x86_64-v3.3.2.tar.gz",
+      "scrcpy-server-v3.3.2",
+      "scrcpy-win32-v3.3.2.zip",
+      "scrcpy-win64-v3.3.2.zip"
     ],
     "linux_x64": {
       "starts": "scrcpy-linux-x86_64"

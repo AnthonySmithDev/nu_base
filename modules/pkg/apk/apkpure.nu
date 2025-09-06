@@ -3,18 +3,6 @@ def download_url [package: string, version: string] {
   return $"https://d.apkpure.net/b/APK/($package)?version=($version)"
 }
 
-def download_apk [name: string, version: string, url: string, force: bool] {
-  let dirname = ($env.PKG_CACHE_PATH | path join apk $name)
-  mkdir $dirname
-
-  let path = ($dirname | path join $"($name)_($version).apk")
-  if $force or not ($path | path exists) {
-    print $"Download: ($name) - ($version)"
-    http download $url --output $path
-  }
-  return $path
-}
-
 export def devcheck [ --force(-f) ] {
   let download_url = download_url flar2.devcheck latest
   let download_path = download_apk devcheck latest $download_url $force
