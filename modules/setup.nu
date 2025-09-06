@@ -103,3 +103,11 @@ export def waydroid-basic [] {
   ^waydroid prop set persist.waydroid.width 720
   ^waydroid prop set persist.waydroid.height 1080
 }
+
+export def waydroid-network [] {
+  sudo iptables --list-rules | grep FORWARD
+  sudo iptables -P FORWARD ACCEPT
+
+  waydroid prop set persist.waydroid.width 405
+  waydroid prop set persist.waydroid.height 720
+}

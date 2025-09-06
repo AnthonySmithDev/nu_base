@@ -48,6 +48,7 @@ export  def rain-download [] {
 }
 
 export  def android-studio [] {
+  ln -sf (icons android-studio.svg) $env.LOCAL_SHARE_ICONS
   ln -sf (applications android-studio) (share)
 }
 
